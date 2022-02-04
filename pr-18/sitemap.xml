@@ -196,11 +196,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-18/installation/autoware/</loc>
-         <lastmod>2022-02-04</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-18/installation/autoware/docker-installation/</loc>
          <lastmod>2022-02-04</lastmod>
          <changefreq>daily</changefreq>
