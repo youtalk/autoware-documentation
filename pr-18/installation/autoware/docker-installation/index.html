@@ -528,6 +528,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-to-update-a-workspace" class="md-nav__link">
+    How to update a workspace
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#troubleshooting" class="md-nav__link">
     Troubleshooting
   </a>
@@ -536,8 +543,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#error-forward-compatibility-was-attempted-on-non-supported-hw-when-starting-ade" class="md-nav__link">
-    Error - "forward compatibility was attempted on non supported hw" when starting ADE
+  <a href="#cuda-error-forward-compatibility-was-attempted-on-non-supported-hw" class="md-nav__link">
+    cuda error: forward compatibility was attempted on non supported hw
   </a>
   
 </li>
@@ -2025,6 +2032,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-to-update-a-workspace" class="md-nav__link">
+    How to update a workspace
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#troubleshooting" class="md-nav__link">
     Troubleshooting
   </a>
@@ -2033,8 +2047,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#error-forward-compatibility-was-attempted-on-non-supported-hw-when-starting-ade" class="md-nav__link">
-    Error - "forward compatibility was attempted on non supported hw" when starting ADE
+  <a href="#cuda-error-forward-compatibility-was-attempted-on-non-supported-hw" class="md-nav__link">
+    cuda error: forward compatibility was attempted on non supported hw
   </a>
   
 </li>
@@ -2082,6 +2096,10 @@
 
 
 <h1 id="docker-installation">Docker installation<a class="headerlink" href="#docker-installation" title="Permanent link">#</a></h1>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Since this page explains Docker-specific information, it is recommended to see <a href="../source-installation/">Source installation</a> as well if you need detailed information.</p>
+</div>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">#</a></h2>
 <ul>
 <li><a href="https://git-scm.com/">Git</a></li>
@@ -2091,7 +2109,6 @@
 <li>
 <p>Clone <code>autowarefoundation/autoware</code> and move to the directory.</p>
 <div class="highlight"><pre><span></span><code>git clone https://github.com/autowarefoundation/autoware.git
-<span class="nb">cd</span> autoware
 </code></pre></div>
 </li>
 <li>
@@ -2125,10 +2142,38 @@ vcs import src &lt; autoware.repos
 </code></pre></div>
 </li>
 </ol>
+<h2 id="how-to-update-a-workspace">How to update a workspace<a class="headerlink" href="#how-to-update-a-workspace" title="Permanent link">#</a></h2>
+<ol>
+<li>
+<p>Update the Docker image.</p>
+<div class="highlight"><pre><span></span><code>docker pull ghcr.io/autowarefoundation/autoware-universe:latest
+rocker --nvidia --x11 --user <span class="se">\</span>
+  --volume <span class="nv">$HOME</span>/autoware <span class="se">\</span>
+  -- ghcr.io/autowarefoundation/autoware-universe:latest
+</code></pre></div>
+</li>
+<li>
+<p>Update the <code>.repos</code> file.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> autoware
+git pull
+</code></pre></div>
+</li>
+<li>
+<p>Update the repositories.</p>
+<div class="highlight"><pre><span></span><code>vcs import src &lt; autoware.repos
+vcs pull
+</code></pre></div>
+</li>
+<li>
+<p>Build the workspace.</p>
+<div class="highlight"><pre><span></span><code>colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE<span class="o">=</span>Release
+</code></pre></div>
+</li>
+</ol>
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">#</a></h2>
 <p>Here are solutions for a few specific errors:</p>
-<h3 id="error-forward-compatibility-was-attempted-on-non-supported-hw-when-starting-ade">Error - "forward compatibility was attempted on non supported hw" when starting ADE<a class="headerlink" href="#error-forward-compatibility-was-attempted-on-non-supported-hw-when-starting-ade" title="Permanent link">#</a></h3>
-<p>When starting <code>ade</code> with GPU support enabled for NVIDIA graphics, you may sometimes receive the following error:</p>
+<h3 id="cuda-error-forward-compatibility-was-attempted-on-non-supported-hw">cuda error: forward compatibility was attempted on non supported hw<a class="headerlink" href="#cuda-error-forward-compatibility-was-attempted-on-non-supported-hw" title="Permanent link">#</a></h3>
+<p>When starting Docker with GPU support enabled for NVIDIA graphics, you may sometimes receive the following error:</p>
 <div class="highlight"><pre><span></span><code>docker: Error response from daemon: OCI runtime create failed: container_linux.go:349: starting container process caused <span class="s2">&quot;process_linux.go:449: container init caused \&quot;process_linux.go:432: running prestart hook 0 caused \\\&quot;error running hook: exit status 1, stdout: , stderr: nvidia-container-cli: initialization error: cuda error: forward compatibility was attempted on non supported hw\\\\n\\\&quot;\&quot;&quot;</span>: unknown.
 ERROR: Command <span class="k">return</span> non-zero <span class="nb">exit</span> code <span class="o">(</span>see above<span class="o">)</span>: <span class="m">125</span>
 </code></pre></div>
