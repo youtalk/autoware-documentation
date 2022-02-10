@@ -2121,9 +2121,7 @@
 <ol>
 <li>
 <p>Launch a Docker container</p>
-<div class="highlight"><pre><span></span><code>rocker --nvidia --x11 --user <span class="se">\</span>
-  --volume <span class="nv">$HOME</span>/autoware <span class="se">\</span>
-  -- ghcr.io/autowarefoundation/autoware-universe:latest
+<div class="highlight"><pre><span></span><code>rocker --nvidia --x11 --user --volume <span class="nv">$HOME</span>/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest
 </code></pre></div>
 <p>See <a href="https://github.com/autowarefoundation/autoware/tree/main/docker/README.md">here</a> for more advanced usage.</p>
 <p>After that, move to the workspace in the container:</p>
@@ -2147,9 +2145,7 @@ vcs import src &lt; autoware.repos
 <li>
 <p>Update the Docker image.</p>
 <div class="highlight"><pre><span></span><code>docker pull ghcr.io/autowarefoundation/autoware-universe:latest
-rocker --nvidia --x11 --user <span class="se">\</span>
-  --volume <span class="nv">$HOME</span>/autoware <span class="se">\</span>
-  -- ghcr.io/autowarefoundation/autoware-universe:latest
+rocker --nvidia --x11 --user --volume <span class="nv">$HOME</span>/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest
 </code></pre></div>
 </li>
 <li>
