@@ -2003,7 +2003,7 @@
 <h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">#</a></h2>
 <ol>
 <li>
-<p>Download a sample map, and unpack the zip.</p>
+<p>Download and unpack a sample map.</p>
 <ul>
 <li>Click <a href="https://drive.google.com/open?id=1ovrJcFS5CZ2H51D8xVWNtEvj_oiXW-zk">here</a> to download.</li>
 </ul>
@@ -2013,7 +2013,7 @@
 </code></pre></div>
 </li>
 <li>
-<p>Download the sample rosbag files and put them into the same folder, e.g., <code>~/rosbag2/sample/</code>.</p>
+<p>Download the sample rosbag files.</p>
 <ul>
 <li>Click <a href="https://drive.google.com/file/d/1wLWyOlfH_-k4VYBgae1KAFlKdwJnH_si/view?usp=sharing">here</a> to download.</li>
 <li>Click <a href="https://drive.google.com/file/d/1Arb-QVnNHM-BFdB_icm7J7fWkyuZt7mZ/view?usp=sharing">here</a> to download.</li>
@@ -2024,7 +2024,7 @@
 </code></pre></div>
 </li>
 <li>
-<p>Launch Autoware</p>
+<p>Launch Autoware.</p>
 <!-- Remove this step. -->
 
 <div class="highlight"><pre><span></span><code> sed -i -e <span class="s2">&quot;s|.*pacmod3.launch.py.*||g&quot;</span> src/vehicle/lexus_launch/launch/vehicle_interface.launch.xm
@@ -2035,7 +2035,7 @@ ros2 launch tier4_autoware_launch logging_simulator.launch.xml map_path:<span cl
 <p>Note that you can't use <code>~</code> instead of <code>$HOME</code> here.</p>
 </li>
 <li>
-<p>Play the sample rosbag file in another terminal</p>
+<p>Play the sample rosbag file.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span> ~/autoware/install/setup.bash
 ros2 bag play ~/rosbag/sample.625-2.bag2_0.db3 -r <span class="m">0</span>.2
 </code></pre></div>

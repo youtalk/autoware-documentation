@@ -2003,7 +2003,7 @@
 <h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">#</a></h2>
 <ol>
 <li>
-<p>Download a sample map, and unpack the zip.</p>
+<p>Download and unpack a sample map.</p>
 <ul>
 <li>Click <a href="https://drive.google.com/open?id=197kgRfSomZzaSbRrjWTx614le2qN-oxx">here</a> to download.</li>
 </ul>
@@ -2013,14 +2013,14 @@
 </code></pre></div>
 </li>
 <li>
-<p>Launch Autoware</p>
+<p>Launch Autoware.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span> ~/autoware/install/setup.bash
 ros2 launch tier4_autoware_launch planning_simulator.launch.xml map_path:<span class="o">=</span><span class="nv">$HOME</span>/sample-map-1 vehicle_model:<span class="o">=</span>lexus sensor_model:<span class="o">=</span>aip_xx1
 </code></pre></div>
 <p>Note that you can't use <code>~</code> instead of <code>$HOME</code> here.</p>
 </li>
 <li>
-<p>Set an initial pose for the ego vehicle</p>
+<p>Set an initial pose for the ego vehicle.</p>
 <ul>
 <li>a) Click the <code>2D Pose estimate</code> button in the toolbar, or hit the <code>P</code> key</li>
 <li>b) In the 3D View pane, click and hold the left-mouse button, and then drag to set the direction for the initial pose.</li>
@@ -2028,7 +2028,7 @@ ros2 launch tier4_autoware_launch planning_simulator.launch.xml map_path:<span c
 <p><img alt="set-initial-pose" src="../images/set-initial-pose.png" /></p>
 </li>
 <li>
-<p>Set a goal pose for the ego vehicle</p>
+<p>Set a goal pose for the ego vehicle.</p>
 <ul>
 <li>a) Click the <code>2D Nav Goal</code> button in the toolbar, or hit the <code>G</code> key</li>
 <li>b) In the 3D View pane, click and hold the left-mouse button, and then drag to set the direction for the goal pose.</li>
