@@ -1986,18 +1986,14 @@ To avoid it, write the following in your <code>.bashrc</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">ROS_LOCALHOST_ONLY</span><span class="o">=</span><span class="m">1</span>
 </code></pre></div>
 <h3 id="setting-up-ros_domain_id">Setting up <code>ROS_DOMAIN_ID</code><a class="headerlink" href="#setting-up-ros_domain_id" title="Permanent link">#</a></h3>
-<p>ROS 2 nodes on the same domain can freely discover and send messages to each
-other, while ROS 2 nodes on different domains cannot. All ROS 2 nodes use
-domain ID 0 by default. To avoid interference between different groups of
-computers running ROS 2 on the same network, a different domain ID should
-be set for each group.</p>
-<p>See <a href="https://docs.ros.org/en/foxy/Concepts/About-Domain-ID.html#the-ros-domain-id">here</a>
-for more information.</p>
-<p>To set it, write the following in your <code>.bashrc</code>:</p>
+<p>ROS 2 uses <code>ROS_DOMAIN_ID</code> to create groups and communicate between machines in the groups.
+Since all ROS 2 nodes use domain ID <code>0</code> by default, it may cause unintended interference.</p>
+<p>To avoid it, set a different domain ID for each group in your <code>.bashrc</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Replace X with the Domain ID you want to use</span>
 <span class="c1"># Domain ID should be a number in range [0, 101] (inclusive)</span>
 <span class="nb">export</span> <span class="nv">ROS_DOMAIN_ID</span><span class="o">=</span>X
 </code></pre></div>
+<p>See <a href="https://docs.ros.org/en/foxy/Concepts/About-Domain-ID.html#the-ros-domain-id">here</a> for more information.</p>
 
               
             </article>
