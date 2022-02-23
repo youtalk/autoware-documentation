@@ -8,18 +8,18 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-28/tutorials/ad-hoc-simulation/open-loop-simulation/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-28/tutorials/ad-hoc-simulation/planning-simulation/">
       
       <link rel="icon" href="../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.11">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.1">
     
     
       
-        <title>Open-loop simulation - Autoware Documentation</title>
+        <title>Planning simulation - Autoware Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.50e68009.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.e8d9bf0c.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.e6a45f82.min.css">
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#open-loop-simulation" class="md-skip">
+        <a href="#planning-simulation" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Open-loop simulation
+              Planning simulation
             
           </span>
         </div>
@@ -469,8 +469,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../installation/autoware/docker-installation/" class="md-nav__link">
-        Docker installation
+      <a href="../../../installation/autoware/local-installation/" class="md-nav__link">
+        Local installation
       </a>
     </li>
   
@@ -483,8 +483,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../installation/autoware/source-installation/" class="md-nav__link">
-        Source installation
+      <a href="../../../installation/autoware/docker-installation/" class="md-nav__link">
+        Docker installation
       </a>
     </li>
   
@@ -696,20 +696,6 @@
               
   
   
-  
-    <li class="md-nav__item">
-      <a href="../closed-loop-simulation/" class="md-nav__link">
-        Closed-loop simulation
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
     
   
   
@@ -722,12 +708,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Open-loop simulation
+          Planning simulation
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Open-loop simulation
+        Planning simulation
       </a>
       
         
@@ -780,8 +766,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../e2e-simulation/" class="md-nav__link">
-        E2E simulation
+      <a href="../rosbag-replay-simulation/" class="md-nav__link">
+        Rosbag replay simulation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../digital-twin-simulation/" class="md-nav__link">
+        Digital twin simulation
       </a>
     </li>
   
@@ -849,8 +849,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenario-simulation/closed-loop-simulation/" class="md-nav__link">
-        Closed-loop simulation
+      <a href="../../scenario-simulation/planning-simulation/" class="md-nav__link">
+        Planning simulation
       </a>
     </li>
   
@@ -863,8 +863,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenario-simulation/open-loop-simulation/" class="md-nav__link">
-        Open-loop simulation
+      <a href="../../scenario-simulation/rosbag-replay-simulation/" class="md-nav__link">
+        Rosbag replay simulation
       </a>
     </li>
   
@@ -877,8 +877,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenario-simulation/e2e-simulation/" class="md-nav__link">
-        E2E simulation
+      <a href="../../scenario-simulation/digital-twin-simulation/" class="md-nav__link">
+        Digital twin simulation
       </a>
     </li>
   
@@ -1994,66 +1994,57 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/autowarefoundation/autoware-documentation/edit/main/tutorials/ad-hoc-simulation/open-loop-simulation.md" title="Edit this page" class="md-content__button md-icon">
+<a href="https://github.com/autowarefoundation/autoware-documentation/edit/main/docs/tutorials/ad-hoc-simulation/planning-simulation.md" title="Edit this page" class="md-content__button md-icon">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
 
 
-<h1 id="open-loop-simulation">Open-loop simulation<a class="headerlink" href="#open-loop-simulation" title="Permanent link">#</a></h1>
+
+<h1 id="planning-simulation">Planning simulation<a class="headerlink" href="#planning-simulation" title="Permanent link">#</a></h1>
 <h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">#</a></h2>
 <ol>
 <li>
 <p>Download and unpack a sample map.</p>
 <ul>
-<li>Click <a href="https://drive.google.com/open?id=1ovrJcFS5CZ2H51D8xVWNtEvj_oiXW-zk">here</a> to download.</li>
+<li>Click <a href="https://drive.google.com/open?id=197kgRfSomZzaSbRrjWTx614le2qN-oxx">here</a> to download.</li>
 </ul>
 <!--  TODO: Rename the file name and place inside the AWF organization. -->
 
-<div class="highlight"><pre><span></span><code>unzip -d ~/sample-map-2 ~/Downloads/rosbag_sample_map.zip
-</code></pre></div>
-</li>
-<li>
-<p>Download the sample rosbag files.</p>
-<ul>
-<li>Click <a href="https://drive.google.com/file/d/1wLWyOlfH_-k4VYBgae1KAFlKdwJnH_si/view?usp=sharing">here</a> to download.</li>
-<li>Click <a href="https://drive.google.com/file/d/1Arb-QVnNHM-BFdB_icm7J7fWkyuZt7mZ/view?usp=sharing">here</a> to download.</li>
-</ul>
-<!--  TODO: Combine two files and place inside the AWF organization. -->
-
-<div class="highlight"><pre><span></span><code>unzip -d ~/rosbag ~/Downloads/sample-rosbag.zip
+<div class="highlight"><pre><span></span><code>unzip -d ~/sample-map-1 ~/Downloads/rosbag_sample_map.zip
 </code></pre></div>
 </li>
 <li>
 <p>Launch Autoware.</p>
-<!-- Remove this step. -->
-
-<div class="highlight"><pre><span></span><code> sed -i -e <span class="s2">&quot;s|.*pacmod3.launch.py.*||g&quot;</span> src/vehicle/lexus_launch/launch/vehicle_interface.launch.xm
-</code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span> ~/autoware/install/setup.bash
-ros2 launch tier4_autoware_launch logging_simulator.launch.xml map_path:<span class="o">=</span><span class="nv">$HOME</span>/sample-map-2 vehicle_model:<span class="o">=</span>lexus sensor_model:<span class="o">=</span>aip_xx1
+ros2 launch tier4_autoware_launch planning_simulator.launch.xml map_path:<span class="o">=</span><span class="nv">$HOME</span>/sample-map-1 vehicle_model:<span class="o">=</span>lexus sensor_model:<span class="o">=</span>aip_xx1
 </code></pre></div>
 <p>Note that you can't use <code>~</code> instead of <code>$HOME</code> here.</p>
 </li>
 <li>
-<p>Play the sample rosbag file.</p>
-<div class="highlight"><pre><span></span><code><span class="nb">source</span> ~/autoware/install/setup.bash
-ros2 bag play ~/rosbag/sample.625-2.bag2_0.db3 -r <span class="m">0</span>.2
-</code></pre></div>
-<p><img alt="after-rosbag-play" src="../images/after-rosbag-play.png" /></p>
+<p>Set an initial pose for the ego vehicle.</p>
+<ul>
+<li>a) Click the <code>2D Pose estimate</code> button in the toolbar, or hit the <code>P</code> key</li>
+<li>b) In the 3D View pane, click and hold the left-mouse button, and then drag to set the direction for the initial pose.</li>
+</ul>
+<p><img alt="set-initial-pose" src="../images/set-initial-pose.png" /></p>
 </li>
 <li>
-<p>To Focus the view on the ego vehicle, change the <code>Target Frame</code> in the RViz Views panel from <code>viewer</code> to <code>base_link</code>.</p>
-<p><img alt="change-target-frame" src="../images/change-target-frame.png" /></p>
+<p>Set a goal pose for the ego vehicle.</p>
+<ul>
+<li>a) Click the <code>2D Nav Goal</code> button in the toolbar, or hit the <code>G</code> key</li>
+<li>b) In the 3D View pane, click and hold the left-mouse button, and then drag to set the direction for the goal pose.</li>
+</ul>
+<p><img alt="set-goal-pose" src="../images/set-goal-pose.png" /></p>
+</li>
+<li>
+<p>Engage the ego vehicle.</p>
+<div class="highlight"><pre><span></span><code>ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage <span class="s2">&quot;engage: true&quot;</span> -1
+</code></pre></div>
 </li>
 </ol>
 <h3 id="note">Note<a class="headerlink" href="#note" title="Permanent link">#</a></h3>
 <ul>
-<li>Sample map and rosbag: Copyright 2020 TIER IV, Inc.</li>
-<li>Due to privacy concerns, the rosbag does not contain image data, which will cause:<ul>
-<li>Traffic light recognition functionality cannot be tested with this sample rosbag.</li>
-<li>Object detection accuracy is decreased.</li>
-</ul>
-</li>
+<li>Sample map: Copyright 2020 TIER IV, Inc.</li>
 </ul>
 
               
@@ -2073,7 +2064,7 @@ ros2 bag play ~/rosbag/sample.625-2.bag2_0.db3 -r <span class="m">0</span>.2
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../closed-loop-simulation/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Closed-loop simulation" rel="prev">
+        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Ad hoc simulation" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -2082,20 +2073,20 @@ ros2 bag play ~/rosbag/sample.625-2.bag2_0.db3 -r <span class="m">0</span>.2
               <span class="md-footer__direction">
                 Previous
               </span>
-              Closed-loop simulation
+              Ad hoc simulation
             </div>
           </div>
         </a>
       
       
         
-        <a href="../e2e-simulation/" class="md-footer__link md-footer__link--next" aria-label="Next: E2E simulation" rel="next">
+        <a href="../rosbag-replay-simulation/" class="md-footer__link md-footer__link--next" aria-label="Next: Rosbag replay simulation" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              E2E simulation
+              Rosbag replay simulation
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -2110,7 +2101,7 @@ ros2 bag play ~/rosbag/sample.625-2.bag2_0.db3 -r <span class="m">0</span>.2
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2021 The Autoware Foundation
+      Copyright &copy; 2022 The Autoware Foundation
     </div>
   
   
@@ -2129,10 +2120,10 @@ ros2 bag play ~/rosbag/sample.625-2.bag2_0.db3 -r <span class="m">0</span>.2
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.092fa1f6.min.js", "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.bd0b6b67.min.js", "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.5a9542cf.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.8aa65030.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
