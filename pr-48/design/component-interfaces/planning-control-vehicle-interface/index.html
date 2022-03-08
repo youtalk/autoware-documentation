@@ -2288,7 +2288,7 @@
 <h4 id="vehicle-kinematic-state">Vehicle kinematic state<a class="headerlink" href="#vehicle-kinematic-state" title="Permanent link">#</a></h4>
 <p>current position and orientation of ego. Published by the Localization module.</p>
 <ul>
-<li>Vehiclekinematicstate<ul>
+<li>VehicleKinematicState<ul>
 <li><a href="https://docs.ros.org/en/noetic/api/nav_msgs/html/msg/Odometry.html">nav_msgs/Odometry</a></li>
 <li>std_msgs/Header header</li>
 <li>string child_frame_id</li>
@@ -2443,7 +2443,7 @@
 <p><img alt="Node diagram" src="../images/Vehicle-Interface-Bus-ODD-Architecture.drawio.svg" /></p>
 <p>The <code>Vehicle Interface</code> receives the <code>Vehicle Signal Commands</code> and <code>Vehicle Control Commands</code> and publishes the vehicle status. It also communicates with vehicle by the vehicle-specific protocol.</p>
 <p>The <code>Gate</code> switches multiple <code>Vehicle Control Commands</code>. These signals include autonomous diving command, joystick, remote control, and emergency operation, etc.
-The <code>Adapter</code> converts generalized control command (target steering, steering rate, velocity, acceleration, jerk) into vehicle-specific control values (steering-torque, wheel-turque, voltage, pressure, accel pedal position, etc).</p>
+The <code>Adapter</code> converts generalized control command (target steering, steering rate, velocity, acceleration, jerk) into vehicle-specific control values (steering-torque, wheel-torque, voltage, pressure, accel pedal position, etc).</p>
 <h3 id="inputs_2">Inputs<a class="headerlink" href="#inputs_2" title="Permanent link">#</a></h3>
 <h4 id="new-error-status_1">(NEW) Error status<a class="headerlink" href="#new-error-status_1" title="Permanent link">#</a></h4>
 <p>(See Inputs of Planning.)</p>
