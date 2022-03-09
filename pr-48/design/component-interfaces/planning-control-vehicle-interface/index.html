@@ -1933,8 +1933,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#new-traffic-light-response" class="md-nav__link">
-    (NEW) Traffic Light Response
+  <a href="#traffic-light-response" class="md-nav__link">
+    Traffic Light Response
   </a>
   
 </li>
@@ -1961,15 +1961,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#new-engagement-response" class="md-nav__link">
-    (NEW) Engagement Response
+  <a href="#engagement-response" class="md-nav__link">
+    Engagement Response
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#new-error-status" class="md-nav__link">
-    (NEW) Error status
+  <a href="#error-status" class="md-nav__link">
+    Error status
   </a>
   
 </li>
@@ -1988,8 +1988,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#new-traffic-light-query" class="md-nav__link">
-    (NEW) Traffic Light Query
+  <a href="#traffic-light-query" class="md-nav__link">
+    Traffic Light Query
   </a>
   
 </li>
@@ -2009,15 +2009,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#new-missions-status" class="md-nav__link">
-    (NEW) Missions Status
+  <a href="#missions-status" class="md-nav__link">
+    Missions Status
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#new-engagement-request" class="md-nav__link">
-    (NEW) Engagement Request
+  <a href="#engagement-request" class="md-nav__link">
+    Engagement Request
   </a>
   
 </li>
@@ -2063,15 +2063,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#new-steering-status" class="md-nav__link">
-    (NEW) Steering Status
+  <a href="#steering-status" class="md-nav__link">
+    Steering Status
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#new-actuation-status" class="md-nav__link">
-    (NEW) Actuation Status
+  <a href="#actuation-status" class="md-nav__link">
+    Actuation Status
   </a>
   
 </li>
@@ -2123,8 +2123,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#new-error-status_1" class="md-nav__link">
-    (NEW) Error status
+  <a href="#error-status_1" class="md-nav__link">
+    Error status
   </a>
   
 </li>
@@ -2171,22 +2171,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#new-steering-status_1" class="md-nav__link">
-    (NEW) Steering Status
+  <a href="#steering-status_1" class="md-nav__link">
+    Steering Status
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#new-actuation-status_1" class="md-nav__link">
-    (NEW) Actuation Status
+  <a href="#actuation-status_1" class="md-nav__link">
+    Actuation Status
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#new-actuation-command" class="md-nav__link">
-    (NEW) Actuation Command
+  <a href="#actuation-command" class="md-nav__link">
+    Actuation Command
   </a>
   
 </li>
@@ -2265,7 +2265,7 @@
 </ul>
 </li>
 </ul>
-<h4 id="new-traffic-light-response">(NEW) Traffic Light Response<a class="headerlink" href="#new-traffic-light-response" title="Permanent link">#</a></h4>
+<h4 id="traffic-light-response">Traffic Light Response<a class="headerlink" href="#traffic-light-response" title="Permanent link">#</a></h4>
 <p>Service response with traffic light information. <strong>The message definition is under discussion.</strong></p>
 <ul>
 <li>TrafficLightResponse<ul>
@@ -2314,10 +2314,10 @@
 <ul>
 <li><a href="https://docs.ros.org/en/lunar/api/geometry_msgs/html/msg/PoseStamped.html">geometry_msgs/PoseStamped</a></li>
 </ul>
-<h4 id="new-engagement-response">(NEW) Engagement Response<a class="headerlink" href="#new-engagement-response" title="Permanent link">#</a></h4>
+<h4 id="engagement-response">Engagement Response<a class="headerlink" href="#engagement-response" title="Permanent link">#</a></h4>
 <p>TBD.</p>
 <p><strong>The message definition is under discussion.</strong></p>
-<h4 id="new-error-status">(NEW) Error status<a class="headerlink" href="#new-error-status" title="Permanent link">#</a></h4>
+<h4 id="error-status">Error status<a class="headerlink" href="#error-status" title="Permanent link">#</a></h4>
 <p>a status corresponding to the current state of Autoware. Used by the Vehicle Interface to switch between different modes in case of emergency. Published by the Diagnostic Manager.</p>
 <ul>
 <li><a href="https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_system_msgs/msg/EmergencyState.idl">autoware_auto_system_msgs/msg/EmergencyState</a><ul>
@@ -2337,7 +2337,7 @@
 <p>[TODO] original design for these messages: diagnostic manager also publishes an overriding emergency control command (<a href="https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/merge_requests/38">Add the monitoring system related messages - Autoware.Auto</a>). Possible new design: gate of the vehicle interface switches to the emergency control command (generated by another controller) when receiving an OVERRIDE_REQUESTING message.</p>
 <p><strong>The message definition is under discussion.</strong></p>
 <h3 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">#</a></h3>
-<h4 id="new-traffic-light-query">(NEW) Traffic Light Query<a class="headerlink" href="#new-traffic-light-query" title="Permanent link">#</a></h4>
+<h4 id="traffic-light-query">Traffic Light Query<a class="headerlink" href="#traffic-light-query" title="Permanent link">#</a></h4>
 <p>service request for the state of a specific traffic light. Sent to the Perception module.</p>
 <ul>
 <li>uint64 traffic_light_id</li>
@@ -2373,10 +2373,10 @@
 <li>Turn Indicator Command</li>
 <li>Wipers Command</li>
 </ul>
-<h4 id="new-missions-status">(NEW) Missions Status<a class="headerlink" href="#new-missions-status" title="Permanent link">#</a></h4>
+<h4 id="missions-status">Missions Status<a class="headerlink" href="#missions-status" title="Permanent link">#</a></h4>
 <p>TBD.</p>
 <p><strong>The message definition is under discussion.</strong></p>
-<h4 id="new-engagement-request">(NEW) Engagement Request<a class="headerlink" href="#new-engagement-request" title="Permanent link">#</a></h4>
+<h4 id="engagement-request">Engagement Request<a class="headerlink" href="#engagement-request" title="Permanent link">#</a></h4>
 <p>TBD,</p>
 <p><strong>The message definition is under discussion.</strong></p>
 <h2 id="control">Control<a class="headerlink" href="#control" title="Permanent link">#</a></h2>
@@ -2395,7 +2395,7 @@
 </ul>
 <h4 id="trajectory_1">Trajectory<a class="headerlink" href="#trajectory_1" title="Permanent link">#</a></h4>
 <p>trajectory to be followed by the controller. See Outputs of Planning.</p>
-<h4 id="new-steering-status">(NEW) Steering Status<a class="headerlink" href="#new-steering-status" title="Permanent link">#</a></h4>
+<h4 id="steering-status">Steering Status<a class="headerlink" href="#steering-status" title="Permanent link">#</a></h4>
 <p>Current steering of the ego vehicle. Published by the Vehicle Interface.</p>
 <ul>
 <li>Steering message (<a href="https://github.com/autowarefoundation/autoware/discussions/36">github discussion</a>).<ul>
@@ -2404,7 +2404,7 @@
 </ul>
 </li>
 </ul>
-<h4 id="new-actuation-status">(NEW) Actuation Status<a class="headerlink" href="#new-actuation-status" title="Permanent link">#</a></h4>
+<h4 id="actuation-status">Actuation Status<a class="headerlink" href="#actuation-status" title="Permanent link">#</a></h4>
 <p>Actuation status of the ego vehicle for acceleration, steering, and brake.</p>
 <p>TODO This represents the reported physical efforts exerted by the vehicle actuators. Published by the Vehicle Interface.</p>
 <ul>
@@ -2445,7 +2445,7 @@
 <p>The <code>Gate</code> switches multiple <code>Vehicle Control Commands</code>. These signals include autonomous diving command, joystick, remote control, and emergency operation, etc.
 The <code>Adapter</code> converts generalized control command (target steering, steering rate, velocity, acceleration, jerk) into vehicle-specific control values (steering-torque, wheel-torque, voltage, pressure, accel pedal position, etc).</p>
 <h3 id="inputs_2">Inputs<a class="headerlink" href="#inputs_2" title="Permanent link">#</a></h3>
-<h4 id="new-error-status_1">(NEW) Error status<a class="headerlink" href="#new-error-status_1" title="Permanent link">#</a></h4>
+<h4 id="error-status_1">Error status<a class="headerlink" href="#error-status_1" title="Permanent link">#</a></h4>
 <p>(See Inputs of Planning.)</p>
 <h4 id="vehicle-control-command_1">Vehicle Control Command<a class="headerlink" href="#vehicle-control-command_1" title="Permanent link">#</a></h4>
 <p>(See Output of Control.)</p>
@@ -2459,7 +2459,7 @@ The <code>Adapter</code> converts generalized control command (target steering, 
 <ul>
 <li><a href="https://docs.ros.org/en/melodic/api/geometry_msgs/html/msg/TwistWithCovarianceStamped.html">geometry_msgs/TwistWithCovarianceStamped</a> odometry</li>
 </ul>
-<h4 id="new-steering-status_1">(NEW) Steering Status<a class="headerlink" href="#new-steering-status_1" title="Permanent link">#</a></h4>
+<h4 id="steering-status_1">Steering Status<a class="headerlink" href="#steering-status_1" title="Permanent link">#</a></h4>
 <p>Steering of the ego vehicle. Published by the Vehicle Interface.</p>
 <ul>
 <li>Steering message (<a href="https://github.com/autowarefoundation/autoware/discussions/36">github discussion</a>).<ul>
@@ -2468,7 +2468,7 @@ The <code>Adapter</code> converts generalized control command (target steering, 
 </ul>
 </li>
 </ul>
-<h4 id="new-actuation-status_1">(NEW) Actuation Status<a class="headerlink" href="#new-actuation-status_1" title="Permanent link">#</a></h4>
+<h4 id="actuation-status_1">Actuation Status<a class="headerlink" href="#actuation-status_1" title="Permanent link">#</a></h4>
 <p>Actuation status of the ego vehicle for acceleration, steering, and brake. This represents the reported physical efforts exerted by the vehicle actuators. Published by the Vehicle Interface.</p>
 <ul>
 <li>ActuationStatus (<a href="https://github.com/autowarefoundation/autoware/discussions/36">github discussion</a>).<ul>
@@ -2480,7 +2480,7 @@ The <code>Adapter</code> converts generalized control command (target steering, 
 </li>
 </ul>
 <p><strong>The message definition is under discussion.</strong></p>
-<h4 id="new-actuation-command">(NEW) Actuation Command<a class="headerlink" href="#new-actuation-command" title="Permanent link">#</a></h4>
+<h4 id="actuation-command">Actuation Command<a class="headerlink" href="#actuation-command" title="Permanent link">#</a></h4>
 <p>Actuation command sent to the ego vehicle. This represents the requested physical efforts to be exerted by the vehicle actuators. Published by the Vehicle Interface as generated by the adapter.</p>
 <ul>
 <li>ActuationCommand (<a href="https://github.com/autowarefoundation/autoware/discussions/36">github discussion</a>.)<ul>
