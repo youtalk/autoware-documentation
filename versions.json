@@ -7,9 +7,7 @@
   {
     "version": "pr-48",
     "title": "pr-48",
-    "aliases": [
-      "latest"
-    ]
+    "aliases": []
   },
   {
     "version": "pr-47",
@@ -34,7 +32,9 @@
   {
     "version": "pr-40",
     "title": "pr-40",
-    "aliases": []
+    "aliases": [
+      "latest"
+    ]
   },
   {
     "version": "pr-28",
