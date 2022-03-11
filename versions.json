@@ -42,14 +42,14 @@
   {
     "version": "pr-27",
     "title": "pr-27",
-    "aliases": []
+    "aliases": [
+      "latest"
+    ]
   },
   {
     "version": "pr-25",
     "title": "pr-25",
-    "aliases": [
-      "latest"
-    ]
+    "aliases": []
   },
   {
     "version": "pr-24",
