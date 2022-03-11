@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/docker-installation/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/main/contributing/pull-request-guidelines/commit-guidelines/">
       
       <link rel="icon" href="../../../assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.5">
     
     
       
-        <title>Docker installation - Autoware Documentation</title>
+        <title>Commit guidelines - Autoware Documentation</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#docker-installation" class="md-skip">
+        <a href="#commit-guidelines" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Docker installation
+              Commit guidelines
             
           </span>
         </div>
@@ -210,15 +210,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../" class="md-tabs__link md-tabs__link--active">
+      <a href="../../../installation/" class="md-tabs__link">
         Installation
       </a>
     </li>
@@ -276,13 +274,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../../contributing/" class="md-tabs__link">
+      <a href="../../" class="md-tabs__link md-tabs__link--active">
         Contributing
       </a>
     </li>
@@ -376,14 +376,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" data-md-state="indeterminate" type="checkbox" id="__nav_2" checked>
       
       
       
@@ -403,7 +401,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../">Installation</a>
+          <a href="../../../installation/">Installation</a>
           
             <label for="__nav_2">
               <span class="md-nav__icon md-icon"></span>
@@ -424,16 +422,14 @@
               
   
   
-    
-  
   
     
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" data-md-state="indeterminate" type="checkbox" id="__nav_2_2" checked>
       
       
       
@@ -451,7 +447,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../">Autoware</a>
+          <a href="../../../installation/autoware/">Autoware</a>
           
             <label for="__nav_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -472,113 +468,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Docker installation
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../installation/autoware/docker-installation/" class="md-nav__link">
         Docker installation
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    Prerequisites
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-to-set-up-a-development-environment" class="md-nav__link">
-    How to set up a development environment
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-to-set-up-a-workspace" class="md-nav__link">
-    How to set up a workspace
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-to-update-a-workspace" class="md-nav__link">
-    How to update a workspace
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    Troubleshooting
-  </a>
-  
-    <nav class="md-nav" aria-label="Troubleshooting">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#cuda-error-forward-compatibility-was-attempted-on-non-supported-hw" class="md-nav__link">
-    cuda error: forward compatibility was attempted on non supported hw
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tips" class="md-nav__link">
-    Tips
-  </a>
-  
-    <nav class="md-nav" aria-label="Tips">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#non-native-arm64-system" class="md-nav__link">
-    Non-native arm64 System
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -590,7 +484,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../source-installation/" class="md-nav__link">
+      <a href="../../../installation/autoware/source-installation/" class="md-nav__link">
         Source installation
       </a>
     </li>
@@ -630,7 +524,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../tools-for-users/">Tools for users</a>
+          <a href="../../../installation/tools-for-users/">Tools for users</a>
           
         </div>
       
@@ -675,7 +569,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../tools-for-developers/">Tools for developers</a>
+          <a href="../../../installation/tools-for-developers/">Tools for developers</a>
           
         </div>
       
@@ -1305,12 +1199,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" data-md-state="indeterminate" type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
       
       
       
@@ -1334,7 +1230,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../contributing/">Contributing</a>
+          <a href="../../">Contributing</a>
           
             <label for="__nav_6">
               <span class="md-nav__icon md-icon"></span>
@@ -1380,7 +1276,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../contributing/coding-guidelines/">Coding guidelines</a>
+          <a href="../../coding-guidelines/">Coding guidelines</a>
           
             <label for="__nav_6_2">
               <span class="md-nav__icon md-icon"></span>
@@ -1438,7 +1334,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../contributing/coding-guidelines/languages/">Language-specific coding guidelines</a>
+          <a href="../../coding-guidelines/languages/">Language-specific coding guidelines</a>
           
             <label for="__nav_6_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -1461,7 +1357,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/languages/cpp/" class="md-nav__link">
+      <a href="../../coding-guidelines/languages/cpp/" class="md-nav__link">
         C++
       </a>
     </li>
@@ -1475,7 +1371,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/languages/python/" class="md-nav__link">
+      <a href="../../coding-guidelines/languages/python/" class="md-nav__link">
         Python
       </a>
     </li>
@@ -1489,7 +1385,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/languages/shell-scripts/" class="md-nav__link">
+      <a href="../../coding-guidelines/languages/shell-scripts/" class="md-nav__link">
         Shell scripts
       </a>
     </li>
@@ -1503,7 +1399,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/languages/markdown/" class="md-nav__link">
+      <a href="../../coding-guidelines/languages/markdown/" class="md-nav__link">
         Markdown
       </a>
     </li>
@@ -1517,7 +1413,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/languages/cmake/" class="md-nav__link">
+      <a href="../../coding-guidelines/languages/cmake/" class="md-nav__link">
         CMake
       </a>
     </li>
@@ -1531,7 +1427,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/languages/package-xml/" class="md-nav__link">
+      <a href="../../coding-guidelines/languages/package-xml/" class="md-nav__link">
         package.xml
       </a>
     </li>
@@ -1545,7 +1441,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/languages/ros2-interfaces/" class="md-nav__link">
+      <a href="../../coding-guidelines/languages/ros2-interfaces/" class="md-nav__link">
         ROS 2 interfaces
       </a>
     </li>
@@ -1559,7 +1455,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/languages/docker/" class="md-nav__link">
+      <a href="../../coding-guidelines/languages/docker/" class="md-nav__link">
         Docker
       </a>
     </li>
@@ -1573,7 +1469,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/languages/github-actions/" class="md-nav__link">
+      <a href="../../coding-guidelines/languages/github-actions/" class="md-nav__link">
         GitHub Actions
       </a>
     </li>
@@ -1629,7 +1525,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../contributing/coding-guidelines/ros-nodes/">ROS nodes coding guidelines</a>
+          <a href="../../coding-guidelines/ros-nodes/">ROS nodes coding guidelines</a>
           
             <label for="__nav_6_2_3">
               <span class="md-nav__icon md-icon"></span>
@@ -1652,7 +1548,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/ros-nodes/class-design/" class="md-nav__link">
+      <a href="../../coding-guidelines/ros-nodes/class-design/" class="md-nav__link">
         Class design
       </a>
     </li>
@@ -1666,7 +1562,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/ros-nodes/console-logging/" class="md-nav__link">
+      <a href="../../coding-guidelines/ros-nodes/console-logging/" class="md-nav__link">
         Console logging
       </a>
     </li>
@@ -1680,7 +1576,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/ros-nodes/coordinate-system/" class="md-nav__link">
+      <a href="../../coding-guidelines/ros-nodes/coordinate-system/" class="md-nav__link">
         Coordinate system
       </a>
     </li>
@@ -1694,7 +1590,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/ros-nodes/directory-structure/" class="md-nav__link">
+      <a href="../../coding-guidelines/ros-nodes/directory-structure/" class="md-nav__link">
         Directory structure
       </a>
     </li>
@@ -1708,7 +1604,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/ros-nodes/launch-files/" class="md-nav__link">
+      <a href="../../coding-guidelines/ros-nodes/launch-files/" class="md-nav__link">
         Launch files
       </a>
     </li>
@@ -1722,7 +1618,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/ros-nodes/naming/" class="md-nav__link">
+      <a href="../../coding-guidelines/ros-nodes/naming/" class="md-nav__link">
         Topic namespaces
       </a>
     </li>
@@ -1736,7 +1632,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/ros-nodes/parameters/" class="md-nav__link">
+      <a href="../../coding-guidelines/ros-nodes/parameters/" class="md-nav__link">
         Parameters
       </a>
     </li>
@@ -1750,7 +1646,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/ros-nodes/task-scheduling/" class="md-nav__link">
+      <a href="../../coding-guidelines/ros-nodes/task-scheduling/" class="md-nav__link">
         Task scheduling
       </a>
     </li>
@@ -1764,7 +1660,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/ros-nodes/topic-namespaces/" class="md-nav__link">
+      <a href="../../coding-guidelines/ros-nodes/topic-namespaces/" class="md-nav__link">
         Topic namespaces
       </a>
     </li>
@@ -1811,7 +1707,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../contributing/testing-guidelines/">Testing guidelines</a>
+          <a href="../../testing-guidelines/">Testing guidelines</a>
           
         </div>
       
@@ -1856,7 +1752,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../contributing/documentation-guidelines/">Documentation guidelines</a>
+          <a href="../../documentation-guidelines/">Documentation guidelines</a>
           
         </div>
       
@@ -1880,14 +1776,16 @@
               
   
   
+    
+  
   
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_5" data-md-state="indeterminate" type="checkbox" id="__nav_6_5" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_5" type="checkbox" id="__nav_6_5" checked>
       
       
       
@@ -1905,7 +1803,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../contributing/pull-request-guidelines/">Pull request guidelines</a>
+          <a href="../">Pull request guidelines</a>
           
             <label for="__nav_6_5">
               <span class="md-nav__icon md-icon"></span>
@@ -1926,11 +1824,309 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../../contributing/pull-request-guidelines/commit-guidelines/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Commit guidelines
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Commit guidelines
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#branch-rules" class="md-nav__link">
+    Branch rules
+  </a>
+  
+    <nav class="md-nav" aria-label="Branch rules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#start-branch-names-with-the-corresponding-issue-numbers-advisory-non-automated" class="md-nav__link">
+    Start branch names with the corresponding issue numbers (advisory, non-automated)
+  </a>
+  
+    <nav class="md-nav" aria-label="Start branch names with the corresponding issue numbers (advisory, non-automated)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rationale" class="md-nav__link">
+    Rationale
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exception" class="md-nav__link">
+    Exception
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    Reference
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-kebab-case-for-the-separator-of-branch-names-advisory-non-automated" class="md-nav__link">
+    Use kebab-case for the separator of branch names (advisory, non-automated)
+  </a>
+  
+    <nav class="md-nav" aria-label="Use kebab-case for the separator of branch names (advisory, non-automated)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rationale_1" class="md-nav__link">
+    Rationale
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_1" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reference_1" class="md-nav__link">
+    Reference
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#make-branch-names-descriptive-advisory-non-automated" class="md-nav__link">
+    Make branch names descriptive (advisory, non-automated)
+  </a>
+  
+    <nav class="md-nav" aria-label="Make branch names descriptive (advisory, non-automated)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rationale_2" class="md-nav__link">
+    Rationale
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exception_1" class="md-nav__link">
+    Exception
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_2" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commit-rules" class="md-nav__link">
+    Commit rules
+  </a>
+  
+    <nav class="md-nav" aria-label="Commit rules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sign-off-your-commits-required-automated" class="md-nav__link">
+    Sign-off your commits (required, automated)
+  </a>
+  
+    <nav class="md-nav" aria-label="Sign-off your commits (required, automated)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rationale_3" class="md-nav__link">
+    Rationale
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_3" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reference_2" class="md-nav__link">
+    Reference
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#follow-conventional-commits-required-automated" class="md-nav__link">
+    Follow Conventional Commits (required, automated)
+  </a>
+  
+    <nav class="md-nav" aria-label="Follow Conventional Commits (required, automated)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rationale_4" class="md-nav__link">
+    Rationale
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_4" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reference_3" class="md-nav__link">
+    Reference
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-the-related-node-names-to-the-scope-of-conventional-commits-advisory-non-automated" class="md-nav__link">
+    Add the related node names to the scope of Conventional Commits (advisory, non-automated)
+  </a>
+  
+    <nav class="md-nav" aria-label="Add the related node names to the scope of Conventional Commits (advisory, non-automated)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rationale_5" class="md-nav__link">
+    Rationale
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_5" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keep-a-pull-request-small-advisory-non-automated" class="md-nav__link">
+    Keep a pull request small (advisory, non-automated)
+  </a>
+  
+    <nav class="md-nav" aria-label="Keep a pull request small (advisory, non-automated)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rationale_6" class="md-nav__link">
+    Rationale
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exception_2" class="md-nav__link">
+    Exception
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_6" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1942,7 +2138,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/pull-request-guidelines/review-tips/" class="md-nav__link">
+      <a href="../review-tips/" class="md-nav__link">
         Tips
       </a>
     </li>
@@ -1982,7 +2178,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../contributing/discussion-guidelines/">Discussion guidelines</a>
+          <a href="../../discussion-guidelines/">Discussion guidelines</a>
           
         </div>
       
@@ -2115,45 +2311,119 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    Prerequisites
+  <a href="#branch-rules" class="md-nav__link">
+    Branch rules
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-to-set-up-a-development-environment" class="md-nav__link">
-    How to set up a development environment
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-to-set-up-a-workspace" class="md-nav__link">
-    How to set up a workspace
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-to-update-a-workspace" class="md-nav__link">
-    How to update a workspace
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    Troubleshooting
-  </a>
-  
-    <nav class="md-nav" aria-label="Troubleshooting">
+    <nav class="md-nav" aria-label="Branch rules">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#cuda-error-forward-compatibility-was-attempted-on-non-supported-hw" class="md-nav__link">
-    cuda error: forward compatibility was attempted on non supported hw
+  <a href="#start-branch-names-with-the-corresponding-issue-numbers-advisory-non-automated" class="md-nav__link">
+    Start branch names with the corresponding issue numbers (advisory, non-automated)
   </a>
+  
+    <nav class="md-nav" aria-label="Start branch names with the corresponding issue numbers (advisory, non-automated)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rationale" class="md-nav__link">
+    Rationale
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exception" class="md-nav__link">
+    Exception
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    Reference
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-kebab-case-for-the-separator-of-branch-names-advisory-non-automated" class="md-nav__link">
+    Use kebab-case for the separator of branch names (advisory, non-automated)
+  </a>
+  
+    <nav class="md-nav" aria-label="Use kebab-case for the separator of branch names (advisory, non-automated)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rationale_1" class="md-nav__link">
+    Rationale
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_1" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reference_1" class="md-nav__link">
+    Reference
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#make-branch-names-descriptive-advisory-non-automated" class="md-nav__link">
+    Make branch names descriptive (advisory, non-automated)
+  </a>
+  
+    <nav class="md-nav" aria-label="Make branch names descriptive (advisory, non-automated)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rationale_2" class="md-nav__link">
+    Rationale
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exception_1" class="md-nav__link">
+    Exception
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_2" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -2163,17 +2433,139 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tips" class="md-nav__link">
-    Tips
+  <a href="#commit-rules" class="md-nav__link">
+    Commit rules
   </a>
   
-    <nav class="md-nav" aria-label="Tips">
+    <nav class="md-nav" aria-label="Commit rules">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#non-native-arm64-system" class="md-nav__link">
-    Non-native arm64 System
+  <a href="#sign-off-your-commits-required-automated" class="md-nav__link">
+    Sign-off your commits (required, automated)
   </a>
+  
+    <nav class="md-nav" aria-label="Sign-off your commits (required, automated)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rationale_3" class="md-nav__link">
+    Rationale
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_3" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reference_2" class="md-nav__link">
+    Reference
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#follow-conventional-commits-required-automated" class="md-nav__link">
+    Follow Conventional Commits (required, automated)
+  </a>
+  
+    <nav class="md-nav" aria-label="Follow Conventional Commits (required, automated)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rationale_4" class="md-nav__link">
+    Rationale
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_4" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reference_3" class="md-nav__link">
+    Reference
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-the-related-node-names-to-the-scope-of-conventional-commits-advisory-non-automated" class="md-nav__link">
+    Add the related node names to the scope of Conventional Commits (advisory, non-automated)
+  </a>
+  
+    <nav class="md-nav" aria-label="Add the related node names to the scope of Conventional Commits (advisory, non-automated)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rationale_5" class="md-nav__link">
+    Rationale
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_5" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keep-a-pull-request-small-advisory-non-automated" class="md-nav__link">
+    Keep a pull request small (advisory, non-automated)
+  </a>
+  
+    <nav class="md-nav" aria-label="Keep a pull request small (advisory, non-automated)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rationale_6" class="md-nav__link">
+    Rationale
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exception_2" class="md-nav__link">
+    Exception
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_6" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -2194,113 +2586,110 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/autowarefoundation/autoware-documentation/edit/main/docs/installation/autoware/docker-installation.md" title="Edit this page" class="md-content__button md-icon">
+<a href="https://github.com/autowarefoundation/autoware-documentation/edit/main/docs/contributing/pull-request-guidelines/commit-guidelines.md" title="Edit this page" class="md-content__button md-icon">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
 
 
 
-<h1 id="docker-installation">Docker installation<a class="headerlink" href="#docker-installation" title="Permanent link">#</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>Since this page explains Docker-specific information, it is recommended to see <a href="../source-installation/">Source installation</a> as well if you need detailed information.</p>
-</div>
-<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">#</a></h2>
+<h1 id="commit-guidelines">Commit guidelines<a class="headerlink" href="#commit-guidelines" title="Permanent link">#</a></h1>
+<p>This page explains our guidelines related to committing.</p>
+<h2 id="branch-rules">Branch rules<a class="headerlink" href="#branch-rules" title="Permanent link">#</a></h2>
+<h3 id="start-branch-names-with-the-corresponding-issue-numbers-advisory-non-automated">Start branch names with the corresponding issue numbers (advisory, non-automated)<a class="headerlink" href="#start-branch-names-with-the-corresponding-issue-numbers-advisory-non-automated" title="Permanent link">#</a></h3>
+<h4 id="rationale">Rationale<a class="headerlink" href="#rationale" title="Permanent link">#</a></h4>
 <ul>
-<li><a href="https://git-scm.com/">Git</a></li>
+<li>Developers can quickly find the corresponding issues.</li>
+<li>It is helpful for tools.</li>
+<li>It is consistent with GitHub's default behavior.</li>
 </ul>
-<h2 id="how-to-set-up-a-development-environment">How to set up a development environment<a class="headerlink" href="#how-to-set-up-a-development-environment" title="Permanent link">#</a></h2>
-<ol>
-<li>
-<p>Clone <code>autowarefoundation/autoware</code> and move to the directory.</p>
-<div class="highlight"><pre><span></span><code>git clone https://github.com/autowarefoundation/autoware.git
+<h4 id="exception">Exception<a class="headerlink" href="#exception" title="Permanent link">#</a></h4>
+<p>If there are no corresponding issues, you can ignore this rule.</p>
+<h4 id="example">Example<a class="headerlink" href="#example" title="Permanent link">#</a></h4>
+<div class="highlight"><pre><span></span><code>123-add-feature
 </code></pre></div>
-</li>
-<li>
-<p>Install the dependencies.</p>
-<div class="highlight"><pre><span></span><code>./setup-dev-env.sh docker
+<h4 id="reference">Reference<a class="headerlink" href="#reference" title="Permanent link">#</a></h4>
+<ul>
+<li><a href="https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-a-branch-for-an-issue">GitHub Docs</a></li>
+</ul>
+<h3 id="use-kebab-case-for-the-separator-of-branch-names-advisory-non-automated">Use <code>kebab-case</code> for the separator of branch names (advisory, non-automated)<a class="headerlink" href="#use-kebab-case-for-the-separator-of-branch-names-advisory-non-automated" title="Permanent link">#</a></h3>
+<h4 id="rationale_1">Rationale<a class="headerlink" href="#rationale_1" title="Permanent link">#</a></h4>
+<ul>
+<li>It is consistent with GitHub's default behavior.</li>
+</ul>
+<h4 id="example_1">Example<a class="headerlink" href="#example_1" title="Permanent link">#</a></h4>
+<div class="highlight"><pre><span></span><code>123-add-feature
 </code></pre></div>
-</li>
-</ol>
-<h2 id="how-to-set-up-a-workspace">How to set up a workspace<a class="headerlink" href="#how-to-set-up-a-workspace" title="Permanent link">#</a></h2>
-<ol>
-<li>
-<p>Launch a Docker container</p>
-<div class="highlight"><pre><span></span><code>rocker --nvidia --x11 --user --volume <span class="nv">$HOME</span>/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest
+<h4 id="reference_1">Reference<a class="headerlink" href="#reference_1" title="Permanent link">#</a></h4>
+<ul>
+<li><a href="https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-a-branch-for-an-issue">GitHub Docs</a></li>
+</ul>
+<h3 id="make-branch-names-descriptive-advisory-non-automated">Make branch names descriptive (advisory, non-automated)<a class="headerlink" href="#make-branch-names-descriptive-advisory-non-automated" title="Permanent link">#</a></h3>
+<h4 id="rationale_2">Rationale<a class="headerlink" href="#rationale_2" title="Permanent link">#</a></h4>
+<ul>
+<li>It can avoid conflicts of names.</li>
+<li>Developers can understand the purpose of the branch.</li>
+</ul>
+<h4 id="exception_1">Exception<a class="headerlink" href="#exception_1" title="Permanent link">#</a></h4>
+<p>If you have already submitted a pull request, you do not have to change the branch name because you need to re-create a pull request, which is noisy and a waste of time.<br />
+Be careful from the next time.</p>
+<h4 id="example_2">Example<a class="headerlink" href="#example_2" title="Permanent link">#</a></h4>
+<p>Usually it is good to start with a verb.</p>
+<div class="highlight"><pre><span></span><code>123-fix-memory-leak-of-trajectory-follower
 </code></pre></div>
-<p>See <a href="https://github.com/autowarefoundation/autoware/tree/main/docker/README.md">here</a> for more advanced usage.</p>
-<p>After that, move to the workspace in the container:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> autoware
+<h2 id="commit-rules">Commit rules<a class="headerlink" href="#commit-rules" title="Permanent link">#</a></h2>
+<h3 id="sign-off-your-commits-required-automated">Sign-off your commits (required, automated)<a class="headerlink" href="#sign-off-your-commits-required-automated" title="Permanent link">#</a></h3>
+<p>Developers must certify that they wrote or otherwise have the right to submit the code they are contributing to the project.</p>
+<h4 id="rationale_3">Rationale<a class="headerlink" href="#rationale_3" title="Permanent link">#</a></h4>
+<p>If not, it will lead to complex license problems.</p>
+<h4 id="example_3">Example<a class="headerlink" href="#example_3" title="Permanent link">#</a></h4>
+<div class="highlight"><pre><span></span><code>git commit -s
 </code></pre></div>
-</li>
-<li>
-<p>Create the <code>src</code> directory and clone repositories into it.</p>
-<div class="highlight"><pre><span></span><code>mkdir src
-vcs import src &lt; autoware.repos
+<div class="highlight"><pre><span></span><code>feat: add a feature
+
+Signed-off-by: Autoware &lt;autoware@example.com&gt;
 </code></pre></div>
-</li>
-<li>
-<p>Build the workspace.</p>
-<div class="highlight"><pre><span></span><code>colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE<span class="o">=</span>Release
+<h4 id="reference_2">Reference<a class="headerlink" href="#reference_2" title="Permanent link">#</a></h4>
+<ul>
+<li><a href="https://github.com/apps/dco">GitHub Apps - DCO</a></li>
+</ul>
+<h3 id="follow-conventional-commits-required-automated">Follow <code>Conventional Commits</code> (required, automated)<a class="headerlink" href="#follow-conventional-commits-required-automated" title="Permanent link">#</a></h3>
+<h4 id="rationale_4">Rationale<a class="headerlink" href="#rationale_4" title="Permanent link">#</a></h4>
+<ul>
+<li>It can generate categorized changelog, for example using <a href="https://github.com/orhun/git-cliff">git-cliff</a>.</li>
+</ul>
+<h4 id="example_4">Example<a class="headerlink" href="#example_4" title="Permanent link">#</a></h4>
+<div class="highlight"><pre><span></span><code>feat(trajectory_follower): add an awesome feature
 </code></pre></div>
-</li>
-</ol>
-<h2 id="how-to-update-a-workspace">How to update a workspace<a class="headerlink" href="#how-to-update-a-workspace" title="Permanent link">#</a></h2>
-<ol>
-<li>
-<p>Update the Docker image.</p>
-<div class="highlight"><pre><span></span><code>docker pull ghcr.io/autowarefoundation/autoware-universe:latest
-rocker --nvidia --x11 --user --volume <span class="nv">$HOME</span>/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest
+<p>Note that you have to start the description part (<code>add an awesome feature</code>) with a lowercase.</p>
+<p>Since Autoware uses the <code>Squash and merge</code> method of GitHub, you need to make the PR title follow <code>Conventional Commits</code> as well.</p>
+<h4 id="reference_3">Reference<a class="headerlink" href="#reference_3" title="Permanent link">#</a></h4>
+<ul>
+<li><a href="https://www.conventionalcommits.org/en/v1.0.0/">Conventional Commits</a></li>
+<li><a href="https://github.com/commitizen/conventional-commit-types">commitizen/conventional-commit-types</a></li>
+<li><a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/about-merge-methods-on-github#squashing-your-merge-commits">GitHub Docs</a></li>
+</ul>
+<h3 id="add-the-related-node-names-to-the-scope-of-conventional-commits-advisory-non-automated">Add the related node names to the scope of <code>Conventional Commits</code> (advisory, non-automated)<a class="headerlink" href="#add-the-related-node-names-to-the-scope-of-conventional-commits-advisory-non-automated" title="Permanent link">#</a></h3>
+<h4 id="rationale_5">Rationale<a class="headerlink" href="#rationale_5" title="Permanent link">#</a></h4>
+<ul>
+<li>The package maintainer can become aware of the pull request by seeing the notification.</li>
+<li>It can make the changelog clearer.</li>
+</ul>
+<h4 id="example_5">Example<a class="headerlink" href="#example_5" title="Permanent link">#</a></h4>
+<div class="highlight"><pre><span></span><code>feat(trajectory_follower): add an awesome feature
 </code></pre></div>
-</li>
-<li>
-<p>Update the <code>.repos</code> file.</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> autoware
-git pull
-</code></pre></div>
-</li>
-<li>
-<p>Update the repositories.</p>
-<div class="highlight"><pre><span></span><code>vcs import src &lt; autoware.repos
-vcs pull
-</code></pre></div>
-</li>
-<li>
-<p>Build the workspace.</p>
-<div class="highlight"><pre><span></span><code>colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE<span class="o">=</span>Release
-</code></pre></div>
-</li>
-</ol>
-<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">#</a></h2>
-<p>Here are solutions for a few specific errors:</p>
-<h3 id="cuda-error-forward-compatibility-was-attempted-on-non-supported-hw">cuda error: forward compatibility was attempted on non supported hw<a class="headerlink" href="#cuda-error-forward-compatibility-was-attempted-on-non-supported-hw" title="Permanent link">#</a></h3>
-<p>When starting Docker with GPU support enabled for NVIDIA graphics, you may sometimes receive the following error:</p>
-<div class="highlight"><pre><span></span><code>docker: Error response from daemon: OCI runtime create failed: container_linux.go:349: starting container process caused <span class="s2">&quot;process_linux.go:449: container init caused \&quot;process_linux.go:432: running prestart hook 0 caused \\\&quot;error running hook: exit status 1, stdout: , stderr: nvidia-container-cli: initialization error: cuda error: forward compatibility was attempted on non supported hw\\\\n\\\&quot;\&quot;&quot;</span>: unknown.
-ERROR: Command <span class="k">return</span> non-zero <span class="nb">exit</span> code <span class="o">(</span>see above<span class="o">)</span>: <span class="m">125</span>
-</code></pre></div>
-<p>This usually indicates that a new NVIDIA graphics driver has been installed (usually via <code>apt</code>) but the system has not yet been restarted. A similar message may appear if the graphics driver is not available, for example because of resuming after suspend.</p>
-<p>To fix this, restart your system after installing the new NVIDIA driver.</p>
-<h2 id="tips">Tips<a class="headerlink" href="#tips" title="Permanent link">#</a></h2>
-<h3 id="non-native-arm64-system">Non-native arm64 System<a class="headerlink" href="#non-native-arm64-system" title="Permanent link">#</a></h3>
-<p>This section describes a process to run <code>arm64</code> systems on <code>amd64</code> systems using <a href="https://github.com/multiarch/qemu-user-static"><code>qemu-user-static</code></a>.</p>
-<p>Initially, your system is usually incompatible with <code>arm64</code> systems.
-To check that:</p>
-<div class="highlight"><pre><span></span><code>$ docker run --rm -t arm64v8/ubuntu uname -m
-WARNING: The requested image&#39;s platform (linux/arm64/v8) does not match the detected host platform (linux/amd64) and no specific platform was requested
-standard_init_linux.go:228: exec user process caused: exec format error
-</code></pre></div>
-<p>Installing <code>qemu-user-static</code> enables us to run <code>arm64</code> images on <code>amd64</code> systems.</p>
-<div class="highlight"><pre><span></span><code>$ sudo apt-get install qemu-user-static
-$ docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
-$ docker run --rm -t arm64v8/ubuntu uname -m
-WARNING: The requested image&#39;s platform (linux/arm64/v8) does not match the detected host platform (linux/amd64) and no specific platform was requested
-aarch64
-</code></pre></div>
-<p>To run Autoware's Docker images of <code>arm64</code> architecture, add the suffix <code>-arm64</code>.</p>
-<div class="highlight"><pre><span></span><code>$ docker run --rm -it ghcr.io/autowarefoundation/autoware-universe:latest-arm64
-WARNING: The requested image&#39;s platform (linux/arm64) does not match the detected host platform (linux/amd64) and no specific platform was requested
-root@5b71391ad50f:/autoware#
-</code></pre></div>
+<h3 id="keep-a-pull-request-small-advisory-non-automated">Keep a pull request small (advisory, non-automated)<a class="headerlink" href="#keep-a-pull-request-small-advisory-non-automated" title="Permanent link">#</a></h3>
+<h4 id="rationale_6">Rationale<a class="headerlink" href="#rationale_6" title="Permanent link">#</a></h4>
+<ul>
+<li>Small pull requests are easy to understand for reviewers.</li>
+<li>Small pull requests are easy to revert for maintainers.</li>
+</ul>
+<h4 id="exception_2">Exception<a class="headerlink" href="#exception_2" title="Permanent link">#</a></h4>
+<p>It is acceptable if it is agreed with maintainers that there is no other way but to submit a big pull request.</p>
+<h4 id="example_6">Example<a class="headerlink" href="#example_6" title="Permanent link">#</a></h4>
+<ul>
+<li>Avoid developing two features in one pull request.</li>
+<li>Avoid mixing <code>feat</code>, <code>fix</code>, and <code>refactor</code> in the same commit.</li>
+</ul>
 
               
             </article>
@@ -2319,7 +2708,7 @@ root@5b71391ad50f:/autoware#
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Installation of Autoware" rel="prev">
+        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Pull request guidelines" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -2328,20 +2717,20 @@ root@5b71391ad50f:/autoware#
               <span class="md-footer__direction">
                 Previous
               </span>
-              Installation of Autoware
+              Pull request guidelines
             </div>
           </div>
         </a>
       
       
         
-        <a href="../source-installation/" class="md-footer__link md-footer__link--next" aria-label="Next: Source installation" rel="next">
+        <a href="../review-tips/" class="md-footer__link md-footer__link--next" aria-label="Next: Tips" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Source installation
+              Tips
             </div>
           </div>
           <div class="md-footer__button md-icon">

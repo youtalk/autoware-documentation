@@ -131,6 +131,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/contributing/pull-request-guidelines/commit-guidelines/</loc>
+         <lastmod>2022-03-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/main/contributing/pull-request-guidelines/review-tips/</loc>
          <lastmod>2022-03-11</lastmod>
          <changefreq>daily</changefreq>
