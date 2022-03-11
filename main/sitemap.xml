@@ -196,6 +196,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/advanced-usage-of-colcon/</loc>
+         <lastmod>2022-03-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/main/installation/</loc>
          <lastmod>2022-03-11</lastmod>
          <changefreq>daily</changefreq>
