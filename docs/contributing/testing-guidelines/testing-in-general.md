@@ -1,11 +1,11 @@
 # Testing in General
 
-This article motivates developers to test code, explains the importance of testing, and details the testing performed in Autoware.Core.
+This article explains the importance of testing.
 
 ## Importance of testing
 
-Dynamic and static testing methods make Autoware.Core reliable and robust, helping us to perform anomaly detection and handling that would otherwise be difficult to find.
-Through testing in Autoware.Core, we can estimate the number of Heisenbugs, and find and eliminate [undefined behaviors](https://blog.regehr.org/archives/1520) for which C and C++ languages are known for.
+Dynamic and static testing methods make Autoware reliable and robust, helping us to perform anomaly detection.
+Through testing in Autoware, we can estimate the number of Heisenbugs, and find and eliminate [undefined behaviors](https://blog.regehr.org/archives/1520) for which C++ languages are known for.
 
 Dynamic analysis, simply called “testing” as a rule, means executing the code while looking for errors and failures.
 
@@ -13,9 +13,18 @@ Static analysis means inspecting the code to look for faults. Static analysis is
 
 There are also formal verification methods (see the [book](https://www.amazon.com/Embedded-Software-Development-Safety-Critical-Systems/dp/1498726704), Chapter 15); note that the topics will not be covered in this document.
 
-## Testing in Autoware.Core
+## Testing in Autoware
 
 This section introduces various types of tests that are run both manually and automatically.
+
+When creating a new node, be sure to include the following test, which will be explained later:
+
+- For core package
+  - Unit testing with `gtest`
+- For node package
+  - Smoke testing with `smoke_test`
+  - Interface testing with `interface_test`
+  - Integration testing with `launch_testing`
 
 ### Style / linter tests
 
@@ -23,11 +32,11 @@ Some examples of tools used for style and linting are
 [cpplint](https://github.com/google/styleguide/tree/gh-pages/cpplint),
 [uncrustify](https://github.com/uncrustify/uncrustify).
 
-Tests using the tools above allow Autoware.Core to follow C and C++ style guides which results in uniform, easy to read code.
+Tests using the tools above allow Autoware to follow C++ style guides which results in uniform, easy to read code.
 
 ### Static code analysis
 
-The [Cppcheck](https://github.com/danmar/cppcheck) tool is used for applications written in Autoware.Core.
+The [Cppcheck](https://github.com/danmar/cppcheck) tool is used for applications written in Autoware.
 
 Static code analysis tools detect the following types of errors:
 
@@ -66,22 +75,14 @@ Static code analysis tools detect the following types of errors:
 
 Unit-testing is a software testing method by which individual units of source code are tested to determine whether they are fit for use.
 
-The tool used for unit testing in Autoware.Core is [gtest](https://github.com/google/googletest).
+The tool used for unit testing in Autoware is [gtest](https://github.com/google/googletest).
 
-gtest is a tool for unit testing all source code in Core packages.
-For Node testing, consider using `launch_testing`. Documentation is available in [Integration testing](integration-testing.md).
+`gtest` is a tool for unit testing all source code in core packages.
+For node testing, consider using `launch_testing`. Documentation is available in [Integration testing](integration-testing.md).
 
-Unit tests that are common to all Nodes are available in `autoware_testing`.
+Unit tests that are common to all nodes are available in `autoware_testing`.
 Please refer to the following design documentation for usage.
 [Link](https://github.com/autowarefoundation/autoware.universe/blob/main/common/autoware_testing/design/autoware_testing-design.md)
-
-When creating a new Node, be sure to include the following tests:
-
-- For Core package
-  - gtest
-- For Node package
-  - smoke_test
-  - interface_test
 
 ### Integration tests
 
@@ -90,11 +91,33 @@ Integration testing occurs after unit testing.
 
 While performing integration testing, the following subtypes of tests are written:
 
-1. Fault injection testing
-2. Back-to-back comparison between a model and code
-3. Requirements-based testing
-4. Anomaly detection during integration testing
-5. Random input testing
+1. Smoke testing
+2. Interface testing
+3. Node integration testing
+
+#### Smoke tests
+
+[Smoke test](https://en.wikipedia.org/wiki/Smoke_testing_(software)) has several meanings. In this section, smoke test is to perform the following evaluations.
+
+- Smoke test ensures that the node can be
+  1. launched with its default configuration and doesn't crash.
+  2. shut down through a `SIGINT` signal with the corresponding process return code.
+
+Autoware provides a smoke testing framework that tests all nodes uniformly.
+
+#### Interface tests
+
+Interface test ensures that a node consumes/produces the desired output in line with the high-level documentation of its design document.
+It helps to keep the docs up to date and to prevent users from having to dig through the source code to find the topic names/types.
+
+Autoware provides a interface testing framework that tests all nodes uniformly.
+
+#### Node integration tests
+
+Node integration tests (or simply referred to as an integration tests) is a test to evaluate the interaction of a single Node or multiple Nodes.
+Integration testing verifies interactions of nodes that would not be found in a unit tests.
+
+The tool used for node integration testing in Autoware is [launch_testing](https://github.com/ros2/launch/tree/master/launch_testing).
 
 ### Memory tests
 
@@ -109,7 +132,7 @@ For more details on memory tests see the [memory testing](https://github.com/osr
 
 ### In-vehicle tests
 
-Regular in-vehicle testing is performed as part of ODD development and demonstrations. These tests validate Autoware.Core in a realistic autonomous vehicle product.
+Regular in-vehicle testing is performed as part of ODD development and demonstrations. These tests validate Autoware in a realistic autonomous vehicle product.
 
 ### References
 
