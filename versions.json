@@ -12,9 +12,7 @@
   {
     "version": "pr-47",
     "title": "pr-47",
-    "aliases": [
-      "latest"
-    ]
+    "aliases": []
   },
   {
     "version": "pr-46",
@@ -74,6 +72,8 @@
   {
     "version": "main",
     "title": "main",
-    "aliases": []
+    "aliases": [
+      "latest"
+    ]
   }
 ]
