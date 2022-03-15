@@ -1,12 +1,5 @@
 [
   {
-    "version": "pr-55",
-    "title": "pr-55",
-    "aliases": [
-      "latest"
-    ]
-  },
-  {
     "version": "pr-50",
     "title": "pr-50",
     "aliases": []
