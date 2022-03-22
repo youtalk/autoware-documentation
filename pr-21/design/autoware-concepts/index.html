@@ -2038,6 +2038,62 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#microautonomy-architecture" class="md-nav__link">
+    Microautonomy Architecture
+  </a>
+  
+    <nav class="md-nav" aria-label="Microautonomy Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-core-module" class="md-nav__link">
+    The Core Module
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-universe-module" class="md-nav__link">
+    The Universe Module
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interface-design" class="md-nav__link">
+    Interface Design
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#challanges" class="md-nav__link">
+    Challanges
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements-and-roadmap" class="md-nav__link">
+    Requirements and Roadmap
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2055,10 +2111,31 @@
 
 
 <h1 id="autoware-concepts">Autoware concepts<a class="headerlink" href="#autoware-concepts" title="Permanent link">#</a></h1>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Under Construction</p>
-</div>
+<p>Autoware is the world’s first open-source software for autonomous driving systems. Autoware provides value for both The technology developers of autonomous driving systems can create new components based on Autoware. The service operators of autonomous driving systems, on the other hand, can select appropriate technology components with Autoware. This is enabled by the microautonomy architecture that modularizes its software stack into the core and universe subsystems (modules).</p>
+<h2 id="microautonomy-architecture">Microautonomy Architecture<a class="headerlink" href="#microautonomy-architecture" title="Permanent link">#</a></h2>
+<p>Autoware uses a <a href="http://www.cs.sjsu.edu/~pearce/modules/patterns/distArch/pipeline.htm">pipeline architecture</a> to enable the development of autonomous driving systems. The pipeline architecture used in Autoware consists of components similar to <a href="http://www.flownet.com/gat/papers/tla.pdf">three-layer-architecture</a>. And they run in parallel. The components are designed to be extensible and reusable. And we call it microautonomy architecture.</p>
+<p><img alt="core_and_universe.svg" src="core_and_universe.svg | width=100" /></p>
+<h3 id="the-core-module">The Core Module<a class="headerlink" href="#the-core-module" title="Permanent link">#</a></h3>
+<p>The Core module contains basic runtimes and technology components that satisfy the basic functionality and capability of sensing, computing, and actuation required for autonomous driving systems. AWF develops and maintains the Core module with their architects and leading members through their working groups.  </p>
+<h3 id="the-universe-module">The Universe Module<a class="headerlink" href="#the-universe-module" title="Permanent link">#</a></h3>
+<p>The Universe modules are extensions to the Core module that can be provided by the technology developers to enhance the functionality and capability of sensing, computing, and actuation. AWF provides the base Universe module to extend from. A key feature of the microautonomy architecture is that the Universe modules can be contributed to by any organization and individual. That is, you can even create your Universe and make it available for the Autoware community and ecosystem. AWF is responsible for quality control of the Universe modules through their development process. As a result, there are multiple types of the Universe modules - some are verified and validated by AWF and others are not. It is up to the users of Autoware which Universe modules are selected and integrated to build their end applications.</p>
+<h2 id="interface-design">Interface Design<a class="headerlink" href="#interface-design" title="Permanent link">#</a></h2>
+<p>The interface design is the most essential piece of the microautonomy architecture, which is classified into internal and external interfaces. The Component Interface is designed for the technology components in a universe module to communicate with those in other modules, including the core module, within Autoware internally. The AD API, on the other hand, is designed for the applications of Autoware to access the technology components in the core and universe modules of Autoware externally. Designing solid interfaces, the microautonomy architecture is made possible with our partners, and at the same time is made feasible for our partners.</p>
+<h2 id="challanges">Challanges<a class="headerlink" href="#challanges" title="Permanent link">#</a></h2>
+<p>A grand challenge of the microautonomy architecture is to achieve real-time capability, which guarantees all the technology components activated in the system to predictably meet timing constraints (given deadlines). In general, it is difficult, if not impossible, to tightly estimate the worst-case execution times (WCETs) of components.</p>
+<p>In addition, it is also difficult, if not impossible, to tightly estimate the end-to-end latency of components connected by a DAG. Autonomous driving systems based on the microautonomy architecture, therefore, must be designed to be fail-safe but not never-fail. We accept that the timing constraints may be violated (the given deadlines may be missed) as far as the overrun is taken into account. The overrun handlers are two-fold: (i) platform-defined and (ii) user-defined. The platform-defined handler is implemented as part of the platform by default, while the user-defined handler can overwrite it or add a new handler to the system. This is what we call “fail-safe” on a timely basis.</p>
+<h2 id="requirements-and-roadmap">Requirements and Roadmap<a class="headerlink" href="#requirements-and-roadmap" title="Permanent link">#</a></h2>
+<p>Goals:</p>
+<ul>
+<li>All open-source.</li>
+<li>Use case driven.</li>
+<li>Real-time (predictable) framework with overrun handling.</li>
+<li>Code quality.</li>
+</ul>
+<p>Non-goals:</p>
+<ul>
+<li>Accuracy of components</li>
+</ul>
 
               
             </article>
@@ -2077,7 +2154,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Introduction" rel="prev">
+        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Architecture" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -2086,7 +2163,7 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Introduction
+              Architecture
             </div>
           </div>
         </a>
