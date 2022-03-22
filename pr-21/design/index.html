@@ -15,7 +15,7 @@
     
     
       
-        <title>Architecture - Autoware Documentation</title>
+        <title>Autoware's Design - Autoware Documentation</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#architecture" class="md-skip">
+        <a href="#autowares-design" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Architecture
+              Autoware's Design
             
           </span>
         </div>
@@ -2036,6 +2036,76 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    Architecture
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concern-assumption-and-limitation" class="md-nav__link">
+    Concern, Assumption, and Limitation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design" class="md-nav__link">
+    Design
+  </a>
+  
+    <nav class="md-nav" aria-label="Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#autoware-concepts" class="md-nav__link">
+    Autoware concepts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#component-interfaces" class="md-nav__link">
+    Component interfaces
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ad-api" class="md-nav__link">
+    AD API
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-management" class="md-nav__link">
+    Configuration management
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2052,7 +2122,8 @@
 
 
 
-<h1 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">#</a></h1>
+<h1 id="autowares-design">Autoware's Design<a class="headerlink" href="#autowares-design" title="Permanent link">#</a></h1>
+<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">#</a></h2>
 <p>Core and Universe.</p>
 <p>Autoware provides the runtimes and technology components by open-source software. The runtimes are based on the Robot Operating System (ROS). The technology components are provided by contributors, which include, but are not limited to:</p>
 <ul>
@@ -2086,18 +2157,18 @@
 </ul>
 </li>
 </ul>
-<h1 id="concern-assumption-and-limitation">Concern, Assumption, and Limitation<a class="headerlink" href="#concern-assumption-and-limitation" title="Permanent link">#</a></h1>
+<h2 id="concern-assumption-and-limitation">Concern, Assumption, and Limitation<a class="headerlink" href="#concern-assumption-and-limitation" title="Permanent link">#</a></h2>
 <p>The downside of the microautonomy architecture is that the computational performance of end applications is sacrificed due to its data path overhead attributed to functional modularity. In other words, the trade-off characteristic of the microautonomy architecture exists between computational performance and functional modularity. This trade-off problem can be solved technically by introducing real-time capability. This is because autonomous driving systems are not really designed to be real-fast, that is, low-latency computing is nice-to-have but not must-have. The must-have feature for autonomous driving systems is that the latency of computing is predictable, that is, the systems are real-time. As a whole, we can compromise computational performance to an extent that is predictable enough to meet the given timing constraints of autonomous driving systems, often referred to as deadlines of computation.</p>
-<h1 id="design">Design<a class="headerlink" href="#design" title="Permanent link">#</a></h1>
+<h2 id="design">Design<a class="headerlink" href="#design" title="Permanent link">#</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Under Construction</p>
 </div>
-<h2 id="autoware-concepts">Autoware concepts<a class="headerlink" href="#autoware-concepts" title="Permanent link">#</a></h2>
-<h2 id="component-interfaces">Component interfaces<a class="headerlink" href="#component-interfaces" title="Permanent link">#</a></h2>
-<h2 id="ad-api">AD API<a class="headerlink" href="#ad-api" title="Permanent link">#</a></h2>
-<h2 id="configuration-management">Configuration management<a class="headerlink" href="#configuration-management" title="Permanent link">#</a></h2>
-<h1 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">#</a></h1>
+<h3 id="autoware-concepts">Autoware concepts<a class="headerlink" href="#autoware-concepts" title="Permanent link">#</a></h3>
+<h3 id="component-interfaces">Component interfaces<a class="headerlink" href="#component-interfaces" title="Permanent link">#</a></h3>
+<h3 id="ad-api">AD API<a class="headerlink" href="#ad-api" title="Permanent link">#</a></h3>
+<h3 id="configuration-management">Configuration management<a class="headerlink" href="#configuration-management" title="Permanent link">#</a></h3>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">#</a></h2>
 
               
             </article>
