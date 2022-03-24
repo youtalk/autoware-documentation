@@ -2054,14 +2054,14 @@
         
           <li class="md-nav__item">
   <a href="#the-core-module" class="md-nav__link">
-    The core module
+    The Core module
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#the-universe-module" class="md-nav__link">
-    The universe module
+    The Universe module
   </a>
   
 </li>
@@ -2115,9 +2115,9 @@
 <h2 id="microautonomy-architecture">Microautonomy architecture<a class="headerlink" href="#microautonomy-architecture" title="Permanent link">#</a></h2>
 <p>Autoware uses a <a href="http://www.cs.sjsu.edu/~pearce/modules/patterns/distArch/pipeline.htm">pipeline architecture</a> to enable the development of autonomous driving systems. The pipeline architecture used in Autoware consists of components similar to <a href="http://www.flownet.com/gat/papers/tla.pdf">three-layer-architecture</a>. And they run in parallel. The components are designed to be extensible and reusable. And we call it microautonomy architecture.</p>
 <p><img alt="core-and-universe.svg" src="core-and-universe.svg" /></p>
-<h3 id="the-core-module">The core module<a class="headerlink" href="#the-core-module" title="Permanent link">#</a></h3>
+<h3 id="the-core-module">The Core module<a class="headerlink" href="#the-core-module" title="Permanent link">#</a></h3>
 <p>The Core module contains basic runtimes and technology components that satisfy the basic functionality and capability of sensing, computing, and actuation required for autonomous driving systems. AWF develops and maintains the Core module with their architects and leading members through their working groups.</p>
-<h3 id="the-universe-module">The universe module<a class="headerlink" href="#the-universe-module" title="Permanent link">#</a></h3>
+<h3 id="the-universe-module">The Universe module<a class="headerlink" href="#the-universe-module" title="Permanent link">#</a></h3>
 <p>The Universe modules are extensions to the Core module that can be provided by the technology developers to enhance the functionality and capability of sensing, computing, and actuation. AWF provides the base Universe module to extend from. A key feature of the microautonomy architecture is that the Universe modules can be contributed to by any organization and individual. That is, you can even create your Universe and make it available for the Autoware community and ecosystem. AWF is responsible for quality control of the Universe modules through their development process. As a result, there are multiple types of the Universe modules - some are verified and validated by AWF and others are not. It is up to the users of Autoware which Universe modules are selected and integrated to build their end applications.</p>
 <h2 id="interface-design">Interface design<a class="headerlink" href="#interface-design" title="Permanent link">#</a></h2>
 <p>The interface design is the most essential piece of the microautonomy architecture, which is classified into internal and external interfaces. The Component Interface is designed for the technology components in a universe module to communicate with those in other modules, including the core module, within Autoware internally. The AD API, on the other hand, is designed for the applications of Autoware to access the technology components in the core and universe modules of Autoware externally. Designing solid interfaces, the microautonomy architecture is made possible with our partners, and at the same time is made feasible for our partners.</p>
