@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/source-installation/">
       
       <link rel="icon" href="../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.6">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.7">
     
     
       
@@ -2190,8 +2190,14 @@ sudo apt-get -y install git
 </ol>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Be very careful with this method. Make sure you read and confirmed all the steps in the ansible configuration before using it.</p>
+<p>Be very careful with this method. Make sure you read and confirmed all the steps in the Ansible configuration before using it.</p>
 </div>
+<p>If you want to manually install the dependencies:</p>
+<ul>
+<li>See the roles in <a href="https://github.com/autowarefoundation/autoware/blob/main/ansible/playbooks/universe.yaml">universe.yaml</a>.</li>
+<li>Read the READMEs of each role under the <a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles">ansible/roles</a> directory.</li>
+<li>Install the listed dependencies following the linked resources.</li>
+</ul>
 <h2 id="how-to-set-up-a-workspace">How to set up a workspace<a class="headerlink" href="#how-to-set-up-a-workspace" title="Permanent link">#</a></h2>
 <ol>
 <li>
