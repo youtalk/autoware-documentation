@@ -156,22 +156,37 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/main/design/ad-api/</loc>
-         <lastmod>2022-03-30</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-concepts/</loc>
          <lastmod>2022-03-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/main/design/component-interfaces/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/</loc>
          <lastmod>2022-03-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/main/design/component-interfaces/planning-control-vehicle-interface/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/ad-api/</loc>
+         <lastmod>2022-03-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/</loc>
+         <lastmod>2022-03-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/control/</loc>
+         <lastmod>2022-03-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/planning/</loc>
+         <lastmod>2022-03-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-interface/</loc>
          <lastmod>2022-03-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
