@@ -541,19 +541,6 @@
     Installing dependencies manually
   </a>
   
-    <nav class="md-nav" aria-label="Installing dependencies manually">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#install-nvidia-packages" class="md-nav__link">
-    Install Nvidia Packages
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
@@ -2258,19 +2245,6 @@
     Installing dependencies manually
   </a>
   
-    <nav class="md-nav" aria-label="Installing dependencies manually">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#install-nvidia-packages" class="md-nav__link">
-    Install Nvidia Packages
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
@@ -2350,128 +2324,17 @@ sudo apt-get -y install git
 <li><a href="https://docs.nvidia.com/deeplearning/tensorrt/sla/index.html">TensorRT</a></li>
 </ul>
 <h3 id="installing-dependencies-manually">Installing dependencies manually<a class="headerlink" href="#installing-dependencies-manually" title="Permanent link">#</a></h3>
-<p>Install ROS2:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Taken from: https://docs.ros.org/en/galactic/Installation/Ubuntu-Install-Debians.html</span>
-
-<span class="c1"># You will need to add the ROS 2 apt repository to your system. First, make sure that the Ubuntu Universe repository is enabled by checking the output of this command.</span>
-apt-cache policy <span class="p">|</span> grep universe
-
-<span class="c1"># The output of the above command should contain following:</span>
-
-<span class="c1"># 500 http://us.archive.ubuntu.com/ubuntu focal/universe amd64 Packages</span>
-<span class="c1">#     release v=20.04,o=Ubuntu,a=focal,n=focal,l=Ubuntu,c=universe,b=amd64</span>
-
-<span class="c1"># If you don’t see an output line like the one above, then enable the Universe repository with these instructions.</span>
-sudo apt install software-properties-common
-sudo add-apt-repository universe
-
-<span class="c1"># Now add the ROS 2 apt repository to your system. First authorize our GPG key with apt.</span>
-sudo apt update <span class="o">&amp;&amp;</span> sudo apt install curl gnupg lsb-release
-sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
-
-<span class="c1"># Then add the repository to your sources list.</span>
-<span class="nb">echo</span> <span class="s2">&quot;deb [arch=</span><span class="k">$(</span>dpkg --print-architecture<span class="k">)</span><span class="s2"> signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu </span><span class="k">$(</span><span class="nb">source</span> /etc/os-release <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="nv">$UBUNTU_CODENAME</span><span class="k">)</span><span class="s2"> main&quot;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/ros2.list &gt; /dev/null
-
-<span class="c1"># Update your apt repository caches after setting up the repositories.</span>
-sudo apt update
-
-<span class="c1"># Desktop Install</span>
-sudo apt install ros-galactic-desktop
-
-<span class="c1"># Environment setup</span>
-<span class="c1"># (Optional) You can source ros2 galactic in the ~/.bashrc file.</span>
-<span class="nb">echo</span> <span class="s1">&#39;source /opt/ros/galactic/setup.bash&#39;</span> &gt;&gt; ~/.bashrc
-</code></pre></div>
-<p>Install ROS2 Dev Tools:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Taken from https://docs.ros.org/en/galactic/Installation/Ubuntu-Development-Setup.html</span>
-sudo apt update <span class="o">&amp;&amp;</span> sudo apt install -y <span class="se">\</span>
-  build-essential <span class="se">\</span>
-  cmake <span class="se">\</span>
-  git <span class="se">\</span>
-  python3-colcon-common-extensions <span class="se">\</span>
-  python3-flake8 <span class="se">\</span>
-  python3-pip <span class="se">\</span>
-  python3-pytest-cov <span class="se">\</span>
-  python3-rosdep <span class="se">\</span>
-  python3-setuptools <span class="se">\</span>
-  python3-vcstool <span class="se">\</span>
-  wget
-
-<span class="c1"># Install some pip packages needed for testing</span>
-python3 -m pip install -U <span class="se">\</span>
-  flake8-blind-except <span class="se">\</span>
-  flake8-builtins <span class="se">\</span>
-  flake8-class-newline <span class="se">\</span>
-  flake8-comprehensions <span class="se">\</span>
-  flake8-deprecated <span class="se">\</span>
-  flake8-docstrings <span class="se">\</span>
-  flake8-import-order <span class="se">\</span>
-  flake8-quotes <span class="se">\</span>
-  pytest-repeat <span class="se">\</span>
-  pytest-rerunfailures <span class="se">\</span>
-  pytest <span class="se">\</span>
-  setuptools
-
-<span class="c1"># Initialize rosdep</span>
-sudo rosdep init
-rosdep update
-</code></pre></div>
-<p>Install the <code>rmw_cyclonedds_cpp</code> RMW Implementation:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># For details: https://docs.ros.org/en/galactic/How-To-Guides/Working-with-multiple-RMW-implementations.html</span>
-sudo apt update
-sudo apt install ros-galactic-rmw-cyclonedds-cpp
-
-<span class="c1"># (Optional) You set the default RMW implementation in the ~/.bashrc file.</span>
-<span class="nb">echo</span> <span class="s1">&#39;export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp&#39;</span> &gt;&gt; ~/.bashrc
-</code></pre></div>
-<p>Install pacmod:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Taken from https://github.com/astuff/pacmod3#installation</span>
-sudo apt install apt-transport-https
-sudo sh -c <span class="s1">&#39;echo &quot;deb [trusted=yes] https://s3.amazonaws.com/autonomoustuff-repo/ $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/autonomoustuff-public.list&#39;</span>
-sudo apt update
-sudo apt install ros-galactic-pacmod3
-</code></pre></div>
-<p>Install rest of the dependencies:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Install gdown to download files from CMakeLists.txt</span>
-pip3 install gdown
-
-sudo apt install geographiclib-tools
-
-<span class="c1"># Add EGM2008 geoid grid to geographiclib</span>
-sudo geographiclib-get-geoids egm2008-1
-
-pip3 install pre-commit clang-format
-
-<span class="c1"># Install Golang (Add Go PPA for shfmt)</span>
-sudo add-apt-repository ppa:longsleep/golang-backports
-sudo apt install golang
-</code></pre></div>
-<h4 id="install-nvidia-packages">Install Nvidia Packages<a class="headerlink" href="#install-nvidia-packages" title="Permanent link">#</a></h4>
-<p>Follow these instructions to download and install the CUDA Toolkit 11.4 and the corresponding NVIDIA Driver for Ubuntu 20.04.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Modified from:</span>
-<span class="c1"># https://developer.nvidia.com/cuda-11-4-4-download-archive?target_os=Linux&amp;target_arch=x86_64&amp;Distribution=Ubuntu&amp;target_version=20.04&amp;target_type=deb_network</span>
-wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
-sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600
-sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/7fa2af80.pub
-sudo add-apt-repository <span class="s2">&quot;deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/ /&quot;</span>
-sudo apt-get update
-sudo apt install cuda-11-4
-</code></pre></div>
-<p>Perform the post installation actions:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Taken from: https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#post-installation-actions</span>
-<span class="nb">echo</span> <span class="s1">&#39;export PATH=/usr/local/cuda-11.4/bin${PATH:+:${PATH}}&#39;</span> &gt;&gt; ~/.bashrc
-<span class="nb">echo</span> <span class="s1">&#39;export LD_LIBRARY_PATH=/usr/local/cuda-11.4/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}&#39;</span> &gt;&gt; ~/.bashrc
-</code></pre></div>
-<p>Install TensorRT and cuDNN:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Taken from: https://docs.nvidia.com/deeplearning/tensorrt/install-guide/index.html#installing</span>
-<span class="nv">version</span><span class="o">=</span><span class="s2">&quot;8.2.2-1+cuda11.4&quot;</span>
-sudo apt-get install <span class="nv">libnvinfer8</span><span class="o">=</span><span class="si">${</span><span class="nv">version</span><span class="si">}</span> <span class="nv">libnvonnxparsers8</span><span class="o">=</span><span class="si">${</span><span class="nv">version</span><span class="si">}</span> <span class="nv">libnvparsers8</span><span class="o">=</span><span class="si">${</span><span class="nv">version</span><span class="si">}</span> libnvinfer-plugin8<span class="o">=</span><span class="si">${</span><span class="nv">version</span><span class="si">}</span> libnvinfer-dev<span class="o">=</span><span class="si">${</span><span class="nv">version</span><span class="si">}</span> libnvonnxparsers-dev<span class="o">=</span><span class="si">${</span><span class="nv">version</span><span class="si">}</span> libnvparsers-dev<span class="o">=</span><span class="si">${</span><span class="nv">version</span><span class="si">}</span> libnvinfer-plugin-dev<span class="o">=</span><span class="si">${</span><span class="nv">version</span><span class="si">}</span> python3-libnvinfer<span class="o">=</span><span class="si">${</span><span class="nv">version</span><span class="si">}</span>
-sudo apt-mark hold libnvinfer8 libnvonnxparsers8 libnvparsers8 libnvinfer-plugin8 libnvinfer-dev libnvonnxparsers-dev libnvparsers-dev libnvinfer-plugin-dev python3-libnvinfer
-
-<span class="nv">version</span><span class="o">=</span><span class="s2">&quot;8.2.2.26-1+cuda11.4&quot;</span>
-sudo apt-get install <span class="nv">libcudnn8</span><span class="o">=</span><span class="si">${</span><span class="nv">version</span><span class="si">}</span> libcudnn8-dev<span class="o">=</span><span class="si">${</span><span class="nv">version</span><span class="si">}</span>
-sudo apt-mark hold libcudnn8 libcudnn8-dev
-</code></pre></div>
+<ul>
+<li><a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/ros2#manual-installation">Install ROS2</a></li>
+<li><a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/ros2_dev_tools#manual-installation">Install ROS2 Dev Tools</a></li>
+<li><a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/rmw_implementation#manual-installation">Install the RMW Implementation</a></li>
+<li><a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/pacmod#manual-installation">Install pacmod</a></li>
+<li><a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/autoware_core#manual-installation">Install Autoware Core dependencies</a></li>
+<li><a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/autoware_universe#manual-installation">Install Autoware Universe dependencies</a></li>
+<li><a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/pre_commit#manual-installation">Install pre-commit dependencies</a></li>
+<li><a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/cuda#manual-installation">Install Nvidia CUDA</a></li>
+<li><a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/tensorrt#manual-installation">Install Nvidia cuDNN and TensorRT</a></li>
+</ul>
 <h3 id="installing-dependencies-using-ansible">Installing dependencies using Ansible<a class="headerlink" href="#installing-dependencies-using-ansible" title="Permanent link">#</a></h3>
 <p>Be very careful with this method. Make sure you read and confirmed all the steps in the Ansible configuration before using it.</p>
 <p>If you've manually installed the dependencies, you can skip this section.</p>
