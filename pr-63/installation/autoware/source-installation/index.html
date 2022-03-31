@@ -2341,6 +2341,14 @@ sudo apt-get -y install git
 <p>You can install the dependencies either manually or using the provided Ansible script.</p>
 </li>
 </ol>
+<blockquote>
+<p>Note: Before installing NVIDIA libraries, confirm and agree with the licenses.</p>
+</blockquote>
+<ul>
+<li><a href="https://docs.nvidia.com/cuda/eula/index.html">CUDA</a></li>
+<li><a href="https://docs.nvidia.com/deeplearning/cudnn/sla/index.html">cuDNN</a></li>
+<li><a href="https://docs.nvidia.com/deeplearning/tensorrt/sla/index.html">TensorRT</a></li>
+</ul>
 <h3 id="installing-dependencies-manually">Installing dependencies manually<a class="headerlink" href="#installing-dependencies-manually" title="Permanent link">#</a></h3>
 <p>Install ROS2:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Taken from: https://docs.ros.org/en/galactic/Installation/Ubuntu-Install-Debians.html</span>
@@ -2467,14 +2475,6 @@ sudo apt-mark hold libcudnn8 libcudnn8-dev
 <h3 id="installing-dependencies-using-ansible">Installing dependencies using Ansible<a class="headerlink" href="#installing-dependencies-using-ansible" title="Permanent link">#</a></h3>
 <p>Be very careful with this method. Make sure you read and confirmed all the steps in the Ansible configuration before using it.</p>
 <p>If you've manually installed the dependencies, you can skip this section.</p>
-<blockquote>
-<p>Note: Before installing NVIDIA libraries, confirm and agree with the licenses.</p>
-</blockquote>
-<ul>
-<li><a href="https://docs.nvidia.com/cuda/eula/index.html">CUDA</a></li>
-<li><a href="https://docs.nvidia.com/deeplearning/cudnn/sla/index.html">cuDNN</a></li>
-<li><a href="https://docs.nvidia.com/deeplearning/tensorrt/sla/index.html">TensorRT</a></li>
-</ul>
 <div class="highlight"><pre><span></span><code>./setup-dev-env.sh
 </code></pre></div>
 <h2 id="how-to-set-up-a-workspace">How to set up a workspace<a class="headerlink" href="#how-to-set-up-a-workspace" title="Permanent link">#</a></h2>
