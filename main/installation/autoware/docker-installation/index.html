@@ -519,6 +519,26 @@
     How to set up a development environment
   </a>
   
+    <nav class="md-nav" aria-label="How to set up a development environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-dependencies-manually" class="md-nav__link">
+    Installing dependencies manually
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-dependencies-using-ansible" class="md-nav__link">
+    Installing dependencies using Ansible
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2257,6 +2277,26 @@
     How to set up a development environment
   </a>
   
+    <nav class="md-nav" aria-label="How to set up a development environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-dependencies-manually" class="md-nav__link">
+    Installing dependencies manually
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-dependencies-using-ansible" class="md-nav__link">
+    Installing dependencies using Ansible
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2348,21 +2388,18 @@
 </code></pre></div>
 </li>
 <li>
-<p>Install the dependencies.</p>
-<div class="highlight"><pre><span></span><code>./setup-dev-env.sh docker
-</code></pre></div>
+<p>You can install the dependencies either manually or using the provided Ansible script.</p>
 </li>
 </ol>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Be very careful with this method. Make sure you read and confirmed all the steps in the Ansible configuration before using it.</p>
-</div>
-<p>If you want to manually install the dependencies:</p>
+<h3 id="installing-dependencies-manually">Installing dependencies manually<a class="headerlink" href="#installing-dependencies-manually" title="Permanent link">#</a></h3>
 <ul>
-<li>See the roles in <a href="https://github.com/autowarefoundation/autoware/blob/main/ansible/playbooks/docker.yaml">docker.yaml</a>.</li>
-<li>Read the READMEs of each role under the <a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles">ansible/roles</a> directory.</li>
-<li>Install the listed dependencies following the linked resources.</li>
+<li><a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/docker#manual-installation">Install Docker and related tools</a></li>
 </ul>
+<h3 id="installing-dependencies-using-ansible">Installing dependencies using Ansible<a class="headerlink" href="#installing-dependencies-using-ansible" title="Permanent link">#</a></h3>
+<p>Be very careful with this method. Make sure you read and confirmed all the steps in the Ansible configuration before using it.</p>
+<p>If you've manually installed the dependencies, you can skip this section.</p>
+<div class="highlight"><pre><span></span><code>./setup-dev-env.sh docker
+</code></pre></div>
 <h2 id="how-to-set-up-a-workspace">How to set up a workspace<a class="headerlink" href="#how-to-set-up-a-workspace" title="Permanent link">#</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
