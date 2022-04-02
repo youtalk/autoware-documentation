@@ -533,6 +533,26 @@
     How to set up a development environment
   </a>
   
+    <nav class="md-nav" aria-label="How to set up a development environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-dependencies-manually" class="md-nav__link">
+    Installing dependencies manually
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-dependencies-using-ansible" class="md-nav__link">
+    Installing dependencies using Ansible
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2217,6 +2237,26 @@
     How to set up a development environment
   </a>
   
+    <nav class="md-nav" aria-label="How to set up a development environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-dependencies-manually" class="md-nav__link">
+    Installing dependencies manually
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-dependencies-using-ansible" class="md-nav__link">
+    Installing dependencies using Ansible
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2272,9 +2312,9 @@ sudo apt-get -y install git
 </code></pre></div>
 </li>
 <li>
-<p>Install the dependencies.</p>
-<p>We use <a href="https://www.ansible.com/">Ansible</a> to simplify the steps.
- Please see the Ansible playbooks and roles if you want to know exactly what packages are installed.</p>
+<p>You can install the dependencies either manually or using the provided Ansible script.</p>
+</li>
+</ol>
 <blockquote>
 <p>Note: Before installing NVIDIA libraries, confirm and agree with the licenses.</p>
 </blockquote>
@@ -2283,20 +2323,23 @@ sudo apt-get -y install git
 <li><a href="https://docs.nvidia.com/deeplearning/cudnn/sla/index.html">cuDNN</a></li>
 <li><a href="https://docs.nvidia.com/deeplearning/tensorrt/sla/index.html">TensorRT</a></li>
 </ul>
+<h3 id="installing-dependencies-manually">Installing dependencies manually<a class="headerlink" href="#installing-dependencies-manually" title="Permanent link">#</a></h3>
+<ul>
+<li><a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/ros2#manual-installation">Install ROS2</a></li>
+<li><a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/ros2_dev_tools#manual-installation">Install ROS2 Dev Tools</a></li>
+<li><a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/rmw_implementation#manual-installation">Install the RMW Implementation</a></li>
+<li><a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/pacmod#manual-installation">Install pacmod</a></li>
+<li><a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/autoware_core#manual-installation">Install Autoware Core dependencies</a></li>
+<li><a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/autoware_universe#manual-installation">Install Autoware Universe dependencies</a></li>
+<li><a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/pre_commit#manual-installation">Install pre-commit dependencies</a></li>
+<li><a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/cuda#manual-installation">Install Nvidia CUDA</a></li>
+<li><a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/tensorrt#manual-installation">Install Nvidia cuDNN and TensorRT</a></li>
+</ul>
+<h3 id="installing-dependencies-using-ansible">Installing dependencies using Ansible<a class="headerlink" href="#installing-dependencies-using-ansible" title="Permanent link">#</a></h3>
+<p>Be very careful with this method. Make sure you read and confirmed all the steps in the Ansible configuration before using it.</p>
+<p>If you've manually installed the dependencies, you can skip this section.</p>
 <div class="highlight"><pre><span></span><code>./setup-dev-env.sh
 </code></pre></div>
-</li>
-</ol>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Be very careful with this method. Make sure you read and confirmed all the steps in the Ansible configuration before using it.</p>
-</div>
-<p>If you want to manually install the dependencies:</p>
-<ul>
-<li>See the roles in <a href="https://github.com/autowarefoundation/autoware/blob/main/ansible/playbooks/universe.yaml">universe.yaml</a>.</li>
-<li>Read the READMEs of each role under the <a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles">ansible/roles</a> directory.</li>
-<li>Install the listed dependencies following the linked resources.</li>
-</ul>
 <h2 id="how-to-set-up-a-workspace">How to set up a workspace<a class="headerlink" href="#how-to-set-up-a-workspace" title="Permanent link">#</a></h2>
 <ol>
 <li>
