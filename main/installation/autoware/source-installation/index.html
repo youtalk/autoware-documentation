@@ -2369,9 +2369,10 @@ vcs import src &lt; autoware.repos
 <li>
 <p>Install dependent ROS packages.</p>
 <p>Autoware requires some ROS 2 packages in addition to the core components.
- The tool <code>rosdep</code> allows an automatic search and installation of such dependencies.</p>
+ The tool <code>rosdep</code> allows an automatic search and installation of such dependencies.
+ You might need to run <code>rosdep update</code> before <code>rosdep install</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/galactic/setup.bash
-rosdep install --from-paths src --ignore-src --rosdistro <span class="nv">$ROS_DISTRO</span>
+rosdep install -y --from-paths src --ignore-src --rosdistro <span class="nv">$ROS_DISTRO</span>
 </code></pre></div>
 </li>
 <li>
@@ -2411,7 +2412,7 @@ vcs pull
 <li>
 <p>Install dependent ROS packages.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/galactic/setup.bash
-rosdep install --from-paths src --ignore-src --rosdistro <span class="nv">$ROS_DISTRO</span>
+rosdep install -y --from-paths src --ignore-src --rosdistro <span class="nv">$ROS_DISTRO</span>
 </code></pre></div>
 </li>
 <li>
