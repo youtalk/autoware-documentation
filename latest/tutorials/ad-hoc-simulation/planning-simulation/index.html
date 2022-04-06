@@ -2328,7 +2328,8 @@ ros2 launch autoware_launch planning_simulator.launch.xml map_path:<span class="
 </li>
 <li>
 <p>Engage the ego vehicle.</p>
-<div class="highlight"><pre><span></span><code>ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage <span class="s2">&quot;engage: true&quot;</span> -1
+<div class="highlight"><pre><span></span><code><span class="nb">source</span> ~/autoware/install/setup.bash
+ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage <span class="s2">&quot;engage: true&quot;</span> -1
 </code></pre></div>
 <p><img alt="start-driving" src="../images/planning/lane-following/start-driving.png" /></p>
 </li>
