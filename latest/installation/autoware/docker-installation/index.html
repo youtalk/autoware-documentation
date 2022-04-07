@@ -2426,8 +2426,11 @@ By pulling and using the Autoware Universe images, you accept the terms and cond
 </div>
 <ol>
 <li>
-<p>Launch a Docker container</p>
+<p>Launch a Docker container.</p>
 <div class="highlight"><pre><span></span><code>rocker --nvidia --x11 --user --volume <span class="nv">$HOME</span>/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest
+</code></pre></div>
+<p>If you want to run container without using NVIDIA GPU:</p>
+<div class="highlight"><pre><span></span><code>rocker -e <span class="nv">LIBGL_ALWAYS_SOFTWARE</span><span class="o">=</span><span class="m">1</span> --x11 --user --volume <span class="nv">$HOME</span>/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest
 </code></pre></div>
 <p>See <a href="https://github.com/autowarefoundation/autoware/tree/main/docker/README.md">here</a> for more advanced usage.</p>
 <p>After that, move to the workspace in the container:</p>
@@ -2451,7 +2454,14 @@ vcs import src &lt; autoware.repos
 <li>
 <p>Update the Docker image.</p>
 <div class="highlight"><pre><span></span><code>docker pull ghcr.io/autowarefoundation/autoware-universe:latest
-rocker --nvidia --x11 --user --volume <span class="nv">$HOME</span>/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest
+</code></pre></div>
+</li>
+<li>
+<p>Launch the Docker container.</p>
+<div class="highlight"><pre><span></span><code>rocker --nvidia --x11 --user --volume <span class="nv">$HOME</span>/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest
+</code></pre></div>
+<p>If you want to run container without using NVIDIA GPU:</p>
+<div class="highlight"><pre><span></span><code>rocker -e <span class="nv">LIBGL_ALWAYS_SOFTWARE</span><span class="o">=</span><span class="m">1</span> --x11 --user --volume <span class="nv">$HOME</span>/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest
 </code></pre></div>
 </li>
 <li>
