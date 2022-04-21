@@ -1293,15 +1293,49 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#length" class="md-nav__link">
-    length
+  <a href="#vehicle_length" class="md-nav__link">
+    vehicle_length
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#width" class="md-nav__link">
-    width
+  <a href="#vehicle_width" class="md-nav__link">
+    vehicle_width
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wheel-parameters" class="md-nav__link">
+    Wheel parameters
+  </a>
+  
+    <nav class="md-nav" aria-label="Wheel parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wheel_width" class="md-nav__link">
+    wheel_width
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wheel_radius" class="md-nav__link">
+    wheel_radius
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polygon_footprint" class="md-nav__link">
+    polygon_footprint
   </a>
   
 </li>
@@ -2385,15 +2419,49 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#length" class="md-nav__link">
-    length
+  <a href="#vehicle_length" class="md-nav__link">
+    vehicle_length
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#width" class="md-nav__link">
-    width
+  <a href="#vehicle_width" class="md-nav__link">
+    vehicle_width
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wheel-parameters" class="md-nav__link">
+    Wheel parameters
+  </a>
+  
+    <nav class="md-nav" aria-label="Wheel parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wheel_width" class="md-nav__link">
+    wheel_width
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wheel_radius" class="md-nav__link">
+    wheel_radius
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polygon_footprint" class="md-nav__link">
+    polygon_footprint
   </a>
   
 </li>
@@ -2462,12 +2530,22 @@
 <p>The distance between front axle and the foremost point of the vehicle.</p>
 <h4 id="rear_overhang">rear_overhang<a class="headerlink" href="#rear_overhang" title="Permanent link">#</a></h4>
 <p>The distance between rear axle and the rear-most point of the vehicle.</p>
-<h3 id="length">length<a class="headerlink" href="#length" title="Permanent link">#</a></h3>
+<h3 id="vehicle_length">vehicle_length<a class="headerlink" href="#vehicle_length" title="Permanent link">#</a></h3>
 <p>Total length of the vehicle.</p>
 <p>Also calculated by <code>front_overhang + wheelbase + rear_overhang</code></p>
-<h3 id="width">width<a class="headerlink" href="#width" title="Permanent link">#</a></h3>
+<h3 id="vehicle_width">vehicle_width<a class="headerlink" href="#vehicle_width" title="Permanent link">#</a></h3>
 <p>Total width of the vehicle.</p>
 <p>Also calculated by <code>left_overhang + track_width + right_overhang</code></p>
+<h3 id="wheel-parameters">Wheel parameters<a class="headerlink" href="#wheel-parameters" title="Permanent link">#</a></h3>
+<p><img alt="Wheel Dimensions" src="../images/wheels.svg" style="width:250px" /></p>
+<h4 id="wheel_width">wheel_width<a class="headerlink" href="#wheel_width" title="Permanent link">#</a></h4>
+<p>Lateral width of a wheel tire, primarily used for dead reckoning.</p>
+<h4 id="wheel_radius">wheel_radius<a class="headerlink" href="#wheel_radius" title="Permanent link">#</a></h4>
+<p>Radius of the wheel, primarily used for dead reckoning.</p>
+<h3 id="polygon_footprint">polygon_footprint<a class="headerlink" href="#polygon_footprint" title="Permanent link">#</a></h3>
+<p><img alt="Wheel Dimensions" src="../images/polygon_footprint.svg" style="width:750px" /></p>
+<p>The polygon defines the minimum collision area for the vehicle.</p>
+<p>The points should be ordered clockwise, with origin on the <code>base_link</code>.</p>
 <h2 id="wheel-orientations">Wheel orientations<a class="headerlink" href="#wheel-orientations" title="Permanent link">#</a></h2>
 <p>If the vehicle is going forward, a positive wheel angle will result in vehicle turning left.</p>
 <p>Autoware assumes the rear wheels don't turn on <code>z</code> axis.</p>
