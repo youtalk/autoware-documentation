@@ -221,26 +221,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-94/help/</loc>
-         <lastmod>2022-05-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-94/help/docs-guide/</loc>
-         <lastmod>2022-05-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-94/help/support-guidelines/</loc>
-         <lastmod>2022-05-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-94/help/troubleshooting/</loc>
-         <lastmod>2022-05-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-94/how-to-guides/</loc>
          <lastmod>2022-05-09</lastmod>
          <changefreq>daily</changefreq>
@@ -277,6 +257,26 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-94/installation/tools-for-users/</loc>
+         <lastmod>2022-05-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-94/support/</loc>
+         <lastmod>2022-05-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-94/support/docs-guide/</loc>
+         <lastmod>2022-05-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-94/support/support-guidelines/</loc>
+         <lastmod>2022-05-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-94/support/troubleshooting/</loc>
          <lastmod>2022-05-09</lastmod>
          <changefreq>daily</changefreq>
     </url>

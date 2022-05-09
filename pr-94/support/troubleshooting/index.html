@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-94/help/support-guidelines/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-94/support/troubleshooting/">
       
       <link rel="icon" href="../../assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.14">
     
     
       
-        <title>Support guidelines - Autoware Documentation</title>
+        <title>Troubleshooting - Autoware Documentation</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#support-guidelines" class="md-skip">
+        <a href="#troubleshooting" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Support guidelines
+              Troubleshooting
             
           </span>
         </div>
@@ -299,7 +299,7 @@
   
     <li class="md-tabs__item">
       <a href="../" class="md-tabs__link md-tabs__link--active">
-        Help
+        Support
       </a>
     </li>
   
@@ -2082,7 +2082,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../">Help</a>
+          <a href="../">Support</a>
           
             <label for="__nav_7">
               <span class="md-nav__icon md-icon"></span>
@@ -2090,13 +2090,27 @@
           
         </div>
       
-      <nav class="md-nav" aria-label="Help" data-md-level="1">
+      <nav class="md-nav" aria-label="Support" data-md-level="1">
         <label class="md-nav__title" for="__nav_7">
           <span class="md-nav__icon md-icon"></span>
-          Help
+          Support
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../support-guidelines/" class="md-nav__link">
+        Support guidelines
+      </a>
+    </li>
+  
+
             
           
             
@@ -2115,12 +2129,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Support guidelines
+          Troubleshooting
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Support guidelines
+        Troubleshooting
       </a>
       
         
@@ -2139,37 +2153,49 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#documentation-sites" class="md-nav__link">
-    Documentation sites
+  <a href="#how-to-resolve-errors-of-the-setup-script" class="md-nav__link">
+    How to resolve errors of the setup script?
   </a>
+  
+    <nav class="md-nav" aria-label="How to resolve errors of the setup script?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cuda-related-errors" class="md-nav__link">
+    CUDA-related errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#github-discussions" class="md-nav__link">
-    GitHub Discussions
+  <a href="#how-to-resolve-build-errors" class="md-nav__link">
+    How to resolve build errors?
+  </a>
+  
+    <nav class="md-nav" aria-label="How to resolve build errors?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#in-case-you-use-the-latest-version" class="md-nav__link">
+    In case you use the latest version
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#github-issues" class="md-nav__link">
-    GitHub Issues
+        
+          <li class="md-nav__item">
+  <a href="#in-case-you-use-a-fixed-version" class="md-nav__link">
+    In case you use a fixed version
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#discord" class="md-nav__link">
-    Discord
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ros-discourse" class="md-nav__link">
-    ROS Discourse
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2177,20 +2203,6 @@
   
 </nav>
       
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../troubleshooting/" class="md-nav__link">
-        Troubleshooting
-      </a>
     </li>
   
 
@@ -2243,37 +2255,49 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#documentation-sites" class="md-nav__link">
-    Documentation sites
+  <a href="#how-to-resolve-errors-of-the-setup-script" class="md-nav__link">
+    How to resolve errors of the setup script?
   </a>
+  
+    <nav class="md-nav" aria-label="How to resolve errors of the setup script?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cuda-related-errors" class="md-nav__link">
+    CUDA-related errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#github-discussions" class="md-nav__link">
-    GitHub Discussions
+  <a href="#how-to-resolve-build-errors" class="md-nav__link">
+    How to resolve build errors?
+  </a>
+  
+    <nav class="md-nav" aria-label="How to resolve build errors?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#in-case-you-use-the-latest-version" class="md-nav__link">
+    In case you use the latest version
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#github-issues" class="md-nav__link">
-    GitHub Issues
+        
+          <li class="md-nav__item">
+  <a href="#in-case-you-use-a-fixed-version" class="md-nav__link">
+    In case you use a fixed version
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#discord" class="md-nav__link">
-    Discord
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ros-discourse" class="md-nav__link">
-    ROS Discourse
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2289,94 +2313,114 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/autowarefoundation/autoware-documentation/edit/main/docs/help/support-guidelines.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/autowarefoundation/autoware-documentation/edit/main/docs/support/troubleshooting.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="support-guidelines">Support guidelines<a class="headerlink" href="#support-guidelines" title="Permanent link">#</a></h1>
-<p>This page explains the support mechanisms we provide.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Before asking for help, search and read this documentation site carefully.
-Also, follow the <a href="../../contributing/discussion-guidelines/">discussion guidelines</a> for discussions.</p>
-</div>
-<p>Choose appropriate resources depending on what kind of help you need and read the detailed description in the sections below.</p>
-<ul>
-<li><a href="#documentation-sites">Documentation sites</a><ul>
-<li>Various information</li>
-</ul>
-</li>
-<li><a href="#github-discussions">GitHub Discussions</a><ul>
-<li>Questions</li>
-<li>Unconfirmed bugs</li>
-<li>Feature requests</li>
-<li>Design discussions</li>
-</ul>
-</li>
-<li><a href="#github-issues">GitHub Issues</a><ul>
-<li>Confirmed bugs</li>
-</ul>
-</li>
-<li><a href="#discord">Discord</a><ul>
-<li>Instant messaging between contributors</li>
-</ul>
-</li>
-<li><a href="#ros-discourse">ROS Discourse</a><ul>
-<li>General topics that should be widely announced</li>
-</ul>
-</li>
-</ul>
-<h2 id="documentation-sites">Documentation sites<a class="headerlink" href="#documentation-sites" title="Permanent link">#</a></h2>
-<p><a href="../docs-guide/">Docs guide</a> shows the list of useful documentation sites.
-Visit them and see if there is any information related to your problem.</p>
-<p>Note that the documentation sites aren't always up-to-date and perfect.
-If you find out that some information is wrong, unclear, or missing in Autoware docs, feel free to submit a pull request following our <a href="../../contributing/">contribution guidelines</a>.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Since this documentation site is still under construction, there are some empty pages.</p>
-</div>
-<h2 id="github-discussions">GitHub Discussions<a class="headerlink" href="#github-discussions" title="Permanent link">#</a></h2>
-<p>If you encounter a problem with Autoware, check existing issues and questions and search for similar issues first.</p>
+<h1 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">#</a></h1>
+<h2 id="how-to-resolve-errors-of-the-setup-script">How to resolve errors of the setup script?<a class="headerlink" href="#how-to-resolve-errors-of-the-setup-script" title="Permanent link">#</a></h2>
+<h3 id="cuda-related-errors">CUDA-related errors<a class="headerlink" href="#cuda-related-errors" title="Permanent link">#</a></h3>
+<p>When installing CUDA, it may cause errors because of version conflicts.
+To resolve this, try either one of the following methods:</p>
 <ul>
 <li>
-<p><a href="https://github.com/autowarefoundation/autoware/issues">Issues</a></p>
-<p>Note that Autoware has multiple repositories listed in <a href="https://github.com/autowarefoundation/autoware/blob/main/autoware.repos">autoware.repos</a>.<br />
-It is recommended to search across the repositories.</p>
+<p>Unhold all CUDA-related libraries and rerun the setup script.</p>
+<div class="highlight"><pre><span></span><code>sudo apt-mark unhold  <span class="se">\</span>
+  <span class="s2">&quot;cuda*&quot;</span>             <span class="se">\</span>
+  <span class="s2">&quot;libcudnn*&quot;</span>         <span class="se">\</span>
+  <span class="s2">&quot;libnvinfer*&quot;</span>       <span class="se">\</span>
+  <span class="s2">&quot;libnvonnxparsers*&quot;</span> <span class="se">\</span>
+  <span class="s2">&quot;libnvparsers*&quot;</span>     <span class="se">\</span>
+  <span class="s2">&quot;nvidia*&quot;</span>
+
+./setup-dev-env.sh
+</code></pre></div>
 </li>
 </ul>
 <ul>
-<li><a href="https://github.com/autowarefoundation/autoware/discussions/categories/q-a">Questions</a></li>
+<li>
+<p>Uninstall all CUDA-related libraries and rerun the setup script.</p>
+<div class="highlight"><pre><span></span><code>sudo apt purge        <span class="se">\</span>
+  <span class="s2">&quot;cuda*&quot;</span>             <span class="se">\</span>
+  <span class="s2">&quot;libcudnn*&quot;</span>         <span class="se">\</span>
+  <span class="s2">&quot;libnvinfer*&quot;</span>       <span class="se">\</span>
+  <span class="s2">&quot;libnvonnxparsers*&quot;</span> <span class="se">\</span>
+  <span class="s2">&quot;libnvparsers*&quot;</span>     <span class="se">\</span>
+  <span class="s2">&quot;nvidia*&quot;</span>
+
+sudo apt autoremove
+
+./setup-dev-env.sh
+</code></pre></div>
+</li>
 </ul>
-<p>If no answer was found, create a new question thread <a href="https://github.com/autowarefoundation/autoware/discussions/categories/q-a">here</a>.
-If your question is not answered within a week, then @mention the maintainers to remind them.</p>
-<p>Also, there are other discussion types such as <a href="https://github.com/autowarefoundation/autoware/discussions/categories/feature-requests">feature requests</a> or <a href="https://github.com/autowarefoundation/autoware/discussions/categories/design">design discussions</a>.
-Feel free to open or join such discussions.</p>
-<h2 id="github-issues">GitHub Issues<a class="headerlink" href="#github-issues" title="Permanent link">#</a></h2>
-<p>If you have a problem and you have confirmed it is a bug, find the appropriate repository and create a new issue there.
-If you can't determine the appropriate repository, ask the maintainers for help by creating a new discussion in the <a href="https://github.com/autowarefoundation/autoware/discussions/categories/q-a">Q&amp;A category</a>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Do not create issues for questions or unconfirmed bugs. If such issues are created, maintainers will transfer them to GitHub Discussions.</p>
+<p>Note that this may break your system and run carefully.</p>
 </div>
-<p>If you want to fix the bug by yourself, discuss the approach with maintainers and submit a pull request.</p>
-<h2 id="discord">Discord<a class="headerlink" href="#discord" title="Permanent link">#</a></h2>
-<p><a href="https://discord.gg/Q94UsPvReQ"><img alt="Discord" src="https://img.shields.io/discord/953808765935816715?label=Join%20Autoware%20Discord&amp;style=for-the-badge" /></a></p>
-<p>Autoware has a Discord server for casual communication between contributors.</p>
-<p>The Autoware Discord server is a good place for the following activities:</p>
 <ul>
-<li>Introduce yourself to the community.</li>
-<li>Chat with contributors.</li>
-<li>Take a quick straw poll.</li>
+<li>
+<p>Run the setup script without installing CUDA-related libraries.</p>
+<div class="highlight"><pre><span></span><code>./setup-dev-env.sh --no-nvidia
+</code></pre></div>
+</li>
 </ul>
-<p>Note that it is not the right place to get help for your issues.</p>
-<h2 id="ros-discourse">ROS Discourse<a class="headerlink" href="#ros-discourse" title="Permanent link">#</a></h2>
-<p>If you want to widely discuss a topic with the general Autoware and ROS community or ask a question not related to Autoware's bugs, post to <a href="https://discourse.ros.org/c/autoware">the Autoware category on ROS Discourse</a>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Do not post questions about bugs to ROS Discourse!</p>
+<p>Note that some components in <code>autoware.universe</code> don't work without CUDA.</p>
+<p>Also, although Autoware could work with different versions of CUDA libraries as well,
+remember it is not officially supported and may sometimes be broken.</p>
 </div>
+<h2 id="how-to-resolve-build-errors">How to resolve build errors?<a class="headerlink" href="#how-to-resolve-build-errors" title="Permanent link">#</a></h2>
+<p>When you get build errors, follow the instruction below depending on the version you use.</p>
+<h3 id="in-case-you-use-the-latest-version">In case you use the latest version<a class="headerlink" href="#in-case-you-use-the-latest-version" title="Permanent link">#</a></h3>
+<p>Note that the software may sometimes be broken if you follow the latest version.
+Most issues are due to out-of-date software or old build files.</p>
+<p>To resolve the problem, try cleaning your build artifacts and rebuilding first:</p>
+<div class="highlight"><pre><span></span><code>rm -rf build/ install/ log/
+colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE<span class="o">=</span>Release
+</code></pre></div>
+<p>If the error is not resolved, remove <code>src/</code> and update the workspace depending on your installation type:</p>
+<ul>
+<li><a href="../../installation/autoware/docker-installation/#how-to-update-a-workspace">Docker</a></li>
+<li><a href="../../installation/autoware/source-installation/#how-to-update-a-workspace">Source</a></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Before removing <code>src/</code>, confirm that there are no necessary modifications left in your local environment.</p>
+</div>
+<p>If the error still persists, delete the entire workspace and restart from cloning the repository.</p>
+<div class="highlight"><pre><span></span><code>rm -rf autoware/
+git clone https://github.com/autowarefoundation/autoware.git
+</code></pre></div>
+<h3 id="in-case-you-use-a-fixed-version">In case you use a fixed version<a class="headerlink" href="#in-case-you-use-a-fixed-version" title="Permanent link">#</a></h3>
+<p>It is unusual that an error occurs when you use a fixed version.</p>
+<p>Possible causes are:</p>
+<ul>
+<li>ROS 2 has been updated with breaking changes.<ul>
+<li>Check out <a href="https://discourse.ros.org/c/release/16">Packaging and Release Management</a> tag on ROS Discourse to confirm that.</li>
+</ul>
+</li>
+<li>Your local environment is broken.<ul>
+<li>Confirm your <code>.bashrc</code> file, environment variables, and library versions.</li>
+</ul>
+</li>
+</ul>
+<p>Also, there are two common cases that you misunderstand you use a fixed version.</p>
+<ol>
+<li>
+<p>You used a fixed version only for <code>autowarefoundation/autoware</code>.
+   If you specify a hash of <code>autowarefoundation/autoware</code>, it doesn't mean the version of the entire workspace is fixed.
+   You have to fix the versions in the <code>.repos</code> file to use a completely fixed version.</p>
+</li>
+<li>
+<p>You didn't update the workspace after you changed the branch of <code>autowarefoundation/autoware</code>.
+   If you change the branch of <code>autowarefoundation/autoware</code>, it doesn't affect the files under <code>src/</code>.
+   You have to run the <code>vcs import</code> command to update them.</p>
+</li>
+</ol>
 
               
             </article>
@@ -2395,7 +2439,7 @@ If you can't determine the appropriate repository, ask the maintainers for help 
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Help" rel="prev">
+        <a href="../support-guidelines/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Support guidelines" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -2404,20 +2448,20 @@ If you can't determine the appropriate repository, ask the maintainers for help 
               <span class="md-footer__direction">
                 Previous
               </span>
-              Help
+              Support guidelines
             </div>
           </div>
         </a>
       
       
         
-        <a href="../troubleshooting/" class="md-footer__link md-footer__link--next" aria-label="Next: Troubleshooting" rel="next">
+        <a href="../docs-guide/" class="md-footer__link md-footer__link--next" aria-label="Next: Docs guide" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Troubleshooting
+              Docs guide
             </div>
           </div>
           <div class="md-footer__button md-icon">
