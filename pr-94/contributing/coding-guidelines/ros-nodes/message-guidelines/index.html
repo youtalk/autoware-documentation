@@ -1798,6 +1798,19 @@
     Message field types
   </a>
   
+    <nav class="md-nav" aria-label="Message field types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arrays" class="md-nav__link">
+    Arrays
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2286,6 +2299,19 @@
     Message field types
   </a>
   
+    <nav class="md-nav" aria-label="Message field types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arrays" class="md-nav__link">
+    Arrays
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2451,7 +2477,9 @@
 </tr>
 </tbody>
 </table>
+<div class="admonition tip">
 <p>If a unit that you'd like to use doesn't exist here, <a href="https://github.com/autowarefoundation/autoware-documentation/issues">create an issue/PR</a> to add it to this list.</p>
+</div>
 <h2 id="message-field-types">Message field types<a class="headerlink" href="#message-field-types" title="Permanent link">#</a></h2>
 <p>For list of types supported by the ROS interfaces <a href="https://docs.ros.org/en/galactic/Concepts/About-ROS-Interfaces.html#field-types">see here</a>.</p>
 <p>Also copied here for convenience:</p>
@@ -2525,6 +2553,11 @@
 </tr>
 </tbody>
 </table>
+<h3 id="arrays">Arrays<a class="headerlink" href="#arrays" title="Permanent link">#</a></h3>
+<p>For arrays, use <code>unbounded dynamic array</code> type.</p>
+<p>Example: 
+<div class="highlight"><pre><span></span><code>int32[] unbounded_integer_array
+</code></pre></div></p>
 <h2 id="enumerations">Enumerations<a class="headerlink" href="#enumerations" title="Permanent link">#</a></h2>
 <p>ROS2 interfaces don't support enumerations directly.</p>
 <p>It is possible to define integers constants and assign them to a non-constant integer parameter.</p>
