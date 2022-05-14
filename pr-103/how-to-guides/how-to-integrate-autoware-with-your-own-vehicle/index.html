@@ -1106,8 +1106,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-tune-parameters-on-your-own-vehicle-environment" class="md-nav__link">
-    7. Tune parameters on your own vehicle &amp; environment
+  <a href="#7-tune-parameters-for-your-own-vehicle-environment" class="md-nav__link">
+    7. Tune parameters for your own vehicle &amp; environment
   </a>
   
 </li>
@@ -2557,8 +2557,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-tune-parameters-on-your-own-vehicle-environment" class="md-nav__link">
-    7. Tune parameters on your own vehicle &amp; environment
+  <a href="#7-tune-parameters-for-your-own-vehicle-environment" class="md-nav__link">
+    7. Tune parameters for your own vehicle &amp; environment
   </a>
   
 </li>
@@ -2585,9 +2585,9 @@
 <h2 id="1-prepare-your-real-vehicle-hardware">1. Prepare your real vehicle hardware<a class="headerlink" href="#1-prepare-your-real-vehicle-hardware" title="Permanent link">#</a></h2>
 <p>Prerequisites for the vehicle:</p>
 <ul>
-<li>supported vehicle type: car-like or diff-drive vehicle</li>
-<li>Ubuntu20.04 installed</li>
-<li>attached with the following devices:<ul>
+<li>car-like or diff-drive vehicle</li>
+<li>onboard computer that satisfies the prerequisites (see <a href="https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/source-installation/#prerequisites">here</a>)</li>
+<li>the following devices attached<ul>
 <li>actuator</li>
 <li>lidar</li>
 <li>imu (optional)</li>
@@ -2595,19 +2595,11 @@
 <li>gnss (optional)</li>
 </ul>
 </li>
-<li>NVidia GPU (optional)
-  TODO: CUDA に関する記述</li>
-</ul>
-<p>software interface for:</p>
-<ul>
-<li>the actuator, like serial, CAN, etc. for driving the vehicle</li>
-<li>the LiDAR, for getting the pointcloud data
-  -for the above-mentioned devices</li>
 </ul>
 <h2 id="2-create-maps">2. Create maps<a class="headerlink" href="#2-create-maps" title="Permanent link">#</a></h2>
-<p>You also need both pointcloud and vector map to take full advantage of Autoware. Since SLAM algorithm is not implemented in the current Autoware, you may need to use 3rd party tools for this step.</p>
+<p>You need both a pointcloud and a vector map to take full advantage of Autoware. Since SLAM (Simultaneous Localization and Mapping) algorithm is not implemented in the current Autoware, you may need to use 3rd party tools for this step.</p>
 <h3 id="create-pointcloud-map">Create pointcloud map<a class="headerlink" href="#create-pointcloud-map" title="Permanent link">#</a></h3>
-<p>Use 3rd party tools such as LiDAR-based SLAM (Simultaneous Localization and Mapping) package to create pointcloud map. Autoware supports .pcd format for the map.</p>
+<p>Use 3rd party tools such as LiDAR-based SLAM package to create pointcloud map. Autoware supports .pcd format for this map.</p>
 <h3 id="create-vector-map">Create vector map<a class="headerlink" href="#create-vector-map" title="Permanent link">#</a></h3>
 <p>Autoware supports lanelet2 format for a vector map. Use 3rd party tools or <a href="https://tools.tier4.jp/">Vector Map Builder</a> and get .osm file.</p>
 <h2 id="3-create-your-meta-repository">3. Create your meta-repository<a class="headerlink" href="#3-create-your-meta-repository" title="Permanent link">#</a></h2>
@@ -2616,7 +2608,8 @@
 <div class="highlight"><pre><span></span><code>git clone git@github.com:YOUR_NAME/autoware.YOURS.git
 </code></pre></div>
 <h2 id="4-create-the-description-packages-of-your-own-vehicle">4. Create the description packages of your own vehicle<a class="headerlink" href="#4-create-the-description-packages-of-your-own-vehicle" title="Permanent link">#</a></h2>
-<p>Next, you need to create description packages that define the vehicle and sensor configuration of your robot. Once you’re done, you can launch your own robot model by specifying vehicle_model:=YOUR_VEHICLE sensor_model:=SAMPLE_SENSOR_KIT in the autoware launchers.</p>
+<p>Next, you need to create description packages that define the vehicle and sensor configuration of your robot.
+Once you’re done, you can launch your own robot model by specifying vehicle_model:=YOUR_VEHICLE sensor_model:=SAMPLE_SENSOR_KIT in the autoware launchers.</p>
 <p>Create the following two packages:</p>
 <ul>
 <li>YOUR_VEHICLE_launch (see <a href="https://github.com/autowarefoundation/sample_vehicle_launch">here</a> for example)</li>
@@ -2638,13 +2631,12 @@
 <h4 id="at-your_sensor_kit_launch">At YOUR_SENSOR_KIT_launch<a class="headerlink" href="#at-your_sensor_kit_launch" title="Permanent link">#</a></h4>
 <p>Create <code>launch/sensing.launch.xml</code> that launches all the sensors on the vehicle [file name matters]. Refer to for example.</p>
 <p>At this point, you are now able to run planning_simulator.
-If you want to try, you may install Autoware (follow <a href="https://autowarefoundation.github.io/autoware-documentation/pr-86/installation/autoware/">here</a>) and run the following command:</p>
+If you want to try, you may install Autoware (follow <a href="https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/">here</a>) and run the following command:</p>
 <div class="highlight"><pre><span></span><code>ros2 launch autoware_launch planning_simulator.launch.xml vehicle_model:<span class="o">=</span>YOUR_VEHICLE sensor_kit:<span class="o">=</span>YOUR_SENSOR_KIT map_path:<span class="o">=</span>/PATH/TO/YOUR/MAP
 </code></pre></div>
-<p>TODO: Put pic here</p>
 <h2 id="5-create-a-vehicle_interface-package">5. Create a vehicle_interface package<a class="headerlink" href="#5-create-a-vehicle_interface-package" title="Permanent link">#</a></h2>
-<p>You need to create an interface package for your robot.</p>
-<p>The package is expected to provide the following two functions.</p>
+<p>You need to create an interface package for your robot.
+The package is expected to provide the following two functions.</p>
 <ol>
 <li>
 <p>Receive command messages from vehicle_cmd_gate and drive the robot accordingly</p>
@@ -2653,8 +2645,10 @@ If you want to try, you may install Autoware (follow <a href="https://autowarefo
 <p>Send vehicle status information of the vehicle to autoware</p>
 </li>
 </ol>
-<p>You may refer to <a href="https://github.com/tier4/pacmod_interface">pacmod_interface</a> as an example.</p>
+<p>You can find the detailed information about the requirements of vehicle_interface <a href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-interface/">here</a>.
+You can also refer to <a href="https://github.com/tier4/pacmod_interface">pacmod_interface</a> as an example.</p>
 <h2 id="6-launch-autoware">6. Launch Autoware<a class="headerlink" href="#6-launch-autoware" title="Permanent link">#</a></h2>
+<p>This section briefly explains how to run your vehicle with Autoware.</p>
 <h3 id="install-autoware">Install Autoware<a class="headerlink" href="#install-autoware" title="Permanent link">#</a></h3>
 <p>Follow the step <a href="https://autowarefoundation.github.io/autoware-documentation/pr-86/installation/autoware/">here</a>.</p>
 <div class="highlight"><pre><span></span><code>./setup-dev-env.sh
@@ -2670,19 +2664,24 @@ colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE<span class="o">=<
 </code></pre></div>
 <h3 id="set-initial-pose">Set initial pose<a class="headerlink" href="#set-initial-pose" title="Permanent link">#</a></h3>
 <p>If GNSS is available, it should automatically initialize its pose.
-If not, you can also set initial pose using GUI on RViz. Click “2D initial pose“ from the top bar, and set the arrow that indicates the robot’s initial pose on your map (x, y, and yaw).</p>
+If not, you can also set initial pose using GUI on RViz.
+1. Click the 2D Pose estimate button in the toolbar, or hit the P key
+2. In the 3D View pane, click and hold the left-mouse button, and then drag to set the direction for the initial pose.</p>
 <h3 id="set-goal-pose">Set goal pose<a class="headerlink" href="#set-goal-pose" title="Permanent link">#</a></h3>
-<p>One of the methods would be to use GUI to set the goal pose.</p>
+<p>Set a goal pose for the ego vehicle.
+1. Click the 2D Nav Goal button in the toolbar, or hit the G key
+2. In the 3D View pane, click and hold the left-mouse button, and then drag to set the direction for the goal pose.
+If successful, you will see the calculated planning path on RViz.</p>
 <h3 id="engage">Engage<a class="headerlink" href="#engage" title="Permanent link">#</a></h3>
 <p>In your terminal, execute the following command.</p>
-<div class="highlight"><pre><span></span><code>ros2 topic pub /autoware/engage 型忘れた <span class="s2">&quot;engage: true&quot;</span> -1
+<div class="highlight"><pre><span></span><code><span class="nb">source</span> ~/autoware/install/setup.bash
+ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage <span class="s2">&quot;engage: true&quot;</span> -1
 </code></pre></div>
-<p>You can also use an autoware state panel by adding… TODO：やり方を書く</p>
+<p>You can also engage via RViz with "AutowareStatePanel". 
+The panel can be found in Panels &gt; Add New Panel &gt; tier4_state_rviz_plugin &gt; AutowareStatePanel.</p>
 <p>Now the vehicle should drive the calculated path!</p>
-<h2 id="7-tune-parameters-on-your-own-vehicle-environment">7. Tune parameters on your own vehicle &amp; environment<a class="headerlink" href="#7-tune-parameters-on-your-own-vehicle-environment" title="Permanent link">#</a></h2>
-<p>You may need to tune your parameters depending on the domain in which you will operate your robot</p>
-<p>Customize parameter files in tier4_*_launch</p>
-<p>僕たちの例とかいいかも．obstacle_stop_planner の例とか，</p>
+<h2 id="7-tune-parameters-for-your-own-vehicle-environment">7. Tune parameters for your own vehicle &amp; environment<a class="headerlink" href="#7-tune-parameters-for-your-own-vehicle-environment" title="Permanent link">#</a></h2>
+<p>You may need to tune your parameters depending on the domain in which you will operate your robot.</p>
 <p>If you have any issues or questions, feel free to ask in Autoware Foundation Discussion!</p>
 
               
