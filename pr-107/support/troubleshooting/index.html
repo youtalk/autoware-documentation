@@ -2188,13 +2188,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#errors-when-using-the-latest-version-of-autoware" class="md-nav__link">
-    Errors when using the latest version of Autoware
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#errors-when-using-a-fixed-version-of-autoware" class="md-nav__link">
     Errors when using a fixed version of Autoware
   </a>
@@ -2324,13 +2317,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#errors-when-using-the-latest-version-of-autoware" class="md-nav__link">
-    Errors when using the latest version of Autoware
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#errors-when-using-a-fixed-version-of-autoware" class="md-nav__link">
     Errors when using a fixed version of Autoware
   </a>
@@ -2442,11 +2428,31 @@ remember it is not officially supported and may sometimes be broken.</p>
 </div>
 <h2 id="build-errors">Build errors<a class="headerlink" href="#build-errors" title="Permanent link">#</a></h2>
 <h3 id="insufficient-memory">Insufficient memory<a class="headerlink" href="#insufficient-memory" title="Permanent link">#</a></h3>
-<p>Building Autoware requires a lot of memory, and your machine can freeze or crash if memory runs out during a build. To avoid this problem, 16-32GB of swap should be configured. For details on how to configure a swap file, refer to <a href="https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-20-04">this Digital Ocean guide</a>.</p>
-<h3 id="errors-when-using-the-latest-version-of-autoware">Errors when using the latest version of Autoware<a class="headerlink" href="#errors-when-using-the-latest-version-of-autoware" title="Permanent link">#</a></h3>
-<p>If you are working with the latest version of Autoware, issues can occur due to out-of-date software or old build files.</p>
-<p>To resolve these types of problems, first try cleaning your build artifacts and rebuilding:</p>
-<div class="highlight"><pre><span></span><code>rm -rf build/ install/ log/
+<p>Building Autoware requires a lot of memory, and your machine can freeze or crash if memory runs out during a build. To avoid this problem, 16-32GB of swap should be configured.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Optional: Check the current swapfile</span>
+free -h
+
+<span class="c1"># Remove the current swapfile</span>
+sudo swapoff /swapfile
+sudo rm /swapfile
+
+<span class="c1"># Create a new swapfile</span>
+sudo fallocate -l 32G /swapfile
+sudo chmod <span class="m">600</span> /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+
+<span class="c1"># Optional: Check if the change is reflected</span>
+free -h
+
+<span class="c1">### Errors when using the latest version of Autoware</span>
+
+If you are working with the latest version of Autoware, issues can occur due to out-of-date software or old build files.
+
+To resolve these types of problems, first try cleaning your build artifacts and rebuilding:
+
+<span class="sb">```</span>bash
+rm -rf build/ install/ log/
 colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE<span class="o">=</span>Release
 </code></pre></div>
 <p>If the error is not resolved, remove <code>src/</code> and update your workspace according to installation type (<a href="../../installation/autoware/docker-installation/#how-to-update-a-workspace">Docker</a> / <a href="../../installation/autoware/source-installation/#how-to-update-a-workspace">source</a>).</p>
