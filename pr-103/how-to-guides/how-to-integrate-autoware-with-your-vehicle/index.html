@@ -992,11 +992,11 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#adapt-your_vehicle-for-autoware-launching-system" class="md-nav__link">
-    Adapt YOUR_VEHICLE for autoware launching system
+  <a href="#adapt-your_vehicle_launch-for-autoware-launching-system" class="md-nav__link">
+    Adapt YOUR_VEHICLE_launch for autoware launching system
   </a>
   
-    <nav class="md-nav" aria-label="Adapt YOUR_VEHICLE for autoware launching system">
+    <nav class="md-nav" aria-label="Adapt YOUR_VEHICLE_launch for autoware launching system">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1019,11 +1019,11 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#adapt-your_sensor_kit-for-autoware-launching-system" class="md-nav__link">
-    Adapt YOUR_SENSOR_KIT for autoware launching system
+  <a href="#adapt-your_sensor_kit_description-for-autoware-launching-system" class="md-nav__link">
+    Adapt YOUR_SENSOR_KIT_description for autoware launching system
   </a>
   
-    <nav class="md-nav" aria-label="Adapt YOUR_SENSOR_KIT for autoware launching system">
+    <nav class="md-nav" aria-label="Adapt YOUR_SENSOR_KIT_description for autoware launching system">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2443,11 +2443,11 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#adapt-your_vehicle-for-autoware-launching-system" class="md-nav__link">
-    Adapt YOUR_VEHICLE for autoware launching system
+  <a href="#adapt-your_vehicle_launch-for-autoware-launching-system" class="md-nav__link">
+    Adapt YOUR_VEHICLE_launch for autoware launching system
   </a>
   
-    <nav class="md-nav" aria-label="Adapt YOUR_VEHICLE for autoware launching system">
+    <nav class="md-nav" aria-label="Adapt YOUR_VEHICLE_launch for autoware launching system">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2470,11 +2470,11 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#adapt-your_sensor_kit-for-autoware-launching-system" class="md-nav__link">
-    Adapt YOUR_SENSOR_KIT for autoware launching system
+  <a href="#adapt-your_sensor_kit_description-for-autoware-launching-system" class="md-nav__link">
+    Adapt YOUR_SENSOR_KIT_description for autoware launching system
   </a>
   
-    <nav class="md-nav" aria-label="Adapt YOUR_SENSOR_KIT for autoware launching system">
+    <nav class="md-nav" aria-label="Adapt YOUR_SENSOR_KIT_description for autoware launching system">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2586,14 +2586,14 @@
 <h2 id="1-prepare-your-real-vehicle-hardware">1. Prepare your real vehicle hardware<a class="headerlink" href="#1-prepare-your-real-vehicle-hardware" title="Permanent link">#</a></h2>
 <p>Prerequisites for the vehicle:</p>
 <ul>
-<li>car-like or diff-drive vehicle</li>
-<li>onboard computer that satisfies the prerequisites (see <a href="https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/source-installation/#prerequisites">here</a>)</li>
-<li>the following devices attached<ul>
-<li>actuator</li>
+<li>Car-like or diff-drive vehicle</li>
+<li>Onboard computer that satisfies the prerequisites (see <a href="https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/source-installation/#prerequisites">here</a>)</li>
+<li>The following devices attached<ul>
+<li>Actuator</li>
 <li>LiDAR</li>
-<li>inertial measurement unit (optional)</li>
-<li>camera (optional)</li>
-<li>GNSS (optional)</li>
+<li>optional: Inertial measurement unit</li>
+<li>optional: Camera</li>
+<li>optional: GNSS</li>
 </ul>
 </li>
 </ul>
@@ -2604,25 +2604,25 @@
 <h3 id="create-vector-map">Create vector map<a class="headerlink" href="#create-vector-map" title="Permanent link">#</a></h3>
 <p>Autoware supports lanelet2 format for a vector map. Use 3rd party tools or <a href="https://tools.tier4.jp/">Vector Map Builder</a> to get the .osm file.</p>
 <h2 id="3-create-your-meta-repository">3. Create your meta-repository<a class="headerlink" href="#3-create-your-meta-repository" title="Permanent link">#</a></h2>
-<p>A recommended way to integrate Autoware with your real robot is to create a meta-repository for the robot. Create a forked repository of <a href="https://github.com/autowarefoundation/autoware">autowarefoundation/autoware</a> (we refer to this as meta-repository) and clone the repository.</p>
+<p>A recommended way to integrate Autoware with your real vehicle is to create a meta-repository for the vehicle. Create a forked repository of <a href="https://github.com/autowarefoundation/autoware">autowarefoundation/autoware</a> (we refer to this as meta-repository) and clone the repository.</p>
 <div class="highlight"><pre><span></span><code>git clone git@github.com:YOUR_NAME/autoware.YOURS.git
 </code></pre></div>
 <h2 id="4-create-the-description-packages-of-your-vehicle">4. Create the description packages of your vehicle<a class="headerlink" href="#4-create-the-description-packages-of-your-vehicle" title="Permanent link">#</a></h2>
-<p>Next, you need to create description packages that define the vehicle and sensor configuration of your robot.
-Once it is done, you can launch your robot model by specifying vehicle_model:=YOUR_VEHICLE sensor_model:=SAMPLE_SENSOR_KIT in the autoware launchers.</p>
+<p>Next, you need to create description packages that define the vehicle and sensor configuration of your vehicle.
+Once it is done, you can launch your vehicle model by specifying vehicle_model:=YOUR_VEHICLE sensor_model:=SAMPLE_SENSOR_KIT in the autoware launchers.</p>
 <p>Create the following two packages:</p>
 <ul>
 <li>YOUR_VEHICLE_launch (see <a href="https://github.com/autowarefoundation/sample_vehicle_launch">here</a> for example)</li>
 <li>YOUR_SENSOR_KIT_launch (see <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch">here</a> for example)</li>
 </ul>
 <p>It is recommended you write the above two packages in <code>autoware.repos</code> file of your meta-repository.</p>
-<h3 id="adapt-your_vehicle-for-autoware-launching-system">Adapt YOUR_VEHICLE for autoware launching system<a class="headerlink" href="#adapt-your_vehicle-for-autoware-launching-system" title="Permanent link">#</a></h3>
+<h3 id="adapt-your_vehicle_launch-for-autoware-launching-system">Adapt YOUR_VEHICLE_launch for autoware launching system<a class="headerlink" href="#adapt-your_vehicle_launch-for-autoware-launching-system" title="Permanent link">#</a></h3>
 <h4 id="at-your_vehicle_description">At YOUR_VEHICLE_description<a class="headerlink" href="#at-your_vehicle_description" title="Permanent link">#</a></h4>
 <p>Define URDF and parameters in the package (see <a href="https://github.com/autowarefoundation/sample_vehicle_launch/tree/main/sample_vehicle_description">here</a> for example).</p>
 <h4 id="at-your_vehicle_launch">At YOUR_VEHICLE_launch<a class="headerlink" href="#at-your_vehicle_launch" title="Permanent link">#</a></h4>
 <p>Create a launch file (see <a href="https://github.com/autowarefoundation/sample_vehicle_launch/tree/main/sample_vehicle_launch">here</a> for example).
 If you have multiple vehicles with similar hardware setup, you can specify <code>vehicle_id</code> to distinguish them.</p>
-<h3 id="adapt-your_sensor_kit-for-autoware-launching-system">Adapt YOUR_SENSOR_KIT for autoware launching system<a class="headerlink" href="#adapt-your_sensor_kit-for-autoware-launching-system" title="Permanent link">#</a></h3>
+<h3 id="adapt-your_sensor_kit_description-for-autoware-launching-system">Adapt YOUR_SENSOR_KIT_description for autoware launching system<a class="headerlink" href="#adapt-your_sensor_kit_description-for-autoware-launching-system" title="Permanent link">#</a></h3>
 <h4 id="at-your_sensor_kit_description">At YOUR_SENSOR_KIT_description<a class="headerlink" href="#at-your_sensor_kit_description" title="Permanent link">#</a></h4>
 <p>Define URDF and extrinsic parameters for all the sensors here (see <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch/tree/main/sample_sensor_kit_description">here</a> for example).
 Note that you need to calibrate extrinsic parameters for all the sensors beforehand.</p>
@@ -2636,11 +2636,11 @@ If you want to try, you may install Autoware (follow <a href="https://autowarefo
 </code></pre></div>
 </div>
 <h2 id="5-create-a-vehicle_interface-package">5. Create a <code>vehicle_interface</code> package<a class="headerlink" href="#5-create-a-vehicle_interface-package" title="Permanent link">#</a></h2>
-<p>You need to create an interface package for your robot.
+<p>You need to create an interface package for your vehicle.
 The package is expected to provide the following two functions.</p>
 <ol>
-<li>receive command messages from <code>vehicle_cmd_gate</code> and drive the robot accordingly</li>
-<li>send vehicle status information of the vehicle to Autoware</li>
+<li>Receive command messages from <code>vehicle_cmd_gate</code> and drive the vehicle accordingly</li>
+<li>Send vehicle status information of the vehicle to Autoware</li>
 </ol>
 <p>You can find detailed information about the requirements of <code>vehicle_interface</code> <a href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-interface/">here</a>.
 You can also refer to <a href="https://github.com/tier4/pacmod_interface">pacmod_interface</a> as an example.</p>
@@ -2682,7 +2682,7 @@ ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage <span clas
 The panel can be found in Panels &gt; Add New Panel &gt; tier4_state_rviz_plugin &gt; AutowareStatePanel.</p>
 <p>Now the vehicle should drive the calculated path!</p>
 <h2 id="7-tune-parameters-for-your-vehicle-environment">7. Tune parameters for your vehicle &amp; environment<a class="headerlink" href="#7-tune-parameters-for-your-vehicle-environment" title="Permanent link">#</a></h2>
-<p>You may need to tune your parameters depending on the domain in which you will operate your robot.</p>
+<p>You may need to tune your parameters depending on the domain in which you will operate your vehicle.</p>
 <p>If you have any issues or questions, feel free to ask in <a href="https://github.com/orgs/autowarefoundation/discussions">Autoware Foundation Discussion</a>!</p>
 
               
