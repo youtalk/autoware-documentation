@@ -2436,7 +2436,7 @@ sudo apt autoremove
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Note that some components in Autoware Universe require CUDA, and only CUDA 11.4 is supported at this time. 
+<p>Note that some components in Autoware Universe require CUDA, and only CUDA 11.4 is supported at this time.
 Autoware may work with other CUDA versions, but those versions are not supported and functionality is not guaranteed.</p>
 </div>
 <h2 id="build-errors">Build errors<a class="headerlink" href="#build-errors" title="Permanent link">#</a></h2>
@@ -2464,18 +2464,14 @@ free -h
 <p>To resolve these types of problems, first try cleaning your build artifacts and rebuilding:</p>
 <div class="highlight"><pre><span></span><code>rm -rf build/ install/ log/
 colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE<span class="o">=</span>Release
-<span class="sb">````</span>
-
-If the error is not resolved, remove <span class="sb">`</span>src/<span class="sb">`</span> and update your workspace according to installation <span class="nb">type</span> <span class="o">([</span>Docker<span class="o">](</span>../installation/autoware/docker-installation.md#how-to-update-a-workspace<span class="o">)</span> / <span class="o">[</span>source<span class="o">](</span>../installation/autoware/source-installation.md#how-to-update-a-workspace<span class="o">))</span>.
-
-!!! Warning
-
-    Before removing <span class="sb">`</span>src/<span class="sb">`</span>, confirm that there are no modifications <span class="k">in</span> your <span class="nb">local</span> environment that you want to keep!
-
-If errors still persist after trying the steps above, delete the entire workspace, clone the repository once again and restart the installation process.
-
-<span class="sb">```</span>bash
-rm -rf autoware/
+</code></pre></div>
+<p>If the error is not resolved, remove <code>src/</code> and update your workspace according to installation type (<a href="../../installation/autoware/docker-installation/#how-to-update-a-workspace">Docker</a> / <a href="../../installation/autoware/source-installation/#how-to-update-a-workspace">source</a>).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Before removing <code>src/</code>, confirm that there are no modifications in your local environment that you want to keep!</p>
+</div>
+<p>If errors still persist after trying the steps above, delete the entire workspace, clone the repository once again and restart the installation process.</p>
+<div class="highlight"><pre><span></span><code>rm -rf autoware/
 git clone https://github.com/autowarefoundation/autoware.git
 </code></pre></div>
 <h3 id="errors-when-using-a-fixed-version-of-autoware">Errors when using a fixed version of Autoware<a class="headerlink" href="#errors-when-using-a-fixed-version-of-autoware" title="Permanent link">#</a></h3>
