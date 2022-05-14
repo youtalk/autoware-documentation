@@ -2598,14 +2598,14 @@
 </li>
 </ul>
 <h2 id="2-create-maps">2. Create maps<a class="headerlink" href="#2-create-maps" title="Permanent link">#</a></h2>
-<p>You need both a pointcloud and a vector map to take full advantage of Autoware. 
+<p>You need both a pointcloud and a vector map to take full advantage of Autoware.
 Since mapping algorithm such as SLAM (simultaneous localization and mapping) is not implemented in the current Autoware, you may need to use 3rd party tools for this step.</p>
 <h3 id="create-a-pointcloud-map">Create a pointcloud map<a class="headerlink" href="#create-a-pointcloud-map" title="Permanent link">#</a></h3>
 <p>Use 3rd party tools such as the LiDAR-based SLAM package to create a pointcloud map. Autoware supports the <code>.pcd</code> format for this map.</p>
 <h3 id="create-vector-map">Create vector map<a class="headerlink" href="#create-vector-map" title="Permanent link">#</a></h3>
 <p>Autoware supports lanelet2 format for a vector map. Use 3rd party tools or <a href="https://tools.tier4.jp/">Vector Map Builder</a> to get the <code>.osm</code> file.</p>
 <h2 id="3-create-your-meta-repository">3. Create your meta-repository<a class="headerlink" href="#3-create-your-meta-repository" title="Permanent link">#</a></h2>
-<p>A recommended way to integrate Autoware with your real vehicle is to create a meta-repository for the vehicle. 
+<p>A recommended way to integrate Autoware with your real vehicle is to create a meta-repository for the vehicle.
 Create a forked repository of <a href="https://github.com/autowarefoundation/autoware">autowarefoundation/autoware</a> (we refer to this as meta-repository) and clone the repository.</p>
 <div class="highlight"><pre><span></span><code>git clone git@github.com:YOUR_NAME/autoware.YOURS.git
 </code></pre></div>
