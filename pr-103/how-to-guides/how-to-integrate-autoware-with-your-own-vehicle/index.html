@@ -15,7 +15,7 @@
     
     
       
-        <title>How to integrate Autoware with your own vehicle - Autoware Documentation</title>
+        <title>How to integrate Autoware with your vehicle - Autoware Documentation</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#how-to-integrate-autoware-with-your-own-vehicle" class="md-skip">
+        <a href="#how-to-integrate-autoware-with-your-vehicle" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              How to integrate Autoware with your own vehicle
+              How to integrate Autoware with your vehicle
             
           </span>
         </div>
@@ -919,12 +919,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          How to integrate Autoware with your own vehicle
+          How to integrate Autoware with your vehicle
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        How to integrate Autoware with your own vehicle
+        How to integrate Autoware with your vehicle
       </a>
       
         
@@ -958,8 +958,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#create-pointcloud-map" class="md-nav__link">
-    Create pointcloud map
+  <a href="#create-a-pointcloud-map" class="md-nav__link">
+    Create a pointcloud map
   </a>
   
 </li>
@@ -984,11 +984,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-create-the-description-packages-of-your-own-vehicle" class="md-nav__link">
-    4. Create the description packages of your own vehicle
+  <a href="#4-create-the-description-packages-of-your-vehicle" class="md-nav__link">
+    4. Create the description packages of your vehicle
   </a>
   
-    <nav class="md-nav" aria-label="4. Create the description packages of your own vehicle">
+    <nav class="md-nav" aria-label="4. Create the description packages of your vehicle">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1106,8 +1106,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-tune-parameters-for-your-own-vehicle-environment" class="md-nav__link">
-    7. Tune parameters for your own vehicle &amp; environment
+  <a href="#7-tune-parameters-for-your-vehicle-environment" class="md-nav__link">
+    7. Tune parameters for your vehicle &amp; environment
   </a>
   
 </li>
@@ -2409,8 +2409,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#create-pointcloud-map" class="md-nav__link">
-    Create pointcloud map
+  <a href="#create-a-pointcloud-map" class="md-nav__link">
+    Create a pointcloud map
   </a>
   
 </li>
@@ -2435,11 +2435,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-create-the-description-packages-of-your-own-vehicle" class="md-nav__link">
-    4. Create the description packages of your own vehicle
+  <a href="#4-create-the-description-packages-of-your-vehicle" class="md-nav__link">
+    4. Create the description packages of your vehicle
   </a>
   
-    <nav class="md-nav" aria-label="4. Create the description packages of your own vehicle">
+    <nav class="md-nav" aria-label="4. Create the description packages of your vehicle">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2557,8 +2557,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-tune-parameters-for-your-own-vehicle-environment" class="md-nav__link">
-    7. Tune parameters for your own vehicle &amp; environment
+  <a href="#7-tune-parameters-for-your-vehicle-environment" class="md-nav__link">
+    7. Tune parameters for your vehicle &amp; environment
   </a>
   
 </li>
@@ -2581,7 +2581,7 @@
 
 
 
-<h1 id="how-to-integrate-autoware-with-your-own-vehicle">How to integrate Autoware with your own vehicle<a class="headerlink" href="#how-to-integrate-autoware-with-your-own-vehicle" title="Permanent link">#</a></h1>
+<h1 id="how-to-integrate-autoware-with-your-vehicle">How to integrate Autoware with your vehicle<a class="headerlink" href="#how-to-integrate-autoware-with-your-vehicle" title="Permanent link">#</a></h1>
 <h2 id="1-prepare-your-real-vehicle-hardware">1. Prepare your real vehicle hardware<a class="headerlink" href="#1-prepare-your-real-vehicle-hardware" title="Permanent link">#</a></h2>
 <p>Prerequisites for the vehicle:</p>
 <ul>
@@ -2598,18 +2598,18 @@
 </ul>
 <h2 id="2-create-maps">2. Create maps<a class="headerlink" href="#2-create-maps" title="Permanent link">#</a></h2>
 <p>You need both a pointcloud and a vector map to take full advantage of Autoware. Since SLAM (Simultaneous Localization and Mapping) algorithm is not implemented in the current Autoware, you may need to use 3rd party tools for this step.</p>
-<h3 id="create-pointcloud-map">Create pointcloud map<a class="headerlink" href="#create-pointcloud-map" title="Permanent link">#</a></h3>
-<p>Use 3rd party tools such as LiDAR-based SLAM package to create pointcloud map. Autoware supports .pcd format for this map.</p>
+<h3 id="create-a-pointcloud-map">Create a pointcloud map<a class="headerlink" href="#create-a-pointcloud-map" title="Permanent link">#</a></h3>
+<p>Use 3rd party tools such as the LiDAR-based SLAM package to create a pointcloud map. Autoware supports the .pcd format for this map.</p>
 <h3 id="create-vector-map">Create vector map<a class="headerlink" href="#create-vector-map" title="Permanent link">#</a></h3>
-<p>Autoware supports lanelet2 format for a vector map. Use 3rd party tools or <a href="https://tools.tier4.jp/">Vector Map Builder</a> and get .osm file.</p>
+<p>Autoware supports lanelet2 format for a vector map. Use 3rd party tools or <a href="https://tools.tier4.jp/">Vector Map Builder</a> and get the .osm file.</p>
 <h2 id="3-create-your-meta-repository">3. Create your meta-repository<a class="headerlink" href="#3-create-your-meta-repository" title="Permanent link">#</a></h2>
-<p>A recommended way to integrate Autoware with your real robot is to create a meta-repository for the robot. Create a fork repository of autowarefoundation/autoware (we refer to this as meta-repository).</p>
+<p>A recommended way to integrate Autoware with your real robot is to create a meta-repository for the robot. Create a forked repository of autowarefoundation/autoware (we refer to this as meta-repository).</p>
 <p>Clone your forked repository</p>
 <div class="highlight"><pre><span></span><code>git clone git@github.com:YOUR_NAME/autoware.YOURS.git
 </code></pre></div>
-<h2 id="4-create-the-description-packages-of-your-own-vehicle">4. Create the description packages of your own vehicle<a class="headerlink" href="#4-create-the-description-packages-of-your-own-vehicle" title="Permanent link">#</a></h2>
+<h2 id="4-create-the-description-packages-of-your-vehicle">4. Create the description packages of your vehicle<a class="headerlink" href="#4-create-the-description-packages-of-your-vehicle" title="Permanent link">#</a></h2>
 <p>Next, you need to create description packages that define the vehicle and sensor configuration of your robot.
-Once you’re done, you can launch your own robot model by specifying vehicle_model:=YOUR_VEHICLE sensor_model:=SAMPLE_SENSOR_KIT in the autoware launchers.</p>
+Once you’re done, you can launch your robot model by specifying vehicle_model:=YOUR_VEHICLE sensor_model:=SAMPLE_SENSOR_KIT in the autoware launchers.</p>
 <p>Create the following two packages:</p>
 <ul>
 <li>YOUR_VEHICLE_launch (see <a href="https://github.com/autowarefoundation/sample_vehicle_launch">here</a> for example)</li>
@@ -2619,7 +2619,7 @@ Once you’re done, you can launch your own robot model by specifying vehicle_mo
 <h3 id="adapt-your_vehicle-for-autoware-launching-system">Adapt YOUR_VEHICLE for autoware launching system<a class="headerlink" href="#adapt-your_vehicle-for-autoware-launching-system" title="Permanent link">#</a></h3>
 <h4 id="at-your_vehicle_description">At YOUR_VEHICLE_description<a class="headerlink" href="#at-your_vehicle_description" title="Permanent link">#</a></h4>
 <p>Create <code>urdf/vehicle.xacro</code>.</p>
-<p>Write “vehicle_info” parameter in config/vehicle_info.param.yaml in the same way as...</p>
+<p>Write the “vehicle_info” parameter in config/vehicle_info.param.yaml in the same way as...</p>
 <p>Also, prepare each parameter file following [file name matters]</p>
 <h4 id="at-your_vehicle_launch">At YOUR_VEHICLE_launch<a class="headerlink" href="#at-your_vehicle_launch" title="Permanent link">#</a></h4>
 <p>Create <code>launch/vehicle_interface.launch</code></p>
@@ -2645,7 +2645,7 @@ The package is expected to provide the following two functions.</p>
 <p>Send vehicle status information of the vehicle to autoware</p>
 </li>
 </ol>
-<p>You can find the detailed information about the requirements of vehicle_interface <a href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-interface/">here</a>.
+<p>You can find detailed information about the requirements of vehicle_interface <a href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-interface/">here</a>.
 You can also refer to <a href="https://github.com/tier4/pacmod_interface">pacmod_interface</a> as an example.</p>
 <h2 id="6-launch-autoware">6. Launch Autoware<a class="headerlink" href="#6-launch-autoware" title="Permanent link">#</a></h2>
 <p>This section briefly explains how to run your vehicle with Autoware.</p>
@@ -2664,16 +2664,16 @@ colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE<span class="o">=<
 </code></pre></div>
 <h3 id="set-initial-pose">Set initial pose<a class="headerlink" href="#set-initial-pose" title="Permanent link">#</a></h3>
 <p>If GNSS is available, it should automatically initialize its pose.
-If not, you can also set initial pose using GUI on RViz.</p>
+If not, you can also set the initial pose using GUI on RViz.</p>
 <ol>
 <li>Click the 2D Pose estimate button in the toolbar, or hit the P key</li>
-<li>In the 3D View pane, click and hold the left-mouse button, and then drag to set the direction for the initial pose.</li>
+<li>In the 3D View pane, click and hold the left mouse button, and then drag to set the direction for the initial pose.</li>
 </ol>
 <h3 id="set-goal-pose">Set goal pose<a class="headerlink" href="#set-goal-pose" title="Permanent link">#</a></h3>
 <p>Set a goal pose for the ego vehicle.</p>
 <ol>
 <li>Click the 2D Nav Goal button in the toolbar, or hit the G key</li>
-<li>In the 3D View pane, click and hold the left-mouse button, and then drag to set the direction for the goal pose.
+<li>In the 3D View pane, click and hold the left mouse button, and then drag to set the direction for the goal pose.
    If successful, you will see the calculated planning path on RViz.</li>
 </ol>
 <h3 id="engage">Engage<a class="headerlink" href="#engage" title="Permanent link">#</a></h3>
@@ -2684,7 +2684,7 @@ ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage <span clas
 <p>You can also engage via RViz with "AutowareStatePanel".
 The panel can be found in Panels &gt; Add New Panel &gt; tier4_state_rviz_plugin &gt; AutowareStatePanel.</p>
 <p>Now the vehicle should drive the calculated path!</p>
-<h2 id="7-tune-parameters-for-your-own-vehicle-environment">7. Tune parameters for your own vehicle &amp; environment<a class="headerlink" href="#7-tune-parameters-for-your-own-vehicle-environment" title="Permanent link">#</a></h2>
+<h2 id="7-tune-parameters-for-your-vehicle-environment">7. Tune parameters for your vehicle &amp; environment<a class="headerlink" href="#7-tune-parameters-for-your-vehicle-environment" title="Permanent link">#</a></h2>
 <p>You may need to tune your parameters depending on the domain in which you will operate your robot.</p>
 <p>If you have any issues or questions, feel free to ask in Autoware Foundation Discussion!</p>
 
