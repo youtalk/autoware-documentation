@@ -2361,90 +2361,108 @@ remember it is not officially supported and may sometimes be broken.</p>
 <h2 id="build-errors">Build errors<a class="headerlink" href="#build-errors" title="Permanent link">#</a></h2>
 <h3 id="insufficient-memory">Insufficient memory<a class="headerlink" href="#insufficient-memory" title="Permanent link">#</a></h3>
 <p>Building Autoware requires a lot of memory, and your machine can freeze or crash if memory runs out during a build. To avoid this problem, 16-32GB of swap should be configured.</p>
-<p>````bash</p>
-<h1 id="optional-check-the-current-swapfile">Optional: Check the current swapfile<a class="headerlink" href="#optional-check-the-current-swapfile" title="Permanent link">#</a></h1>
-<p>free -h</p>
-<h1 id="remove-the-current-swapfile">Remove the current swapfile<a class="headerlink" href="#remove-the-current-swapfile" title="Permanent link">#</a></h1>
-<p>sudo swapoff /swapfile
-sudo rm /swapfile</p>
-<h1 id="create-a-new-swapfile">Create a new swapfile<a class="headerlink" href="#create-a-new-swapfile" title="Permanent link">#</a></h1>
-<p>sudo fallocate -l 32G /swapfile
-sudo chmod 600 /swapfile
+<div class="highlight"><pre><span></span><code><span class="c1"># Optional: Check the current swapfile</span>
+free -h
+
+<span class="c1"># Remove the current swapfile</span>
+sudo swapoff /swapfile
+sudo rm /swapfile
+
+<span class="c1"># Create a new swapfile</span>
+sudo fallocate -l 32G /swapfile
+sudo chmod <span class="m">600</span> /swapfile
 sudo mkswap /swapfile
-sudo swapon /swapfile</p>
-<h1 id="optional-check-if-the-change-is-reflected">Optional: Check if the change is reflected<a class="headerlink" href="#optional-check-if-the-change-is-reflected" title="Permanent link">#</a></h1>
-<p>free -h
-```</p>
-<h3 id="errors-when-using-the-latest-version-of-autoware">Errors when using the latest version of Autoware<a class="headerlink" href="#errors-when-using-the-latest-version-of-autoware" title="Permanent link">#</a></h3>
-<p>If you are working with the latest version of Autoware, issues can occur due to out-of-date software or old build files.</p>
-<p>To resolve these types of problems, first try cleaning your build artifacts and rebuilding:</p>
-<p><code>bash
+sudo swapon /swapfile
+
+<span class="c1"># Optional: Check if the change is reflected</span>
+free -h
+<span class="sb">```</span>
+
+<span class="c1">### Errors when using the latest version of Autoware</span>
+
+If you are working with the latest version of Autoware, issues can occur due to out-of-date software or old build files.
+
+To resolve these types of problems, first try cleaning your build artifacts and rebuilding:
+
+<span class="sb">```</span>bash
 rm -rf build/ install/ log/
-colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release</code></p>
-<p>If the error is not resolved, remove <code>src/</code> and update your workspace according to installation type (<a href="../../installation/autoware/docker-installation/#how-to-update-a-workspace">Docker</a> / <a href="../../installation/autoware/source-installation/#how-to-update-a-workspace">source</a>).</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Before removing <code>src/</code>, confirm that there are no modifications in your local environment that you want to keep!</p>
-</div>
-<p>If errors still persist after trying the steps above, delete the entire workspace, clone the repository once again and restart the installation process.</p>
-<p><code>bash
+colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE<span class="o">=</span>Release
+<span class="sb">```</span>
+
+If the error is not resolved, remove <span class="sb">`</span>src/<span class="sb">`</span> and update your workspace according to installation <span class="nb">type</span> <span class="o">([</span>Docker<span class="o">](</span>../installation/autoware/docker-installation.md#how-to-update-a-workspace<span class="o">)</span> / <span class="o">[</span>source<span class="o">](</span>../installation/autoware/source-installation.md#how-to-update-a-workspace<span class="o">))</span>.
+
+!!! Warning
+
+    Before removing <span class="sb">`</span>src/<span class="sb">`</span>, confirm that there are no modifications <span class="k">in</span> your <span class="nb">local</span> environment that you want to keep!
+
+If errors still persist after trying the steps above, delete the entire workspace, clone the repository once again and restart the installation process.
+
+<span class="sb">```</span>bash
 rm -rf autoware/
-git clone https://github.com/autowarefoundation/autoware.git</code></p>
-<h3 id="errors-when-using-a-fixed-version-of-autoware">Errors when using a fixed version of Autoware<a class="headerlink" href="#errors-when-using-a-fixed-version-of-autoware" title="Permanent link">#</a></h3>
-<p>In principle, errors should not occur when using a fixed version. That said, possible causes include:</p>
-<ul>
-<li>ROS 2 has been updated with breaking changes.<ul>
-<li>For confirmation, check the <a href="https://discourse.ros.org/c/release/16">Packaging and Release Management</a> tag on ROS Discourse.</li>
-</ul>
-</li>
-<li>Your local environment is broken.<ul>
-<li>Confirm your <code>.bashrc</code> file, environment variables, and library versions.</li>
-</ul>
-</li>
-</ul>
-<p>In addition to the causes listed above, there are two common misunderstandings around the use of fixed versions.</p>
-<ol>
-<li>
-<p>You used a fixed version for <code>autowarefoundation/autoware</code> only.
-   All of the repository versions in the <code>.repos</code> file must be specified in order to use a completely fixed version.</p>
-</li>
-<li>
-<p>You didn't update the workspace after changing the branch of <code>autowarefoundation/autoware</code>.
-   Changing the branch of <code>autowarefoundation/autoware</code> does not affect the files under <code>src/</code>. You have to run the <code>vcs import</code> command to update them.</p>
-</li>
-</ol>
-<h2 id="dockerrocker-issues">Docker/rocker issues<a class="headerlink" href="#dockerrocker-issues" title="Permanent link">#</a></h2>
-<p>If any errors occur when running Autoware with Docker or rocker, first confirm that your Docker installation is working correctly by running the following commands:</p>
-<p><code>bash
+git clone https://github.com/autowarefoundation/autoware.git
+<span class="sb">```</span>
+
+<span class="c1">### Errors when using a fixed version of Autoware</span>
+
+In principle, errors should not occur when using a fixed version. That said, possible causes include:
+
+- ROS <span class="m">2</span> has been updated with breaking changes.
+  - For confirmation, check the <span class="o">[</span>Packaging and Release Management<span class="o">](</span>https://discourse.ros.org/c/release/16<span class="o">)</span> tag on ROS Discourse.
+- Your <span class="nb">local</span> environment is broken.
+  - Confirm your <span class="sb">`</span>.bashrc<span class="sb">`</span> file, environment variables, and library versions.
+
+In addition to the causes listed above, there are two common misunderstandings around the use of fixed versions.
+
+<span class="m">1</span>. You used a fixed version <span class="k">for</span> <span class="sb">`</span>autowarefoundation/autoware<span class="sb">`</span> only.
+   All of the repository versions <span class="k">in</span> the <span class="sb">`</span>.repos<span class="sb">`</span> file must be specified <span class="k">in</span> order to use a completely fixed version.
+
+<span class="m">2</span>. You didn<span class="err">&#39;</span>t update the workspace after changing the branch of <span class="sb">`</span>autowarefoundation/autoware<span class="sb">`</span>.
+   Changing the branch of <span class="sb">`</span>autowarefoundation/autoware<span class="sb">`</span> does not affect the files under <span class="sb">`</span>src/<span class="sb">`</span>. You have to run the <span class="sb">`</span>vcs import<span class="sb">`</span> <span class="nb">command</span> to update them.
+
+<span class="c1">## Docker/rocker issues</span>
+
+If any errors occur when running Autoware with Docker or rocker, first confirm that your Docker installation is working correctly by running the following commands:
+
+<span class="sb">```</span>bash
 docker run --rm -it hello-world
-docker run --rm -it ubuntu:latest</code></p>
-<p>Next, confirm that you are able to access the base Autoware image that is stored on the GitHub Packages website</p>
-<p><code>bash
-docker run --rm -it ghcr.io/autowarefoundation/autoware-universe:latest</code></p>
-<h2 id="runtime-errors">Runtime errors<a class="headerlink" href="#runtime-errors" title="Permanent link">#</a></h2>
-<h3 id="map-does-not-display-when-running-the-planning-simulator">Map does not display when running the Planning Simulator<a class="headerlink" href="#map-does-not-display-when-running-the-planning-simulator" title="Permanent link">#</a></h3>
-<p>When running the Planning Simulator, the most common reason for the map not being displayed in RViz is because <a href="https://autowarefoundation.github.io/autoware-documentation/main/tutorials/ad-hoc-simulation/planning-simulation/#how-to-run-a-planning-simulation">the map path has not been specified correctly in the launch command</a>. You can confirm if this is the case by searching for <code>Could not find lanelet map under {path-to-map-dir}/lanelet2_map.osm</code> errors in the log.</p>
-<p>Another possible reason is that map loading is taking a long time due to poor DDS performance. To address this issue, first enable localhost-only communication to reduce network traffic, and then <a href="https://docs.ros.org/en/rolling/How-To-Guides/DDS-tuning.html">tune DDS settings</a> if the problem continues to occur.</p>
-<ol>
-<li>
-<p><a href="https://autowarefoundation.github.io/autoware-documentation/main/installation/tools-for-developers/#enabling-localhost-only-communication">Enable localhost-only communication</a></p>
-</li>
-<li>
-<p>Tune DDS settings</p>
-</li>
-</ol>
-<p>Add the following lines to <code>/etc/sysctl.conf</code></p>
-<p><code>bash
-net.ipv4.ipfrag_time=3  // generic DDS setting
-net.ipv4.ipfrag_high_thresh=134217728 // generic DDS setting
-net.core.rmem_max=2147483647 // only add if CycloneDDS is configured
-net.core.rmem_default=8388608 // only add if CycloneDDS is confgured</code></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>DDS configuration can be determined by running the following command.</p>
-<p><code>bash
-echo $RMW_IMPLEMENTATION  // if Cyclone DDS is configured, this command will return "rmw_cyclonedds_cpp"</code></p>
-</div>
+docker run --rm -it ubuntu:latest
+<span class="sb">```</span>
+
+Next, confirm that you are able to access the base Autoware image that is stored on the GitHub Packages website
+
+<span class="sb">```</span>bash
+docker run --rm -it ghcr.io/autowarefoundation/autoware-universe:latest
+<span class="sb">```</span>
+
+<span class="c1">## Runtime errors</span>
+
+<span class="c1">### Map does not display when running the Planning Simulator</span>
+
+When running the Planning Simulator, the most common reason <span class="k">for</span> the map not being displayed <span class="k">in</span> RViz is because <span class="o">[</span>the map path has not been specified correctly <span class="k">in</span> the launch command<span class="o">](</span>https://autowarefoundation.github.io/autoware-documentation/main/tutorials/ad-hoc-simulation/planning-simulation/#how-to-run-a-planning-simulation<span class="o">)</span>. You can confirm <span class="k">if</span> this is the <span class="k">case</span> by searching <span class="k">for</span> <span class="sb">`</span>Could not find lanelet map under <span class="o">{</span>path-to-map-dir<span class="o">}</span>/lanelet2_map.osm<span class="sb">`</span> errors <span class="k">in</span> the log.
+
+Another possible reason is that map loading is taking a long <span class="nb">time</span> due to poor DDS performance. To address this issue, first <span class="nb">enable</span> localhost-only communication to reduce network traffic, and <span class="k">then</span> <span class="o">[</span>tune DDS settings<span class="o">](</span>https://docs.ros.org/en/rolling/How-To-Guides/DDS-tuning.html<span class="o">)</span> <span class="k">if</span> the problem continues to occur.
+
+<span class="m">1</span>. <span class="o">[</span>Enable localhost-only communication<span class="o">](</span>https://autowarefoundation.github.io/autoware-documentation/main/installation/tools-for-developers/#enabling-localhost-only-communication<span class="o">)</span>
+
+<span class="m">2</span>. Tune DDS settings
+
+Add the following lines to <span class="sb">`</span>/etc/sysctl.conf<span class="sb">`</span>
+
+<span class="sb">```</span>bash
+net.ipv4.ipfrag_time<span class="o">=</span><span class="m">3</span>  // generic DDS setting
+net.ipv4.ipfrag_high_thresh<span class="o">=</span><span class="m">134217728</span> // generic DDS setting
+net.core.rmem_max<span class="o">=</span><span class="m">2147483647</span> // only add <span class="k">if</span> CycloneDDS is configured
+net.core.rmem_default<span class="o">=</span><span class="m">8388608</span> // only add <span class="k">if</span> CycloneDDS is confgured
+<span class="sb">```</span>
+
+!!! note
+
+    DDS configuration can be determined by running the following command.
+
+    <span class="sb">```</span>bash
+    <span class="nb">echo</span> <span class="nv">$RMW_IMPLEMENTATION</span>  // <span class="k">if</span> Cyclone DDS is configured, this <span class="nb">command</span> will <span class="k">return</span> <span class="s2">&quot;rmw_cyclonedds_cpp&quot;</span>
+    <span class="sb">```</span>
+</code></pre></div>
 
               
             </article>
