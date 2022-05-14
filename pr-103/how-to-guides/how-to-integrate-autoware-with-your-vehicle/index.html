@@ -2660,8 +2660,8 @@ colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE<span class="o">=<
 <div class="highlight"><pre><span></span><code>ros2 launch autoware_launch autoware.launch.xml vehicle_model:<span class="o">=</span>YOUR_VEHICLE sensor_kit:<span class="o">=</span>YOUR_SENSOR_KIT map_path:<span class="o">=</span>/PATH/TO/YOUR/MAP
 </code></pre></div>
 <h3 id="set-initial-pose">Set initial pose<a class="headerlink" href="#set-initial-pose" title="Permanent link">#</a></h3>
-<p>If GNSS is available, it should automatically initialize its pose.
-If not, you can also set the initial pose using GUI on RViz.</p>
+<p>If GNSS is available, Autoware automatically initializes the vehicle's pose.</p>
+<p>If not, you should set the initial pose using GUI on RViz.</p>
 <ol>
 <li>Click the 2D Pose estimate button in the toolbar, or hit the P key</li>
 <li>In the 3D View pane, click and hold the left mouse button, and then drag to set the direction for the initial pose.</li>
