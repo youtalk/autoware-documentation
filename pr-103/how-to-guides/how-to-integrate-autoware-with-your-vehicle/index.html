@@ -2597,19 +2597,18 @@
 </li>
 </ul>
 <h2 id="2-create-maps">2. Create maps<a class="headerlink" href="#2-create-maps" title="Permanent link">#</a></h2>
-<p>You need both a pointcloud and a vector map to take full advantage of Autoware. Since SLAM (Simultaneous Localization and Mapping) algorithm is not implemented in the current Autoware, you may need to use 3rd party tools for this step.</p>
+<p>You need both a pointcloud and a vector map to take full advantage of Autoware. Since mapping algorithm such as SLAM (simultaneous localization and mapping) is not implemented in the current Autoware, you may need to use 3rd party tools for this step.</p>
 <h3 id="create-a-pointcloud-map">Create a pointcloud map<a class="headerlink" href="#create-a-pointcloud-map" title="Permanent link">#</a></h3>
 <p>Use 3rd party tools such as the LiDAR-based SLAM package to create a pointcloud map. Autoware supports the .pcd format for this map.</p>
 <h3 id="create-vector-map">Create vector map<a class="headerlink" href="#create-vector-map" title="Permanent link">#</a></h3>
-<p>Autoware supports lanelet2 format for a vector map. Use 3rd party tools or <a href="https://tools.tier4.jp/">Vector Map Builder</a> and get the .osm file.</p>
+<p>Autoware supports lanelet2 format for a vector map. Use 3rd party tools or <a href="https://tools.tier4.jp/">Vector Map Builder</a> to get the .osm file.</p>
 <h2 id="3-create-your-meta-repository">3. Create your meta-repository<a class="headerlink" href="#3-create-your-meta-repository" title="Permanent link">#</a></h2>
-<p>A recommended way to integrate Autoware with your real robot is to create a meta-repository for the robot. Create a forked repository of autowarefoundation/autoware (we refer to this as meta-repository).</p>
-<p>Clone your forked repository</p>
+<p>A recommended way to integrate Autoware with your real robot is to create a meta-repository for the robot. Create a forked repository of <a href="https://github.com/autowarefoundation/autoware">autowarefoundation/autoware</a> (we refer to this as meta-repository) and clone the repository.</p>
 <div class="highlight"><pre><span></span><code>git clone git@github.com:YOUR_NAME/autoware.YOURS.git
 </code></pre></div>
 <h2 id="4-create-the-description-packages-of-your-vehicle">4. Create the description packages of your vehicle<a class="headerlink" href="#4-create-the-description-packages-of-your-vehicle" title="Permanent link">#</a></h2>
 <p>Next, you need to create description packages that define the vehicle and sensor configuration of your robot.
-Once you’re done, you can launch your robot model by specifying vehicle_model:=YOUR_VEHICLE sensor_model:=SAMPLE_SENSOR_KIT in the autoware launchers.</p>
+Once it is done, you can launch your robot model by specifying vehicle_model:=YOUR_VEHICLE sensor_model:=SAMPLE_SENSOR_KIT in the autoware launchers.</p>
 <p>Create the following two packages:</p>
 <ul>
 <li>YOUR_VEHICLE_launch (see <a href="https://github.com/autowarefoundation/sample_vehicle_launch">here</a> for example)</li>
@@ -2618,34 +2617,28 @@ Once you’re done, you can launch your robot model by specifying vehicle_model:
 <p>It is recommended you write the above two packages in <code>autoware.repos</code> file of your meta-repository.</p>
 <h3 id="adapt-your_vehicle-for-autoware-launching-system">Adapt YOUR_VEHICLE for autoware launching system<a class="headerlink" href="#adapt-your_vehicle-for-autoware-launching-system" title="Permanent link">#</a></h3>
 <h4 id="at-your_vehicle_description">At YOUR_VEHICLE_description<a class="headerlink" href="#at-your_vehicle_description" title="Permanent link">#</a></h4>
-<p>Create <code>urdf/vehicle.xacro</code>.</p>
-<p>Write the “vehicle_info” parameter in config/vehicle_info.param.yaml in the same way as...</p>
-<p>Also, prepare each parameter file following [file name matters]</p>
+<p>Define URDF and parameters in the package (see <a href="https://github.com/autowarefoundation/sample_vehicle_launch/sample_vehicle_description">here</a> for example).</p>
 <h4 id="at-your_vehicle_launch">At YOUR_VEHICLE_launch<a class="headerlink" href="#at-your_vehicle_launch" title="Permanent link">#</a></h4>
-<p>Create <code>launch/vehicle_interface.launch</code></p>
+<p>Create a launch file (see <a href="https://github.com/autowarefoundation/sample_vehicle_launch/sample_vehicle_launch">here</a> for example).
+If you have multiple vehicles with similar hardware setup, you can specify <code>vehicle_id</code> to distinguish them.</p>
 <h3 id="adapt-your_sensor_kit-for-autoware-launching-system">Adapt YOUR_SENSOR_KIT for autoware launching system<a class="headerlink" href="#adapt-your_sensor_kit-for-autoware-launching-system" title="Permanent link">#</a></h3>
 <h4 id="at-your_sensor_kit_description">At YOUR_SENSOR_KIT_description<a class="headerlink" href="#at-your_sensor_kit_description" title="Permanent link">#</a></h4>
-<p>Create <code>urdf/sensors.xacro</code> [file name matters]</p>
-<p>Write each parameter file under config/ directory [file name matters] (See )</p>
-<p>Note that you need to calibrate extrinsic parameters for all the sensors beforehand.</p>
+<p>Define URDF and extrinsic parameters for all the sensors here (see <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch/sample_sensor_kit_description">here</a> for example).
+Note that you need to calibrate extrinsic parameters for all the sensors beforehand.</p>
 <h4 id="at-your_sensor_kit_launch">At YOUR_SENSOR_KIT_launch<a class="headerlink" href="#at-your_sensor_kit_launch" title="Permanent link">#</a></h4>
-<p>Create <code>launch/sensing.launch.xml</code> that launches all the sensors on the vehicle [file name matters]. Refer to for example.</p>
+<p>Create <code>launch/sensing.launch.xml</code> that launches the interfaces of all the sensors on the vehicle. (see <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch/sample_sensor_kit_launch">here</a> for example).</p>
 <p>At this point, you are now able to run planning_simulator.
 If you want to try, you may install Autoware (follow <a href="https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/">here</a>) and run the following command:</p>
 <div class="highlight"><pre><span></span><code>ros2 launch autoware_launch planning_simulator.launch.xml vehicle_model:<span class="o">=</span>YOUR_VEHICLE sensor_kit:<span class="o">=</span>YOUR_SENSOR_KIT map_path:<span class="o">=</span>/PATH/TO/YOUR/MAP
 </code></pre></div>
-<h2 id="5-create-a-vehicle_interface-package">5. Create a vehicle_interface package<a class="headerlink" href="#5-create-a-vehicle_interface-package" title="Permanent link">#</a></h2>
+<h2 id="5-create-a-vehicle_interface-package">5. Create a <code>vehicle_interface</code> package<a class="headerlink" href="#5-create-a-vehicle_interface-package" title="Permanent link">#</a></h2>
 <p>You need to create an interface package for your robot.
 The package is expected to provide the following two functions.</p>
 <ol>
-<li>
-<p>Receive command messages from vehicle_cmd_gate and drive the robot accordingly</p>
-</li>
-<li>
-<p>Send vehicle status information of the vehicle to autoware</p>
-</li>
+<li>receive command messages from <code>vehicle_cmd_gate</code> and drive the robot accordingly</li>
+<li>send vehicle status information of the vehicle to Autoware</li>
 </ol>
-<p>You can find detailed information about the requirements of vehicle_interface <a href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-interface/">here</a>.
+<p>You can find detailed information about the requirements of <code>vehicle_interface</code> <a href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-interface/">here</a>.
 You can also refer to <a href="https://github.com/tier4/pacmod_interface">pacmod_interface</a> as an example.</p>
 <h2 id="6-launch-autoware">6. Launch Autoware<a class="headerlink" href="#6-launch-autoware" title="Permanent link">#</a></h2>
 <p>This section briefly explains how to run your vehicle with Autoware.</p>
