@@ -2664,20 +2664,24 @@ colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE<span class="o">=<
 </code></pre></div>
 <h3 id="set-initial-pose">Set initial pose<a class="headerlink" href="#set-initial-pose" title="Permanent link">#</a></h3>
 <p>If GNSS is available, it should automatically initialize its pose.
-If not, you can also set initial pose using GUI on RViz.
-1. Click the 2D Pose estimate button in the toolbar, or hit the P key
-2. In the 3D View pane, click and hold the left-mouse button, and then drag to set the direction for the initial pose.</p>
+If not, you can also set initial pose using GUI on RViz.</p>
+<ol>
+<li>Click the 2D Pose estimate button in the toolbar, or hit the P key</li>
+<li>In the 3D View pane, click and hold the left-mouse button, and then drag to set the direction for the initial pose.</li>
+</ol>
 <h3 id="set-goal-pose">Set goal pose<a class="headerlink" href="#set-goal-pose" title="Permanent link">#</a></h3>
-<p>Set a goal pose for the ego vehicle.
-1. Click the 2D Nav Goal button in the toolbar, or hit the G key
-2. In the 3D View pane, click and hold the left-mouse button, and then drag to set the direction for the goal pose.
-If successful, you will see the calculated planning path on RViz.</p>
+<p>Set a goal pose for the ego vehicle.</p>
+<ol>
+<li>Click the 2D Nav Goal button in the toolbar, or hit the G key</li>
+<li>In the 3D View pane, click and hold the left-mouse button, and then drag to set the direction for the goal pose.
+   If successful, you will see the calculated planning path on RViz.</li>
+</ol>
 <h3 id="engage">Engage<a class="headerlink" href="#engage" title="Permanent link">#</a></h3>
 <p>In your terminal, execute the following command.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span> ~/autoware/install/setup.bash
 ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage <span class="s2">&quot;engage: true&quot;</span> -1
 </code></pre></div>
-<p>You can also engage via RViz with "AutowareStatePanel". 
+<p>You can also engage via RViz with "AutowareStatePanel".
 The panel can be found in Panels &gt; Add New Panel &gt; tier4_state_rviz_plugin &gt; AutowareStatePanel.</p>
 <p>Now the vehicle should drive the calculated path!</p>
 <h2 id="7-tune-parameters-for-your-own-vehicle-environment">7. Tune parameters for your own vehicle &amp; environment<a class="headerlink" href="#7-tune-parameters-for-your-own-vehicle-environment" title="Permanent link">#</a></h2>
