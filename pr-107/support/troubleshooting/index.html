@@ -2187,40 +2187,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#errors-when-using-a-fixed-version-of-autoware" class="md-nav__link">
-    Errors when using a fixed version of Autoware
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dockerrocker-issues" class="md-nav__link">
-    Docker/rocker issues
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#runtime-errors" class="md-nav__link">
-    Runtime errors
-  </a>
-  
-    <nav class="md-nav" aria-label="Runtime errors">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#map-does-not-display-when-running-the-planning-simulator" class="md-nav__link">
-    Map does not display when running the Planning Simulator
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -2316,40 +2282,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#errors-when-using-a-fixed-version-of-autoware" class="md-nav__link">
-    Errors when using a fixed version of Autoware
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dockerrocker-issues" class="md-nav__link">
-    Docker/rocker issues
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#runtime-errors" class="md-nav__link">
-    Runtime errors
-  </a>
-  
-    <nav class="md-nav" aria-label="Runtime errors">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#map-does-not-display-when-running-the-planning-simulator" class="md-nav__link">
-    Map does not display when running the Planning Simulator
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -2429,41 +2361,35 @@ remember it is not officially supported and may sometimes be broken.</p>
 <h2 id="build-errors">Build errors<a class="headerlink" href="#build-errors" title="Permanent link">#</a></h2>
 <h3 id="insufficient-memory">Insufficient memory<a class="headerlink" href="#insufficient-memory" title="Permanent link">#</a></h3>
 <p>Building Autoware requires a lot of memory, and your machine can freeze or crash if memory runs out during a build. To avoid this problem, 16-32GB of swap should be configured.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Optional: Check the current swapfile</span>
-free -h
-
-<span class="c1"># Remove the current swapfile</span>
-sudo swapoff /swapfile
-sudo rm /swapfile
-
-<span class="c1"># Create a new swapfile</span>
-sudo fallocate -l 32G /swapfile
-sudo chmod <span class="m">600</span> /swapfile
+<p>````bash</p>
+<h1 id="optional-check-the-current-swapfile">Optional: Check the current swapfile<a class="headerlink" href="#optional-check-the-current-swapfile" title="Permanent link">#</a></h1>
+<p>free -h</p>
+<h1 id="remove-the-current-swapfile">Remove the current swapfile<a class="headerlink" href="#remove-the-current-swapfile" title="Permanent link">#</a></h1>
+<p>sudo swapoff /swapfile
+sudo rm /swapfile</p>
+<h1 id="create-a-new-swapfile">Create a new swapfile<a class="headerlink" href="#create-a-new-swapfile" title="Permanent link">#</a></h1>
+<p>sudo fallocate -l 32G /swapfile
+sudo chmod 600 /swapfile
 sudo mkswap /swapfile
-sudo swapon /swapfile
-
-<span class="c1"># Optional: Check if the change is reflected</span>
-free -h
-
-<span class="c1">### Errors when using the latest version of Autoware</span>
-
-If you are working with the latest version of Autoware, issues can occur due to out-of-date software or old build files.
-
-To resolve these types of problems, first try cleaning your build artifacts and rebuilding:
-
-<span class="sb">```</span>bash
+sudo swapon /swapfile</p>
+<h1 id="optional-check-if-the-change-is-reflected">Optional: Check if the change is reflected<a class="headerlink" href="#optional-check-if-the-change-is-reflected" title="Permanent link">#</a></h1>
+<p>free -h
+```</p>
+<h3 id="errors-when-using-the-latest-version-of-autoware">Errors when using the latest version of Autoware<a class="headerlink" href="#errors-when-using-the-latest-version-of-autoware" title="Permanent link">#</a></h3>
+<p>If you are working with the latest version of Autoware, issues can occur due to out-of-date software or old build files.</p>
+<p>To resolve these types of problems, first try cleaning your build artifacts and rebuilding:</p>
+<p><code>bash
 rm -rf build/ install/ log/
-colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE<span class="o">=</span>Release
-</code></pre></div>
+colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release</code></p>
 <p>If the error is not resolved, remove <code>src/</code> and update your workspace according to installation type (<a href="../../installation/autoware/docker-installation/#how-to-update-a-workspace">Docker</a> / <a href="../../installation/autoware/source-installation/#how-to-update-a-workspace">source</a>).</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Before removing <code>src/</code>, confirm that there are no modifications in your local environment that you want to keep!</p>
 </div>
 <p>If errors still persist after trying the steps above, delete the entire workspace, clone the repository once again and restart the installation process.</p>
-<div class="highlight"><pre><span></span><code>rm -rf autoware/
-git clone https://github.com/autowarefoundation/autoware.git
-</code></pre></div>
+<p><code>bash
+rm -rf autoware/
+git clone https://github.com/autowarefoundation/autoware.git</code></p>
 <h3 id="errors-when-using-a-fixed-version-of-autoware">Errors when using a fixed version of Autoware<a class="headerlink" href="#errors-when-using-a-fixed-version-of-autoware" title="Permanent link">#</a></h3>
 <p>In principle, errors should not occur when using a fixed version. That said, possible causes include:</p>
 <ul>
@@ -2489,12 +2415,12 @@ git clone https://github.com/autowarefoundation/autoware.git
 </ol>
 <h2 id="dockerrocker-issues">Docker/rocker issues<a class="headerlink" href="#dockerrocker-issues" title="Permanent link">#</a></h2>
 <p>If any errors occur when running Autoware with Docker or rocker, first confirm that your Docker installation is working correctly by running the following commands:</p>
-<div class="highlight"><pre><span></span><code>docker run --rm -it hello-world
-docker run --rm -it ubuntu:latest
-</code></pre></div>
+<p><code>bash
+docker run --rm -it hello-world
+docker run --rm -it ubuntu:latest</code></p>
 <p>Next, confirm that you are able to access the base Autoware image that is stored on the GitHub Packages website</p>
-<div class="highlight"><pre><span></span><code>docker run --rm -it ghcr.io/autowarefoundation/autoware-universe:latest
-</code></pre></div>
+<p><code>bash
+docker run --rm -it ghcr.io/autowarefoundation/autoware-universe:latest</code></p>
 <h2 id="runtime-errors">Runtime errors<a class="headerlink" href="#runtime-errors" title="Permanent link">#</a></h2>
 <h3 id="map-does-not-display-when-running-the-planning-simulator">Map does not display when running the Planning Simulator<a class="headerlink" href="#map-does-not-display-when-running-the-planning-simulator" title="Permanent link">#</a></h3>
 <p>When running the Planning Simulator, the most common reason for the map not being displayed in RViz is because <a href="https://autowarefoundation.github.io/autoware-documentation/main/tutorials/ad-hoc-simulation/planning-simulation/#how-to-run-a-planning-simulation">the map path has not been specified correctly in the launch command</a>. You can confirm if this is the case by searching for <code>Could not find lanelet map under {path-to-map-dir}/lanelet2_map.osm</code> errors in the log.</p>
@@ -2508,16 +2434,16 @@ docker run --rm -it ubuntu:latest
 </li>
 </ol>
 <p>Add the following lines to <code>/etc/sysctl.conf</code></p>
-<div class="highlight"><pre><span></span><code>net.ipv4.ipfrag_time<span class="o">=</span><span class="m">3</span>  // generic DDS setting
-net.ipv4.ipfrag_high_thresh<span class="o">=</span><span class="m">134217728</span> // generic DDS setting
-net.core.rmem_max<span class="o">=</span><span class="m">2147483647</span> // only add <span class="k">if</span> CycloneDDS is configured
-net.core.rmem_default<span class="o">=</span><span class="m">8388608</span> // only add <span class="k">if</span> CycloneDDS is confgured
-</code></pre></div>
+<p><code>bash
+net.ipv4.ipfrag_time=3  // generic DDS setting
+net.ipv4.ipfrag_high_thresh=134217728 // generic DDS setting
+net.core.rmem_max=2147483647 // only add if CycloneDDS is configured
+net.core.rmem_default=8388608 // only add if CycloneDDS is confgured</code></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>DDS configuration can be determined by running the following command.</p>
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="nv">$RMW_IMPLEMENTATION</span>  // <span class="k">if</span> Cyclone DDS is configured, this <span class="nb">command</span> will <span class="k">return</span> <span class="s2">&quot;rmw_cyclonedds_cpp&quot;</span>
-</code></pre></div>
+<p><code>bash
+echo $RMW_IMPLEMENTATION  // if Cyclone DDS is configured, this command will return "rmw_cyclonedds_cpp"</code></p>
 </div>
 
               
