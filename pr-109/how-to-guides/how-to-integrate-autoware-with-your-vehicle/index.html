@@ -2629,15 +2629,11 @@ Note that you need to calibrate extrinsic parameters for all the sensors beforeh
 <p>Create <code>launch/sensing.launch.xml</code> that launches the interfaces of all the sensors on the vehicle. (refer to the <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch/tree/main/sample_sensor_kit_launch">sample sensor kit launch package</a> for example).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
+<p>At this point, you are now able to run Autoware's Planning Simulator to do a basic test of your vehicle and sensing packages.
+To do so, you need to build and install Autoware using your cloned repository. Follow the <a href="https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/">steps for either Docker or source installation</a>) (starting from the dependency installation step) and then run the following command:
+<div class="highlight"><pre><span></span><code>ros2 launch autoware_launch planning_simulator.launch.xml vehicle_model:<span class="o">=</span>YOUR_VEHICLE sensor_kit:<span class="o">=</span>YOUR_SENSOR_KIT map_path:<span class="o">=</span>/PATH/TO/YOUR/MAP
+</code></pre></div></p>
 </div>
-<p>At this point, you are now able to run Autoware's Planning Simulator to do a basic test of your vehicle and sensing packages.</p>
-<div class="codehilite"><pre><span></span><code>To do so, you need to build and install Autoware using your cloned repository. Follow the [steps for either Docker or source installation](https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/)) (starting from the dependency installation step) and then run the following command:
-
-```bash
-ros2 launch autoware_launch planning_simulator.launch.xml vehicle_model:=YOUR_VEHICLE sensor_kit:=YOUR_SENSOR_KIT map_path:=/PATH/TO/YOUR/MAP
-```
-</code></pre></div>
-
 <h2 id="5-create-a-vehicle_interface-package">5. Create a <code>vehicle_interface</code> package<a class="headerlink" href="#5-create-a-vehicle_interface-package" title="Permanent link">#</a></h2>
 <p>You need to create an interface package for your vehicle.
 The package is expected to provide the following two functions.</p>
