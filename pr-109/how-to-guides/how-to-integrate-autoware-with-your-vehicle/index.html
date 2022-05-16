@@ -977,8 +977,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-create-your-meta-repository" class="md-nav__link">
-    3. Create your meta-repository
+  <a href="#3-create-your-autoware-meta-repository" class="md-nav__link">
+    3. Create your Autoware meta-repository
   </a>
   
 </li>
@@ -2428,8 +2428,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-create-your-meta-repository" class="md-nav__link">
-    3. Create your meta-repository
+  <a href="#3-create-your-autoware-meta-repository" class="md-nav__link">
+    3. Create your Autoware meta-repository
   </a>
   
 </li>
@@ -2598,29 +2598,55 @@
 <h2 id="2-create-maps">2. Create maps<a class="headerlink" href="#2-create-maps" title="Permanent link">#</a></h2>
 <p>You need both a pointcloud map and a vector map in order to use Autoware.</p>
 <h3 id="create-a-pointcloud-map">Create a pointcloud map<a class="headerlink" href="#create-a-pointcloud-map" title="Permanent link">#</a></h3>
-<p>Use third-party tools such as a LiDAR-based SLAM (simultaneous localization and mapping) package to create a pointcloud map in the <code>.pcd</code> format.</p>
+<p>Use third-party tools such as a LiDAR-based SLAM (Simultaneous Localization And Mapping) package to create a pointcloud map in the <code>.pcd</code> format.
+Some examples are:
+- <a href="https://github.com/koide3/hdl_graph_slam">HDL</a>
+- <a href="https://github.com/TixiaoShan/LIO-SAM">LIO-SAM</a>
+- <a href="https://github.com/rsasaki0109/lidarslam_ros2">LiDAR-SLAM (ROS2)</a></p>
 <h3 id="create-vector-map">Create vector map<a class="headerlink" href="#create-vector-map" title="Permanent link">#</a></h3>
 <p>Use third-party tools such as <a href="https://tools.tier4.jp/">TIER IV's Vector Map Builder</a> to create a Lanelet2 format <code>.osm</code> file.</p>
-<h2 id="3-create-your-meta-repository">3. Create your meta-repository<a class="headerlink" href="#3-create-your-meta-repository" title="Permanent link">#</a></h2>
-<p>Create your Autoware repository.
-One easy way is to fork <a href="https://github.com/autowarefoundation/autoware">autowarefoundation/autoware</a> and clone it (<a href="https://docs.github.com/en/get-started/quickstart/fork-a-repo">how to fork repository on github</a>).</p>
-<div class="highlight"><pre><span></span><code>git clone https://github.com/YOUR_NAME/autoware.YOURS.git
+<h2 id="3-create-your-autoware-meta-repository">3. Create your Autoware meta-repository<a class="headerlink" href="#3-create-your-autoware-meta-repository" title="Permanent link">#</a></h2>
+<p>Create your Autoware meta-repository.
+One easy way is to fork <a href="https://github.com/autowarefoundation/autoware">autowarefoundation/autoware</a> and clone it.
+Refer to <a href="https://docs.github.com/en/get-started/quickstart/fork-a-repo">GitHub Docs</a> for how to fork a repository.</p>
+<div class="highlight"><pre><span></span><code>git clone https://github.com/YOUR_NAME/autoware.git
 </code></pre></div>
+<p>If you set up multiple types of vehicles, adding a suffix like "autoware.vehicle_A" or "autoware.vehicle_B" is recommended.</p>
 <h2 id="4-create-the-description-packages-of-your-vehicle">4. Create the description packages of your vehicle<a class="headerlink" href="#4-create-the-description-packages-of-your-vehicle" title="Permanent link">#</a></h2>
-<p>Next, you need to create description packages that define the vehicle and sensor configuration of your vehicle.
-Once it is done, you can launch your vehicle model by specifying <code>vehicle_model:=YOUR_VEHICLE</code> <code>sensor_model:=SAMPLE_SENSOR_KIT</code> in the autoware launchers.</p>
+<p>Next, you need to create description packages that define the vehicle and sensor configuration of your vehicle.</p>
 <p>Create the following two packages:</p>
 <ul>
 <li>YOUR_VEHICLE_launch (see <a href="https://github.com/autowarefoundation/sample_vehicle_launch">here</a> for example)</li>
 <li>YOUR_SENSOR_KIT_launch (see <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch">here</a> for example)</li>
 </ul>
 <p>Once created, you need to update the <code>autoware.repos</code> file of your cloned Autoware repository to refer to these two description packages.</p>
+<div class="highlight"><pre><span></span><code><span class="gd">-  # sensor_kit</span><span class="w"></span>
+<span class="gd">-  sensor_kit/sample_sensor_kit_launch:</span><span class="w"></span>
+<span class="gd">-    type: git</span><span class="w"></span>
+<span class="gd">-    url: https://github.com/autowarefoundation/sample_sensor_kit_launch.git</span><span class="w"></span>
+<span class="gd">-    version: main</span><span class="w"></span>
+<span class="gd">-  # vehicle</span><span class="w"></span>
+<span class="gd">-  vehicle/sample_vehicle_launch:</span><span class="w"></span>
+<span class="gd">-    type: git</span><span class="w"></span>
+<span class="gd">-    url: https://github.com/autowarefoundation/sample_vehicle_launch.git</span><span class="w"></span>
+<span class="gd">-    version: main</span><span class="w"></span>
+<span class="gi">+  # sensor_kit</span><span class="w"></span>
+<span class="gi">+  sensor_kit/YOUR_SENSOR_KIT_launch:</span><span class="w"></span>
+<span class="gi">+    type: git</span><span class="w"></span>
+<span class="gi">+    url: https://github.com/YOUR_NAME/YOUR_SENSOR_KIT_launch.git</span><span class="w"></span>
+<span class="gi">+    version: main</span><span class="w"></span>
+<span class="gi">+  # vehicle</span><span class="w"></span>
+<span class="gi">+  vehicle/YOUR_VEHICLE_launch:</span><span class="w"></span>
+<span class="gi">+    type: git</span><span class="w"></span>
+<span class="gi">+    url: https://github.com/YOUR_NAME/YOUR_VEHICLE_launch.git</span><span class="w"></span>
+<span class="gi">+    version: main</span><span class="w"></span>
+</code></pre></div>
 <h3 id="adapt-your_vehicle_launch-for-autoware-launching-system">Adapt YOUR_VEHICLE_launch for autoware launching system<a class="headerlink" href="#adapt-your_vehicle_launch-for-autoware-launching-system" title="Permanent link">#</a></h3>
 <h4 id="at-your_vehicle_description">At YOUR_VEHICLE_description<a class="headerlink" href="#at-your_vehicle_description" title="Permanent link">#</a></h4>
 <p>Define URDF and parameters in the vehicle description package (refer to the <a href="https://github.com/autowarefoundation/sample_vehicle_launch/tree/main/sample_vehicle_description">sample vehicle description package</a> for an example).</p>
 <h4 id="at-your_vehicle_launch">At YOUR_VEHICLE_launch<a class="headerlink" href="#at-your_vehicle_launch" title="Permanent link">#</a></h4>
 <p>Create a launch file (refer to the <a href="https://github.com/autowarefoundation/sample_vehicle_launch/tree/main/sample_vehicle_launch">sample vehicle launch package</a> for example).
-If you have multiple vehicles with similar hardware setup, you can specify <code>vehicle_id</code> to distinguish them.</p>
+If you have multiple vehicles with the same hardware setup, you can specify <code>vehicle_id</code> to distinguish them.</p>
 <h3 id="adapt-your_sensor_kit_description-for-autoware-launching-system">Adapt YOUR_SENSOR_KIT_description for autoware launching system<a class="headerlink" href="#adapt-your_sensor_kit_description-for-autoware-launching-system" title="Permanent link">#</a></h3>
 <h4 id="at-your_sensor_kit_description">At YOUR_SENSOR_KIT_description<a class="headerlink" href="#at-your_sensor_kit_description" title="Permanent link">#</a></h4>
 <p>Define URDF and extrinsic parameters for all the sensors here (refer to the <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch/tree/main/sample_sensor_kit_description">sample sensor kit description package</a> for example).
@@ -2629,11 +2655,11 @@ Note that you need to calibrate extrinsic parameters for all the sensors beforeh
 <p>Create <code>launch/sensing.launch.xml</code> that launches the interfaces of all the sensors on the vehicle. (refer to the <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch/tree/main/sample_sensor_kit_launch">sample sensor kit launch package</a> for example).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-</div>
 <p>At this point, you are now able to run Autoware's Planning Simulator to do a basic test of your vehicle and sensing packages.
 To do so, you need to build and install Autoware using your cloned repository. Follow the <a href="https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/">steps for either Docker or source installation</a>) (starting from the dependency installation step) and then run the following command:</p>
 <div class="highlight"><pre><span></span><code>ros2 launch autoware_launch planning_simulator.launch.xml vehicle_model:<span class="o">=</span>YOUR_VEHICLE sensor_kit:<span class="o">=</span>YOUR_SENSOR_KIT map_path:<span class="o">=</span>/PATH/TO/YOUR/MAP
 </code></pre></div>
+</div>
 <h2 id="5-create-a-vehicle_interface-package">5. Create a <code>vehicle_interface</code> package<a class="headerlink" href="#5-create-a-vehicle_interface-package" title="Permanent link">#</a></h2>
 <p>You need to create an interface package for your vehicle.
 The package is expected to provide the following two functions.</p>
@@ -2671,7 +2697,7 @@ You can also refer to TIER IV's <a href="https://github.com/tier4/pacmod_interfa
 ros2 topic pub /autoware.YOURS/engage autoware_auto_vehicle_msgs/msg/Engage <span class="s2">&quot;engage: true&quot;</span> -1
 </code></pre></div>
 <p>You can also engage via RViz with "AutowareStatePanel".
-The panel can be found in Panels &gt; Add New Panel &gt; tier4_state_rviz_plugin &gt; AutowareStatePanel.</p>
+The panel can be found in <code>Panels &gt; Add New Panel &gt; tier4_state_rviz_plugin &gt; AutowareStatePanel</code>.</p>
 <p>Now the vehicle should drive along the calculated path!</p>
 <h2 id="7-tune-parameters-for-your-vehicle-environment">7. Tune parameters for your vehicle &amp; environment<a class="headerlink" href="#7-tune-parameters-for-your-vehicle-environment" title="Permanent link">#</a></h2>
 <p>You may need to tune your parameters depending on the domain in which you will operate your vehicle.</p>
