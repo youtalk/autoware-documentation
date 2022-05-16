@@ -1051,6 +1051,61 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#5-create-a-vehicle_interface-package" class="md-nav__link">
+    5. Create a vehicle_interface package
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-launch-autoware" class="md-nav__link">
+    6. Launch Autoware
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Launch Autoware">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-autoware" class="md-nav__link">
+    Install Autoware
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#launch-autoware" class="md-nav__link">
+    Launch Autoware
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-initial-pose" class="md-nav__link">
+    Set initial pose
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-goal-pose" class="md-nav__link">
+    Set goal pose
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#engage" class="md-nav__link">
+    Engage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#7-tune-parameters-for-your-vehicle-environment" class="md-nav__link">
     7. Tune parameters for your vehicle &amp; environment
   </a>
@@ -2447,6 +2502,61 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#5-create-a-vehicle_interface-package" class="md-nav__link">
+    5. Create a vehicle_interface package
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-launch-autoware" class="md-nav__link">
+    6. Launch Autoware
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Launch Autoware">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-autoware" class="md-nav__link">
+    Install Autoware
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#launch-autoware" class="md-nav__link">
+    Launch Autoware
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-initial-pose" class="md-nav__link">
+    Set initial pose
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-goal-pose" class="md-nav__link">
+    Set goal pose
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#engage" class="md-nav__link">
+    Engage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#7-tune-parameters-for-your-vehicle-environment" class="md-nav__link">
     7. Tune parameters for your vehicle &amp; environment
   </a>
@@ -2521,63 +2631,45 @@ Note that you need to calibrate extrinsic parameters for all the sensors beforeh
 <p class="admonition-title">Note</p>
 </div>
 <p>At this point, you are now able to run Autoware's Planning Simulator to do a basic test of your vehicle and sensing packages.
-To do so, you need to build and install Autoware using your cloned repository. Follow the <a href="https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/">steps for either Docker or source installation</a>) (starting from the dependency installation step) and then run the following command:
+To do so, you need to build and install Autoware using your cloned repository. Follow the <a href="https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/">steps for either Docker or source installation</a>) (starting from the dependency installation step) and then run the following command:</p>
 <div class="highlight"><pre><span></span><code>ros2 launch autoware_launch planning_simulator.launch.xml vehicle_model:<span class="o">=</span>YOUR_VEHICLE sensor_kit:<span class="o">=</span>YOUR_SENSOR_KIT map_path:<span class="o">=</span>/PATH/TO/YOUR/MAP
-
-<span class="sb">````</span>
-
-<span class="c1">## 5. Create a `vehicle_interface` package</span>
-
-You need to create an interface package <span class="k">for</span> your vehicle.
-The package is expected to provide the following two functions.
-
-<span class="m">1</span>. Receive <span class="nb">command</span> messages from <span class="sb">`</span>vehicle_cmd_gate<span class="sb">`</span> and drive the vehicle accordingly
-<span class="m">2</span>. Send vehicle status information to Autoware
-
-You can find detailed information about the requirements of the <span class="sb">`</span>vehicle_interface<span class="sb">`</span> package <span class="k">in</span> the <span class="o">[</span>Vehicle Interface design documentation<span class="o">](</span>https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-interface/<span class="o">)</span>.
-You can also refer to TIER IV<span class="s1">&#39;s [pacmod_interface repository](https://github.com/tier4/pacmod_interface) as an example of a vehicle interface package.</span>
-
-<span class="s1">## 6. Launch Autoware</span>
-
-<span class="s1">This section briefly explains how to run your vehicle with Autoware.</span>
-
-<span class="s1">### Install Autoware</span>
-
-<span class="s1">Follow the [installation steps of Autoware](https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/).</span>
-
-<span class="s1">### Launch Autoware</span>
-
-<span class="s1">Launch Autoware with the following command:</span>
-
-<span class="s1">```bash</span>
-<span class="s1">ros2 launch autoware_launch autoware.launch.xml vehicle_model:=YOUR_VEHICLE sensor_kit:=YOUR_SENSOR_KIT map_path:=/PATH/TO/YOUR/MAP</span>
-<span class="s1">````</span>
-
-<span class="s1">### Set initial pose</span>
-
-<span class="s1">If GNSS is available, Autoware automatically initializes the vehicle&#39;</span>s pose.
-
-If not, you need to <span class="nb">set</span> the initial pose using the RViz GUI.
-
-<span class="m">1</span>. Click the 2D Pose estimate button <span class="k">in</span> the toolbar, or hit the P key
-<span class="m">2</span>. In the 3D View pane, click and hold the left mouse button, and <span class="k">then</span> drag to <span class="nb">set</span> the direction <span class="k">for</span> the initial pose.
-
-<span class="c1">### Set goal pose</span>
-
-Set a goal pose <span class="k">for</span> the ego vehicle.
-
-<span class="m">1</span>. Click the 2D Nav Goal button <span class="k">in</span> the toolbar, or hit the G key
-<span class="m">2</span>. In the 3D View pane, click and hold the left mouse button, and <span class="k">then</span> drag to <span class="nb">set</span> the direction <span class="k">for</span> the goal pose.
-   If successful, you will see the calculated planning path on RViz.
-
-<span class="c1">### Engage</span>
-
-In your terminal, execute the following command.
-
-<span class="sb">```</span>bash
-<span class="nb">source</span> ~/autoware.YOURS/install/setup.bash
+</code></pre></div>
+<h2 id="5-create-a-vehicle_interface-package">5. Create a <code>vehicle_interface</code> package<a class="headerlink" href="#5-create-a-vehicle_interface-package" title="Permanent link">#</a></h2>
+<p>You need to create an interface package for your vehicle.
+The package is expected to provide the following two functions.</p>
+<ol>
+<li>Receive command messages from <code>vehicle_cmd_gate</code> and drive the vehicle accordingly</li>
+<li>Send vehicle status information to Autoware</li>
+</ol>
+<p>You can find detailed information about the requirements of the <code>vehicle_interface</code> package in the <a href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-interface/">Vehicle Interface design documentation</a>.
+You can also refer to TIER IV's <a href="https://github.com/tier4/pacmod_interface">pacmod_interface repository</a> as an example of a vehicle interface package.</p>
+<h2 id="6-launch-autoware">6. Launch Autoware<a class="headerlink" href="#6-launch-autoware" title="Permanent link">#</a></h2>
+<p>This section briefly explains how to run your vehicle with Autoware.</p>
+<h3 id="install-autoware">Install Autoware<a class="headerlink" href="#install-autoware" title="Permanent link">#</a></h3>
+<p>Follow the <a href="https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/">installation steps of Autoware</a>.</p>
+<h3 id="launch-autoware">Launch Autoware<a class="headerlink" href="#launch-autoware" title="Permanent link">#</a></h3>
+<p>Launch Autoware with the following command:</p>
+<div class="highlight"><pre><span></span><code>ros2 launch autoware_launch autoware.launch.xml vehicle_model:<span class="o">=</span>YOUR_VEHICLE sensor_kit:<span class="o">=</span>YOUR_SENSOR_KIT map_path:<span class="o">=</span>/PATH/TO/YOUR/MAP
+</code></pre></div>
+<h3 id="set-initial-pose">Set initial pose<a class="headerlink" href="#set-initial-pose" title="Permanent link">#</a></h3>
+<p>If GNSS is available, Autoware automatically initializes the vehicle's pose.</p>
+<p>If not, you need to set the initial pose using the RViz GUI.</p>
+<ol>
+<li>Click the 2D Pose estimate button in the toolbar, or hit the P key</li>
+<li>In the 3D View pane, click and hold the left mouse button, and then drag to set the direction for the initial pose.</li>
+</ol>
+<h3 id="set-goal-pose">Set goal pose<a class="headerlink" href="#set-goal-pose" title="Permanent link">#</a></h3>
+<p>Set a goal pose for the ego vehicle.</p>
+<ol>
+<li>Click the 2D Nav Goal button in the toolbar, or hit the G key</li>
+<li>In the 3D View pane, click and hold the left mouse button, and then drag to set the direction for the goal pose.
+   If successful, you will see the calculated planning path on RViz.</li>
+</ol>
+<h3 id="engage">Engage<a class="headerlink" href="#engage" title="Permanent link">#</a></h3>
+<p>In your terminal, execute the following command.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span> ~/autoware.YOURS/install/setup.bash
 ros2 topic pub /autoware.YOURS/engage autoware_auto_vehicle_msgs/msg/Engage <span class="s2">&quot;engage: true&quot;</span> -1
-</code></pre></div></p>
+</code></pre></div>
 <p>You can also engage via RViz with "AutowareStatePanel".
 The panel can be found in Panels &gt; Add New Panel &gt; tier4_state_rviz_plugin &gt; AutowareStatePanel.</p>
 <p>Now the vehicle should drive along the calculated path!</p>
