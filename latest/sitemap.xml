@@ -236,7 +236,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/installation/autoware/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/installation/additional-settings-for-developers/</loc>
          <lastmod>2022-05-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -251,12 +251,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/installation/tools-for-developers/</loc>
-         <lastmod>2022-05-17</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/installation/tools-for-users/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/installation/related-tools/</loc>
          <lastmod>2022-05-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
