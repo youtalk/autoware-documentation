@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-115/design/autoware-interfaces/ad-api/features/driving-state/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-115/design/autoware-interfaces/ad-api/features/driving/">
       
       <link rel="icon" href="../../../../../assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.15">
     
     
       
-        <title>Driving State - Autoware Documentation</title>
+        <title>Driving - Autoware Documentation</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#driving-state" class="md-skip">
+        <a href="#driving" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Driving State
+              Driving
             
           </span>
         </div>
@@ -2242,21 +2242,22 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/autowarefoundation/autoware-documentation/edit/main/docs/design/autoware-interfaces/ad-api/features/driving-state.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/autowarefoundation/autoware-documentation/edit/main/docs/design/autoware-interfaces/ad-api/features/driving.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="driving-state">Driving State<a class="headerlink" href="#driving-state" title="Permanent link">#</a></h1>
+<h1 id="driving">Driving<a class="headerlink" href="#driving" title="Permanent link">#</a></h1>
 <h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">#</a></h2>
-<p>The driving state manages whether the vehicle is driving or can start driving. The vehicle holds a stop when the state is not DRIVING.
+<p>The driving feature manages whether the vehicle is driving or can start driving.
+The vehicle holds a stop when the state is not DRIVING.
 This state is mainly used to show the users whether the vehicle can start driving and to implement an HMI for departure.</p>
 <p>First, the driving state is NOT_READY and changes depending on other states of the vehicle.
 The state becomes READY when it is ready to start driving.
-Next, the state becomes DRIVING if the engage service is called, then the vehicle starts driving.
+Next, the state becomes DRIVING if the engage API is called, then the vehicle starts driving.
 Finally, the state returns to NOT_READY when the vehicle arrives at the destination.
-The state can be manually returned to NOT_READY by calling disengage service.</p>
+The state can be manually returned to NOT_READY by calling disengage API.</p>
 <p><img alt="driving-state" src="../driving-state.drawio.svg" /></p>
 <table>
 <thead>
