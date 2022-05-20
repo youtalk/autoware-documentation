@@ -2498,12 +2498,8 @@ docker run --rm -it ubuntu:latest
 <p>When running the Planning Simulator, the most common reason for the map not being displayed in RViz is because <a href="https://autowarefoundation.github.io/autoware-documentation/main/tutorials/ad-hoc-simulation/planning-simulation/#how-to-run-a-planning-simulation">the map path has not been specified correctly in the launch command</a>. You can confirm if this is the case by searching for <code>Could not find lanelet map under {path-to-map-dir}/lanelet2_map.osm</code> errors in the log.</p>
 <p>Another possible reason is that map loading is taking a long time due to poor DDS performance. To address this issue, first enable localhost-only communication to reduce network traffic, and then <a href="https://docs.ros.org/en/rolling/How-To-Guides/DDS-tuning.html">tune DDS settings</a> if the problem continues to occur.</p>
 <ol>
-<li>
-<p><a href="https://autowarefoundation.github.io/autoware-documentation/main/installation/tools-for-developers/#enabling-localhost-only-communication">Enable localhost-only communication</a></p>
-</li>
-<li>
-<p>Tune DDS settings</p>
-</li>
+<li><a href="../../installation/additional-settings-for-developers/#enabling-localhost-only-communication">Enable localhost-only communication</a></li>
+<li>Tune DDS settings</li>
 </ol>
 <p>Add the following lines to <code>/etc/sysctl.conf</code></p>
 <div class="highlight"><pre><span></span><code>net.ipv4.ipfrag_time<span class="o">=</span><span class="m">3</span>  // generic DDS setting
