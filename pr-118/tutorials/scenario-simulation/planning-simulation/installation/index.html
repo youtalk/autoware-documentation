@@ -2321,13 +2321,13 @@
 </code></pre></div>
 </li>
 <li>
-<p>Install dependent ROS packages.</p>
+<p>Install dependent ROS packages:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/galactic/setup.bash
 rosdep install --from-paths src --ignore-src --rosdistro <span class="nv">$ROS_DISTRO</span>
 </code></pre></div>
 </li>
 <li>
-<p>Build the workspace.</p>
+<p>Build the workspace:</p>
 <div class="highlight"><pre><span></span><code>colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE<span class="o">=</span>Release
 </code></pre></div>
 </li>
