@@ -2313,7 +2313,7 @@ framework is also used to analyze the test results.</p>
 <p><code>ament_cmake</code> provides several convenience functions to make it easy to register tests in a
 CMake-based package and to ensure that JUnit-compatible result files are generated. It currently
 supports a few different testing frameworks like <code>pytest</code>, <code>gtest</code>, and <code>gmock</code>.</p>
-<p>In order to prevent tests running in parallel to interfere with eachother when publishing and subscribing to ROS topics,
+<p>In order to prevent tests running in parallel to interfere with each other when publishing and subscribing to ROS topics,
 it is recommended to use commands from <a href="https://github.com/ros2/ament_cmake_ros/tree/master/ament_cmake_ros/cmake"><code>ament_cmake_ros</code></a> to run tests in isolation.</p>
 <p>See below for an example of using <code>ament_add_ros_isolated_gtest</code> with <code>colcon test</code>.
 All other tests follow a similar pattern.</p>
@@ -2358,7 +2358,7 @@ condition. More information about <code>gtest</code> can be found in the
 that helps simplify adding <code>gtest</code> code. Details can be viewed in
 <a href="https://github.com/ros2/ament_cmake_ros/tree/master/ament_cmake_ros/cmake">ament_add_gtest.cmake</a>.</p>
 <h2 id="build-test">Build test<a class="headerlink" href="#build-test" title="Permanent link">#</a></h2>
-<p>By default, all necessary test files (ELF, CTesttestfile.cmake, etc.) are compiled by <code>colcon</code>:</p>
+<p>By default, all necessary test files (<code>ELF</code>, <code>CTesttestfile.cmake</code>, etc.) are compiled by <code>colcon</code>:</p>
 <div class="highlight"><pre><span></span><code>ade$ cd ~/workspace/
 ade$ colcon build --packages-select my_cool_pkg
 </code></pre></div>
