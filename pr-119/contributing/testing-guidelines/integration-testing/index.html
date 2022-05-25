@@ -2502,8 +2502,8 @@ endif()
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 </div>
-<p>This API is not suitable for all smoke test cases. For example, it cannot be used when a specific file location (eg: for a map) is required to be passed to the node, or if some preparation needs to be conducted before node launch. 
-   In such cases use the manual solution from the <a href="#integration-test-with-a-single-node-component-test">component test section below</a>.</p>
+<p>This API is not suitable for all smoke test cases. For example, it cannot be used when a specific file location (eg: for a map) is required to be passed to the node, or if some preparation needs to be conducted before node launch.
+In such cases use the manual solution from the <a href="#integration-test-with-a-single-node-component-test">component test section below</a>.</p>
 <h3 id="integration-test-with-a-single-node-component-test">Integration test with a single node: component test<a class="headerlink" href="#integration-test-with-a-single-node-component-test" title="Permanent link">#</a></h3>
 <p>The simplest scenario is a single node. In this case, the integration test is commonly referred to as a component test.</p>
 <p>To add a component test to an existing node, follow the example of the <code>lanelet2_map_provider</code> package that has an executable named <code>lanelet2_map_provider_exe</code>.</p>
@@ -2522,7 +2522,7 @@ endif()
 endif()
 </code></pre></div>
 <p>The <code>TIMEOUT</code> argument is given in seconds; see <a href="https://github.com/ros2/ros_testing/blob/master/ros_testing/cmake/add_ros_test.cmake">here</a> for details.</p>
-<p>To create a test, either read the <a href="https://github.com/ros2/launch/tree/master/launch_testing#quick-start-example">launch_testing quick-start example</a>, or follow the steps below. </p>
+<p>To create a test, either read the <a href="https://github.com/ros2/launch/tree/master/launch_testing#quick-start-example">launch_testing quick-start example</a>, or follow the steps below.</p>
 <p>Let's look at <code>test/lanelet2_map_provider_launch.test.py</code> as an example.</p>
 <p>The essential content is to first import dependencies:</p>
 <div class="highlight"><pre><span></span><code>from ament_index_python import get_package_share_directory
