@@ -311,22 +311,27 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-79/tutorials/scenario-simulation/</loc>
-         <lastmod>2022-05-25</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-79/tutorials/scenario-simulation/digital-twin-simulation/</loc>
          <lastmod>2022-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-79/tutorials/scenario-simulation/planning-simulation/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-79/tutorials/scenario-simulation/rosbag-replay-simulation/</loc>
          <lastmod>2022-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-79/tutorials/scenario-simulation/rosbag-replay-simulation/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-79/tutorials/scenario-simulation/planning-simulation/installation/</loc>
+         <lastmod>2022-05-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-79/tutorials/scenario-simulation/planning-simulation/random-test-simulation/</loc>
+         <lastmod>2022-05-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-79/tutorials/scenario-simulation/planning-simulation/scenario-test-simulation/</loc>
          <lastmod>2022-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
