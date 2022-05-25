@@ -2359,13 +2359,13 @@ that helps simplify adding <code>gtest</code> code. Details can be viewed in
 <a href="https://github.com/ros2/ament_cmake_ros/tree/master/ament_cmake_ros/cmake">ament_add_gtest.cmake</a>.</p>
 <h2 id="build-test">Build test<a class="headerlink" href="#build-test" title="Permanent link">#</a></h2>
 <p>By default, all necessary test files (<code>ELF</code>, <code>CTesttestfile.cmake</code>, etc.) are compiled by <code>colcon</code>:</p>
-<div class="highlight"><pre><span></span><code>ade$ cd ~/workspace/
-ade$ colcon build --packages-select my_cool_pkg
+<div class="highlight"><pre><span></span><code>cd ~/workspace/
+colcon build --packages-select my_cool_pkg
 </code></pre></div>
 <p>Test files are generated under <code>~/workspace/build/my_cool_pkg</code>.</p>
 <h2 id="run-test">Run test<a class="headerlink" href="#run-test" title="Permanent link">#</a></h2>
 <p>To run test on a specific package, call:</p>
-<div class="highlight"><pre><span></span><code>ade$ colcon test --packages-select my_cool_pkg
+<div class="highlight"><pre><span></span><code>colcon test --packages-select my_cool_pkg
 
 Starting &gt;&gt;&gt; my_cool_pkg
 Finished &lt;&lt;&lt; my_cool_pkg [7.80s]
@@ -2374,7 +2374,7 @@ Summary: 1 package finished [9.27s]
 </code></pre></div>
 <p>The test command output contains a brief report of all the test results.</p>
 <p>To get job-wise information of all executed tests, call:</p>
-<div class="highlight"><pre><span></span><code>ade$ colcon test-result --all
+<div class="highlight"><pre><span></span><code>colcon test-result --all
 
 build/my_cool_pkg/test_results/my_cool_pkg/copyright.xunit.xml: 8 tests, 0 errors, 0 failures, 0 skipped
 build/my_cool_pkg/test_results/my_cool_pkg/cppcheck.xunit.xml: 6 tests, 0 errors, 0 failures, 0 skipped
@@ -2390,7 +2390,7 @@ commands, <code>std_out</code>, and <code>std_err</code>. There's also the <code
 containing symbolic links to the most recent package-level build and test output.</p>
 <p>To print the tests' details while the tests are being run, use the
 <code>--event-handlers console_cohesion+</code> option to print the details directly to the console:</p>
-<div class="highlight"><pre><span></span><code>ade$ colcon test --event-handlers console_cohesion+ --packages-select my_cool_pkg
+<div class="highlight"><pre><span></span><code>colcon test --event-handlers console_cohesion+ --packages-select my_cool_pkg
 
 ...
 test 1

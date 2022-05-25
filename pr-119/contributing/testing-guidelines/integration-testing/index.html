@@ -2577,19 +2577,18 @@ class TestProcessOutput(unittest.TestCase):
 </code></pre></div>
 <h2 id="running-the-test">Running the test<a class="headerlink" href="#running-the-test" title="Permanent link">#</a></h2>
 <p>Continuing the example from above, first build</p>
-<div class="highlight"><pre><span></span><code>$ ade enter
-ade$ cd AutowareCore
-ade$ colcon build --packages-up-to lanelet2_map_provider
-ade$ source install/setup.bash
+<div class="highlight"><pre><span></span><code>cd AutowareCore
+colcon build --packages-up-to lanelet2_map_provider
+source install/setup.bash
 </code></pre></div>
 <p>then either execute the component test manually</p>
-<div class="highlight"><pre><span></span><code>ade$ ros2 test src/mapping/had_map/lanelet2_map_provider/test/lanelet2_map_provider_launch.test.py
+<div class="highlight"><pre><span></span><code>ros2 test src/mapping/had_map/lanelet2_map_provider/test/lanelet2_map_provider_launch.test.py
 </code></pre></div>
 <p>or as part of testing the entire package:</p>
-<div class="highlight"><pre><span></span><code>ade$ colcon test --packages-select lanelet2_map_provider
+<div class="highlight"><pre><span></span><code>colcon test --packages-select lanelet2_map_provider
 </code></pre></div>
 <p>Verify that the test is executed; e.g.</p>
-<div class="highlight"><pre><span></span><code>ade$ colcon test-result --all --verbose
+<div class="highlight"><pre><span></span><code>colcon test-result --all --verbose
 ...
 build/lanelet2_map_provider/test_results/lanelet2_map_provider/test_lanelet2_map_provider_launch.test.py.xunit.xml: 1 test, 0 errors, 0 failures, 0 skipped
 </code></pre></div>
