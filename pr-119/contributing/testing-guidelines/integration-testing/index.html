@@ -2447,7 +2447,7 @@
 and evaluate the results of integration tests.</p>
 <h2 id="quick-reference">Quick reference<a class="headerlink" href="#quick-reference" title="Permanent link">#</a></h2>
 <ol>
-<li><a href="https://github.com/ros2/ros2/wiki/Colcon-Tutorial">colcon</a> is used to build and run test.</li>
+<li><a href="https://github.com/ros2/ros2/wiki/Colcon-Tutorial">colcon</a> is used to build and run tests.</li>
 <li><a href="https://github.com/ros2/launch/tree/master/launch_testing">launch testing</a> launches nodes and runs tests.</li>
 <li><a href="testing-in-general.md">Testing in general</a> describes the big picture of testing.</li>
 </ol>
@@ -2456,8 +2456,8 @@ and evaluate the results of integration tests.</p>
 modules are combined and tested as a group. Integration tests occur after unit tests, and before
 validation tests.</p>
 <p>The input to an integration test is a set of independent modules that have been unit tested. The set
-of modules are tested against the defined integration test plan, and the output is a set of
-properly integrated software modules that are ready for system testing.</p>
+of modules is tested against the defined integration test plan, and the output is a set of
+properly integrated software modules that is ready for system testing.</p>
 <h2 id="value-of-integration-testing">Value of integration testing<a class="headerlink" href="#value-of-integration-testing" title="Permanent link">#</a></h2>
 <p>Integration tests determine if independently developed software modules work correctly
 when the modules are connected to each other. In ROS 2, the software modules are called
@@ -2470,7 +2470,7 @@ nodes. As a special case, testing a single node can be referred to as component 
 </ul>
 <p>With ROS 2, it is possible to program complex autonomous-driving applications with a large number
 of nodes. Therefore, a lot of effort has been made to provide an integration-test framework that
-helps developers test the interaction of ROS2 nodes.</p>
+helps developers test the interaction of ROS 2 nodes.</p>
 <h2 id="integration-test-framework">Integration-test framework<a class="headerlink" href="#integration-test-framework" title="Permanent link">#</a></h2>
 <p>A typical integration-test framework has three parts:</p>
 <ol>
@@ -2478,7 +2478,7 @@ helps developers test the interaction of ROS2 nodes.</p>
 <li>A series of expected outputs that should match the output of the executables</li>
 <li>A launcher that starts the tests, compares the outputs to the expected outputs, and determines if the test passes</li>
 </ol>
-<p>In Autoware.Core, we use the <a href="https://github.com/ros2/launch/tree/master/launch_testing">launch_testing</a> framework.</p>
+<p>In Autoware, we use the <a href="https://github.com/ros2/launch/tree/master/launch_testing">launch_testing</a> framework.</p>
 <h3 id="smoke-tests">Smoke tests<a class="headerlink" href="#smoke-tests" title="Permanent link">#</a></h3>
 <p>Autoware has dedicated API for smoke testing</p>
 <p>To use this framework, in <code>package.xml</code> add:</p>
