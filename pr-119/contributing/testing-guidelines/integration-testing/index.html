@@ -2443,7 +2443,7 @@
 
 <h1 id="integration-testing">Integration Testing<a class="headerlink" href="#integration-testing" title="Permanent link">#</a></h1>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h2>
-<p>This article motivates developers to adopt integration testing by explaining how to write, run,
+<p>The purpose of this guide is to motivate developers to adopt integration testing best practices with Autoware by explaining how to write, run,
 and evaluate the results of integration tests.</p>
 <h2 id="quick-reference">Quick reference<a class="headerlink" href="#quick-reference" title="Permanent link">#</a></h2>
 <ol>
@@ -2464,9 +2464,9 @@ when the modules are connected to each other. In ROS 2, the software modules are
 nodes. As a special case, testing a single node can be referred to as component testing.</p>
 <p>Integration tests help to find the following types of errors:</p>
 <ul>
-<li>Incompatible interaction between nodes, such as non-matching topics, different message types, or incompatible QoS settings</li>
-<li>Reveal edge cases that were not touched with unit tests, such as a critical timing issue, network communication delay, disk I/O failure, and many other problems that can occur in production environments</li>
-<li>Using tools like <code>stress</code> and <code>udpreplay</code>, performance of nodes is tested with real data or while the system is under high CPU/memory load, where situations such as <code>malloc</code> failures can be detected</li>
+<li>Incompatible interactions between nodes, such as non-matching topics, different message types, or incompatible QoS settings</li>
+<li>Edge cases that were not touched by unit testing, such as a critical timing issue, network communication delays, disk I/O failures, and many other problems that can occur in production environments</li>
+<li>Issues that can occur while the system is under high CPU/memory load, such as <code>malloc</code> failures. This can be tested using tools like <code>stress</code> and <code>udpreplay</code> to test the performance of nodes with real data.```</li>
 </ul>
 <p>With ROS 2, it is possible to program complex autonomous-driving applications with a large number
 of nodes. Therefore, a lot of effort has been made to provide an integration-test framework that
@@ -2480,7 +2480,7 @@ helps developers test the interaction of ROS 2 nodes.</p>
 </ol>
 <p>In Autoware, we use the <a href="https://github.com/ros2/launch/tree/master/launch_testing">launch_testing</a> framework.</p>
 <h3 id="smoke-tests">Smoke tests<a class="headerlink" href="#smoke-tests" title="Permanent link">#</a></h3>
-<p>Autoware has dedicated API for smoke testing</p>
+<p>Autoware has a dedicated API for smoke testing</p>
 <p>To use this framework, in <code>package.xml</code> add:</p>
 <div class="highlight"><pre><span></span><code>&lt;test_depend&gt;autoware_testing&lt;/test_depend&gt;
 </code></pre></div>
@@ -2493,14 +2493,17 @@ helps developers test the interaction of ROS 2 nodes.</p>
   add_smoke_test(${PROJECT_NAME} ${NODE_NAME})
 endif()
 </code></pre></div>
-<p>which adds smoke test that ensures that node can be:</p>
+<p>Doing so adds smoke tests that ensure that a node can be:</p>
 <ol>
-<li>launched with default parameter file,</li>
+<li>launched with a default parameter file,</li>
 <li>terminated with a standard <code>SIGTERM</code> signal,</li>
 </ol>
-<p>For full API documentation see <a href="autoware-testing-package-design.md">package design page</a>.</p>
-<p>This API is not suitable for all smoke test cases. For example, it can not be used when some specific file location,
-like map, is required to be passed to the node or some preparation need to be conducted before node launch. In such cases use manual solution from <a href="#integration-test-with-a-single-node-component-test">section below</a>.</p>
+<p>For the full API documentation, refer to the <a href="autoware-testing-package-design.md">package design page</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+</div>
+<p>This API is not suitable for all smoke test cases. For example, it cannot be used when a specific file location (eg: for a map) is required to be passed to the node, or if some preparation needs to be conducted before node launch. 
+   In such cases use the manual solution from the <a href="#integration-test-with-a-single-node-component-test">component test section below</a>.</p>
 <h3 id="integration-test-with-a-single-node-component-test">Integration test with a single node: component test<a class="headerlink" href="#integration-test-with-a-single-node-component-test" title="Permanent link">#</a></h3>
 <p>The simplest scenario is a single node. In this case, the integration test is commonly referred to as a component test.</p>
 <p>To add a component test to an existing node, follow the example of the <code>lanelet2_map_provider</code> package that has an executable named <code>lanelet2_map_provider_exe</code>.</p>
@@ -2519,7 +2522,7 @@ like map, is required to be passed to the node or some preparation need to be co
 endif()
 </code></pre></div>
 <p>The <code>TIMEOUT</code> argument is given in seconds; see <a href="https://github.com/ros2/ros_testing/blob/master/ros_testing/cmake/add_ros_test.cmake">here</a> for details.</p>
-<p>To create test follow <a href="https://github.com/ros2/launch/tree/master/launch_testing#quick-start-example">launch_testing quick-start example</a>.</p>
+<p>To create a test, either read the <a href="https://github.com/ros2/launch/tree/master/launch_testing#quick-start-example">launch_testing quick-start example</a>, or follow the steps below. </p>
 <p>Let's look at <code>test/lanelet2_map_provider_launch.test.py</code> as an example.</p>
 <p>The essential content is to first import dependencies:</p>
 <div class="highlight"><pre><span></span><code>from ament_index_python import get_package_share_directory
@@ -2531,7 +2534,7 @@ import os
 import pytest
 import unittest
 </code></pre></div>
-<p>Then a launch description was created to launch the node under test. Note that <code>test_map.osm</code> file path is found and passed to the node. This is one of limitation of <a href="#integration-testing-smoke-test">smoke test</a>:</p>
+<p>Then a launch description is created to launch the node under test. Note that the <code>test_map.osm</code> file path is found and passed to the node, something that cannot be done with the <a href="#integration-testing-smoke-test">smoke testing API</a>:</p>
 <div class="highlight"><pre><span></span><code>@pytest.mark.launch_test
 def generate_test_description():
 
@@ -2562,7 +2565,7 @@ def generate_test_description():
         launch_testing.actions.ReadyToTest()]
     ), context
 </code></pre></div>
-<p>and finally the test condition. As before, it is just a smoke test ensures the node can be</p>
+<p>and finally the test condition. As before, it is just a smoke test that ensures the node can be</p>
 <ol>
 <li>launched with its default parameter file,</li>
 <li>terminated with a standard <code>SIGTERM</code> signal,</li>

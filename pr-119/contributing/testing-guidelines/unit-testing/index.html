@@ -2313,7 +2313,7 @@ framework is also used to analyze the test results.</p>
 <p><code>ament_cmake</code> provides several convenience functions to make it easy to register tests in a
 CMake-based package and to ensure that JUnit-compatible result files are generated. It currently
 supports a few different testing frameworks like <code>pytest</code>, <code>gtest</code>, and <code>gmock</code>.</p>
-<p>In order to prevent tests running in parallel to interfere with each other when publishing and subscribing to ROS topics,
+<p>In order to prevent tests running in parallel from interfering with each other when publishing and subscribing to ROS topics,
 it is recommended to use commands from <a href="https://github.com/ros2/ament_cmake_ros/tree/master/ament_cmake_ros/cmake"><code>ament_cmake_ros</code></a> to run tests in isolation.</p>
 <p>See below for an example of using <code>ament_add_ros_isolated_gtest</code> with <code>colcon test</code>.
 All other tests follow a similar pattern.</p>
@@ -2346,8 +2346,7 @@ endif()
 <p>To register a new <code>gtest</code> item, wrap the test code with the macro <code>TEST ()</code>. <code>TEST ()</code>
 is a predefined macro that helps generate the final test code, and also registers
 a <code>gtest</code> item to be available for execution.
-Test case name should be in CamelCase.
-This is as gtest inserts an underscore between the fixture name and the class case name when creating the test executable.</p>
+The test case name should be in CamelCase, since gtest inserts an underscore between the fixture name and the class case name when creating the test executable.</p>
 <p><code>gtest/gtest.h</code> also contains predefined macros of <code>gtest</code> like <code>ASSERT_TRUE(condition)</code>,
 <code>ASSERT_FALSE(condition)</code>, <code>ASSERT_EQ(val1,val2)</code>, <code>ASSERT_STREQ(str1,str2)</code>,
 <code>EXPECT_EQ()</code>, etc. <code>ASSERT_*</code> will abort the test if the condition is not
@@ -2364,7 +2363,7 @@ colcon build --packages-select my_cool_pkg
 </code></pre></div>
 <p>Test files are generated under <code>~/workspace/build/my_cool_pkg</code>.</p>
 <h2 id="run-test">Run test<a class="headerlink" href="#run-test" title="Permanent link">#</a></h2>
-<p>To run test on a specific package, call:</p>
+<p>To run all tests for a specific package, call:</p>
 <div class="highlight"><pre><span></span><code>colcon test --packages-select my_cool_pkg
 
 Starting &gt;&gt;&gt; my_cool_pkg
