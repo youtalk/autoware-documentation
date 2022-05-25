@@ -1980,13 +1980,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#running-multiple-nodes-together" class="md-nav__link">
-    Running multiple nodes together
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -2406,13 +2399,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#running-multiple-nodes-together" class="md-nav__link">
-    Running multiple nodes together
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -2449,7 +2435,7 @@ and evaluate the results of integration tests.</p>
 <ol>
 <li><a href="https://github.com/ros2/ros2/wiki/Colcon-Tutorial">colcon</a> is used to build and run tests.</li>
 <li><a href="https://github.com/ros2/launch/tree/master/launch_testing">launch testing</a> launches nodes and runs tests.</li>
-<li><a href="testing-in-general.md">Testing in general</a> describes the big picture of testing.</li>
+<li><a href="../">Testing guidelines</a> describes the different types of tests performed in Autoware and links to the corresponding guidelines.</li>
 </ol>
 <h2 id="integration-testing_1">Integration testing<a class="headerlink" href="#integration-testing_1" title="Permanent link">#</a></h2>
 <p>An integration test is defined as the phase in software testing where individual software
@@ -2498,12 +2484,12 @@ endif()
 <li>launched with a default parameter file,</li>
 <li>terminated with a standard <code>SIGTERM</code> signal,</li>
 </ol>
-<p>For the full API documentation, refer to the <a href="autoware-testing-package-design.md">package design page</a>.</p>
+<p>For the full API documentation, refer to the <a href="https://github.com/autowarefoundation/autoware.universe/blob/main/common/autoware_testing/design/autoware_testing-design.md">package design page</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-</div>
 <p>This API is not suitable for all smoke test cases. For example, it cannot be used when a specific file location (eg: for a map) is required to be passed to the node, or if some preparation needs to be conducted before node launch.
 In such cases use the manual solution from the <a href="#integration-test-with-a-single-node-component-test">component test section below</a>.</p>
+</div>
 <h3 id="integration-test-with-a-single-node-component-test">Integration test with a single node: component test<a class="headerlink" href="#integration-test-with-a-single-node-component-test" title="Permanent link">#</a></h3>
 <p>The simplest scenario is a single node. In this case, the integration test is commonly referred to as a component test.</p>
 <p>To add a component test to an existing node, follow the example of the <code>lanelet2_map_provider</code> package that has an executable named <code>lanelet2_map_provider_exe</code>.</p>
@@ -2596,7 +2582,7 @@ source install/setup.bash
 build/lanelet2_map_provider/test_results/lanelet2_map_provider/test_lanelet2_map_provider_launch.test.py.xunit.xml: 1 test, 0 errors, 0 failures, 0 skipped
 </code></pre></div>
 <h3 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">#</a></h3>
-<p>The simple test described in <a href="integration-test-with-a-single-node-component-test">Integration test with a single node: component test</a> can be extended in numerous directions:</p>
+<p>The simple test described in <a href="#integration-test-with-a-single-node-component-test">Integration test with a single node: component test</a> can be extended in numerous directions:</p>
 <h4 id="testing-the-output-of-a-node">Testing the output of a node<a class="headerlink" href="#testing-the-output-of-a-node" title="Permanent link">#</a></h4>
 <p>To test while the node is running, create an <a href="https://github.com/ros2/launch/tree/foxy/launch_testing#active-tests"><em>active test</em></a> by adding a subclass of Python's <code>unittest.TestCase</code> to <code>*launch.test.py</code>. Some boilerplate code is required to access output by creating a node and a subscription to a particular topic; e.g.</p>
 <div class="highlight"><pre><span></span><code>import unittest
@@ -2649,9 +2635,6 @@ class TestRunningDataPublisher(unittest.TestCase):
         msg = self.get_message()
         self.assertEqual(msg, &quot;Hello, world&quot;)
 </code></pre></div>
-<h4 id="running-multiple-nodes-together">Running multiple nodes together<a class="headerlink" href="#running-multiple-nodes-together" title="Permanent link">#</a></h4>
-<p>To run multiple nodes together, simply add more nodes to the launch description in <code>*launch.test.py</code>.
-The lidar stack has more elaborate examples on how to feed input and to test more than just the exit status of nodes; see <a href="https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto/-/blob/master/src/perception/filters/point_cloud_filter_transform_nodes/test/point_cloud_filter_transform_tf_publisher.test.py">point_cloud_filter_transform_tf_publisher.test.py</a> for details.</p>
 
               
             </article>
