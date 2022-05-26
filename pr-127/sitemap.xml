@@ -321,17 +321,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-127/tutorials/scenario-simulation/planning-simulation/installation/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-127/tutorials/scenario-simulation/running-scenario-test-with-planning-simulation/installation/</loc>
          <lastmod>2022-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-127/tutorials/scenario-simulation/planning-simulation/random-test-simulation/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-127/tutorials/scenario-simulation/running-scenario-test-with-planning-simulation/random-test-simulation/</loc>
          <lastmod>2022-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-127/tutorials/scenario-simulation/planning-simulation/scenario-test-simulation/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-127/tutorials/scenario-simulation/running-scenario-test-with-planning-simulation/scenario-test-simulation/</loc>
          <lastmod>2022-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
