@@ -2350,6 +2350,7 @@ It is often run automatically for continuous integration purposes, but can also 
 </div>
 <h3 id="rosbag-replay-simulation">Rosbag replay simulation<a class="headerlink" href="#rosbag-replay-simulation" title="Permanent link">#</a></h3>
 <p>Rosbag replay simulation uses prerecorded rosbag data to test aspects of the Localization and Perception components (eg: object recognition).
+The localization module observes the data, matches them to the map, and estimates the location on the map. Also, the perception module detects surrounding cars, pedestrians, and other objects for safe operation. <br />
 By repeatedly playing back the data, this simulation type can also be used for endurance testing.</p>
 <h3 id="digital-twin-simulation">Digital twin simulation<a class="headerlink" href="#digital-twin-simulation" title="Permanent link">#</a></h3>
 <p>Digital twin simulation is a simulation type that is able to produce realistic data and simulate almost the entire system. It is also commonly referred to as end-to-end simulation.</p>
