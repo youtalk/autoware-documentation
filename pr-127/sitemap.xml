@@ -296,42 +296,42 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-127/tutorials/ad-hoc-simulation/digital-twin-simulation/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-127/tutorials/ad-hoc-simulation/using-a-digital-twin-simulation/</loc>
          <lastmod>2022-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-127/tutorials/ad-hoc-simulation/planning-simulation/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-127/tutorials/ad-hoc-simulation/using-a-planning-simulation/</loc>
          <lastmod>2022-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-127/tutorials/ad-hoc-simulation/rosbag-replay-simulation/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-127/tutorials/ad-hoc-simulation/using-a-rosbag-replay-simulation/</loc>
          <lastmod>2022-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-127/tutorials/scenario-simulation/digital-twin-simulation/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-127/tutorials/scenario-simulation/running-a-scenario-test-with-a-digital-twin-simulation/</loc>
          <lastmod>2022-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-127/tutorials/scenario-simulation/rosbag-replay-simulation/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-127/tutorials/scenario-simulation/running-a-scenario-test-with-a-rosbag-replay-simulation/</loc>
          <lastmod>2022-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-127/tutorials/scenario-simulation/running-scenario-test-with-planning-simulation/installation/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-127/tutorials/scenario-simulation/running-a-scenario-test-with-a-planning-simulation/installation/</loc>
          <lastmod>2022-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-127/tutorials/scenario-simulation/running-scenario-test-with-planning-simulation/random-test-simulation/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-127/tutorials/scenario-simulation/running-a-scenario-test-with-a-planning-simulation/random-test-simulation/</loc>
          <lastmod>2022-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-127/tutorials/scenario-simulation/running-scenario-test-with-planning-simulation/scenario-test-simulation/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-127/tutorials/scenario-simulation/running-a-scenario-test-with-a-planning-simulation/scenario-test-simulation/</loc>
          <lastmod>2022-05-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
