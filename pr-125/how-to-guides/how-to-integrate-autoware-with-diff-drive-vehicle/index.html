@@ -2389,7 +2389,7 @@
 <h1 id="how-to-integrate-autoware-with-differential-drive-vehicle">How to integrate Autoware with differential drive vehicle<a class="headerlink" href="#how-to-integrate-autoware-with-differential-drive-vehicle" title="Permanent link">#</a></h1>
 <h2 id="1-integrate-autoware-with-differential-drive-vehicle">1. Integrate Autoware with differential drive vehicle<a class="headerlink" href="#1-integrate-autoware-with-differential-drive-vehicle" title="Permanent link">#</a></h2>
 <p>Currently, Autoware assumes the robot to be driven by Ackermann Command</p>
-<p>（編注：Ackermannコマンドの説明少し図とかで簡単に描きたい）</p>
+<p>（編注：Ackermann コマンドの説明少し図とかで簡単に描きたい）</p>
 <p>However, it is also possible to integrate Autoware with differential drive robot, by properly translating Ackermann Command to diff-drive command</p>
 <h2 id="2-how-to">2. How-to<a class="headerlink" href="#2-how-to" title="Permanent link">#</a></h2>
 <p>Create a vehicle_interface package that translates Ackermann Command to differential drive commands.</p>
@@ -2397,7 +2397,7 @@
 <h3 id="motion-model-incompatibility">Motion model incompatibility<a class="headerlink" href="#motion-model-incompatibility" title="Permanent link">#</a></h3>
 <p>As mentioned above, Autoware assumes the vehicle to adopt steering system that is controlled with Ackermann commands.
 Due to this reason, when you apply Autoware to differential drive vehicles, Autoware cannot take full advantage of the flexibility of their motion model.
-For example, <code>freespace_planner</code> for parking scenario in planning module may drive the differential drive vehicle forward and backward, 
+For example, <code>freespace_planner</code> for parking scenario in planning module may drive the differential drive vehicle forward and backward,
 while the vehicle may be possible park with much more simple trajectory with pure rotation movement.</p>
 
               
