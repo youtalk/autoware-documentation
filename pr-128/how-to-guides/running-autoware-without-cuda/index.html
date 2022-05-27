@@ -2348,9 +2348,11 @@
 
 <h1 id="running-autoware-without-cuda">Running Autoware without CUDA<a class="headerlink" href="#running-autoware-without-cuda" title="Permanent link">#</a></h1>
 <p>Although you cannot use some of the modules in Autoware, it is possible to run Autoware without CUDA environment.</p>
-<p>Without CUDA environment, you cannot use some of the perception algorithms integrated in Autoware such as <code>lidar_centerpoint</code> or <code>tensorrt_yolo</code>, which is responsible for the following functions:
-- 2D/3D object detection
-- traffic light detection</p>
+<p>Without CUDA environment, you cannot use some of the perception algorithms integrated in Autoware such as <code>lidar_centerpoint</code> or <code>tensorrt_yolo</code>, which is responsible for the following functions:</p>
+<ul>
+<li>2D/3D object detection</li>
+<li>traffic light detection</li>
+</ul>
 <h2 id="2d3d-object-detection-without-cuda">2D/3D object detection without CUDA<a class="headerlink" href="#2d3d-object-detection-without-cuda" title="Permanent link">#</a></h2>
 <p>You may use <code>euclidean_cluster</code>. WIP</p>
 <h2 id="traffic-light-detection-without-cuda">Traffic light detection without CUDA<a class="headerlink" href="#traffic-light-detection-without-cuda" title="Permanent link">#</a></h2>
