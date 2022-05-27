@@ -2389,11 +2389,11 @@
 <h1 id="how-to-integrate-autoware-with-differential-drive-vehicle">How to integrate Autoware with differential drive vehicle<a class="headerlink" href="#how-to-integrate-autoware-with-differential-drive-vehicle" title="Permanent link">#</a></h1>
 <h2 id="1-integrate-autoware-with-differential-drive-vehicle">1. Integrate Autoware with differential drive vehicle<a class="headerlink" href="#1-integrate-autoware-with-differential-drive-vehicle" title="Permanent link">#</a></h2>
 <p>Currently, Autoware assumes the vehicle to follow an Ackermann kinematic model that uses Ackermann steering.
-Thus, the Autoware interfaces adopts Ackermann commands format for the output of control module (see <a href="https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_control_msgs/msg/AckermannControlCommand.idl">the definition of AckermannControlCommands.idl</a> for details).</p>
-<p>However, it is possible to integrate Autoware with a vehicle that follows a differential drive kinematic model, which is common especially for small mobile robots.</p>
+Thus, the Autoware interfaces adopt the Ackermann commands format for the output of the control module (see <a href="https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_control_msgs/msg/AckermannControlCommand.idl">the definition of AckermannControlCommands.idl</a> for details).</p>
+<p>However, it is possible to integrate Autoware with a vehicle that follows a differential drive kinematic model, which is especially common for small mobile robots.</p>
 <h2 id="2-procedure">2. Procedure<a class="headerlink" href="#2-procedure" title="Permanent link">#</a></h2>
 <p>This section briefly explains one of the ways to use Autoware for differential drive vehicles.</p>
-<p>One simple way is to create a <code>vehicle_interface</code> package that translate Ackermann command to differential drive command.
+<p>One simple way is to create a <code>vehicle_interface</code> package that translates the Ackermann command to the differential drive command.
 Ackermann command in Autoware mainly consists of two main control inputs:</p>
 <ul>
 <li>steering angle (<span class="arithmatex"><span class="MathJax_Preview">\omega</span><script type="math/tex">\omega</script></span>)</li>
@@ -2404,7 +2404,7 @@ Ackermann command in Autoware mainly consists of two main control inputs:</p>
 <li>left wheel velocity (<span class="arithmatex"><span class="MathJax_Preview">v_l</span><script type="math/tex">v_l</script></span>)</li>
 <li>right wheel velocity (<span class="arithmatex"><span class="MathJax_Preview">v_r</span><script type="math/tex">v_r</script></span>)</li>
 </ul>
-<p>For example, Ackermann command can be converted to differential drive command with the following equations:</p>
+<p>For example, the Ackermann command can be converted to the differential drive command with the following equations:</p>
 <div class="arithmatex">
 <div class="MathJax_Preview">
 v_l = v - \frac{l\omega}{2},
@@ -2422,7 +2422,7 @@ v_r = v + \frac{l\omega}{2}
 <p>As mentioned above, Autoware assumes the vehicle to be a steering system and not a differential drive system.
 Due to this reason, when you apply Autoware to differential drive vehicles, Autoware cannot take full advantage of the flexibility of their motion model.</p>
 <p>For example, <code>freespace_planner</code> for parking scenario in planning module may drive the differential drive vehicle forward and backward,
-while the vehicle may be possible park with much more simple trajectory with pure rotation movement.</p>
+while the vehicle may be possible to park with more simple trajectory with pure rotation movement.</p>
 
               
             </article>
