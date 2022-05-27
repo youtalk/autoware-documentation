@@ -2364,16 +2364,18 @@
 <h2 id="1-integrate-autoware-with-differential-drive-vehicle">1. Integrate Autoware with differential drive vehicle<a class="headerlink" href="#1-integrate-autoware-with-differential-drive-vehicle" title="Permanent link">#</a></h2>
 <p>Currently, Autoware assumes the vehicle to follow an Ackermann kinematic model that uses Ackermann steering.
 Thus, the Autoware interfaces adopts Ackermann commands format for the output of control module (see <a href="https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_control_msgs/msg/AckermannControlCommand.idl">the definition of AckermannControlCommands.idl</a> for details).</p>
-<p>However, it is possible to integrate Autoware with a vehicle that follows a differential drive kinematic model, which is common especially for small mobile robots. </p>
+<p>However, it is possible to integrate Autoware with a vehicle that follows a differential drive kinematic model, which is common especially for small mobile robots.</p>
 <p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
 <h2 id="2-how-to">2. How-to<a class="headerlink" href="#2-how-to" title="Permanent link">#</a></h2>
 <p>=======</p>
 <h2 id="2-procedure">2. Procedure<a class="headerlink" href="#2-procedure" title="Permanent link">#</a></h2>
 <p>This section briefly explains one of the ways to use Autoware for differential drive vehicles.</p>
 <p>One simple way is to create a <code>vehicle_interface</code> package that translate Ackermann command to differential drive command.
-Ackermann command in Autoware mainly consists of two main control inputs:
-- steering angle (w)
-- velocity (v)</p>
+Ackermann command in Autoware mainly consists of two main control inputs:</p>
+<ul>
+<li>steering angle (w)</li>
+<li>velocity (v)</li>
+</ul>
 <blockquote>
 <blockquote>
 <blockquote>
@@ -2389,9 +2391,11 @@ Ackermann command in Autoware mainly consists of two main control inputs:
 </blockquote>
 </blockquote>
 </blockquote>
-<p>while the typical differential drive command consists of the following inputs:
-- left wheel velocity (v_l)
-- right wheel velocity (v_r)</p>
+<p>while the typical differential drive command consists of the following inputs:</p>
+<ul>
+<li>left wheel velocity (v_l)</li>
+<li>right wheel velocity (v_r)</li>
+</ul>
 <h1 id="head">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD<a class="headerlink" href="#head" title="Permanent link">#</a></h1>
 <p>For example, Ackermann command can be converted to differential drive command with the following equations:</p>
 <p><img alt="Ackermann command to diff-drive command" src="../images/how-to-integrate-autoware-with-diff-drive-vehicle/ackermann_to_diff_drive.png" style="height:180px;width:320px" /></p>
