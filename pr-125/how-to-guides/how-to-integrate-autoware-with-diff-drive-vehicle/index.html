@@ -2396,17 +2396,20 @@ Thus, the Autoware interfaces adopts Ackermann commands format for the output of
 <p>One simple way is to create a <code>vehicle_interface</code> package that translate Ackermann command to differential drive command.
 Ackermann command in Autoware mainly consists of two main control inputs:</p>
 <ul>
-<li>steering angle (w)</li>
-<li>velocity (v)</li>
+<li>steering angle (<span class="arithmatex">\(\omega\)</span>)</li>
+<li>velocity (<span class="arithmatex">\(v\)</span>)</li>
 </ul>
 <p>while the typical differential drive command consists of the following inputs:</p>
 <ul>
-<li>left wheel velocity (v_l)</li>
-<li>right wheel velocity (v_r)</li>
+<li>left wheel velocity (<span class="arithmatex">\(v_l\)</span>)</li>
+<li>right wheel velocity (<span class="arithmatex">\(v_r\)</span>)</li>
 </ul>
 <p>For example, Ackermann command can be converted to differential drive command with the following equations:</p>
-<p><img alt="Ackermann command to diff-drive command" src="../images/how-to-integrate-autoware-with-diff-drive-vehicle/ackermann_to_diff_drive.png" style="height:180px;width:320px" /></p>
-<p>where <code>l</code> denotes wheel tread.</p>
+<div class="arithmatex">\[
+v_l = v - \frac{l\omega}{2}, 
+v_r = v + \frac{l\omega}{2}
+\]</div>
+<p>where <span class="arithmatex">\(l\)</span> denotes wheel tread.</p>
 <p>For general requirements for <code>vehicle_interface</code> package, please refer to <a href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-interface/">the description of <code>vehicle_interface</code></a> for detail.</p>
 <h2 id="3-known-issues">3. Known issues<a class="headerlink" href="#3-known-issues" title="Permanent link">#</a></h2>
 <h3 id="motion-model-incompatibility">Motion model incompatibility<a class="headerlink" href="#motion-model-incompatibility" title="Permanent link">#</a></h3>
@@ -2493,7 +2496,11 @@ while the vehicle may be possible park with much more simple trajectory with pur
     
       <script src="../../assets/javascripts/bundle.a6c66575.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>
