@@ -2468,16 +2468,16 @@ helps developers test the interaction of ROS 2 nodes.</p>
 <h3 id="smoke-tests">Smoke tests<a class="headerlink" href="#smoke-tests" title="Permanent link">#</a></h3>
 <p>Autoware has a dedicated API for smoke testing</p>
 <p>To use this framework, in <code>package.xml</code> add:</p>
-<div class="highlight"><pre><span></span><code>&lt;test_depend&gt;autoware_testing&lt;/test_depend&gt;
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;test_depend&gt;</span>autoware_testing<span class="nt">&lt;/test_depend&gt;</span>
 </code></pre></div>
 <p>and in <code>CMakeLists.txt</code> add:</p>
-<div class="highlight"><pre><span></span><code>if(BUILD_TESTING)
-  find_package(ament_lint_auto REQUIRED)
-  ament_lint_auto_find_test_dependencies()
+<div class="highlight"><pre><span></span><code><span class="nb">if</span><span class="p">(</span><span class="s">BUILD_TESTING</span><span class="p">)</span>
+<span class="w">  </span><span class="nb">find_package</span><span class="p">(</span><span class="s">ament_lint_auto</span><span class="w"> </span><span class="s">REQUIRED</span><span class="p">)</span>
+<span class="w">  </span><span class="nb">ament_lint_auto_find_test_dependencies</span><span class="p">()</span>
 
-  find_package(autoware_testing REQUIRED)
-  add_smoke_test(${PROJECT_NAME} ${NODE_NAME})
-endif()
+<span class="w">  </span><span class="nb">find_package</span><span class="p">(</span><span class="s">autoware_testing</span><span class="w"> </span><span class="s">REQUIRED</span><span class="p">)</span>
+<span class="w">  </span><span class="nb">add_smoke_test</span><span class="p">(</span><span class="o">${</span><span class="nv">PROJECT_NAME</span><span class="o">}</span><span class="w"> </span><span class="o">${</span><span class="nv">NODE_NAME</span><span class="o">}</span><span class="p">)</span>
+<span class="nb">endif</span><span class="p">()</span>
 </code></pre></div>
 <p>Doing so adds smoke tests that ensure that a node can be:</p>
 <ol>
@@ -2494,62 +2494,62 @@ In such cases use the manual solution from the <a href="#integration-test-with-a
 <p>The simplest scenario is a single node. In this case, the integration test is commonly referred to as a component test.</p>
 <p>To add a component test to an existing node, follow the example of the <code>lanelet2_map_provider</code> package that has an executable named <code>lanelet2_map_provider_exe</code>.</p>
 <p>In <code>package.xml</code>, add</p>
-<div class="highlight"><pre><span></span><code>&lt;test_depend&gt;ros_testing&lt;/test_depend&gt;
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;test_depend&gt;</span>ros_testing<span class="nt">&lt;/test_depend&gt;</span>
 </code></pre></div>
 <p>In <code>CMakeLists.txt</code>, add or modify the <code>BUILD_TESTING</code> section:</p>
-<div class="highlight"><pre><span></span><code>if(BUILD_TESTING)
-  find_package(ament_lint_auto REQUIRED)
-  ament_lint_auto_find_test_dependencies()
+<div class="highlight"><pre><span></span><code><span class="nb">if</span><span class="p">(</span><span class="s">BUILD_TESTING</span><span class="p">)</span>
+<span class="w">  </span><span class="nb">find_package</span><span class="p">(</span><span class="s">ament_lint_auto</span><span class="w"> </span><span class="s">REQUIRED</span><span class="p">)</span>
+<span class="w">  </span><span class="nb">ament_lint_auto_find_test_dependencies</span><span class="p">()</span>
 
-  add_ros_test(
-    test/lanelet2_map_provider_launch.test.py
-    TIMEOUT &quot;30&quot;
-  )
-endif()
+<span class="w">  </span><span class="nb">add_ros_test</span><span class="p">(</span>
+<span class="w">    </span><span class="s">test/lanelet2_map_provider_launch.test.py</span>
+<span class="w">    </span><span class="s">TIMEOUT</span><span class="w"> </span><span class="s2">&quot;30&quot;</span>
+<span class="w">  </span><span class="p">)</span>
+<span class="nb">endif</span><span class="p">()</span>
 </code></pre></div>
 <p>The <code>TIMEOUT</code> argument is given in seconds; see <a href="https://github.com/ros2/ros_testing/blob/master/ros_testing/cmake/add_ros_test.cmake">here</a> for details.</p>
 <p>To create a test, either read the <a href="https://github.com/ros2/launch/tree/master/launch_testing#quick-start-example">launch_testing quick-start example</a>, or follow the steps below.</p>
 <p>Let's look at <code>test/lanelet2_map_provider_launch.test.py</code> as an example.</p>
 <p>The essential content is to first import dependencies:</p>
-<div class="highlight"><pre><span></span><code>from ament_index_python import get_package_share_directory
-from launch import LaunchDescription
-from launch_ros.actions import Node
-import launch_testing
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ament_index_python</span> <span class="kn">import</span> <span class="n">get_package_share_directory</span>
+<span class="kn">from</span> <span class="nn">launch</span> <span class="kn">import</span> <span class="n">LaunchDescription</span>
+<span class="kn">from</span> <span class="nn">launch_ros.actions</span> <span class="kn">import</span> <span class="n">Node</span>
+<span class="kn">import</span> <span class="nn">launch_testing</span>
 
-import os
-import pytest
-import unittest
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pytest</span>
+<span class="kn">import</span> <span class="nn">unittest</span>
 </code></pre></div>
 <p>Then a launch description is created to launch the node under test. Note that the <code>test_map.osm</code> file path is found and passed to the node, something that cannot be done with the <a href="#smoke-tests">smoke testing API</a>:</p>
-<div class="highlight"><pre><span></span><code>@pytest.mark.launch_test
-def generate_test_description():
+<div class="highlight"><pre><span></span><code><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">launch_test</span>
+<span class="k">def</span> <span class="nf">generate_test_description</span><span class="p">():</span>
 
-    map_osm_file = os.path.join(
-        get_package_share_directory(&#39;lanelet2_map_provider&#39;),
-        &#39;data/test_map.osm&#39;
-    )
+    <span class="n">map_osm_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+        <span class="n">get_package_share_directory</span><span class="p">(</span><span class="s1">&#39;lanelet2_map_provider&#39;</span><span class="p">),</span>
+        <span class="s1">&#39;data/test_map.osm&#39;</span>
+    <span class="p">)</span>
 
-    lanelet2_map_provider = Node(
-        package=&#39;lanelet2_map_provider&#39;,
-        executable=&#39;lanelet2_map_provider_exe&#39;,
-        namespace=&#39;had_maps&#39;,
-        parameters=[
-            os.path.join(
-                get_package_share_directory(&#39;lanelet2_map_provider&#39;),
-                &#39;param/test.param.yaml&#39;
-            ),
-            {
-                &#39;map_osm_file&#39;: map_osm_file
-            }]
-    )
+    <span class="n">lanelet2_map_provider</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span>
+        <span class="n">package</span><span class="o">=</span><span class="s1">&#39;lanelet2_map_provider&#39;</span><span class="p">,</span>
+        <span class="n">executable</span><span class="o">=</span><span class="s1">&#39;lanelet2_map_provider_exe&#39;</span><span class="p">,</span>
+        <span class="n">namespace</span><span class="o">=</span><span class="s1">&#39;had_maps&#39;</span><span class="p">,</span>
+        <span class="n">parameters</span><span class="o">=</span><span class="p">[</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                <span class="n">get_package_share_directory</span><span class="p">(</span><span class="s1">&#39;lanelet2_map_provider&#39;</span><span class="p">),</span>
+                <span class="s1">&#39;param/test.param.yaml&#39;</span>
+            <span class="p">),</span>
+            <span class="p">{</span>
+                <span class="s1">&#39;map_osm_file&#39;</span><span class="p">:</span> <span class="n">map_osm_file</span>
+            <span class="p">}]</span>
+    <span class="p">)</span>
 
-    context = {&#39;lanelet2_map_provider&#39;: lanelet2_map_provider}
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;lanelet2_map_provider&#39;</span><span class="p">:</span> <span class="n">lanelet2_map_provider</span><span class="p">}</span>
 
-    return LaunchDescription([
-        lanelet2_map_provider,
-        # Start tests right away - no need to wait for anything
-        launch_testing.actions.ReadyToTest()]
-    ), context
+    <span class="k">return</span> <span class="n">LaunchDescription</span><span class="p">([</span>
+        <span class="n">lanelet2_map_provider</span><span class="p">,</span>
+        <span class="c1"># Start tests right away - no need to wait for anything</span>
+        <span class="n">launch_testing</span><span class="o">.</span><span class="n">actions</span><span class="o">.</span><span class="n">ReadyToTest</span><span class="p">()]</span>
+    <span class="p">),</span> <span class="n">context</span>
 </code></pre></div>
 <p>and finally the test condition. As before, it is just a smoke test that ensures the node can be</p>
 <ol>
@@ -2557,83 +2557,82 @@ def generate_test_description():
 <li>terminated with a standard <code>SIGTERM</code> signal,</li>
 </ol>
 <p>so the test code is executed after the node executable has been shut down (<code>post_shutdown_test</code>):</p>
-<div class="highlight"><pre><span></span><code>@launch_testing.post_shutdown_test()
-class TestProcessOutput(unittest.TestCase):
+<div class="highlight"><pre><span></span><code><span class="nd">@launch_testing</span><span class="o">.</span><span class="n">post_shutdown_test</span><span class="p">()</span>
+<span class="k">class</span> <span class="nc">TestProcessOutput</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
 
-    def test_exit_code(self, proc_output, proc_info, ndt_mapper):
-        # Check that process exits with code -15 code: termination request, sent to the program
-        launch_testing.asserts.assertExitCodes(proc_info, [-15], process=ndt_mapper)
+    <span class="k">def</span> <span class="nf">test_exit_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">proc_output</span><span class="p">,</span> <span class="n">proc_info</span><span class="p">,</span> <span class="n">ndt_mapper</span><span class="p">):</span>
+        <span class="c1"># Check that process exits with code -15 code: termination request, sent to the program</span>
+        <span class="n">launch_testing</span><span class="o">.</span><span class="n">asserts</span><span class="o">.</span><span class="n">assertExitCodes</span><span class="p">(</span><span class="n">proc_info</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">15</span><span class="p">],</span> <span class="n">process</span><span class="o">=</span><span class="n">ndt_mapper</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="running-the-test">Running the test<a class="headerlink" href="#running-the-test" title="Permanent link">#</a></h2>
 <p>Continuing the example from above, first build</p>
-<div class="highlight"><pre><span></span><code>cd AutowareCore
-colcon build --packages-up-to lanelet2_map_provider
-source install/setup.bash
+<div class="highlight"><pre><span></span><code>colcon build --packages-up-to lanelet2_map_provider
+<span class="nb">source</span> install/setup.bash
 </code></pre></div>
 <p>then either execute the component test manually</p>
-<div class="highlight"><pre><span></span><code>ros2 test src/mapping/had_map/lanelet2_map_provider/test/lanelet2_map_provider_launch.test.py
+<div class="highlight"><pre><span></span><code>ros2 <span class="nb">test</span> src/mapping/had_map/lanelet2_map_provider/test/lanelet2_map_provider_launch.test.py
 </code></pre></div>
 <p>or as part of testing the entire package:</p>
-<div class="highlight"><pre><span></span><code>colcon test --packages-select lanelet2_map_provider
+<div class="highlight"><pre><span></span><code>colcon <span class="nb">test</span> --packages-select lanelet2_map_provider
 </code></pre></div>
 <p>Verify that the test is executed; e.g.</p>
 <div class="highlight"><pre><span></span><code>colcon test-result --all --verbose
 ...
-build/lanelet2_map_provider/test_results/lanelet2_map_provider/test_lanelet2_map_provider_launch.test.py.xunit.xml: 1 test, 0 errors, 0 failures, 0 skipped
+build/lanelet2_map_provider/test_results/lanelet2_map_provider/test_lanelet2_map_provider_launch.test.py.xunit.xml: <span class="m">1</span> test, <span class="m">0</span> errors, <span class="m">0</span> failures, <span class="m">0</span> skipped
 </code></pre></div>
 <h3 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">#</a></h3>
 <p>The simple test described in <a href="#integration-test-with-a-single-node-component-test">Integration test with a single node: component test</a> can be extended in numerous directions:</p>
 <h4 id="testing-the-output-of-a-node">Testing the output of a node<a class="headerlink" href="#testing-the-output-of-a-node" title="Permanent link">#</a></h4>
 <p>To test while the node is running, create an <a href="https://github.com/ros2/launch/tree/foxy/launch_testing#active-tests"><em>active test</em></a> by adding a subclass of Python's <code>unittest.TestCase</code> to <code>*launch.test.py</code>. Some boilerplate code is required to access output by creating a node and a subscription to a particular topic; e.g.</p>
-<div class="highlight"><pre><span></span><code>import unittest
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">unittest</span>
 
-class TestRunningDataPublisher(unittest.TestCase):
+<span class="k">class</span> <span class="nc">TestRunningDataPublisher</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
 
-    @classmethod
-    def setUpClass(cls):
-        cls.context = Context()
-        rclpy.init(context=cls.context)
-        cls.node = rclpy.create_node(&quot;test_node&quot;, context=cls.context)
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">setUpClass</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="bp">cls</span><span class="o">.</span><span class="n">context</span> <span class="o">=</span> <span class="n">Context</span><span class="p">()</span>
+        <span class="n">rclpy</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">context</span><span class="o">=</span><span class="bp">cls</span><span class="o">.</span><span class="n">context</span><span class="p">)</span>
+        <span class="bp">cls</span><span class="o">.</span><span class="n">node</span> <span class="o">=</span> <span class="n">rclpy</span><span class="o">.</span><span class="n">create_node</span><span class="p">(</span><span class="s2">&quot;test_node&quot;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="bp">cls</span><span class="o">.</span><span class="n">context</span><span class="p">)</span>
 
-    @classmethod
-    def tearDownClass(cls):
-        rclpy.shutdown(context=cls.context)
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">tearDownClass</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="n">rclpy</span><span class="o">.</span><span class="n">shutdown</span><span class="p">(</span><span class="n">context</span><span class="o">=</span><span class="bp">cls</span><span class="o">.</span><span class="n">context</span><span class="p">)</span>
 
-    def setUp(self):
-        self.msgs = []
-        sub = self.node.create_subscription(
-            msg_type=my_msg_type,
-            topic=&quot;/info_test&quot;,
-            callback=self._msg_received
-        )
-        self.addCleanup(self.node.destroy_subscription, sub)
+    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">msgs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">sub</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">create_subscription</span><span class="p">(</span>
+            <span class="n">msg_type</span><span class="o">=</span><span class="n">my_msg_type</span><span class="p">,</span>
+            <span class="n">topic</span><span class="o">=</span><span class="s2">&quot;/info_test&quot;</span><span class="p">,</span>
+            <span class="n">callback</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_msg_received</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">addCleanup</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">destroy_subscription</span><span class="p">,</span> <span class="n">sub</span><span class="p">)</span>
 
-    def _msg_received(self, msg):
-        # Callback for ROS 2 subscriber used in the test
-        self.msgs.append(msg)
+    <span class="k">def</span> <span class="nf">_msg_received</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+        <span class="c1"># Callback for ROS 2 subscriber used in the test</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">msgs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 
-    def get_message(self):
-        startlen = len(self.msgs)
+    <span class="k">def</span> <span class="nf">get_message</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">startlen</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">msgs</span><span class="p">)</span>
 
-        executor = rclpy.executors.SingleThreadedExecutor(context=self.context)
-        executor.add_node(self.node)
+        <span class="n">executor</span> <span class="o">=</span> <span class="n">rclpy</span><span class="o">.</span><span class="n">executors</span><span class="o">.</span><span class="n">SingleThreadedExecutor</span><span class="p">(</span><span class="n">context</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="p">)</span>
+        <span class="n">executor</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="p">)</span>
 
-        try:
-            # Try up to 60 s to receive messages
-            end_time = time.time() + 60.0
-            while time.time() &lt; end_time:
-                executor.spin_once(timeout_sec=0.1)
-                if startlen != len(self.msgs):
-                    break
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Try up to 60 s to receive messages</span>
+            <span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">+</span> <span class="mf">60.0</span>
+            <span class="k">while</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">end_time</span><span class="p">:</span>
+                <span class="n">executor</span><span class="o">.</span><span class="n">spin_once</span><span class="p">(</span><span class="n">timeout_sec</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">startlen</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">msgs</span><span class="p">):</span>
+                    <span class="k">break</span>
 
-            self.assertNotEqual(startlen, len(self.msgs))
-            return self.msgs[-1]
-        finally:
-            executor.remove_node(self.node)
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertNotEqual</span><span class="p">(</span><span class="n">startlen</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">msgs</span><span class="p">))</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">msgs</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="n">executor</span><span class="o">.</span><span class="n">remove_node</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="p">)</span>
 
-    def test_message_content():
-        msg = self.get_message()
-        self.assertEqual(msg, &quot;Hello, world&quot;)
+    <span class="k">def</span> <span class="nf">test_message_content</span><span class="p">():</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_message</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="s2">&quot;Hello, world&quot;</span><span class="p">)</span>
 </code></pre></div>
 
               
