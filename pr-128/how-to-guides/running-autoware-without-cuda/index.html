@@ -2371,7 +2371,7 @@ The following subsections briefly explain how to run these algorithms in such an
 <ul>
 <li><code>traffic_light_ssd_fine_detector</code></li>
 </ul>
-<p>To run traffic light recognition without the above package, set <a href="https://github.com/autowarefoundation/autoware.universe/blob/9445f3a7acd645d12a64507c3d3bfa57e74a3634/launch/tier4_perception_launch/launch/traffic_light_recognition/traffic_light.launch.xml#L3"><code>enable_fine_detection</code> in <code>tier4_perception_launch/launch/traffic_light_recognition/traffic_light_recognition.launch.xml</code></a> to <code>false</code> so that <code>traffic_light_ssd_fine_detector</code> be disabled and the traffic light detection solely be executed by <code>map_based_traffic_light_detector</code>.</p>
+<p>To run traffic light recognition without the above package, set <a href="https://github.com/autowarefoundation/autoware.universe/blob/9445f3a7acd645d12a64507c3d3bfa57e74a3634/launch/tier4_perception_launch/launch/traffic_light_recognition/traffic_light.launch.xml#L3"><code>enable_fine_detection</code> in this file</a> to <code>false</code> so that <code>traffic_light_ssd_fine_detector</code> be disabled and the traffic light detection solely be executed by <code>map_based_traffic_light_detector</code>.</p>
 <p>Note that <code>traffic_light_classifier</code> automatically switches to the algorithm that does not require CUDA when GPU is not available.</p>
 
               
