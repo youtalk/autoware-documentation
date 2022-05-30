@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-128/how-to-guides/running-autoware-without-cuda/">
       
       <link rel="icon" href="../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.15">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.16">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.c382b1dc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1c3799f8.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.cc9b2e1e.min.css">
@@ -2352,10 +2352,14 @@
 <li>2D/3D object detection</li>
 <li>traffic light detection</li>
 </ul>
-<p>Although such packages cannot be used, it is still possible to run Autoware in the environment without CUDA.
-The following subsections briefly explain how to run these algorithms in such an environment. Do note that it is highly recommended to prepare a CUDA environment to achieve better performance.</p>
+<p>However, it is still possible to run Autoware in the environment without CUDA.
+The following subsections briefly explain how to run these algorithms in such an environment. </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is highly recommended to prepare a CUDA environment to achieve better performance.</p>
+</div>
 <h2 id="running-2d3d-object-detection-without-cuda">Running 2D/3D object detection without CUDA<a class="headerlink" href="#running-2d3d-object-detection-without-cuda" title="Permanent link">#</a></h2>
-<p>As for the object detection system in Autoware, three packages require the CUDA environment:</p>
+<p>As for the object detection system in Autoware, the following three packages require the CUDA environment:</p>
 <ul>
 <li><code>lidar_centerpoint</code></li>
 <li><code>lidar_apollo_instance_segmentation</code></li>
@@ -2367,7 +2371,7 @@ The following subsections briefly explain how to run these algorithms in such an
 <ul>
 <li><code>traffic_light_ssd_fine_detector</code></li>
 </ul>
-<p>To run traffic light recognition without the above package, set <code>enable_fine_detection</code> in <code>autoware.universe/launch/tier4_perception_launch/launch/traffic_light_recognition/traffic_light_recognition.launch.xml</code> to <code>false</code> so that <code>traffic_light_ssd_fine_detector</code> be disabled and the traffic light detection solely be executed by <code>map_based_traffic_light_detector</code>.</p>
+<p>To run traffic light recognition without the above package, set <a href="https://github.com/autowarefoundation/autoware.universe/blob/9445f3a7acd645d12a64507c3d3bfa57e74a3634/launch/tier4_perception_launch/launch/traffic_light_recognition/traffic_light.launch.xml#L3"><code>enable_fine_detection</code> in <code>tier4_perception_launch/launch/traffic_light_recognition/traffic_light_recognition.launch.xml</code></a> to <code>false</code> so that <code>traffic_light_ssd_fine_detector</code> be disabled and the traffic light detection solely be executed by <code>map_based_traffic_light_detector</code>.</p>
 <p>Note that <code>traffic_light_classifier</code> automatically switches to the algorithm that does not require CUDA when GPU is not available.</p>
 
               
@@ -2446,7 +2450,7 @@ The following subsections briefly explain how to run these algorithms in such an
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.a6c66575.min.js"></script>
+      <script src="../../assets/javascripts/bundle.3a4b43e5.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
