@@ -1378,6 +1378,8 @@
         
           
         
+          
+        
       
       
         
@@ -1436,6 +1438,20 @@
     <li class="md-nav__item">
       <a href="../../design/autoware-interfaces/components/vehicle-interface/" class="md-nav__link">
         Vehicle Interface
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/autoware-interfaces/components/vehicle-dimensions/" class="md-nav__link">
+        Vehicle dimensions
       </a>
     </li>
   
@@ -2648,7 +2664,7 @@ Some examples are:</p>
 <ul>
 <li><a href="https://github.com/koide3/hdl_graph_slam">HDL</a></li>
 <li><a href="https://github.com/TixiaoShan/LIO-SAM">LIO-SAM</a></li>
-<li><a href="https://github.com/rsasaki0109/lidarslam_ros2">LiDAR-SLAM (ROS2)</a></li>
+<li><a href="https://github.com/rsasaki0109/lidarslam_ros2">LiDAR-SLAM (ROS 2)</a></li>
 </ul>
 <h3 id="create-vector-map">Create vector map<a class="headerlink" href="#create-vector-map" title="Permanent link">#</a></h3>
 <p>Use third-party tools such as <a href="https://tools.tier4.jp/">TIER IV's Vector Map Builder</a> to create a Lanelet2 format <code>.osm</code> file.</p>
@@ -2719,7 +2735,7 @@ You can also refer to TIER IV's <a href="https://github.com/tier4/pacmod_interfa
 <h2 id="6-launch-autoware">6. Launch Autoware<a class="headerlink" href="#6-launch-autoware" title="Permanent link">#</a></h2>
 <p>This section briefly explains how to run your vehicle with Autoware.</p>
 <h3 id="install-autoware">Install Autoware<a class="headerlink" href="#install-autoware" title="Permanent link">#</a></h3>
-<p>Follow the <a href="https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/">installation steps of Autoware</a>.</p>
+<p>Follow the <a href="https://autowarefoundation.github.io/autoware-documentation/main/installation/">installation steps of Autoware</a>.</p>
 <h3 id="launch-autoware">Launch Autoware<a class="headerlink" href="#launch-autoware" title="Permanent link">#</a></h3>
 <p>Launch Autoware with the following command:</p>
 <div class="highlight"><pre><span></span><code>ros2 launch autoware_launch autoware.launch.xml vehicle_model:<span class="o">=</span>YOUR_VEHICLE sensor_kit:<span class="o">=</span>YOUR_SENSOR_KIT map_path:<span class="o">=</span>/PATH/TO/YOUR/MAP
