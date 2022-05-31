@@ -2434,9 +2434,11 @@ Thus, the Autoware interfaces adopt the Ackermann commands format for the output
 <h2 id="2-procedure">2. Procedure<a class="headerlink" href="#2-procedure" title="Permanent link">#</a></h2>
 <p>This section briefly explains one of the ways to use Autoware for differential drive vehicles.
 One simple way is to create a <code>vehicle_interface</code> package that translates the Ackermann command to the differential drive command.
-Here are two points that you need to consider:
-- Create <code>vehicle_interface</code> package for differential drive vehicle
-- Set an appropriate <code>wheel_base</code></p>
+Here are two points that you need to consider:</p>
+<ul>
+<li>Create <code>vehicle_interface</code> package for differential drive vehicle</li>
+<li>Set an appropriate <code>wheel_base</code></li>
+</ul>
 <h3 id="21-create-vehicle_interface-package-for-differential-drive-vehicle">2.1 Create <code>vehicle_interface</code> package for differential drive vehicle<a class="headerlink" href="#21-create-vehicle_interface-package-for-differential-drive-vehicle" title="Permanent link">#</a></h3>
 <p>Ackermann command in Autoware mainly consists of two main control inputs:</p>
 <ul>
@@ -2463,7 +2465,7 @@ v_r = v + \frac{l\omega}{2}
 <p>For general requirements for <code>vehicle_interface</code> package, please refer to <a href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-interface/">the description of <code>vehicle_interface</code></a> for detail.</p>
 <h3 id="22-set-an-appropriate-wheel_base">2.2 Set an appropriate <code>wheel_base</code><a class="headerlink" href="#22-set-an-appropriate-wheel_base" title="Permanent link">#</a></h3>
 <p>Differential drive robot does not necessarily have front and rear wheels, which means that the wheel base may not exist, although Autoware currently requires <code>wheel_base</code> to be given in <code>vehicle_info.param.yaml</code>.
-Thus, you need to set a pseudo value for <code>wheel_base</code>. </p>
+Thus, you need to set a pseudo value for <code>wheel_base</code>.</p>
 <p>Recommended value for <code>wheel_base</code> depends on the size of your vehicle. Setting it as the same value as <code>wheel_tread</code> would be one of the choices.</p>
 <p>Note that setting the <code>wheel_base</code> too large may end up in unflexible control. Also, current autoware.universe is not guaranteed to work when the value is set too small.</p>
 <h2 id="3-known-issues">3. Known issues<a class="headerlink" href="#3-known-issues" title="Permanent link">#</a></h2>
