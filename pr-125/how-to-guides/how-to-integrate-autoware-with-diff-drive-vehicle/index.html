@@ -1015,6 +1015,26 @@
     2. Procedure
   </a>
   
+    <nav class="md-nav" aria-label="2. Procedure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-create-vehicle_interface-package-for-differential-drive-vehicle" class="md-nav__link">
+    2.1 Create vehicle_interface package for differential drive vehicle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-set-an-appropriate-wheel_base" class="md-nav__link">
+    2.2 Set an appropriate wheel_base
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2346,6 +2366,26 @@
     2. Procedure
   </a>
   
+    <nav class="md-nav" aria-label="2. Procedure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-create-vehicle_interface-package-for-differential-drive-vehicle" class="md-nav__link">
+    2.1 Create vehicle_interface package for differential drive vehicle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-set-an-appropriate-wheel_base" class="md-nav__link">
+    2.2 Set an appropriate wheel_base
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2392,9 +2432,13 @@
 Thus, the Autoware interfaces adopt the Ackermann commands format for the output of the control module (see <a href="https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_control_msgs/msg/AckermannControlCommand.idl">the definition of AckermannControlCommands.idl</a> for details).</p>
 <p>However, it is possible to integrate Autoware with a vehicle that follows a differential drive kinematic model, which is especially common for small mobile robots.</p>
 <h2 id="2-procedure">2. Procedure<a class="headerlink" href="#2-procedure" title="Permanent link">#</a></h2>
-<p>This section briefly explains one of the ways to use Autoware for differential drive vehicles.</p>
-<p>One simple way is to create a <code>vehicle_interface</code> package that translates the Ackermann command to the differential drive command.
-Ackermann command in Autoware mainly consists of two main control inputs:</p>
+<p>This section briefly explains one of the ways to use Autoware for differential drive vehicles.
+One simple way is to create a <code>vehicle_interface</code> package that translates the Ackermann command to the differential drive command.
+Here are two points that you need to consider:
+- Create <code>vehicle_interface</code> package for differential drive vehicle
+- Set an appropriate <code>wheel_base</code></p>
+<h3 id="21-create-vehicle_interface-package-for-differential-drive-vehicle">2.1 Create <code>vehicle_interface</code> package for differential drive vehicle<a class="headerlink" href="#21-create-vehicle_interface-package-for-differential-drive-vehicle" title="Permanent link">#</a></h3>
+<p>Ackermann command in Autoware mainly consists of two main control inputs:</p>
 <ul>
 <li>steering angle (<span class="arithmatex"><span class="MathJax_Preview">\omega</span><script type="math/tex">\omega</script></span>)</li>
 <li>velocity (<span class="arithmatex"><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span>)</li>
@@ -2417,6 +2461,11 @@ v_r = v + \frac{l\omega}{2}
 </div>
 <p>where <span class="arithmatex"><span class="MathJax_Preview">l</span><script type="math/tex">l</script></span> denotes wheel tread.</p>
 <p>For general requirements for <code>vehicle_interface</code> package, please refer to <a href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-interface/">the description of <code>vehicle_interface</code></a> for detail.</p>
+<h3 id="22-set-an-appropriate-wheel_base">2.2 Set an appropriate <code>wheel_base</code><a class="headerlink" href="#22-set-an-appropriate-wheel_base" title="Permanent link">#</a></h3>
+<p>Differential drive robot does not necessarily have front and rear wheels, which means that the wheel base may not exist, although Autoware currently requires <code>wheel_base</code> to be given in <code>vehicle_info.param.yaml</code>.
+Thus, you need to set a pseudo value for <code>wheel_base</code>. </p>
+<p>Recommended value for <code>wheel_base</code> depends on the size of your vehicle. Setting it as the same value as <code>wheel_tread</code> would be one of the choices.</p>
+<p>Note that setting the <code>wheel_base</code> too large may end up in unflexible control. Also, current autoware.universe is not guaranteed to work when the value is set too small.</p>
 <h2 id="3-known-issues">3. Known issues<a class="headerlink" href="#3-known-issues" title="Permanent link">#</a></h2>
 <h3 id="motion-model-incompatibility">Motion model incompatibility<a class="headerlink" href="#motion-model-incompatibility" title="Permanent link">#</a></h3>
 <p>As mentioned above, Autoware assumes the vehicle to be a steering system and not a differential drive system.
