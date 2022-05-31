@@ -2347,33 +2347,24 @@
 
 
 <h1 id="running-autoware-without-cuda">Running Autoware without CUDA<a class="headerlink" href="#running-autoware-without-cuda" title="Permanent link">#</a></h1>
-<p>Two following algorithms in Autoware Universe depend on a CUDA environment.</p>
-<ul>
-<li>2D/3D object detection</li>
-<li>traffic light detection</li>
-</ul>
-<p>However, it is still possible to run Autoware in the environment without CUDA.
-The following subsections briefly explain how to run these algorithms in such an environment.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>It is highly recommended to prepare a CUDA environment to achieve better performance.</p>
-</div>
+<p>Although CUDA installation is recommended to achieve better performance for object detection and traffic light recognition in Autoware Universe, it is possible to run these algorithms without CUDA. 
+The following subsections briefly explain how to run each algorithm in such an environment.</p>
 <h2 id="running-2d3d-object-detection-without-cuda">Running 2D/3D object detection without CUDA<a class="headerlink" href="#running-2d3d-object-detection-without-cuda" title="Permanent link">#</a></h2>
-<p>As for the object detection system in Autoware, the following three packages require the CUDA environment:</p>
+<p>The following three object detection modules require CUDA:</p>
 <ul>
 <li><code>lidar_centerpoint</code></li>
 <li><code>lidar_apollo_instance_segmentation</code></li>
 <li><code>tensorrt_yolo</code></li>
 </ul>
-<p>Instead of these modules, you can use the <code>euclidean_cluster</code> module, which is a 3D object detection algorithm that does not require a CUDA environment (refer to <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/perception/euclidean_cluster">the readme</a> for detail).</p>
+<p>Instead of these modules, you can use the <code>euclidean_cluster</code> module which contains a 3D object detection algorithm that does not require CUDA. For more details, refer to the <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/perception/euclidean_cluster"><code>euclidean_cluster</code> module's README file</a>.</p>
 <h2 id="running-traffic-light-detection-without-cuda">Running traffic light detection without CUDA<a class="headerlink" href="#running-traffic-light-detection-without-cuda" title="Permanent link">#</a></h2>
-<p>As for the traffic light recognition system in Autoware, there are two package that require the CUDA environment:</p>
+<p>For traffic light recognition (both detection and classification), there are two modules that require CUDA:</p>
 <ul>
 <li><code>traffic_light_ssd_fine_detector</code></li>
 <li><code>traffic_light_classifier</code></li>
 </ul>
-<p>To run traffic light detection without CUDA, set <a href="https://github.com/autowarefoundation/autoware.universe/blob/9445f3a7acd645d12a64507c3d3bfa57e74a3634/launch/tier4_perception_launch/launch/traffic_light_recognition/traffic_light.launch.xml#L3"><code>enable_fine_detection</code> in this file</a> to <code>false</code> so that <code>traffic_light_ssd_fine_detector</code> be disabled and the traffic light detection solely be executed by <code>map_based_traffic_light_detector</code>.</p>
-<p>To run traffic light classification without CUDA, set <a href="https://github.com/autowarefoundation/autoware.universe/blob/9445f3a7acd645d12a64507c3d3bfa57e74a3634/perception/traffic_light_classifier/launch/traffic_light_classifier.launch.xml#L7"><code>use_gpu</code> in this file</a> to <code>false</code> so that <code>traffic_light_classifier</code> use classification algorithm that does not use CUDA environment or GPU.</p>
+<p>To run traffic light detection without CUDA, set <a href="https://github.com/autowarefoundation/autoware.universe/blob/9445f3a7acd645d12a64507c3d3bfa57e74a3634/launch/tier4_perception_launch/launch/traffic_light_recognition/traffic_light.launch.xml#L3"><code>enable_fine_detection</code> to <code>false</code> in the traffic light launch file</a>. Doing so disables the <code>traffic_light_ssd_fine_detector</code> such that traffic light detection is handled by the <code>map_based_traffic_light_detector</code> module instead.</p>
+<p>To run traffic light classification without CUDA, set <a href="https://github.com/autowarefoundation/autoware.universe/blob/9445f3a7acd645d12a64507c3d3bfa57e74a3634/perception/traffic_light_classifier/launch/traffic_light_classifier.launch.xml#L7"><code>use_gpu</code> to <code>false</code> in the traffic light classifier launch file</a>. Doing so will force the <code>traffic_light_classifier</code> to use a different classification algorithm that does not require CUDA or a GPU.</p>
 
               
             </article>
