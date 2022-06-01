@@ -2350,13 +2350,15 @@
 <p>Although CUDA installation is recommended to achieve better performance for object detection and traffic light recognition in Autoware Universe, it is possible to run these algorithms without CUDA.
 The following subsections briefly explain how to run each algorithm in such an environment.</p>
 <h2 id="running-2d3d-object-detection-without-cuda">Running 2D/3D object detection without CUDA<a class="headerlink" href="#running-2d3d-object-detection-without-cuda" title="Permanent link">#</a></h2>
-<p>The following three object detection modules require CUDA:</p>
+<p>Autoware Universe's object detection can be run using one of five possible configurations:</p>
 <ul>
 <li><code>lidar_centerpoint</code></li>
 <li><code>lidar_apollo_instance_segmentation</code></li>
-<li><code>tensorrt_yolo</code></li>
+<li><code>lidar-apollo</code> + <code>tensorrt_yolo</code></li>
+<li><code>lidar-centerpoint</code> + <code>tensorrt_yolo</code></li>
+<li><code>euclidean_cluster</code></li>
 </ul>
-<p>Instead of these modules, you can use the <code>euclidean_cluster</code> module which contains a 3D object detection algorithm that does not require CUDA. For more details, refer to the <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/perception/euclidean_cluster"><code>euclidean_cluster</code> module's README file</a>.</p>
+<p>Of these five configurations, only the last one (<code>euclidean_cluster</code>) can be run without CUDA. For more details, refer to the <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/perception/euclidean_cluster"><code>euclidean_cluster</code> module's README file</a>.</p>
 <h2 id="running-traffic-light-detection-without-cuda">Running traffic light detection without CUDA<a class="headerlink" href="#running-traffic-light-detection-without-cuda" title="Permanent link">#</a></h2>
 <p>For traffic light recognition (both detection and classification), there are two modules that require CUDA:</p>
 <ul>
