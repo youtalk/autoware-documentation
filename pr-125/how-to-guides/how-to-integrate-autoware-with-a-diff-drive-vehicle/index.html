@@ -2429,7 +2429,7 @@
 <h1 id="how-to-integrate-autoware-with-a-differential-drive-vehicle">How to integrate Autoware with a differential drive vehicle<a class="headerlink" href="#how-to-integrate-autoware-with-a-differential-drive-vehicle" title="Permanent link">#</a></h1>
 <h2 id="1-introduction">1. Introduction<a class="headerlink" href="#1-introduction" title="Permanent link">#</a></h2>
 <p>Currently, Autoware assumes that vehicles use an Ackermann kinematic model with Ackermann steering.
-Thus, the Autoware interfaces adopt the Ackermann commands format for the output of the control module (see <a href="http://docs.ros.org/en/api/ackermann_msgs/html/msg/AckermannDrive.html">the ROS definition</a> for general understanding, and <a href="https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_control_msgs/msg/AckermannControlCommand.idl">the definition of AckermannControlCommands.idl</a> for Autoware implementation).</p>
+Thus, Autoware adopts the Ackermann command format for the Control module's output (see <a href="http://docs.ros.org/en/api/ackermann_msgs/html/msg/AckermannDrive.html">the AckermannDrive ROS message definition</a> for an overview of Ackermann commands, and <a href="https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_control_msgs/msg/AckermannControlCommand.idl">the AckermannControlCommands struct</a> used in Autoware for more details).</p>
 <p>However, it is possible to integrate Autoware with a vehicle that follows a differential drive kinematic model, as commonly used by small mobile robots.</p>
 <h2 id="2-procedure">2. Procedure<a class="headerlink" href="#2-procedure" title="Permanent link">#</a></h2>
 <p>One simple way of using Autoware with a differential drive vehicle is to create a <code>vehicle_interface</code> package that translates Ackermann commands to differential drive commands.
@@ -2470,8 +2470,8 @@ Setting it to be the same value as <code>wheel_tread</code> is one possible choi
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <ul>
-<li>If wheel_base is set too large, the vehicle's range of motion will be restricted. The reason being that Autoware's Planning module will calculate an overly conservative trajectory based on the assumed vehicle length.</li>
-<li>Conversely, if <code>wheel_base</code> is too large, the vehicle's motion may be restricted.</li>
+<li>If the <code>wheel_base</code> value is set too small then the vehicle may behave unexpectedly. For example, the vehicle may drive beyond the bounds of a calculated path.</li>
+<li>Conversely, if <code>wheel_base</code> is set too large, the vehicle's range of motion will be restricted. The reason being that Autoware's Planning module will calculate an overly conservative trajectory based on the assumed vehicle length.</li>
 </ul>
 </div>
 <h2 id="3-known-issues">3. Known issues<a class="headerlink" href="#3-known-issues" title="Permanent link">#</a></h2>
