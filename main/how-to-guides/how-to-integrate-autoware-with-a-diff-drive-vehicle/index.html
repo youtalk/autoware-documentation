@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-concepts/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/how-to-integrate-autoware-with-a-diff-drive-vehicle/">
       
       <link rel="icon" href="../../assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.16">
     
     
       
-        <title>Autoware concepts - Autoware Documentation</title>
+        <title>How to integrate Autoware with a differential drive vehicle - Autoware Documentation</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#autoware-concepts" class="md-skip">
+        <a href="#how-to-integrate-autoware-with-a-differential-drive-vehicle" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Autoware concepts
+              How to integrate Autoware with a differential drive vehicle
             
           </span>
         </div>
@@ -242,22 +242,6 @@
         
   
   
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../how-to-guides/" class="md-tabs__link">
-        How to guides
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
     
   
 
@@ -267,6 +251,22 @@
   
     <li class="md-tabs__item">
       <a href="../" class="md-tabs__link md-tabs__link--active">
+        How to guides
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../design/" class="md-tabs__link">
         Design
       </a>
     </li>
@@ -892,12 +892,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" data-md-state="indeterminate" type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
       
       
       
@@ -919,7 +921,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../how-to-guides/">How to guides</a>
+          <a href="../">How to guides</a>
           
             <label for="__nav_4">
               <span class="md-nav__icon md-icon"></span>
@@ -942,7 +944,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../how-to-guides/running-autoware-without-cuda/" class="md-nav__link">
+      <a href="../running-autoware-without-cuda/" class="md-nav__link">
         Running Autoware without CUDA
       </a>
     </li>
@@ -956,7 +958,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../how-to-guides/advanced-usage-of-colcon/" class="md-nav__link">
+      <a href="../advanced-usage-of-colcon/" class="md-nav__link">
         Advanced usage of colcon
       </a>
     </li>
@@ -970,7 +972,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../how-to-guides/how-to-integrate-autoware-with-your-vehicle/" class="md-nav__link">
+      <a href="../how-to-integrate-autoware-with-your-vehicle/" class="md-nav__link">
         How to integrate Autoware with your vehicle
       </a>
     </li>
@@ -982,11 +984,99 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../how-to-guides/how-to-integrate-autoware-with-a-diff-drive-vehicle/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          How to integrate Autoware with a differential drive vehicle
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         How to integrate Autoware with a differential drive vehicle
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction" class="md-nav__link">
+    1. Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-procedure" class="md-nav__link">
+    2. Procedure
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Procedure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-create-a-vehicle_interface-package-for-differential-drive-vehicle" class="md-nav__link">
+    2.1 Create a vehicle_interface package for differential drive vehicle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-set-an-appropriate-wheel_base" class="md-nav__link">
+    2.2 Set an appropriate wheel_base
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-known-issues" class="md-nav__link">
+    3. Known issues
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Known issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#motion-model-incompatibility" class="md-nav__link">
+    Motion model incompatibility
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1004,14 +1094,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" data-md-state="indeterminate" type="checkbox" id="__nav_5" checked>
       
       
       
@@ -1031,7 +1119,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../">Design</a>
+          <a href="../../design/">Design</a>
           
             <label for="__nav_5">
               <span class="md-nav__icon md-icon"></span>
@@ -1052,16 +1140,14 @@
               
   
   
-    
-  
   
     
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" data-md-state="indeterminate" type="checkbox" id="__nav_5_2" checked>
       
       
       
@@ -1076,8 +1162,8 @@
       
         
         
-        <div class="md-nav__link md-nav__link--index md-nav__link--active">
-          <a href="./">Autoware concepts</a>
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../design/autoware-concepts/">Autoware concepts</a>
           
             <label for="__nav_5_2">
               <span class="md-nav__icon md-icon"></span>
@@ -1100,7 +1186,7 @@
   
   
     <li class="md-nav__item">
-      <a href="difference-from-ai-and-auto/" class="md-nav__link">
+      <a href="../../design/autoware-concepts/difference-from-ai-and-auto/" class="md-nav__link">
         How is Autoware Core/Universe different from Autoware.AI and Autoware.Auto?
       </a>
     </li>
@@ -1144,7 +1230,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../autoware-interfaces/">Autoware interfaces</a>
+          <a href="../../design/autoware-interfaces/">Autoware interfaces</a>
           
             <label for="__nav_5_3">
               <span class="md-nav__icon md-icon"></span>
@@ -1184,7 +1270,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../autoware-interfaces/ad-api/">AD API</a>
+          <a href="../../design/autoware-interfaces/ad-api/">AD API</a>
           
         </div>
       
@@ -1235,7 +1321,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../autoware-interfaces/components/">Components</a>
+          <a href="../../design/autoware-interfaces/components/">Components</a>
           
             <label for="__nav_5_3_3">
               <span class="md-nav__icon md-icon"></span>
@@ -1258,7 +1344,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../autoware-interfaces/components/planning/" class="md-nav__link">
+      <a href="../../design/autoware-interfaces/components/planning/" class="md-nav__link">
         Planning
       </a>
     </li>
@@ -1272,7 +1358,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../autoware-interfaces/components/control/" class="md-nav__link">
+      <a href="../../design/autoware-interfaces/components/control/" class="md-nav__link">
         Control
       </a>
     </li>
@@ -1286,7 +1372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../autoware-interfaces/components/vehicle-interface/" class="md-nav__link">
+      <a href="../../design/autoware-interfaces/components/vehicle-interface/" class="md-nav__link">
         Vehicle Interface
       </a>
     </li>
@@ -1300,7 +1386,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../autoware-interfaces/components/vehicle-dimensions/" class="md-nav__link">
+      <a href="../../design/autoware-interfaces/components/vehicle-dimensions/" class="md-nav__link">
         Vehicle dimensions
       </a>
     </li>
@@ -1353,7 +1439,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../configuration-management/">Configuration management</a>
+          <a href="../../design/configuration-management/">Configuration management</a>
           
             <label for="__nav_5_4">
               <span class="md-nav__icon md-icon"></span>
@@ -1376,7 +1462,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../configuration-management/development-process/" class="md-nav__link">
+      <a href="../../design/configuration-management/development-process/" class="md-nav__link">
         Development process
       </a>
     </li>
@@ -1390,7 +1476,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../configuration-management/repository-structure/" class="md-nav__link">
+      <a href="../../design/configuration-management/repository-structure/" class="md-nav__link">
         Repository structure
       </a>
     </li>
@@ -1404,7 +1490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../configuration-management/release-process/" class="md-nav__link">
+      <a href="../../design/configuration-management/release-process/" class="md-nav__link">
         Release process
       </a>
     </li>
@@ -2305,23 +2391,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#microautonomy-architecture" class="md-nav__link">
-    Microautonomy architecture
+  <a href="#1-introduction" class="md-nav__link">
+    1. Introduction
   </a>
   
-    <nav class="md-nav" aria-label="Microautonomy architecture">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-procedure" class="md-nav__link">
+    2. Procedure
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Procedure">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#the-core-module" class="md-nav__link">
-    The Core module
+  <a href="#21-create-a-vehicle_interface-package-for-differential-drive-vehicle" class="md-nav__link">
+    2.1 Create a vehicle_interface package for differential drive vehicle
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#the-universe-module" class="md-nav__link">
-    The Universe module
+  <a href="#22-set-an-appropriate-wheel_base" class="md-nav__link">
+    2.2 Set an appropriate wheel_base
   </a>
   
 </li>
@@ -2332,23 +2425,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#interface-design" class="md-nav__link">
-    Interface design
+  <a href="#3-known-issues" class="md-nav__link">
+    3. Known issues
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Known issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#motion-model-incompatibility" class="md-nav__link">
+    Motion model incompatibility
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#challenges" class="md-nav__link">
-    Challenges
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#requirements-and-roadmap" class="md-nav__link">
-    Requirements and roadmap
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2364,34 +2456,64 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/autowarefoundation/autoware-documentation/edit/main/docs/design/autoware-concepts/index.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/autowarefoundation/autoware-documentation/edit/main/docs/how-to-guides/how-to-integrate-autoware-with-a-diff-drive-vehicle.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="autoware-concepts">Autoware concepts<a class="headerlink" href="#autoware-concepts" title="Permanent link">#</a></h1>
-<p>Autoware is the world’s first open-source software for autonomous driving systems. Autoware provides value for both The technology developers of autonomous driving systems can create new components based on Autoware. The service operators of autonomous driving systems, on the other hand, can select appropriate technology components with Autoware. This is enabled by the microautonomy architecture that modularizes its software stack into the core and universe subsystems (modules).</p>
-<h2 id="microautonomy-architecture">Microautonomy architecture<a class="headerlink" href="#microautonomy-architecture" title="Permanent link">#</a></h2>
-<p>Autoware uses a <a href="http://www.cs.sjsu.edu/~pearce/modules/patterns/distArch/pipeline.htm">pipeline architecture</a> to enable the development of autonomous driving systems. The pipeline architecture used in Autoware consists of components similar to <a href="http://www.flownet.com/gat/papers/tla.pdf">three-layer-architecture</a>. And they run in parallel. There are 2 main modules: the Core and the Universe. The components in these modules are designed to be extensible and reusable. And we call it microautonomy architecture.</p>
-<p><img alt="core-and-universe.svg" src="core-and-universe.svg" /></p>
-<h3 id="the-core-module">The Core module<a class="headerlink" href="#the-core-module" title="Permanent link">#</a></h3>
-<p>The Core module contains basic runtimes and technology components that satisfy the basic functionality and capability of sensing, computing, and actuation required for autonomous driving systems. AWF develops and maintains the Core module with their architects and leading members through their working groups. Anyone can contribute to the Core but the PR(Pull Request) acceptance criteria is more strict compared to the Universe.</p>
-<h3 id="the-universe-module">The Universe module<a class="headerlink" href="#the-universe-module" title="Permanent link">#</a></h3>
-<p>The Universe modules are extensions to the Core module that can be provided by the technology developers to enhance the functionality and capability of sensing, computing, and actuation. AWF provides the base Universe module to extend from. A key feature of the microautonomy architecture is that the Universe modules can be contributed to by any organization and individual. That is, you can even create your Universe and make it available for the Autoware community and ecosystem. AWF is responsible for quality control of the Universe modules through their development process. As a result, there are multiple types of the Universe modules - some are verified and validated by AWF and others are not. It is up to the users of Autoware which Universe modules are selected and integrated to build their end applications.</p>
-<h2 id="interface-design">Interface design<a class="headerlink" href="#interface-design" title="Permanent link">#</a></h2>
-<p>The interface design is the most essential piece of the microautonomy architecture, which is classified into internal and external interfaces. The component interface is designed for the components in a Universe module to communicate with those in other modules, including the Core module, within Autoware internally. The AD(Autonomous Driving) API, on the other hand, is designed for the applications of Autoware to access the technology components in the Core and Universe modules of Autoware externally. Designing solid interfaces, the microautonomy architecture is made possible with our partners, and at the same time is made feasible for our partners.</p>
-<h2 id="challenges">Challenges<a class="headerlink" href="#challenges" title="Permanent link">#</a></h2>
-<p>A grand challenge of the microautonomy architecture is to achieve real-time capability, which guarantees all the technology components activated in the system to predictably meet timing constraints (given deadlines). In general, it is difficult, if not impossible, to tightly estimate the worst-case execution times (WCETs) of components.</p>
-<p>In addition, it is also difficult, if not impossible, to tightly estimate the end-to-end latency of components connected by a DAG. Autonomous driving systems based on the microautonomy architecture, therefore, must be designed to be fail-safe but not never-fail. We accept that the timing constraints may be violated (the given deadlines may be missed) as far as the overrun is taken into account. The overrun handlers are two-fold: (i) platform-defined and (ii) user-defined. The platform-defined handler is implemented as part of the platform by default, while the user-defined handler can overwrite it or add a new handler to the system. This is what we call “fail-safe” on a timely basis.</p>
-<h2 id="requirements-and-roadmap">Requirements and roadmap<a class="headerlink" href="#requirements-and-roadmap" title="Permanent link">#</a></h2>
-<p>Goals:</p>
+<h1 id="how-to-integrate-autoware-with-a-differential-drive-vehicle">How to integrate Autoware with a differential drive vehicle<a class="headerlink" href="#how-to-integrate-autoware-with-a-differential-drive-vehicle" title="Permanent link">#</a></h1>
+<h2 id="1-introduction">1. Introduction<a class="headerlink" href="#1-introduction" title="Permanent link">#</a></h2>
+<p>Currently, Autoware assumes that vehicles use an Ackermann kinematic model with Ackermann steering.
+Thus, Autoware adopts the Ackermann command format for the Control module's output (see <a href="http://docs.ros.org/en/api/ackermann_msgs/html/msg/AckermannDrive.html">the AckermannDrive ROS message definition</a> for an overview of Ackermann commands, and <a href="https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_control_msgs/msg/AckermannControlCommand.idl">the AckermannControlCommands struct</a> used in Autoware for more details).</p>
+<p>However, it is possible to integrate Autoware with a vehicle that follows a differential drive kinematic model, as commonly used by small mobile robots.</p>
+<h2 id="2-procedure">2. Procedure<a class="headerlink" href="#2-procedure" title="Permanent link">#</a></h2>
+<p>One simple way of using Autoware with a differential drive vehicle is to create a <code>vehicle_interface</code> package that translates Ackermann commands to differential drive commands.
+Here are two points that you need to consider:</p>
 <ul>
-<li>All open-source</li>
-<li>Use case driven</li>
-<li>Real-time (predictable) framework with overrun handling</li>
-<li>Code quality</li>
+<li>Create <code>vehicle_interface</code> package for differential drive vehicle</li>
+<li>Set an appropriate <code>wheel_base</code></li>
 </ul>
+<h3 id="21-create-a-vehicle_interface-package-for-differential-drive-vehicle">2.1 Create a <code>vehicle_interface</code> package for differential drive vehicle<a class="headerlink" href="#21-create-a-vehicle_interface-package-for-differential-drive-vehicle" title="Permanent link">#</a></h3>
+<p>An Ackermann command in Autoware consists of two main control inputs:</p>
+<ul>
+<li>steering angle (<span class="arithmatex"><span class="MathJax_Preview">\omega</span><script type="math/tex">\omega</script></span>)</li>
+<li>velocity (<span class="arithmatex"><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span>)</li>
+</ul>
+<p>Conversely, a typical differential drive command consists of the following inputs:</p>
+<ul>
+<li>left wheel velocity (<span class="arithmatex"><span class="MathJax_Preview">v_l</span><script type="math/tex">v_l</script></span>)</li>
+<li>right wheel velocity (<span class="arithmatex"><span class="MathJax_Preview">v_r</span><script type="math/tex">v_r</script></span>)</li>
+</ul>
+<p>So, one way in which an Ackermann command can be converted to a differential drive command is by using the following equations:</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+v_l = v - \frac{l\omega}{2},
+v_r = v + \frac{l\omega}{2}
+</div>
+<script type="math/tex; mode=display">
+v_l = v - \frac{l\omega}{2},
+v_r = v + \frac{l\omega}{2}
+</script>
+</div>
+<p>where <span class="arithmatex"><span class="MathJax_Preview">l</span><script type="math/tex">l</script></span> denotes wheel tread.</p>
+<p>For information about other factors that need to be considered when creating a <code>vehicle_interface</code> package, refer to the <a href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-interface/"><code>vehicle_interface</code> component page</a>.</p>
+<h3 id="22-set-an-appropriate-wheel_base">2.2 Set an appropriate <code>wheel_base</code><a class="headerlink" href="#22-set-an-appropriate-wheel_base" title="Permanent link">#</a></h3>
+<p>A differential drive robot does not necessarily have front and rear wheels, which means that the wheelbase (the horizontal distance between the axles of the front and rear wheels) cannot be defined. However, Autoware expects <code>wheel_base</code> to be set in <code>vehicle_info.param.yaml</code> with some value.
+Thus, you need to set a pseudo value for <code>wheel_base</code>.</p>
+<p>The appropriate pseudo value for <code>wheel_base</code> depends on the size of your vehicle.
+Setting it to be the same value as <code>wheel_tread</code> is one possible choice.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<ul>
+<li>If the <code>wheel_base</code> value is set too small then the vehicle may behave unexpectedly. For example, the vehicle may drive beyond the bounds of a calculated path.</li>
+<li>Conversely, if <code>wheel_base</code> is set too large, the vehicle's range of motion will be restricted. The reason being that Autoware's Planning module will calculate an overly conservative trajectory based on the assumed vehicle length.</li>
+</ul>
+</div>
+<h2 id="3-known-issues">3. Known issues<a class="headerlink" href="#3-known-issues" title="Permanent link">#</a></h2>
+<h3 id="motion-model-incompatibility">Motion model incompatibility<a class="headerlink" href="#motion-model-incompatibility" title="Permanent link">#</a></h3>
+<p>Since Autoware assumes that vehicles use a steering system, it is not possible to take advantage of the flexibility of a differential drive system's motion model.</p>
+<p>For example, when planning a parking maneuver with the <code>freespace_planner</code> module, Autoware may drive the differential drive vehicle forward and backward, even if the vehicle can be parked with a simpler trajectory that uses pure rotational movement.</p>
 
               
             </article>
@@ -2410,7 +2532,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Autoware&#39;s Design" rel="prev">
+        <a href="../how-to-integrate-autoware-with-your-vehicle/" class="md-footer__link md-footer__link--prev" aria-label="Previous: How to integrate Autoware with your vehicle" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -2419,20 +2541,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Autoware's Design
+              How to integrate Autoware with your vehicle
             </div>
           </div>
         </a>
       
       
         
-        <a href="difference-from-ai-and-auto/" class="md-footer__link md-footer__link--next" aria-label="Next: How is Autoware Core/Universe different from Autoware.AI and Autoware.Auto?" rel="next">
+        <a href="../../design/" class="md-footer__link md-footer__link--next" aria-label="Next: Autoware&#39;s Design" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              How is Autoware Core/Universe different from Autoware.AI and Autoware.Auto?
+              Autoware's Design
             </div>
           </div>
           <div class="md-footer__button md-icon">

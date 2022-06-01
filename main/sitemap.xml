@@ -241,6 +241,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/how-to-integrate-autoware-with-a-diff-drive-vehicle/</loc>
+         <lastmod>2022-06-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/how-to-integrate-autoware-with-your-vehicle/</loc>
          <lastmod>2022-06-01</lastmod>
          <changefreq>daily</changefreq>
