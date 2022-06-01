@@ -15,7 +15,7 @@
     
     
       
-        <title>Driving - Autoware Documentation</title>
+        <title>Driving API - Autoware Documentation</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#driving" class="md-skip">
+        <a href="#driving-api" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Driving
+              Driving API
             
           </span>
         </div>
@@ -2224,6 +2224,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#driving-state" class="md-nav__link">
+    Driving State
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#related-api" class="md-nav__link">
     Related API
   </a>
@@ -2248,23 +2255,21 @@
 
 
 
-<h1 id="driving">Driving<a class="headerlink" href="#driving" title="Permanent link">#</a></h1>
+<h1 id="driving-api">Driving API<a class="headerlink" href="#driving-api" title="Permanent link">#</a></h1>
 <h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">#</a></h2>
 <p>The driving feature manages whether the vehicle is driving or can start driving.
 The vehicle holds a stop when the state is not DRIVING.
 This state is mainly used to show the users whether the vehicle can start driving and to implement an HMI for departure.</p>
+<h2 id="driving-state">Driving State<a class="headerlink" href="#driving-state" title="Permanent link">#</a></h2>
 <p>The state transition for driving state is illustrated in the diagram below.
-In a normal operation, this state will transition as follows:
-1. Driving state is initialized as NOT_READY
-2. State transitions to READY when Autoware components are launched sucesffuly and is ready to start driving.
-3. The state becomes DRIVING if the engage API is called and the vehicle starts driving.
-4. When the vehicle reaches to the destination, the state returns to NOT_READY.
-5. The state can be manually returned to NOT_READY whenever disengage API is called
-First, the driving state is NOT_READY and changes depending on other states of the vehicle.
-The state becomes READY when it is ready to start driving.
-Next, the state becomes DRIVING if the engage API is called, then the vehicle starts driving.
-Finally, the state returns to NOT_READY when the vehicle arrives at the destination.
-The state can be manually returned to NOT_READY by calling disengage API.</p>
+In a normal operation, this state will transition as follows:</p>
+<ol>
+<li>Driving state is initialized as NOT_READY</li>
+<li>State transitions to READY when Autoware components are launched sucesffuly and is ready to start driving.</li>
+<li>The state becomes DRIVING if the engage API is called and the vehicle starts driving.</li>
+<li>When the vehicle reaches to the destination, the state returns to NOT_READY.</li>
+<li>The state can be manually returned to NOT_READY whenever disengage API is called</li>
+</ol>
 <p><img alt="driving-state" src="../driving-state.drawio.svg" /></p>
 <table>
 <thead>
@@ -2327,13 +2332,13 @@ The state can be manually returned to NOT_READY by calling disengage API.</p>
       
       
         
-        <a href="../interface/" class="md-footer__link md-footer__link--next" aria-label="Next: Interface" rel="next">
+        <a href="../interface/" class="md-footer__link md-footer__link--next" aria-label="Next: Interface API" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Interface
+              Interface API
             </div>
           </div>
           <div class="md-footer__button md-icon">
