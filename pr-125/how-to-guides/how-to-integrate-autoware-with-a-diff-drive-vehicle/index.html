@@ -2449,7 +2449,7 @@ Here are two points that you need to consider:</p>
 <li>left wheel velocity (<span class="arithmatex"><span class="MathJax_Preview">v_l</span><script type="math/tex">v_l</script></span>)</li>
 <li>right wheel velocity (<span class="arithmatex"><span class="MathJax_Preview">v_r</span><script type="math/tex">v_r</script></span>)</li>
 </ul>
-<p>For example, the Ackermann command can be converted to the differential drive command with the following equations:</p>
+<p>So, one way in which an Ackermann command can be converted to a differential drive command is by using the following equations:</p>
 <div class="arithmatex">
 <div class="MathJax_Preview">
 v_l = v - \frac{l\omega}{2},
@@ -2461,7 +2461,7 @@ v_r = v + \frac{l\omega}{2}
 </script>
 </div>
 <p>where <span class="arithmatex"><span class="MathJax_Preview">l</span><script type="math/tex">l</script></span> denotes wheel tread.</p>
-<p>For general requirements for <code>vehicle_interface</code> package, please refer to <a href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-interface/">the description of <code>vehicle_interface</code></a> for detail.</p>
+<p>For information about other factors that need to be considered when creating a <code>vehicle_interface</code> package, refer to the <a href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-interface/"><code>vehicle_interface</code> component page</a>.</p>
 <h3 id="22-set-an-appropriate-wheel_base">2.2 Set an appropriate <code>wheel_base</code><a class="headerlink" href="#22-set-an-appropriate-wheel_base" title="Permanent link">#</a></h3>
 <p>A differential drive robot does not necessarily have front and rear wheels, which means that the wheelbase (the horizontal distance between the axles of the front and rear wheels) cannot be defined. However, Autoware expects <code>wheel_base</code> to be set in <code>vehicle_info.param.yaml</code> with some value.
 Thus, you need to set a pseudo value for <code>wheel_base</code>.</p>
