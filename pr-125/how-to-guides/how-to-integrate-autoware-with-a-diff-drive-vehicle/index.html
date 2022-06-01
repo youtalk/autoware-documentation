@@ -2467,13 +2467,7 @@ v_r = v + \frac{l\omega}{2}
 Thus, you need to set a pseudo value for <code>wheel_base</code>.</p>
 <p>The appropriate pseudo value for <code>wheel_base</code> depends on the size of your vehicle.
 Setting it to be the same value as <code>wheel_tread</code> is one possible choice.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<ul>
-<li>If <code>wheel_base</code> is too large, the vehicle may restrict the vehicle's motion. </li>
-<li>Conversely, Autoware Universe is not guaranteed to work properly when the <code>wheel_base</code> value is too small.</li>
-</ul>
-</div>
+<p>!!! warning - If <code>wheel_base</code> is too large, the vehicle may restrict the vehicle's motion. - Conversely, Autoware Universe is not guaranteed to work properly when the <code>wheel_base</code> value is too small.</p>
 <h2 id="3-known-issues">3. Known issues<a class="headerlink" href="#3-known-issues" title="Permanent link">#</a></h2>
 <h3 id="motion-model-incompatibility">Motion model incompatibility<a class="headerlink" href="#motion-model-incompatibility" title="Permanent link">#</a></h3>
 <p>Since Autoware assumes that vehicles use a steering system, it is not possible to take advantage of the flexibility of a differential drive system's motion model.</p>
