@@ -2429,7 +2429,7 @@
 <h1 id="how-to-integrate-autoware-with-a-differential-drive-vehicle">How to integrate Autoware with a differential drive vehicle<a class="headerlink" href="#how-to-integrate-autoware-with-a-differential-drive-vehicle" title="Permanent link">#</a></h1>
 <h2 id="1-introduction">1. Introduction<a class="headerlink" href="#1-introduction" title="Permanent link">#</a></h2>
 <p>Currently, Autoware assumes that vehicles use an Ackermann kinematic model with Ackermann steering.
-Thus, the Autoware interfaces adopt the Ackermann commands format for the output of the control module (see <a href="https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_control_msgs/msg/AckermannControlCommand.idl">the definition of AckermannControlCommands.idl</a> for details).</p>
+Thus, the Autoware interfaces adopt the Ackermann commands format for the output of the control module (see <a href="http://docs.ros.org/en/api/ackermann_msgs/html/msg/AckermannDrive.html">the ROS definition</a> for general understanding, and <a href="https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_control_msgs/msg/AckermannControlCommand.idl">the definition of AckermannControlCommands.idl</a> for Autoware implementation).</p>
 <p>However, it is possible to integrate Autoware with a vehicle that follows a differential drive kinematic model, as commonly used by small mobile robots.</p>
 <h2 id="2-procedure">2. Procedure<a class="headerlink" href="#2-procedure" title="Permanent link">#</a></h2>
 <p>One simple way of using Autoware with a differential drive vehicle is to create a <code>vehicle_interface</code> package that translates Ackermann commands to differential drive commands.
