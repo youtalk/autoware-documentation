@@ -8,21 +8,21 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-concepts/difference-from-ai-and-auto/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/running-autoware-without-cuda/">
       
-      <link rel="icon" href="../../../assets/images/autoware-foundation.png">
+      <link rel="icon" href="../../assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.16">
     
     
       
-        <title>How is Autoware Core/Universe different from Autoware.AI and Autoware.Auto? - Autoware Documentation</title>
+        <title>Running Autoware without CUDA - Autoware Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.1c3799f8.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1c3799f8.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cc9b2e1e.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cc9b2e1e.min.css">
         
       
     
@@ -37,11 +37,11 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/css/extra.css">
+      <link rel="stylesheet" href="../../assets/css/extra.css">
     
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#how-is-autoware-coreuniverse-different-from-autowareai-and-autowareauto" class="md-skip">
+        <a href="#running-autoware-without-cuda" class="md-skip">
           Skip to content
         </a>
       
@@ -91,7 +91,7 @@
 
 <header class="md-header md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="Autoware Documentation" class="md-header__button md-logo" aria-label="Autoware Documentation" data-md-component="logo">
+    <a href="../.." title="Autoware Documentation" class="md-header__button md-logo" aria-label="Autoware Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M39.61 196.8 74.8 96.29C88.27 57.78 124.6 32 165.4 32h181.2c40.8 0 77.1 25.78 90.6 64.29l35.2 100.51c23.2 9.6 39.6 32.5 39.6 59.2v192c0 17.7-14.3 32-32 32h-32c-17.7 0-32-14.3-32-32v-48H96v48c0 17.7-14.33 32-32 32H32c-17.67 0-32-14.3-32-32V256c0-26.7 16.36-49.6 39.61-59.2zm69.49-4.8h293.8l-26.1-74.6c-4.5-12.8-16.6-21.4-30.2-21.4H165.4c-13.6 0-25.7 8.6-30.2 21.4L109.1 192zM96 256c-17.67 0-32 14.3-32 32s14.33 32 32 32c17.7 0 32-14.3 32-32s-14.3-32-32-32zm320 64c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32z"/></svg>
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              How is Autoware Core/Universe different from Autoware.AI and Autoware.Auto?
+              Running Autoware without CUDA
             
           </span>
         </div>
@@ -201,7 +201,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="../../.." class="md-tabs__link">
+    <a href="../.." class="md-tabs__link">
       Introduction
     </a>
   </li>
@@ -216,7 +216,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../installation/" class="md-tabs__link">
+      <a href="../../installation/" class="md-tabs__link">
         Installation
       </a>
     </li>
@@ -232,24 +232,8 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../tutorials/" class="md-tabs__link">
+      <a href="../../tutorials/" class="md-tabs__link">
         Tutorials
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../../how-to-guides/" class="md-tabs__link">
-        How to guides
       </a>
     </li>
   
@@ -266,7 +250,23 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../" class="md-tabs__link md-tabs__link--active">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
+        How to guides
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../design/" class="md-tabs__link">
         Design
       </a>
     </li>
@@ -282,7 +282,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../contributing/" class="md-tabs__link">
+      <a href="../../contributing/" class="md-tabs__link">
         Contributing
       </a>
     </li>
@@ -298,7 +298,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../support/" class="md-tabs__link">
+      <a href="../../support/" class="md-tabs__link">
         Support
       </a>
     </li>
@@ -332,7 +332,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Autoware Documentation" class="md-nav__button md-logo" aria-label="Autoware Documentation" data-md-component="logo">
+    <a href="../.." title="Autoware Documentation" class="md-nav__button md-logo" aria-label="Autoware Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M39.61 196.8 74.8 96.29C88.27 57.78 124.6 32 165.4 32h181.2c40.8 0 77.1 25.78 90.6 64.29l35.2 100.51c23.2 9.6 39.6 32.5 39.6 59.2v192c0 17.7-14.3 32-32 32h-32c-17.7 0-32-14.3-32-32v-48H96v48c0 17.7-14.33 32-32 32H32c-17.67 0-32-14.3-32-32V256c0-26.7 16.36-49.6 39.61-59.2zm69.49-4.8h293.8l-26.1-74.6c-4.5-12.8-16.6-21.4-30.2-21.4H165.4c-13.6 0-25.7 8.6-30.2 21.4L109.1 192zM96 256c-17.67 0-32 14.3-32 32s14.33 32 32 32c17.7 0 32-14.3 32-32s-14.3-32-32-32zm320 64c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32z"/></svg>
@@ -363,7 +363,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -401,7 +401,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../installation/">Installation</a>
+          <a href="../../installation/">Installation</a>
           
             <label for="__nav_2">
               <span class="md-nav__icon md-icon"></span>
@@ -458,7 +458,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../installation/autoware/docker-installation/" class="md-nav__link">
+      <a href="../../installation/autoware/docker-installation/" class="md-nav__link">
         Docker installation
       </a>
     </li>
@@ -472,7 +472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../installation/autoware/source-installation/" class="md-nav__link">
+      <a href="../../installation/autoware/source-installation/" class="md-nav__link">
         Source installation
       </a>
     </li>
@@ -512,7 +512,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../installation/related-tools/">Related tools</a>
+          <a href="../../installation/related-tools/">Related tools</a>
           
         </div>
       
@@ -557,7 +557,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../installation/additional-settings-for-developers/">Additional settings for developers</a>
+          <a href="../../installation/additional-settings-for-developers/">Additional settings for developers</a>
           
         </div>
       
@@ -612,7 +612,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../tutorials/">Tutorials</a>
+          <a href="../../tutorials/">Tutorials</a>
           
             <label for="__nav_3">
               <span class="md-nav__icon md-icon"></span>
@@ -660,7 +660,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../tutorials/ad-hoc-simulation/">Ad hoc simulation</a>
+          <a href="../../tutorials/ad-hoc-simulation/">Ad hoc simulation</a>
           
             <label for="__nav_3_2">
               <span class="md-nav__icon md-icon"></span>
@@ -683,7 +683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tutorials/ad-hoc-simulation/planning-simulation/" class="md-nav__link">
+      <a href="../../tutorials/ad-hoc-simulation/planning-simulation/" class="md-nav__link">
         Planning simulation
       </a>
     </li>
@@ -697,7 +697,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tutorials/ad-hoc-simulation/rosbag-replay-simulation/" class="md-nav__link">
+      <a href="../../tutorials/ad-hoc-simulation/rosbag-replay-simulation/" class="md-nav__link">
         Rosbag replay simulation
       </a>
     </li>
@@ -711,7 +711,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tutorials/ad-hoc-simulation/digital-twin-simulation/" class="md-nav__link">
+      <a href="../../tutorials/ad-hoc-simulation/digital-twin-simulation/" class="md-nav__link">
         Digital twin simulation
       </a>
     </li>
@@ -802,7 +802,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tutorials/scenario-simulation/planning-simulation/installation/" class="md-nav__link">
+      <a href="../../tutorials/scenario-simulation/planning-simulation/installation/" class="md-nav__link">
         Installation
       </a>
     </li>
@@ -816,7 +816,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tutorials/scenario-simulation/planning-simulation/scenario-test-simulation/" class="md-nav__link">
+      <a href="../../tutorials/scenario-simulation/planning-simulation/scenario-test-simulation/" class="md-nav__link">
         Scenario test simulation
       </a>
     </li>
@@ -830,7 +830,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tutorials/scenario-simulation/planning-simulation/random-test-simulation/" class="md-nav__link">
+      <a href="../../tutorials/scenario-simulation/planning-simulation/random-test-simulation/" class="md-nav__link">
         Random test simulation
       </a>
     </li>
@@ -851,7 +851,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tutorials/scenario-simulation/rosbag-replay-simulation/" class="md-nav__link">
+      <a href="../../tutorials/scenario-simulation/rosbag-replay-simulation/" class="md-nav__link">
         Rosbag replay simulation
       </a>
     </li>
@@ -865,7 +865,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tutorials/scenario-simulation/digital-twin-simulation/" class="md-nav__link">
+      <a href="../../tutorials/scenario-simulation/digital-twin-simulation/" class="md-nav__link">
         Digital twin simulation
       </a>
     </li>
@@ -892,12 +892,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" data-md-state="indeterminate" type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
       
       
       
@@ -917,7 +919,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../how-to-guides/">How to guides</a>
+          <a href="../">How to guides</a>
           
             <label for="__nav_4">
               <span class="md-nav__icon md-icon"></span>
@@ -929,150 +931,6 @@
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           How to guides
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../how-to-guides/running-autoware-without-cuda/" class="md-nav__link">
-        Running Autoware without CUDA
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../how-to-guides/advanced-usage-of-colcon/" class="md-nav__link">
-        Advanced usage of colcon
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../how-to-guides/how-to-integrate-autoware-with-your-vehicle/" class="md-nav__link">
-        How to integrate Autoware with your vehicle
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-    
-  
-  
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
-      
-      
-      
-        
-          
-            
-          
-        
-          
-        
-          
-        
-          
-        
-      
-      
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../">Design</a>
-          
-            <label for="__nav_5">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" aria-label="Design" data-md-level="1">
-        <label class="md-nav__title" for="__nav_5">
-          <span class="md-nav__icon md-icon"></span>
-          Design
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
-            
-              
-  
-  
-    
-  
-  
-    
-      
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" checked>
-      
-      
-      
-        
-          
-            
-          
-        
-          
-        
-      
-      
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../">Autoware concepts</a>
-          
-            <label for="__nav_5_2">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" aria-label="Autoware concepts" data-md-level="2">
-        <label class="md-nav__title" for="__nav_5_2">
-          <span class="md-nav__icon md-icon"></span>
-          Autoware concepts
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1094,12 +952,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          How is Autoware Core/Universe different from Autoware.AI and Autoware.Auto?
+          Running Autoware without CUDA
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        How is Autoware Core/Universe different from Autoware.AI and Autoware.Auto?
+        Running Autoware without CUDA
       </a>
       
         
@@ -1118,22 +976,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#autowareai" class="md-nav__link">
-    Autoware.AI
+  <a href="#running-2d3d-object-detection-without-cuda" class="md-nav__link">
+    Running 2D/3D object detection without CUDA
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#autowareauto" class="md-nav__link">
-    Autoware.Auto
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#autoware-coreuniverse" class="md-nav__link">
-    Autoware Core/Universe
+  <a href="#running-traffic-light-detection-without-cuda" class="md-nav__link">
+    Running traffic light detection without CUDA
   </a>
   
 </li>
@@ -1142,6 +993,146 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced-usage-of-colcon/" class="md-nav__link">
+        Advanced usage of colcon
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-integrate-autoware-with-your-vehicle/" class="md-nav__link">
+        How to integrate Autoware with your vehicle
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" data-md-state="indeterminate" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../design/">Design</a>
+          
+            <label for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Design" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Design
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" data-md-state="indeterminate" type="checkbox" id="__nav_5_2" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../design/autoware-concepts/">Autoware concepts</a>
+          
+            <label for="__nav_5_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Autoware concepts" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          Autoware concepts
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/autoware-concepts/difference-from-ai-and-auto/" class="md-nav__link">
+        How is Autoware Core/Universe different from Autoware.AI and Autoware.Auto?
+      </a>
     </li>
   
 
@@ -1183,7 +1174,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../autoware-interfaces/">Autoware interfaces</a>
+          <a href="../../design/autoware-interfaces/">Autoware interfaces</a>
           
             <label for="__nav_5_3">
               <span class="md-nav__icon md-icon"></span>
@@ -1223,7 +1214,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../autoware-interfaces/ad-api/">AD API</a>
+          <a href="../../design/autoware-interfaces/ad-api/">AD API</a>
           
         </div>
       
@@ -1274,7 +1265,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../autoware-interfaces/components/">Components</a>
+          <a href="../../design/autoware-interfaces/components/">Components</a>
           
             <label for="__nav_5_3_3">
               <span class="md-nav__icon md-icon"></span>
@@ -1297,7 +1288,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../autoware-interfaces/components/planning/" class="md-nav__link">
+      <a href="../../design/autoware-interfaces/components/planning/" class="md-nav__link">
         Planning
       </a>
     </li>
@@ -1311,7 +1302,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../autoware-interfaces/components/control/" class="md-nav__link">
+      <a href="../../design/autoware-interfaces/components/control/" class="md-nav__link">
         Control
       </a>
     </li>
@@ -1325,7 +1316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../autoware-interfaces/components/vehicle-interface/" class="md-nav__link">
+      <a href="../../design/autoware-interfaces/components/vehicle-interface/" class="md-nav__link">
         Vehicle Interface
       </a>
     </li>
@@ -1339,7 +1330,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../autoware-interfaces/components/vehicle-dimensions/" class="md-nav__link">
+      <a href="../../design/autoware-interfaces/components/vehicle-dimensions/" class="md-nav__link">
         Vehicle dimensions
       </a>
     </li>
@@ -1392,7 +1383,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../configuration-management/">Configuration management</a>
+          <a href="../../design/configuration-management/">Configuration management</a>
           
             <label for="__nav_5_4">
               <span class="md-nav__icon md-icon"></span>
@@ -1415,7 +1406,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration-management/development-process/" class="md-nav__link">
+      <a href="../../design/configuration-management/development-process/" class="md-nav__link">
         Development process
       </a>
     </li>
@@ -1429,7 +1420,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration-management/repository-structure/" class="md-nav__link">
+      <a href="../../design/configuration-management/repository-structure/" class="md-nav__link">
         Repository structure
       </a>
     </li>
@@ -1443,7 +1434,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration-management/release-process/" class="md-nav__link">
+      <a href="../../design/configuration-management/release-process/" class="md-nav__link">
         Release process
       </a>
     </li>
@@ -1501,7 +1492,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../contributing/">Contributing</a>
+          <a href="../../contributing/">Contributing</a>
           
             <label for="__nav_6">
               <span class="md-nav__icon md-icon"></span>
@@ -1524,7 +1515,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/license/" class="md-nav__link">
+      <a href="../../contributing/license/" class="md-nav__link">
         License
       </a>
     </li>
@@ -1561,7 +1552,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../contributing/coding-guidelines/">Coding guidelines</a>
+          <a href="../../contributing/coding-guidelines/">Coding guidelines</a>
           
             <label for="__nav_6_3">
               <span class="md-nav__icon md-icon"></span>
@@ -1619,7 +1610,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../contributing/coding-guidelines/languages/">Language-specific coding guidelines</a>
+          <a href="../../contributing/coding-guidelines/languages/">Language-specific coding guidelines</a>
           
             <label for="__nav_6_3_2">
               <span class="md-nav__icon md-icon"></span>
@@ -1642,7 +1633,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/languages/cpp/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/languages/cpp/" class="md-nav__link">
         C++
       </a>
     </li>
@@ -1656,7 +1647,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/languages/python/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/languages/python/" class="md-nav__link">
         Python
       </a>
     </li>
@@ -1670,7 +1661,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/languages/shell-scripts/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/languages/shell-scripts/" class="md-nav__link">
         Shell scripts
       </a>
     </li>
@@ -1684,7 +1675,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/languages/markdown/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/languages/markdown/" class="md-nav__link">
         Markdown
       </a>
     </li>
@@ -1698,7 +1689,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/languages/cmake/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/languages/cmake/" class="md-nav__link">
         CMake
       </a>
     </li>
@@ -1712,7 +1703,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/languages/package-xml/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/languages/package-xml/" class="md-nav__link">
         package.xml
       </a>
     </li>
@@ -1726,7 +1717,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/languages/ros2-interfaces/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/languages/ros2-interfaces/" class="md-nav__link">
         ROS 2 interfaces
       </a>
     </li>
@@ -1740,7 +1731,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/languages/docker/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/languages/docker/" class="md-nav__link">
         Docker
       </a>
     </li>
@@ -1754,7 +1745,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/languages/github-actions/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/languages/github-actions/" class="md-nav__link">
         GitHub Actions
       </a>
     </li>
@@ -1812,7 +1803,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../contributing/coding-guidelines/ros-nodes/">ROS nodes coding guidelines</a>
+          <a href="../../contributing/coding-guidelines/ros-nodes/">ROS nodes coding guidelines</a>
           
             <label for="__nav_6_3_3">
               <span class="md-nav__icon md-icon"></span>
@@ -1835,7 +1826,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/ros-nodes/class-design/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/ros-nodes/class-design/" class="md-nav__link">
         Class design
       </a>
     </li>
@@ -1849,7 +1840,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/ros-nodes/console-logging/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/ros-nodes/console-logging/" class="md-nav__link">
         Console logging
       </a>
     </li>
@@ -1863,7 +1854,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/ros-nodes/coordinate-system/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/ros-nodes/coordinate-system/" class="md-nav__link">
         Coordinate system
       </a>
     </li>
@@ -1877,7 +1868,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/ros-nodes/directory-structure/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/ros-nodes/directory-structure/" class="md-nav__link">
         Directory structure
       </a>
     </li>
@@ -1891,7 +1882,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/ros-nodes/launch-files/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/ros-nodes/launch-files/" class="md-nav__link">
         Launch files
       </a>
     </li>
@@ -1905,7 +1896,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/ros-nodes/message-guidelines/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/ros-nodes/message-guidelines/" class="md-nav__link">
         Message guidelines
       </a>
     </li>
@@ -1919,7 +1910,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/ros-nodes/naming/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/ros-nodes/naming/" class="md-nav__link">
         Topic namespaces
       </a>
     </li>
@@ -1933,7 +1924,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/ros-nodes/parameters/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/ros-nodes/parameters/" class="md-nav__link">
         Parameters
       </a>
     </li>
@@ -1947,7 +1938,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/ros-nodes/task-scheduling/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/ros-nodes/task-scheduling/" class="md-nav__link">
         Task scheduling
       </a>
     </li>
@@ -1961,7 +1952,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/ros-nodes/topic-namespaces/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/ros-nodes/topic-namespaces/" class="md-nav__link">
         Topic namespaces
       </a>
     </li>
@@ -2008,7 +1999,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../contributing/testing-guidelines/">Testing guidelines</a>
+          <a href="../../contributing/testing-guidelines/">Testing guidelines</a>
           
         </div>
       
@@ -2053,7 +2044,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../contributing/documentation-guidelines/">Documentation guidelines</a>
+          <a href="../../contributing/documentation-guidelines/">Documentation guidelines</a>
           
         </div>
       
@@ -2104,7 +2095,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../contributing/pull-request-guidelines/">Pull request guidelines</a>
+          <a href="../../contributing/pull-request-guidelines/">Pull request guidelines</a>
           
             <label for="__nav_6_6">
               <span class="md-nav__icon md-icon"></span>
@@ -2127,7 +2118,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/pull-request-guidelines/commit-guidelines/" class="md-nav__link">
+      <a href="../../contributing/pull-request-guidelines/commit-guidelines/" class="md-nav__link">
         Commit guidelines
       </a>
     </li>
@@ -2141,7 +2132,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/pull-request-guidelines/review-guidelines/" class="md-nav__link">
+      <a href="../../contributing/pull-request-guidelines/review-guidelines/" class="md-nav__link">
         Review guidelines
       </a>
     </li>
@@ -2155,7 +2146,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/pull-request-guidelines/review-tips/" class="md-nav__link">
+      <a href="../../contributing/pull-request-guidelines/review-tips/" class="md-nav__link">
         Tips
       </a>
     </li>
@@ -2195,7 +2186,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../contributing/discussion-guidelines/">Discussion guidelines</a>
+          <a href="../../contributing/discussion-guidelines/">Discussion guidelines</a>
           
         </div>
       
@@ -2252,7 +2243,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../support/">Support</a>
+          <a href="../../support/">Support</a>
           
             <label for="__nav_7">
               <span class="md-nav__icon md-icon"></span>
@@ -2275,7 +2266,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../support/support-guidelines/" class="md-nav__link">
+      <a href="../../support/support-guidelines/" class="md-nav__link">
         Support guidelines
       </a>
     </li>
@@ -2289,7 +2280,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../support/troubleshooting/" class="md-nav__link">
+      <a href="../../support/troubleshooting/" class="md-nav__link">
         Troubleshooting
       </a>
     </li>
@@ -2303,7 +2294,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../support/docs-guide/" class="md-nav__link">
+      <a href="../../support/docs-guide/" class="md-nav__link">
         Docs guide
       </a>
     </li>
@@ -2344,22 +2335,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#autowareai" class="md-nav__link">
-    Autoware.AI
+  <a href="#running-2d3d-object-detection-without-cuda" class="md-nav__link">
+    Running 2D/3D object detection without CUDA
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#autowareauto" class="md-nav__link">
-    Autoware.Auto
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#autoware-coreuniverse" class="md-nav__link">
-    Autoware Core/Universe
+  <a href="#running-traffic-light-detection-without-cuda" class="md-nav__link">
+    Running traffic light detection without CUDA
   </a>
   
 </li>
@@ -2376,51 +2360,33 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/autowarefoundation/autoware-documentation/edit/main/docs/design/autoware-concepts/difference-from-ai-and-auto.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/autowarefoundation/autoware-documentation/edit/main/docs/how-to-guides/running-autoware-without-cuda.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="how-is-autoware-coreuniverse-different-from-autowareai-and-autowareauto">How is Autoware Core/Universe different from Autoware.AI and Autoware.Auto?<a class="headerlink" href="#how-is-autoware-coreuniverse-different-from-autowareai-and-autowareauto" title="Permanent link">#</a></h1>
-<p>Autoware is the world's first "all-in-one" open-source software for self-driving vehicles.
-Since it was first released in 2015, there have been multiple releases made with differing underlying concepts, each one aimed at improving the software.</p>
-<h2 id="autowareai">Autoware.AI<a class="headerlink" href="#autowareai" title="Permanent link">#</a></h2>
-<p><a href="https://github.com/Autoware-AI/autoware.ai">Autoware.AI</a> is the first distribution of Autoware that was released based on ROS 1. The repository contains a variety of packages covering different aspects of autonomous driving technologies - sensing, actuation, localization, mapping, perception and planning.</p>
-<p>While it was successful in attracting many developers and contributions, it was difficult to improve Autoware.AI's capabilities for a number of reasons:</p>
+<h1 id="running-autoware-without-cuda">Running Autoware without CUDA<a class="headerlink" href="#running-autoware-without-cuda" title="Permanent link">#</a></h1>
+<p>Although CUDA installation is recommended to achieve better performance for object detection and traffic light recognition in Autoware Universe, it is possible to run these algorithms without CUDA.
+The following subsections briefly explain how to run each algorithm in such an environment.</p>
+<h2 id="running-2d3d-object-detection-without-cuda">Running 2D/3D object detection without CUDA<a class="headerlink" href="#running-2d3d-object-detection-without-cuda" title="Permanent link">#</a></h2>
+<p>Autoware Universe's object detection can be run using one of five possible configurations:</p>
 <ul>
-<li>A lack of concrete architecture design leading to a lot of built-up technical debt, such as tight coupling between modules and unclear module responsibility.</li>
-<li>Differing coding standards for each package, with very low test coverage.</li>
+<li><code>lidar_centerpoint</code></li>
+<li><code>lidar_apollo_instance_segmentation</code></li>
+<li><code>lidar-apollo</code> + <code>tensorrt_yolo</code></li>
+<li><code>lidar-centerpoint</code> + <code>tensorrt_yolo</code></li>
+<li><code>euclidean_cluster</code></li>
 </ul>
-<p>Furthermore, there was no clear definition of the conditions under which an Autoware-enabled autonomous vehicle could operate, nor of the use cases or situations supported (eg: the ability to overtake a stationary vehicle).</p>
-<p>From the lessons learned from Autoware.AI development, a different development process was taken for Autoware.Auto to develop a ROS 2 version of Autoware.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Autoware.AI is currently in maintenance mode and will reach end-of-life at the end of 2022.</p>
-</div>
-<h2 id="autowareauto">Autoware.Auto<a class="headerlink" href="#autowareauto" title="Permanent link">#</a></h2>
-<p><a href="https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto">Autoware.Auto</a> is the second distribution of Autoware that was released based on ROS 2. As part of the transition to ROS 2, it was decided to avoid simply porting Autoware.AI from ROS 1 to ROS 2. Instead, the codebase was rewritten from scratch with proper engineering practices, including defining target use cases and ODDs (eg: Autonomous Valet Parking [AVP], Cargo Delivery, etc.), designing a proper architecture, writing design documents and test code.</p>
-<p>Autoware.Auto development seemed to work fine initially, but after completing the AVP and and Cargo Delivery ODD projects, we started to see the following issues:</p>
+<p>Of these five configurations, only the last one (<code>euclidean_cluster</code>) can be run without CUDA. For more details, refer to the <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/perception/euclidean_cluster"><code>euclidean_cluster</code> module's README file</a>.</p>
+<h2 id="running-traffic-light-detection-without-cuda">Running traffic light detection without CUDA<a class="headerlink" href="#running-traffic-light-detection-without-cuda" title="Permanent link">#</a></h2>
+<p>For traffic light recognition (both detection and classification), there are two modules that require CUDA:</p>
 <ul>
-<li>The barrier to new engineers was too high.<ul>
-<li>A lot of work was required to merge new features into Autoware.Auto, and so it was difficult for researchers and students to contribute to development.</li>
-<li>As a consequence, most Autoware.Auto developers were from companies in the Autoware Foundation and so there were very few people who were able to add state-of-the-art features from research papers.</li>
+<li><code>traffic_light_ssd_fine_detector</code></li>
+<li><code>traffic_light_classifier</code></li>
 </ul>
-</li>
-<li>Making large-scale architecture changes was too difficult.<ul>
-<li>To try out experimental architecture, there was a very large overhead involved in keeping the main branch stable whilst also making sure that every change satisfied the continuous integration requirements.</li>
-</ul>
-</li>
-</ul>
-<h2 id="autoware-coreuniverse">Autoware Core/Universe<a class="headerlink" href="#autoware-coreuniverse" title="Permanent link">#</a></h2>
-<p>In order to address the issues with Autoware.Auto development, the Autoware Foundation decided to create a new architecture called Autoware Core/Universe.</p>
-<p>Autoware Core carries over the original policy of Autoware.Auto to be a stable and well-tested codebase. Alongside Autoware Core is a new concept called Autoware Universe, which acts as an extension of Autoware Core with the following benefits:</p>
-<ul>
-<li>Users can easily replace a Core component with a Universe equivalent in order to use more advanced features, such as a new Localization or Perception algorithm.</li>
-<li>Code quality requirements for Universe are more relaxed to make it easier for new developers, students and researchers to contribute, but will still be stricter than the requirements for Autoware.AI.</li>
-<li>Any advanced features added to Universe that are useful to the wider Autoware community will be reviewed and considered for potential inclusion in the main Autoware Core codebase.</li>
-</ul>
-<p>This way, the primary requirement of having a stable and safe autonomous driving system can be achieved, whilst simultaneously enabling access to state-of-the-art features created by third-party contributors. For more details about the design of Autoware Core/Universe, refer to the <a href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-concepts/">Autoware concepts documentation page</a>.</p>
+<p>To run traffic light detection without CUDA, set <a href="https://github.com/autowarefoundation/autoware.universe/blob/9445f3a7acd645d12a64507c3d3bfa57e74a3634/launch/tier4_perception_launch/launch/traffic_light_recognition/traffic_light.launch.xml#L3"><code>enable_fine_detection</code> to <code>false</code> in the traffic light launch file</a>. Doing so disables the <code>traffic_light_ssd_fine_detector</code> such that traffic light detection is handled by the <code>map_based_traffic_light_detector</code> module instead.</p>
+<p>To run traffic light classification without CUDA, set <a href="https://github.com/autowarefoundation/autoware.universe/blob/9445f3a7acd645d12a64507c3d3bfa57e74a3634/perception/traffic_light_classifier/launch/traffic_light_classifier.launch.xml#L7"><code>use_gpu</code> to <code>false</code> in the traffic light classifier launch file</a>. Doing so will force the <code>traffic_light_classifier</code> to use a different classification algorithm that does not require CUDA or a GPU.</p>
 
               
             </article>
@@ -2439,7 +2405,7 @@ Since it was first released in 2015, there have been multiple releases made with
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Autoware concepts" rel="prev">
+        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: How-to guides" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -2448,20 +2414,20 @@ Since it was first released in 2015, there have been multiple releases made with
               <span class="md-footer__direction">
                 Previous
               </span>
-              Autoware concepts
+              How-to guides
             </div>
           </div>
         </a>
       
       
         
-        <a href="../../autoware-interfaces/" class="md-footer__link md-footer__link--next" aria-label="Next: Autoware Interface Design" rel="next">
+        <a href="../advanced-usage-of-colcon/" class="md-footer__link md-footer__link--next" aria-label="Next: Advanced usage of colcon" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Autoware Interface Design
+              Advanced usage of colcon
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -2495,10 +2461,10 @@ Since it was first released in 2015, there have been multiple releases made with
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.3a4b43e5.min.js"></script>
+      <script src="../../assets/javascripts/bundle.3a4b43e5.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
