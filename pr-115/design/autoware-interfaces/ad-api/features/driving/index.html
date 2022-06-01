@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-115/design/autoware-interfaces/ad-api/features/driving/">
       
       <link rel="icon" href="../../../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.15">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.16">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.c382b1dc.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.1c3799f8.min.css">
       
         
         <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.cc9b2e1e.min.css">
@@ -2253,7 +2253,14 @@
 <p>The driving feature manages whether the vehicle is driving or can start driving.
 The vehicle holds a stop when the state is not DRIVING.
 This state is mainly used to show the users whether the vehicle can start driving and to implement an HMI for departure.</p>
-<p>First, the driving state is NOT_READY and changes depending on other states of the vehicle.
+<p>The state transition for driving state is illustrated in the diagram below.
+In a normal operation, this state will transition as follows:
+1. Driving state is initialized as NOT_READY
+2. State transitions to READY when Autoware components are launched sucesffuly and is ready to start driving.
+3. The state becomes DRIVING if the engage API is called and the vehicle starts driving.
+4. When the vehicle reaches to the destination, the state returns to NOT_READY.
+5. The state can be manually returned to NOT_READY whenever disengage API is called
+First, the driving state is NOT_READY and changes depending on other states of the vehicle.
 The state becomes READY when it is ready to start driving.
 Next, the state becomes DRIVING if the engage API is called, then the vehicle starts driving.
 Finally, the state returns to NOT_READY when the vehicle arrives at the destination.
@@ -2363,7 +2370,7 @@ The state can be manually returned to NOT_READY by calling disengage API.</p>
     <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../../../assets/javascripts/bundle.a6c66575.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.3a4b43e5.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
