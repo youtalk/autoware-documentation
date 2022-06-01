@@ -171,6 +171,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-128/design/autoware-concepts/difference-from-ai-and-auto/</loc>
+         <lastmod>2022-06-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-128/design/autoware-interfaces/</loc>
          <lastmod>2022-06-01</lastmod>
          <changefreq>daily</changefreq>
