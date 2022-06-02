@@ -15,7 +15,7 @@
     
     
       
-        <title>Tutorials - Autoware Documentation</title>
+        <title>Simulation tutorials - Autoware Documentation</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tutorials" class="md-skip">
+        <a href="#simulation-tutorials" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Tutorials
+              Simulation tutorials
             
           </span>
         </div>
@@ -2753,6 +2753,19 @@
     Planning simulation
   </a>
   
+    <nav class="md-nav" aria-label="Planning simulation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-does-planning-simulation-work" class="md-nav__link">
+    How does planning simulation work?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -2792,32 +2805,33 @@
 
 
 
-<h1 id="tutorials">Tutorials<a class="headerlink" href="#tutorials" title="Permanent link">#</a></h1>
-<p>This page explains how to try out Autoware through simulations.</p>
-<p>There are some methods and types of simulations.
-Read the following sections and choose a simulation method/type you want</p>
-<p>See the left sidebar for how to run each simulation.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The namings of each simulation are under discussion and would be changed in the near future.</p>
-</div>
+<h1 id="simulation-tutorials">Simulation tutorials<a class="headerlink" href="#simulation-tutorials" title="Permanent link">#</a></h1>
+<p>Simulations provide a way of verifying Autoware's functionality before field testing with an actual vehicle.<br />
+There are three main types of simulation that can be run ad hoc or via a scenario runner.</p>
 <h2 id="simulation-methods">Simulation methods<a class="headerlink" href="#simulation-methods" title="Permanent link">#</a></h2>
 <h3 id="ad-hoc-simulation">Ad hoc simulation<a class="headerlink" href="#ad-hoc-simulation" title="Permanent link">#</a></h3>
-<p>Ad hoc simulation is a simulation method that you run simulations flexibly on your local machine.
-It is recommended for your first trial.</p>
+<p>Ad hoc simulation is a flexible method for running basic simulations on your local machine, and is the recommended method for anyone new to Autoware.</p>
 <h3 id="scenario-simulation">Scenario simulation<a class="headerlink" href="#scenario-simulation" title="Permanent link">#</a></h3>
-<p>Scenario simulation is a simulation method that a scenario runner runs simulations based on scenarios you defined.
-It is often run automatically on a CI system, but you can also run this simulation on your local machine.</p>
+<p>Scenario simulation uses a scenario runner to run more complex simulations based on predefined scenarios.
+It is often run automatically for continuous integration purposes, but can also be run on a local machine.</p>
 <h2 id="simulation-types">Simulation types<a class="headerlink" href="#simulation-types" title="Permanent link">#</a></h2>
-<p>Autoware supports three types of simulations.<br />
-Note that it is just a rough classification, and that there are several minor derivative versions.</p>
 <h3 id="planning-simulation">Planning simulation<a class="headerlink" href="#planning-simulation" title="Permanent link">#</a></h3>
-<p>Planning simulation is a simulation type that uses simple dummy data and tests mainly planning/control components.</p>
+<p>Planning simulation uses simple dummy data to test the Planning and Control components - specifically path generation, path following and obstacle avoidance. It verifies that a vehicle can reach a goal destination while avoiding pedestrians and surrounding cars, and is another method for verifying the validity of Lanelet2 maps. It also allows for testing of traffic light handling.</p>
+<h4 id="how-does-planning-simulation-work">How does planning simulation work?<a class="headerlink" href="#how-does-planning-simulation-work" title="Permanent link">#</a></h4>
+<ol>
+<li>Generate a path to the goal destination</li>
+<li>Control the car along the generated path</li>
+<li>Detect and avoid any humans or other vehicles on the way to the goal destination</li>
+</ol>
 <h3 id="rosbag-replay-simulation">Rosbag replay simulation<a class="headerlink" href="#rosbag-replay-simulation" title="Permanent link">#</a></h3>
-<p>Rosbag replay simulation is a simulation type that uses Rosbag data and tests mainly perception modules.
-Sometimes it is used for endurance tests by repeatedly playing back the data.</p>
+<p>Rosbag replay simulation uses prerecorded rosbag data to test the following aspects of the Localization and Perception components:</p>
+<ul>
+<li>Localization: Estimation of the vehicle's location on the map by matching sensor and vehicle feedback data to the map.</li>
+<li>Perception: Using sensor data to detect, track and predict dynamic objects such as surrounding cars, pedestrians, and other objects</li>
+</ul>
+<p>By repeatedly playing back the data, this simulation type can also be used for endurance testing.</p>
 <h3 id="digital-twin-simulation">Digital twin simulation<a class="headerlink" href="#digital-twin-simulation" title="Permanent link">#</a></h3>
-<p>Digital twin simulation is a simulation type that produces realistic data and simulate almost the entire system.</p>
+<p>Digital twin simulation is a simulation type that is able to produce realistic data and simulate almost the entire system. It is also commonly referred to as end-to-end simulation.</p>
 
               
             </article>
