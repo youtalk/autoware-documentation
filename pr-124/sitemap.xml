@@ -166,7 +166,57 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-124/design/autoware-architecture/</loc>
+         <lastmod>2022-06-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-124/design/autoware-architecture/control/</loc>
+         <lastmod>2022-06-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-124/design/autoware-architecture/localization/</loc>
+         <lastmod>2022-06-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-124/design/autoware-architecture/map/</loc>
+         <lastmod>2022-06-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-124/design/autoware-architecture/node-diagram/</loc>
+         <lastmod>2022-06-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-124/design/autoware-architecture/perception/</loc>
+         <lastmod>2022-06-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-124/design/autoware-architecture/planning/</loc>
+         <lastmod>2022-06-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-124/design/autoware-architecture/sensing/</loc>
+         <lastmod>2022-06-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-124/design/autoware-architecture/vehicle/</loc>
+         <lastmod>2022-06-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-124/design/autoware-concepts/</loc>
+         <lastmod>2022-06-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-124/design/autoware-concepts/difference-from-ai-and-auto/</loc>
          <lastmod>2022-06-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -236,7 +286,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-124/how-to-guides/how-to-integrate-autoware-with-a-diff-drive-vehicle/</loc>
+         <lastmod>2022-06-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-124/how-to-guides/how-to-integrate-autoware-with-your-vehicle/</loc>
+         <lastmod>2022-06-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-124/how-to-guides/running-autoware-without-cuda/</loc>
          <lastmod>2022-06-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
