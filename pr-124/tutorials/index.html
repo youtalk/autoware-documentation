@@ -2353,17 +2353,13 @@ There are three main types of simulation that can be run ad hoc or via a scenari
 It is often run automatically for continuous integration purposes, but can also be run on a local machine.</p>
 <h2 id="simulation-types">Simulation types<a class="headerlink" href="#simulation-types" title="Permanent link">#</a></h2>
 <h3 id="planning-simulation">Planning simulation<a class="headerlink" href="#planning-simulation" title="Permanent link">#</a></h3>
-<p>Planning simulation uses simple dummy data to test the Planning and Control components - specifically path generation, path following and obstacle avoidance. It verifies that a vehicle can reach a goal destination while avoiding pedestrians and surrounding cars, and is another method for verifying the validity of Lanelet2 maps.</p>
+<p>Planning simulation uses simple dummy data to test the Planning and Control components - specifically path generation, path following and obstacle avoidance. It verifies that a vehicle can reach a goal destination while avoiding pedestrians and surrounding cars, and is another method for verifying the validity of Lanelet2 maps. It also allows for testing of traffic light handling.</p>
 <h4 id="how-does-planning-simulation-work">How does planning simulation work?<a class="headerlink" href="#how-does-planning-simulation-work" title="Permanent link">#</a></h4>
 <ol>
 <li>Generate a path to the goal destination</li>
 <li>Control the car along the generated path</li>
 <li>Detect and avoid any humans or other vehicles on the way to the goal destination</li>
 </ol>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Traffic light handling functionality can also be tested with the Planning Simulator, but only via scenario simulation.</p>
-</div>
 <h3 id="rosbag-replay-simulation">Rosbag replay simulation<a class="headerlink" href="#rosbag-replay-simulation" title="Permanent link">#</a></h3>
 <p>Rosbag replay simulation uses prerecorded rosbag data to test the following aspects of the Localization and Perception components:</p>
 <ul>
