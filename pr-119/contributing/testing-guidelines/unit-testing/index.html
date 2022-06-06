@@ -2331,8 +2331,6 @@ All other tests follow a similar pattern.</p>
 </code></pre></div>
 <p>Next add an entry under <code>BUILD_TESTING</code> in the <code>CMakeLists.txt</code> to compile the test source files:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">if</span><span class="p">(</span><span class="s">BUILD_TESTING</span><span class="p">)</span>
-<span class="w">  </span><span class="nb">find_package</span><span class="p">(</span><span class="s">ament_lint_auto</span><span class="w"> </span><span class="s">REQUIRED</span><span class="p">)</span>
-<span class="w">  </span><span class="nb">ament_lint_auto_find_test_dependencies</span><span class="p">()</span>
 
 <span class="w">  </span><span class="nb">ament_add_ros_isolated_gtest</span><span class="p">(</span><span class="o">${</span><span class="nv">TEST_MY_COOL_PKG</span><span class="o">}</span><span class="w"> </span><span class="s">test/test_my_cool_pkg.cpp</span><span class="p">)</span>
 
