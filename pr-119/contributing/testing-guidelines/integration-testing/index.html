@@ -2537,13 +2537,9 @@ something that cannot be done with the <a href="#smoke-tests">smoke testing API<
         <span class="n">launch_testing</span><span class="o">.</span><span class="n">actions</span><span class="o">.</span><span class="n">ReadyToTest</span><span class="p">()]</span>
     <span class="p">),</span> <span class="n">context</span>
 </code></pre></div>
-<p>Finally the test condition.
-As before, it is just a smoke test that ensures the node can be</p>
-<ol>
-<li>Launched with its default parameter file.</li>
-<li>Terminated with a standard <code>SIGTERM</code> signal.</li>
-</ol>
-<p>So the test code is executed after the node executable has been shut down (<code>post_shutdown_test</code>):</p>
+<p>Finally, a test is executed after the node executable has been shut down (<code>post_shutdown_test</code>).
+Here we make sure the node terminated with a standard <code>SIGTERM</code> signal,
+ensuring that it was launched without error and exited cleanly.</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@launch_testing</span><span class="o">.</span><span class="n">post_shutdown_test</span><span class="p">()</span>
 <span class="k">class</span> <span class="nc">TestProcessOutput</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
 
