@@ -2332,9 +2332,8 @@ All other tests follow a similar pattern.</p>
 <p>Next add an entry under <code>BUILD_TESTING</code> in the <code>CMakeLists.txt</code> to compile the test source files:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">if</span><span class="p">(</span><span class="s">BUILD_TESTING</span><span class="p">)</span>
 
-<span class="w">  </span><span class="nb">ament_add_ros_isolated_gtest</span><span class="p">(</span><span class="o">${</span><span class="nv">TEST_MY_COOL_PKG</span><span class="o">}</span><span class="w"> </span><span class="s">test/test_my_cool_pkg.cpp</span><span class="p">)</span>
-
-<span class="w">  </span><span class="nb">target_link_libraries</span><span class="p">(</span><span class="o">${</span><span class="nv">TEST_MY_COOL_PKG</span><span class="o">}</span><span class="w"> </span><span class="o">${</span><span class="nv">PROJECT_NAME</span><span class="o">}</span><span class="p">)</span>
+<span class="w">  </span><span class="nb">ament_add_ros_isolated_gtest</span><span class="p">(</span><span class="s">test_my_cool_pkg</span><span class="w"> </span><span class="s">test/test_my_cool_pkg.cpp</span><span class="p">)</span>
+<span class="w">  </span><span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">test_my_cool_pkg</span><span class="w"> </span><span class="o">${</span><span class="nv">PROJECT_NAME</span><span class="o">}</span><span class="p">)</span>
 <span class="err">...</span>
 <span class="nb">endif</span><span class="p">()</span>
 </code></pre></div>
@@ -2352,6 +2351,8 @@ More information about <code>gtest</code> can be found in the <a href="https://g
 <p>In the demo <code>CMakeLists.txt</code>, <code>ament_add_ros_isolated_gtest</code> is a predefined macro in <code>ament_cmake_ros</code> that helps simplify adding <code>gtest</code> code.
 Details can be viewed in <a href="https://github.com/ros2/ament_cmake_ros/tree/master/ament_cmake_ros/cmake">ament_add_gtest.cmake</a>.</p>
 <h2 id="build-test">Build test<a class="headerlink" href="#build-test" title="Permanent link">#</a></h2>
+<!-- cspell:ignore Testfile -->
+
 <p>By default, all necessary test files (<code>ELF</code>, <code>CTestTestfile.cmake</code>, etc.) are compiled by <code>colcon</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/workspace/
 colcon build --packages-select my_cool_pkg
