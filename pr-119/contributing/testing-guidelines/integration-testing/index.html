@@ -2416,17 +2416,23 @@
 
 <h1 id="integration-testing">Integration testing<a class="headerlink" href="#integration-testing" title="Permanent link">#</a></h1>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h2>
-<p>An integration test is defined as the phase in software testing where individual software modules are combined and tested as a group. Integration tests occur after unit tests, and before validation tests.</p>
-<p>The input to an integration test is a set of independent modules that have been unit tested. The set of modules is tested against the defined integration test plan, and the output is a set of properly integrated software modules that is ready for system testing.</p>
+<p>An integration test is defined as the phase in software testing where individual software modules are combined and tested as a group.
+Integration tests occur after unit tests, and before validation tests.</p>
+<p>The input to an integration test is a set of independent modules that have been unit tested.
+The set of modules is tested against the defined integration test plan,
+and the output is a set of properly integrated software modules that is ready for system testing.</p>
 <h2 id="value-of-integration-testing">Value of integration testing<a class="headerlink" href="#value-of-integration-testing" title="Permanent link">#</a></h2>
-<p>Integration tests determine if independently developed software modules work correctly when the modules are connected to each other. In ROS 2, the software modules are called nodes. As a special case, testing a single node can be referred to as component testing.</p>
+<p>Integration tests determine if independently developed software modules work correctly when the modules are connected to each other.
+In ROS 2, the software modules are called nodes.
+As a special case, testing a single node can be referred to as component testing.</p>
 <p>Integration tests help to find the following types of errors:</p>
 <ul>
 <li>Incompatible interactions between nodes, such as non-matching topics, different message types, or incompatible QoS settings.</li>
 <li>Edge cases that were not touched by unit testing, such as a critical timing issue, network communication delays, disk I/O failures, and many other problems that can occur in production environments.</li>
 <li>Issues that can occur while the system is under high CPU/memory load, such as <code>malloc</code> failures. This can be tested using tools like <code>stress</code> and <code>udpreplay</code> to test the performance of nodes with real data.</li>
 </ul>
-<p>With ROS 2, it is possible to program complex autonomous-driving applications with a large number of nodes. Therefore, a lot of effort has been made to provide an integration-test framework that helps developers test the interaction of ROS 2 nodes.</p>
+<p>With ROS 2, it is possible to program complex autonomous-driving applications with a large number of nodes.
+Therefore, a lot of effort has been made to provide an integration-test framework that helps developers test the interaction of ROS 2 nodes.</p>
 <h2 id="integration-test-framework">Integration-test framework<a class="headerlink" href="#integration-test-framework" title="Permanent link">#</a></h2>
 <p>A typical integration-test framework has three parts:</p>
 <ol>
@@ -2436,7 +2442,8 @@
 </ol>
 <p>In Autoware, we use the <a href="https://github.com/ros2/launch/tree/master/launch_testing">launch_testing</a> framework.</p>
 <h3 id="smoke-tests">Smoke tests<a class="headerlink" href="#smoke-tests" title="Permanent link">#</a></h3>
-<p>Autoware has a dedicated API for smoke testing. To use this framework, in <code>package.xml</code> add:</p>
+<p>Autoware has a dedicated API for smoke testing.
+To use this framework, in <code>package.xml</code> add:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;test_depend&gt;</span>autoware_testing<span class="nt">&lt;/test_depend&gt;</span>
 </code></pre></div>
 <p>And in <code>CMakeLists.txt</code> add:</p>
@@ -2453,7 +2460,8 @@
 <li>Launched with a default parameter file.</li>
 <li>Terminated with a standard <code>SIGTERM</code> signal.</li>
 </ol>
-<p>For the full API documentation, refer to the <a href="https://github.com/autowarefoundation/autoware.universe/blob/main/common/autoware_testing/design/autoware_testing-design.md">package design page</a>.</p>
+<p>For the full API documentation,
+refer to the <a href="https://github.com/autowarefoundation/autoware.universe/blob/main/common/autoware_testing/design/autoware_testing-design.md">package design page</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This API is not suitable for all smoke test cases.
@@ -2461,8 +2469,10 @@ It cannot be used when a specific file location (eg: for a map) is required to b
 In such cases use the manual solution from the <a href="#integration-test-with-a-single-node-component-test">component test section below</a>.</p>
 </div>
 <h3 id="integration-test-with-a-single-node-component-test">Integration test with a single node: component test<a class="headerlink" href="#integration-test-with-a-single-node-component-test" title="Permanent link">#</a></h3>
-<p>The simplest scenario is a single node. In this case, the integration test is commonly referred to as a component test.</p>
-<p>To add a component test to an existing node, follow the example of the <code>lanelet2_map_provider</code> package that has an executable named <code>lanelet2_map_provider_exe</code>.</p>
+<p>The simplest scenario is a single node.
+In this case, the integration test is commonly referred to as a component test.</p>
+<p>To add a component test to an existing node,
+follow the example of the <code>lanelet2_map_provider</code> package that has an executable named <code>lanelet2_map_provider_exe</code>.</p>
 <p>In <code>package.xml</code>, add:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;test_depend&gt;</span>ros_testing<span class="nt">&lt;/test_depend&gt;</span>
 </code></pre></div>
@@ -2481,7 +2491,9 @@ In such cases use the manual solution from the <a href="#integration-test-with-a
 <p class="admonition-title">Note</p>
 <p>The <code>TIMEOUT</code> argument is given in seconds; see the <a href="https://github.com/ros2/ros_testing/blob/master/ros_testing/cmake/add_ros_test.cmake">add_ros_test.cmake file</a> for details.</p>
 </div>
-<p>To create a test, either read the <a href="https://github.com/ros2/launch/tree/master/launch_testing#quick-start-example">launch_testing quick-start example</a>, or follow the steps below.</p>
+<p>To create a test,
+either read the <a href="https://github.com/ros2/launch/tree/master/launch_testing#quick-start-example">launch_testing quick-start example</a>,
+or follow the steps below.</p>
 <p>Taking <code>test/lanelet2_map_provider_launch.test.py</code> as an example, first dependencies are imported:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ament_index_python</span> <span class="kn">import</span> <span class="n">get_package_share_directory</span>
 <span class="kn">from</span> <span class="nn">launch</span> <span class="kn">import</span> <span class="n">LaunchDescription</span>
@@ -2492,7 +2504,9 @@ In such cases use the manual solution from the <a href="#integration-test-with-a
 <span class="kn">import</span> <span class="nn">pytest</span>
 <span class="kn">import</span> <span class="nn">unittest</span>
 </code></pre></div>
-<p>Then a launch description is created to launch the node under test. Note that the <code>test_map.osm</code> file path is found and passed to the node, something that cannot be done with the <a href="#smoke-tests">smoke testing API</a>:</p>
+<p>Then a launch description is created to launch the node under test.
+Note that the <code>test_map.osm</code> file path is found and passed to the node,
+something that cannot be done with the <a href="#smoke-tests">smoke testing API</a>:</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">launch_test</span>
 <span class="k">def</span> <span class="nf">generate_test_description</span><span class="p">():</span>
 
@@ -2523,7 +2537,8 @@ In such cases use the manual solution from the <a href="#integration-test-with-a
         <span class="n">launch_testing</span><span class="o">.</span><span class="n">actions</span><span class="o">.</span><span class="n">ReadyToTest</span><span class="p">()]</span>
     <span class="p">),</span> <span class="n">context</span>
 </code></pre></div>
-<p>Finally the test condition. As before, it is just a smoke test that ensures the node can be</p>
+<p>Finally the test condition.
+As before, it is just a smoke test that ensures the node can be</p>
 <ol>
 <li>Launched with its default parameter file.</li>
 <li>Terminated with a standard <code>SIGTERM</code> signal.</li>
@@ -2555,7 +2570,9 @@ build/lanelet2_map_provider/test_results/lanelet2_map_provider/test_lanelet2_map
 <h3 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">#</a></h3>
 <p>The simple test described in <a href="#integration-test-with-a-single-node-component-test">Integration test with a single node: component test</a> can be extended in numerous directions:</p>
 <h4 id="testing-the-output-of-a-node">Testing the output of a node<a class="headerlink" href="#testing-the-output-of-a-node" title="Permanent link">#</a></h4>
-<p>To test while the node is running, create an <a href="https://github.com/ros2/launch/tree/foxy/launch_testing#active-tests"><em>active test</em></a> by adding a subclass of Python's <code>unittest.TestCase</code> to <code>*launch.test.py</code>. Some boilerplate code is required to access output by creating a node and a subscription to a particular topic; e.g.</p>
+<p>To test while the node is running,
+create an <a href="https://github.com/ros2/launch/tree/foxy/launch_testing#active-tests"><em>active test</em></a> by adding a subclass of Python's <code>unittest.TestCase</code> to <code>*launch.test.py</code>.
+Some boilerplate code is required to access output by creating a node and a subscription to a particular topic, e.g.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">unittest</span>
 
 <span class="k">class</span> <span class="nc">TestRunningDataPublisher</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
