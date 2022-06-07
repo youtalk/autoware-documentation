@@ -2730,8 +2730,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ros-version" class="md-nav__link">
-    ROS version
+  <a href="#minimum-hardware-requirements" class="md-nav__link">
+    Minimum hardware requirements
   </a>
   
 </li>
@@ -2809,12 +2809,27 @@
 <li>amd64</li>
 <li>arm64</li>
 </ul>
-<h3 id="ros-version">ROS version<a class="headerlink" href="#ros-version" title="Permanent link">#</a></h3>
+<h3 id="minimum-hardware-requirements">Minimum hardware requirements<a class="headerlink" href="#minimum-hardware-requirements" title="Permanent link">#</a></h3>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Autoware is scalable and can be customized to work with distributed or less powerful hardware.
+The minimum hardware requirements given below are just a general recommendation.
+However, performance will be improved with more cores, RAM and a higher-spec graphics card or GPU core.</p>
+</div>
 <ul>
-<li>ROS 2 Galactic (<strong>active development</strong>)</li>
-<li>ROS 2 Humble (<strong>will be supported in 2022</strong>)</li>
+<li>CPU with 8 cores</li>
+<li>16GB RAM</li>
+<li>[Optional] NVIDIA GPU (4GB RAM)</li>
 </ul>
-<p>For the system dependencies, refer to <a href="https://www.ros.org/reps/rep-2000.html">REP-2000</a>.</p>
+<blockquote>
+<p>Although GPU is not required to run basic functionality, it is mandatory to enable the following neural network related functions:</p>
+<ul>
+<li>LiDAR based object detection</li>
+<li>Camera based object detection</li>
+<li>Traffic light detection and classification</li>
+</ul>
+</blockquote>
+<p>For details of how to enable object detection and traffic light detection/classification without a GPU, refer to the <a href="https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/running-autoware-without-cuda/">Running Autoware without CUDA</a>.</p>
 <h2 id="installing-autoware">Installing Autoware<a class="headerlink" href="#installing-autoware" title="Permanent link">#</a></h2>
 <p>There are two ways to set up Autoware. Choose one according to your preference.</p>
 <p>If any issues occur during installation, refer to the <a href="https://autowarefoundation.github.io/autoware-documentation/main/support">Support page</a>.</p>
