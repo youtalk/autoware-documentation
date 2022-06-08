@@ -737,11 +737,11 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#lane-driving" class="md-nav__link">
-    Lane Driving
+  <a href="#lane-driving-scenario" class="md-nav__link">
+    Lane driving scenario
   </a>
   
-    <nav class="md-nav" aria-label="Lane Driving">
+    <nav class="md-nav" aria-label="Lane driving scenario">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -785,8 +785,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#parking-maneuvers" class="md-nav__link">
-    Parking maneuvers
+  <a href="#parking-scenario" class="md-nav__link">
+    Parking scenario
   </a>
   
 </li>
@@ -806,7 +806,7 @@
         
           <li class="md-nav__item">
   <a href="#placing-dummy-objects" class="md-nav__link">
-    Placing Dummy objects
+    Placing dummy objects
   </a>
   
 </li>
@@ -2888,11 +2888,11 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#lane-driving" class="md-nav__link">
-    Lane Driving
+  <a href="#lane-driving-scenario" class="md-nav__link">
+    Lane driving scenario
   </a>
   
-    <nav class="md-nav" aria-label="Lane Driving">
+    <nav class="md-nav" aria-label="Lane driving scenario">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2936,8 +2936,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#parking-maneuvers" class="md-nav__link">
-    Parking maneuvers
+  <a href="#parking-scenario" class="md-nav__link">
+    Parking scenario
   </a>
   
 </li>
@@ -2957,7 +2957,7 @@
         
           <li class="md-nav__item">
   <a href="#placing-dummy-objects" class="md-nav__link">
-    Placing Dummy objects
+    Placing dummy objects
   </a>
   
 </li>
@@ -3026,7 +3026,7 @@
 <p>Sample map: Copyright 2020 TIER IV, Inc.</p>
 </div>
 <h2 id="basic-simulations">Basic simulations<a class="headerlink" href="#basic-simulations" title="Permanent link">#</a></h2>
-<h3 id="lane-driving">Lane Driving<a class="headerlink" href="#lane-driving" title="Permanent link">#</a></h3>
+<h3 id="lane-driving-scenario">Lane driving scenario<a class="headerlink" href="#lane-driving-scenario" title="Permanent link">#</a></h3>
 <h4 id="1-launch-autoware">1. Launch Autoware<a class="headerlink" href="#1-launch-autoware" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span> ~/autoware/install/setup.bash
 ros2 launch autoware_launch planning_simulator.launch.xml map_path:<span class="o">=</span><span class="nv">$HOME</span>/Downloads/sample-map-planning vehicle_model:<span class="o">=</span>sample_vehicle sensor_model:<span class="o">=</span>sample_sensor_kit
@@ -3059,7 +3059,7 @@ ros2 launch autoware_launch planning_simulator.launch.xml map_path:<span class="
 ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage <span class="s2">&quot;engage: true&quot;</span> -1
 </code></pre></div>
 <p><img alt="start-driving" src="../images/planning/lane-following/engage-and-start-planning.png" /></p>
-<h3 id="parking-maneuvers">Parking maneuvers<a class="headerlink" href="#parking-maneuvers" title="Permanent link">#</a></h3>
+<h3 id="parking-scenario">Parking scenario<a class="headerlink" href="#parking-scenario" title="Permanent link">#</a></h3>
 <ol>
 <li>
 <p>Set an initial pose and a goal pose, and engage the ego vehicle.</p>
@@ -3074,7 +3074,7 @@ ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage <span clas
 </li>
 </ol>
 <h2 id="advanced-simulations">Advanced Simulations<a class="headerlink" href="#advanced-simulations" title="Permanent link">#</a></h2>
-<h3 id="placing-dummy-objects">Placing Dummy objects<a class="headerlink" href="#placing-dummy-objects" title="Permanent link">#</a></h3>
+<h3 id="placing-dummy-objects">Placing dummy objects<a class="headerlink" href="#placing-dummy-objects" title="Permanent link">#</a></h3>
 <ol>
 <li>
 <p>Click the <code>2D Dummy Car</code> or <code>2D Dummy Pedestrian</code> button in the toolbar.</p>
