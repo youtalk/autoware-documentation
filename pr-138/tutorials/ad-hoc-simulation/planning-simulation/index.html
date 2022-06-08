@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-138/tutorials/ad-hoc-simulation/planning-simulation/">
       
       <link rel="icon" href="../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.2">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.3">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.5d38496d.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.4a0965b7.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
@@ -730,10 +730,10 @@
       
         <li class="md-nav__item">
   <a href="#basic-simulations" class="md-nav__link">
-    Basic Simulations
+    Basic simulations
   </a>
   
-    <nav class="md-nav" aria-label="Basic Simulations">
+    <nav class="md-nav" aria-label="Basic simulations">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2881,10 +2881,10 @@
       
         <li class="md-nav__item">
   <a href="#basic-simulations" class="md-nav__link">
-    Basic Simulations
+    Basic simulations
   </a>
   
-    <nav class="md-nav" aria-label="Basic Simulations">
+    <nav class="md-nav" aria-label="Basic simulations">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3025,7 +3025,7 @@
 <p class="admonition-title">Note</p>
 <p>Sample map: Copyright 2020 TIER IV, Inc.</p>
 </div>
-<h2 id="basic-simulations">Basic Simulations<a class="headerlink" href="#basic-simulations" title="Permanent link">#</a></h2>
+<h2 id="basic-simulations">Basic simulations<a class="headerlink" href="#basic-simulations" title="Permanent link">#</a></h2>
 <h3 id="lane-driving">Lane Driving<a class="headerlink" href="#lane-driving" title="Permanent link">#</a></h3>
 <h4 id="1-launch-autoware">1. Launch Autoware<a class="headerlink" href="#1-launch-autoware" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span> ~/autoware/install/setup.bash
@@ -3075,18 +3075,38 @@ ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage <span clas
 </ol>
 <h2 id="advanced-simulations">Advanced Simulations<a class="headerlink" href="#advanced-simulations" title="Permanent link">#</a></h2>
 <h3 id="placing-dummy-objects">Placing Dummy objects<a class="headerlink" href="#placing-dummy-objects" title="Permanent link">#</a></h3>
-<p>a) Click the <code>2D Dummy Car</code> or <code>2D Dummy Pedestrian</code> button in the toolbar.</p>
-<p>b) Set the pose of the dummy object by clicking and dragging on the map.</p>
-<p>c) Set the velocity of the object in <code>Tool Properties -&gt; 2D Dummy Car/Pedestrian</code> panel.</p>
+<ol>
+<li>
+<p>Click the <code>2D Dummy Car</code> or <code>2D Dummy Pedestrian</code> button in the toolbar.</p>
+</li>
+<li>
+<p>Set the pose of the dummy object by clicking and dragging on the map.</p>
+</li>
+<li>
+<p>Set the velocity of the object in <code>Tool Properties -&gt; 2D Dummy Car/Pedestrian</code> panel.</p>
+</li>
+</ol>
 <p><img alt="set-dummy-car" src="../images/planning/lane-following/place-dummy-car.png" /></p>
-<p>d) Delete any dummy objects placed in the view by clicking the <code>Delete All Objects</code> button in the toolbar.</p>
+<ol>
+<li>Delete any dummy objects placed in the view by clicking the <code>Delete All Objects</code> button in the toolbar.</li>
+</ol>
 <h3 id="traffic-light-recognition-simulation">Traffic light recognition simulation<a class="headerlink" href="#traffic-light-recognition-simulation" title="Permanent link">#</a></h3>
 <h4 id="set-traffic-light">Set traffic light<a class="headerlink" href="#set-traffic-light" title="Permanent link">#</a></h4>
-<p>a) Go to <code>Panels -&gt; Add new panel</code>, select <code>TrafficLightPublishPanel</code>, and then press <code>OK</code>.</p>
-<p>b) In <code>TrafficLightPublishPanel</code>, set the <code>ID</code> and color of the traffic light.</p>
-<p>c) Click the <code>SET</code> button.</p>
+<ol>
+<li>
+<p>Go to <code>Panels -&gt; Add new panel</code>, select <code>TrafficLightPublishPanel</code>, and then press <code>OK</code>.</p>
+</li>
+<li>
+<p>In <code>TrafficLightPublishPanel</code>, set the <code>ID</code> and color of the traffic light.</p>
+</li>
+<li>
+<p>Click the <code>SET</code> button.</p>
+</li>
+</ol>
 <p><img alt="set-traffic-light" src="../images/planning/lane-following/set-traffic-light.png" /></p>
-<p>d) Finally, click the <code>PUBLISH</code> button to send the traffic light status to the simulator. Any planned path that goes past the selected traffic light will then change accordingly.</p>
+<ol>
+<li>Finally, click the <code>PUBLISH</code> button to send the traffic light status to the simulator. Any planned path that goes past the selected traffic light will then change accordingly.</li>
+</ol>
 <p><img alt="send-traffic-light-color" src="../images/planning/lane-following/send-traffic-light-color.png" /></p>
 <p>By default, Rviz should display the ID of each traffic light on the map. You can have a closer look at the IDs by zooming in the region or by changing the View type.</p>
 <p>In the event that the IDs are not displayed, try the following troubleshooting steps:</p>
@@ -3105,7 +3125,7 @@ ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage <span clas
           </div>
         </div>
         
-          <a href="#" class="md-top md-top--hidden md-icon" data-md-component="top">
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             Back to top
           </a>
@@ -3177,7 +3197,7 @@ ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage <span clas
     <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.7f366e99.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.f758a944.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
