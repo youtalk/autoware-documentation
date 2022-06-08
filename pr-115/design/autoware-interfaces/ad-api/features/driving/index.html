@@ -2263,12 +2263,12 @@ The vehicle holds a stop when the state is not DRIVING.
 This state is mainly used to show the users whether the vehicle can start driving and to implement an HMI for departure.</p>
 <h2 id="driving-state">Driving State<a class="headerlink" href="#driving-state" title="Permanent link">#</a></h2>
 <p>The state transition for driving state is illustrated in the diagram below.
-In a normal operation, this state will transition as follows:</p>
+During normal operation, the flow of driving state transitions is as follows:</p>
 <ol>
 <li>Driving state is initialized as NOT_READY</li>
 <li>State transitions to READY when Autoware components are launched successfully and is ready to start driving.</li>
 <li>The state becomes DRIVING if the engage API is called and the vehicle starts driving.</li>
-<li>When the vehicle reaches to the destination, the state returns to NOT_READY.</li>
+<li>When the vehicle reaches its destination, the state transitions returns to NOT_READY.</li>
 <li>The state can be manually returned to NOT_READY whenever disengage API is called</li>
 </ol>
 <p><img alt="driving-state" src="../driving-state.drawio.svg" /></p>
