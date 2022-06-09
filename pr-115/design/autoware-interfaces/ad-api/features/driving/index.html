@@ -2266,7 +2266,7 @@ This state is mainly used to show the users whether the vehicle can start drivin
 During normal operation, the flow of driving state transitions is as follows:</p>
 <ol>
 <li>Driving state is initialized to NOT_READY</li>
-<li>State transitions to READY when Autoware components are launched successfully and is ready to start driving.</li>
+<li>State transitions to READY when all necessary Autoware components have launched successfully and the autonomous system is ready to start driving.</li>
 <li>The state becomes DRIVING if the engage API is called and the vehicle starts driving.</li>
 <li>When the vehicle reaches its destination, the state transitions returns to NOT_READY.</li>
 <li>The state can be manually returned to NOT_READY whenever disengage API is called</li>
