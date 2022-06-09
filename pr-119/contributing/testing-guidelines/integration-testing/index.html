@@ -2464,7 +2464,7 @@ you can follow the example of the <code>lanelet2_map_loader</code> in the <a hre
 </code></pre></div>
 <p>In <a href="https://github.com/autowarefoundation/autoware.universe/blob/main/map/map_loader/CMakeLists.txt"><code>CMakeLists.txt</code></a>,
 add or modify the <code>BUILD_TESTING</code> section:</p>
-<p><div class="highlight"><pre><span></span><code><span class="nb">if</span><span class="p">(</span><span class="s">BUILD_TESTING</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="nb">if</span><span class="p">(</span><span class="s">BUILD_TESTING</span><span class="p">)</span>
 <span class="w">  </span><span class="nb">add_ros_test</span><span class="p">(</span>
 <span class="w">    </span><span class="s">test/lanelet2_map_loader_launch.test.py</span>
 <span class="w">    </span><span class="s">TIMEOUT</span><span class="w"> </span><span class="s2">&quot;30&quot;</span>
@@ -2475,7 +2475,7 @@ add or modify the <code>BUILD_TESTING</code> section:</p>
 <span class="w">  </span><span class="p">)</span>
 <span class="nb">endif</span><span class="p">()</span>
 </code></pre></div>
-In addition to the command <code>add_ros_test</code>, we also install any data that is required by the test using the <code>install</code> command.</p>
+<p>In addition to the command <code>add_ros_test</code>, we also install any data that is required by the test using the <code>install</code> command.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The <code>TIMEOUT</code> argument is given in seconds; see the <a href="https://github.com/ros2/ros_testing/blob/master/ros_testing/cmake/add_ros_test.cmake">add_ros_test.cmake file</a> for details.</p>
