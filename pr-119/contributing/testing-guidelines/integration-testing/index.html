@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-119/contributing/testing-guidelines/integration-testing/">
       
       <link rel="icon" href="../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.2">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.3">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.5d38496d.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.4a0965b7.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
@@ -2457,91 +2457,107 @@ In such cases use the manual solution from the <a href="#integration-test-with-a
 <p>The simplest scenario is a single node.
 In this case, the integration test is commonly referred to as a component test.</p>
 <p>To add a component test to an existing node,
-follow the example of the <code>lanelet2_map_provider</code> package that has an executable named <code>lanelet2_map_provider_exe</code>.</p>
-<p>In <code>package.xml</code>, add:</p>
+you can follow the example of the <code>lanelet2_map_loader</code> in the <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/map/map_loader"><code>map_loader</code> package</a>
+(added in <a href="https://github.com/autowarefoundation/autoware.universe/pull/1056">this PR</a>).</p>
+<p>In <a href="https://github.com/autowarefoundation/autoware.universe/blob/main/map/map_loader/package.xml"><code>package.xml</code></a>, add:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;test_depend&gt;</span>ros_testing<span class="nt">&lt;/test_depend&gt;</span>
 </code></pre></div>
-<p>In <code>CMakeLists.txt</code>, add or modify the <code>BUILD_TESTING</code> section:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">if</span><span class="p">(</span><span class="s">BUILD_TESTING</span><span class="p">)</span>
-<span class="w">  </span><span class="nb">find_package</span><span class="p">(</span><span class="s">ament_lint_auto</span><span class="w"> </span><span class="s">REQUIRED</span><span class="p">)</span>
-<span class="w">  </span><span class="nb">ament_lint_auto_find_test_dependencies</span><span class="p">()</span>
-
+<p>In <a href="https://github.com/autowarefoundation/autoware.universe/blob/main/map/map_loader/CMakeLists.txt"><code>CMakeLists.txt</code></a>,
+add or modify the <code>BUILD_TESTING</code> section:</p>
+<p><div class="highlight"><pre><span></span><code><span class="nb">if</span><span class="p">(</span><span class="s">BUILD_TESTING</span><span class="p">)</span>
 <span class="w">  </span><span class="nb">add_ros_test</span><span class="p">(</span>
-<span class="w">    </span><span class="s">test/lanelet2_map_provider_launch.test.py</span>
+<span class="w">    </span><span class="s">test/lanelet2_map_loader_launch.test.py</span>
 <span class="w">    </span><span class="s">TIMEOUT</span><span class="w"> </span><span class="s2">&quot;30&quot;</span>
+<span class="w">  </span><span class="p">)</span>
+<span class="w">  </span><span class="nb">install</span><span class="p">(</span><span class="s">DIRECTORY</span>
+<span class="w">    </span><span class="s">test/data/</span>
+<span class="w">    </span><span class="s">DESTINATION</span><span class="w"> </span><span class="s">share/</span><span class="o">${</span><span class="nv">PROJECT_NAME</span><span class="o">}</span><span class="s">/test/data/</span>
 <span class="w">  </span><span class="p">)</span>
 <span class="nb">endif</span><span class="p">()</span>
 </code></pre></div>
+In addition to the command <code>add_ros_test</code>, we also install any data that is required by the test using the <code>install</code> command.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The <code>TIMEOUT</code> argument is given in seconds; see the <a href="https://github.com/ros2/ros_testing/blob/master/ros_testing/cmake/add_ros_test.cmake">add_ros_test.cmake file</a> for details.</p>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code>add_ros_test</code> command will run the test in a unique <code>ROS_DOMAIN_ID</code> which avoids interference between tests running in parallel.</p>
+</div>
 <p>To create a test,
 either read the <a href="https://github.com/ros2/launch/tree/master/launch_testing#quick-start-example">launch_testing quick-start example</a>,
 or follow the steps below.</p>
-<p>Taking <code>test/lanelet2_map_provider_launch.test.py</code> as an example, first dependencies are imported:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ament_index_python</span> <span class="kn">import</span> <span class="n">get_package_share_directory</span>
+<p>Taking <a href="https://github.com/autowarefoundation/autoware.universe/blob/main/map/map_loader/test/lanelet2_map_loader_launch.test.py"><code>test/lanelet2_map_loader_launch.test.py</code></a> as an example,
+first dependencies are imported:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">unittest</span>
+
+<span class="kn">from</span> <span class="nn">ament_index_python</span> <span class="kn">import</span> <span class="n">get_package_share_directory</span>
+<span class="kn">import</span> <span class="nn">launch</span>
 <span class="kn">from</span> <span class="nn">launch</span> <span class="kn">import</span> <span class="n">LaunchDescription</span>
 <span class="kn">from</span> <span class="nn">launch_ros.actions</span> <span class="kn">import</span> <span class="n">Node</span>
 <span class="kn">import</span> <span class="nn">launch_testing</span>
-
-<span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">pytest</span>
-<span class="kn">import</span> <span class="nn">unittest</span>
 </code></pre></div>
 <p>Then a launch description is created to launch the node under test.
-Note that the <code>test_map.osm</code> file path is found and passed to the node,
+Note that the <a href="https://github.com/autowarefoundation/autoware.universe/blob/main/map/map_loader/test/data/test_map.osm"><code>test_map.osm</code></a> file path is found and passed to the node,
 something that cannot be done with the <a href="#smoke-tests">smoke testing API</a>:</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">launch_test</span>
 <span class="k">def</span> <span class="nf">generate_test_description</span><span class="p">():</span>
 
-    <span class="n">map_osm_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
-        <span class="n">get_package_share_directory</span><span class="p">(</span><span class="s1">&#39;lanelet2_map_provider&#39;</span><span class="p">),</span>
-        <span class="s1">&#39;data/test_map.osm&#39;</span>
+    <span class="n">lanelet2_map_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+        <span class="n">get_package_share_directory</span><span class="p">(</span><span class="s2">&quot;map_loader&quot;</span><span class="p">),</span> <span class="s2">&quot;test/data/test_map.osm&quot;</span>
     <span class="p">)</span>
 
-    <span class="n">lanelet2_map_provider</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span>
-        <span class="n">package</span><span class="o">=</span><span class="s1">&#39;lanelet2_map_provider&#39;</span><span class="p">,</span>
-        <span class="n">executable</span><span class="o">=</span><span class="s1">&#39;lanelet2_map_provider_exe&#39;</span><span class="p">,</span>
-        <span class="n">namespace</span><span class="o">=</span><span class="s1">&#39;had_maps&#39;</span><span class="p">,</span>
-        <span class="n">parameters</span><span class="o">=</span><span class="p">[</span>
-            <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
-                <span class="n">get_package_share_directory</span><span class="p">(</span><span class="s1">&#39;lanelet2_map_provider&#39;</span><span class="p">),</span>
-                <span class="s1">&#39;param/test.param.yaml&#39;</span>
-            <span class="p">),</span>
-            <span class="p">{</span>
-                <span class="s1">&#39;map_osm_file&#39;</span><span class="p">:</span> <span class="n">map_osm_file</span>
-            <span class="p">}]</span>
+    <span class="n">lanelet2_map_loader</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span>
+        <span class="n">package</span><span class="o">=</span><span class="s2">&quot;map_loader&quot;</span><span class="p">,</span>
+        <span class="n">executable</span><span class="o">=</span><span class="s2">&quot;lanelet2_map_loader&quot;</span><span class="p">,</span>
+        <span class="n">parameters</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;lanelet2_map_path&quot;</span><span class="p">:</span> <span class="n">lanelet2_map_path</span><span class="p">}],</span>
     <span class="p">)</span>
 
-    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;lanelet2_map_provider&#39;</span><span class="p">:</span> <span class="n">lanelet2_map_provider</span><span class="p">}</span>
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{}</span>
 
-    <span class="k">return</span> <span class="n">LaunchDescription</span><span class="p">([</span>
-        <span class="n">lanelet2_map_provider</span><span class="p">,</span>
-        <span class="c1"># Start tests right away - no need to wait for anything</span>
-        <span class="n">launch_testing</span><span class="o">.</span><span class="n">actions</span><span class="o">.</span><span class="n">ReadyToTest</span><span class="p">()]</span>
-    <span class="p">),</span> <span class="n">context</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">LaunchDescription</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="n">lanelet2_map_loader</span><span class="p">,</span>
+                <span class="c1"># Start test after 1s - gives time for the map_loader to finish initialization</span>
+                <span class="n">launch</span><span class="o">.</span><span class="n">actions</span><span class="o">.</span><span class="n">TimerAction</span><span class="p">(</span>
+                    <span class="n">period</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">actions</span><span class="o">=</span><span class="p">[</span><span class="n">launch_testing</span><span class="o">.</span><span class="n">actions</span><span class="o">.</span><span class="n">ReadyToTest</span><span class="p">()]</span>
+                <span class="p">),</span>
+            <span class="p">]</span>
+        <span class="p">),</span>
+        <span class="n">context</span><span class="p">,</span>
+    <span class="p">)</span>
 </code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since the node need time to process the input lanelet2 map,
+we use a <code>TimerAction</code> to delay the start of the test by 1s.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Here the <code>context</code> is empty but could be used to pass objects to the test cases.
+You can find an example of using the <code>context</code><a href="https://github.com/ros2/launch/blob/humble/launch_testing/test/launch_testing/examples/context_launch_test.py">here</a></p>
+</div>
 <p>Finally, a test is executed after the node executable has been shut down (<code>post_shutdown_test</code>).
-Here we make sure the node terminated with a standard <code>SIGTERM</code> signal,
-ensuring that it was launched without error and exited cleanly.</p>
+Here we ensure that the node was launched without error and exited cleanly.</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@launch_testing</span><span class="o">.</span><span class="n">post_shutdown_test</span><span class="p">()</span>
 <span class="k">class</span> <span class="nc">TestProcessOutput</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
-
-    <span class="k">def</span> <span class="nf">test_exit_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">proc_output</span><span class="p">,</span> <span class="n">proc_info</span><span class="p">,</span> <span class="n">ndt_mapper</span><span class="p">):</span>
-        <span class="c1"># Check that process exits with code -15 code: termination request, sent to the program</span>
-        <span class="n">launch_testing</span><span class="o">.</span><span class="n">asserts</span><span class="o">.</span><span class="n">assertExitCodes</span><span class="p">(</span><span class="n">proc_info</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">15</span><span class="p">],</span> <span class="n">process</span><span class="o">=</span><span class="n">ndt_mapper</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">test_exit_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">proc_info</span><span class="p">):</span>
+        <span class="c1"># Check that process exits with code 0: no error</span>
+        <span class="n">launch_testing</span><span class="o">.</span><span class="n">asserts</span><span class="o">.</span><span class="n">assertExitCodes</span><span class="p">(</span><span class="n">proc_info</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="running-the-test">Running the test<a class="headerlink" href="#running-the-test" title="Permanent link">#</a></h2>
 <p>Continuing the example from above, first build your package:</p>
-<div class="highlight"><pre><span></span><code>colcon build --packages-up-to lanelet2_map_provider
+<div class="highlight"><pre><span></span><code>colcon build --packages-up-to map_loader
 <span class="nb">source</span> install/setup.bash
 </code></pre></div>
 <p>Then either execute the component test manually:</p>
 <div class="highlight"><pre><span></span><code>ros2 <span class="nb">test</span> src/mapping/had_map/lanelet2_map_provider/test/lanelet2_map_provider_launch.test.py
 </code></pre></div>
 <p>Or as part of testing the entire package:</p>
-<div class="highlight"><pre><span></span><code>colcon <span class="nb">test</span> --packages-select lanelet2_map_provider
+<div class="highlight"><pre><span></span><code>colcon <span class="nb">test</span> --packages-select map_loader
 </code></pre></div>
 <p>Verify that the test is executed; e.g.</p>
 <div class="highlight"><pre><span></span><code>colcon test-result --all --verbose
@@ -2617,7 +2633,7 @@ Some boilerplate code is required to access output by creating a node and a subs
           </div>
         </div>
         
-          <a href="#" class="md-top md-top--hidden md-icon" data-md-component="top">
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             Back to top
           </a>
@@ -2689,7 +2705,7 @@ Some boilerplate code is required to access output by creating a node and a subs
     <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.7f366e99.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.f758a944.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
