@@ -2357,75 +2357,75 @@ Details can be viewed in <a href="https://github.com/ros2/ament_cmake_ros/tree/m
 <!-- cspell:ignore Testfile -->
 
 <p>By default, all necessary test files (<code>ELF</code>, <code>CTestTestfile.cmake</code>, etc.) are compiled by <code>colcon</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/workspace/
-colcon build --packages-select my_cool_pkg
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nb">cd</span> ~/workspace/
+<span class="gp">$ </span>colcon build --packages-select my_cool_pkg
 </code></pre></div>
 <p>Test files are generated under <code>~/workspace/build/my_cool_pkg</code>.</p>
 <h2 id="run-test">Run test<a class="headerlink" href="#run-test" title="Permanent link">#</a></h2>
 <p>To run all tests for a specific package, call:</p>
-<div class="highlight"><pre><span></span><code>colcon <span class="nb">test</span> --packages-select my_cool_pkg
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>colcon <span class="nb">test</span> --packages-select my_cool_pkg
 
-Starting &gt;&gt;&gt; my_cool_pkg
-Finished <span class="o">&lt;&lt;&lt;</span> my_cool_pkg <span class="o">[</span><span class="m">7</span>.80s<span class="o">]</span>
+<span class="go">Starting &gt;&gt;&gt; my_cool_pkg</span>
+<span class="go">Finished &lt;&lt;&lt; my_cool_pkg [7.80s]</span>
 
-Summary: <span class="m">1</span> package finished <span class="o">[</span><span class="m">9</span>.27s<span class="o">]</span>
+<span class="go">Summary: 1 package finished [9.27s]</span>
 </code></pre></div>
 <p>The test command output contains a brief report of all the test results.</p>
 <p>To get job-wise information of all executed tests, call:</p>
-<div class="highlight"><pre><span></span><code>colcon test-result --all
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>colcon test-result --all
 
-build/my_cool_pkg/test_results/my_cool_pkg/copyright.xunit.xml: <span class="m">8</span> tests, <span class="m">0</span> errors, <span class="m">0</span> failures, <span class="m">0</span> skipped
-build/my_cool_pkg/test_results/my_cool_pkg/cppcheck.xunit.xml: <span class="m">6</span> tests, <span class="m">0</span> errors, <span class="m">0</span> failures, <span class="m">0</span> skipped
-build/my_cool_pkg/test_results/my_cool_pkg/lint_cmake.xunit.xml: <span class="m">1</span> test, <span class="m">0</span> errors, <span class="m">0</span> failures, <span class="m">0</span> skipped
-build/my_cool_pkg/test_results/my_cool_pkg/my_cool_pkg_exe_integration_test.xunit.xml: <span class="m">1</span> test, <span class="m">0</span> errors, <span class="m">0</span> failures, <span class="m">0</span> skipped
-build/my_cool_pkg/test_results/my_cool_pkg/test_my_cool_pkg.gtest.xml: <span class="m">1</span> test, <span class="m">0</span> errors, <span class="m">0</span> failures, <span class="m">0</span> skipped
-build/my_cool_pkg/test_results/my_cool_pkg/xmllint.xunit.xml: <span class="m">1</span> test, <span class="m">0</span> errors, <span class="m">0</span> failures, <span class="m">0</span> skipped
+<span class="go">build/my_cool_pkg/test_results/my_cool_pkg/copyright.xunit.xml: 8 tests, 0 errors, 0 failures, 0 skipped</span>
+<span class="go">build/my_cool_pkg/test_results/my_cool_pkg/cppcheck.xunit.xml: 6 tests, 0 errors, 0 failures, 0 skipped</span>
+<span class="go">build/my_cool_pkg/test_results/my_cool_pkg/lint_cmake.xunit.xml: 1 test, 0 errors, 0 failures, 0 skipped</span>
+<span class="go">build/my_cool_pkg/test_results/my_cool_pkg/my_cool_pkg_exe_integration_test.xunit.xml: 1 test, 0 errors, 0 failures, 0 skipped</span>
+<span class="go">build/my_cool_pkg/test_results/my_cool_pkg/test_my_cool_pkg.gtest.xml: 1 test, 0 errors, 0 failures, 0 skipped</span>
+<span class="go">build/my_cool_pkg/test_results/my_cool_pkg/xmllint.xunit.xml: 1 test, 0 errors, 0 failures, 0 skipped</span>
 
-Summary: <span class="m">18</span> tests, <span class="m">0</span> errors, <span class="m">0</span> failures, <span class="m">0</span> skipped
+<span class="go">Summary: 18 tests, 0 errors, 0 failures, 0 skipped</span>
 </code></pre></div>
 <p>Look in the <code>~/workspace/log/test_&lt;date&gt;/&lt;package_name&gt;</code> directory for all the raw test commands, <code>std_out</code>, and <code>std_err</code>.
 There is also the <code>~/workspace/log/latest_*/</code> directory containing symbolic links to the most recent package-level build and test output.</p>
 <p>To print the tests' details while the tests are being run, use the <code>--event-handlers console_cohesion+</code> option to print the details directly to the console:</p>
-<div class="highlight"><pre><span></span><code>colcon <span class="nb">test</span> --event-handlers console_cohesion+ --packages-select my_cool_pkg
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>colcon <span class="nb">test</span> --event-handlers console_cohesion+ --packages-select my_cool_pkg
 
-...
-<span class="nb">test</span> <span class="m">1</span>
-    Start <span class="m">1</span>: test_my_cool_pkg
+<span class="go">...</span>
+<span class="go">test 1</span>
+<span class="go">    Start 1: test_my_cool_pkg</span>
 
-<span class="m">1</span>: Test command: /usr/bin/python3 <span class="s2">&quot;-u&quot;</span> <span class="s2">&quot;~/workspace/install/share/ament_cmake_test/cmake/run_test.py&quot;</span> <span class="s2">&quot;~/workspace/build/my_cool_pkg/test_results/my_cool_pkg/test_my_cool_pkg.gtest.xml&quot;</span> <span class="s2">&quot;--package-name&quot;</span> <span class="s2">&quot;my_cool_pkg&quot;</span> <span class="s2">&quot;--output-file&quot;</span> <span class="s2">&quot;~/workspace/build/my_cool_pkg/ament_cmake_gtest/test_my_cool_pkg.txt&quot;</span> <span class="s2">&quot;--command&quot;</span> <span class="s2">&quot;~/workspace/build/my_cool_pkg/test_my_cool_pkg&quot;</span> <span class="s2">&quot;--gtest_output=xml:~/workspace/build/my_cool_pkg/test_results/my_cool_pkg/test_my_cool_pkg.gtest.xml&quot;</span>
-<span class="m">1</span>: Test timeout computed to be: <span class="m">60</span>
-<span class="m">1</span>: -- run_test.py: invoking following <span class="nb">command</span> <span class="k">in</span> <span class="s1">&#39;~/workspace/src/my_cool_pkg&#39;</span>:
-<span class="m">1</span>:  - ~/workspace/build/my_cool_pkg/test_my_cool_pkg --gtest_output<span class="o">=</span>xml:~/workspace/build/my_cool_pkg/test_results/my_cool_pkg/test_my_cool_pkg.gtest.xml
-<span class="m">1</span>: <span class="o">[==========]</span> Running <span class="m">1</span> <span class="nb">test</span> from <span class="m">1</span> <span class="nb">test</span> <span class="k">case</span>.
-<span class="m">1</span>: <span class="o">[</span>----------<span class="o">]</span> Global <span class="nb">test</span> environment set-up.
-<span class="m">1</span>: <span class="o">[</span>----------<span class="o">]</span> <span class="m">1</span> <span class="nb">test</span> from test_my_cool_pkg
-<span class="m">1</span>: <span class="o">[</span> RUN      <span class="o">]</span> test_my_cool_pkg.test_hello
-<span class="m">1</span>: Hello World
-<span class="m">1</span>: <span class="o">[</span>       OK <span class="o">]</span> test_my_cool_pkg.test_hello <span class="o">(</span><span class="m">0</span> ms<span class="o">)</span>
-<span class="m">1</span>: <span class="o">[</span>----------<span class="o">]</span> <span class="m">1</span> <span class="nb">test</span> from test_my_cool_pkg <span class="o">(</span><span class="m">0</span> ms total<span class="o">)</span>
-<span class="m">1</span>:
-<span class="m">1</span>: <span class="o">[</span>----------<span class="o">]</span> Global <span class="nb">test</span> environment tear-down
-<span class="m">1</span>: <span class="o">[==========]</span> <span class="m">1</span> <span class="nb">test</span> from <span class="m">1</span> <span class="nb">test</span> <span class="k">case</span> ran. <span class="o">(</span><span class="m">0</span> ms total<span class="o">)</span>
-<span class="m">1</span>: <span class="o">[</span>  PASSED  <span class="o">]</span> <span class="m">1</span> test.
-<span class="m">1</span>: -- run_test.py: <span class="k">return</span> code <span class="m">0</span>
-<span class="m">1</span>: -- run_test.py: inject classname prefix into gtest result file <span class="s1">&#39;~/workspace/build/my_cool_pkg/test_results/my_cool_pkg/test_my_cool_pkg.gtest.xml&#39;</span>
-<span class="m">1</span>: -- run_test.py: verify result file <span class="s1">&#39;~/workspace/build/my_cool_pkg/test_results/my_cool_pkg/test_my_cool_pkg.gtest.xml&#39;</span>
-<span class="m">1</span>/5 Test <span class="c1">#1: test_my_cool_pkg ...................   Passed    0.09 sec</span>
+<span class="go">1: Test command: /usr/bin/python3 &quot;-u&quot; &quot;~/workspace/install/share/ament_cmake_test/cmake/run_test.py&quot; &quot;~/workspace/build/my_cool_pkg/test_results/my_cool_pkg/test_my_cool_pkg.gtest.xml&quot; &quot;--package-name&quot; &quot;my_cool_pkg&quot; &quot;--output-file&quot; &quot;~/workspace/build/my_cool_pkg/ament_cmake_gtest/test_my_cool_pkg.txt&quot; &quot;--command&quot; &quot;~/workspace/build/my_cool_pkg/test_my_cool_pkg&quot; &quot;--gtest_output=xml:~/workspace/build/my_cool_pkg/test_results/my_cool_pkg/test_my_cool_pkg.gtest.xml&quot;</span>
+<span class="go">1: Test timeout computed to be: 60</span>
+<span class="go">1: -- run_test.py: invoking following command in &#39;~/workspace/src/my_cool_pkg&#39;:</span>
+<span class="go">1:  - ~/workspace/build/my_cool_pkg/test_my_cool_pkg --gtest_output=xml:~/workspace/build/my_cool_pkg/test_results/my_cool_pkg/test_my_cool_pkg.gtest.xml</span>
+<span class="go">1: [==========] Running 1 test from 1 test case.</span>
+<span class="go">1: [----------] Global test environment set-up.</span>
+<span class="go">1: [----------] 1 test from test_my_cool_pkg</span>
+<span class="go">1: [ RUN      ] test_my_cool_pkg.test_hello</span>
+<span class="go">1: Hello World</span>
+<span class="go">1: [       OK ] test_my_cool_pkg.test_hello (0 ms)</span>
+<span class="go">1: [----------] 1 test from test_my_cool_pkg (0 ms total)</span>
+<span class="go">1:</span>
+<span class="go">1: [----------] Global test environment tear-down</span>
+<span class="go">1: [==========] 1 test from 1 test case ran. (0 ms total)</span>
+<span class="go">1: [  PASSED  ] 1 test.</span>
+<span class="go">1: -- run_test.py: return code 0</span>
+<span class="go">1: -- run_test.py: inject classname prefix into gtest result file &#39;~/workspace/build/my_cool_pkg/test_results/my_cool_pkg/test_my_cool_pkg.gtest.xml&#39;</span>
+<span class="go">1: -- run_test.py: verify result file &#39;~/workspace/build/my_cool_pkg/test_results/my_cool_pkg/test_my_cool_pkg.gtest.xml&#39;</span>
+<span class="go">1/5 Test #1: test_my_cool_pkg ...................   Passed    0.09 sec</span>
 
-...
+<span class="go">...</span>
 
-<span class="m">100</span>% tests passed, <span class="m">0</span> tests failed out of <span class="m">5</span>
+<span class="go">100% tests passed, 0 tests failed out of 5</span>
 
-Label Time Summary:
-<span class="nv">copyright</span>     <span class="o">=</span>   <span class="m">0</span>.49 sec*proc <span class="o">(</span><span class="m">1</span> <span class="nb">test</span><span class="o">)</span>
-<span class="nv">cppcheck</span>      <span class="o">=</span>   <span class="m">0</span>.20 sec*proc <span class="o">(</span><span class="m">1</span> <span class="nb">test</span><span class="o">)</span>
-<span class="nv">gtest</span>         <span class="o">=</span>   <span class="m">0</span>.05 sec*proc <span class="o">(</span><span class="m">1</span> <span class="nb">test</span><span class="o">)</span>
-<span class="nv">lint_cmake</span>    <span class="o">=</span>   <span class="m">0</span>.18 sec*proc <span class="o">(</span><span class="m">1</span> <span class="nb">test</span><span class="o">)</span>
-<span class="nv">linter</span>        <span class="o">=</span>   <span class="m">1</span>.34 sec*proc <span class="o">(</span><span class="m">4</span> tests<span class="o">)</span>
-<span class="nv">xmllint</span>       <span class="o">=</span>   <span class="m">0</span>.47 sec*proc <span class="o">(</span><span class="m">1</span> <span class="nb">test</span><span class="o">)</span>
+<span class="go">Label Time Summary:</span>
+<span class="go">copyright     =   0.49 sec*proc (1 test)</span>
+<span class="go">cppcheck      =   0.20 sec*proc (1 test)</span>
+<span class="go">gtest         =   0.05 sec*proc (1 test)</span>
+<span class="go">lint_cmake    =   0.18 sec*proc (1 test)</span>
+<span class="go">linter        =   1.34 sec*proc (4 tests)</span>
+<span class="go">xmllint       =   0.47 sec*proc (1 test)</span>
 
-Total Test <span class="nb">time</span> <span class="o">(</span>real<span class="o">)</span> <span class="o">=</span>   <span class="m">7</span>.91 sec
-...
+<span class="go">Total Test time (real) =   7.91 sec</span>
+<span class="go">...</span>
 </code></pre></div>
 <h2 id="code-coverage">Code coverage<a class="headerlink" href="#code-coverage" title="Permanent link">#</a></h2>
 <p>Loosely described,

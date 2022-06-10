@@ -2433,9 +2433,6 @@ To use this framework, in <code>package.xml</code> add:</p>
 </code></pre></div>
 <p>And in <code>CMakeLists.txt</code> add:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">if</span><span class="p">(</span><span class="s">BUILD_TESTING</span><span class="p">)</span>
-<span class="w">  </span><span class="nb">find_package</span><span class="p">(</span><span class="s">ament_lint_auto</span><span class="w"> </span><span class="s">REQUIRED</span><span class="p">)</span>
-<span class="w">  </span><span class="nb">ament_lint_auto_find_test_dependencies</span><span class="p">()</span>
-
 <span class="w">  </span><span class="nb">find_package</span><span class="p">(</span><span class="s">autoware_testing</span><span class="w"> </span><span class="s">REQUIRED</span><span class="p">)</span>
 <span class="w">  </span><span class="nb">add_smoke_test</span><span class="p">(</span><span class="o">${</span><span class="nv">PROJECT_NAME</span><span class="o">}</span><span class="w"> </span><span class="o">${</span><span class="nv">NODE_NAME</span><span class="o">}</span><span class="p">)</span>
 <span class="nb">endif</span><span class="p">()</span>
@@ -2550,19 +2547,19 @@ Here we ensure that the node was launched without error and exited cleanly.</p>
 </code></pre></div>
 <h2 id="running-the-test">Running the test<a class="headerlink" href="#running-the-test" title="Permanent link">#</a></h2>
 <p>Continuing the example from above, first build your package:</p>
-<div class="highlight"><pre><span></span><code>colcon build --packages-up-to map_loader
-<span class="nb">source</span> install/setup.bash
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>colcon build --packages-up-to map_loader
+<span class="gp">$ </span><span class="nb">source</span> install/setup.bash
 </code></pre></div>
 <p>Then either execute the component test manually:</p>
-<div class="highlight"><pre><span></span><code>ros2 <span class="nb">test</span> src/mapping/had_map/lanelet2_map_provider/test/lanelet2_map_provider_launch.test.py
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>ros2 <span class="nb">test</span> src/universe/autoware.universe/map/map_loader/test/lanelet2_map_loader_launch.test.py
 </code></pre></div>
 <p>Or as part of testing the entire package:</p>
-<div class="highlight"><pre><span></span><code>colcon <span class="nb">test</span> --packages-select map_loader
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>colcon <span class="nb">test</span> --packages-select map_loader
 </code></pre></div>
 <p>Verify that the test is executed; e.g.</p>
-<div class="highlight"><pre><span></span><code>colcon test-result --all --verbose
-...
-build/lanelet2_map_provider/test_results/lanelet2_map_provider/test_lanelet2_map_provider_launch.test.py.xunit.xml: <span class="m">1</span> test, <span class="m">0</span> errors, <span class="m">0</span> failures, <span class="m">0</span> skipped
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>colcon test-result --all --verbose
+<span class="go">...</span>
+<span class="go">build/map_loader/test_results/map_loader/test_lanelet2_map_loader_launch.test.py.xunit.xml: 1 test, 0 errors, 0 failures, 0 skipped</span>
 </code></pre></div>
 <h3 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">#</a></h3>
 <p>The simple test described in <a href="#integration-test-with-a-single-node-component-test">Integration test with a single node: component test</a> can be extended in numerous directions:</p>
