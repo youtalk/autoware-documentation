@@ -8,21 +8,21 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/main/contributing/coding-guidelines/ros-nodes/parameters/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/main/contributing/testing-guidelines/integration-testing/">
       
-      <link rel="icon" href="../../../../assets/images/autoware-foundation.png">
+      <link rel="icon" href="../../../assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.3">
     
     
       
-        <title>Parameters - Autoware Documentation</title>
+        <title>Integration testing - Autoware Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.4a0965b7.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.4a0965b7.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.cbb835fc.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
         
       
       
@@ -38,11 +38,11 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/css/extra.css">
+      <link rel="stylesheet" href="../../../assets/css/extra.css">
     
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     
-    <script>__md_scope=new URL("../../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#parameters" class="md-skip">
+        <a href="#integration-testing" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +92,7 @@
 
 <header class="md-header md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../.." title="Autoware Documentation" class="md-header__button md-logo" aria-label="Autoware Documentation" data-md-component="logo">
+    <a href="../../.." title="Autoware Documentation" class="md-header__button md-logo" aria-label="Autoware Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M39.61 196.8 74.8 96.29C88.27 57.78 124.6 32 165.4 32h181.2c40.8 0 77.1 25.78 90.6 64.29l35.2 100.51c23.2 9.6 39.6 32.5 39.6 59.2v192c0 17.7-14.3 32-32 32h-32c-17.7 0-32-14.3-32-32v-48H96v48c0 17.7-14.33 32-32 32H32c-17.67 0-32-14.3-32-32V256c0-26.7 16.36-49.6 39.61-59.2zm69.49-4.8h293.8l-26.1-74.6c-4.5-12.8-16.6-21.4-30.2-21.4H165.4c-13.6 0-25.7 8.6-30.2 21.4L109.1 192zM96 256c-17.67 0-32 14.3-32 32s14.33 32 32 32c17.7 0 32-14.3 32-32s-14.3-32-32-32zm320 64c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32z"/></svg>
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Parameters
+              Integration testing
             
           </span>
         </div>
@@ -202,7 +202,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="../../../.." class="md-tabs__link">
+    <a href="../../.." class="md-tabs__link">
       Introduction
     </a>
   </li>
@@ -217,7 +217,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../installation/" class="md-tabs__link">
+      <a href="../../../installation/" class="md-tabs__link">
         Installation
       </a>
     </li>
@@ -233,7 +233,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../tutorials/" class="md-tabs__link">
+      <a href="../../../tutorials/" class="md-tabs__link">
         Tutorials
       </a>
     </li>
@@ -249,7 +249,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../how-to-guides/" class="md-tabs__link">
+      <a href="../../../how-to-guides/" class="md-tabs__link">
         How to guides
       </a>
     </li>
@@ -265,7 +265,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../design/" class="md-tabs__link">
+      <a href="../../../design/" class="md-tabs__link">
         Design
       </a>
     </li>
@@ -283,7 +283,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../" class="md-tabs__link md-tabs__link--active">
+      <a href="../../" class="md-tabs__link md-tabs__link--active">
         Contributing
       </a>
     </li>
@@ -299,7 +299,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../support/" class="md-tabs__link">
+      <a href="../../../support/" class="md-tabs__link">
         Support
       </a>
     </li>
@@ -333,7 +333,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="Autoware Documentation" class="md-nav__button md-logo" aria-label="Autoware Documentation" data-md-component="logo">
+    <a href="../../.." title="Autoware Documentation" class="md-nav__button md-logo" aria-label="Autoware Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M39.61 196.8 74.8 96.29C88.27 57.78 124.6 32 165.4 32h181.2c40.8 0 77.1 25.78 90.6 64.29l35.2 100.51c23.2 9.6 39.6 32.5 39.6 59.2v192c0 17.7-14.3 32-32 32h-32c-17.7 0-32-14.3-32-32v-48H96v48c0 17.7-14.33 32-32 32H32c-17.67 0-32-14.3-32-32V256c0-26.7 16.36-49.6 39.61-59.2zm69.49-4.8h293.8l-26.1-74.6c-4.5-12.8-16.6-21.4-30.2-21.4H165.4c-13.6 0-25.7 8.6-30.2 21.4L109.1 192zM96 256c-17.67 0-32 14.3-32 32s14.33 32 32 32c17.7 0 32-14.3 32-32s-14.3-32-32-32zm320 64c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32z"/></svg>
@@ -364,7 +364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -402,7 +402,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../installation/">Installation</a>
+          <a href="../../../installation/">Installation</a>
           
             <label for="__nav_2">
               <span class="md-nav__icon md-icon"></span>
@@ -459,7 +459,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../installation/autoware/docker-installation/" class="md-nav__link">
+      <a href="../../../installation/autoware/docker-installation/" class="md-nav__link">
         Docker installation
       </a>
     </li>
@@ -473,7 +473,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../installation/autoware/source-installation/" class="md-nav__link">
+      <a href="../../../installation/autoware/source-installation/" class="md-nav__link">
         Source installation
       </a>
     </li>
@@ -513,7 +513,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../installation/related-tools/">Related tools</a>
+          <a href="../../../installation/related-tools/">Related tools</a>
           
         </div>
       
@@ -558,7 +558,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../installation/additional-settings-for-developers/">Additional settings for developers</a>
+          <a href="../../../installation/additional-settings-for-developers/">Additional settings for developers</a>
           
         </div>
       
@@ -613,7 +613,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../tutorials/">Tutorials</a>
+          <a href="../../../tutorials/">Tutorials</a>
           
             <label for="__nav_3">
               <span class="md-nav__icon md-icon"></span>
@@ -661,7 +661,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../tutorials/ad-hoc-simulation/">Ad hoc simulation</a>
+          <a href="../../../tutorials/ad-hoc-simulation/">Ad hoc simulation</a>
           
             <label for="__nav_3_2">
               <span class="md-nav__icon md-icon"></span>
@@ -684,7 +684,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/ad-hoc-simulation/planning-simulation/" class="md-nav__link">
+      <a href="../../../tutorials/ad-hoc-simulation/planning-simulation/" class="md-nav__link">
         Planning simulation
       </a>
     </li>
@@ -698,7 +698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/ad-hoc-simulation/rosbag-replay-simulation/" class="md-nav__link">
+      <a href="../../../tutorials/ad-hoc-simulation/rosbag-replay-simulation/" class="md-nav__link">
         Rosbag replay simulation
       </a>
     </li>
@@ -712,7 +712,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/ad-hoc-simulation/digital-twin-simulation/" class="md-nav__link">
+      <a href="../../../tutorials/ad-hoc-simulation/digital-twin-simulation/" class="md-nav__link">
         Digital twin simulation
       </a>
     </li>
@@ -803,7 +803,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/scenario-simulation/planning-simulation/installation/" class="md-nav__link">
+      <a href="../../../tutorials/scenario-simulation/planning-simulation/installation/" class="md-nav__link">
         Installation
       </a>
     </li>
@@ -817,7 +817,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/scenario-simulation/planning-simulation/scenario-test-simulation/" class="md-nav__link">
+      <a href="../../../tutorials/scenario-simulation/planning-simulation/scenario-test-simulation/" class="md-nav__link">
         Scenario test simulation
       </a>
     </li>
@@ -831,7 +831,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/scenario-simulation/planning-simulation/random-test-simulation/" class="md-nav__link">
+      <a href="../../../tutorials/scenario-simulation/planning-simulation/random-test-simulation/" class="md-nav__link">
         Random test simulation
       </a>
     </li>
@@ -852,7 +852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/scenario-simulation/rosbag-replay-simulation/" class="md-nav__link">
+      <a href="../../../tutorials/scenario-simulation/rosbag-replay-simulation/" class="md-nav__link">
         Rosbag replay simulation
       </a>
     </li>
@@ -866,7 +866,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/scenario-simulation/digital-twin-simulation/" class="md-nav__link">
+      <a href="../../../tutorials/scenario-simulation/digital-twin-simulation/" class="md-nav__link">
         Digital twin simulation
       </a>
     </li>
@@ -920,7 +920,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../how-to-guides/">How to guides</a>
+          <a href="../../../how-to-guides/">How to guides</a>
           
             <label for="__nav_4">
               <span class="md-nav__icon md-icon"></span>
@@ -943,7 +943,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to-guides/running-autoware-without-cuda/" class="md-nav__link">
+      <a href="../../../how-to-guides/running-autoware-without-cuda/" class="md-nav__link">
         Running Autoware without CUDA
       </a>
     </li>
@@ -957,7 +957,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to-guides/advanced-usage-of-colcon/" class="md-nav__link">
+      <a href="../../../how-to-guides/advanced-usage-of-colcon/" class="md-nav__link">
         Advanced usage of colcon
       </a>
     </li>
@@ -971,7 +971,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to-guides/how-to-integrate-autoware-with-your-vehicle/" class="md-nav__link">
+      <a href="../../../how-to-guides/how-to-integrate-autoware-with-your-vehicle/" class="md-nav__link">
         How to integrate Autoware with your vehicle
       </a>
     </li>
@@ -985,7 +985,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to-guides/how-to-integrate-autoware-with-a-diff-drive-vehicle/" class="md-nav__link">
+      <a href="../../../how-to-guides/how-to-integrate-autoware-with-a-diff-drive-vehicle/" class="md-nav__link">
         How to integrate Autoware with a differential drive vehicle
       </a>
     </li>
@@ -1032,7 +1032,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../design/">Design</a>
+          <a href="../../../design/">Design</a>
           
             <label for="__nav_5">
               <span class="md-nav__icon md-icon"></span>
@@ -1076,7 +1076,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../design/autoware-concepts/">Autoware concepts</a>
+          <a href="../../../design/autoware-concepts/">Autoware concepts</a>
           
             <label for="__nav_5_2">
               <span class="md-nav__icon md-icon"></span>
@@ -1099,7 +1099,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../design/autoware-concepts/difference-from-ai-and-auto/" class="md-nav__link">
+      <a href="../../../design/autoware-concepts/difference-from-ai-and-auto/" class="md-nav__link">
         How is Autoware Core/Universe different from Autoware.AI and Autoware.Auto?
       </a>
     </li>
@@ -1155,7 +1155,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../design/autoware-architecture/">Autoware architecture</a>
+          <a href="../../../design/autoware-architecture/">Autoware architecture</a>
           
             <label for="__nav_5_3">
               <span class="md-nav__icon md-icon"></span>
@@ -1195,7 +1195,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../design/autoware-architecture/sensing/">Sensing</a>
+          <a href="../../../design/autoware-architecture/sensing/">Sensing</a>
           
         </div>
       
@@ -1238,7 +1238,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../design/autoware-architecture/map/">Map</a>
+          <a href="../../../design/autoware-architecture/map/">Map</a>
           
         </div>
       
@@ -1281,7 +1281,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../design/autoware-architecture/localization/">Localization</a>
+          <a href="../../../design/autoware-architecture/localization/">Localization</a>
           
         </div>
       
@@ -1324,7 +1324,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../design/autoware-architecture/perception/">Perception</a>
+          <a href="../../../design/autoware-architecture/perception/">Perception</a>
           
         </div>
       
@@ -1367,7 +1367,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../design/autoware-architecture/planning/">Planning</a>
+          <a href="../../../design/autoware-architecture/planning/">Planning</a>
           
         </div>
       
@@ -1410,7 +1410,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../design/autoware-architecture/control/">Control</a>
+          <a href="../../../design/autoware-architecture/control/">Control</a>
           
         </div>
       
@@ -1453,7 +1453,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../design/autoware-architecture/vehicle/">Vehicle</a>
+          <a href="../../../design/autoware-architecture/vehicle/">Vehicle</a>
           
         </div>
       
@@ -1496,7 +1496,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../design/autoware-architecture/node-diagram/">Node diagram</a>
+          <a href="../../../design/autoware-architecture/node-diagram/">Node diagram</a>
           
         </div>
       
@@ -1552,7 +1552,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../design/autoware-interfaces/">Autoware interfaces</a>
+          <a href="../../../design/autoware-interfaces/">Autoware interfaces</a>
           
             <label for="__nav_5_4">
               <span class="md-nav__icon md-icon"></span>
@@ -1592,7 +1592,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../design/autoware-interfaces/ad-api/">AD API</a>
+          <a href="../../../design/autoware-interfaces/ad-api/">AD API</a>
           
         </div>
       
@@ -1643,7 +1643,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../design/autoware-interfaces/components/">Components</a>
+          <a href="../../../design/autoware-interfaces/components/">Components</a>
           
             <label for="__nav_5_4_3">
               <span class="md-nav__icon md-icon"></span>
@@ -1666,7 +1666,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../design/autoware-interfaces/components/planning/" class="md-nav__link">
+      <a href="../../../design/autoware-interfaces/components/planning/" class="md-nav__link">
         Planning
       </a>
     </li>
@@ -1680,7 +1680,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../design/autoware-interfaces/components/control/" class="md-nav__link">
+      <a href="../../../design/autoware-interfaces/components/control/" class="md-nav__link">
         Control
       </a>
     </li>
@@ -1694,7 +1694,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../design/autoware-interfaces/components/vehicle-interface/" class="md-nav__link">
+      <a href="../../../design/autoware-interfaces/components/vehicle-interface/" class="md-nav__link">
         Vehicle Interface
       </a>
     </li>
@@ -1708,7 +1708,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../design/autoware-interfaces/components/vehicle-dimensions/" class="md-nav__link">
+      <a href="../../../design/autoware-interfaces/components/vehicle-dimensions/" class="md-nav__link">
         Vehicle dimensions
       </a>
     </li>
@@ -1761,7 +1761,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../design/configuration-management/">Configuration management</a>
+          <a href="../../../design/configuration-management/">Configuration management</a>
           
             <label for="__nav_5_5">
               <span class="md-nav__icon md-icon"></span>
@@ -1784,7 +1784,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../design/configuration-management/development-process/" class="md-nav__link">
+      <a href="../../../design/configuration-management/development-process/" class="md-nav__link">
         Development process
       </a>
     </li>
@@ -1798,7 +1798,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../design/configuration-management/repository-structure/" class="md-nav__link">
+      <a href="../../../design/configuration-management/repository-structure/" class="md-nav__link">
         Repository structure
       </a>
     </li>
@@ -1812,7 +1812,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../design/configuration-management/release-process/" class="md-nav__link">
+      <a href="../../../design/configuration-management/release-process/" class="md-nav__link">
         Release process
       </a>
     </li>
@@ -1872,7 +1872,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../">Contributing</a>
+          <a href="../../">Contributing</a>
           
             <label for="__nav_6">
               <span class="md-nav__icon md-icon"></span>
@@ -1895,7 +1895,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../license/" class="md-nav__link">
+      <a href="../../license/" class="md-nav__link">
         License
       </a>
     </li>
@@ -1907,16 +1907,14 @@
               
   
   
-    
-  
   
     
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3" type="checkbox" id="__nav_6_3" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_3" type="checkbox" id="__nav_6_3" checked>
       
       
       
@@ -1934,7 +1932,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../">Coding guidelines</a>
+          <a href="../../coding-guidelines/">Coding guidelines</a>
           
             <label for="__nav_6_3">
               <span class="md-nav__icon md-icon"></span>
@@ -2001,7 +1999,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../languages/cpp/" class="md-nav__link">
+      <a href="../../coding-guidelines/languages/cpp/" class="md-nav__link">
         C++
       </a>
     </li>
@@ -2015,7 +2013,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../languages/python/" class="md-nav__link">
+      <a href="../../coding-guidelines/languages/python/" class="md-nav__link">
         Python
       </a>
     </li>
@@ -2029,7 +2027,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../languages/shell-scripts/" class="md-nav__link">
+      <a href="../../coding-guidelines/languages/shell-scripts/" class="md-nav__link">
         Shell scripts
       </a>
     </li>
@@ -2043,7 +2041,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../languages/markdown/" class="md-nav__link">
+      <a href="../../coding-guidelines/languages/markdown/" class="md-nav__link">
         Markdown
       </a>
     </li>
@@ -2057,7 +2055,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../languages/cmake/" class="md-nav__link">
+      <a href="../../coding-guidelines/languages/cmake/" class="md-nav__link">
         CMake
       </a>
     </li>
@@ -2071,7 +2069,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../languages/package-xml/" class="md-nav__link">
+      <a href="../../coding-guidelines/languages/package-xml/" class="md-nav__link">
         package.xml
       </a>
     </li>
@@ -2085,7 +2083,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../languages/docker/" class="md-nav__link">
+      <a href="../../coding-guidelines/languages/docker/" class="md-nav__link">
         Docker
       </a>
     </li>
@@ -2099,7 +2097,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../languages/github-actions/" class="md-nav__link">
+      <a href="../../coding-guidelines/languages/github-actions/" class="md-nav__link">
         GitHub Actions
       </a>
     </li>
@@ -2118,14 +2116,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3_3" type="checkbox" id="__nav_6_3_3" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_3_3" type="checkbox" id="__nav_6_3_3" checked>
       
       
       
@@ -2170,7 +2166,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../class-design/" class="md-nav__link">
+      <a href="../../coding-guidelines/ros-nodes/class-design/" class="md-nav__link">
         Class design
       </a>
     </li>
@@ -2184,7 +2180,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../console-logging/" class="md-nav__link">
+      <a href="../../coding-guidelines/ros-nodes/console-logging/" class="md-nav__link">
         Console logging
       </a>
     </li>
@@ -2198,7 +2194,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../coordinate-system/" class="md-nav__link">
+      <a href="../../coding-guidelines/ros-nodes/coordinate-system/" class="md-nav__link">
         Coordinate system
       </a>
     </li>
@@ -2212,7 +2208,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../directory-structure/" class="md-nav__link">
+      <a href="../../coding-guidelines/ros-nodes/directory-structure/" class="md-nav__link">
         Directory structure
       </a>
     </li>
@@ -2226,7 +2222,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../launch-files/" class="md-nav__link">
+      <a href="../../coding-guidelines/ros-nodes/launch-files/" class="md-nav__link">
         Launch files
       </a>
     </li>
@@ -2240,7 +2236,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../message-guidelines/" class="md-nav__link">
+      <a href="../../coding-guidelines/ros-nodes/message-guidelines/" class="md-nav__link">
         Message guidelines
       </a>
     </li>
@@ -2254,7 +2250,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../naming/" class="md-nav__link">
+      <a href="../../coding-guidelines/ros-nodes/naming/" class="md-nav__link">
         Topic namespaces
       </a>
     </li>
@@ -2266,21 +2262,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../coding-guidelines/ros-nodes/parameters/" class="md-nav__link">
         Parameters
       </a>
-      
     </li>
   
 
@@ -2292,7 +2278,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../task-scheduling/" class="md-nav__link">
+      <a href="../../coding-guidelines/ros-nodes/task-scheduling/" class="md-nav__link">
         Task scheduling
       </a>
     </li>
@@ -2306,7 +2292,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../topic-namespaces/" class="md-nav__link">
+      <a href="../../coding-guidelines/ros-nodes/topic-namespaces/" class="md-nav__link">
         Topic namespaces
       </a>
     </li>
@@ -2332,14 +2318,16 @@
               
   
   
+    
+  
   
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_4" type="checkbox" id="__nav_6_4" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_4" type="checkbox" id="__nav_6_4" checked>
       
       
       
@@ -2357,7 +2345,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../testing-guidelines/">Testing guidelines</a>
+          <a href="../">Testing guidelines</a>
           
             <label for="__nav_6_4">
               <span class="md-nav__icon md-icon"></span>
@@ -2380,7 +2368,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing-guidelines/unit-testing/" class="md-nav__link">
+      <a href="../unit-testing/" class="md-nav__link">
         Unit testing
       </a>
     </li>
@@ -2392,11 +2380,119 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../../testing-guidelines/integration-testing/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Integration testing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Integration testing
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#value-of-integration-testing" class="md-nav__link">
+    Value of integration testing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-test-framework" class="md-nav__link">
+    Integration-test framework
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration-test framework">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smoke-tests" class="md-nav__link">
+    Smoke tests
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-test-with-a-single-node-component-test" class="md-nav__link">
+    Integration test with a single node: component test
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-the-test" class="md-nav__link">
+    Running the test
+  </a>
+  
+    <nav class="md-nav" aria-label="Running the test">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    Next steps
+  </a>
+  
+    <nav class="md-nav" aria-label="Next steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testing-the-output-of-a-node" class="md-nav__link">
+    Testing the output of a node
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2434,7 +2530,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../documentation-guidelines/">Documentation guidelines</a>
+          <a href="../../documentation-guidelines/">Documentation guidelines</a>
           
         </div>
       
@@ -2485,7 +2581,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../pull-request-guidelines/">Pull request guidelines</a>
+          <a href="../../pull-request-guidelines/">Pull request guidelines</a>
           
             <label for="__nav_6_6">
               <span class="md-nav__icon md-icon"></span>
@@ -2508,7 +2604,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pull-request-guidelines/commit-guidelines/" class="md-nav__link">
+      <a href="../../pull-request-guidelines/commit-guidelines/" class="md-nav__link">
         Commit guidelines
       </a>
     </li>
@@ -2522,7 +2618,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pull-request-guidelines/review-guidelines/" class="md-nav__link">
+      <a href="../../pull-request-guidelines/review-guidelines/" class="md-nav__link">
         Review guidelines
       </a>
     </li>
@@ -2536,7 +2632,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pull-request-guidelines/review-tips/" class="md-nav__link">
+      <a href="../../pull-request-guidelines/review-tips/" class="md-nav__link">
         Review tips
       </a>
     </li>
@@ -2576,7 +2672,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../discussion-guidelines/">Discussion guidelines</a>
+          <a href="../../discussion-guidelines/">Discussion guidelines</a>
           
         </div>
       
@@ -2633,7 +2729,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../support/">Support</a>
+          <a href="../../../support/">Support</a>
           
             <label for="__nav_7">
               <span class="md-nav__icon md-icon"></span>
@@ -2656,7 +2752,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../support/support-guidelines/" class="md-nav__link">
+      <a href="../../../support/support-guidelines/" class="md-nav__link">
         Support guidelines
       </a>
     </li>
@@ -2670,7 +2766,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../support/troubleshooting/" class="md-nav__link">
+      <a href="../../../support/troubleshooting/" class="md-nav__link">
         Troubleshooting
       </a>
     </li>
@@ -2684,7 +2780,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../support/docs-guide/" class="md-nav__link">
+      <a href="../../../support/docs-guide/" class="md-nav__link">
         Docs guide
       </a>
     </li>
@@ -2718,6 +2814,88 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#value-of-integration-testing" class="md-nav__link">
+    Value of integration testing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-test-framework" class="md-nav__link">
+    Integration-test framework
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration-test framework">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smoke-tests" class="md-nav__link">
+    Smoke tests
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-test-with-a-single-node-component-test" class="md-nav__link">
+    Integration test with a single node: component test
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-the-test" class="md-nav__link">
+    Running the test
+  </a>
+  
+    <nav class="md-nav" aria-label="Running the test">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    Next steps
+  </a>
+  
+    <nav class="md-nav" aria-label="Next steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testing-the-output-of-a-node" class="md-nav__link">
+    Testing the output of a node
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2728,17 +2906,235 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/autowarefoundation/autoware-documentation/edit/main/docs/contributing/coding-guidelines/ros-nodes/parameters.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/autowarefoundation/autoware-documentation/edit/main/docs/contributing/testing-guidelines/integration-testing.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h1>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Under Construction</p>
+<h1 id="integration-testing">Integration testing<a class="headerlink" href="#integration-testing" title="Permanent link">#</a></h1>
+<p>An integration test is defined as the phase in software testing where individual software modules are combined and tested as a group.
+Integration tests occur after unit tests, and before validation tests.</p>
+<p>The input to an integration test is a set of independent modules that have been unit tested.
+The set of modules is tested against the defined integration test plan,
+and the output is a set of properly integrated software modules that is ready for system testing.</p>
+<h2 id="value-of-integration-testing">Value of integration testing<a class="headerlink" href="#value-of-integration-testing" title="Permanent link">#</a></h2>
+<p>Integration tests determine if independently developed software modules work correctly when the modules are connected to each other.
+In ROS 2, the software modules are called nodes.
+As a special case, testing a single node can be referred to as component testing.</p>
+<p>Integration tests help to find the following types of errors:</p>
+<ul>
+<li>Incompatible interactions between nodes, such as non-matching topics, different message types, or incompatible QoS settings.</li>
+<li>Edge cases that were not touched by unit testing, such as a critical timing issue, network communication delays, disk I/O failures, and many other problems that can occur in production environments.</li>
+<li>Issues that can occur while the system is under high CPU/memory load, such as <code>malloc</code> failures. This can be tested using tools like <code>stress</code> and <code>udpreplay</code> to test the performance of nodes with real data.</li>
+</ul>
+<p>With ROS 2, it is possible to program complex autonomous-driving applications with a large number of nodes.
+Therefore, a lot of effort has been made to provide an integration-test framework that helps developers test the interaction of ROS 2 nodes.</p>
+<h2 id="integration-test-framework">Integration-test framework<a class="headerlink" href="#integration-test-framework" title="Permanent link">#</a></h2>
+<p>A typical integration-test framework has three parts:</p>
+<ol>
+<li>A series of executables with arguments that work together and generate outputs.</li>
+<li>A series of expected outputs that should match the output of the executables.</li>
+<li>A launcher that starts the tests, compares the outputs to the expected outputs, and determines if the test passes.</li>
+</ol>
+<p>In Autoware, we use the <a href="https://github.com/ros2/launch/tree/master/launch_testing">launch_testing</a> framework.</p>
+<h3 id="smoke-tests">Smoke tests<a class="headerlink" href="#smoke-tests" title="Permanent link">#</a></h3>
+<p>Autoware has a dedicated API for smoke testing.
+To use this framework, in <code>package.xml</code> add:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;test_depend&gt;</span>autoware_testing<span class="nt">&lt;/test_depend&gt;</span>
+</code></pre></div>
+<p>And in <code>CMakeLists.txt</code> add:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">if</span><span class="p">(</span><span class="s">BUILD_TESTING</span><span class="p">)</span>
+<span class="w">  </span><span class="nb">find_package</span><span class="p">(</span><span class="s">autoware_testing</span><span class="w"> </span><span class="s">REQUIRED</span><span class="p">)</span>
+<span class="w">  </span><span class="nb">add_smoke_test</span><span class="p">(</span><span class="o">${</span><span class="nv">PROJECT_NAME</span><span class="o">}</span><span class="w"> </span><span class="o">${</span><span class="nv">NODE_NAME</span><span class="o">}</span><span class="p">)</span>
+<span class="nb">endif</span><span class="p">()</span>
+</code></pre></div>
+<p>Doing so adds smoke tests that ensure that a node can be:</p>
+<ol>
+<li>Launched with a default parameter file.</li>
+<li>Terminated with a standard <code>SIGTERM</code> signal.</li>
+</ol>
+<p>For the full API documentation,
+refer to the <a href="https://github.com/autowarefoundation/autoware.universe/blob/main/common/autoware_testing/design/autoware_testing-design.md">package design page</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This API is not suitable for all smoke test cases.
+It cannot be used when a specific file location (eg: for a map) is required to be passed to the node, or if some preparation needs to be conducted before node launch.
+In such cases use the manual solution from the <a href="#integration-test-with-a-single-node-component-test">component test section below</a>.</p>
 </div>
+<h3 id="integration-test-with-a-single-node-component-test">Integration test with a single node: component test<a class="headerlink" href="#integration-test-with-a-single-node-component-test" title="Permanent link">#</a></h3>
+<p>The simplest scenario is a single node.
+In this case, the integration test is commonly referred to as a component test.</p>
+<p>To add a component test to an existing node,
+you can follow the example of the <code>lanelet2_map_loader</code> in the <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/map/map_loader"><code>map_loader</code> package</a>
+(added in <a href="https://github.com/autowarefoundation/autoware.universe/pull/1056">this PR</a>).</p>
+<p>In <a href="https://github.com/autowarefoundation/autoware.universe/blob/main/map/map_loader/package.xml"><code>package.xml</code></a>, add:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;test_depend&gt;</span>ros_testing<span class="nt">&lt;/test_depend&gt;</span>
+</code></pre></div>
+<p>In <a href="https://github.com/autowarefoundation/autoware.universe/blob/main/map/map_loader/CMakeLists.txt"><code>CMakeLists.txt</code></a>,
+add or modify the <code>BUILD_TESTING</code> section:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">if</span><span class="p">(</span><span class="s">BUILD_TESTING</span><span class="p">)</span>
+<span class="w">  </span><span class="nb">add_ros_test</span><span class="p">(</span>
+<span class="w">    </span><span class="s">test/lanelet2_map_loader_launch.test.py</span>
+<span class="w">    </span><span class="s">TIMEOUT</span><span class="w"> </span><span class="s2">&quot;30&quot;</span>
+<span class="w">  </span><span class="p">)</span>
+<span class="w">  </span><span class="nb">install</span><span class="p">(</span><span class="s">DIRECTORY</span>
+<span class="w">    </span><span class="s">test/data/</span>
+<span class="w">    </span><span class="s">DESTINATION</span><span class="w"> </span><span class="s">share/</span><span class="o">${</span><span class="nv">PROJECT_NAME</span><span class="o">}</span><span class="s">/test/data/</span>
+<span class="w">  </span><span class="p">)</span>
+<span class="nb">endif</span><span class="p">()</span>
+</code></pre></div>
+<p>In addition to the command <code>add_ros_test</code>, we also install any data that is required by the test using the <code>install</code> command.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code>TIMEOUT</code> argument is given in seconds; see the <a href="https://github.com/ros2/ros_testing/blob/master/ros_testing/cmake/add_ros_test.cmake">add_ros_test.cmake file</a> for details.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code>add_ros_test</code> command will run the test in a unique <code>ROS_DOMAIN_ID</code> which avoids interference between tests running in parallel.</p>
+</div>
+<p>To create a test,
+either read the <a href="https://github.com/ros2/launch/tree/master/launch_testing#quick-start-example">launch_testing quick-start example</a>,
+or follow the steps below.</p>
+<p>Taking <a href="https://github.com/autowarefoundation/autoware.universe/blob/main/map/map_loader/test/lanelet2_map_loader_launch.test.py"><code>test/lanelet2_map_loader_launch.test.py</code></a> as an example,
+first dependencies are imported:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">unittest</span>
+
+<span class="kn">from</span> <span class="nn">ament_index_python</span> <span class="kn">import</span> <span class="n">get_package_share_directory</span>
+<span class="kn">import</span> <span class="nn">launch</span>
+<span class="kn">from</span> <span class="nn">launch</span> <span class="kn">import</span> <span class="n">LaunchDescription</span>
+<span class="kn">from</span> <span class="nn">launch_ros.actions</span> <span class="kn">import</span> <span class="n">Node</span>
+<span class="kn">import</span> <span class="nn">launch_testing</span>
+<span class="kn">import</span> <span class="nn">pytest</span>
+</code></pre></div>
+<p>Then a launch description is created to launch the node under test.
+Note that the <a href="https://github.com/autowarefoundation/autoware.universe/blob/main/map/map_loader/test/data/test_map.osm"><code>test_map.osm</code></a> file path is found and passed to the node,
+something that cannot be done with the <a href="#smoke-tests">smoke testing API</a>:</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">launch_test</span>
+<span class="k">def</span> <span class="nf">generate_test_description</span><span class="p">():</span>
+
+    <span class="n">lanelet2_map_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+        <span class="n">get_package_share_directory</span><span class="p">(</span><span class="s2">&quot;map_loader&quot;</span><span class="p">),</span> <span class="s2">&quot;test/data/test_map.osm&quot;</span>
+    <span class="p">)</span>
+
+    <span class="n">lanelet2_map_loader</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span>
+        <span class="n">package</span><span class="o">=</span><span class="s2">&quot;map_loader&quot;</span><span class="p">,</span>
+        <span class="n">executable</span><span class="o">=</span><span class="s2">&quot;lanelet2_map_loader&quot;</span><span class="p">,</span>
+        <span class="n">parameters</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;lanelet2_map_path&quot;</span><span class="p">:</span> <span class="n">lanelet2_map_path</span><span class="p">}],</span>
+    <span class="p">)</span>
+
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">LaunchDescription</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="n">lanelet2_map_loader</span><span class="p">,</span>
+                <span class="c1"># Start test after 1s - gives time for the map_loader to finish initialization</span>
+                <span class="n">launch</span><span class="o">.</span><span class="n">actions</span><span class="o">.</span><span class="n">TimerAction</span><span class="p">(</span>
+                    <span class="n">period</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">actions</span><span class="o">=</span><span class="p">[</span><span class="n">launch_testing</span><span class="o">.</span><span class="n">actions</span><span class="o">.</span><span class="n">ReadyToTest</span><span class="p">()]</span>
+                <span class="p">),</span>
+            <span class="p">]</span>
+        <span class="p">),</span>
+        <span class="n">context</span><span class="p">,</span>
+    <span class="p">)</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since the node need time to process the input lanelet2 map,
+we use a <code>TimerAction</code> to delay the start of the test by 1s.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Here the <code>context</code> is empty but could be used to pass objects to the test cases.
+You can find an example of using the <code>context</code><a href="https://github.com/ros2/launch/blob/humble/launch_testing/test/launch_testing/examples/context_launch_test.py">here</a></p>
+</div>
+<p>Finally, a test is executed after the node executable has been shut down (<code>post_shutdown_test</code>).
+Here we ensure that the node was launched without error and exited cleanly.</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@launch_testing</span><span class="o">.</span><span class="n">post_shutdown_test</span><span class="p">()</span>
+<span class="k">class</span> <span class="nc">TestProcessOutput</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">test_exit_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">proc_info</span><span class="p">):</span>
+        <span class="c1"># Check that process exits with code 0: no error</span>
+        <span class="n">launch_testing</span><span class="o">.</span><span class="n">asserts</span><span class="o">.</span><span class="n">assertExitCodes</span><span class="p">(</span><span class="n">proc_info</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="running-the-test">Running the test<a class="headerlink" href="#running-the-test" title="Permanent link">#</a></h2>
+<p>Continuing the example from above, first build your package:</p>
+<div class="highlight"><pre><span></span><code><span class="go">colcon build --packages-up-to map_loader</span>
+<span class="go">source install/setup.bash</span>
+</code></pre></div>
+<p>Then either execute the component test manually:</p>
+<div class="highlight"><pre><span></span><code><span class="go">ros2 test src/universe/autoware.universe/map/map_loader/test/lanelet2_map_loader_launch.test.py</span>
+</code></pre></div>
+<p>Or as part of testing the entire package:</p>
+<div class="highlight"><pre><span></span><code><span class="go">colcon test --packages-select map_loader</span>
+</code></pre></div>
+<p>Verify that the test is executed; e.g.</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>colcon test-result --all --verbose
+<span class="go">...</span>
+<span class="go">build/map_loader/test_results/map_loader/test_lanelet2_map_loader_launch.test.py.xunit.xml: 1 test, 0 errors, 0 failures, 0 skipped</span>
+</code></pre></div>
+<h3 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">#</a></h3>
+<p>The simple test described in <a href="#integration-test-with-a-single-node-component-test">Integration test with a single node: component test</a> can be extended in numerous directions:</p>
+<h4 id="testing-the-output-of-a-node">Testing the output of a node<a class="headerlink" href="#testing-the-output-of-a-node" title="Permanent link">#</a></h4>
+<p>To test while the node is running,
+create an <a href="https://github.com/ros2/launch/tree/foxy/launch_testing#active-tests"><em>active test</em></a> by adding a subclass of Python's <code>unittest.TestCase</code> to <code>*launch.test.py</code>.
+Some boilerplate code is required to access output by creating a node and a subscription to a particular topic, e.g.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">unittest</span>
+
+<span class="k">class</span> <span class="nc">TestRunningDataPublisher</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">setUpClass</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="bp">cls</span><span class="o">.</span><span class="n">context</span> <span class="o">=</span> <span class="n">Context</span><span class="p">()</span>
+        <span class="n">rclpy</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">context</span><span class="o">=</span><span class="bp">cls</span><span class="o">.</span><span class="n">context</span><span class="p">)</span>
+        <span class="bp">cls</span><span class="o">.</span><span class="n">node</span> <span class="o">=</span> <span class="n">rclpy</span><span class="o">.</span><span class="n">create_node</span><span class="p">(</span><span class="s2">&quot;test_node&quot;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="bp">cls</span><span class="o">.</span><span class="n">context</span><span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">tearDownClass</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="n">rclpy</span><span class="o">.</span><span class="n">shutdown</span><span class="p">(</span><span class="n">context</span><span class="o">=</span><span class="bp">cls</span><span class="o">.</span><span class="n">context</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">msgs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">sub</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">create_subscription</span><span class="p">(</span>
+            <span class="n">msg_type</span><span class="o">=</span><span class="n">my_msg_type</span><span class="p">,</span>
+            <span class="n">topic</span><span class="o">=</span><span class="s2">&quot;/info_test&quot;</span><span class="p">,</span>
+            <span class="n">callback</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_msg_received</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">addCleanup</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">destroy_subscription</span><span class="p">,</span> <span class="n">sub</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_msg_received</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+        <span class="c1"># Callback for ROS 2 subscriber used in the test</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">msgs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_message</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">startlen</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">msgs</span><span class="p">)</span>
+
+        <span class="n">executor</span> <span class="o">=</span> <span class="n">rclpy</span><span class="o">.</span><span class="n">executors</span><span class="o">.</span><span class="n">SingleThreadedExecutor</span><span class="p">(</span><span class="n">context</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="p">)</span>
+        <span class="n">executor</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Try up to 60 s to receive messages</span>
+            <span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">+</span> <span class="mf">60.0</span>
+            <span class="k">while</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">end_time</span><span class="p">:</span>
+                <span class="n">executor</span><span class="o">.</span><span class="n">spin_once</span><span class="p">(</span><span class="n">timeout_sec</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">startlen</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">msgs</span><span class="p">):</span>
+                    <span class="k">break</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertNotEqual</span><span class="p">(</span><span class="n">startlen</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">msgs</span><span class="p">))</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">msgs</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="n">executor</span><span class="o">.</span><span class="n">remove_node</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_message_content</span><span class="p">():</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_message</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="s2">&quot;Hello, world&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">#</a></h2>
+<ul>
+<li><a href="https://github.com/ros2/ros2/wiki/Colcon-Tutorial">colcon</a> is used to build and run tests.</li>
+<li><a href="https://github.com/ros2/launch/tree/master/launch_testing">launch testing</a> launches nodes and runs tests.</li>
+<li><a href="../">Testing guidelines</a> describes the different types of tests performed in Autoware and links to the corresponding guidelines.</li>
+</ul>
 
               
             </article>
@@ -2759,7 +3155,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../naming/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Topic namespaces" rel="prev">
+        <a href="../unit-testing/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Unit testing" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -2768,20 +3164,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Topic namespaces
+              Unit testing
             </div>
           </div>
         </a>
       
       
         
-        <a href="../task-scheduling/" class="md-footer__link md-footer__link--next" aria-label="Next: Task scheduling" rel="next">
+        <a href="../../documentation-guidelines/" class="md-footer__link md-footer__link--next" aria-label="Next: Documentation guidelines" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Task scheduling
+              Documentation guidelines
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -2815,10 +3211,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../../../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.f758a944.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.f758a944.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
