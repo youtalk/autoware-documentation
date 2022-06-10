@@ -2823,7 +2823,7 @@
 <h1 id="unit-testing">Unit testing<a class="headerlink" href="#unit-testing" title="Permanent link">#</a></h1>
 <p>Unit testing is the first phase of testing and is used to validate units of source code such as classes and functions.
 Typically, a unit of code is tested by validating its output for various inputs.
-Unit testing helps ensure that the code behaves as intended and prevents accidental change of behavior.</p>
+Unit testing helps ensure that the code behaves as intended and prevents accidental changes of behavior.</p>
 <p>Autoware uses the <code>ament_cmake</code> framework to build and run tests.
 The same framework is also used to analyze the test results.</p>
 <p><code>ament_cmake</code> provides several convenience functions to make it easy to register tests in a CMake-based package and to ensure that JUnit-compatible result files are generated.
@@ -2840,7 +2840,6 @@ All other tests follow a similar pattern.</p>
 <span class="w">  </span><span class="n">EXPECT_EQ</span><span class="p">(</span><span class="n">my_cool_pkg</span><span class="o">::</span><span class="n">print_hello</span><span class="p">(),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
-<p>For more examples of <code>gtest</code> features, see the <a href="https://github.com/google/googletest">gtest repo</a>.</p>
 <p>In <code>package.xml</code>, add the following line:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;test_depend&gt;</span>ament_cmake_ros<span class="nt">&lt;/test_depend&gt;</span>
 </code></pre></div>
@@ -2853,7 +2852,7 @@ All other tests follow a similar pattern.</p>
 <span class="nb">endif</span><span class="p">()</span>
 </code></pre></div>
 <p>This automatically links the test with the default main function provided by <code>gtest</code>.
-The code under test is usually in a different CMake target (<code>${PROJECT_NAME}</code> in the example) and its shared object for linking need to be added.</p>
+The code under test is usually in a different CMake target (<code>${PROJECT_NAME}</code> in the example) and its shared object for linking needs to be added.</p>
 <p>To register a new <code>gtest</code> item, wrap the test code with the macro <code>TEST ()</code>.
 <code>TEST ()</code> is a predefined macro that helps generate the final test code,
 and also registers a <code>gtest</code> item to be available for execution.
@@ -2861,8 +2860,11 @@ The test case name should be in CamelCase, since gtest inserts an underscore bet
 <p><code>gtest/gtest.h</code> also contains predefined macros of <code>gtest</code> like <code>ASSERT_TRUE(condition)</code>,
 <code>ASSERT_FALSE(condition)</code>, <code>ASSERT_EQ(val1,val2)</code>, <code>ASSERT_STREQ(str1,str2)</code>, <code>EXPECT_EQ()</code>, etc.
 <code>ASSERT_*</code> will abort the test if the condition is not satisfied,
-while <code>EXPECT_*</code> will mark the test as failed but continue to next test condition.
-More information about <code>gtest</code> can be found in the <a href="https://github.com/google/googletest">gtest repo</a>.</p>
+while <code>EXPECT_*</code> will mark the test as failed but continue on to the next test condition.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>More information about <code>gtest</code> and its features can be found in the <a href="https://github.com/google/googletest">gtest repo</a>.</p>
+</div>
 <p>In the demo <code>CMakeLists.txt</code>, <code>ament_add_ros_isolated_gtest</code> is a predefined macro in <code>ament_cmake_ros</code> that helps simplify adding <code>gtest</code> code.
 Details can be viewed in <a href="https://github.com/ros2/ament_cmake_ros/tree/master/ament_cmake_ros/cmake">ament_add_gtest.cmake</a>.</p>
 <h2 id="build-test">Build test<a class="headerlink" href="#build-test" title="Permanent link">#</a></h2>
