@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-140/contributing/coding-guidelines/languages/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-140/contributing/testing-guidelines/unit-testing/">
       
       <link rel="icon" href="../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.3">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.4">
     
     
       
-        <title>Language-specific coding guidelines - Autoware Documentation</title>
+        <title>Unit testing - Autoware Documentation</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#language-specific-coding-guidelines" class="md-skip">
+        <a href="#unit-testing" class="md-skip">
           Skip to content
         </a>
       
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Language-specific coding guidelines
+              Unit testing
             
           </span>
         </div>
@@ -1923,16 +1923,14 @@
               
   
   
-    
-  
   
     
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3" type="checkbox" id="__nav_6_3" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_3" type="checkbox" id="__nav_6_3" checked>
       
       
       
@@ -1950,7 +1948,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../">Coding guidelines</a>
+          <a href="../../coding-guidelines/">Coding guidelines</a>
           
             <label for="__nav_6_3">
               <span class="md-nav__icon md-icon"></span>
@@ -1971,23 +1969,15 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3_2" type="checkbox" id="__nav_6_3_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_3_2" type="checkbox" id="__nav_6_3_2" checked>
       
       
       
-        
-          
-            
-          
-        
-          
         
           
         
@@ -2007,25 +1997,17 @@
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index md-nav__link--active">
-          <a href="./">Language-specific coding guidelines</a>
-          
-            <label for="__nav_6_3_2">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_6_3_2">
+          Language-specific guidelines
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
-      <nav class="md-nav" aria-label="Language-specific coding guidelines" data-md-level="3">
+      <nav class="md-nav" aria-label="Language-specific guidelines" data-md-level="3">
         <label class="md-nav__title" for="__nav_6_3_2">
           <span class="md-nav__icon md-icon"></span>
-          Language-specific coding guidelines
+          Language-specific guidelines
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
-          
-            
           
             
               
@@ -2033,7 +2015,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cpp/" class="md-nav__link">
+      <a href="../../coding-guidelines/languages/cpp/" class="md-nav__link">
         C++
       </a>
     </li>
@@ -2047,7 +2029,7 @@
   
   
     <li class="md-nav__item">
-      <a href="python/" class="md-nav__link">
+      <a href="../../coding-guidelines/languages/python/" class="md-nav__link">
         Python
       </a>
     </li>
@@ -2061,7 +2043,7 @@
   
   
     <li class="md-nav__item">
-      <a href="shell-scripts/" class="md-nav__link">
+      <a href="../../coding-guidelines/languages/shell-scripts/" class="md-nav__link">
         Shell scripts
       </a>
     </li>
@@ -2075,7 +2057,7 @@
   
   
     <li class="md-nav__item">
-      <a href="markdown/" class="md-nav__link">
+      <a href="../../coding-guidelines/languages/markdown/" class="md-nav__link">
         Markdown
       </a>
     </li>
@@ -2089,7 +2071,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cmake/" class="md-nav__link">
+      <a href="../../coding-guidelines/languages/cmake/" class="md-nav__link">
         CMake
       </a>
     </li>
@@ -2103,7 +2085,7 @@
   
   
     <li class="md-nav__item">
-      <a href="package-xml/" class="md-nav__link">
+      <a href="../../coding-guidelines/languages/package-xml/" class="md-nav__link">
         package.xml
       </a>
     </li>
@@ -2117,21 +2099,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ros2-interfaces/" class="md-nav__link">
-        ROS 2 interfaces
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="docker/" class="md-nav__link">
+      <a href="../../coding-guidelines/languages/docker/" class="md-nav__link">
         Docker
       </a>
     </li>
@@ -2145,7 +2113,7 @@
   
   
     <li class="md-nav__item">
-      <a href="github-actions/" class="md-nav__link">
+      <a href="../../coding-guidelines/languages/github-actions/" class="md-nav__link">
         GitHub Actions
       </a>
     </li>
@@ -2175,10 +2143,6 @@
       
         
           
-            
-          
-        
-          
         
           
         
@@ -2200,25 +2164,17 @@
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../ros-nodes/">ROS nodes coding guidelines</a>
-          
-            <label for="__nav_6_3_3">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_6_3_3">
+          ROS nodes guidelines
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
-      <nav class="md-nav" aria-label="ROS nodes coding guidelines" data-md-level="3">
+      <nav class="md-nav" aria-label="ROS nodes guidelines" data-md-level="3">
         <label class="md-nav__title" for="__nav_6_3_3">
           <span class="md-nav__icon md-icon"></span>
-          ROS nodes coding guidelines
+          ROS nodes guidelines
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
-          
-            
           
             
               
@@ -2226,7 +2182,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ros-nodes/class-design/" class="md-nav__link">
+      <a href="../../coding-guidelines/ros-nodes/class-design/" class="md-nav__link">
         Class design
       </a>
     </li>
@@ -2240,7 +2196,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ros-nodes/console-logging/" class="md-nav__link">
+      <a href="../../coding-guidelines/ros-nodes/console-logging/" class="md-nav__link">
         Console logging
       </a>
     </li>
@@ -2254,7 +2210,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ros-nodes/coordinate-system/" class="md-nav__link">
+      <a href="../../coding-guidelines/ros-nodes/coordinate-system/" class="md-nav__link">
         Coordinate system
       </a>
     </li>
@@ -2268,7 +2224,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ros-nodes/directory-structure/" class="md-nav__link">
+      <a href="../../coding-guidelines/ros-nodes/directory-structure/" class="md-nav__link">
         Directory structure
       </a>
     </li>
@@ -2282,7 +2238,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ros-nodes/launch-files/" class="md-nav__link">
+      <a href="../../coding-guidelines/ros-nodes/launch-files/" class="md-nav__link">
         Launch files
       </a>
     </li>
@@ -2296,7 +2252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ros-nodes/message-guidelines/" class="md-nav__link">
+      <a href="../../coding-guidelines/ros-nodes/message-guidelines/" class="md-nav__link">
         Message guidelines
       </a>
     </li>
@@ -2310,7 +2266,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ros-nodes/naming/" class="md-nav__link">
+      <a href="../../coding-guidelines/ros-nodes/naming/" class="md-nav__link">
         Topic namespaces
       </a>
     </li>
@@ -2324,7 +2280,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ros-nodes/parameters/" class="md-nav__link">
+      <a href="../../coding-guidelines/ros-nodes/parameters/" class="md-nav__link">
         Parameters
       </a>
     </li>
@@ -2338,7 +2294,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ros-nodes/task-scheduling/" class="md-nav__link">
+      <a href="../../coding-guidelines/ros-nodes/task-scheduling/" class="md-nav__link">
         Task scheduling
       </a>
     </li>
@@ -2352,7 +2308,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ros-nodes/topic-namespaces/" class="md-nav__link">
+      <a href="../../coding-guidelines/ros-nodes/topic-namespaces/" class="md-nav__link">
         Topic namespaces
       </a>
     </li>
@@ -2378,14 +2334,16 @@
               
   
   
+    
+  
   
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_4" type="checkbox" id="__nav_6_4" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_4" type="checkbox" id="__nav_6_4" checked>
       
       
       
@@ -2394,12 +2352,20 @@
             
           
         
+          
+        
+          
+        
       
       
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../testing-guidelines/">Testing guidelines</a>
+          <a href="../">Testing guidelines</a>
+          
+            <label for="__nav_6_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
           
         </div>
       
@@ -2410,6 +2376,96 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Unit testing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Unit testing
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-unit-test-with-gtest" class="md-nav__link">
+    Create a unit test with gtest
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-test" class="md-nav__link">
+    Build test
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-test" class="md-nav__link">
+    Run test
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-coverage" class="md-nav__link">
+    Code coverage
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../integration-testing/" class="md-nav__link">
+        Integration testing
+      </a>
+    </li>
+  
+
             
           
         </ul>
@@ -2728,6 +2784,42 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-unit-test-with-gtest" class="md-nav__link">
+    Create a unit test with gtest
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-test" class="md-nav__link">
+    Build test
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-test" class="md-nav__link">
+    Run test
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-coverage" class="md-nav__link">
+    Code coverage
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2738,17 +2830,138 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/autowarefoundation/autoware-documentation/edit/main/docs/contributing/coding-guidelines/languages/index.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/autowarefoundation/autoware-documentation/edit/main/docs/contributing/testing-guidelines/unit-testing.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="language-specific-coding-guidelines">Language-specific coding guidelines<a class="headerlink" href="#language-specific-coding-guidelines" title="Permanent link">#</a></h1>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Under Construction</p>
+<h1 id="unit-testing">Unit testing<a class="headerlink" href="#unit-testing" title="Permanent link">#</a></h1>
+<p>Unit testing is the first phase of testing and is used to validate units of source code such as classes and functions.
+Typically, a unit of code is tested by validating its output for various inputs.
+Unit testing helps ensure that the code behaves as intended and prevents accidental changes of behavior.</p>
+<p>Autoware uses the <code>ament_cmake</code> framework to build and run tests.
+The same framework is also used to analyze the test results.</p>
+<p><code>ament_cmake</code> provides several convenience functions to make it easy to register tests in a CMake-based package and to ensure that JUnit-compatible result files are generated.
+It currently supports a few different testing frameworks like <code>pytest</code>, <code>gtest</code>, and <code>gmock</code>.</p>
+<p>In order to prevent tests running in parallel from interfering with each other when publishing and subscribing to ROS topics,
+it is recommended to use commands from <a href="https://github.com/ros2/ament_cmake_ros/tree/master/ament_cmake_ros/cmake"><code>ament_cmake_ros</code></a> to run tests in isolation.</p>
+<p>See below for an example of using <code>ament_add_ros_isolated_gtest</code> with <code>colcon test</code>.
+All other tests follow a similar pattern.</p>
+<h2 id="create-a-unit-test-with-gtest">Create a unit test with gtest<a class="headerlink" href="#create-a-unit-test-with-gtest" title="Permanent link">#</a></h2>
+<p>In <code>my_cool_pkg/test</code>, create the <code>gtest</code> code file <code>test_my_cool_pkg.cpp</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;gtest/gtest.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;my_cool_pkg/my_cool_pkg.hpp&quot;</span><span class="cp"></span>
+<span class="n">TEST</span><span class="p">(</span><span class="n">TestMyCoolPkg</span><span class="p">,</span><span class="w"> </span><span class="n">TestHello</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">EXPECT_EQ</span><span class="p">(</span><span class="n">my_cool_pkg</span><span class="o">::</span><span class="n">print_hello</span><span class="p">(),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>In <code>package.xml</code>, add the following line:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;test_depend&gt;</span>ament_cmake_ros<span class="nt">&lt;/test_depend&gt;</span>
+</code></pre></div>
+<p>Next add an entry under <code>BUILD_TESTING</code> in the <code>CMakeLists.txt</code> to compile the test source files:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">if</span><span class="p">(</span><span class="s">BUILD_TESTING</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nb">ament_add_ros_isolated_gtest</span><span class="p">(</span><span class="s">test_my_cool_pkg</span><span class="w"> </span><span class="s">test/test_my_cool_pkg.cpp</span><span class="p">)</span>
+<span class="w">  </span><span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">test_my_cool_pkg</span><span class="w"> </span><span class="o">${</span><span class="nv">PROJECT_NAME</span><span class="o">}</span><span class="p">)</span>
+<span class="err">...</span>
+<span class="nb">endif</span><span class="p">()</span>
+</code></pre></div>
+<p>This automatically links the test with the default main function provided by <code>gtest</code>.
+The code under test is usually in a different CMake target (<code>${PROJECT_NAME}</code> in the example) and its shared object for linking needs to be added.</p>
+<p>To register a new <code>gtest</code> item, wrap the test code with the macro <code>TEST ()</code>.
+<code>TEST ()</code> is a predefined macro that helps generate the final test code,
+and also registers a <code>gtest</code> item to be available for execution.
+The test case name should be in CamelCase, since gtest inserts an underscore between the fixture name and the class case name when creating the test executable.</p>
+<p><code>gtest/gtest.h</code> also contains predefined macros of <code>gtest</code> like <code>ASSERT_TRUE(condition)</code>,
+<code>ASSERT_FALSE(condition)</code>, <code>ASSERT_EQ(val1,val2)</code>, <code>ASSERT_STREQ(str1,str2)</code>, <code>EXPECT_EQ()</code>, etc.
+<code>ASSERT_*</code> will abort the test if the condition is not satisfied,
+while <code>EXPECT_*</code> will mark the test as failed but continue on to the next test condition.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>More information about <code>gtest</code> and its features can be found in the <a href="https://github.com/google/googletest">gtest repo</a>.</p>
 </div>
+<p>In the demo <code>CMakeLists.txt</code>, <code>ament_add_ros_isolated_gtest</code> is a predefined macro in <code>ament_cmake_ros</code> that helps simplify adding <code>gtest</code> code.
+Details can be viewed in <a href="https://github.com/ros2/ament_cmake_ros/tree/master/ament_cmake_ros/cmake">ament_add_gtest.cmake</a>.</p>
+<h2 id="build-test">Build test<a class="headerlink" href="#build-test" title="Permanent link">#</a></h2>
+<!-- cspell:ignore Testfile -->
+
+<p>By default, all necessary test files (<code>ELF</code>, <code>CTestTestfile.cmake</code>, etc.) are compiled by <code>colcon</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="go">cd ~/workspace/</span>
+<span class="go">colcon build --packages-select my_cool_pkg</span>
+</code></pre></div>
+<p>Test files are generated under <code>~/workspace/build/my_cool_pkg</code>.</p>
+<h2 id="run-test">Run test<a class="headerlink" href="#run-test" title="Permanent link">#</a></h2>
+<p>To run all tests for a specific package, call:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>colcon <span class="nb">test</span> --packages-select my_cool_pkg
+
+<span class="go">Starting &gt;&gt;&gt; my_cool_pkg</span>
+<span class="go">Finished &lt;&lt;&lt; my_cool_pkg [7.80s]</span>
+
+<span class="go">Summary: 1 package finished [9.27s]</span>
+</code></pre></div>
+<p>The test command output contains a brief report of all the test results.</p>
+<p>To get job-wise information of all executed tests, call:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>colcon test-result --all
+
+<span class="go">build/my_cool_pkg/test_results/my_cool_pkg/copyright.xunit.xml: 8 tests, 0 errors, 0 failures, 0 skipped</span>
+<span class="go">build/my_cool_pkg/test_results/my_cool_pkg/cppcheck.xunit.xml: 6 tests, 0 errors, 0 failures, 0 skipped</span>
+<span class="go">build/my_cool_pkg/test_results/my_cool_pkg/lint_cmake.xunit.xml: 1 test, 0 errors, 0 failures, 0 skipped</span>
+<span class="go">build/my_cool_pkg/test_results/my_cool_pkg/my_cool_pkg_exe_integration_test.xunit.xml: 1 test, 0 errors, 0 failures, 0 skipped</span>
+<span class="go">build/my_cool_pkg/test_results/my_cool_pkg/test_my_cool_pkg.gtest.xml: 1 test, 0 errors, 0 failures, 0 skipped</span>
+<span class="go">build/my_cool_pkg/test_results/my_cool_pkg/xmllint.xunit.xml: 1 test, 0 errors, 0 failures, 0 skipped</span>
+
+<span class="go">Summary: 18 tests, 0 errors, 0 failures, 0 skipped</span>
+</code></pre></div>
+<p>Look in the <code>~/workspace/log/test_&lt;date&gt;/&lt;package_name&gt;</code> directory for all the raw test commands, <code>std_out</code>, and <code>std_err</code>.
+There is also the <code>~/workspace/log/latest_*/</code> directory containing symbolic links to the most recent package-level build and test output.</p>
+<p>To print the tests' details while the tests are being run, use the <code>--event-handlers console_cohesion+</code> option to print the details directly to the console:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>colcon <span class="nb">test</span> --event-handlers console_cohesion+ --packages-select my_cool_pkg
+
+<span class="go">...</span>
+<span class="go">test 1</span>
+<span class="go">    Start 1: test_my_cool_pkg</span>
+
+<span class="go">1: Test command: /usr/bin/python3 &quot;-u&quot; &quot;~/workspace/install/share/ament_cmake_test/cmake/run_test.py&quot; &quot;~/workspace/build/my_cool_pkg/test_results/my_cool_pkg/test_my_cool_pkg.gtest.xml&quot; &quot;--package-name&quot; &quot;my_cool_pkg&quot; &quot;--output-file&quot; &quot;~/workspace/build/my_cool_pkg/ament_cmake_gtest/test_my_cool_pkg.txt&quot; &quot;--command&quot; &quot;~/workspace/build/my_cool_pkg/test_my_cool_pkg&quot; &quot;--gtest_output=xml:~/workspace/build/my_cool_pkg/test_results/my_cool_pkg/test_my_cool_pkg.gtest.xml&quot;</span>
+<span class="go">1: Test timeout computed to be: 60</span>
+<span class="go">1: -- run_test.py: invoking following command in &#39;~/workspace/src/my_cool_pkg&#39;:</span>
+<span class="go">1:  - ~/workspace/build/my_cool_pkg/test_my_cool_pkg --gtest_output=xml:~/workspace/build/my_cool_pkg/test_results/my_cool_pkg/test_my_cool_pkg.gtest.xml</span>
+<span class="go">1: [==========] Running 1 test from 1 test case.</span>
+<span class="go">1: [----------] Global test environment set-up.</span>
+<span class="go">1: [----------] 1 test from test_my_cool_pkg</span>
+<span class="go">1: [ RUN      ] test_my_cool_pkg.test_hello</span>
+<span class="go">1: Hello World</span>
+<span class="go">1: [       OK ] test_my_cool_pkg.test_hello (0 ms)</span>
+<span class="go">1: [----------] 1 test from test_my_cool_pkg (0 ms total)</span>
+<span class="go">1:</span>
+<span class="go">1: [----------] Global test environment tear-down</span>
+<span class="go">1: [==========] 1 test from 1 test case ran. (0 ms total)</span>
+<span class="go">1: [  PASSED  ] 1 test.</span>
+<span class="go">1: -- run_test.py: return code 0</span>
+<span class="go">1: -- run_test.py: inject classname prefix into gtest result file &#39;~/workspace/build/my_cool_pkg/test_results/my_cool_pkg/test_my_cool_pkg.gtest.xml&#39;</span>
+<span class="go">1: -- run_test.py: verify result file &#39;~/workspace/build/my_cool_pkg/test_results/my_cool_pkg/test_my_cool_pkg.gtest.xml&#39;</span>
+<span class="go">1/5 Test #1: test_my_cool_pkg ...................   Passed    0.09 sec</span>
+
+<span class="go">...</span>
+
+<span class="go">100% tests passed, 0 tests failed out of 5</span>
+
+<span class="go">Label Time Summary:</span>
+<span class="go">copyright     =   0.49 sec*proc (1 test)</span>
+<span class="go">cppcheck      =   0.20 sec*proc (1 test)</span>
+<span class="go">gtest         =   0.05 sec*proc (1 test)</span>
+<span class="go">lint_cmake    =   0.18 sec*proc (1 test)</span>
+<span class="go">linter        =   1.34 sec*proc (4 tests)</span>
+<span class="go">xmllint       =   0.47 sec*proc (1 test)</span>
+
+<span class="go">Total Test time (real) =   7.91 sec</span>
+<span class="go">...</span>
+</code></pre></div>
+<h2 id="code-coverage">Code coverage<a class="headerlink" href="#code-coverage" title="Permanent link">#</a></h2>
+<p>Loosely described,
+a code coverage metric is a measure of how much of the program code has been exercised (covered) during testing.</p>
+<p>In the Autoware repositories, <a href="https://app.codecov.io/gh/autowarefoundation/autoware.universe/">Codecov</a> is used to automatically calculate coverage of any open pull request.</p>
+<p>More details about the code coverage metrics can be found in the <a href="https://docs.codecov.com/docs/about-code-coverage">Codecov documentation</a>.</p>
 
               
             </article>
@@ -2769,7 +2982,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Coding guidelines" rel="prev">
+        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Testing guidelines" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -2778,20 +2991,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Coding guidelines
+              Testing guidelines
             </div>
           </div>
         </a>
       
       
         
-        <a href="cpp/" class="md-footer__link md-footer__link--next" aria-label="Next: C++" rel="next">
+        <a href="../integration-testing/" class="md-footer__link md-footer__link--next" aria-label="Next: Integration testing" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              C++
+              Integration testing
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -2825,7 +3038,7 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.f758a944.min.js"></script>
