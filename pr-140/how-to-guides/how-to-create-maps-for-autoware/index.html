@@ -15,7 +15,7 @@
     
     
       
-        <title>Map data for Autoware - Autoware Documentation</title>
+        <title>How to create maps for Autoware - Autoware Documentation</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#map-data-for-autoware" class="md-skip">
+        <a href="#how-to-create-maps-for-autoware" class="md-skip">
           Skip to content
         </a>
       
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Map data for Autoware
+              How to create maps for Autoware
             
           </span>
         </div>
@@ -1013,12 +1013,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Map data for Autoware
+          How to create maps for Autoware
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Map data for Autoware
+        How to create maps for Autoware
       </a>
       
         
@@ -1037,29 +1037,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#creating-hd-maps" class="md-nav__link">
-    Creating HD maps
-  </a>
-  
-    <nav class="md-nav" aria-label="Creating HD maps">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#point-cloud-map" class="md-nav__link">
-    Point cloud map
+  <a href="#creating-a-point-cloud-map" class="md-nav__link">
+    Creating a point cloud map
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#vector-map-road-network-map" class="md-nav__link">
-    Vector map (Road network map)
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-vector-map" class="md-nav__link">
+    Creating a vector map
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2795,29 +2782,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#creating-hd-maps" class="md-nav__link">
-    Creating HD maps
-  </a>
-  
-    <nav class="md-nav" aria-label="Creating HD maps">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#point-cloud-map" class="md-nav__link">
-    Point cloud map
+  <a href="#creating-a-point-cloud-map" class="md-nav__link">
+    Creating a point cloud map
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#vector-map-road-network-map" class="md-nav__link">
-    Vector map (Road network map)
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-vector-map" class="md-nav__link">
+    Creating a vector map
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2846,28 +2820,29 @@
 
 
 
-<h1 id="map-data-for-autoware">Map data for Autoware<a class="headerlink" href="#map-data-for-autoware" title="Permanent link">#</a></h1>
-<p>Autoware relies on high-definition maps (HD maps), including both point cloud and vector maps, to perform various tasks such as localization, route planning, traffic light detection, and other traffic participants' trajectory prediction. In order to use these functionalities in Autoware, compatible HD maps of the driving environment need to be created.</p>
-<h2 id="creating-hd-maps">Creating HD maps<a class="headerlink" href="#creating-hd-maps" title="Permanent link">#</a></h2>
-<p>You can use various software, both open-source and proprietary, to create point cloud and vector maps. However, you need to ensure that the output maps are compatible with Autoware. Specifications of point cloud and vector maps that Autoware requires are given below, along with examples of software you can use to create them.</p>
-<h3 id="point-cloud-map">Point cloud map<a class="headerlink" href="#point-cloud-map" title="Permanent link">#</a></h3>
-<p>A 3D point cloud map is primarily used for LiDAR-based localization in Autoware. In order to determine the current position and orientation of the vehicle, a live scan captured from LiDAR unit(s) is matched against a pre-generated 3D point cloud map. Therefore, an accurate point cloud map is crucial for good localization results. Specifications of an Autoware-compatible point cloud map are as follows:</p>
+<h1 id="how-to-create-maps-for-autoware">How to create maps for Autoware<a class="headerlink" href="#how-to-create-maps-for-autoware" title="Permanent link">#</a></h1>
+<p>Autoware relies on high-definition maps (HD maps), both point cloud maps and vector maps, to perform various tasks such as localization, route planning, traffic light detection, and predicting the trajectories of other vehicles and pedestrians. In order to use these functionalities in Autoware, compatible HD maps of the driving environment need to be created.
+To create point cloud and vector maps you can use various software, both open-source and proprietary. However, you need to ensure that the created maps are compatible with Autoware. Specifications of point cloud and vector maps that Autoware requires are given below, along with examples of software you can use to create them.</p>
+<h3 id="creating-a-point-cloud-map">Creating a point cloud map<a class="headerlink" href="#creating-a-point-cloud-map" title="Permanent link">#</a></h3>
+<p>A 3D point cloud map is primarily used for LiDAR-based localization in Autoware. In order to determine the current position and orientation of the vehicle, a live scan captured from one or more LiDAR units is matched against a pre-generated 3D point cloud map. Therefore, an accurate point cloud map is crucial for good localization results. </p>
+<p>The specifications of an Autoware-compatible point cloud map are as follows:</p>
 <ul>
 <li>A map must cover the entire operational area of the vehicle and should include an additional buffer zone of at least 200 m in all directions.</li>
 <li>A map is saved using <a href="https://pointclouds.org/documentation/tutorials/pcd_file_format.html">PCD (Point Cloud Data) file format</a>.</li>
 <li>A map can be saved as a single PCD file or divided into multiple PCD files.</li>
 <li>Each point in a map must contain X, Y, and Z coordinates.</li>
 <li>An intensity or RGB value of each point can be included in the PCD file but is optional.</li>
-<li>A map must be smaller than 1 GB as it is limited by ROS message size.</li>
+<li>A map must be smaller than 1 GB, <a href="https://github.com/ros/ros_comm/issues/902">as per the current ROS message size limit</a>. </li>
 <li>A map resolution should be at least 0.2 m to yield reliable localization results.</li>
-<li>Although a map can generally be in either local or global coordinates, it must be in global coordinates (georeferenced) if you want to use GNSS data for localization.</li>
+<li>A map can be in either local or global coordinates, but must be in global coordinates (georeferenced) to use GNSS data for localization.</li>
 <li><a href="https://en.wikipedia.org/wiki/Military_Grid_Reference_System">Military Grid Reference System (MGRS)</a> is used as a coordinate system for a georeferenced map. In a georeferenced map, the X and Y coordinates of each point represent the point's location within a 100 km MGRS grid, while the Z coordinate represents the point's elevation.</li>
 </ul>
 <p>Traditionally, a Mobile Mapping System (MMS) is used in order to create highly accurate large-scale point cloud maps. However, since a MMS requires high-end sensors for precise positioning, its operational cost can be very expensive and may not be suitable for a relatively small driving environment. Alternatively, a Simultaneous Localization And Mapping (SLAM) algorithm can be used to create a point cloud map from recorded LiDAR scans. Commonly used open-source SLAM implementations include <a href="https://github.com/koide3/hdl_graph_slam">hdl-graph-slam</a> (LiDAR, IMU*, GNSS*), <a href="https://github.com/facontidavide/LeGO-LOAM-BOR">LeGO-LOAM</a> (LiDAR, IMU*), <a href="https://github.com/RobustFieldAutonomyLab/LeGO-LOAM">LeGO-LOAM-BOR</a> (LiDAR), <a href="https://github.com/TixiaoShan/LIO-SAM">LIO-SAM</a> (LiDAR, IMU, GNSS), and <a href="https://github.com/rsasaki0109/lidarslam_ros2">lidarslam-ros2</a> (LiDAR, IMU*). The required sensor data for each algorithm is specified in the parentheses, where an asterisk (*) indicates that such sensor data is optional. Most of these algorithms already have a built-in loop-closure and pose graph optimization. However, if the built-in, automatic loop-closure fails or does not work correctly, you can use <a href="https://github.com/SMRT-AIST/interactive_slam">Interactive SLAM</a> to adjust and optimize a pose graph manually. For supported LiDAR models, please check the Github repository of each algorithm.</p>
 <p>It is important to note that apart from <a href="https://github.com/rsasaki0109/lidarslam_ros2">lidarslam-ros2</a>, these open-source SLAM implementations are based on ROS 1. Therefore, it could be problematic if you want to install them on the same machine that runs Autoware, which is based on ROS 2. To avoid this problem, you can use Docker or install them on a different machine. Another problem is the ROSBAG version, as many of these SLAM implementations require ROSBAG 1 instead of ROSBAG 2 used by Autoware. For the ROSBAG version problem, you may use this <a href="https://gitlab.com/MapIV/rosbags">stand-alone converter</a> to convert a ROSBAG 2 file to a ROSBAG 1 file and vice versa.</p>
 <p>If you prefer proprietary software that is easy to use, you can try a fully automatic mapping tool from <a href="https://www.map4.jp/">MAP IV, Inc.</a>, <a href="https://www.map4.jp/map4_engine_en/"><em>MapIV Engine</em></a>. They currently provide a trial license for Autoware users free of charge.</p>
-<h3 id="vector-map-road-network-map">Vector map (Road network map)<a class="headerlink" href="#vector-map-road-network-map" title="Permanent link">#</a></h3>
-<p>Another type of map used in Autoware is a vector map. A vector map or road network map is required for route planning, traffic light detection, and other traffic participants' trajectory prediction. Specifications of an Autoware-compatible road network map are as follows:</p>
+<h3 id="creating-a-vector-map">Creating a vector map<a class="headerlink" href="#creating-a-vector-map" title="Permanent link">#</a></h3>
+<p>A vector map is required for route planning, traffic light detection, and predicting the trajectories of other vehicles and pedestrians. </p>
+<p>The specifications of an Autoware-compatible vector map are as follows:</p>
 <ul>
 <li>A map must cover the entire operational area of the vehicle and should include an additional buffer zone of at least 200 m in all directions.</li>
 <li>A map is in <a href="https://github.com/fzi-forschungszentrum-informatik/Lanelet2">Lanelet2</a> format with<a href="https://github.com/autowarefoundation/autoware.universe/blob/main/map/lanelet2_extension/docs/lanelet2_format_extension.md">additional modifications</a>.</li>
@@ -2878,7 +2853,7 @@
 <p>Technically, you can use open-source software such as <a href="https://josm.openstreetmap.de/">JOSM</a> to create Lanelet2 primitives, including point and linestring, and save the map as an OSM file. However, various modifications, e.g., adding mandatory tags and relations, must be done manually to make the map compatible with Autoware. This process can be very tedious and time-consuming. Another open-source option worth mentioning is <a href="https://github.com/autocore-ai/MapToolbox">MapToolbox</a>, a plugin for <a href="https://unity.com/">Unity</a> designed to create a Lanelet2 map for Autoware.</p>
 <p>However, the easiest way to create a complete road network map that is compatible with Autoware is to use <a href="https://tools.tier4.jp/vector_map_builder/">Vector Map Builder</a>, a web-based tool provided by <a href="https://www.tier4.jp/">TIER IV, Inc.</a> Vector Map Builder allows you to directly create lanes and add additional regulatory elements such as stop signs or traffic lights in the correct format required by Autoware while using a point cloud map as a reference.</p>
 <h2 id="autoware-compatible-map-providers">Autoware-compatible map providers<a class="headerlink" href="#autoware-compatible-map-providers" title="Permanent link">#</a></h2>
-<p>Apart from creating HD maps yourself, you can also use a mapping service from the following Autoware-compatible map providers:</p>
+<p>If it is not possible to create HD maps yourself, you can use a mapping service from the following Autoware-compatible map providers instead:</p>
 <ul>
 <li><a href="https://www.map4.jp/">MAP IV, Inc.</a></li>
 <li><a href="https://www.aisantec.co.jp/">AISAN TECHNOLOGY CO., LTD.</a></li>
