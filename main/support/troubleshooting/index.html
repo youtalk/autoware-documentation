@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/main/support/troubleshooting/">
       
       <link rel="icon" href="../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.3">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.4">
     
     
       
@@ -2751,16 +2751,23 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#runtime-errors" class="md-nav__link">
-    Runtime errors
+  <a href="#runtime-issues" class="md-nav__link">
+    Runtime issues
   </a>
   
-    <nav class="md-nav" aria-label="Runtime errors">
+    <nav class="md-nav" aria-label="Runtime issues">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#map-does-not-display-when-running-the-planning-simulator" class="md-nav__link">
     Map does not display when running the Planning Simulator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multicast-is-disabled" class="md-nav__link">
+    Multicast is disabled
   </a>
   
 </li>
@@ -2887,16 +2894,23 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#runtime-errors" class="md-nav__link">
-    Runtime errors
+  <a href="#runtime-issues" class="md-nav__link">
+    Runtime issues
   </a>
   
-    <nav class="md-nav" aria-label="Runtime errors">
+    <nav class="md-nav" aria-label="Runtime issues">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#map-does-not-display-when-running-the-planning-simulator" class="md-nav__link">
     Map does not display when running the Planning Simulator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multicast-is-disabled" class="md-nav__link">
+    Multicast is disabled
   </a>
   
 </li>
@@ -3042,7 +3056,7 @@ docker run --rm -it ubuntu:latest
 <p>Next, confirm that you are able to access the base Autoware image that is stored on the GitHub Packages website</p>
 <div class="highlight"><pre><span></span><code>docker run --rm -it ghcr.io/autowarefoundation/autoware-universe:latest
 </code></pre></div>
-<h2 id="runtime-errors">Runtime errors<a class="headerlink" href="#runtime-errors" title="Permanent link">#</a></h2>
+<h2 id="runtime-issues">Runtime issues<a class="headerlink" href="#runtime-issues" title="Permanent link">#</a></h2>
 <h3 id="map-does-not-display-when-running-the-planning-simulator">Map does not display when running the Planning Simulator<a class="headerlink" href="#map-does-not-display-when-running-the-planning-simulator" title="Permanent link">#</a></h3>
 <p>When running the Planning Simulator, the most common reason for the map not being displayed in RViz is because <a href="https://autowarefoundation.github.io/autoware-documentation/main/tutorials/ad-hoc-simulation/planning-simulation/#how-to-run-a-planning-simulation">the map path has not been specified correctly in the launch command</a>. You can confirm if this is the case by searching for <code>Could not find lanelet map under {path-to-map-dir}/lanelet2_map.osm</code> errors in the log.</p>
 <p>Another possible reason is that map loading is taking a long time due to poor DDS performance. To address this issue, first enable localhost-only communication to reduce network traffic, and then <a href="https://docs.ros.org/en/rolling/How-To-Guides/DDS-tuning.html">tune DDS settings</a> if the problem continues to occur.</p>
@@ -3062,6 +3076,10 @@ net.core.rmem_default<span class="o">=</span><span class="m">8388608</span> // o
 <div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="nv">$RMW_IMPLEMENTATION</span>  // <span class="k">if</span> Cyclone DDS is configured, this <span class="nb">command</span> will <span class="k">return</span> <span class="s2">&quot;rmw_cyclonedds_cpp&quot;</span>
 </code></pre></div>
 </div>
+<h3 id="multicast-is-disabled">Multicast is disabled<a class="headerlink" href="#multicast-is-disabled" title="Permanent link">#</a></h3>
+<p>If you get the error message <code>selected interface "{your-interface-name}" is not multicast-capable: disabling multicast</code>, run the following command to allow multicast.</p>
+<div class="highlight"><pre><span></span><code>sudo ip link <span class="nb">set</span> multicast on <span class="o">{</span>your-interface-name<span class="o">}</span>
+</code></pre></div>
 
               
             </article>
@@ -3138,7 +3156,7 @@ net.core.rmem_default<span class="o">=</span><span class="m">8388608</span> // o
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.f758a944.min.js"></script>
