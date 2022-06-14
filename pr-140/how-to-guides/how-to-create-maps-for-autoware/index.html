@@ -2821,8 +2821,8 @@
 
 
 <h1 id="how-to-create-maps-for-autoware">How to create maps for Autoware<a class="headerlink" href="#how-to-create-maps-for-autoware" title="Permanent link">#</a></h1>
-<p>Autoware relies on high-definition maps (HD maps), both point cloud maps and vector maps, to perform various tasks such as localization, route planning, traffic light detection, and predicting the trajectories of other vehicles and pedestrians. In order to use these functionalities in Autoware, compatible HD maps of the driving environment need to be created.
-To create point cloud and vector maps you can use various software, both open-source and proprietary. However, you need to ensure that the created maps are compatible with Autoware. Specifications of point cloud and vector maps that Autoware requires are given below, along with examples of software you can use to create them.</p>
+<p>Autoware relies on high-definition point cloud maps and vector maps of the driving environment to perform various tasks such as localization, route planning, traffic light detection, and predicting the trajectories of pedestrians and other vehicles.</p>
+<p>The specifications for point cloud and vector maps required by Autoware are given below, along with examples of both open-source and proprietary software that you can use to create them.</p>
 <h3 id="creating-a-point-cloud-map">Creating a point cloud map<a class="headerlink" href="#creating-a-point-cloud-map" title="Permanent link">#</a></h3>
 <p>A 3D point cloud map is primarily used for LiDAR-based localization in Autoware. In order to determine the current position and orientation of the vehicle, a live scan captured from one or more LiDAR units is matched against a pre-generated 3D point cloud map. Therefore, an accurate point cloud map is crucial for good localization results.</p>
 <p>The specifications of an Autoware-compatible point cloud map are as follows:</p>
@@ -2844,7 +2844,7 @@ Most of these algorithms already have a built-in loop-closure and pose graph opt
 <p>Since Autoware is based on ROS 2, it could be problematic if you want to install them on the same machine that runs Autoware. To avoid this problem, you can use <a href="https://www.docker.com/">Docker</a> or install them on a different machine. Another problem is the ROSBAG version, as many of these SLAM implementations require ROSBAG 1 instead of ROSBAG 2 used by Autoware. For the ROSBAG version problem, you may use this <a href="https://gitlab.com/MapIV/rosbags">stand-alone converter</a> to convert a ROSBAG 2 file to a ROSBAG 1 file and vice versa.</p>
 <p>If you prefer proprietary software that is easy to use, you can try a fully automatic mapping tool from <a href="https://www.map4.jp/">MAP IV, Inc.</a>, <a href="https://www.map4.jp/map4_engine_en"><em>MapIV Engine</em></a>. They currently provide a trial license for Autoware users free of charge.</p>
 <h3 id="creating-a-vector-map">Creating a vector map<a class="headerlink" href="#creating-a-vector-map" title="Permanent link">#</a></h3>
-<p>A vector map is required for route planning, traffic light detection, and predicting the trajectories of other vehicles and pedestrians.</p>
+<p>A vector map contains highly accurate information about a road network, lane geometry, and traffic lights. It is required for route planning, traffic light detection, and predicting the trajectories of other vehicles and pedestrians.</p>
 <p>The specifications of an Autoware-compatible vector map are as follows:</p>
 <ul>
 <li>A map must cover the entire operational area of the vehicle and should include an additional buffer zone of at least 200 m in all directions.</li>
