@@ -2928,11 +2928,11 @@ Most of these algorithms already have a built-in loop-closure and pose graph opt
 <p>A vector map contains highly accurate information about a road network, lane geometry, and traffic lights. It is required for route planning, traffic light detection, and predicting the trajectories of other vehicles and pedestrians.</p>
 <h3 id="vector-map-specifications">Vector map specifications<a class="headerlink" href="#vector-map-specifications" title="Permanent link">#</a></h3>
 <ul>
-<li>A map must cover the entire operational area of the vehicle and should include an additional buffer zone of at least 200 m in all directions.</li>
-<li>A map is in <a href="https://github.com/fzi-forschungszentrum-informatik/Lanelet2">Lanelet2</a> format with<a href="https://github.com/autowarefoundation/autoware.universe/blob/main/map/lanelet2_extension/docs/lanelet2_format_extension.md">additional modifications</a>.</li>
-<li>A map must contain the shape and position information of lanes, traffic lights, stop lines, crosswalks, parking spaces, and parking lots.</li>
-<li>Each lanelet must contain information regarding its right of way, speed limit, traffic direction, and associated traffic lights, stop lines, and traffic signs.</li>
-<li>Unless it is the end/beginning of a road, each lanelet must be correctly connected to its predecessor, successors, left neighbor, and right neighbor for routing planning to be working.</li>
+<li>It must cover the entire operational area of the vehicle and should include an additional buffer zone of at least 200 m in all directions.</li>
+<li>It must be in <a href="https://github.com/fzi-forschungszentrum-informatik/Lanelet2">Lanelet2</a> format, with <a href="https://github.com/autowarefoundation/autoware.universe/blob/main/map/lanelet2_extension/docs/lanelet2_format_extension.md">additional modifications required by Autoware</a>.</li>
+<li>It must contain the shape and position information of lanes, traffic lights, stop lines, crosswalks, parking spaces, and parking lots.</li>
+<li>Each lanelet in the map must contain information regarding its right of way, speed limit, traffic direction, associated traffic lights, stop lines, and traffic signs.</li>
+<li>Except at the beginning or end of a road, each lanelet in the map must be correctly connected to its predecessor, successors, left neighbor, and right neighbor.</li>
 </ul>
 <h3 id="creating-a-vector-map">Creating a vector map<a class="headerlink" href="#creating-a-vector-map" title="Permanent link">#</a></h3>
 <p>The easiest way to create a vector map that is compatible with Autoware is to use <a href="https://tools.tier4.jp/vector_map_builder/">Vector Map Builder</a>, a web-based tool provided by <a href="https://www.tier4.jp/">TIER IV, Inc.</a> Vector Map Builder allows you to directly create lanes and add additional regulatory elements such as stop signs or traffic lights in the correct format required by Autoware while using a point cloud map as a reference.</p>
