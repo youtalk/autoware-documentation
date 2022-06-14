@@ -2886,7 +2886,12 @@ To create point cloud and vector maps you can use various software, both open-so
 </tr>
 </tbody>
 </table>
-<p>*TomTom provides a road network map in their AutoStream format, not Lanelet2. However, you can use this open-source <a href="https://github.com/tomtom-international/AutoStreamForAutoware">converter</a> to convert it to a suitable format for Autoware. Note that the converter is still in a very early stage and may not be able to convert all available information to Lanelet2 format.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Maps provided by TomTom use their proprietary AutoStream format, not Lanelet2. 
+The open-source <a href="https://github.com/tomtom-international/AutoStreamForAutoware">AutostreamForAutoware tool</a> can be used to convert an AutoStream map to a Lanelet2 map. 
+However, the converter is still in its early stages and has some <a href="https://github.com/tomtom-international/AutoStreamForAutoware/blob/main/docs/known-issues.md">known limitations</a>.</p>
+</div>
 
               
             </article>
