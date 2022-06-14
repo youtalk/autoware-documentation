@@ -11,11 +11,11 @@
         <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-115/design/autoware-interfaces/ad-api/features/driving/">
       
       <link rel="icon" href="../../../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.3">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.4">
     
     
       
-        <title>Driving feature - Autoware Documentation</title>
+        <title>Driving API - Autoware Documentation</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#driving-feature" class="md-skip">
+        <a href="#driving-api" class="md-skip">
           Skip to content
         </a>
       
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Driving feature
+              Driving API
             
           </span>
         </div>
@@ -2231,13 +2231,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#related-api" class="md-nav__link">
-    Related API
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2256,17 +2249,21 @@
 
 
 
-<h1 id="driving-feature">Driving feature<a class="headerlink" href="#driving-feature" title="Permanent link">#</a></h1>
+<h1 id="driving-api">Driving API<a class="headerlink" href="#driving-api" title="Permanent link">#</a></h1>
+<ul>
+<li><a href="../../list/api/driving/state/">/api/driving/state</a></li>
+<li><a href="../../list/api/driving/engage/">/api/driving/engage</a></li>
+</ul>
 <h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">#</a></h2>
-<p>This feature manages whether the vehicle is driving or can start driving.
-The user can use this feature to check if the vehicle is ready to drive and instruct it to depart.</p>
+<p>This API manages whether the vehicle is driving or can start driving.
+The user can use these APIs to check if the vehicle is ready to drive and instruct it to depart.</p>
 <h2 id="states">States<a class="headerlink" href="#states" title="Permanent link">#</a></h2>
 <p>The state transition for driving state is illustrated in the diagram below.
 The vehicle holds a stop when the state is not DRIVING.
 During normal operation, the flow of driving state transitions is as follows:</p>
 <ol>
 <li>Driving state is initialized to NOT_READY.</li>
-<li>The state transitions to READY when all necessary Autoware components have launched successfully and the autonomous system is ready to start driving.</li>
+<li>The state transitions to READY when the autonomous system is ready to start driving.</li>
 <li>The state becomes DRIVING if the engage API is called and the vehicle starts driving.</li>
 <li>The state returns to NOT_READY when the vehicle reaches its destination.</li>
 <li>The state can be manually returned to NOT_READY by calling the disengage API.</li>
@@ -2294,11 +2291,6 @@ During normal operation, the flow of driving state transitions is as follows:</p
 </tr>
 </tbody>
 </table>
-<h2 id="related-api">Related API<a class="headerlink" href="#related-api" title="Permanent link">#</a></h2>
-<ul>
-<li>/api/driving/state</li>
-<li>/api/driving/engage</li>
-</ul>
 
               
             </article>
@@ -2335,13 +2327,13 @@ During normal operation, the flow of driving state transitions is as follows:</p
       
       
         
-        <a href="../interface/" class="md-footer__link md-footer__link--next" aria-label="Next: Interface feature" rel="next">
+        <a href="../interface/" class="md-footer__link md-footer__link--next" aria-label="Next: Interface API" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Interface feature
+              Interface API
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -2375,7 +2367,7 @@ During normal operation, the flow of driving state transitions is as follows:</p
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../../../../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../../../../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../../../../assets/javascripts/bundle.f758a944.min.js"></script>

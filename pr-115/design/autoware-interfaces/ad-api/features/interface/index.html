@@ -11,11 +11,11 @@
         <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-115/design/autoware-interfaces/ad-api/features/interface/">
       
       <link rel="icon" href="../../../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.3">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.4">
     
     
       
-        <title>Interface feature - Autoware Documentation</title>
+        <title>Interface API - Autoware Documentation</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#interface-feature" class="md-skip">
+        <a href="#interface-api" class="md-skip">
           Skip to content
         </a>
       
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Interface feature
+              Interface API
             
           </span>
         </div>
@@ -2224,13 +2224,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#related-api" class="md-nav__link">
-    Related API
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2249,16 +2242,13 @@
 
 
 
-<h1 id="interface-feature">Interface feature<a class="headerlink" href="#interface-feature" title="Permanent link">#</a></h1>
-<h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">#</a></h2>
-<p>Considering the product life cycle, there may be multiple vehicles using different versions of the AD API due to changes in requirements or functional improvements.
-For example, one vehicle uses <code>v1</code> for stability and another vehicle uses <code>v2</code> to enable more advanced functionality.</p>
-<p>In that situation, the AD API users such as developers of a web service have to switch the application behavior based on the version that each vehicle uses.
-The version of AD API follows <a href="https://semver.org/">Semantic Versioning</a> in order to provide an intuitive understanding of the changes between versions.</p>
-<h2 id="related-api">Related API<a class="headerlink" href="#related-api" title="Permanent link">#</a></h2>
+<h1 id="interface-api">Interface API<a class="headerlink" href="#interface-api" title="Permanent link">#</a></h1>
 <ul>
-<li>/api/interface/version</li>
+<li><a href="../../list/api/interface/version/">/api/interface/version</a></li>
 </ul>
+<h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">#</a></h2>
+<p>This API provides the interface version of the set of AD APIs.
+It follows <a href="https://semver.org/">Semantic Versioning</a> in order to provide an intuitive understanding of the changes between versions.</p>
 <!-- link -->
 
               
@@ -2280,7 +2270,7 @@ The version of AD API follows <a href="https://semver.org/">Semantic Versioning<
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../driving/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Driving feature" rel="prev">
+        <a href="../driving/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Driving API" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -2289,20 +2279,20 @@ The version of AD API follows <a href="https://semver.org/">Semantic Versioning<
               <span class="md-footer__direction">
                 Previous
               </span>
-              Driving feature
+              Driving API
             </div>
           </div>
         </a>
       
       
         
-        <a href="../../../components/" class="md-footer__link md-footer__link--next" aria-label="Next: Component interfaces" rel="next">
+        <a href="../../list/api/driving/engage/" class="md-footer__link md-footer__link--next" aria-label="Next: /api/driving/engage" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Component interfaces
+              /api/driving/engage
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -2336,7 +2326,7 @@ The version of AD API follows <a href="https://semver.org/">Semantic Versioning<
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../../../../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../../../../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../../../../assets/javascripts/bundle.f758a944.min.js"></script>
