@@ -2907,14 +2907,13 @@
 <p>A 3D point cloud map is primarily used for LiDAR-based localization in Autoware. In order to determine the current position and orientation of the vehicle, a live scan captured from one or more LiDAR units is matched against a pre-generated 3D point cloud map. Therefore, an accurate point cloud map is crucial for good localization results.</p>
 <h3 id="point-cloud-map-specifications">Point cloud map specifications<a class="headerlink" href="#point-cloud-map-specifications" title="Permanent link">#</a></h3>
 <ul>
-<li>A map must cover the entire operational area of the vehicle and should include an additional buffer zone of at least 200 m in all directions.</li>
-<li>A map is saved using <a href="https://pointclouds.org/documentation/tutorials/pcd_file_format.html">PCD (Point Cloud Data) file format</a>.</li>
-<li>A map can be saved as a single PCD file or divided into multiple PCD files.</li>
-<li>Each point in a map must contain X, Y, and Z coordinates.</li>
-<li>An intensity or RGB value of each point can be included in the PCD file but is optional.</li>
-<li>A map must be smaller than 1 GB, <a href="https://github.com/ros/ros_comm/issues/902">as per the current ROS message size limit</a>.</li>
-<li>A map resolution should be at least 0.2 m to yield reliable localization results.</li>
-<li>A map can be in either local or global coordinates, but must be in global coordinates (georeferenced) to use GNSS data for localization.</li>
+<li>It must cover the entire operational area of the vehicle and should include an additional buffer zone of at least 200 m in all directions.</li>
+<li>It must be saved using the <a href="https://pointclouds.org/documentation/tutorials/pcd_file_format.html">PCD (Point Cloud Data) file format</a>, but can be a single PCD file or divided into multiple PCD files.</li>
+<li>Each point in the map must contain X, Y, and Z coordinates.</li>
+<li>An intensity or RGB value for each point may be optionally included.</li>
+<li>Its file size must be smaller than 1 GB, <a href="https://github.com/ros/ros_comm/issues/902">as per the current ROS message size limit</a>.</li>
+<li>Its resolution should be at least 0.2 m to yield reliable localization results.</li>
+<li>It can be in either local or global coordinates, but must be in global coordinates (georeferenced) to use GNSS data for localization.</li>
 <li><a href="https://en.wikipedia.org/wiki/Military_Grid_Reference_System">Military Grid Reference System (MGRS)</a> is used as a coordinate system for a georeferenced map. In a georeferenced map, the X and Y coordinates of each point represent the point's location within a 100 km MGRS grid, while the Z coordinate represents the point's elevation.</li>
 </ul>
 <h3 id="creating-a-point-cloud-map">Creating a point cloud map<a class="headerlink" href="#creating-a-point-cloud-map" title="Permanent link">#</a></h3>
