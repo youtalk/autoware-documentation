@@ -181,17 +181,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-115/design/autoware-interfaces/ad-api/features/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-115/design/autoware-interfaces/ad-api/list/</loc>
          <lastmod>2022-06-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-115/design/autoware-interfaces/ad-api/features/driving/</loc>
-         <lastmod>2022-06-16</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-115/design/autoware-interfaces/ad-api/features/interface/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-115/design/autoware-interfaces/ad-api/list/api/driving/</loc>
          <lastmod>2022-06-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -202,6 +197,11 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-115/design/autoware-interfaces/ad-api/list/api/driving/state/</loc>
+         <lastmod>2022-06-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-115/design/autoware-interfaces/ad-api/list/api/interface/</loc>
          <lastmod>2022-06-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
