@@ -8,22 +8,23 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-127/tutorials/Simulating-Autoware/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-127/tutorials/autoware-simulations/using-a-rosbag-replay-simulation/">
       
-      <link rel="icon" href="../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.16">
+      <link rel="icon" href="../../../assets/images/autoware-foundation.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.6">
     
     
       
-        <title>Ad hoc simulation - Autoware Documentation</title>
+        <title>Using a rosbag replay simulation - Autoware Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.1c3799f8.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.4a0965b7.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.cc9b2e1e.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
         
+      
       
     
     
@@ -37,11 +38,11 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/css/extra.css">
+      <link rel="stylesheet" href="../../../assets/css/extra.css">
     
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     
-    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -69,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ad-hoc-simulation" class="md-skip">
+        <a href="#using-a-rosbag-replay-simulation" class="md-skip">
           Skip to content
         </a>
       
@@ -91,7 +92,7 @@
 
 <header class="md-header md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Autoware Documentation" class="md-header__button md-logo" aria-label="Autoware Documentation" data-md-component="logo">
+    <a href="../../.." title="Autoware Documentation" class="md-header__button md-logo" aria-label="Autoware Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M39.61 196.8 74.8 96.29C88.27 57.78 124.6 32 165.4 32h181.2c40.8 0 77.1 25.78 90.6 64.29l35.2 100.51c23.2 9.6 39.6 32.5 39.6 59.2v192c0 17.7-14.3 32-32 32h-32c-17.7 0-32-14.3-32-32v-48H96v48c0 17.7-14.33 32-32 32H32c-17.67 0-32-14.3-32-32V256c0-26.7 16.36-49.6 39.61-59.2zm69.49-4.8h293.8l-26.1-74.6c-4.5-12.8-16.6-21.4-30.2-21.4H165.4c-13.6 0-25.7 8.6-30.2 21.4L109.1 192zM96 256c-17.67 0-32 14.3-32 32s14.33 32 32 32c17.7 0 32-14.3 32-32s-14.3-32-32-32zm320 64c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32z"/></svg>
@@ -110,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Ad hoc simulation
+              Using a rosbag replay simulation
             
           </span>
         </div>
@@ -201,7 +202,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="../.." class="md-tabs__link">
+    <a href="../../.." class="md-tabs__link">
       Introduction
     </a>
   </li>
@@ -216,7 +217,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../installation/" class="md-tabs__link">
+      <a href="../../../installation/" class="md-tabs__link">
         Installation
       </a>
     </li>
@@ -234,7 +235,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../" class="md-tabs__link md-tabs__link--active">
+      <a href="../../" class="md-tabs__link md-tabs__link--active">
         Tutorials
       </a>
     </li>
@@ -250,7 +251,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../how-to-guides/" class="md-tabs__link">
+      <a href="../../../how-to-guides/" class="md-tabs__link">
         How to guides
       </a>
     </li>
@@ -266,7 +267,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../design/" class="md-tabs__link">
+      <a href="../../../design/" class="md-tabs__link">
         Design
       </a>
     </li>
@@ -282,7 +283,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../contributing/" class="md-tabs__link">
+      <a href="../../../contributing/" class="md-tabs__link">
         Contributing
       </a>
     </li>
@@ -298,7 +299,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../support/" class="md-tabs__link">
+      <a href="../../../support/" class="md-tabs__link">
         Support
       </a>
     </li>
@@ -332,7 +333,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Autoware Documentation" class="md-nav__button md-logo" aria-label="Autoware Documentation" data-md-component="logo">
+    <a href="../../.." title="Autoware Documentation" class="md-nav__button md-logo" aria-label="Autoware Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M39.61 196.8 74.8 96.29C88.27 57.78 124.6 32 165.4 32h181.2c40.8 0 77.1 25.78 90.6 64.29l35.2 100.51c23.2 9.6 39.6 32.5 39.6 59.2v192c0 17.7-14.3 32-32 32h-32c-17.7 0-32-14.3-32-32v-48H96v48c0 17.7-14.33 32-32 32H32c-17.67 0-32-14.3-32-32V256c0-26.7 16.36-49.6 39.61-59.2zm69.49-4.8h293.8l-26.1-74.6c-4.5-12.8-16.6-21.4-30.2-21.4H165.4c-13.6 0-25.7 8.6-30.2 21.4L109.1 192zM96 256c-17.67 0-32 14.3-32 32s14.33 32 32 32c17.7 0 32-14.3 32-32s-14.3-32-32-32zm320 64c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32z"/></svg>
@@ -363,7 +364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -381,7 +382,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" data-md-state="indeterminate" type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       
       
@@ -401,7 +402,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../installation/">Installation</a>
+          <a href="../../../installation/">Installation</a>
           
             <label for="__nav_2">
               <span class="md-nav__icon md-icon"></span>
@@ -429,7 +430,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" data-md-state="indeterminate" type="checkbox" id="__nav_2_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" checked>
       
       
       
@@ -458,7 +459,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../installation/autoware/docker-installation/" class="md-nav__link">
+      <a href="../../../installation/autoware/docker-installation/" class="md-nav__link">
         Docker installation
       </a>
     </li>
@@ -472,7 +473,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../installation/autoware/source-installation/" class="md-nav__link">
+      <a href="../../../installation/autoware/source-installation/" class="md-nav__link">
         Source installation
       </a>
     </li>
@@ -498,7 +499,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" data-md-state="indeterminate" type="checkbox" id="__nav_2_3" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" checked>
       
       
       
@@ -512,7 +513,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../installation/related-tools/">Related tools</a>
+          <a href="../../../installation/related-tools/">Related tools</a>
           
         </div>
       
@@ -543,7 +544,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" data-md-state="indeterminate" type="checkbox" id="__nav_2_4" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" checked>
       
       
       
@@ -557,7 +558,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../installation/additional-settings-for-developers/">Additional settings for developers</a>
+          <a href="../../../installation/additional-settings-for-developers/">Additional settings for developers</a>
           
         </div>
       
@@ -614,7 +615,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../">Tutorials</a>
+          <a href="../../">Tutorials</a>
           
             <label for="__nav_3">
               <span class="md-nav__icon md-icon"></span>
@@ -663,8 +664,8 @@
       
         
         
-        <div class="md-nav__link md-nav__link--index md-nav__link--active">
-          <a href="./">Simulating Autoware</a>
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Autoware simulations</a>
           
             <label for="__nav_3_2">
               <span class="md-nav__icon md-icon"></span>
@@ -672,10 +673,10 @@
           
         </div>
       
-      <nav class="md-nav" aria-label="Simulating Autoware" data-md-level="2">
+      <nav class="md-nav" aria-label="Autoware simulations" data-md-level="2">
         <label class="md-nav__title" for="__nav_3_2">
           <span class="md-nav__icon md-icon"></span>
-          Simulating Autoware
+          Autoware simulations
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -687,7 +688,7 @@
   
   
     <li class="md-nav__item">
-      <a href="using-a-planning-simulation/" class="md-nav__link">
+      <a href="../using-a-planning-simulation/" class="md-nav__link">
         Using a planning simulation
       </a>
     </li>
@@ -699,11 +700,72 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="using-a-rosbag-replay-simulation/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Using a rosbag replay simulation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Using a rosbag replay simulation
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#steps" class="md-nav__link">
+    Steps
+  </a>
+  
+    <nav class="md-nav" aria-label="Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note" class="md-nav__link">
+    Note
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-run-a-rosbag-replay-simulation" class="md-nav__link">
+    How to run a rosbag replay simulation
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -715,7 +777,7 @@
   
   
     <li class="md-nav__item">
-      <a href="using-a-digital-twin-simulation/" class="md-nav__link">
+      <a href="../using-a-digital-twin-simulation/" class="md-nav__link">
         Using a digital twin simulation
       </a>
     </li>
@@ -741,7 +803,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" data-md-state="indeterminate" type="checkbox" id="__nav_3_3" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" checked>
       
       
       
@@ -755,14 +817,14 @@
       
       
         <label class="md-nav__link" for="__nav_3_3">
-          Running a scenario test
+          Autoware scenario tests
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Running a scenario test" data-md-level="2">
+      <nav class="md-nav" aria-label="Autoware scenario tests" data-md-level="2">
         <label class="md-nav__title" for="__nav_3_3">
           <span class="md-nav__icon md-icon"></span>
-          Running a scenario test
+          Autoware scenario tests
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -775,7 +837,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3_1" data-md-state="indeterminate" type="checkbox" id="__nav_3_3_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_3_1" type="checkbox" id="__nav_3_3_1" checked>
       
       
       
@@ -806,7 +868,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../running-a-scenario-test/running-a-scenario-test-with-the-planning-simulation/installation/" class="md-nav__link">
+      <a href="../../autoware-scenario-tests/running-a-scenario-test-with-the-planning-simulation/installation/" class="md-nav__link">
         Installation
       </a>
     </li>
@@ -820,7 +882,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../running-a-scenario-test/running-a-scenario-test-with-the-planning-simulation/scenario-test-simulation/" class="md-nav__link">
+      <a href="../../autoware-scenario-tests/running-a-scenario-test-with-the-planning-simulation/scenario-test-simulation/" class="md-nav__link">
         Scenario test simulation
       </a>
     </li>
@@ -834,7 +896,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../running-a-scenario-test/running-a-scenario-test-with-the-planning-simulation/random-test-simulation/" class="md-nav__link">
+      <a href="../../autoware-scenario-tests/running-a-scenario-test-with-the-planning-simulation/random-test-simulation/" class="md-nav__link">
         Random test simulation
       </a>
     </li>
@@ -855,7 +917,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../running-a-scenario-test/running-a-scenario-test-with-the-rosbag-replay-simulation/" class="md-nav__link">
+      <a href="../../autoware-scenario-tests/running-a-scenario-test-with-the-rosbag-replay-simulation/" class="md-nav__link">
         Running a scenario test with the rosbag replay simulation
       </a>
     </li>
@@ -869,7 +931,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../running-a-scenario-test/running-a-scenario-test-with-the-digital-twin-simulation/" class="md-nav__link">
+      <a href="../../autoware-scenario-tests/running-a-scenario-test-with-the-digital-twin-simulation/" class="md-nav__link">
         Running a scenario test with the digital twin simulation
       </a>
     </li>
@@ -901,7 +963,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" data-md-state="indeterminate" type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
       
       
       
@@ -923,7 +985,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../how-to-guides/">How to guides</a>
+          <a href="../../../how-to-guides/">How to guides</a>
           
             <label for="__nav_4">
               <span class="md-nav__icon md-icon"></span>
@@ -946,7 +1008,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../how-to-guides/running-autoware-without-cuda/" class="md-nav__link">
+      <a href="../../../how-to-guides/running-autoware-without-cuda/" class="md-nav__link">
         Running Autoware without CUDA
       </a>
     </li>
@@ -960,7 +1022,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../how-to-guides/advanced-usage-of-colcon/" class="md-nav__link">
+      <a href="../../../how-to-guides/advanced-usage-of-colcon/" class="md-nav__link">
         Advanced usage of colcon
       </a>
     </li>
@@ -974,7 +1036,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../how-to-guides/how-to-integrate-autoware-with-your-vehicle/" class="md-nav__link">
+      <a href="../../../how-to-guides/how-to-integrate-autoware-with-your-vehicle/" class="md-nav__link">
         How to integrate Autoware with your vehicle
       </a>
     </li>
@@ -988,7 +1050,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../how-to-guides/how-to-integrate-autoware-with-a-diff-drive-vehicle/" class="md-nav__link">
+      <a href="../../../how-to-guides/how-to-integrate-autoware-with-a-diff-drive-vehicle/" class="md-nav__link">
         How to integrate Autoware with a differential drive vehicle
       </a>
     </li>
@@ -1013,7 +1075,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" data-md-state="indeterminate" type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
       
       
       
@@ -1035,7 +1097,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/">Design</a>
+          <a href="../../../design/">Design</a>
           
             <label for="__nav_5">
               <span class="md-nav__icon md-icon"></span>
@@ -1063,7 +1125,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" data-md-state="indeterminate" type="checkbox" id="__nav_5_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" checked>
       
       
       
@@ -1079,7 +1141,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/autoware-concepts/">Autoware concepts</a>
+          <a href="../../../design/autoware-concepts/">Autoware concepts</a>
           
             <label for="__nav_5_2">
               <span class="md-nav__icon md-icon"></span>
@@ -1102,7 +1164,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/autoware-concepts/difference-from-ai-and-auto/" class="md-nav__link">
+      <a href="../../../design/autoware-concepts/difference-from-ai-and-auto/" class="md-nav__link">
         How is Autoware Core/Universe different from Autoware.AI and Autoware.Auto?
       </a>
     </li>
@@ -1128,7 +1190,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" data-md-state="indeterminate" type="checkbox" id="__nav_5_3" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" checked>
       
       
       
@@ -1158,7 +1220,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/autoware-architecture/">Autoware architecture</a>
+          <a href="../../../design/autoware-architecture/">Autoware architecture</a>
           
             <label for="__nav_5_3">
               <span class="md-nav__icon md-icon"></span>
@@ -1184,7 +1246,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3_2" data-md-state="indeterminate" type="checkbox" id="__nav_5_3_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_3_2" type="checkbox" id="__nav_5_3_2" checked>
       
       
       
@@ -1198,7 +1260,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/autoware-architecture/sensing/">Sensing</a>
+          <a href="../../../design/autoware-architecture/sensing/">Sensing</a>
           
         </div>
       
@@ -1227,7 +1289,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3_3" data-md-state="indeterminate" type="checkbox" id="__nav_5_3_3" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_3_3" type="checkbox" id="__nav_5_3_3" checked>
       
       
       
@@ -1241,7 +1303,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/autoware-architecture/map/">Map</a>
+          <a href="../../../design/autoware-architecture/map/">Map</a>
           
         </div>
       
@@ -1270,7 +1332,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3_4" data-md-state="indeterminate" type="checkbox" id="__nav_5_3_4" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_3_4" type="checkbox" id="__nav_5_3_4" checked>
       
       
       
@@ -1284,7 +1346,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/autoware-architecture/localization/">Localization</a>
+          <a href="../../../design/autoware-architecture/localization/">Localization</a>
           
         </div>
       
@@ -1313,7 +1375,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3_5" data-md-state="indeterminate" type="checkbox" id="__nav_5_3_5" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_3_5" type="checkbox" id="__nav_5_3_5" checked>
       
       
       
@@ -1327,7 +1389,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/autoware-architecture/perception/">Perception</a>
+          <a href="../../../design/autoware-architecture/perception/">Perception</a>
           
         </div>
       
@@ -1356,7 +1418,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3_6" data-md-state="indeterminate" type="checkbox" id="__nav_5_3_6" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_3_6" type="checkbox" id="__nav_5_3_6" checked>
       
       
       
@@ -1370,7 +1432,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/autoware-architecture/planning/">Planning</a>
+          <a href="../../../design/autoware-architecture/planning/">Planning</a>
           
         </div>
       
@@ -1399,7 +1461,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3_7" data-md-state="indeterminate" type="checkbox" id="__nav_5_3_7" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_3_7" type="checkbox" id="__nav_5_3_7" checked>
       
       
       
@@ -1413,7 +1475,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/autoware-architecture/control/">Control</a>
+          <a href="../../../design/autoware-architecture/control/">Control</a>
           
         </div>
       
@@ -1442,7 +1504,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3_8" data-md-state="indeterminate" type="checkbox" id="__nav_5_3_8" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_3_8" type="checkbox" id="__nav_5_3_8" checked>
       
       
       
@@ -1456,7 +1518,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/autoware-architecture/vehicle/">Vehicle</a>
+          <a href="../../../design/autoware-architecture/vehicle/">Vehicle</a>
           
         </div>
       
@@ -1485,7 +1547,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3_9" data-md-state="indeterminate" type="checkbox" id="__nav_5_3_9" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_3_9" type="checkbox" id="__nav_5_3_9" checked>
       
       
       
@@ -1499,7 +1561,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/autoware-architecture/node-diagram/">Node diagram</a>
+          <a href="../../../design/autoware-architecture/node-diagram/">Node diagram</a>
           
         </div>
       
@@ -1537,7 +1599,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4" data-md-state="indeterminate" type="checkbox" id="__nav_5_4" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_4" type="checkbox" id="__nav_5_4" checked>
       
       
       
@@ -1555,7 +1617,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/autoware-interfaces/">Autoware interfaces</a>
+          <a href="../../../design/autoware-interfaces/">Autoware interfaces</a>
           
             <label for="__nav_5_4">
               <span class="md-nav__icon md-icon"></span>
@@ -1581,7 +1643,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4_2" data-md-state="indeterminate" type="checkbox" id="__nav_5_4_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_4_2" type="checkbox" id="__nav_5_4_2" checked>
       
       
       
@@ -1595,7 +1657,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/autoware-interfaces/ad-api/">AD API</a>
+          <a href="../../../design/autoware-interfaces/ad-api/">AD API</a>
           
         </div>
       
@@ -1624,7 +1686,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4_3" data-md-state="indeterminate" type="checkbox" id="__nav_5_4_3" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_4_3" type="checkbox" id="__nav_5_4_3" checked>
       
       
       
@@ -1646,7 +1708,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/autoware-interfaces/components/">Components</a>
+          <a href="../../../design/autoware-interfaces/components/">Components</a>
           
             <label for="__nav_5_4_3">
               <span class="md-nav__icon md-icon"></span>
@@ -1669,7 +1731,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/autoware-interfaces/components/planning/" class="md-nav__link">
+      <a href="../../../design/autoware-interfaces/components/planning/" class="md-nav__link">
         Planning
       </a>
     </li>
@@ -1683,7 +1745,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/autoware-interfaces/components/control/" class="md-nav__link">
+      <a href="../../../design/autoware-interfaces/components/control/" class="md-nav__link">
         Control
       </a>
     </li>
@@ -1697,7 +1759,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/autoware-interfaces/components/vehicle-interface/" class="md-nav__link">
+      <a href="../../../design/autoware-interfaces/components/vehicle-interface/" class="md-nav__link">
         Vehicle Interface
       </a>
     </li>
@@ -1711,7 +1773,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/autoware-interfaces/components/vehicle-dimensions/" class="md-nav__link">
+      <a href="../../../design/autoware-interfaces/components/vehicle-dimensions/" class="md-nav__link">
         Vehicle dimensions
       </a>
     </li>
@@ -1744,7 +1806,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_5" data-md-state="indeterminate" type="checkbox" id="__nav_5_5" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_5" type="checkbox" id="__nav_5_5" checked>
       
       
       
@@ -1764,7 +1826,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/configuration-management/">Configuration management</a>
+          <a href="../../../design/configuration-management/">Configuration management</a>
           
             <label for="__nav_5_5">
               <span class="md-nav__icon md-icon"></span>
@@ -1787,7 +1849,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/configuration-management/development-process/" class="md-nav__link">
+      <a href="../../../design/configuration-management/development-process/" class="md-nav__link">
         Development process
       </a>
     </li>
@@ -1801,7 +1863,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/configuration-management/repository-structure/" class="md-nav__link">
+      <a href="../../../design/configuration-management/repository-structure/" class="md-nav__link">
         Repository structure
       </a>
     </li>
@@ -1815,7 +1877,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/configuration-management/release-process/" class="md-nav__link">
+      <a href="../../../design/configuration-management/release-process/" class="md-nav__link">
         Release process
       </a>
     </li>
@@ -1847,7 +1909,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" data-md-state="indeterminate" type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
       
       
       
@@ -1873,7 +1935,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../contributing/">Contributing</a>
+          <a href="../../../contributing/">Contributing</a>
           
             <label for="__nav_6">
               <span class="md-nav__icon md-icon"></span>
@@ -1896,7 +1958,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/license/" class="md-nav__link">
+      <a href="../../../contributing/license/" class="md-nav__link">
         License
       </a>
     </li>
@@ -1915,7 +1977,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3" data-md-state="indeterminate" type="checkbox" id="__nav_6_3" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_3" type="checkbox" id="__nav_6_3" checked>
       
       
       
@@ -1933,7 +1995,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../contributing/coding-guidelines/">Coding guidelines</a>
+          <a href="../../../contributing/coding-guidelines/">Coding guidelines</a>
           
             <label for="__nav_6_3">
               <span class="md-nav__icon md-icon"></span>
@@ -1959,7 +2021,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3_2" data-md-state="indeterminate" type="checkbox" id="__nav_6_3_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_3_2" type="checkbox" id="__nav_6_3_2" checked>
       
       
       
@@ -1991,7 +2053,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../contributing/coding-guidelines/languages/">Language-specific coding guidelines</a>
+          <a href="../../../contributing/coding-guidelines/languages/">Language-specific coding guidelines</a>
           
             <label for="__nav_6_3_2">
               <span class="md-nav__icon md-icon"></span>
@@ -2014,7 +2076,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/coding-guidelines/languages/cpp/" class="md-nav__link">
+      <a href="../../../contributing/coding-guidelines/languages/cpp/" class="md-nav__link">
         C++
       </a>
     </li>
@@ -2028,7 +2090,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/coding-guidelines/languages/python/" class="md-nav__link">
+      <a href="../../../contributing/coding-guidelines/languages/python/" class="md-nav__link">
         Python
       </a>
     </li>
@@ -2042,7 +2104,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/coding-guidelines/languages/shell-scripts/" class="md-nav__link">
+      <a href="../../../contributing/coding-guidelines/languages/shell-scripts/" class="md-nav__link">
         Shell scripts
       </a>
     </li>
@@ -2056,7 +2118,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/coding-guidelines/languages/markdown/" class="md-nav__link">
+      <a href="../../../contributing/coding-guidelines/languages/markdown/" class="md-nav__link">
         Markdown
       </a>
     </li>
@@ -2070,7 +2132,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/coding-guidelines/languages/cmake/" class="md-nav__link">
+      <a href="../../../contributing/coding-guidelines/languages/cmake/" class="md-nav__link">
         CMake
       </a>
     </li>
@@ -2084,7 +2146,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/coding-guidelines/languages/package-xml/" class="md-nav__link">
+      <a href="../../../contributing/coding-guidelines/languages/package-xml/" class="md-nav__link">
         package.xml
       </a>
     </li>
@@ -2098,7 +2160,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/coding-guidelines/languages/ros2-interfaces/" class="md-nav__link">
+      <a href="../../../contributing/coding-guidelines/languages/ros2-interfaces/" class="md-nav__link">
         ROS 2 interfaces
       </a>
     </li>
@@ -2112,7 +2174,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/coding-guidelines/languages/docker/" class="md-nav__link">
+      <a href="../../../contributing/coding-guidelines/languages/docker/" class="md-nav__link">
         Docker
       </a>
     </li>
@@ -2126,7 +2188,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/coding-guidelines/languages/github-actions/" class="md-nav__link">
+      <a href="../../../contributing/coding-guidelines/languages/github-actions/" class="md-nav__link">
         GitHub Actions
       </a>
     </li>
@@ -2150,7 +2212,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3_3" data-md-state="indeterminate" type="checkbox" id="__nav_6_3_3" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_3_3" type="checkbox" id="__nav_6_3_3" checked>
       
       
       
@@ -2184,7 +2246,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../contributing/coding-guidelines/ros-nodes/">ROS nodes coding guidelines</a>
+          <a href="../../../contributing/coding-guidelines/ros-nodes/">ROS nodes coding guidelines</a>
           
             <label for="__nav_6_3_3">
               <span class="md-nav__icon md-icon"></span>
@@ -2207,7 +2269,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/coding-guidelines/ros-nodes/class-design/" class="md-nav__link">
+      <a href="../../../contributing/coding-guidelines/ros-nodes/class-design/" class="md-nav__link">
         Class design
       </a>
     </li>
@@ -2221,7 +2283,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/coding-guidelines/ros-nodes/console-logging/" class="md-nav__link">
+      <a href="../../../contributing/coding-guidelines/ros-nodes/console-logging/" class="md-nav__link">
         Console logging
       </a>
     </li>
@@ -2235,7 +2297,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/coding-guidelines/ros-nodes/coordinate-system/" class="md-nav__link">
+      <a href="../../../contributing/coding-guidelines/ros-nodes/coordinate-system/" class="md-nav__link">
         Coordinate system
       </a>
     </li>
@@ -2249,7 +2311,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/coding-guidelines/ros-nodes/directory-structure/" class="md-nav__link">
+      <a href="../../../contributing/coding-guidelines/ros-nodes/directory-structure/" class="md-nav__link">
         Directory structure
       </a>
     </li>
@@ -2263,7 +2325,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/coding-guidelines/ros-nodes/launch-files/" class="md-nav__link">
+      <a href="../../../contributing/coding-guidelines/ros-nodes/launch-files/" class="md-nav__link">
         Launch files
       </a>
     </li>
@@ -2277,7 +2339,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/coding-guidelines/ros-nodes/message-guidelines/" class="md-nav__link">
+      <a href="../../../contributing/coding-guidelines/ros-nodes/message-guidelines/" class="md-nav__link">
         Message guidelines
       </a>
     </li>
@@ -2291,7 +2353,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/coding-guidelines/ros-nodes/naming/" class="md-nav__link">
+      <a href="../../../contributing/coding-guidelines/ros-nodes/naming/" class="md-nav__link">
         Topic namespaces
       </a>
     </li>
@@ -2305,7 +2367,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/coding-guidelines/ros-nodes/parameters/" class="md-nav__link">
+      <a href="../../../contributing/coding-guidelines/ros-nodes/parameters/" class="md-nav__link">
         Parameters
       </a>
     </li>
@@ -2319,7 +2381,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/coding-guidelines/ros-nodes/task-scheduling/" class="md-nav__link">
+      <a href="../../../contributing/coding-guidelines/ros-nodes/task-scheduling/" class="md-nav__link">
         Task scheduling
       </a>
     </li>
@@ -2333,7 +2395,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/coding-guidelines/ros-nodes/topic-namespaces/" class="md-nav__link">
+      <a href="../../../contributing/coding-guidelines/ros-nodes/topic-namespaces/" class="md-nav__link">
         Topic namespaces
       </a>
     </li>
@@ -2366,7 +2428,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_4" data-md-state="indeterminate" type="checkbox" id="__nav_6_4" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_4" type="checkbox" id="__nav_6_4" checked>
       
       
       
@@ -2380,7 +2442,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../contributing/testing-guidelines/">Testing guidelines</a>
+          <a href="../../../contributing/testing-guidelines/">Testing guidelines</a>
           
         </div>
       
@@ -2411,7 +2473,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_5" data-md-state="indeterminate" type="checkbox" id="__nav_6_5" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_5" type="checkbox" id="__nav_6_5" checked>
       
       
       
@@ -2425,7 +2487,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../contributing/documentation-guidelines/">Documentation guidelines</a>
+          <a href="../../../contributing/documentation-guidelines/">Documentation guidelines</a>
           
         </div>
       
@@ -2456,7 +2518,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_6" data-md-state="indeterminate" type="checkbox" id="__nav_6_6" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_6" type="checkbox" id="__nav_6_6" checked>
       
       
       
@@ -2476,7 +2538,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../contributing/pull-request-guidelines/">Pull request guidelines</a>
+          <a href="../../../contributing/pull-request-guidelines/">Pull request guidelines</a>
           
             <label for="__nav_6_6">
               <span class="md-nav__icon md-icon"></span>
@@ -2499,7 +2561,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/pull-request-guidelines/commit-guidelines/" class="md-nav__link">
+      <a href="../../../contributing/pull-request-guidelines/commit-guidelines/" class="md-nav__link">
         Commit guidelines
       </a>
     </li>
@@ -2513,7 +2575,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/pull-request-guidelines/review-guidelines/" class="md-nav__link">
+      <a href="../../../contributing/pull-request-guidelines/review-guidelines/" class="md-nav__link">
         Review guidelines
       </a>
     </li>
@@ -2527,7 +2589,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/pull-request-guidelines/review-tips/" class="md-nav__link">
+      <a href="../../../contributing/pull-request-guidelines/review-tips/" class="md-nav__link">
         Tips
       </a>
     </li>
@@ -2553,7 +2615,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_7" data-md-state="indeterminate" type="checkbox" id="__nav_6_7" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_7" type="checkbox" id="__nav_6_7" checked>
       
       
       
@@ -2567,7 +2629,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../contributing/discussion-guidelines/">Discussion guidelines</a>
+          <a href="../../../contributing/discussion-guidelines/">Discussion guidelines</a>
           
         </div>
       
@@ -2604,7 +2666,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" data-md-state="indeterminate" type="checkbox" id="__nav_7" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" checked>
       
       
       
@@ -2624,7 +2686,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../support/">Support</a>
+          <a href="../../../support/">Support</a>
           
             <label for="__nav_7">
               <span class="md-nav__icon md-icon"></span>
@@ -2647,7 +2709,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../support/support-guidelines/" class="md-nav__link">
+      <a href="../../../support/support-guidelines/" class="md-nav__link">
         Support guidelines
       </a>
     </li>
@@ -2661,7 +2723,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../support/troubleshooting/" class="md-nav__link">
+      <a href="../../../support/troubleshooting/" class="md-nav__link">
         Troubleshooting
       </a>
     </li>
@@ -2675,7 +2737,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../support/docs-guide/" class="md-nav__link">
+      <a href="../../../support/docs-guide/" class="md-nav__link">
         Docs guide
       </a>
     </li>
@@ -2709,6 +2771,41 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#steps" class="md-nav__link">
+    Steps
+  </a>
+  
+    <nav class="md-nav" aria-label="Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note" class="md-nav__link">
+    Note
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-run-a-rosbag-replay-simulation" class="md-nav__link">
+    How to run a rosbag replay simulation
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2719,24 +2816,77 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/autowarefoundation/autoware-documentation/edit/main/docs/tutorials/Simulating-Autoware/index.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/autowarefoundation/autoware-documentation/edit/main/docs/tutorials/autoware-simulations/using-a-rosbag-replay-simulation.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="ad-hoc-simulation">Ad hoc simulation<a class="headerlink" href="#ad-hoc-simulation" title="Permanent link">#</a></h1>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Under Construction</p>
-</div>
+<h1 id="using-a-rosbag-replay-simulation">Using a rosbag replay simulation<a class="headerlink" href="#using-a-rosbag-replay-simulation" title="Permanent link">#</a></h1>
+<h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">#</a></h2>
+<ol>
+<li>
+<p>Download and unpack a sample map.</p>
+<ul>
+<li>Click <a href="https://drive.google.com/file/d/1A-8BvYRX3DhSzkAnOcGWFw5T30xTlwZI/view?usp=sharing">here</a> to download.</li>
+<li>Unpack it by running the following command.</li>
+</ul>
+<div class="highlight"><pre><span></span><code>unzip -d ~/Downloads/ ~/Downloads/sample-map-rosbag.zip
+</code></pre></div>
+</li>
+<li>
+<p>Download the sample rosbag files.</p>
+<ul>
+<li>Click <a href="https://drive.google.com/file/d/1VnwJx9tI3kI_cTLzP61ktuAJ1ChgygpG/view?usp=sharing">here</a> to download.</li>
+<li>Unpack it by running the following command.</li>
+</ul>
+<div class="highlight"><pre><span></span><code>unzip -d ~/Downloads/ ~/Downloads/sample-rosbag.zip
+</code></pre></div>
+</li>
+</ol>
+<h3 id="note">Note<a class="headerlink" href="#note" title="Permanent link">#</a></h3>
+<ul>
+<li>Sample map and rosbag: Copyright 2020 TIER IV, Inc.</li>
+<li>Due to privacy concerns, the rosbag does not contain image data, which will cause:<ul>
+<li>Traffic light recognition functionality cannot be tested with this sample rosbag.</li>
+<li>Object detection accuracy is decreased.</li>
+</ul>
+</li>
+</ul>
+<h2 id="how-to-run-a-rosbag-replay-simulation">How to run a rosbag replay simulation<a class="headerlink" href="#how-to-run-a-rosbag-replay-simulation" title="Permanent link">#</a></h2>
+<ol>
+<li>
+<p>Launch Autoware.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span> ~/autoware/install/setup.bash
+ros2 launch autoware_launch logging_simulator.launch.xml map_path:<span class="o">=</span><span class="nv">$HOME</span>/Downloads/sample-map-rosbag vehicle_model:<span class="o">=</span>sample_vehicle sensor_model:<span class="o">=</span>sample_sensor_kit
+</code></pre></div>
+<p>Note that you cannot use <code>~</code> instead of <code>$HOME</code> here.</p>
+<p><img alt="after-autoware-launch" src="../images/rosbag-replay/after-autoware-launch.png" /></p>
+</li>
+<li>
+<p>Play the sample rosbag file.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span> ~/autoware/install/setup.bash
+ros2 bag play ~/Downloads/sample-rosbag/sample.db3 -r <span class="m">0</span>.2
+</code></pre></div>
+<p><img alt="after-rosbag-play" src="../images/rosbag-replay/after-rosbag-play.png" /></p>
+</li>
+<li>
+<p>To focus the view on the ego vehicle, change the <code>Target Frame</code> in the RViz Views panel from <code>viewer</code> to <code>base_link</code>.</p>
+<p><img alt="change-target-frame" src="../images/rosbag-replay/change-target-frame.png" /></p>
+</li>
+<li>
+<p>To switch the view to <code>Third Person Follower</code> etc, change the <code>Type</code> in the RViz Views panel.</p>
+<p><img alt="third-person-follower" src="../images/rosbag-replay/third-person-follower.png" /></p>
+</li>
+</ol>
 
               
             </article>
+            
           </div>
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             Back to top
           </a>
@@ -2745,10 +2895,11 @@
       
         <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Simulation tutorials" rel="prev">
+        <a href="../using-a-planning-simulation/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Using a planning simulation" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -2757,20 +2908,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Simulation tutorials
+              Using a planning simulation
             </div>
           </div>
         </a>
       
       
         
-        <a href="using-a-planning-simulation/" class="md-footer__link md-footer__link--next" aria-label="Next: Using a planning simulation" rel="next">
+        <a href="../using-a-digital-twin-simulation/" class="md-footer__link md-footer__link--next" aria-label="Next: Using a digital twin simulation" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Using a planning simulation
+              Using a digital twin simulation
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -2804,10 +2955,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.3a4b43e5.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.a877e258.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
