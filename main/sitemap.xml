@@ -351,6 +351,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/sensor-calibration/</loc>
+         <lastmod>2022-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/main/installation/</loc>
          <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
