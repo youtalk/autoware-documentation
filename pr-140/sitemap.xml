@@ -226,6 +226,56 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-140/design/autoware-interfaces/ad-api/list/</loc>
+         <lastmod>2022-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-140/design/autoware-interfaces/ad-api/list/api/driving/</loc>
+         <lastmod>2022-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-140/design/autoware-interfaces/ad-api/list/api/driving/engage/</loc>
+         <lastmod>2022-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-140/design/autoware-interfaces/ad-api/list/api/driving/state/</loc>
+         <lastmod>2022-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-140/design/autoware-interfaces/ad-api/list/api/interface/</loc>
+         <lastmod>2022-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-140/design/autoware-interfaces/ad-api/list/api/interface/version/</loc>
+         <lastmod>2022-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-140/design/autoware-interfaces/ad-api/types/autoware_ad_api_msgs/msg/driving_state/</loc>
+         <lastmod>2022-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-140/design/autoware-interfaces/ad-api/types/autoware_ad_api_msgs/msg/response_status/</loc>
+         <lastmod>2022-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-140/design/autoware-interfaces/ad-api/types/autoware_ad_api_msgs/srv/driving_engage/</loc>
+         <lastmod>2022-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-140/design/autoware-interfaces/ad-api/types/autoware_ad_api_msgs/srv/interface_version/</loc>
+         <lastmod>2022-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-140/design/autoware-interfaces/components/</loc>
          <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
