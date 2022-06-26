@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/running-autoware-without-cuda/">
       
       <link rel="icon" href="../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.7">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.8">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.4a0965b7.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1d29e8d0.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
@@ -2920,7 +2920,8 @@ The following subsections briefly explain how to run each algorithm in such an e
 <li><code>traffic_light_classifier</code></li>
 </ul>
 <p>To run traffic light detection without CUDA, set <a href="https://github.com/autowarefoundation/autoware.universe/blob/9445f3a7acd645d12a64507c3d3bfa57e74a3634/launch/tier4_perception_launch/launch/traffic_light_recognition/traffic_light.launch.xml#L3"><code>enable_fine_detection</code> to <code>false</code> in the traffic light launch file</a>. Doing so disables the <code>traffic_light_ssd_fine_detector</code> such that traffic light detection is handled by the <code>map_based_traffic_light_detector</code> module instead.</p>
-<p>To run traffic light classification without CUDA, set <a href="https://github.com/autowarefoundation/autoware.universe/blob/9445f3a7acd645d12a64507c3d3bfa57e74a3634/perception/traffic_light_classifier/launch/traffic_light_classifier.launch.xml#L7"><code>use_gpu</code> to <code>false</code> in the traffic light classifier launch file</a>. Doing so will force the <code>traffic_light_classifier</code> to use a different classification algorithm that does not require CUDA or a GPU.</p>
+<p>To run traffic light classification without CUDA, set <a href="https://github.com/autowarefoundation/autoware.universe/blob/9445f3a7acd645d12a64507c3d3bfa57e74a3634/perception/traffic_light_classifier/launch/traffic_light_classifier.launch.xml#L7"><code>use_gpu</code> to <code>false</code> in the traffic light classifier launch file</a>. Doing so will force the <code>traffic_light_classifier</code> to use a different classification algorithm that does not require CUDA or a <abbr title="Graphics Processing Unit">GPU</abbr>.</p>
+<!-- prettier-ignore -->
 
               
             </article>
