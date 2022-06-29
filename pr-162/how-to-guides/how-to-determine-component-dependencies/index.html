@@ -2927,10 +2927,10 @@
 </code></pre></div>
 <p><img alt="colon graph output" src="../images/how-to-determine-component-dependencies/perception_stack_dependencies.png" width="600" /></p>
 <p>To generate a list of dependencies, use:</p>
-<div class="highlight"><pre><span></span><code>colcon list --packages-up-to tier4_perception_launch
+<div class="highlight"><pre><span></span><code>colcon list --packages-up-to tier4_perception_launch --names-only
 </code></pre></div>
-<p>??? colcon list output
-autoware_auto_geometry_msgs
+<p>??? colcon list output</p>
+<div class="codehilite"><pre><span></span><code>autoware_auto_geometry_msgs
 autoware_auto_mapping_msgs
 autoware_auto_perception_msgs
 autoware_auto_planning_msgs
@@ -2975,7 +2975,13 @@ traffic_light_classifier
 traffic_light_map_based_detector
 traffic_light_ssd_fine_detector
 traffic_light_visualization
-vehicle_info_util</p>
+vehicle_info_util
+</code></pre></div>
+
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To output a list of modules with their respective paths, run the command above without the <code>--names-only</code> parameter.</p>
+</div>
 <p>To see which <abbr title="Robot Operating System">ROS</abbr> topics are being subscribed and published to, use <code>rqt_graph</code> as follows:</p>
 <div class="highlight"><pre><span></span><code>ros2 launch tier4_perception_launch perception.launch.xml mode:<span class="o">=</span>lidar
 ros2 run rqt_graph rqt_graph
