@@ -2919,7 +2919,7 @@
 
 
 <h1 id="how-to-determine-component-dependencies">How to determine component dependencies<a class="headerlink" href="#how-to-determine-component-dependencies" title="Permanent link">#</a></h1>
-<p>For any developers who wish to try and deploy Autoware as a microservices architecture, it is necessary to understand the software dependencies, communication and implemented features of each <abbr title="Robot Operating System">ROS</abbr> package/node.</p>
+<p>For any developers who wish to try and deploy Autoware as a microservices architecture, it is necessary to understand the software dependencies, communication, and implemented features of each <abbr title="Robot Operating System">ROS</abbr> package/node.</p>
 <p>As an example, the commands necessary to determine the dependencies for the Perception component are shown below.</p>
 <h2 id="perception-component-dependencies">Perception component dependencies<a class="headerlink" href="#perception-component-dependencies" title="Permanent link">#</a></h2>
 <p>To generate a graph of package dependencies, use the following <code>colcon</code> command:</p>
@@ -2981,7 +2981,8 @@ vehicle_info_util</p>
 <div class="highlight"><pre><span></span><code>ros2 launch tier4_perception_launch perception.launch.xml mode:<span class="o">=</span>lidar
 ros2 run rqt_graph rqt_graph
 </code></pre></div>
-<p>TODO: Add a way of determining software dependencies</p>
+<!-- TODO: Add a way of determining software dependencies -->
+
 <!-- prettier-ignore -->
 
               
