@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-155/design/autoware-interfaces/ad-api/list/api/route/state/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-155/design/autoware-interfaces/ad-api/list/api/routing/clear_route/">
       
       <link rel="icon" href="../../../../../../../assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.8">
     
     
       
-        <title>/api/route/state - Autoware Documentation</title>
+        <title>/api/routing/clear_route - Autoware Documentation</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#apiroutestate" class="md-skip">
+        <a href="#apiroutingclear_route" class="md-skip">
           Skip to content
         </a>
       
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              /api/route/state
+              /api/routing/clear_route
             
           </span>
         </div>
@@ -2834,8 +2834,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#message" class="md-nav__link">
-    Message
+  <a href="#request" class="md-nav__link">
+    Request
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#response" class="md-nav__link">
+    Response
   </a>
   
 </li>
@@ -2852,20 +2859,22 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/autowarefoundation/autoware-documentation/edit/main/docs/design/autoware-interfaces/ad-api/list/api/route/state.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/autowarefoundation/autoware-documentation/edit/main/docs/design/autoware-interfaces/ad-api/list/api/routing/clear_route.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="apiroutestate">/api/route/state<a class="headerlink" href="#apiroutestate" title="Permanent link">#</a></h1>
+<h1 id="apiroutingclear_route">/api/routing/clear_route<a class="headerlink" href="#apiroutingclear_route" title="Permanent link">#</a></h1>
 <ul>
-<li>Method: notification</li>
-<li>Type: <a href="../../../types/autoware_ad_api_msgs/msg/route_state.md">autoware_ad_api_msgs/msg/RouteState</a></li>
+<li>Method: function call</li>
+<li>Type: <a href="../../../../types/autoware_ad_api_msgs/srv/clear_route/">autoware_ad_api_msgs/srv/ClearRoute</a></li>
 </ul>
 <h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">#</a></h2>
-<p>Get the route state. For details, see the <a href="../">route state</a>.</p>
-<h2 id="message">Message<a class="headerlink" href="#message" title="Permanent link">#</a></h2>
+<p>Clear the route.</p>
+<h2 id="request">Request<a class="headerlink" href="#request" title="Permanent link">#</a></h2>
+<p>None</p>
+<h2 id="response">Response<a class="headerlink" href="#response" title="Permanent link">#</a></h2>
 <table>
 <thead>
 <tr>
@@ -2876,9 +2885,9 @@
 </thead>
 <tbody>
 <tr>
-<td>state</td>
-<td>uint16</td>
-<td>A value of the <a href="../">route state</a>.</td>
+<td>status</td>
+<td>autoware_ad_api_msgs/msg/ResponseStatus</td>
+<td>response status</td>
 </tr>
 </tbody>
 </table>
@@ -2902,7 +2911,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../set/" class="md-footer__link md-footer__link--prev" aria-label="Previous: /api/route/set" rel="prev">
+        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Route API" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -2911,20 +2920,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              /api/route/set
+              Route API
             </div>
           </div>
         </a>
       
       
         
-        <a href="../lanelet/notice/" class="md-footer__link md-footer__link--next" aria-label="Next: /api/route/lanelet/notice" rel="next">
+        <a href="../route/" class="md-footer__link md-footer__link--next" aria-label="Next: /api/routing/route" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              /api/route/lanelet/notice
+              /api/routing/route
             </div>
           </div>
           <div class="md-footer__button md-icon">
