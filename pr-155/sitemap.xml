@@ -316,6 +316,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-155/design/autoware-interfaces/ad-api/types/autoware_ad_api_msgs/msg/route_state/</loc>
+         <lastmod>2022-07-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-155/design/autoware-interfaces/ad-api/types/autoware_ad_api_msgs/srv/clear_route/</loc>
          <lastmod>2022-07-05</lastmod>
          <changefreq>daily</changefreq>
