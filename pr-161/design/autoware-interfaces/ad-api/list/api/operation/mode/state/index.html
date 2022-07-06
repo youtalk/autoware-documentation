@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-161/design/autoware-interfaces/ad-api/list/api/operation/mode/change/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-161/design/autoware-interfaces/ad-api/list/api/operation/mode/state/">
       
       <link rel="icon" href="../../../../../../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.8">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.9">
     
     
       
-        <title>/api/operation/mode/change - Autoware Documentation</title>
+        <title>/api/operation/mode/state - Autoware Documentation</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#apioperationmodechange" class="md-skip">
+        <a href="#apioperationmodestate" class="md-skip">
           Skip to content
         </a>
       
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              /api/operation/mode/change
+              /api/operation/mode/state
             
           </span>
         </div>
@@ -2834,15 +2834,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#request" class="md-nav__link">
-    Request
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#response" class="md-nav__link">
-    Response
+  <a href="#message" class="md-nav__link">
+    Message
   </a>
   
 </li>
@@ -2859,21 +2852,20 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/autowarefoundation/autoware-documentation/edit/main/docs/design/autoware-interfaces/ad-api/list/api/operation/mode/change.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/autowarefoundation/autoware-documentation/edit/main/docs/design/autoware-interfaces/ad-api/list/api/operation/mode/state.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="apioperationmodechange">/api/operation/mode/change<a class="headerlink" href="#apioperationmodechange" title="Permanent link">#</a></h1>
+<h1 id="apioperationmodestate">/api/operation/mode/state<a class="headerlink" href="#apioperationmodestate" title="Permanent link">#</a></h1>
 <ul>
-<li>Method: function call</li>
-<li>Type: <a href="../../../../../types/autoware_ad_api_msgs/srv/change_operation_mode/">autoware_ad_api_msgs/srv/ChangeOperationMode</a></li>
+<li>Method: notification</li>
+<li>Type: <a href="../../../../../types/autoware_ad_api_msgs/msg/operation_mode_state/">autoware_ad_api_msgs/msg/OperationModeState</a></li>
 </ul>
 <h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">#</a></h2>
-<p>Request to change the operation mode. For details, see the <a href="../">operation mode</a>.
-This API fail if the vehicle does not support mode change by software.</p>
-<h2 id="request">Request<a class="headerlink" href="#request" title="Permanent link">#</a></h2>
+<p>Get the operation mode state. For details, see the <a href="../">operation mode</a>.</p>
+<h2 id="message">Message<a class="headerlink" href="#message" title="Permanent link">#</a></h2>
 <table>
 <thead>
 <tr>
@@ -2884,26 +2876,39 @@ This API fail if the vehicle does not support mode change by software.</p>
 </thead>
 <tbody>
 <tr>
-<td>mode</td>
+<td>operation_mode</td>
 <td>uint16</td>
-<td>operation mode</td>
+<td>The selected command for Autoware control.</td>
 </tr>
-</tbody>
-</table>
-<h2 id="response">Response<a class="headerlink" href="#response" title="Permanent link">#</a></h2>
-<table>
-<thead>
 <tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
+<td>is_in_autoware_control</td>
+<td>bool</td>
+<td>True if direct control by the driver is enabled.</td>
 </tr>
-</thead>
-<tbody>
 <tr>
-<td>status</td>
-<td>autoware_ad_api_msgs/msg/ResponseStatus</td>
-<td>response status</td>
+<td>is_in_transition</td>
+<td>bool</td>
+<td>True if the operation mode is in transition.</td>
+</tr>
+<tr>
+<td>change_to_stop</td>
+<td>bool</td>
+<td>True if the operation mode can be changed to stop.</td>
+</tr>
+<tr>
+<td>change_to_autonomous</td>
+<td>bool</td>
+<td>True if the operation mode can be changed to autonomous.</td>
+</tr>
+<tr>
+<td>change_to_local</td>
+<td>bool</td>
+<td>True if the operation mode can be changed to local.</td>
+</tr>
+<tr>
+<td>change_to_remote</td>
+<td>bool</td>
+<td>True if the operation mode can be changed to remote.</td>
 </tr>
 </tbody>
 </table>
@@ -2928,7 +2933,7 @@ This API fail if the vehicle does not support mode change by software.</p>
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Operation Mode" rel="prev">
+        <a href="../engage/" class="md-footer__link md-footer__link--prev" aria-label="Previous: /api/operation/mode/engage" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -2937,20 +2942,20 @@ This API fail if the vehicle does not support mode change by software.</p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              Operation Mode
+              /api/operation/mode/engage
             </div>
           </div>
         </a>
       
       
         
-        <a href="../notice/" class="md-footer__link md-footer__link--next" aria-label="Next: /api/operation/mode/notice" rel="next">
+        <a href="../../../../../types/autoware_ad_api_msgs/msg/operation_mode_state/" class="md-footer__link md-footer__link--next" aria-label="Next: autoware_ad_api_msgs/msg/OperationModeState" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              /api/operation/mode/notice
+              autoware_ad_api_msgs/msg/OperationModeState
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -2987,7 +2992,7 @@ This API fail if the vehicle does not support mode change by software.</p>
     <script id="__config" type="application/json">{"base": "../../../../../../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../../../../../../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../../../../../../assets/javascripts/bundle.0238f547.min.js"></script>
+      <script src="../../../../../../../../assets/javascripts/bundle.6c7ad80a.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
