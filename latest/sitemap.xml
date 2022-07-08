@@ -281,6 +281,36 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/list/api/routing/</loc>
+         <lastmod>2022-07-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/list/api/routing/clear_route/</loc>
+         <lastmod>2022-07-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/list/api/routing/route/</loc>
+         <lastmod>2022-07-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/list/api/routing/set_route/</loc>
+         <lastmod>2022-07-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/list/api/routing/set_route_points/</loc>
+         <lastmod>2022-07-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/list/api/routing/state/</loc>
+         <lastmod>2022-07-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_ad_api_msgs/msg/driving_state/</loc>
          <lastmod>2022-07-08</lastmod>
          <changefreq>daily</changefreq>
@@ -301,6 +331,36 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_ad_api_msgs/msg/route/</loc>
+         <lastmod>2022-07-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_ad_api_msgs/msg/route_optional/</loc>
+         <lastmod>2022-07-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_ad_api_msgs/msg/route_primitive/</loc>
+         <lastmod>2022-07-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_ad_api_msgs/msg/route_segment/</loc>
+         <lastmod>2022-07-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_ad_api_msgs/msg/route_state/</loc>
+         <lastmod>2022-07-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_ad_api_msgs/srv/clear_route/</loc>
+         <lastmod>2022-07-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_ad_api_msgs/srv/driving_engage/</loc>
          <lastmod>2022-07-08</lastmod>
          <changefreq>daily</changefreq>
@@ -312,6 +372,16 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_ad_api_msgs/srv/interface_version/</loc>
+         <lastmod>2022-07-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_ad_api_msgs/srv/set_route/</loc>
+         <lastmod>2022-07-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_ad_api_msgs/srv/set_route_points/</loc>
          <lastmod>2022-07-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
