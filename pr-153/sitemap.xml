@@ -246,6 +246,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-153/design/autoware-interfaces/ad-api/list/api/fail_safe/</loc>
+         <lastmod>2022-07-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-153/design/autoware-interfaces/ad-api/list/api/fail_safe/state/</loc>
+         <lastmod>2022-07-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-153/design/autoware-interfaces/ad-api/list/api/interface/</loc>
          <lastmod>2022-07-08</lastmod>
          <changefreq>daily</changefreq>
@@ -276,6 +286,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-153/design/autoware-interfaces/ad-api/types/autoware_ad_api_msgs/msg/fail_safe_state/</loc>
+         <lastmod>2022-07-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-153/design/autoware-interfaces/ad-api/types/autoware_ad_api_msgs/msg/localization_initialization_state/</loc>
          <lastmod>2022-07-08</lastmod>
          <changefreq>daily</changefreq>
@@ -297,6 +312,46 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-153/design/autoware-interfaces/ad-api/types/autoware_ad_api_msgs/srv/interface_version/</loc>
+         <lastmod>2022-07-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-153/design/autoware-interfaces/ad-api/use-cases/</loc>
+         <lastmod>2022-07-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-153/design/autoware-interfaces/ad-api/use-cases/bus-service/</loc>
+         <lastmod>2022-07-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-153/design/autoware-interfaces/ad-api/use-cases/change-operation-mode/</loc>
+         <lastmod>2022-07-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-153/design/autoware-interfaces/ad-api/use-cases/drive-designated-position/</loc>
+         <lastmod>2022-07-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-153/design/autoware-interfaces/ad-api/use-cases/get-on-off/</loc>
+         <lastmod>2022-07-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-153/design/autoware-interfaces/ad-api/use-cases/initialize-pose/</loc>
+         <lastmod>2022-07-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-153/design/autoware-interfaces/ad-api/use-cases/launch-terminate/</loc>
+         <lastmod>2022-07-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-153/design/autoware-interfaces/ad-api/use-cases/taxi-service/</loc>
          <lastmod>2022-07-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -357,6 +412,11 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-153/how-to-guides/how-to-create-maps-for-autoware/</loc>
+         <lastmod>2022-07-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-153/how-to-guides/how-to-determine-component-dependencies/</loc>
          <lastmod>2022-07-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
