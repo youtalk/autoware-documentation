@@ -2985,14 +2985,14 @@ See the description of each behavior below for pose and status. And see the desc
 </thead>
 <tbody>
 <tr>
-<td>SURROUND_OBSTACLE</td>
+<td>SURROUNDING_OBSTACLE</td>
 <td>immediate stop</td>
-<td>There are obstacles nearby.</td>
+<td>There are obstacles immediately around the vehicle.</td>
 </tr>
 <tr>
-<td>FRONT_OBSTACLE</td>
+<td>ROUTE_OBSTACLE</td>
 <td>planned stop</td>
-<td>There are obstacles ahead.</td>
+<td>There are obstacles along the route ahead.</td>
 </tr>
 <tr>
 <td>INTERSECTION</td>
@@ -3086,7 +3086,7 @@ The pose indicates the vehicle head or the predicted stop position if possible.<
 <p><img alt="immediate-stop-factor" src="docs/factors-immediate-stop.drawio.svg" /></p>
 <h3 id="direction-change">Direction change<a class="headerlink" href="#direction-change" title="Permanent link">#</a></h3>
 <p>The direction change is a maneuver that requires use of turn indicators, such as when turning left or right.
-As the vehicle approaches the position to start steering, this factor appears with status APPROACHING.
+As the vehicle approaches the position to start steering, this factor appears with a status of APPROACHING.
 And when the vehicle reaches that position, the status will be ACTIVATED.
 The pose indicates the start position when APPROACHING and the end position when ACTIVATED.</p>
 <p><img alt="direction-change-factor" src="docs/factors-direction-change.drawio.svg" /></p>
