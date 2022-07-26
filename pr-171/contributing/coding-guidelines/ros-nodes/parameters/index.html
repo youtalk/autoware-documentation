@@ -3058,7 +3058,7 @@
 <li><code>p3</code>: <a href="https://github.com/autowarefoundation/autoware_launch/tree/main/autoware_launch/config">reference parameter for the <code>autoware_launch</code> package</a></li>
 </ul>
 <p><code>p3</code> contains the same parameters as <code>p2</code>.
-<code>p2</code> contains all the parameters of <code>p1</code>, and also <a href="TODO">parameters involving multiple nodes</a>.</p>
+<code>p2</code> contains all the parameters of <code>p1</code>, and also parameters of multiple node instances from a single node package with different parameters.</p>
 <h2 id="parameters-to-be-used">Parameters to be used<a class="headerlink" href="#parameters-to-be-used" title="Permanent link">#</a></h2>
 <h3 id="when-launching-autoware-via-the-autoware_launch-package">When launching autoware via the <code>autoware_launch</code> package<a class="headerlink" href="#when-launching-autoware-via-the-autoware_launch-package" title="Permanent link">#</a></h3>
 <p>In <a href="https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/launch/autoware.launch.xml"><code>autoware.launch.xml</code></a> of the <code>autoware_launch</code> package, parameters in the <code>autoware_launch</code> package (<code>p3</code>) are used.
@@ -3080,7 +3080,7 @@ Therefore, parameters in the <code>tier4_planning_launch</code> package (<code>p
 <ul>
 <li>Locates the parameters of <code>p1</code> and <code>p2</code> for the new package in <code>autowarefoundation/autoware.universe</code>.</li>
 <li>Create a PR to <code>autowarefoundation/autoware.universe</code>.</li>
-<li>Update <a href="TODO">a synchronization setting file</a>.</li>
+<li>Update <a href="https://github.com/autowarefoundation/autoware_launch/blob/main/.github/sync-param-files.yaml">a synchronization setting file</a>.</li>
 <li>Sync PR to <code>autowarefoundation/autoware_launch</code> is created automatically.<ul>
 <li>Or you can create this PR manually.</li>
 </ul>
@@ -3091,7 +3091,7 @@ Therefore, parameters in the <code>tier4_planning_launch</code> package (<code>p
 <ul>
 <li>Modify the parameters of <code>p1</code> and <code>p2</code> in <code>autowarefoundation/autoware.universe</code>.</li>
 <li>Create a PR to <code>autowarefoundation/autoware.universe</code>.</li>
-<li>If you add a new config file, update <a href="TODO">a synchronization setting file</a>.</li>
+<li>If you add a new config file, update <a href="https://github.com/autowarefoundation/autoware_launch/blob/main/.github/sync-param-files.yaml">a synchronization setting file</a>.</li>
 <li>Sync PR to <code>autowarefoundation/autoware_launch</code> is created automatically.<ul>
 <li>Or you can create this PR manually.</li>
 </ul>
