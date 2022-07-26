@@ -3043,7 +3043,9 @@
 <span class="go">source install/setup.bash</span>
 <span class="go">ros2 launch autoware_launch autoware.launch.xml map_path:=&lt;PATH_TO_EXTRACTED_FOLDER_WITH_MAP&gt; vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit use_sim_time:=true launch_sensing_driver:=false</span>
 
-<span class="go">_NOTE: The map_path has to start with /home/... , relative path will not work properly_</span>
+<span class="go">!!! note</span>
+
+<span class="go">    Note that `map_path` must be a full path. Relative paths will not work.</span>
 
 <span class="go">- the RViZ with the map should appear. The ego can localize itself at the beginning however the localization can be inaccurate. It is advised to place the `2D Pose Estimate` marker as shown on the image below.</span>
 
