@@ -3059,7 +3059,7 @@
 </ul>
 <p><code>Launch Parameter</code> contains the same parameters as <code>Component Parameter</code>.
 <code>Component Parameter</code> contains all the parameters of <code>Launch Parameter</code>, and also parameters of multiple node instances from a single node package with different parameters.</p>
-<p><img alt="parameter-architecture" src="../images/parameter-architecture.svg" /></p>
+<p><img alt="parameter-architecture" src="../images/parameter-architecture.svg" style="width:900px" /></p>
 <h2 id="parameters-to-be-used">Parameters to be used<a class="headerlink" href="#parameters-to-be-used" title="Permanent link">#</a></h2>
 <h3 id="when-launching-autoware-via-the-autoware_launch-package">When launching autoware via the <code>autoware_launch</code> package<a class="headerlink" href="#when-launching-autoware-via-the-autoware_launch-package" title="Permanent link">#</a></h3>
 <p>In <a href="https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/launch/autoware.launch.xml"><code>autoware.launch.xml</code></a> of the <code>autoware_launch</code> package, parameters in the <code>autoware_launch</code> package (<code>Launch Parameter</code>) are used.
@@ -3073,12 +3073,12 @@ For example, the <code>tier4_planning_launch</code> package receives <code>$(fin
 Therefore, parameters in the <code>tier4_planning_launch</code> package (<code>Component Parameter</code>) are used.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;tier4_planning_launch_param_path&quot;</span> <span class="na">default=</span><span class="s">&quot;$(find-pkg-share tier4_planning_launch)/config&quot;</span> <span class="na">description=</span><span class="s">&quot;tier4_planning_launch parameter path&quot;</span><span class="nt">/&gt;</span>
 </code></pre></div>
-<p><img alt="parameters-to-be-used" src="../images/parameters-to-be-used.svg" /></p>
+<p><img alt="parameters-to-be-used" src="../images/parameters-to-be-used.svg" style="width:1200px" /></p>
 <h2 id="automatic-synchronization-of-parameters">Automatic synchronization of parameters<a class="headerlink" href="#automatic-synchronization-of-parameters" title="Permanent link">#</a></h2>
 <p>There is a PR generated automatically to synchronize <code>Launch Parameter</code> with <code>Component Parameter</code>.</p>
 <p>You can see the synchronization setting file <a href="https://github.com/autowarefoundation/autoware_launch/blob/main/.github/sync-param-files.yaml">here</a>.
 Note that all parameter files are listed one by one.</p>
-<p><img alt="parameter-sync" src="../images/parameter-sync.svg" /></p>
+<p><img alt="parameter-sync" src="../images/parameter-sync.svg" style="width:900px" /></p>
 <h2 id="how-to-manage-parameters">How to manage parameters<a class="headerlink" href="#how-to-manage-parameters" title="Permanent link">#</a></h2>
 <p>We explain how to manage parameters in some use cases.</p>
 <h3 id="when-creating-a-new-package">When creating a new package<a class="headerlink" href="#when-creating-a-new-package" title="Permanent link">#</a></h3>
