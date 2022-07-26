@@ -506,32 +506,32 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-170/how-to-guides/create-maps-for-autoware/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-170/how-to-guides/calibrating-your-sensors/</loc>
          <lastmod>2022-07-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-170/how-to-guides/determine-component-dependencies/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-170/how-to-guides/creating-maps-for-autoware/</loc>
          <lastmod>2022-07-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-170/how-to-guides/integrate-autoware-with-a-diff-drive-vehicle/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-170/how-to-guides/determining-component-dependencies/</loc>
          <lastmod>2022-07-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-170/how-to-guides/integrate-autoware-with-your-vehicle/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-170/how-to-guides/integrating-autoware-with-a-diff-drive-vehicle/</loc>
+         <lastmod>2022-07-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-170/how-to-guides/integrating-autoware-with-your-vehicle/</loc>
          <lastmod>2022-07-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-170/how-to-guides/running-autoware-without-cuda/</loc>
-         <lastmod>2022-07-26</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-170/how-to-guides/sensor-calibration/</loc>
          <lastmod>2022-07-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
