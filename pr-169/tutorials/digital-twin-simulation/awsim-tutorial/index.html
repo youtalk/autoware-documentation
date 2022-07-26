@@ -3036,16 +3036,12 @@
 
 <span class="gp">#</span><span class="c1">## Autoware</span>
 
-<span class="go">To run the Autoware, please:</span>
+<span class="go">To run Autoware, open a terminal and run the following commands:</span>
 
-<span class="go">- open the terminal and go to Autoware directory</span>
-
-<span class="go">        cd &lt;YOUR_WORKSPACE&gt;/autoware</span>
-
-<span class="go">- source the installation and run the solution</span>
-
-<span class="go">        source install/setup.bash</span>
-<span class="go">        ros2 launch autoware_launch autoware.launch.xml map_path:=&lt;PATH_TO_EXTRACTED_FOLDER_WITH_MAP&gt; vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit use_sim_time:=true launch_sensing_driver:=false</span>
+<span class="go">```console</span>
+<span class="go">cd &lt;YOUR_WORKSPACE&gt;/autoware</span>
+<span class="go">source install/setup.bash</span>
+<span class="go">ros2 launch autoware_launch autoware.launch.xml map_path:=&lt;PATH_TO_EXTRACTED_FOLDER_WITH_MAP&gt; vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit use_sim_time:=true launch_sensing_driver:=false</span>
 
 <span class="go">_NOTE: The map_path has to start with /home/... , relative path will not work properly_</span>
 
