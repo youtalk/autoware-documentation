@@ -3116,15 +3116,11 @@
 </ul>
 <h2 id="running-steps">Running steps<a class="headerlink" href="#running-steps" title="Permanent link">#</a></h2>
 <h3 id="awsim-simulator">AWSIM Simulator<a class="headerlink" href="#awsim-simulator" title="Permanent link">#</a></h3>
-<p>The AWSIM Simulator can be run without any further preparation. To run the simulator:</p>
-<ul>
-<li>open the terminal navigate to the simulation directory and run:<div class="codehilite"><pre><span></span><code>  source /opt/ros/galactic/setup.bash
-  cd &lt;PATH_TO_EXTRACTED_FOLDER_WITH_AWSIM&gt;
-  ./AWSIM.x86_64
-</code></pre></div>
-
-</li>
-</ul>
+<p>To run the AWSIM simulator, open a terminal window, navigate to the simulation directory and run:</p>
+<p>```console
+source /opt/ros/galactic/setup.bash
+cd <PATH_TO_EXTRACTED_FOLDER_WITH_AWSIM>
+./AWSIM.x86_64</p>
 <p>The properly working simulator should have the lidar rays visible and the data topics should appear when discovering using <code>ros2 topic list</code>.</p>
 <p><img alt="correctly working simulator" src="../images/workingSim.png" /></p>
 <h4 id="simulator-shortcuts">Simulator shortcuts<a class="headerlink" href="#simulator-shortcuts" title="Permanent link">#</a></h4>
@@ -3173,7 +3169,7 @@
 <li>to make the Autoware plan the route please place the <code>2D Goal Pose</code> marker somewhere within the lanelet2 road lanes. <em>NOTE: The plan can be not visible due to problem with plan visualization plugin which was omitted during the Autoware build process</em></li>
 </ul>
 <ul>
-<li>to make the Autoware execute plan please open new terminal and send the engage message:<div class="codehilite"><pre><span></span><code>  cd &lt;YOUR_WORKSPACE&gt;/autoware
+<li>To make Autoware execute the planned route, open a new terminal and send the engage message:<div class="codehilite"><pre><span></span><code>  cd &lt;YOUR_WORKSPACE&gt;/autoware
   source install/setup.bash
   ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage &quot;engage: true&quot;
 </code></pre></div>
