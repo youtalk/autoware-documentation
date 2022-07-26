@@ -2486,22 +2486,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#create-a-new-package" class="md-nav__link">
-    Create a new package
+  <a href="#when-creating-a-new-package" class="md-nav__link">
+    When creating a new package
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#modify-general-parameters" class="md-nav__link">
-    Modify general parameters
+  <a href="#when-modifying-general-parameters" class="md-nav__link">
+    When modifying general parameters
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#modify-integrated-parameters" class="md-nav__link">
-    Modify integrated parameters
+  <a href="#when-modifying-integrated-parameters" class="md-nav__link">
+    When modifying integrated parameters
   </a>
   
 </li>
@@ -3001,22 +3001,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#create-a-new-package" class="md-nav__link">
-    Create a new package
+  <a href="#when-creating-a-new-package" class="md-nav__link">
+    When creating a new package
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#modify-general-parameters" class="md-nav__link">
-    Modify general parameters
+  <a href="#when-modifying-general-parameters" class="md-nav__link">
+    When modifying general parameters
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#modify-integrated-parameters" class="md-nav__link">
-    Modify integrated parameters
+  <a href="#when-modifying-integrated-parameters" class="md-nav__link">
+    When modifying integrated parameters
   </a>
   
 </li>
@@ -3058,46 +3058,48 @@
 <li><code>p3</code>: <a href="https://github.com/autowarefoundation/autoware_launch/tree/main/autoware_launch/config">reference parameter for the <code>autoware_launch</code> package</a></li>
 </ul>
 <p><code>p3</code> contains the same parameters as <code>p2</code>.
-<code>p2</code> contains all the parameters of <code>p1</code>, and also <a href="">parameters involving multiple nodes</a>.</p>
+<code>p2</code> contains all the parameters of <code>p1</code>, and also <a href="TODO">parameters involving multiple nodes</a>.</p>
 <h2 id="parameters-to-be-used">Parameters to be used<a class="headerlink" href="#parameters-to-be-used" title="Permanent link">#</a></h2>
 <h3 id="when-launching-autoware-via-the-autoware_launch-package">When launching autoware via the <code>autoware_launch</code> package<a class="headerlink" href="#when-launching-autoware-via-the-autoware_launch-package" title="Permanent link">#</a></h3>
 <p>In <a href="https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/launch/autoware.launch.xml"><code>autoware.launch.xml</code></a> of the <code>autoware_launch</code> package, parameters in the <code>autoware_launch</code> package (<code>p3</code>) are used.
 For example, the <code>tier4_planning_launch</code> package receives <code>$(find-pkg-share autoware_launch)/config/tier4_planning_launch</code> as the <code>tier4_planning_launch_param_path</code> argument as follows.</p>
-<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- Planning --&gt;</span>
-<span class="nt">&lt;include</span> <span class="na">file=</span><span class="s">&quot;$(find-pkg-share tier4_planning_launch)/launch/planning.launch.xml&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;include</span> <span class="na">file=</span><span class="s">&quot;$(find-pkg-share tier4_planning_launch)/launch/planning.launch.xml&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;tier4_planning_launch_param_path&quot;</span> <span class="na">value=</span><span class="s">&quot;$(find-pkg-share autoware_launch)/config/tier4_planning_launch&quot;</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/include&gt;</span>
 </code></pre></div>
 <h3 id="when-launching-autoware-via-the-module-launch">When launching autoware via the module launch<a class="headerlink" href="#when-launching-autoware-via-the-module-launch" title="Permanent link">#</a></h3>
-<p>In <a href="https://github.com/autowarefoundation/autoware.universe/blob/main/launch/tier4_planning_launch/launch/planning.launch.xml"><code>planning.launch.xml</code></a> of the <code>tier4_planning_launch</code> package, the default variable for the <code>tier4_planning_launch_param_path</code> argument is <code>$(find-pkg-share tier4_planning_launch)/config</code>.</p>
+<p>In <a href="https://github.com/autowarefoundation/autoware.universe/blob/main/launch/tier4_planning_launch/launch/planning.launch.xml"><code>planning.launch.xml</code></a> of the <code>tier4_planning_launch</code> package, the default variable for the <code>tier4_planning_launch_param_path</code> argument is <code>$(find-pkg-share tier4_planning_launch)/config</code>.
+Therefore, parameters in the <code>tier4_planning_launch</code> package (<code>p2</code>) are used.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;tier4_planning_launch_param_path&quot;</span> <span class="na">default=</span><span class="s">&quot;$(find-pkg-share tier4_planning_launch)/config&quot;</span> <span class="na">description=</span><span class="s">&quot;tier4_planning_launch parameter path&quot;</span><span class="nt">/&gt;</span>
 </code></pre></div>
 <h2 id="automatic-synchronization-of-parameters">Automatic Synchronization of parameters<a class="headerlink" href="#automatic-synchronization-of-parameters" title="Permanent link">#</a></h2>
 <p>There is a PR generated automatically to synchronize <code>p3</code> with <code>p2</code>.</p>
 <h2 id="how-to-manage-parameters">How to manage parameters<a class="headerlink" href="#how-to-manage-parameters" title="Permanent link">#</a></h2>
-<p>We explain how to manage parameters in various use cases</p>
-<h3 id="create-a-new-package">Create a new package<a class="headerlink" href="#create-a-new-package" title="Permanent link">#</a></h3>
+<p>We explain how to manage parameters in some use cases.</p>
+<h3 id="when-creating-a-new-package">When creating a new package<a class="headerlink" href="#when-creating-a-new-package" title="Permanent link">#</a></h3>
 <ul>
 <li>Locates the parameters of <code>p1</code> and <code>p2</code> for the new package in <code>autowarefoundation/autoware.universe</code>.</li>
 <li>Create a PR to <code>autowarefoundation/autoware.universe</code>.</li>
+<li>Update <a href="TODO">a synchronization setting file</a>.</li>
 <li>Sync PR to <code>autowarefoundation/autoware_launch</code> is created automatically.<ul>
 <li>Or you can create this PR manually.</li>
 </ul>
 </li>
 <li>Merge both PRs.</li>
 </ul>
-<h3 id="modify-general-parameters">Modify general parameters<a class="headerlink" href="#modify-general-parameters" title="Permanent link">#</a></h3>
+<h3 id="when-modifying-general-parameters">When modifying general parameters<a class="headerlink" href="#when-modifying-general-parameters" title="Permanent link">#</a></h3>
 <ul>
 <li>Modify the parameters of <code>p1</code> and <code>p2</code> in <code>autowarefoundation/autoware.universe</code>.</li>
 <li>Create a PR to <code>autowarefoundation/autoware.universe</code>.</li>
+<li>If you add a new config file, update <a href="TODO">a synchronization setting file</a>.</li>
 <li>Sync PR to <code>autowarefoundation/autoware_launch</code> is created automatically.<ul>
 <li>Or you can create this PR manually.</li>
 </ul>
 </li>
 <li>Merge both PRs.</li>
 </ul>
-<h3 id="modify-integrated-parameters">Modify integrated parameters<a class="headerlink" href="#modify-integrated-parameters" title="Permanent link">#</a></h3>
-<p>Assuming that there is your forked repositories of <code>autowarefoundation/autoware</code> and <code>autowarefoundation/autoware_launch</code>.</p>
+<h3 id="when-modifying-integrated-parameters">When modifying integrated parameters<a class="headerlink" href="#when-modifying-integrated-parameters" title="Permanent link">#</a></h3>
+<p>Note: Assuming that there are your forked repositories of <code>autowarefoundation/autoware</code> and <code>autowarefoundation/autoware_launch</code>.</p>
 <p>This change does not affect the Autoware Foundation's repository.
 Therefore, just modifying your forked repository is fine.</p>
 <ul>
