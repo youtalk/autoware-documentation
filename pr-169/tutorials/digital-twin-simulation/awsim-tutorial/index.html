@@ -3034,7 +3034,7 @@
 <span class="go">      - 3 - emergency lights</span>
 <span class="go">      - 4- turning the lights off</span>
 
-<span class="gp">#</span><span class="c1">## Autoware</span>
+<span class="gp">#</span><span class="c1">## Running utoware to control AWSIM</span>
 
 <span class="go">To run Autoware, open a terminal and run the following commands:</span>
 
@@ -3051,11 +3051,7 @@
 
 <span class="go">![how to initialize autoware](./images/initializeAutoware.png)</span>
 
-<span class="go">- To make Autoware plan the route, use the `2D Goal Pose` button to set a goal pose somewhere within the Lanelet2 road lanes. </span>
-
-<span class="go">!!! note</span>
-
-<span class="go">    Note that the planned route will not be shown due to a problem with the plan visualization plugin that was omitted during the Autoware build process.</span>
+<span class="go">- To make Autoware plan the route, use the `2D Goal Pose` button to set a goal pose somewhere within the Lanelet2 road lanes.</span>
 
 <span class="go">- To make Autoware execute the planned route, open a new terminal and send the engage message:</span>
 
@@ -3093,7 +3089,7 @@
 
 <span class="gp">#</span><span class="c1">## Troubleshooting</span>
 
-<span class="go">If the data on topics is not produced or the poincloud is not visible on the simulation screen please find a `Player.log` file and provide it to the simulation suppliers (the file can be found under `~/.config/unity3d/Tier\ IV/E2ESimulator` directory).</span>
+<span class="go">If the data on topics is not produced or the poincloud is not visible on the simulation screen please report a problem in autoware [Q&amp;A discussion](https://github.com/autowarefoundation/autoware/discussions/). To make analysis of the problem easier, please share a `Player.log` file (the file can be found under `~/.config/unity3d/Tier\ IV/E2ESimulator/Player.log` directory).</span>
 </code></pre></div>
 <!-- prettier-ignore -->
 
