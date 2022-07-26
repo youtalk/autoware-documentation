@@ -982,18 +982,39 @@
     Autoware
   </a>
   
-    <nav class="md-nav" aria-label="Autoware">
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#npc-control-optional" class="md-nav__link">
+    NPC Control (optional)
+  </a>
+  
+    <nav class="md-nav" aria-label="NPC Control (optional)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    Troubleshooting
+  <a href="#preparation_1" class="md-nav__link">
+    Preparation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-npcs-from-rosbag" class="md-nav__link">
+    Run NPCs from rosbag
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    Troubleshooting
+  </a>
   
 </li>
         
@@ -3027,18 +3048,39 @@
     Autoware
   </a>
   
-    <nav class="md-nav" aria-label="Autoware">
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#npc-control-optional" class="md-nav__link">
+    NPC Control (optional)
+  </a>
+  
+    <nav class="md-nav" aria-label="NPC Control (optional)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    Troubleshooting
+  <a href="#preparation_1" class="md-nav__link">
+    Preparation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-npcs-from-rosbag" class="md-nav__link">
+    Run NPCs from rosbag
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    Troubleshooting
+  </a>
   
 </li>
         
@@ -3141,7 +3183,30 @@
 </ul>
 <p>From now on the Autoware will execute the path and operate the AWSIM Simulator.</p>
 <p><img alt="AWSIM with autoware" src="./images/awf_awsim.png" /></p>
-<h4 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">#</a></h4>
+<h3 id="npc-control-optional">NPC Control (optional)<a class="headerlink" href="#npc-control-optional" title="Permanent link">#</a></h3>
+<p>Currently the only supported way to add NPCs to the simulation is using prerecorded rosbags.</p>
+<h4 id="preparation_1">Preparation<a class="headerlink" href="#preparation_1" title="Permanent link">#</a></h4>
+<ul>
+<li>Download and extract npc_msgs : <a href="https://drive.google.com/file/d/1fMvjOnz7Z0cGXotwdOAhBfLPYO52ssp0/view?usp=sharing">link</a></li>
+<li>Download and extract sample rosbags : <a href="to be filled">link</a></li>
+</ul>
+<h4 id="run-npcs-from-rosbag">Run NPCs from rosbag<a class="headerlink" href="#run-npcs-from-rosbag" title="Permanent link">#</a></h4>
+<p>To run NPCs from rosbag, follow the steps:</p>
+<ul>
+<li>navigate to the directory with extracted npc_msgs</li>
+<li>build and source npc_msgs:<div class="codehilite"><pre><span></span><code>  colcon build
+  source install/setup.bash
+</code></pre></div>
+
+</li>
+</ul>
+<ul>
+<li>play sample rosbag while AWSIM is running:<div class="codehilite"><pre><span></span><code>  ros2 bag play &lt;ROSBAG_NAME&gt;
+</code></pre></div>
+
+</li>
+</ul>
+<h3 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">#</a></h3>
 <p>If the data on topics is not produced or the poincloud is not visible on the simulation screen please find a <code>Player.log</code> file and provide it to the simulation suppliers (the file can be found under <code>~/.config/unity3d/Tier\ IV/E2ESimulator</code> directory).</p>
 <!-- prettier-ignore -->
 
