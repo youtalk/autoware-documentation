@@ -496,6 +496,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/node-diagram/</loc>
+         <lastmod>2022-07-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/latest/how-to-guides/</loc>
          <lastmod>2022-07-27</lastmod>
          <changefreq>daily</changefreq>
