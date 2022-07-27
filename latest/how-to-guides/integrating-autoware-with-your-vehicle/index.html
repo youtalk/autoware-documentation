@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/latest/how-to-guides/how-to-create-maps-for-autoware/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/latest/how-to-guides/integrating-autoware-with-your-vehicle/">
       
       <link rel="icon" href="../../assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
     
     
       
-        <title>How to create maps for Autoware - Autoware Documentation</title>
+        <title>Integrating Autoware with your vehicle - Autoware Documentation</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#how-to-create-maps-for-autoware" class="md-skip">
+        <a href="#integrating-autoware-with-your-vehicle" class="md-skip">
           Skip to content
         </a>
       
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              How to create maps for Autoware
+              Integrating Autoware with your vehicle
             
           </span>
         </div>
@@ -963,6 +963,34 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../creating-maps-for-autoware/" class="md-nav__link">
+        Creating maps for Autoware
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../determining-component-dependencies/" class="md-nav__link">
+        Determining component dependencies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -975,12 +1003,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          How to create maps for Autoware
+          Integrating Autoware with your vehicle
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        How to create maps for Autoware
+        Integrating Autoware with your vehicle
       </a>
       
         
@@ -999,23 +1027,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#point-cloud-maps" class="md-nav__link">
-    Point cloud maps
+  <a href="#1-prepare-your-real-vehicle-hardware" class="md-nav__link">
+    1. Prepare your real vehicle hardware
   </a>
   
-    <nav class="md-nav" aria-label="Point cloud maps">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-create-maps" class="md-nav__link">
+    2. Create maps
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Create maps">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#point-cloud-map-specifications" class="md-nav__link">
-    Point cloud map specifications
+  <a href="#create-a-pointcloud-map" class="md-nav__link">
+    Create a pointcloud map
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#creating-a-point-cloud-map" class="md-nav__link">
-    Creating a point cloud map
+  <a href="#create-vector-map" class="md-nav__link">
+    Create vector map
   </a>
   
 </li>
@@ -1026,23 +1061,125 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#vector-maps" class="md-nav__link">
-    Vector maps
+  <a href="#3-create-your-autoware-meta-repository" class="md-nav__link">
+    3. Create your Autoware meta-repository
   </a>
   
-    <nav class="md-nav" aria-label="Vector maps">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-create-the-description-packages-of-your-vehicle" class="md-nav__link">
+    4. Create the description packages of your vehicle
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Create the description packages of your vehicle">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#vector-map-specifications" class="md-nav__link">
-    Vector map specifications
+  <a href="#adapt-your_vehicle_launch-for-autoware-launching-system" class="md-nav__link">
+    Adapt YOUR_VEHICLE_launch for autoware launching system
+  </a>
+  
+    <nav class="md-nav" aria-label="Adapt YOUR_VEHICLE_launch for autoware launching system">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#at-your_vehicle_description" class="md-nav__link">
+    At YOUR_VEHICLE_description
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#creating-a-vector-map" class="md-nav__link">
-    Creating a vector map
+  <a href="#at-your_vehicle_launch" class="md-nav__link">
+    At YOUR_VEHICLE_launch
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adapt-your_sensor_kit_description-for-autoware-launching-system" class="md-nav__link">
+    Adapt YOUR_SENSOR_KIT_description for autoware launching system
+  </a>
+  
+    <nav class="md-nav" aria-label="Adapt YOUR_SENSOR_KIT_description for autoware launching system">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#at-your_sensor_kit_description" class="md-nav__link">
+    At YOUR_SENSOR_KIT_description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#at-your_sensor_kit_launch" class="md-nav__link">
+    At YOUR_SENSOR_KIT_launch
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-create-a-vehicle_interface-package" class="md-nav__link">
+    5. Create a vehicle_interface package
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-launch-autoware" class="md-nav__link">
+    6. Launch Autoware
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Launch Autoware">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-autoware" class="md-nav__link">
+    Install Autoware
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#launch-autoware" class="md-nav__link">
+    Launch Autoware
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-initial-pose" class="md-nav__link">
+    Set initial pose
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-goal-pose" class="md-nav__link">
+    Set goal pose
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#engage" class="md-nav__link">
+    Engage
   </a>
   
 </li>
@@ -1053,8 +1190,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#autoware-compatible-map-providers" class="md-nav__link">
-    Autoware-compatible map providers
+  <a href="#7-tune-parameters-for-your-vehicle-environment" class="md-nav__link">
+    7. Tune parameters for your vehicle &amp; environment
   </a>
   
 </li>
@@ -1074,36 +1211,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../how-to-determine-component-dependencies/" class="md-nav__link">
-        How to determine component dependencies
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../how-to-integrate-autoware-with-your-vehicle/" class="md-nav__link">
-        How to integrate Autoware with your vehicle
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../how-to-integrate-autoware-with-a-diff-drive-vehicle/" class="md-nav__link">
-        How to integrate Autoware with a differential drive vehicle
+      <a href="../integrating-autoware-with-a-diff-drive-vehicle/" class="md-nav__link">
+        Integrating Autoware with a differential drive vehicle
       </a>
     </li>
   
@@ -1130,8 +1239,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../sensor-calibration/" class="md-nav__link">
-        How to calibrate your sensors
+      <a href="../calibrating-your-sensors/" class="md-nav__link">
+        Calibrating your sensors
       </a>
     </li>
   
@@ -2948,23 +3057,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#point-cloud-maps" class="md-nav__link">
-    Point cloud maps
+  <a href="#1-prepare-your-real-vehicle-hardware" class="md-nav__link">
+    1. Prepare your real vehicle hardware
   </a>
   
-    <nav class="md-nav" aria-label="Point cloud maps">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-create-maps" class="md-nav__link">
+    2. Create maps
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Create maps">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#point-cloud-map-specifications" class="md-nav__link">
-    Point cloud map specifications
+  <a href="#create-a-pointcloud-map" class="md-nav__link">
+    Create a pointcloud map
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#creating-a-point-cloud-map" class="md-nav__link">
-    Creating a point cloud map
+  <a href="#create-vector-map" class="md-nav__link">
+    Create vector map
   </a>
   
 </li>
@@ -2975,23 +3091,125 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#vector-maps" class="md-nav__link">
-    Vector maps
+  <a href="#3-create-your-autoware-meta-repository" class="md-nav__link">
+    3. Create your Autoware meta-repository
   </a>
   
-    <nav class="md-nav" aria-label="Vector maps">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-create-the-description-packages-of-your-vehicle" class="md-nav__link">
+    4. Create the description packages of your vehicle
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Create the description packages of your vehicle">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#vector-map-specifications" class="md-nav__link">
-    Vector map specifications
+  <a href="#adapt-your_vehicle_launch-for-autoware-launching-system" class="md-nav__link">
+    Adapt YOUR_VEHICLE_launch for autoware launching system
+  </a>
+  
+    <nav class="md-nav" aria-label="Adapt YOUR_VEHICLE_launch for autoware launching system">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#at-your_vehicle_description" class="md-nav__link">
+    At YOUR_VEHICLE_description
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#creating-a-vector-map" class="md-nav__link">
-    Creating a vector map
+  <a href="#at-your_vehicle_launch" class="md-nav__link">
+    At YOUR_VEHICLE_launch
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adapt-your_sensor_kit_description-for-autoware-launching-system" class="md-nav__link">
+    Adapt YOUR_SENSOR_KIT_description for autoware launching system
+  </a>
+  
+    <nav class="md-nav" aria-label="Adapt YOUR_SENSOR_KIT_description for autoware launching system">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#at-your_sensor_kit_description" class="md-nav__link">
+    At YOUR_SENSOR_KIT_description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#at-your_sensor_kit_launch" class="md-nav__link">
+    At YOUR_SENSOR_KIT_launch
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-create-a-vehicle_interface-package" class="md-nav__link">
+    5. Create a vehicle_interface package
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-launch-autoware" class="md-nav__link">
+    6. Launch Autoware
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Launch Autoware">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-autoware" class="md-nav__link">
+    Install Autoware
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#launch-autoware" class="md-nav__link">
+    Launch Autoware
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-initial-pose" class="md-nav__link">
+    Set initial pose
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-goal-pose" class="md-nav__link">
+    Set goal pose
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#engage" class="md-nav__link">
+    Engage
   </a>
   
 </li>
@@ -3002,8 +3220,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#autoware-compatible-map-providers" class="md-nav__link">
-    Autoware-compatible map providers
+  <a href="#7-tune-parameters-for-your-vehicle-environment" class="md-nav__link">
+    7. Tune parameters for your vehicle &amp; environment
   </a>
   
 </li>
@@ -3020,95 +3238,136 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/autowarefoundation/autoware-documentation/edit/main/docs/how-to-guides/how-to-create-maps-for-autoware.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/autowarefoundation/autoware-documentation/edit/main/docs/how-to-guides/integrating-autoware-with-your-vehicle.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="how-to-create-maps-for-autoware">How to create maps for Autoware<a class="headerlink" href="#how-to-create-maps-for-autoware" title="Permanent link">#</a></h1>
-<p>Autoware relies on high-definition point cloud maps and vector maps of the driving environment to perform various tasks such as localization, route planning, traffic light detection, and predicting the trajectories of pedestrians and other vehicles.</p>
-<p>The specifications for point cloud and vector maps required by Autoware are given below, along with examples of both open-source and proprietary software that you can use to create them.</p>
-<h2 id="point-cloud-maps">Point cloud maps<a class="headerlink" href="#point-cloud-maps" title="Permanent link">#</a></h2>
-<p>A 3D point cloud map is primarily used for LiDAR-based localization in Autoware. In order to determine the current position and orientation of the vehicle, a live scan captured from one or more LiDAR units is matched against a pre-generated 3D point cloud map. Therefore, an accurate point cloud map is crucial for good localization results.</p>
-<h3 id="point-cloud-map-specifications">Point cloud map specifications<a class="headerlink" href="#point-cloud-map-specifications" title="Permanent link">#</a></h3>
+<h1 id="integrating-autoware-with-your-vehicle">Integrating Autoware with your vehicle<a class="headerlink" href="#integrating-autoware-with-your-vehicle" title="Permanent link">#</a></h1>
+<h2 id="1-prepare-your-real-vehicle-hardware">1. Prepare your real vehicle hardware<a class="headerlink" href="#1-prepare-your-real-vehicle-hardware" title="Permanent link">#</a></h2>
+<p>Prerequisites for the vehicle:</p>
 <ul>
-<li>It must cover the entire operational area of the vehicle and should include an additional buffer zone of at least 200 m in all directions.</li>
-<li>It must be saved using the <a href="https://pointclouds.org/documentation/tutorials/pcd_file_format.html"><abbr title="Point Cloud Data">PCD</abbr> (Point Cloud Data) file format</a>, but can be a single <abbr title="Point Cloud Data">PCD</abbr> file or divided into multiple <abbr title="Point Cloud Data">PCD</abbr> files.</li>
-<li>Each point in the map must contain X, Y, and Z coordinates.</li>
-<li>An intensity or RGB value for each point may be optionally included.</li>
-<li>Its file size must be smaller than 1 GB, <a href="https://github.com/ros/ros_comm/issues/902">as per the current <abbr title="Robot Operating System">ROS</abbr> message size limit</a>.</li>
-<li>Its resolution should be at least 0.2 m to yield reliable localization results.</li>
-<li>It can be in either local or global coordinates, but must be in global coordinates (georeferenced) to use <abbr title="Global Navigation Satellite System">GNSS</abbr> data for localization.</li>
+<li>An onboard computer that satisfies the <a href="https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/source-installation/#prerequisites">Autoware installation prerequisites</a></li>
+<li>The following devices attached<ul>
+<li>Drive-by-wire interface</li>
+<li>LiDAR</li>
+<li>Optional: Inertial measurement unit</li>
+<li>Optional: Camera</li>
+<li>Optional: <abbr title="Global Navigation Satellite System">GNSS</abbr></li>
 </ul>
+</li>
+</ul>
+<h2 id="2-create-maps">2. Create maps<a class="headerlink" href="#2-create-maps" title="Permanent link">#</a></h2>
+<p>You need both a pointcloud map and a vector map in order to use Autoware.</p>
+<h3 id="create-a-pointcloud-map">Create a pointcloud map<a class="headerlink" href="#create-a-pointcloud-map" title="Permanent link">#</a></h3>
+<p>Use third-party tools such as a LiDAR-based <abbr title="Simultaneous Localization And Mapping">SLAM</abbr> (Simultaneous Localization And Mapping) package to create a pointcloud map in the <code>.pcd</code> format.
+Some examples are:</p>
+<ul>
+<li><a href="https://github.com/koide3/hdl_graph_slam">HDL</a></li>
+<li><a href="https://github.com/TixiaoShan/LIO-SAM">LIO-SAM</a></li>
+<li><a href="https://github.com/rsasaki0109/lidarslam_ros2">LiDAR-<abbr title="Simultaneous Localization And Mapping">SLAM</abbr> (<abbr title="Robot Operating System">ROS</abbr> 2)</a></li>
+</ul>
+<h3 id="create-vector-map">Create vector map<a class="headerlink" href="#create-vector-map" title="Permanent link">#</a></h3>
+<p>Use third-party tools such as <a href="https://tools.tier4.jp/">TIER IV's Vector Map Builder</a> to create a Lanelet2 format <code>.osm</code> file.</p>
+<h2 id="3-create-your-autoware-meta-repository">3. Create your Autoware meta-repository<a class="headerlink" href="#3-create-your-autoware-meta-repository" title="Permanent link">#</a></h2>
+<p>Create your Autoware meta-repository.
+One easy way is to fork <a href="https://github.com/autowarefoundation/autoware">autowarefoundation/autoware</a> and clone it.
+For how to fork a repository, refer to <a href="https://docs.github.com/en/get-started/quickstart/fork-a-repo">GitHub Docs</a>.</p>
+<div class="highlight"><pre><span></span><code>git clone https://github.com/YOUR_NAME/autoware.git
+</code></pre></div>
+<p>If you set up multiple types of vehicles, adding a suffix like "autoware.vehicle_A" or "autoware.vehicle_B" is recommended.</p>
+<h2 id="4-create-the-description-packages-of-your-vehicle">4. Create the description packages of your vehicle<a class="headerlink" href="#4-create-the-description-packages-of-your-vehicle" title="Permanent link">#</a></h2>
+<p>Next, you need to create description packages that define the vehicle and sensor configuration of your vehicle.</p>
+<p>Create the following two packages:</p>
+<ul>
+<li>YOUR_VEHICLE_launch (see <a href="https://github.com/autowarefoundation/sample_vehicle_launch">here</a> for example)</li>
+<li>YOUR_SENSOR_KIT_launch (see <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch">here</a> for example)</li>
+</ul>
+<p>Once created, you need to update the <code>autoware.repos</code> file of your cloned Autoware repository to refer to these two description packages.</p>
+<div class="highlight"><pre><span></span><code><span class="gd">-  # sensor_kit</span><span class="w"></span>
+<span class="gd">-  sensor_kit/sample_sensor_kit_launch:</span><span class="w"></span>
+<span class="gd">-    type: git</span><span class="w"></span>
+<span class="gd">-    url: https://github.com/autowarefoundation/sample_sensor_kit_launch.git</span><span class="w"></span>
+<span class="gd">-    version: main</span><span class="w"></span>
+<span class="gd">-  # vehicle</span><span class="w"></span>
+<span class="gd">-  vehicle/sample_vehicle_launch:</span><span class="w"></span>
+<span class="gd">-    type: git</span><span class="w"></span>
+<span class="gd">-    url: https://github.com/autowarefoundation/sample_vehicle_launch.git</span><span class="w"></span>
+<span class="gd">-    version: main</span><span class="w"></span>
+<span class="gi">+  # sensor_kit</span><span class="w"></span>
+<span class="gi">+  sensor_kit/YOUR_SENSOR_KIT_launch:</span><span class="w"></span>
+<span class="gi">+    type: git</span><span class="w"></span>
+<span class="gi">+    url: https://github.com/YOUR_NAME/YOUR_SENSOR_KIT_launch.git</span><span class="w"></span>
+<span class="gi">+    version: main</span><span class="w"></span>
+<span class="gi">+  # vehicle</span><span class="w"></span>
+<span class="gi">+  vehicle/YOUR_VEHICLE_launch:</span><span class="w"></span>
+<span class="gi">+    type: git</span><span class="w"></span>
+<span class="gi">+    url: https://github.com/YOUR_NAME/YOUR_VEHICLE_launch.git</span><span class="w"></span>
+<span class="gi">+    version: main</span><span class="w"></span>
+</code></pre></div>
+<h3 id="adapt-your_vehicle_launch-for-autoware-launching-system">Adapt YOUR_VEHICLE_launch for autoware launching system<a class="headerlink" href="#adapt-your_vehicle_launch-for-autoware-launching-system" title="Permanent link">#</a></h3>
+<h4 id="at-your_vehicle_description">At YOUR_VEHICLE_description<a class="headerlink" href="#at-your_vehicle_description" title="Permanent link">#</a></h4>
+<p>Define <abbr title="Universal Robotic Description Format">URDF</abbr> and parameters in the vehicle description package (refer to the <a href="https://github.com/autowarefoundation/sample_vehicle_launch/tree/main/sample_vehicle_description">sample vehicle description package</a> for an example).</p>
+<h4 id="at-your_vehicle_launch">At YOUR_VEHICLE_launch<a class="headerlink" href="#at-your_vehicle_launch" title="Permanent link">#</a></h4>
+<p>Create a launch file (refer to the <a href="https://github.com/autowarefoundation/sample_vehicle_launch/tree/main/sample_vehicle_launch">sample vehicle launch package</a> for example).
+If you have multiple vehicles with the same hardware setup, you can specify <code>vehicle_id</code> to distinguish them.</p>
+<h3 id="adapt-your_sensor_kit_description-for-autoware-launching-system">Adapt YOUR_SENSOR_KIT_description for autoware launching system<a class="headerlink" href="#adapt-your_sensor_kit_description-for-autoware-launching-system" title="Permanent link">#</a></h3>
+<h4 id="at-your_sensor_kit_description">At YOUR_SENSOR_KIT_description<a class="headerlink" href="#at-your_sensor_kit_description" title="Permanent link">#</a></h4>
+<p>Define <abbr title="Universal Robotic Description Format">URDF</abbr> and extrinsic parameters for all the sensors here (refer to the <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch/tree/main/sample_sensor_kit_description">sample sensor kit description package</a> for example).
+Note that you need to calibrate extrinsic parameters for all the sensors beforehand.</p>
+<h4 id="at-your_sensor_kit_launch">At YOUR_SENSOR_KIT_launch<a class="headerlink" href="#at-your_sensor_kit_launch" title="Permanent link">#</a></h4>
+<p>Create <code>launch/sensing.launch.xml</code> that launches the interfaces of all the sensors on the vehicle. (refer to the <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch/tree/main/sample_sensor_kit_launch">sample sensor kit launch package</a> for example).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Three global coordinate systems are supported by Autoware, including <a href="https://en.wikipedia.org/wiki/Military_Grid_Reference_System">Military Grid Reference System (MGRS)</a>, <a href="https://en.wikipedia.org/wiki/Universal_Transverse_Mercator_coordinate_system">Universal Transverse Mercator (UTM)</a>, and <a href="https://ja.wikipedia.org/wiki/%E5%B9%B3%E9%9D%A2%E7%9B%B4%E8%A7%92%E5%BA%A7%E6%A8%99%E7%B3%BB">Japan Rectangular Coordinate System</a>.
-However, MGRS is a preferred coordinate system for georeferenced maps.
-In a map with MGRS coordinate system, the X and Y coordinates of each point represent the point's location within the 100,000-meter square, while the Z coordinate represents the point's elevation.</p>
+<p>At this point, you are now able to run Autoware's Planning Simulator to do a basic test of your vehicle and sensing packages.
+To do so, you need to build and install Autoware using your cloned repository. Follow the <a href="https://autowarefoundation.github.io/autoware-documentation/main/installation/">steps for either Docker or source installation</a> (starting from the dependency installation step) and then run the following command:</p>
+<div class="highlight"><pre><span></span><code>ros2 launch autoware_launch planning_simulator.launch.xml vehicle_model:<span class="o">=</span>YOUR_VEHICLE sensor_kit:<span class="o">=</span>YOUR_SENSOR_KIT map_path:<span class="o">=</span>/PATH/TO/YOUR/MAP
+</code></pre></div>
 </div>
-<h3 id="creating-a-point-cloud-map">Creating a point cloud map<a class="headerlink" href="#creating-a-point-cloud-map" title="Permanent link">#</a></h3>
-<p>Traditionally, a Mobile Mapping System (<abbr title="Mobile Mapping System">MMS</abbr>) is used in order to create highly accurate large-scale point cloud maps. However, since a <abbr title="Mobile Mapping System">MMS</abbr> requires high-end sensors for precise positioning, its operational cost can be very expensive and may not be suitable for a relatively small driving environment. Alternatively, a Simultaneous Localization And Mapping (<abbr title="Simultaneous Localization And Mapping">SLAM</abbr>) algorithm can be used to create a point cloud map from recorded LiDAR scans.</p>
-<p>Commonly used open-source <abbr title="Simultaneous Localization And Mapping">SLAM</abbr> implementations are <a href="https://github.com/rsasaki0109/lidarslam_ros2">lidarslam-ros2</a> (LiDAR, <abbr title="Inertial Measurement Unit">IMU</abbr>*) and <a href="https://github.com/TixiaoShan/LIO-SAM/tree/ros2">LIO-SAM</a> (LiDAR, <abbr title="Inertial Measurement Unit">IMU</abbr>, <abbr title="Global Navigation Satellite System">GNSS</abbr>). The required sensor data for each algorithm is specified in the parentheses, where an asterisk (*) indicates that such sensor data is optional. For supported LiDAR models, please check the Github repository of each algorithm. While these <abbr title="Robot Operating System">ROS</abbr> 2-based <abbr title="Simultaneous Localization And Mapping">SLAM</abbr> implementations can be easily installed and used directly on the same machine that runs Autoware, it is important to note that they may not be as well-tested or as mature as <abbr title="Robot Operating System">ROS</abbr> 1-based alternatives.</p>
-<p>The notable open-source <abbr title="Simultaneous Localization And Mapping">SLAM</abbr> implementations that are based on <abbr title="Robot Operating System">ROS</abbr> 1 include <a href="https://github.com/koide3/hdl_graph_slam">hdl-graph-slam</a> (LiDAR, <abbr title="Inertial Measurement Unit">IMU</abbr>*, <abbr title="Global Navigation Satellite System">GNSS</abbr>*), <a href="https://github.com/facontidavide/LeGO-LOAM-BOR">LeGO-LOAM</a> (LiDAR, <abbr title="Inertial Measurement Unit">IMU</abbr>*), <a href="https://github.com/RobustFieldAutonomyLab/LeGO-LOAM">LeGO-LOAM-BOR</a> (LiDAR), and <a href="https://github.com/TixiaoShan/LIO-SAM">LIO-SAM</a> (LiDAR, <abbr title="Inertial Measurement Unit">IMU</abbr>, <abbr title="Global Navigation Satellite System">GNSS</abbr>).
-Most of these algorithms already have a built-in loop-closure and pose graph optimization. However, if the built-in, automatic loop-closure fails or does not work correctly, you can use <a href="https://github.com/SMRT-AIST/interactive_slam">Interactive <abbr title="Simultaneous Localization And Mapping">SLAM</abbr></a> to adjust and optimize a pose graph manually.</p>
-<p>Since Autoware is based on <abbr title="Robot Operating System">ROS</abbr> 2, it could be problematic if you want to install <abbr title="Robot Operating System">ROS</abbr> 1-based <abbr title="Simultaneous Localization And Mapping">SLAM</abbr> implementations on the same machine. To avoid this problem, you can use <a href="https://www.docker.com/">Docker</a> or simply install them on a different machine. Another problem is the ROSBAG version; these <abbr title="Simultaneous Localization And Mapping">SLAM</abbr> implementations require ROSBAG 1 instead of ROSBAG 2 used by Autoware. For the ROSBAG version problem, you may use this <a href="https://gitlab.com/MapIV/rosbags">stand-alone converter</a> to convert a ROSBAG 2 file to a ROSBAG 1 file and vice versa.</p>
-<p>If you prefer proprietary software that is easy to use, you can try a fully automatic mapping tool from <a href="https://www.map4.jp/">MAP IV, Inc.</a>, <a href="https://www.map4.jp/map4_engine_en"><em>MapIV Engine</em></a>. They currently provide a trial license for Autoware users free of charge.</p>
-<h2 id="vector-maps">Vector maps<a class="headerlink" href="#vector-maps" title="Permanent link">#</a></h2>
-<p>A vector map contains highly accurate information about a road network, lane geometry, and traffic lights. It is required for route planning, traffic light detection, and predicting the trajectories of other vehicles and pedestrians.</p>
-<h3 id="vector-map-specifications">Vector map specifications<a class="headerlink" href="#vector-map-specifications" title="Permanent link">#</a></h3>
-<ul>
-<li>It must cover the entire operational area of the vehicle and should include an additional buffer zone of at least 200 m in all directions.</li>
-<li>It must be in <a href="https://github.com/fzi-forschungszentrum-informatik/Lanelet2">Lanelet2</a> format, with <a href="https://github.com/autowarefoundation/autoware.universe/blob/main/map/lanelet2_extension/docs/lanelet2_format_extension.md">additional modifications required by Autoware</a>.</li>
-<li>It must contain the shape and position information of lanes, traffic lights, stop lines, crosswalks, parking spaces, and parking lots.</li>
-<li>Each lanelet in the map must contain information regarding its right of way, speed limit, traffic direction, associated traffic lights, stop lines, and traffic signs.</li>
-<li>Except at the beginning or end of a road, each lanelet in the map must be correctly connected to its predecessor, successors, left neighbor, and right neighbor.</li>
-</ul>
-<h3 id="creating-a-vector-map">Creating a vector map<a class="headerlink" href="#creating-a-vector-map" title="Permanent link">#</a></h3>
-<p>The easiest way to create an Autoware-compatible vector map is to use <a href="https://tools.tier4.jp/feature/vector_map_builder_ll2/">Vector Map Builder</a>, a free web-based tool provided by <a href="https://www.tier4.jp/">TIER IV, Inc.</a>.
-Vector Map Builder allows you to create lanes and add additional regulatory elements such as stop signs or traffic lights using a point cloud map as a reference.</p>
-<p>For open-source software options, <a href="https://github.com/autocore-ai/MapToolbox">MapToolbox</a> is a plugin for <a href="https://unity.com/">Unity</a> specifically designed to create Lanelet2 maps for Autoware.
-Although <a href="https://josm.openstreetmap.de/">JOSM</a> is another open-source tool that can be used to create Lanelet2 maps, be aware that a number of modifications must be done manually to make the map compatible with Autoware. This process can be tedious and time-consuming, so the use of JOSM is not recommended.</p>
-<h2 id="autoware-compatible-map-providers">Autoware-compatible map providers<a class="headerlink" href="#autoware-compatible-map-providers" title="Permanent link">#</a></h2>
-<p>If it is not possible to create HD maps yourself, you can use a mapping service from the following Autoware-compatible map providers instead:</p>
-<ul>
-<li><a href="https://www.map4.jp/">MAP IV, Inc.</a></li>
-<li><a href="https://www.aisantec.co.jp/">AISAN TECHNOLOGY CO., LTD.</a></li>
-<li><a href="https://www.tomtom.com/">TomTom</a></li>
-</ul>
-<p>The table below shows each company's mapping technology and the types of HD maps they support.</p>
-<table>
-<thead>
-<tr>
-<th><strong>Company</strong></th>
-<th><strong>Mapping technology</strong></th>
-<th><strong>Available maps</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://www.map4.jp/">MAP IV, Inc.</a></td>
-<td><abbr title="Simultaneous Localization And Mapping">SLAM</abbr></td>
-<td>Point cloud and vector maps</td>
-</tr>
-<tr>
-<td><a href="https://www.aisantec.co.jp/">AISAN TECHNOLOGY CO., LTD.</a></td>
-<td><abbr title="Mobile Mapping System">MMS</abbr></td>
-<td>Point cloud and vector maps</td>
-</tr>
-<tr>
-<td><a href="https://www.tomtom.com/">TomTom</a></td>
-<td><abbr title="Mobile Mapping System">MMS</abbr></td>
-<td>Vector map*</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Maps provided by TomTom use their proprietary AutoStream format, not Lanelet2.
-The open-source <a href="https://github.com/tomtom-international/AutoStreamForAutoware">AutoStreamForAutoware tool</a> can be used to convert an AutoStream map to a Lanelet2 map.
-However, the converter is still in its early stages and has some <a href="https://github.com/tomtom-international/AutoStreamForAutoware/blob/main/docs/known-issues.md">known limitations</a>.</p>
-</div>
+<h2 id="5-create-a-vehicle_interface-package">5. Create a <code>vehicle_interface</code> package<a class="headerlink" href="#5-create-a-vehicle_interface-package" title="Permanent link">#</a></h2>
+<p>You need to create an interface package for your vehicle.
+The package is expected to provide the following two functions.</p>
+<ol>
+<li>Receive command messages from <code>vehicle_cmd_gate</code> and drive the vehicle accordingly</li>
+<li>Send vehicle status information to Autoware</li>
+</ol>
+<p>You can find detailed information about the requirements of the <code>vehicle_interface</code> package in the <a href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-interface/">Vehicle Interface design documentation</a>.
+You can also refer to TIER IV's <a href="https://github.com/tier4/pacmod_interface">pacmod_interface repository</a> as an example of a vehicle interface package.</p>
+<h2 id="6-launch-autoware">6. Launch Autoware<a class="headerlink" href="#6-launch-autoware" title="Permanent link">#</a></h2>
+<p>This section briefly explains how to run your vehicle with Autoware.</p>
+<h3 id="install-autoware">Install Autoware<a class="headerlink" href="#install-autoware" title="Permanent link">#</a></h3>
+<p>Follow the <a href="https://autowarefoundation.github.io/autoware-documentation/main/installation/">installation steps of Autoware</a>.</p>
+<h3 id="launch-autoware">Launch Autoware<a class="headerlink" href="#launch-autoware" title="Permanent link">#</a></h3>
+<p>Launch Autoware with the following command:</p>
+<div class="highlight"><pre><span></span><code>ros2 launch autoware_launch autoware.launch.xml vehicle_model:<span class="o">=</span>YOUR_VEHICLE sensor_kit:<span class="o">=</span>YOUR_SENSOR_KIT map_path:<span class="o">=</span>/PATH/TO/YOUR/MAP
+</code></pre></div>
+<h3 id="set-initial-pose">Set initial pose<a class="headerlink" href="#set-initial-pose" title="Permanent link">#</a></h3>
+<p>If <abbr title="Global Navigation Satellite System">GNSS</abbr> is available, Autoware automatically initializes the vehicle's pose.</p>
+<p>If not, you need to set the initial pose using the RViz GUI.</p>
+<ol>
+<li>Click the 2D Pose estimate button in the toolbar, or hit the P key</li>
+<li>In the 3D View pane, click and hold the left mouse button, and then drag to set the direction for the initial pose.</li>
+</ol>
+<h3 id="set-goal-pose">Set goal pose<a class="headerlink" href="#set-goal-pose" title="Permanent link">#</a></h3>
+<p>Set a goal pose for the ego vehicle.</p>
+<ol>
+<li>Click the 2D Nav Goal button in the toolbar, or hit the G key</li>
+<li>In the 3D View pane, click and hold the left mouse button, and then drag to set the direction for the goal pose.
+   If successful, you will see the calculated planning path on RViz.</li>
+</ol>
+<h3 id="engage">Engage<a class="headerlink" href="#engage" title="Permanent link">#</a></h3>
+<p>In your terminal, execute the following command.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span> ~/autoware.YOURS/install/setup.bash
+ros2 topic pub /autoware.YOURS/engage autoware_auto_vehicle_msgs/msg/Engage <span class="s2">&quot;engage: true&quot;</span> -1
+</code></pre></div>
+<p>You can also engage via RViz with "AutowareStatePanel".
+The panel can be found in <code>Panels &gt; Add New Panel &gt; tier4_state_rviz_plugin &gt; AutowareStatePanel</code>.</p>
+<p><img alt="Autoware State Panel" src="../images/integrating-autoware-with-your-vehicle/autoware-state-panel.png" style="height:360px;width:640px" /></p>
+<p>Now the vehicle should drive along the calculated path!</p>
+<h2 id="7-tune-parameters-for-your-vehicle-environment">7. Tune parameters for your vehicle &amp; environment<a class="headerlink" href="#7-tune-parameters-for-your-vehicle-environment" title="Permanent link">#</a></h2>
+<p>You may need to tune your parameters depending on the domain in which you will operate your vehicle.</p>
+<p>If you have any issues or questions, feel free to create an <a href="https://github.com/orgs/autowarefoundation/discussions">Autoware Foundation GitHub Discussion</a> in the Q&amp;A category!</p>
 <!-- prettier-ignore -->
 
               
@@ -3130,7 +3389,7 @@ However, the converter is still in its early stages and has some <a href="https:
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../advanced-usage-of-colcon/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Advanced usage of colcon" rel="prev">
+        <a href="../determining-component-dependencies/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Determining component dependencies" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -3139,20 +3398,20 @@ However, the converter is still in its early stages and has some <a href="https:
               <span class="md-footer__direction">
                 Previous
               </span>
-              Advanced usage of colcon
+              Determining component dependencies
             </div>
           </div>
         </a>
       
       
         
-        <a href="../how-to-determine-component-dependencies/" class="md-footer__link md-footer__link--next" aria-label="Next: How to determine component dependencies" rel="next">
+        <a href="../integrating-autoware-with-a-diff-drive-vehicle/" class="md-footer__link md-footer__link--next" aria-label="Next: Integrating Autoware with a differential drive vehicle" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              How to determine component dependencies
+              Integrating Autoware with a differential drive vehicle
             </div>
           </div>
           <div class="md-footer__button md-icon">
