@@ -962,6 +962,60 @@
     AWSIM Simulator
   </a>
   
+    <nav class="md-nav" aria-label="AWSIM Simulator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#simulator-shortcuts" class="md-nav__link">
+    Simulator shortcuts
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-autoware-to-control-awsim" class="md-nav__link">
+    Running Autoware to control AWSIM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#npc-control-optional" class="md-nav__link">
+    NPC Control (optional)
+  </a>
+  
+    <nav class="md-nav" aria-label="NPC Control (optional)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#preparation_1" class="md-nav__link">
+    Preparation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-npcs-from-rosbag" class="md-nav__link">
+    Run NPCs from rosbag
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    Troubleshooting
+  </a>
+  
 </li>
         
       </ul>
@@ -2974,6 +3028,60 @@
     AWSIM Simulator
   </a>
   
+    <nav class="md-nav" aria-label="AWSIM Simulator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#simulator-shortcuts" class="md-nav__link">
+    Simulator shortcuts
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-autoware-to-control-awsim" class="md-nav__link">
+    Running Autoware to control AWSIM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#npc-control-optional" class="md-nav__link">
+    NPC Control (optional)
+  </a>
+  
+    <nav class="md-nav" aria-label="NPC Control (optional)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#preparation_1" class="md-nav__link">
+    Preparation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-npcs-from-rosbag" class="md-nav__link">
+    Run NPCs from rosbag
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    Troubleshooting
+  </a>
+  
 </li>
         
       </ul>
@@ -3009,88 +3117,119 @@
 <h2 id="running-steps">Running steps<a class="headerlink" href="#running-steps" title="Permanent link">#</a></h2>
 <h3 id="awsim-simulator">AWSIM Simulator<a class="headerlink" href="#awsim-simulator" title="Permanent link">#</a></h3>
 <p>To run the AWSIM simulator, open a terminal window, navigate to the simulation directory and run:</p>
-<div class="highlight"><pre><span></span><code><span class="go">source /opt/ros/galactic/setup.bash</span>
-<span class="go">cd &lt;PATH_TO_EXTRACTED_FOLDER_WITH_AWSIM&gt;</span>
-<span class="go">./AWSIM.x86_64</span>
-
-<span class="go">The properly working simulator should have the lidar rays visible and the data topics should appear when discovering using `ros2 topic list`.</span>
-
-<span class="go">![correctly working simulator](./images/workingSim.png)</span>
-
-<span class="gp">#</span><span class="c1">### Simulator shortcuts</span>
-
-<span class="go">It is possible to adjust/control the simulation through the shortcuts listed below:</span>
-
-<span class="go">- v - turn on/off lidar points visualization</span>
-<span class="go">- m - enter/exit manual operation mode (Ego listens to keyboard)</span>
-<span class="go">  - In manual mode:</span>
-<span class="go">    - d - drive</span>
-<span class="go">    - p - parking brake</span>
-<span class="go">    - r - reverse</span>
-<span class="go">    - arrows - acceleration and steering</span>
-<span class="go">    - lights:</span>
-<span class="go">      - 1 - left blinker</span>
-<span class="go">      - 2- right blinker</span>
-<span class="go">      - 3 - emergency lights</span>
-<span class="go">      - 4- turning the lights off</span>
-
-<span class="gp">#</span><span class="c1">## Running utoware to control AWSIM</span>
-
-<span class="go">To run Autoware, open a terminal and run the following commands:</span>
-
-<span class="go">```console</span>
-<span class="go">cd &lt;YOUR_WORKSPACE&gt;/autoware</span>
-<span class="go">source install/setup.bash</span>
-<span class="go">ros2 launch autoware_launch autoware.launch.xml map_path:=&lt;PATH_TO_EXTRACTED_FOLDER_WITH_MAP&gt; vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit use_sim_time:=true launch_sensing_driver:=false</span>
-
-<span class="go">!!! note</span>
-
-<span class="go">    Note that `map_path` must be a full path. Relative paths will not work.</span>
-
-<span class="go">- RViz should appear with the Lanelet2 map displayed. Although the ego vehicle can localize itself at the beginning, the localization can be inaccurate. It is recommended to explicitly set the vehicle&#39;s initial pose using the `2D Pose Estimate` button as shown in the image below.</span>
-
-<span class="go">![how to initialize autoware](./images/initializeAutoware.png)</span>
-
-<span class="go">- To make Autoware plan the route, use the `2D Goal Pose` button to set a goal pose somewhere within the Lanelet2 road lanes.</span>
-
-<span class="go">- To make Autoware execute the planned route, open a new terminal and send the engage message:</span>
-
-<span class="go">```console</span>
-<span class="go">cd &lt;YOUR_WORKSPACE&gt;/autoware</span>
-<span class="go">source install/setup.bash</span>
-<span class="go">ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage &quot;engage: true&quot;</span>
-
-<span class="go">From now on, Autoware will execute the planned route and operate the AWSIM Simulator.</span>
-
-<span class="go">![AWSIM with autoware](./images/awf_awsim.png)</span>
-
-<span class="gp">#</span><span class="c1">## NPC Control (optional)</span>
-
-<span class="go">Currently the only supported way to add NPCs to the simulation is using prerecorded rosbags.</span>
-
-<span class="gp">#</span><span class="c1">### Preparation</span>
-
-<span class="go">- Download and extract npc_msgs : [link](https://drive.google.com/file/d/1fMvjOnz7Z0cGXotwdOAhBfLPYO52ssp0/view?usp=sharing)</span>
-<span class="go">- Download and extract sample rosbags : [link](to be filled)</span>
-
-<span class="gp">#</span><span class="c1">### Run NPCs from rosbag</span>
-
-<span class="go">To run NPCs from rosbag, follow the steps:</span>
-
-<span class="go">- navigate to the directory with extracted npc_msgs</span>
-<span class="go">- build and source npc_msgs:</span>
-
-<span class="go">        colcon build</span>
-<span class="go">        source install/setup.bash</span>
-
-<span class="go">- play sample rosbag while AWSIM is running:</span>
-
-<span class="go">        ros2 bag play &lt;ROSBAG_NAME&gt;</span>
-
-<span class="gp">#</span><span class="c1">## Troubleshooting</span>
-
-<span class="go">If the data on topics is not produced or the poincloud is not visible on the simulation screen please report a problem in autoware [Q&amp;A discussion](https://github.com/autowarefoundation/autoware/discussions/). To make analysis of the problem easier, please share a `Player.log` file (the file can be found under `~/.config/unity3d/Tier\ IV/E2ESimulator/Player.log` directory).</span>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/galactic/setup.bash
+<span class="nb">cd</span> &lt;PATH_TO_EXTRACTED_FOLDER_WITH_AWSIM&gt;
+./AWSIM.x86_64
 </code></pre></div>
+<p>If the simulator is working properly, Lidar rays should be visible and the <a href="https://github.com/autowarefoundation/autoware-projects/wiki/Bus-ODD-Simulation-requirements#integration-interface-with-autoware-universe">expected data topics</a> should appear when <code>ros2 topic list</code> is run.</p>
+<p><img alt="correctly working simulator" src="../images/workingSim.png" /></p>
+<h4 id="simulator-shortcuts">Simulator shortcuts<a class="headerlink" href="#simulator-shortcuts" title="Permanent link">#</a></h4>
+<p>It is possible to adjust/control the simulation through the shortcuts listed below:</p>
+<table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v</td>
+<td>turn on/off lidar points visualization</td>
+</tr>
+<tr>
+<td>m</td>
+<td>enter/exit manual operation mode (Ego listens to keyboard)</td>
+</tr>
+<tr>
+<td></td>
+<td><b> In manual mode: </b></td>
+</tr>
+<tr>
+<td>d</td>
+<td>drive</td>
+</tr>
+<tr>
+<td>p</td>
+<td>parking brake</td>
+</tr>
+<tr>
+<td>r</td>
+<td>reverse</td>
+</tr>
+<tr>
+<td>arrows</td>
+<td>acceleration and steering</td>
+</tr>
+<tr>
+<td>1</td>
+<td>left blinker</td>
+</tr>
+<tr>
+<td>2</td>
+<td>right blinker</td>
+</tr>
+<tr>
+<td>3</td>
+<td>emergency lights</td>
+</tr>
+<tr>
+<td>4</td>
+<td>turning the lights off</td>
+</tr>
+</tbody>
+</table>
+<h3 id="running-autoware-to-control-awsim">Running Autoware to control AWSIM<a class="headerlink" href="#running-autoware-to-control-awsim" title="Permanent link">#</a></h3>
+<p>To run Autoware, open a terminal and run the following commands:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> &lt;YOUR_WORKSPACE&gt;/autoware
+<span class="nb">source</span> install/setup.bash
+ros2 launch autoware_launch autoware.launch.xml map_path:<span class="o">=</span>&lt;PATH_TO_EXTRACTED_FOLDER_WITH_MAP&gt; vehicle_model:<span class="o">=</span>sample_vehicle sensor_model:<span class="o">=</span>sample_sensor_kit use_sim_time:<span class="o">=</span><span class="nb">true</span> launch_sensing_driver:<span class="o">=</span><span class="nb">false</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that <code>map_path</code> must be a full path. Relative paths will not work.</p>
+</div>
+<ul>
+<li>RViz should appear with the Lanelet2 map displayed. Although the ego vehicle can localize itself at the beginning, the localization can be inaccurate. It is recommended to explicitly set the vehicle's initial pose using the <code>2D Pose Estimate</code> button as shown in the image below.</li>
+</ul>
+<p><img alt="how to initialize autoware" src="../images/initializeAutoware.png" /></p>
+<ul>
+<li>To make Autoware plan the route, use the <code>2D Goal Pose</code> button to set a goal pose somewhere within the Lanelet2 road lanes.</li>
+</ul>
+<ul>
+<li>To make Autoware execute the planned route, open a new terminal and send the engage message:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> &lt;YOUR_WORKSPACE&gt;/autoware
+<span class="nb">source</span> install/setup.bash
+ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage <span class="s2">&quot;engage: true&quot;</span>
+</code></pre></div>
+<p>From now on, Autoware will execute the planned route and operate the AWSIM Simulator.</p>
+<p><img alt="AWSIM with autoware" src="../images/awf_awsim.png" /></p>
+<h3 id="npc-control-optional">NPC Control (optional)<a class="headerlink" href="#npc-control-optional" title="Permanent link">#</a></h3>
+<p>Currently the only supported way to add NPCs to the simulation is using prerecorded rosbags.</p>
+<h4 id="preparation_1">Preparation<a class="headerlink" href="#preparation_1" title="Permanent link">#</a></h4>
+<ul>
+<li>Download and extract <a href="https://drive.google.com/file/d/1fMvjOnz7Z0cGXotwdOAhBfLPYO52ssp0/view?usp=sharing">npc_msgs</a></li>
+<li>Download and extract <a href="https://drive.google.com/file/d/1BSoIq82DW_RIyeSR6OinhKmA6lD6jmWe/view?usp=sharing">sample rosbags</a></li>
+</ul>
+<h4 id="run-npcs-from-rosbag">Run NPCs from rosbag<a class="headerlink" href="#run-npcs-from-rosbag" title="Permanent link">#</a></h4>
+<p>To run NPCs from rosbag, follow the steps:</p>
+<ul>
+<li>navigate to the directory with extracted npc_msgs</li>
+<li>build and source npc_msgs:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>colcon build
+<span class="nb">source</span> install/setup.bash
+</code></pre></div>
+<ul>
+<li>play sample rosbag while AWSIM is running:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>ros2 bag play &lt;ROSBAG_NAME&gt;
+</code></pre></div>
+<p><img alt="AWSIM with autoware and NPCs" src="../images/awsim_npc.png" /></p>
+<h3 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">#</a></h3>
+<p>If the data on topics is not produced or the poincloud is not visible on the simulation screen please report a problem in autoware <a href="https://github.com/autowarefoundation/autoware/discussions/">Q&amp;A discussion</a>. To make analysis of the problem easier, please share a <code>Player.log</code> file (the file can be found under <code>~/.config/unity3d/Tier\ IV/E2ESimulator/Player.log</code> directory).
+````</p>
 <!-- prettier-ignore -->
 
               
