@@ -8,21 +8,21 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/main/tutorials/ad-hoc-simulation/planning-simulation/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/main/design/node-diagram/">
       
-      <link rel="icon" href="../../../assets/images/autoware-foundation.png">
+      <link rel="icon" href="../../assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
     
     
       
-        <title>Planning simulation - Autoware Documentation</title>
+        <title>Node diagram - Autoware Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.1d29e8d0.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1d29e8d0.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
         
       
       
@@ -38,11 +38,11 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/css/extra.css">
+      <link rel="stylesheet" href="../../assets/css/extra.css">
     
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#planning-simulation" class="md-skip">
+        <a href="#node-diagram" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +92,7 @@
 
 <header class="md-header md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="Autoware Documentation" class="md-header__button md-logo" aria-label="Autoware Documentation" data-md-component="logo">
+    <a href="../.." title="Autoware Documentation" class="md-header__button md-logo" aria-label="Autoware Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M39.61 196.8 74.8 96.29C88.27 57.78 124.6 32 165.4 32h181.2c40.8 0 77.1 25.78 90.6 64.29l35.2 100.51c23.2 9.6 39.6 32.5 39.6 59.2v192c0 17.7-14.3 32-32 32h-32c-17.7 0-32-14.3-32-32v-48H96v48c0 17.7-14.33 32-32 32H32c-17.67 0-32-14.3-32-32V256c0-26.7 16.36-49.6 39.61-59.2zm69.49-4.8h293.8l-26.1-74.6c-4.5-12.8-16.6-21.4-30.2-21.4H165.4c-13.6 0-25.7 8.6-30.2 21.4L109.1 192zM96 256c-17.67 0-32 14.3-32 32s14.33 32 32 32c17.7 0 32-14.3 32-32s-14.3-32-32-32zm320 64c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32z"/></svg>
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Planning simulation
+              Node diagram
             
           </span>
         </div>
@@ -202,7 +202,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="../../.." class="md-tabs__link">
+    <a href="../.." class="md-tabs__link">
       Introduction
     </a>
   </li>
@@ -217,8 +217,40 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../installation/" class="md-tabs__link">
+      <a href="../../installation/" class="md-tabs__link">
         Installation
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tutorials/" class="md-tabs__link">
+        Tutorials
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../how-to-guides/" class="md-tabs__link">
+        How to guides
       </a>
     </li>
   
@@ -235,39 +267,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../" class="md-tabs__link md-tabs__link--active">
-        Tutorials
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../../how-to-guides/" class="md-tabs__link">
-        How to guides
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../../design/" class="md-tabs__link">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
         Design
       </a>
     </li>
@@ -283,7 +283,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../contributing/" class="md-tabs__link">
+      <a href="../../contributing/" class="md-tabs__link">
         Contributing
       </a>
     </li>
@@ -299,7 +299,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../support/" class="md-tabs__link">
+      <a href="../../support/" class="md-tabs__link">
         Support
       </a>
     </li>
@@ -333,7 +333,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Autoware Documentation" class="md-nav__button md-logo" aria-label="Autoware Documentation" data-md-component="logo">
+    <a href="../.." title="Autoware Documentation" class="md-nav__button md-logo" aria-label="Autoware Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M39.61 196.8 74.8 96.29C88.27 57.78 124.6 32 165.4 32h181.2c40.8 0 77.1 25.78 90.6 64.29l35.2 100.51c23.2 9.6 39.6 32.5 39.6 59.2v192c0 17.7-14.3 32-32 32h-32c-17.7 0-32-14.3-32-32v-48H96v48c0 17.7-14.33 32-32 32H32c-17.67 0-32-14.3-32-32V256c0-26.7 16.36-49.6 39.61-59.2zm69.49-4.8h293.8l-26.1-74.6c-4.5-12.8-16.6-21.4-30.2-21.4H165.4c-13.6 0-25.7 8.6-30.2 21.4L109.1 192zM96 256c-17.67 0-32 14.3-32 32s14.33 32 32 32c17.7 0 32-14.3 32-32s-14.3-32-32-32zm320 64c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32z"/></svg>
@@ -364,7 +364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -402,7 +402,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../installation/">Installation</a>
+          <a href="../../installation/">Installation</a>
           
             <label for="__nav_2">
               <span class="md-nav__icon md-icon"></span>
@@ -459,7 +459,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../installation/autoware/docker-installation/" class="md-nav__link">
+      <a href="../../installation/autoware/docker-installation/" class="md-nav__link">
         Docker installation
       </a>
     </li>
@@ -473,7 +473,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../installation/autoware/source-installation/" class="md-nav__link">
+      <a href="../../installation/autoware/source-installation/" class="md-nav__link">
         Source installation
       </a>
     </li>
@@ -513,7 +513,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../installation/related-tools/">Related tools</a>
+          <a href="../../installation/related-tools/">Related tools</a>
           
         </div>
       
@@ -558,7 +558,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../installation/additional-settings-for-developers/">Additional settings for developers</a>
+          <a href="../../installation/additional-settings-for-developers/">Additional settings for developers</a>
           
         </div>
       
@@ -590,14 +590,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
       
       
       
@@ -615,7 +613,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../">Tutorials</a>
+          <a href="../../tutorials/">Tutorials</a>
           
             <label for="__nav_3">
               <span class="md-nav__icon md-icon"></span>
@@ -636,16 +634,14 @@
               
   
   
-    
-  
   
     
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" checked>
       
       
       
@@ -665,7 +661,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../">Ad hoc simulation</a>
+          <a href="../../tutorials/ad-hoc-simulation/">Ad hoc simulation</a>
           
             <label for="__nav_3_2">
               <span class="md-nav__icon md-icon"></span>
@@ -686,167 +682,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Planning simulation
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../tutorials/ad-hoc-simulation/planning-simulation/" class="md-nav__link">
         Planning simulation
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#preparation" class="md-nav__link">
-    Preparation
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#basic-simulations" class="md-nav__link">
-    Basic simulations
-  </a>
-  
-    <nav class="md-nav" aria-label="Basic simulations">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#lane-driving-scenario" class="md-nav__link">
-    Lane driving scenario
-  </a>
-  
-    <nav class="md-nav" aria-label="Lane driving scenario">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-launch-autoware" class="md-nav__link">
-    1. Launch Autoware
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-add-autoware-state-panel" class="md-nav__link">
-    2. Add Autoware State Panel
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-set-an-initial-pose-for-the-ego-vehicle" class="md-nav__link">
-    3. Set an initial pose for the ego vehicle
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-set-a-goal-pose-for-the-ego-vehicle" class="md-nav__link">
-    4. Set a goal pose for the ego vehicle
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-engage-the-ego-vehicle" class="md-nav__link">
-    5. Engage the ego vehicle
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#parking-scenario" class="md-nav__link">
-    Parking scenario
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#advanced-simulations" class="md-nav__link">
-    Advanced Simulations
-  </a>
-  
-    <nav class="md-nav" aria-label="Advanced Simulations">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#placing-dummy-objects" class="md-nav__link">
-    Placing dummy objects
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#traffic-light-recognition-simulation" class="md-nav__link">
-    Traffic light recognition simulation
-  </a>
-  
-    <nav class="md-nav" aria-label="Traffic light recognition simulation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#set-traffic-light" class="md-nav__link">
-    Set traffic light
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#updatereset-traffic-light" class="md-nav__link">
-    Update/Reset traffic light
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -858,7 +698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rosbag-replay-simulation/" class="md-nav__link">
+      <a href="../../tutorials/ad-hoc-simulation/rosbag-replay-simulation/" class="md-nav__link">
         Rosbag replay simulation
       </a>
     </li>
@@ -872,7 +712,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../digital-twin-simulation/" class="md-nav__link">
+      <a href="../../tutorials/ad-hoc-simulation/digital-twin-simulation/" class="md-nav__link">
         Digital twin simulation
       </a>
     </li>
@@ -963,7 +803,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenario-simulation/planning-simulation/installation/" class="md-nav__link">
+      <a href="../../tutorials/scenario-simulation/planning-simulation/installation/" class="md-nav__link">
         Installation
       </a>
     </li>
@@ -977,7 +817,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenario-simulation/planning-simulation/scenario-test-simulation/" class="md-nav__link">
+      <a href="../../tutorials/scenario-simulation/planning-simulation/scenario-test-simulation/" class="md-nav__link">
         Scenario test simulation
       </a>
     </li>
@@ -991,7 +831,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenario-simulation/planning-simulation/random-test-simulation/" class="md-nav__link">
+      <a href="../../tutorials/scenario-simulation/planning-simulation/random-test-simulation/" class="md-nav__link">
         Random test simulation
       </a>
     </li>
@@ -1012,7 +852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenario-simulation/rosbag-replay-simulation/" class="md-nav__link">
+      <a href="../../tutorials/scenario-simulation/rosbag-replay-simulation/" class="md-nav__link">
         Rosbag replay simulation
       </a>
     </li>
@@ -1026,7 +866,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../scenario-simulation/digital-twin-simulation/" class="md-nav__link">
+      <a href="../../tutorials/scenario-simulation/digital-twin-simulation/" class="md-nav__link">
         Digital twin simulation
       </a>
     </li>
@@ -1086,7 +926,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../how-to-guides/">How to guides</a>
+          <a href="../../how-to-guides/">How to guides</a>
           
             <label for="__nav_4">
               <span class="md-nav__icon md-icon"></span>
@@ -1109,7 +949,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../how-to-guides/advanced-usage-of-colcon/" class="md-nav__link">
+      <a href="../../how-to-guides/advanced-usage-of-colcon/" class="md-nav__link">
         Advanced usage of colcon
       </a>
     </li>
@@ -1123,7 +963,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../how-to-guides/creating-maps-for-autoware/" class="md-nav__link">
+      <a href="../../how-to-guides/creating-maps-for-autoware/" class="md-nav__link">
         Creating maps for Autoware
       </a>
     </li>
@@ -1137,7 +977,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../how-to-guides/determining-component-dependencies/" class="md-nav__link">
+      <a href="../../how-to-guides/determining-component-dependencies/" class="md-nav__link">
         Determining component dependencies
       </a>
     </li>
@@ -1151,7 +991,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../how-to-guides/integrating-autoware-with-your-vehicle/" class="md-nav__link">
+      <a href="../../how-to-guides/integrating-autoware-with-your-vehicle/" class="md-nav__link">
         Integrating Autoware with your vehicle
       </a>
     </li>
@@ -1165,7 +1005,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../how-to-guides/integrating-autoware-with-a-diff-drive-vehicle/" class="md-nav__link">
+      <a href="../../how-to-guides/integrating-autoware-with-a-diff-drive-vehicle/" class="md-nav__link">
         Integrating Autoware with a differential drive vehicle
       </a>
     </li>
@@ -1179,7 +1019,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../how-to-guides/running-autoware-without-cuda/" class="md-nav__link">
+      <a href="../../how-to-guides/running-autoware-without-cuda/" class="md-nav__link">
         Running Autoware without CUDA
       </a>
     </li>
@@ -1193,7 +1033,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../how-to-guides/calibrating-your-sensors/" class="md-nav__link">
+      <a href="../../how-to-guides/calibrating-your-sensors/" class="md-nav__link">
         Calibrating your sensors
       </a>
     </li>
@@ -1213,12 +1053,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
       
       
       
@@ -1242,7 +1084,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../design/">Design</a>
+          <a href="../">Design</a>
           
             <label for="__nav_5">
               <span class="md-nav__icon md-icon"></span>
@@ -1286,7 +1128,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../design/autoware-concepts/">Autoware concepts</a>
+          <a href="../autoware-concepts/">Autoware concepts</a>
           
             <label for="__nav_5_2">
               <span class="md-nav__icon md-icon"></span>
@@ -1309,7 +1151,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../design/autoware-concepts/difference-from-ai-and-auto/" class="md-nav__link">
+      <a href="../autoware-concepts/difference-from-ai-and-auto/" class="md-nav__link">
         How is Autoware Core/Universe different from Autoware.AI and Autoware.Auto?
       </a>
     </li>
@@ -1365,7 +1207,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../design/autoware-architecture/">Autoware architecture</a>
+          <a href="../autoware-architecture/">Autoware architecture</a>
           
             <label for="__nav_5_3">
               <span class="md-nav__icon md-icon"></span>
@@ -1405,7 +1247,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../design/autoware-architecture/sensing/">Sensing</a>
+          <a href="../autoware-architecture/sensing/">Sensing</a>
           
         </div>
       
@@ -1448,7 +1290,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../design/autoware-architecture/map/">Map</a>
+          <a href="../autoware-architecture/map/">Map</a>
           
         </div>
       
@@ -1491,7 +1333,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../design/autoware-architecture/localization/">Localization</a>
+          <a href="../autoware-architecture/localization/">Localization</a>
           
         </div>
       
@@ -1534,7 +1376,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../design/autoware-architecture/perception/">Perception</a>
+          <a href="../autoware-architecture/perception/">Perception</a>
           
         </div>
       
@@ -1577,7 +1419,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../design/autoware-architecture/planning/">Planning</a>
+          <a href="../autoware-architecture/planning/">Planning</a>
           
         </div>
       
@@ -1620,7 +1462,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../design/autoware-architecture/control/">Control</a>
+          <a href="../autoware-architecture/control/">Control</a>
           
         </div>
       
@@ -1663,7 +1505,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../design/autoware-architecture/vehicle/">Vehicle</a>
+          <a href="../autoware-architecture/vehicle/">Vehicle</a>
           
         </div>
       
@@ -1706,7 +1548,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../design/autoware-architecture/node-diagram/">Node diagram</a>
+          <a href="../autoware-architecture/node-diagram/">Node diagram</a>
           
         </div>
       
@@ -1762,7 +1604,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../design/autoware-interfaces/">Autoware interfaces</a>
+          <a href="../autoware-interfaces/">Autoware interfaces</a>
           
             <label for="__nav_5_4">
               <span class="md-nav__icon md-icon"></span>
@@ -1806,7 +1648,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../design/autoware-interfaces/ad-api/">AD API</a>
+          <a href="../autoware-interfaces/ad-api/">AD API</a>
           
             <label for="__nav_5_4_2">
               <span class="md-nav__icon md-icon"></span>
@@ -1846,7 +1688,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../design/autoware-interfaces/ad-api/use-cases/">Use cases</a>
+          <a href="../autoware-interfaces/ad-api/use-cases/">Use cases</a>
           
         </div>
       
@@ -1889,7 +1731,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../design/autoware-interfaces/ad-api/list/">List</a>
+          <a href="../autoware-interfaces/ad-api/list/">List</a>
           
         </div>
       
@@ -1947,7 +1789,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../design/autoware-interfaces/components/">Components</a>
+          <a href="../autoware-interfaces/components/">Components</a>
           
             <label for="__nav_5_4_3">
               <span class="md-nav__icon md-icon"></span>
@@ -1970,7 +1812,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../design/autoware-interfaces/components/planning/" class="md-nav__link">
+      <a href="../autoware-interfaces/components/planning/" class="md-nav__link">
         Planning
       </a>
     </li>
@@ -1984,7 +1826,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../design/autoware-interfaces/components/control/" class="md-nav__link">
+      <a href="../autoware-interfaces/components/control/" class="md-nav__link">
         Control
       </a>
     </li>
@@ -1998,7 +1840,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../design/autoware-interfaces/components/vehicle-interface/" class="md-nav__link">
+      <a href="../autoware-interfaces/components/vehicle-interface/" class="md-nav__link">
         Vehicle Interface
       </a>
     </li>
@@ -2012,7 +1854,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../design/autoware-interfaces/components/vehicle-dimensions/" class="md-nav__link">
+      <a href="../autoware-interfaces/components/vehicle-dimensions/" class="md-nav__link">
         Vehicle dimensions
       </a>
     </li>
@@ -2065,7 +1907,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../design/configuration-management/">Configuration management</a>
+          <a href="../configuration-management/">Configuration management</a>
           
             <label for="__nav_5_5">
               <span class="md-nav__icon md-icon"></span>
@@ -2088,7 +1930,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../design/configuration-management/development-process/" class="md-nav__link">
+      <a href="../configuration-management/development-process/" class="md-nav__link">
         Development process
       </a>
     </li>
@@ -2102,7 +1944,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../design/configuration-management/repository-structure/" class="md-nav__link">
+      <a href="../configuration-management/repository-structure/" class="md-nav__link">
         Repository structure
       </a>
     </li>
@@ -2116,7 +1958,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../design/configuration-management/release-process/" class="md-nav__link">
+      <a href="../configuration-management/release-process/" class="md-nav__link">
         Release process
       </a>
     </li>
@@ -2135,14 +1977,16 @@
               
   
   
+    
+  
   
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_6" type="checkbox" id="__nav_5_6" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_6" type="checkbox" id="__nav_5_6" checked>
       
       
       
@@ -2155,8 +1999,8 @@
       
         
         
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../design/node-diagram/">Node diagram</a>
+        <div class="md-nav__link md-nav__link--index md-nav__link--active">
+          <a href="./">Node diagram</a>
           
         </div>
       
@@ -2219,7 +2063,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../contributing/">Contributing</a>
+          <a href="../../contributing/">Contributing</a>
           
             <label for="__nav_6">
               <span class="md-nav__icon md-icon"></span>
@@ -2242,7 +2086,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/license/" class="md-nav__link">
+      <a href="../../contributing/license/" class="md-nav__link">
         License
       </a>
     </li>
@@ -2279,7 +2123,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../contributing/coding-guidelines/">Coding guidelines</a>
+          <a href="../../contributing/coding-guidelines/">Coding guidelines</a>
           
             <label for="__nav_6_3">
               <span class="md-nav__icon md-icon"></span>
@@ -2346,7 +2190,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/languages/cpp/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/languages/cpp/" class="md-nav__link">
         C++
       </a>
     </li>
@@ -2360,7 +2204,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/languages/python/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/languages/python/" class="md-nav__link">
         Python
       </a>
     </li>
@@ -2374,7 +2218,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/languages/shell-scripts/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/languages/shell-scripts/" class="md-nav__link">
         Shell scripts
       </a>
     </li>
@@ -2388,7 +2232,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/languages/markdown/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/languages/markdown/" class="md-nav__link">
         Markdown
       </a>
     </li>
@@ -2402,7 +2246,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/languages/cmake/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/languages/cmake/" class="md-nav__link">
         CMake
       </a>
     </li>
@@ -2416,7 +2260,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/languages/package-xml/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/languages/package-xml/" class="md-nav__link">
         package.xml
       </a>
     </li>
@@ -2430,7 +2274,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/languages/docker/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/languages/docker/" class="md-nav__link">
         Docker
       </a>
     </li>
@@ -2444,7 +2288,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/languages/github-actions/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/languages/github-actions/" class="md-nav__link">
         GitHub Actions
       </a>
     </li>
@@ -2513,7 +2357,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/ros-nodes/class-design/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/ros-nodes/class-design/" class="md-nav__link">
         Class design
       </a>
     </li>
@@ -2527,7 +2371,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/ros-nodes/console-logging/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/ros-nodes/console-logging/" class="md-nav__link">
         Console logging
       </a>
     </li>
@@ -2541,7 +2385,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/ros-nodes/coordinate-system/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/ros-nodes/coordinate-system/" class="md-nav__link">
         Coordinate system
       </a>
     </li>
@@ -2555,7 +2399,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/ros-nodes/directory-structure/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/ros-nodes/directory-structure/" class="md-nav__link">
         Directory structure
       </a>
     </li>
@@ -2569,7 +2413,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/ros-nodes/launch-files/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/ros-nodes/launch-files/" class="md-nav__link">
         Launch files
       </a>
     </li>
@@ -2583,7 +2427,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/ros-nodes/message-guidelines/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/ros-nodes/message-guidelines/" class="md-nav__link">
         Message guidelines
       </a>
     </li>
@@ -2597,7 +2441,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/ros-nodes/naming/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/ros-nodes/naming/" class="md-nav__link">
         Topic namespaces
       </a>
     </li>
@@ -2611,7 +2455,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/ros-nodes/parameters/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/ros-nodes/parameters/" class="md-nav__link">
         Parameters
       </a>
     </li>
@@ -2625,7 +2469,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/ros-nodes/task-scheduling/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/ros-nodes/task-scheduling/" class="md-nav__link">
         Task scheduling
       </a>
     </li>
@@ -2639,7 +2483,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/ros-nodes/topic-namespaces/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/ros-nodes/topic-namespaces/" class="md-nav__link">
         Topic namespaces
       </a>
     </li>
@@ -2690,7 +2534,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../contributing/testing-guidelines/">Testing guidelines</a>
+          <a href="../../contributing/testing-guidelines/">Testing guidelines</a>
           
             <label for="__nav_6_4">
               <span class="md-nav__icon md-icon"></span>
@@ -2713,7 +2557,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/testing-guidelines/unit-testing/" class="md-nav__link">
+      <a href="../../contributing/testing-guidelines/unit-testing/" class="md-nav__link">
         Unit testing
       </a>
     </li>
@@ -2727,7 +2571,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/testing-guidelines/integration-testing/" class="md-nav__link">
+      <a href="../../contributing/testing-guidelines/integration-testing/" class="md-nav__link">
         Integration testing
       </a>
     </li>
@@ -2767,7 +2611,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../contributing/documentation-guidelines/">Documentation guidelines</a>
+          <a href="../../contributing/documentation-guidelines/">Documentation guidelines</a>
           
         </div>
       
@@ -2818,7 +2662,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../contributing/pull-request-guidelines/">Pull request guidelines</a>
+          <a href="../../contributing/pull-request-guidelines/">Pull request guidelines</a>
           
             <label for="__nav_6_6">
               <span class="md-nav__icon md-icon"></span>
@@ -2841,7 +2685,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/pull-request-guidelines/commit-guidelines/" class="md-nav__link">
+      <a href="../../contributing/pull-request-guidelines/commit-guidelines/" class="md-nav__link">
         Commit guidelines
       </a>
     </li>
@@ -2855,7 +2699,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/pull-request-guidelines/review-guidelines/" class="md-nav__link">
+      <a href="../../contributing/pull-request-guidelines/review-guidelines/" class="md-nav__link">
         Review guidelines
       </a>
     </li>
@@ -2869,7 +2713,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/pull-request-guidelines/review-tips/" class="md-nav__link">
+      <a href="../../contributing/pull-request-guidelines/review-tips/" class="md-nav__link">
         Review tips
       </a>
     </li>
@@ -2909,7 +2753,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../contributing/discussion-guidelines/">Discussion guidelines</a>
+          <a href="../../contributing/discussion-guidelines/">Discussion guidelines</a>
           
         </div>
       
@@ -2966,7 +2810,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../support/">Support</a>
+          <a href="../../support/">Support</a>
           
             <label for="__nav_7">
               <span class="md-nav__icon md-icon"></span>
@@ -2989,7 +2833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../support/support-guidelines/" class="md-nav__link">
+      <a href="../../support/support-guidelines/" class="md-nav__link">
         Support guidelines
       </a>
     </li>
@@ -3003,7 +2847,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../support/troubleshooting/" class="md-nav__link">
+      <a href="../../support/troubleshooting/" class="md-nav__link">
         Troubleshooting
       </a>
     </li>
@@ -3017,7 +2861,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../support/docs-guide/" class="md-nav__link">
+      <a href="../../support/docs-guide/" class="md-nav__link">
         Docs guide
       </a>
     </li>
@@ -3058,124 +2902,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#preparation" class="md-nav__link">
-    Preparation
+  <a href="#autoware-core" class="md-nav__link">
+    Autoware Core
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#basic-simulations" class="md-nav__link">
-    Basic simulations
+  <a href="#autoware-universe" class="md-nav__link">
+    Autoware Universe
   </a>
-  
-    <nav class="md-nav" aria-label="Basic simulations">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#lane-driving-scenario" class="md-nav__link">
-    Lane driving scenario
-  </a>
-  
-    <nav class="md-nav" aria-label="Lane driving scenario">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-launch-autoware" class="md-nav__link">
-    1. Launch Autoware
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-add-autoware-state-panel" class="md-nav__link">
-    2. Add Autoware State Panel
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-set-an-initial-pose-for-the-ego-vehicle" class="md-nav__link">
-    3. Set an initial pose for the ego vehicle
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-set-a-goal-pose-for-the-ego-vehicle" class="md-nav__link">
-    4. Set a goal pose for the ego vehicle
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-engage-the-ego-vehicle" class="md-nav__link">
-    5. Engage the ego vehicle
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#parking-scenario" class="md-nav__link">
-    Parking scenario
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#advanced-simulations" class="md-nav__link">
-    Advanced Simulations
-  </a>
-  
-    <nav class="md-nav" aria-label="Advanced Simulations">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#placing-dummy-objects" class="md-nav__link">
-    Placing dummy objects
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#traffic-light-recognition-simulation" class="md-nav__link">
-    Traffic light recognition simulation
-  </a>
-  
-    <nav class="md-nav" aria-label="Traffic light recognition simulation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#set-traffic-light" class="md-nav__link">
-    Set traffic light
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#updatereset-traffic-light" class="md-nav__link">
-    Update/Reset traffic light
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -3191,121 +2927,21 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/autowarefoundation/autoware-documentation/edit/main/docs/tutorials/ad-hoc-simulation/planning-simulation.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/autowarefoundation/autoware-documentation/edit/main/docs/design/node-diagram/index.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="planning-simulation">Planning simulation<a class="headerlink" href="#planning-simulation" title="Permanent link">#</a></h1>
-<h2 id="preparation">Preparation<a class="headerlink" href="#preparation" title="Permanent link">#</a></h2>
-<p>Download and unpack a sample map.</p>
-<ul>
-<li>Click <a href="https://drive.google.com/file/d/1499_nsbUbIeturZaDj7jhUownh5fvXHd/view?usp=sharing">here</a> to download.</li>
-<li>Unpack it by running the following command.</li>
-</ul>
-<div class="highlight"><pre><span></span><code>unzip -d ~/Downloads/ ~/Downloads/sample-map-planning.zip
-</code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Sample map: Copyright 2020 TIER IV, Inc.</p>
-</div>
-<h2 id="basic-simulations">Basic simulations<a class="headerlink" href="#basic-simulations" title="Permanent link">#</a></h2>
-<h3 id="lane-driving-scenario">Lane driving scenario<a class="headerlink" href="#lane-driving-scenario" title="Permanent link">#</a></h3>
-<h4 id="1-launch-autoware">1. Launch Autoware<a class="headerlink" href="#1-launch-autoware" title="Permanent link">#</a></h4>
-<div class="highlight"><pre><span></span><code><span class="nb">source</span> ~/autoware/install/setup.bash
-ros2 launch autoware_launch planning_simulator.launch.xml map_path:<span class="o">=</span><span class="nv">$HOME</span>/Downloads/sample-map-planning vehicle_model:<span class="o">=</span>sample_vehicle sensor_model:<span class="o">=</span>sample_sensor_kit
-</code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Note that you cannot use <code>~</code> instead of <code>$HOME</code> here.</p>
-<p>If <code>~</code> is used, the map will fail to load.</p>
-</div>
-<p><img alt="after-autoware-launch" src="../images/planning/lane-following/after-autoware-launch.png" /></p>
-<h4 id="2-add-autoware-state-panel">2. Add Autoware State Panel<a class="headerlink" href="#2-add-autoware-state-panel" title="Permanent link">#</a></h4>
-<p>This panel is useful when running planning simulations. To add the panel, click <code>Panels -&gt; Add new panel</code>, select <code>AutowareStatePanel</code>, and then click <code>OK</code>.</p>
-<p><img alt="after-autoware-launch" src="../images/planning/lane-following/open-autoware-state-panel.png" /></p>
-<h4 id="3-set-an-initial-pose-for-the-ego-vehicle">3. Set an initial pose for the ego vehicle<a class="headerlink" href="#3-set-an-initial-pose-for-the-ego-vehicle" title="Permanent link">#</a></h4>
-<p><img alt="set-initial-pose" src="../images/planning/lane-following/set-initial-pose.png" /></p>
-<p>a) Click the <code>2D Pose estimate</code> button in the toolbar, or hit the <code>P</code> key.</p>
-<p>b) In the 3D View pane, click and hold the left-mouse button, and then drag to set the direction for the initial pose. An image representing the vehicle should now be displayed.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Remember to set the initial pose of the car in the same direction as the lane.</p>
-<p>To confirm the direction of the lane, check the arrowheads displayed on the map.</p>
-</div>
-<h4 id="4-set-a-goal-pose-for-the-ego-vehicle">4. Set a goal pose for the ego vehicle<a class="headerlink" href="#4-set-a-goal-pose-for-the-ego-vehicle" title="Permanent link">#</a></h4>
-<p>a) Click the <code>2D Goal Pose</code> button in the toolbar, or hit the <code>G</code> key.</p>
-<p>b) In the 3D View pane, click and hold the left-mouse button, and then drag to set the direction for the goal pose. If done correctly, you will see a planned path from initial pose to goal pose.</p>
-<p><img alt="set-goal-pose" src="../images/planning/lane-following/set-goal-pose.png" /></p>
-<h4 id="5-engage-the-ego-vehicle">5. Engage the ego vehicle<a class="headerlink" href="#5-engage-the-ego-vehicle" title="Permanent link">#</a></h4>
-<p>Now you can start the ego vehicle driving by clicking the <code>Engage</code> button in <code>AutowareStatePanel</code>. Alteratively, you can manually engage the vehicle by running the following command:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">source</span> ~/autoware/install/setup.bash
-ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage <span class="s2">&quot;engage: true&quot;</span> -1
-</code></pre></div>
-<p><img alt="start-driving" src="../images/planning/lane-following/engage-and-start-planning.png" /></p>
-<h3 id="parking-scenario">Parking scenario<a class="headerlink" href="#parking-scenario" title="Permanent link">#</a></h3>
-<ol>
-<li>
-<p>Set an initial pose and a goal pose, and engage the ego vehicle.</p>
-<p><img alt="after-set-goal-pose" src="../images/planning/parking/after-set-goal-pose.png" /></p>
-</li>
-<li>
-<p>When the vehicle approaches the goal, it will switch from lane driving mode to parking mode.</p>
-</li>
-<li>
-<p>After that, the vehicle will reverse into the destination parking spot.</p>
-<p><img alt="parking-maneuver" src="../images/planning/parking/parking-maneuver.png" /></p>
-</li>
-</ol>
-<h2 id="advanced-simulations">Advanced Simulations<a class="headerlink" href="#advanced-simulations" title="Permanent link">#</a></h2>
-<h3 id="placing-dummy-objects">Placing dummy objects<a class="headerlink" href="#placing-dummy-objects" title="Permanent link">#</a></h3>
-<ol>
-<li>
-<p>Click the <code>2D Dummy Car</code> or <code>2D Dummy Pedestrian</code> button in the toolbar.</p>
-</li>
-<li>
-<p>Set the pose of the dummy object by clicking and dragging on the map.</p>
-</li>
-<li>
-<p>Set the velocity of the object in <code>Tool Properties -&gt; 2D Dummy Car/Pedestrian</code> panel.</p>
-</li>
-</ol>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Changes to the <code>velocity</code> parameter will only affect objects placed after the parameter is changed.</p>
-</div>
-<p><img alt="set-dummy-car" src="../images/planning/lane-following/place-dummy-car.png" /> 4. Delete any dummy objects placed in the view by clicking the <code>Delete All Objects</code> button in the toolbar.</p>
-<h3 id="traffic-light-recognition-simulation">Traffic light recognition simulation<a class="headerlink" href="#traffic-light-recognition-simulation" title="Permanent link">#</a></h3>
-<p>By default, traffic lights on the map are all treated as if they are set to green. As a result, when a path is created that passed through an intersection with a traffic light, the ego vehicle will drive through the intersection without stopping.</p>
-<p>The following steps explain how to set and reset traffic lights in order to test how the Planning component will respond.</p>
-<h4 id="set-traffic-light">Set traffic light<a class="headerlink" href="#set-traffic-light" title="Permanent link">#</a></h4>
-<ol>
-<li>
-<p>Go to <code>Panels -&gt; Add new panel</code>, select <code>TrafficLightPublishPanel</code>, and then press <code>OK</code>.</p>
-</li>
-<li>
-<p>In <code>TrafficLightPublishPanel</code>, set the <code>ID</code> and color of the traffic light.</p>
-</li>
-<li>
-<p>Click the <code>SET</code> button.
-   <img alt="set-traffic-light" src="../images/planning/lane-following/set-traffic-light.png" /></p>
-</li>
-<li>
-<p>Finally, click the <code>PUBLISH</code> button to send the traffic light status to the simulator. Any planned path that goes past the selected traffic light will then change accordingly.</p>
-</li>
-</ol>
-<p><img alt="send-traffic-light-color" src="../images/planning/lane-following/send-traffic-light-color.png" /></p>
-<p>By default, Rviz should display the ID of each traffic light on the map. You can have a closer look at the IDs by zooming in the region or by changing the View type.</p>
-<p>In the event that the IDs are not displayed, try the following troubleshooting steps:</p>
-<p>a) In the <code>Displays</code> panel, find the <code>traffic_light_id</code> topic by toggling the triangle icons next to <code>Map &gt; Lanelet2VectorMap &gt; Namespaces</code>.</p>
-<p>b) Check the <code>traffic_light_id</code> checkbox.</p>
-<p>c) Reload the topic by clicking the <code>Map</code> checkbox twice.</p>
-<p><img alt="see-traffic-light-ID" src="../images/planning/lane-following/see-traffic-light-ID.png" /></p>
-<h4 id="updatereset-traffic-light">Update/Reset traffic light<a class="headerlink" href="#updatereset-traffic-light" title="Permanent link">#</a></h4>
-<p>You can update the color of the traffic light by selecting the next color (in the image it is <code>GREEN</code>) and clicking <code>SET</code> button. In the image the traffic light in front of the ego vehicle changed from <code>RED</code> to <code>GREEN</code> and the vehicle restarted.</p>
-<p><img alt="after-traffic-light-color-update" src="../images/planning/lane-following/after-traffic-light-color-update.png" /></p>
-<p>To remove a traffic light from <code>TrafficLightPublishPanel</code>, click the <code>RESET</code> button.</p>
+<h1 id="node-diagram">Node diagram<a class="headerlink" href="#node-diagram" title="Permanent link">#</a></h1>
+<p>This page depicts the node diagram designs for Autoware Core/Universe architecture.</p>
+<h2 id="autoware-core">Autoware Core<a class="headerlink" href="#autoware-core" title="Permanent link">#</a></h2>
+<p>TBD.</p>
+<h2 id="autoware-universe">Autoware Universe<a class="headerlink" href="#autoware-universe" title="Permanent link">#</a></h2>
+<p><img alt="Node diagram" src="overall-node-diagram-autoware-universe.drawio.svg" />
+Note that the diagram is for reference. We are planning to update this diagram every release and may have old information between the releases.
+If you wish to check the latest node diagram use rqt_graph after launching the Autoware.
+<a href="https://app.diagrams.net/?lightbox=1#Uhttps%3A%2F%2Fautowarefoundation.github.io%2Fautoware-documentation%2Flatest%2Fdesign%2Fnode-diagram%2Foverall-node-diagram-autoware-universe.drawio.svg">Open in draw.io for fullscreen</a></p>
 <!-- prettier-ignore -->
 
               
@@ -3327,7 +2963,7 @@ ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage <span clas
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Ad hoc simulation" rel="prev">
+        <a href="../configuration-management/release-process/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Release process" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -3336,20 +2972,20 @@ ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage <span clas
               <span class="md-footer__direction">
                 Previous
               </span>
-              Ad hoc simulation
+              Release process
             </div>
           </div>
         </a>
       
       
         
-        <a href="../rosbag-replay-simulation/" class="md-footer__link md-footer__link--next" aria-label="Next: Rosbag replay simulation" rel="next">
+        <a href="../../contributing/" class="md-footer__link md-footer__link--next" aria-label="Next: Contributing" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Rosbag replay simulation
+              Contributing
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -3383,10 +3019,10 @@ ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage <span clas
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.6c7ad80a.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
