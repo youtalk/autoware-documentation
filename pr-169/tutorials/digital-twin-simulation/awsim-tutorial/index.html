@@ -3141,50 +3141,25 @@
 <tbody>
 <tr>
 <td>v</td>
-<td>turn on/off lidar points visualization</td>
+<td>Toggle lidar points visualization</td>
 </tr>
 <tr>
 <td>m</td>
-<td>enter/exit manual operation mode (Ego listens to keyboard)</td>
-</tr>
-<tr>
-<td></td>
-<td><b> In manual mode: </b></td>
-</tr>
-<tr>
-<td>d</td>
-<td>drive</td>
-</tr>
-<tr>
-<td>p</td>
-<td>parking brake</td>
-</tr>
-<tr>
-<td>r</td>
-<td>reverse</td>
-</tr>
-<tr>
-<td>arrows</td>
-<td>acceleration and steering</td>
-</tr>
-<tr>
-<td>1</td>
-<td>left blinker</td>
-</tr>
-<tr>
-<td>2</td>
-<td>right blinker</td>
-</tr>
-<tr>
-<td>3</td>
-<td>emergency lights</td>
-</tr>
-<tr>
-<td>4</td>
-<td>turning the lights off</td>
+<td>Toggle manual operation mode (Ego listens to keyboard)</td>
 </tr>
 </tbody>
 </table>
+<p><b> In manual mode: </b>
+| Shortcut | Description                                                |
+| -------- | ---------------------------------------------------------- |
+| d        | Shift gear to Drive                                                      |
+| p        | Shift gear to Park                                                       |
+| r        | Shift gear to Reverse                                                    |
+| ← ↑ ↓ → | Accelerate/brake and steering                                  |
+| 1        | Left blinker                                               |
+| 2        | Right blinker                                              |
+| 3        | Emergency lights                                           |
+| 4        | Turn off lights                                            |</p>
 <h3 id="running-autoware-to-control-awsim">Running Autoware to control AWSIM<a class="headerlink" href="#running-autoware-to-control-awsim" title="Permanent link">#</a></h3>
 <p>To run Autoware, open a terminal and run the following commands:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> &lt;YOUR_WORKSPACE&gt;/autoware
@@ -3221,8 +3196,8 @@ ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage <span clas
 <h4 id="run-npcs-from-rosbag">Run NPCs from rosbag<a class="headerlink" href="#run-npcs-from-rosbag" title="Permanent link">#</a></h4>
 <p>To run NPCs from rosbag, follow the steps:</p>
 <ul>
-<li>navigate to the directory with extracted npc_msgs</li>
-<li>build and source npc_msgs:</li>
+<li>Navigate to the directory where the <code>npc_msgs</code> source code was extracted</li>
+<li>Build and source <code>npc_msgs</code>:</li>
 </ul>
 <div class="highlight"><pre><span></span><code>colcon build
 <span class="nb">source</span> install/setup.bash
