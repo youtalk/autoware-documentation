@@ -606,11 +606,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-176/tutorials/scenario-simulation/digital-twin-simulation/</loc>
-         <lastmod>2022-08-02</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-176/tutorials/scenario-simulation/rosbag-replay-simulation/</loc>
          <lastmod>2022-08-02</lastmod>
          <changefreq>daily</changefreq>
