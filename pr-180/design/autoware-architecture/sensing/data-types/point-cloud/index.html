@@ -1370,9 +1370,74 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Point cloud pre-processing design
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Point cloud pre-processing design
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-processing-pipeline" class="md-nav__link">
+    Recommended processing pipeline
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list-of-modules" class="md-nav__link">
+    List of modules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#point-cloud-fields" class="md-nav__link">
+    Point cloud fields
+  </a>
+  
+    <nav class="md-nav" aria-label="Point cloud fields">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#intensity" class="md-nav__link">
+    Intensity
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -3002,6 +3067,55 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-processing-pipeline" class="md-nav__link">
+    Recommended processing pipeline
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list-of-modules" class="md-nav__link">
+    List of modules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#point-cloud-fields" class="md-nav__link">
+    Point cloud fields
+  </a>
+  
+    <nav class="md-nav" aria-label="Point cloud fields">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#intensity" class="md-nav__link">
+    Intensity
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -3019,10 +3133,79 @@
 
 
 <h1 id="point-cloud-pre-processing-design">Point cloud pre-processing design<a class="headerlink" href="#point-cloud-pre-processing-design" title="Permanent link">#</a></h1>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Under Construction</p>
-</div>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
+<p>Point cloud pre-processing is a collection of modules that apply some primitive pre-processing to the raw sensor data.</p>
+<p>This pipeline covers the flow of data from drivers to the perception stack.</p>
+<h2 id="recommended-processing-pipeline">Recommended processing pipeline<a class="headerlink" href="#recommended-processing-pipeline" title="Permanent link">#</a></h2>
+<pre class="mermaid"><code>graph TD
+    Driver["Lidar Driver"] --&gt;|"Cloud XYZIChRetT"| FilterDC["Distortion Corrector Filter"]
+
+    subgraph "sensing"
+    FilterDC --&gt;|"Cloud XYZIChRet"| FilterOF["Outlier Remover Filter"]
+    FilterOF --&gt;|"Cloud XYZI"| FilterDS["Downsampler Filter"]
+    FilterDS --&gt;|"Cloud XYZI"| FilterTrans["Cloud Transformer"]
+    FilterTrans --&gt;|"Cloud XYZI"| FilterPR["Polygon Remover Filter / CropBox Filter"]
+
+    FilterPR --&gt;|"Cloud XYZI"| FilterC["Cloud Concatenator"]
+    FilterX["..."] --&gt;|"Cloud XYZI (i)"| FilterC
+    end
+
+    FilterC --&gt;|"Cloud XYZI"| SegGr["Ground Segmentation"]</code></pre>
+<h2 id="list-of-modules">List of modules<a class="headerlink" href="#list-of-modules" title="Permanent link">#</a></h2>
+<p>The modules used here are from <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/pointcloud_preprocessor">pointcloud_preprocessor package</a>.</p>
+<p>For details about the modules, see <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/pointcloud_preprocessor#inner-workings--algorithms">the following table</a>.</p>
+<p>It is recommended that these modules are used in a single container as components. For details see <a href="https://docs.ros.org/en/rolling/Tutorials/Intermediate/Composition.html">ROS2 Composition</a></p>
+<h2 id="point-cloud-fields">Point cloud fields<a class="headerlink" href="#point-cloud-fields" title="Permanent link">#</a></h2>
+<p>In the ideal case, the driver is expected to output a point cloud with the <code>PointXYZIChRetT</code> point type.</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>datatype</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>FLOAT32</td>
+<td>X position</td>
+</tr>
+<tr>
+<td>y</td>
+<td>FLOAT32</td>
+<td>Y position</td>
+</tr>
+<tr>
+<td>z</td>
+<td>FLOAT32</td>
+<td>Z position</td>
+</tr>
+<tr>
+<td>intensity</td>
+<td>FLOAT32</td>
+<td></td>
+</tr>
+<tr>
+<td>laser channel</td>
+<td>UINT16</td>
+<td></td>
+</tr>
+<tr>
+<td>return type</td>
+<td>UINT8</td>
+<td></td>
+</tr>
+<tr>
+<td>time</td>
+<td>UINT32</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="intensity">Intensity<a class="headerlink" href="#intensity" title="Permanent link">#</a></h3>
+<p>https://www.oxts.com/wp-content/uploads/2021/01/Hesai-PandarXT16_User_Manual.pdf</p>
+<p>https://usermanual.wiki/Pdf/VLP16Manual.1719942037/view</p>
 <!-- prettier-ignore -->
 
 
