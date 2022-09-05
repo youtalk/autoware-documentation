@@ -3187,9 +3187,10 @@ vcs import src &lt; autoware.repos
 </code></pre></div>
 </li>
 <li>
-<p>Install missing dependencies.</p>
+<p>Update dependent <abbr title="Robot Operating System">ROS</abbr> packages.</p>
+<p>The dependency of Autoware may change after the Docker image was created.
+  In that case, you need to run the following commands to update the dependency.</p>
 <div class="highlight"><pre><span></span><code>sudo apt update
-<span class="nb">source</span> /opt/ros/galactic/setup.bash
 rosdep update
 rosdep install --from-paths . --ignore-src --rosdistro <span class="nv">$ROS_DISTRO</span>
 </code></pre></div>
