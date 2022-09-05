@@ -1467,6 +1467,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#leishen-ch64w" class="md-nav__link">
+    Leishen CH64W
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1474,6 +1481,47 @@
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type" class="md-nav__link">
+    Return type
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#channel" class="md-nav__link">
+    Channel
+  </a>
+  
+    <nav class="md-nav" aria-label="Channel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#timing-of-the-channels" class="md-nav__link">
+    Timing of the channels
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solid-state-and-petal-pattern-lidars" class="md-nav__link">
+    Solid state and petal pattern lidars
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time" class="md-nav__link">
+    Time
+  </a>
   
 </li>
         
@@ -3193,6 +3241,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#leishen-ch64w" class="md-nav__link">
+    Leishen CH64W
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3200,6 +3255,47 @@
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type" class="md-nav__link">
+    Return type
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#channel" class="md-nav__link">
+    Channel
+  </a>
+  
+    <nav class="md-nav" aria-label="Channel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#timing-of-the-channels" class="md-nav__link">
+    Timing of the channels
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solid-state-and-petal-pattern-lidars" class="md-nav__link">
+    Solid state and petal pattern lidars
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time" class="md-nav__link">
+    Time
+  </a>
   
 </li>
         
@@ -3232,7 +3328,7 @@
 <p>This pipeline covers the flow of data from drivers to the perception stack.</p>
 <h2 id="recommended-processing-pipeline">Recommended processing pipeline<a class="headerlink" href="#recommended-processing-pipeline" title="Permanent link">#</a></h2>
 <pre class="mermaid"><code>graph TD
-    Driver["Lidar Driver"] --&gt;|"Cloud XYZIChRetT"| FilterDC["Distortion Corrector Filter"]
+    Driver["Lidar Driver"] --&gt;|"Cloud XYZIRCT"| FilterDC["Distortion Corrector Filter"]
 
     subgraph "sensing"
     FilterDC --&gt;|"Cloud XYZIRC"| FilterOF["Outlier Remover Filter"]
@@ -3344,6 +3440,29 @@ compared to diffuse reflectors that tend to scatter reflected energy.</p>
 <p><a href="https://cdn.robosense.cn/20200723161715_42428.pdf">Robosense RS-LiDAR-16 User Manual</a></p>
 <p>No mapping required, same as Velodyne VLP-16.</p>
 <h5 id="ouster-os-1-64">Ouster OS-1-64<a class="headerlink" href="#ouster-os-1-64" title="Permanent link">#</a></h5>
+<p><a href="https://data.ouster.io/downloads/software-user-manual/software-user-manual-v2p0.pdf">Software User Manual v2.0.0 for all Ouster sensors</a></p>
+<p>In the manual it is stated:</p>
+<blockquote>
+<p>Reflectivity [16 bit unsigned int] - sensor Signal Photons measurements are scaled based on measured range and sensor sensitivity at that range, providing an indication of target reflectivity. Calibration of this measurement has not currently been rigorously implemented, but this will be updated in a future firmware release.</p>
+</blockquote>
+<p>So it is advised to map the 16 bit reflectivity to [0, 100] range.</p>
+<h5 id="leishen-ch64w">Leishen CH64W<a class="headerlink" href="#leishen-ch64w" title="Permanent link">#</a></h5>
+<p><a href="http://www.lslidar.com/en/down">I couldnt get the english user manual, link of website</a></p>
+<p>In a user manual I was able to find it says:</p>
+<blockquote>
+<p>Byte 7 represents echo strength, and the value range is 0-255. (Echo strength can reflect
+the energy reflection characteristics of the measured object in the actual measurement
+environment. Therefore, the echo strength can be used to distinguish objects with
+different reflection characteristics.)</p>
+</blockquote>
+<p>So it is advised to map the [0, 255] to [0, 100] range.</p>
+<h3 id="return-type">Return type<a class="headerlink" href="#return-type" title="Permanent link">#</a></h3>
+<h3 id="channel">Channel<a class="headerlink" href="#channel" title="Permanent link">#</a></h3>
+<p>The channel field is used to identify the vertical channel of the laser that measured the point.</p>
+<p>For Velodyne VLP-16, there are 16 channels. The channels are numbered from 0 to 15, starting from the top of the lidar.</p>
+<h4 id="timing-of-the-channels">Timing of the channels<a class="headerlink" href="#timing-of-the-channels" title="Permanent link">#</a></h4>
+<h4 id="solid-state-and-petal-pattern-lidars">Solid state and petal pattern lidars<a class="headerlink" href="#solid-state-and-petal-pattern-lidars" title="Permanent link">#</a></h4>
+<h3 id="time">Time<a class="headerlink" href="#time" title="Permanent link">#</a></h3>
 <!-- prettier-ignore -->
 
 
