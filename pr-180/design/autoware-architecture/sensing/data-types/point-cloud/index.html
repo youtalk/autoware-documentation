@@ -3301,14 +3301,16 @@
 <p>We will use following ranges for intensity, compatible with <a href="https://usermanual.wiki/Pdf/VLP16Manual.1719942037/view">the VLP16 User Manual</a>:</p>
 <p>Quoting from the VLP-16 User Manual:</p>
 <blockquote>
-<p>For each laser measurement, a reflectivity byte is returned in addition to distance. 
+<p>For each laser measurement, a reflectivity byte is returned in addition to distance.
 Reflectivity byte values are segmented into two ranges, allowing software to distinguish diffuse reflectors (e.g. tree trunks, clothing) in the low range from retrore-
 flectors (e.g. road signs, license plates) in the high range.
-A retroreflector reflects light back to its source with a minimum of scattering. 
+A retroreflector reflects light back to its source with a minimum of scattering.
 The VLP-16 provides its own light, with negligible separation between transmitting laser and receiving detector, so retroreflecting surfaces pop with reflected IR light
-compared to diffuse reflectors that tend to scatter reflected energy.
- - Diffuse reflectors report values from 0 to 100 for reflectivities from 0% to 100%.
- - Retroreflectors report values from 101 to 255, where 255 represents an ideal reflection.</p>
+compared to diffuse reflectors that tend to scatter reflected energy.</p>
+<ul>
+<li>Diffuse reflectors report values from 0 to 100 for reflectivities from 0% to 100%.</li>
+<li>Retroreflectors report values from 101 to 255, where 255 represents an ideal reflection.</li>
+</ul>
 </blockquote>
 <p>In a typical point cloud without retroreflectors, all intensity points will be between 0 and 100.</p>
 <p><img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Retroreflective_Gradient_road_sign.jpg" width="200"></p>
@@ -3317,20 +3319,26 @@ compared to diffuse reflectors that tend to scatter reflected energy.
 <h4 id="intensity-mapping-for-other-lidar-brands">Intensity mapping for other lidar brands<a class="headerlink" href="#intensity-mapping-for-other-lidar-brands" title="Permanent link">#</a></h4>
 <h5 id="hesai-pandarxt16">Hesai PandarXT16<a class="headerlink" href="#hesai-pandarxt16" title="Permanent link">#</a></h5>
 <p><a href="https://www.oxts.com/wp-content/uploads/2021/01/Hesai-PandarXT16_User_Manual.pdf">Hesai Pandar XT16 User Manual</a></p>
-<p>This lidar has 2 modes for reporting reflectivity:
-- Linear mapping
-- Non-linear mapping</p>
+<p>This lidar has 2 modes for reporting reflectivity:</p>
+<ul>
+<li>Linear mapping</li>
+<li>Non-linear mapping</li>
+</ul>
 <p>If you are using linear mapping mode, you should map from [0, 255] to [0, 100] when constructing the point cloud.</p>
-<p>If you are using non-linear mapping mode, you should map (hesai to autoware)
-- [0, 251] to [0, 100] and 
-- [252, 254] to [101, 255]</p>
+<p>If you are using non-linear mapping mode, you should map (hesai to autoware)</p>
+<ul>
+<li>[0, 251] to [0, 100] and</li>
+<li>[252, 254] to [101, 255]</li>
+</ul>
 <p>when constructing the point cloud.</p>
 <h5 id="livox-mid-70">Livox Mid-70<a class="headerlink" href="#livox-mid-70" title="Permanent link">#</a></h5>
 <p><a href="https://terra-1-g.djicdn.com/65c028cd298f4669a7f0e40e50ba1131/Download/Mid-70/new/Livox%20Mid-70%20User%20Manual_EN_v1.2.pdf">Livox Mid-70 User Manual</a></p>
 <p>This lidar has 2 modes for reporting reflectivity similar to Velodyne VLP-16, only the ranges are slightly different.</p>
-<p>You should map (livox to autoware)
-- [0, 150] to [0, 100] and
-- [151, 255] to [101, 255]</p>
+<p>You should map (livox to autoware)</p>
+<ul>
+<li>[0, 150] to [0, 100] and</li>
+<li>[151, 255] to [101, 255]</li>
+</ul>
 <p>when constructing the point cloud.</p>
 <h5 id="robosense-rs-lidar-16">Robosense RS-LiDAR-16<a class="headerlink" href="#robosense-rs-lidar-16" title="Permanent link">#</a></h5>
 <p><a href="https://cdn.robosense.cn/20200723161715_42428.pdf">Robosense RS-LiDAR-16 User Manual</a></p>
