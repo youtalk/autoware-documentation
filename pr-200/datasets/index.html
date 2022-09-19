@@ -2965,12 +2965,14 @@
 <h2 id="bus-odd-operational-design-domain-datasets">Bus-<abbr title="Operational Design Domain">ODD</abbr> (Operational Design Domain) datasets<a class="headerlink" href="#bus-odd-operational-design-domain-datasets" title="Permanent link">#</a></h2>
 <h4 id="leo-drive-isuzu-sensor-data">Leo Drive - ISUZU sensor data<a class="headerlink" href="#leo-drive-isuzu-sensor-data" title="Permanent link">#</a></h4>
 <p>This dataset contains data from the Isuzu bus used in the Bus <abbr title="Operational Design Domain">ODD</abbr> project.</p>
-<p>The data contains data from following sensors:
-- 1 x VLP16
-- 2 x VLP32C
-- 1 x Applanix POS LV 120 <abbr title="Global Navigation Satellite System">GNSS</abbr>/INS
-- 3 x Lucid Vision Triton 5.4MP cameras (left, right, front)
-- Vehicle status report</p>
+<p>The data contains data from following sensors:</p>
+<ul>
+<li>1 x VLP16</li>
+<li>2 x VLP32C</li>
+<li>1 x Applanix POS LV 120 <abbr title="Global Navigation Satellite System">GNSS</abbr>/INS</li>
+<li>3 x Lucid Vision Triton 5.4MP cameras (left, right, front)</li>
+<li>Vehicle status report</li>
+</ul>
 <p>It also contains /tf topic for static transformations between sensors.</p>
 <h5 id="required-message-types">Required message types<a class="headerlink" href="#required-message-types" title="Permanent link">#</a></h5>
 <p>The <abbr title="Global Navigation Satellite System">GNSS</abbr> data is available in <code>sensor_msgs/msg/NavSatFix</code> message type.</p>
@@ -3014,7 +3016,7 @@ $ aws s3 ls s3://autoware-files/collected_data/2022-08-22_leo_drive_isuzu_bags/ 
 aws s3 sync s3://autoware-files/collected_data/2022-08-22_leo_drive_isuzu_bags/all-sensors-bag1_compressed/ ./all-sensors-bag1_compressed  --no-sign-request
 </code></pre></div>
 <h4 id="autocoreai-lidar-ros2-bag-file-and-pcap">Autocore.ai - lidar ROS2 bag file and pcap<a class="headerlink" href="#autocoreai-lidar-ros2-bag-file-and-pcap" title="Permanent link">#</a></h4>
-<p>This dataset contains pcap files and ros2 bag files from Ouster OS1-64 Lidar. 
+<p>This dataset contains pcap files and ros2 bag files from Ouster OS1-64 Lidar.
 The pcap file and ros2 bag file is recorded in the same time with slight difference in duration.</p>
 <p><a href="https://autoware-files.s3.us-west-2.amazonaws.com/collected_data/2022-04-14_autocore-lidar-bag-pcap/Lidar_Data_220414_bag_pcap.zip">Click here to download</a></p>
 <p><a href="https://github.com/autowarefoundation/autoware.universe/issues/562#issuecomment-1102662448">Reference Issue</a></p>
