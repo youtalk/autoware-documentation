@@ -126,6 +126,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/contributing/pull-request-guidelines/ci-checks/</loc>
+         <lastmod>2022-09-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/main/contributing/pull-request-guidelines/commit-guidelines/</loc>
          <lastmod>2022-09-20</lastmod>
          <changefreq>daily</changefreq>
