@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/latest/contributing/pull-request-guidelines/">
       
       <link rel="icon" href="../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.2">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.3">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.9f9400aa.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7a952b86.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
@@ -2647,6 +2647,8 @@
         
           
         
+          
+        
       
       
         
@@ -2667,6 +2669,20 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ci-checks/" class="md-nav__link">
+        CI checks
+      </a>
+    </li>
+  
+
             
           
             
@@ -2943,58 +2959,30 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ci-checks" class="md-nav__link">
-    CI checks
+  <a href="#pull-request-rules" class="md-nav__link">
+    Pull request rules
   </a>
   
-    <nav class="md-nav" aria-label="CI checks">
+    <nav class="md-nav" aria-label="Pull request rules">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#dco" class="md-nav__link">
-    DCO
+  <a href="#follow-conventional-commits-required-automated" class="md-nav__link">
+    Follow Conventional Commits (required, automated)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#semantic-pull-request" class="md-nav__link">
-    semantic-pull-request
+  <a href="#add-the-related-node-names-to-the-scope-of-conventional-commits-advisory-non-automated" class="md-nav__link">
+    Add the related node names to the scope of Conventional Commits (advisory, non-automated)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#pre-commit" class="md-nav__link">
-    pre-commit
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#spell-check-differential" class="md-nav__link">
-    spell-check-differential
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#build-and-test-differential" class="md-nav__link">
-    build-and-test-differential
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#build-and-test-differential-self-hosted" class="md-nav__link">
-    build-and-test-differential-self-hosted
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#deploy-docs" class="md-nav__link">
-    deploy-docs
+  <a href="#keep-a-pull-request-small-advisory-non-automated" class="md-nav__link">
+    Keep a pull request small (advisory, non-automated)
   </a>
   
 </li>
@@ -3064,7 +3052,7 @@ For the detailed explanation of the model, refer to <a href="https://docs.github
 <li>Take a look at the guidelines as well because it is good to understand the thoughts of the reviewer's side.</li>
 </ul>
 </li>
-<li>If <a href="#ci-checks">CI checks</a> have failed, fix the errors.</li>
+<li>If <a href="ci-checks">CI checks</a> have failed, fix the errors.</li>
 </ul>
 </li>
 <li>Address the review comments pointed out by the reviewers.<ul>
@@ -3088,58 +3076,45 @@ For the detailed explanation of the model, refer to <a href="https://docs.github
 </ul>
 </li>
 </ol>
-<h2 id="ci-checks">CI checks<a class="headerlink" href="#ci-checks" title="Permanent link">#</a></h2>
-<p>Autoware has several checks for a pull request.
-The results are shown at the bottom of the pull request page as below.</p>
-<p><img alt="ci-checks" src="images/ci-checks.png" /></p>
-<p>If the ❌ mark is shown, click the <code>Details</code> button and investigate the failure reason.</p>
-<p>If the <code>Required</code> mark is shown, you cannot merge the pull request unless you resolve the error.
-If not, it is optional, but preferably it should be fixed.</p>
-<p>The following sections explain about common CI checks in Autoware.<br />
-Note that some repositories may have different settings.</p>
-<h3 id="dco">DCO<a class="headerlink" href="#dco" title="Permanent link">#</a></h3>
-<p>The Developer Certificate of Origin (DCO) is a lightweight way for contributors to certify that they wrote or otherwise have the right to submit the code they are contributing to the project.</p>
-<p>This workflow checks whether the pull request fulfills <code>DCO</code>.<br />
-You need to confirm the <a href="https://developercertificate.org/">required items</a> and commit with <code>git commit -s</code>.</p>
-<p>For more information, refer to the <a href="https://github.com/apps/dco">GitHub App page</a>.</p>
-<h3 id="semantic-pull-request">semantic-pull-request<a class="headerlink" href="#semantic-pull-request" title="Permanent link">#</a></h3>
-<p>Autoware uses <a href="https://www.conventionalcommits.org/en/v1.0.0/">Conventional Commits</a> with the settings of <a href="https://github.com/commitizen/conventional-commit-types">commitizen/conventional-commit-types</a>.</p>
-<p>This workflow checks whether the pull request follows <code>Conventional Commits</code>.</p>
-<p>Note that if there is only one commit in the pull request, you need to make the commit title semantic as well.<br />
-This is due to GitHub's non-intuitive behavior when there is only one commit.
-GitHub uses the commit title for the squashed commit message, instead of the pull request title.</p>
-<p>For more detailed behaviors of this workflow, refer to <a href="https://github.com/amannn/action-semantic-pull-request">amannn/action-semantic-pull-request</a>.</p>
-<p>For the detailed rules, see the <a href="commit-guidelines/">commit guidelines</a>.</p>
-<h3 id="pre-commit">pre-commit<a class="headerlink" href="#pre-commit" title="Permanent link">#</a></h3>
-<p><a href="https://pre-commit.com/">pre-commit</a> is a tool to run formatters or linters when you commit.</p>
-<p>This workflow checks whether the pull request has no error with <code>pre-commit</code>.</p>
-<p>In the workflow <code>pre-commit.ci - pr</code> is enabled in the repository, it will automatically fix errors by <a href="https://pre-commit.ci/">pre-commit.ci</a> as many as possible.<br />
-If there are some errors remain, fix them manually.</p>
-<p>You can run <code>pre-commit</code> in your local environment by the following command:</p>
-<div class="highlight"><pre><span></span><code>pre-commit run -a
+<h2 id="pull-request-rules">Pull request rules<a class="headerlink" href="#pull-request-rules" title="Permanent link">#</a></h2>
+<h3 id="follow-conventional-commits-required-automated">Follow <code>Conventional Commits</code> (required, automated)<a class="headerlink" href="#follow-conventional-commits-required-automated" title="Permanent link">#</a></h3>
+<h4 id="rationale">Rationale<a class="headerlink" href="#rationale" title="Permanent link">#</a></h4>
+<ul>
+<li>It can generate categorized changelog, for example using <a href="https://github.com/orhun/git-cliff">git-cliff</a>.</li>
+</ul>
+<h4 id="example">Example<a class="headerlink" href="#example" title="Permanent link">#</a></h4>
+<div class="highlight"><pre><span></span><code>feat(trajectory_follower): add an awesome feature
 </code></pre></div>
-<p>Or you can install <code>pre-commit</code> to the repository and automatically run it before committing:</p>
-<div class="highlight"><pre><span></span><code>pre-commit install
+<p>Note that you have to start the description part (<code>add an awesome feature</code>) with a lowercase.</p>
+<p>Since Autoware uses the <code>Squash and merge</code> method of GitHub, you need to make the PR title follow <code>Conventional Commits</code> as well.</p>
+<h4 id="reference">Reference<a class="headerlink" href="#reference" title="Permanent link">#</a></h4>
+<ul>
+<li><a href="https://www.conventionalcommits.org/en/v1.0.0/">Conventional Commits</a></li>
+<li><a href="https://github.com/commitizen/conventional-commit-types">commitizen/conventional-commit-types</a></li>
+<li><a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/about-merge-methods-on-github#squashing-your-merge-commits">GitHub Docs</a></li>
+</ul>
+<h3 id="add-the-related-node-names-to-the-scope-of-conventional-commits-advisory-non-automated">Add the related node names to the scope of <code>Conventional Commits</code> (advisory, non-automated)<a class="headerlink" href="#add-the-related-node-names-to-the-scope-of-conventional-commits-advisory-non-automated" title="Permanent link">#</a></h3>
+<h4 id="rationale_1">Rationale<a class="headerlink" href="#rationale_1" title="Permanent link">#</a></h4>
+<ul>
+<li>The package maintainer can become aware of the pull request by seeing the notification.</li>
+<li>It can make the changelog clearer.</li>
+</ul>
+<h4 id="example_1">Example<a class="headerlink" href="#example_1" title="Permanent link">#</a></h4>
+<div class="highlight"><pre><span></span><code>feat(trajectory_follower): add an awesome feature
 </code></pre></div>
-<p>Since it is difficult to detect errors with no false positives, some jobs are split into another config file and marked as optional.<br />
-To check them, use the <code>--config</code> option:</p>
-<div class="highlight"><pre><span></span><code>pre-commit run -a --config .pre-commit-config-optional.yaml
-</code></pre></div>
-<h3 id="spell-check-differential">spell-check-differential<a class="headerlink" href="#spell-check-differential" title="Permanent link">#</a></h3>
-<p>This workflow detects spelling mistakes using <a href="https://github.com/streetsidesoftware/cspell">CSpell</a> with <a href="https://github.com/tier4/autoware-spell-check-dict/blob/main/.cspell.json">our dictionary file</a>.<br />
-You can submit pull requests to <a href="https://github.com/tier4/autoware-spell-check-dict">tier4/autoware-spell-check-dict</a> to update the dictionary.</p>
-<p>Since it is difficult to detect errors with no false positives, it is an optional workflow, but it is preferable to remove spelling mistakes as many as possible.</p>
-<h3 id="build-and-test-differential">build-and-test-differential<a class="headerlink" href="#build-and-test-differential" title="Permanent link">#</a></h3>
-<p>This workflow checks <code>colcon build</code> and <code>colcon test</code> for the pull request.<br />
-To make the CI faster, it doesn't check all packages but only modified packages and the dependencies.</p>
-<h3 id="build-and-test-differential-self-hosted">build-and-test-differential-self-hosted<a class="headerlink" href="#build-and-test-differential-self-hosted" title="Permanent link">#</a></h3>
-<p>This workflow is the <code>ARM64</code> version of <code>build-and-test-differential</code>.<br />
-You need to add the <code>ARM64</code> label to run this workflow.</p>
-<p>For reference information, since ARM machines are not supported by GitHub-hosted runners, we use self-hosted runners prepared by the <abbr title="Autoware Foundation">AWF</abbr>.<br />
-For the details about self-hosted runners, refer to <a href="https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners">GitHub Docs</a>.</p>
-<h3 id="deploy-docs">deploy-docs<a class="headerlink" href="#deploy-docs" title="Permanent link">#</a></h3>
-<p>This workflow deploys the preview documentation site for the pull request.<br />
-You need to add the <code>documentation</code> label to run this workflow.</p>
+<h3 id="keep-a-pull-request-small-advisory-non-automated">Keep a pull request small (advisory, non-automated)<a class="headerlink" href="#keep-a-pull-request-small-advisory-non-automated" title="Permanent link">#</a></h3>
+<h4 id="rationale_2">Rationale<a class="headerlink" href="#rationale_2" title="Permanent link">#</a></h4>
+<ul>
+<li>Small pull requests are easy to understand for reviewers.</li>
+<li>Small pull requests are easy to revert for maintainers.</li>
+</ul>
+<h4 id="exception">Exception<a class="headerlink" href="#exception" title="Permanent link">#</a></h4>
+<p>It is acceptable if it is agreed with maintainers that there is no other way but to submit a big pull request.</p>
+<h4 id="example_2">Example<a class="headerlink" href="#example_2" title="Permanent link">#</a></h4>
+<ul>
+<li>Avoid developing two features in one pull request.</li>
+<li>Avoid mixing <code>feat</code>, <code>fix</code>, and <code>refactor</code> in the same commit.</li>
+</ul>
 <!-- prettier-ignore -->
 
 
@@ -3182,13 +3157,13 @@ You need to add the <code>documentation</code> label to run this workflow.</p>
       
       
         
-        <a href="commit-guidelines/" class="md-footer__link md-footer__link--next" aria-label="Next: Commit guidelines" rel="next">
+        <a href="ci-checks/" class="md-footer__link md-footer__link--next" aria-label="Next: CI checks" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Commit guidelines
+              CI checks
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -3223,10 +3198,10 @@ You need to add the <code>documentation</code> label to run this workflow.</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.39f04ddb.min.js"></script>
+      <script src="../../assets/javascripts/bundle.37e9125f.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
