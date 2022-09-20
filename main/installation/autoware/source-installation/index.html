@@ -3032,7 +3032,7 @@
 <p>OS</p>
 <ul>
 <li><a href="https://releases.ubuntu.com/20.04/">Ubuntu 20.04</a></li>
-<li><a href="https://releases.ubuntu.com/22.04/">Ubuntu 22.04</a> (<strong>will be supported from Q3 2022</strong>)</li>
+<li><a href="https://releases.ubuntu.com/22.04/">Ubuntu 22.04</a></li>
 </ul>
 </li>
 </ul>
@@ -3041,9 +3041,9 @@
 <p><abbr title="Robot Operating System">ROS</abbr></p>
 <ul>
 <li><abbr title="Robot Operating System">ROS</abbr> 2 Galactic</li>
-<li><abbr title="Robot Operating System">ROS</abbr> 2 Humble (<strong>will be supported from Q3 2022</strong>)</li>
+<li><abbr title="Robot Operating System">ROS</abbr> 2 Humble</li>
 </ul>
-<p>For <abbr title="Robot Operating System">ROS</abbr> 2 system dependencies, refer to <a href="https://www.ros.org/reps/rep-2000.html">REP-2000</a> .</p>
+<p>For <abbr title="Robot Operating System">ROS</abbr> 2 system dependencies, refer to <a href="https://www.ros.org/reps/rep-2000.html">REP-2000</a>.</p>
 </li>
 </ul>
 <ul>
@@ -3060,6 +3060,10 @@ sudo apt-get -y install git
 <li>
 <p>Clone <code>autowarefoundation/autoware</code> and move to the directory.</p>
 <div class="highlight"><pre><span></span><code>git clone https://github.com/autowarefoundation/autoware.git
+<span class="nb">cd</span> autoware
+</code></pre></div>
+<p>If you want to use <abbr title="Robot Operating System">ROS</abbr> 2 Humble, use the <code>humble</code> branch.</p>
+<div class="highlight"><pre><span></span><code>git clone https://github.com/autowarefoundation/autoware.git -b humble
 <span class="nb">cd</span> autoware
 </code></pre></div>
 </li>

@@ -3138,6 +3138,10 @@
 <div class="highlight"><pre><span></span><code>git clone https://github.com/autowarefoundation/autoware.git
 <span class="nb">cd</span> autoware
 </code></pre></div>
+<p>If you want to use <abbr title="Robot Operating System">ROS</abbr> 2 Humble, use the <code>humble</code> branch.</p>
+<div class="highlight"><pre><span></span><code>git clone https://github.com/autowarefoundation/autoware.git -b humble
+<span class="nb">cd</span> autoware
+</code></pre></div>
 </li>
 <li>
 <p>You can install the dependencies either manually or using the provided Ansible script.</p>
@@ -3168,6 +3172,13 @@ By pulling and using the Autoware Universe images, you accept the terms and cond
 <li>
 <p>For amd64 architecture computers with NVIDIA <abbr title="Graphics Processing Unit">GPU</abbr>:</p>
 <div class="highlight"><pre><span></span><code>rocker --nvidia --x11 --user --volume <span class="nv">$HOME</span>/autoware -- ghcr.io/autowarefoundation/autoware-universe:latest
+</code></pre></div>
+</li>
+</ul>
+<ul>
+<li>
+<p>If you want to use <abbr title="Robot Operating System">ROS</abbr> 2 Humble:</p>
+<div class="highlight"><pre><span></span><code>rocker --nvidia --x11 --user --volume <span class="nv">$HOME</span>/autoware -- ghcr.io/autowarefoundation/autoware-universe:humble-latest-cuda
 </code></pre></div>
 </li>
 </ul>
