@@ -2993,7 +2993,7 @@
 <li>3 x Lucid Vision Triton 5.4MP cameras (left, right, front)</li>
 <li>Vehicle status report</li>
 </ul>
-<p>It also contains /tf topic for static transformations between sensors.</p>
+<p>It also contains <code>/tf</code> topic for static transformations between sensors.</p>
 <h4 id="required-message-types">Required message types<a class="headerlink" href="#required-message-types" title="Permanent link">#</a></h4>
 <p>The <abbr title="Global Navigation Satellite System">GNSS</abbr> data is available in <code>sensor_msgs/msg/NavSatFix</code> message type.</p>
 <p>But also the Applanix raw messages are also included in <code>applanix_msgs/msg/NavigationPerformanceGsof50</code> and <code>applanix_msgs/msg/NavigationSolutionGsof49</code> message types.
@@ -3016,7 +3016,7 @@ colcon build --symlink-install --packages-select applanix_msgs
 <div class="highlight"><pre><span></span><code><span class="gp"># </span>Install awscli
 <span class="gp">$ </span>sudo apt update <span class="o">&amp;&amp;</span> sudo apt install awscli -y
 
-<span class="gp"># </span>This will download the entire dataset to the current directory
+<span class="gp"># </span>This will download the entire dataset to the current directory.
 <span class="gp"># </span><span class="o">(</span>About <span class="m">10</span>.9GB of data<span class="o">)</span>
 <span class="gp">$ </span>aws s3 sync s3://autoware-files/collected_data/2022-08-22_leo_drive_isuzu_bags/ ./2022-08-22_leo_drive_isuzu_bags  --no-sign-request
 
