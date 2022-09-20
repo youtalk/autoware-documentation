@@ -2999,41 +2999,41 @@
 <p>But also the Applanix raw messages are also included in <code>applanix_msgs/msg/NavigationPerformanceGsof50</code> and <code>applanix_msgs/msg/NavigationSolutionGsof49</code> message types.
 In order to be able to play back these messages, you need to build and source the <code>applanix_msgs</code> package.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create a workspace and clone the repository</span>
-$ mkdir -p ~/applanix_ws/src <span class="o">&amp;&amp;</span> <span class="nb">cd</span> <span class="s2">&quot;</span><span class="nv">$_</span><span class="s2">&quot;</span>
-$ git clone https://github.com/autowarefoundation/applanix.git
-$ <span class="nb">cd</span> ..
+mkdir -p ~/applanix_ws/src <span class="o">&amp;&amp;</span> <span class="nb">cd</span> <span class="s2">&quot;</span><span class="nv">$_</span><span class="s2">&quot;</span>
+git clone https://github.com/autowarefoundation/applanix.git
+<span class="nb">cd</span> ..
 
 <span class="c1"># Build the workspace</span>
-$ colcon build --symlink-install --packages-select applanix_msgs
+colcon build --symlink-install --packages-select applanix_msgs
 
 <span class="c1"># Source the workspace</span>
-$ <span class="nb">source</span> ~/applanix_ws/install/setup.bash
+<span class="nb">source</span> ~/applanix_ws/install/setup.bash
 
 <span class="c1"># Now you can play back the messages</span>
 </code></pre></div>
 <p>Also make sure to source Autoware Universe workspace too.</p>
 <h4 id="download-instructions">Download instructions<a class="headerlink" href="#download-instructions" title="Permanent link">#</a></h4>
-<div class="highlight"><pre><span></span><code><span class="c1"># Install awscli</span>
-$ sudo apt update <span class="o">&amp;&amp;</span> sudo apt install awscli -y
+<div class="highlight"><pre><span></span><code><span class="gp"># </span>Install awscli
+<span class="gp">$ </span>sudo apt update <span class="o">&amp;&amp;</span> sudo apt install awscli -y
 
-<span class="c1"># This will download the entire dataset to the current directory</span>
-<span class="c1"># (About 10.9GB of data)</span>
-$ aws s3 sync s3://autoware-files/collected_data/2022-08-22_leo_drive_isuzu_bags/ ./2022-08-22_leo_drive_isuzu_bags  --no-sign-request
+<span class="gp"># </span>This will download the entire dataset to the current directory
+<span class="gp"># </span><span class="o">(</span>About <span class="m">10</span>.9GB of data<span class="o">)</span>
+<span class="gp">$ </span>aws s3 sync s3://autoware-files/collected_data/2022-08-22_leo_drive_isuzu_bags/ ./2022-08-22_leo_drive_isuzu_bags  --no-sign-request
 
-<span class="c1"># Optionally,</span>
-<span class="c1"># If you instead want to download a single bag file, you can get a list of the available files with following:</span>
-$ aws s3 ls s3://autoware-files/collected_data/2022-08-22_leo_drive_isuzu_bags/ --no-sign-request
-   PRE all-sensors-bag1_compressed/
-   PRE all-sensors-bag2_compressed/
-   PRE all-sensors-bag3_compressed/
-   PRE all-sensors-bag4_compressed/
-   PRE all-sensors-bag5_compressed/
-   PRE all-sensors-bag6_compressed/
-   PRE driving_20_kmh_2022_06_10-16_01_55_compressed/
-   PRE driving_30_kmh_2022_06_10-15_47_42_compressed/
+<span class="gp"># </span>Optionally,
+<span class="gp"># </span>If you instead want to download a single bag file, you can get a list of the available files with following:
+<span class="gp">$ </span>aws s3 ls s3://autoware-files/collected_data/2022-08-22_leo_drive_isuzu_bags/ --no-sign-request
+<span class="go">   PRE all-sensors-bag1_compressed/</span>
+<span class="go">   PRE all-sensors-bag2_compressed/</span>
+<span class="go">   PRE all-sensors-bag3_compressed/</span>
+<span class="go">   PRE all-sensors-bag4_compressed/</span>
+<span class="go">   PRE all-sensors-bag5_compressed/</span>
+<span class="go">   PRE all-sensors-bag6_compressed/</span>
+<span class="go">   PRE driving_20_kmh_2022_06_10-16_01_55_compressed/</span>
+<span class="go">   PRE driving_30_kmh_2022_06_10-15_47_42_compressed/</span>
 
-<span class="c1"># Then you can download a single bag file with the following:</span>
-aws s3 sync s3://autoware-files/collected_data/2022-08-22_leo_drive_isuzu_bags/all-sensors-bag1_compressed/ ./all-sensors-bag1_compressed  --no-sign-request
+<span class="gp"># </span>Then you can download a single bag file with the following:
+<span class="go">aws s3 sync s3://autoware-files/collected_data/2022-08-22_leo_drive_isuzu_bags/all-sensors-bag1_compressed/ ./all-sensors-bag1_compressed  --no-sign-request</span>
 </code></pre></div>
 <h3 id="autocoreai-lidar-ros2-bag-file-and-pcap">Autocore.ai - lidar ROS2 bag file and pcap<a class="headerlink" href="#autocoreai-lidar-ros2-bag-file-and-pcap" title="Permanent link">#</a></h3>
 <p>This dataset contains pcap files and ros2 bag files from Ouster OS1-64 Lidar.
