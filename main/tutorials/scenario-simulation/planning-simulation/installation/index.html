@@ -2980,7 +2980,7 @@
 <li>
 <p>Install dependent <abbr title="Robot Operating System">ROS</abbr> packages:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/galactic/setup.bash
-rosdep install --from-paths src --ignore-src --rosdistro <span class="nv">$ROS_DISTRO</span>
+rosdep install -y --from-paths src --ignore-src --rosdistro <span class="nv">$ROS_DISTRO</span>
 </code></pre></div>
 </li>
 <li>
