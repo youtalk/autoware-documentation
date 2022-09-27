@@ -3093,9 +3093,12 @@ Note that all parameter files are listed one by one.</p>
 </ul>
 <p>Step 2. Update <code>autowarefoundation/autoware_launch</code>.</p>
 <ul>
-<li>Update <a href="https://github.com/autowarefoundation/autoware_launch/blob/main/.github/sync-param-files.yaml">a synchronization setting file</a>.</li>
+<li>Update <a href="https://github.com/autowarefoundation/autoware_launch/blob/main/.github/sync-param-files.yaml">a synchronization setting file</a>.<ul>
+<li>This procedure can be automated with <a href="https://github.com/autowarefoundation/autoware_launch/actions/workflows/update-sync-param-files.yaml"><code>update-sync-param-files</code> workflow</a>.</li>
+</ul>
+</li>
 <li>Merge a sync PR from <code>autowarefoundation/autoware.universe</code> to <code>autowarefoundation/autoware_launch</code>.<ul>
-<li>Note: This PR will be created automatically with GitHub Actions, but you can also create the PR manually.</li>
+<li>This PR will be created automatically by <a href="https://github.com/autowarefoundation/autoware_launch/actions/workflows/sync-param-files.yaml"><code>sync-param-files</code> workflow</a>, but you can also create the PR manually.</li>
 </ul>
 </li>
 </ul>
@@ -3107,9 +3110,12 @@ Note that all parameter files are listed one by one.</p>
 </ul>
 <p>Step 2. Update <code>autowarefoundation/autoware_launch</code></p>
 <ul>
-<li>If you add a new config file, update <a href="https://github.com/autowarefoundation/autoware_launch/blob/main/.github/sync-param-files.yaml">a synchronization setting file</a>.</li>
+<li>If you add a new config file, update <a href="https://github.com/autowarefoundation/autoware_launch/blob/main/.github/sync-param-files.yaml">a synchronization setting file</a>.<ul>
+<li>This procedure can be automated with <a href="https://github.com/autowarefoundation/autoware_launch/actions/workflows/update-sync-param-files.yaml"><code>update-sync-param-files</code> workflow</a>.</li>
+</ul>
+</li>
 <li>Merge a sync PR from <code>autowarefoundation/autoware.universe</code> to <code>autowarefoundation/autoware_launch</code>.<ul>
-<li>Note: This PR will be created automatically with GitHub Actions, but you can also create the PR manually.</li>
+<li>This PR will be created automatically by <a href="https://github.com/autowarefoundation/autoware_launch/actions/workflows/sync-param-files.yaml"><code>sync-param-files</code> workflow</a>, but you can also create the PR manually.</li>
 </ul>
 </li>
 </ul>
