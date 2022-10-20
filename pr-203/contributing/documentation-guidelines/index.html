@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-203/contributing/documentation-guidelines/">
       
       <link rel="icon" href="../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.3">
+      <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.6">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.7a952b86.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.20d9efc8.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
@@ -2952,18 +2952,33 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#contribution-guidelines-on-autoware-documentation" class="md-nav__link">
-    Contribution guidelines on Autoware Documentation
+  <a href="#workflow" class="md-nav__link">
+    Workflow
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to-preview-your-modification-on-autowares-documentation-repositories" class="md-nav__link">
-    How to preview your modification on Autoware's documentation repositories
+  <a href="#style-guide" class="md-nav__link">
+    Style guide
   </a>
   
-    <nav class="md-nav" aria-label="How to preview your modification on Autoware's documentation repositories">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tips" class="md-nav__link">
+    Tips
+  </a>
+  
+    <nav class="md-nav" aria-label="Tips">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-preview-your-modification" class="md-nav__link">
+    How to preview your modification
+  </a>
+  
+    <nav class="md-nav" aria-label="How to preview your modification">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2977,6 +2992,11 @@
   <a href="#2-running-an-mkdocs-server-in-your-local-environment" class="md-nav__link">
     2. Running an MkDocs server in your local environment
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -3006,7 +3026,7 @@
 
 
 <h1 id="documentation-guidelines">Documentation guidelines<a class="headerlink" href="#documentation-guidelines" title="Permanent link">#</a></h1>
-<h2 id="contribution-guidelines-on-autoware-documentation">Contribution guidelines on Autoware Documentation<a class="headerlink" href="#contribution-guidelines-on-autoware-documentation" title="Permanent link">#</a></h2>
+<h2 id="workflow">Workflow<a class="headerlink" href="#workflow" title="Permanent link">#</a></h2>
 <p>Contributions to Autoware's documentation are welcome, and the same principles <a href="../#pull-requests">described in the contribution guidelines</a> should be followed. Small, limited changes can be made by forking this repository and submitting a pull request, but larger changes should be discussed with the community and Autoware maintainers via GitHub Discussion first.</p>
 <p>Examples of small changes include:</p>
 <ul>
@@ -3019,16 +3039,18 @@
 <li>Adding new pages with a large amount of detail, such as a tutorial</li>
 <li>Re-organization of the existing documentation structure</li>
 </ul>
-<p>In terms of style, you should refer to the <a href="https://developers.google.com/style">Google developer documentation style guide</a> as much as possible. Reading the <a href="https://developers.google.com/style/highlights">Highlights page</a> of that guide is recommended, but if not then the key points below should be noted.</p>
+<h2 id="style-guide">Style guide<a class="headerlink" href="#style-guide" title="Permanent link">#</a></h2>
+<p>You should refer to the <a href="https://developers.google.com/style">Google developer documentation style guide</a> as much as possible. Reading the <a href="https://developers.google.com/style/highlights">Highlights page</a> of that guide is recommended, but if not then the key points below should be noted.</p>
 <ul>
 <li><a href="https://developers.google.com/style/spelling">Use standard American English spelling</a> and punctuation.</li>
 <li><a href="https://developers.google.com/style/capitalization">Use sentence case</a> for document titles and section headings.</li>
 <li><a href="https://developers.google.com/style/link-text">Use descriptive link text</a>.</li>
 <li><a href="https://developers.google.com/style/translation#write-short,-clear,-and-precise-sentences">Write short sentences</a> that are easy to understand and translate.</li>
 </ul>
-<h2 id="how-to-preview-your-modification-on-autowares-documentation-repositories">How to preview your modification on Autoware's documentation repositories<a class="headerlink" href="#how-to-preview-your-modification-on-autowares-documentation-repositories" title="Permanent link">#</a></h2>
+<h2 id="tips">Tips<a class="headerlink" href="#tips" title="Permanent link">#</a></h2>
+<h3 id="how-to-preview-your-modification">How to preview your modification<a class="headerlink" href="#how-to-preview-your-modification" title="Permanent link">#</a></h3>
 <p>There are two ways to preview your modification on a documentation website.</p>
-<h3 id="1-using-github-actions-workflow">1. Using GitHub Actions workflow<a class="headerlink" href="#1-using-github-actions-workflow" title="Permanent link">#</a></h3>
+<h4 id="1-using-github-actions-workflow">1. Using GitHub Actions workflow<a class="headerlink" href="#1-using-github-actions-workflow" title="Permanent link">#</a></h4>
 <p>Follow the steps below.</p>
 <ol>
 <li>Create a pull request to the repository.</li>
@@ -3036,7 +3058,7 @@
 <li>Wait for a couple of minutes, and the <code>github-actions</code> bot will notify the URL for the pull request's preview.</li>
 </ol>
 <p><img alt="documenatation_label" src="images/documentation_label_for_pull_request.png" width="800" /></p>
-<h3 id="2-running-an-mkdocs-server-in-your-local-environment">2. Running an MkDocs server in your local environment<a class="headerlink" href="#2-running-an-mkdocs-server-in-your-local-environment" title="Permanent link">#</a></h3>
+<h4 id="2-running-an-mkdocs-server-in-your-local-environment">2. Running an MkDocs server in your local environment<a class="headerlink" href="#2-running-an-mkdocs-server-in-your-local-environment" title="Permanent link">#</a></h4>
 <p>Instead of creating a PR, you can use the <code>mkdocs</code> command to build Autoware's documentation websites on your local computer.
 Assuming that you are using Ubuntu OS, run the following to install the required libraries.</p>
 <div class="highlight"><pre><span></span><code>python3 -m pip install -U <span class="k">$(</span>curl -fsSL <span class="se">\</span>
@@ -3133,7 +3155,7 @@ mkdocs serve
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.37e9125f.min.js"></script>
+      <script src="../../assets/javascripts/bundle.078830c0.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
