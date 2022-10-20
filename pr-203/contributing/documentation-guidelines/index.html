@@ -3061,8 +3061,7 @@
 <h4 id="2-running-an-mkdocs-server-in-your-local-environment">2. Running an MkDocs server in your local environment<a class="headerlink" href="#2-running-an-mkdocs-server-in-your-local-environment" title="Permanent link">#</a></h4>
 <p>Instead of creating a PR, you can use the <code>mkdocs</code> command to build Autoware's documentation websites on your local computer.
 Assuming that you are using Ubuntu OS, run the following to install the required libraries.</p>
-<div class="highlight"><pre><span></span><code>python3 -m pip install -U <span class="k">$(</span>curl -fsSL <span class="se">\</span>
-  https://raw.githubusercontent.com/autowarefoundation/autoware-github-actions/main/deploy-docs/mkdocs-requirements.txt<span class="k">)</span>
+<div class="highlight"><pre><span></span><code>python3 -m pip install -U <span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/autowarefoundation/autoware-github-actions/main/deploy-docs/mkdocs-requirements.txt<span class="k">)</span>
 </code></pre></div>
 <p>Then, run <code>mkdocs serve</code> on your documentation directory.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> /PATH/TO/YOUR-autoware-documentation
