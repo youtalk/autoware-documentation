@@ -2404,13 +2404,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#console-output-formatting" class="md-nav__link">
-    Console output formatting
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#examples" class="md-nav__link">
     Examples
   </a>
@@ -3023,13 +3016,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#console-output-formatting" class="md-nav__link">
-    Console output formatting
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#examples" class="md-nav__link">
     Examples
   </a>
@@ -3087,35 +3073,6 @@ RCLCPP_<span class="o">{</span>severity<span class="o">}</span>_STREAM_<span cla
 <li><code>EXPRESSION</code> - output the given printf-style message only if the given expression is true</li>
 <li><code>FUNCTION</code> - output the given printf-style message only if the given function returns true</li>
 <li><code>SKIPFIRST</code> - output the given printf-style message all but the first time this line is hit</li>
-</ul>
-<h2 id="console-output-formatting">Console output formatting<a class="headerlink" href="#console-output-formatting" title="Permanent link">#</a></h2>
-<p>Default output format is [{severity}] [{time}] [{name}]: {message}</p>
-<p>To change log output format in console:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">RCUTILS_CONSOLE_OUTPUT_FORMAT</span><span class="o">=</span><span class="s2">&quot;[{severity} {time}] [{name}]: {message} ({function_name}() at {file_name}:{line_number})&quot;</span>
-</code></pre></div>
-<ul>
-<li>{severity} - The severity level.</li>
-</ul>
-<ul>
-<li>{name} - The name of the logger (may be empty).</li>
-</ul>
-<ul>
-<li>{message} - The log message (may be empty).</li>
-</ul>
-<ul>
-<li>{function_name} - The function name this was called from (may be empty).</li>
-</ul>
-<ul>
-<li>{file_name} - The file name this was called from (may be empty).</li>
-</ul>
-<ul>
-<li>{time} - The time in seconds since the epoch.</li>
-</ul>
-<ul>
-<li>{time_as_nanoseconds} - The time in nanoseconds since the epoch.</li>
-</ul>
-<ul>
-<li>{line_number} - The line number this was called from (may be empty)</li>
 </ul>
 <h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">#</a></h2>
 <p>let's assume a ros node named planner and format is [{severity}] [{name}]: {message}</p>
