@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-180/tutorials/ad-hoc-simulation/planning-simulation/">
       
       <link rel="icon" href="../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.3">
+      <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.7">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.7a952b86.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.20d9efc8.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
@@ -2863,6 +2863,8 @@
         
           
         
+          
+        
       
       
         
@@ -2883,6 +2885,20 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/pull-request-guidelines/ci-checks/" class="md-nav__link">
+        CI checks
+      </a>
+    </li>
+  
+
             
           
             
@@ -3236,10 +3252,10 @@
 <h2 id="preparation">Preparation<a class="headerlink" href="#preparation" title="Permanent link">#</a></h2>
 <p>Download and unpack a sample map.</p>
 <ul>
-<li>Click <a href="https://drive.google.com/file/d/1499_nsbUbIeturZaDj7jhUownh5fvXHd/view?usp=sharing">here</a> to download.</li>
-<li>Unpack it by running the following command.</li>
+<li>You can also download <a href="https://drive.google.com/file/d/1499_nsbUbIeturZaDj7jhUownh5fvXHd/view?usp=sharing">the map</a> manually.</li>
 </ul>
-<div class="highlight"><pre><span></span><code>unzip -d ~/Downloads/ ~/Downloads/sample-map-planning.zip
+<div class="highlight"><pre><span></span><code>gdown -O ~/autoware_map/ <span class="s1">&#39;https://docs.google.com/uc?export=download&amp;id=1499_nsbUbIeturZaDj7jhUownh5fvXHd&#39;</span>
+unzip -d ~/autoware_map ~/autoware_map/sample-map-planning.zip
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -3249,7 +3265,7 @@
 <h3 id="lane-driving-scenario">Lane driving scenario<a class="headerlink" href="#lane-driving-scenario" title="Permanent link">#</a></h3>
 <h4 id="1-launch-autoware">1. Launch Autoware<a class="headerlink" href="#1-launch-autoware" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span> ~/autoware/install/setup.bash
-ros2 launch autoware_launch planning_simulator.launch.xml map_path:<span class="o">=</span><span class="nv">$HOME</span>/Downloads/sample-map-planning vehicle_model:<span class="o">=</span>sample_vehicle sensor_model:<span class="o">=</span>sample_sensor_kit
+ros2 launch autoware_launch planning_simulator.launch.xml map_path:<span class="o">=</span><span class="nv">$HOME</span>/autoware_map/sample-map-planning vehicle_model:<span class="o">=</span>sample_vehicle sensor_model:<span class="o">=</span>sample_sensor_kit
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -3424,10 +3440,10 @@ ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage <span clas
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.37e9125f.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.8492ddcf.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
