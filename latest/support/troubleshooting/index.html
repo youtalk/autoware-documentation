@@ -3253,6 +3253,11 @@ sudo swapon /swapfile
 free -h
 </code></pre></div>
 <p>For more detailed configuration steps, along with an explanation of swap, refer to Digital Ocean's <a href="https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-20-04">"How To Add Swap Space on Ubuntu 20.04" tutorial</a></p>
+<p>If there are too many CPU cores (more than 64) in your machine, it might requires larger memory.
+A workaround here is to limit the job number while building.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">MAKEFLAGS</span><span class="o">=</span><span class="s2">&quot;-j4&quot;</span> colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE<span class="o">=</span>Release
+</code></pre></div>
+<p>You can adjust <code>-j4</code> to any number based on your system.</p>
 <h3 id="errors-when-using-the-latest-version-of-autoware">Errors when using the latest version of Autoware<a class="headerlink" href="#errors-when-using-the-latest-version-of-autoware" title="Permanent link">#</a></h3>
 <p>If you are working with the latest version of Autoware, issues can occur due to out-of-date software or old build files.</p>
 <p>To resolve these types of problems, first try cleaning your build artifacts and rebuilding:</p>

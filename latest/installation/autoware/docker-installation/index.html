@@ -3288,13 +3288,14 @@ vcs import src &lt; autoware.repos
  In that case, you need to run the following commands to update the dependency.</p>
 <div class="highlight"><pre><span></span><code>sudo apt update
 rosdep update
-rosdep install --from-paths . --ignore-src --rosdistro <span class="nv">$ROS_DISTRO</span>
+rosdep install -y --from-paths src --ignore-src --rosdistro <span class="nv">$ROS_DISTRO</span>
 </code></pre></div>
 </li>
 <li>
 <p>Build the workspace.</p>
 <div class="highlight"><pre><span></span><code>colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE<span class="o">=</span>Release
 </code></pre></div>
+<p>If there is any build issue, refer to <a href="https://autowarefoundation.github.io/autoware-documentation/main/support/troubleshooting/#build-issues">Troubleshooting</a>.</p>
 </li>
 </ol>
 <h2 id="how-to-update-a-workspace">How to update a workspace<a class="headerlink" href="#how-to-update-a-workspace" title="Permanent link">#</a></h2>
