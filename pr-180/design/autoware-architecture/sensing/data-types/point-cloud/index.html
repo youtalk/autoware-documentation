@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-180/design/autoware-architecture/sensing/data-types/point-cloud/">
       
       <link rel="icon" href="../../../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.7">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.7">
     
     
       
@@ -3260,19 +3260,19 @@
 <p>This pipeline covers the flow of data from drivers to the perception stack.</p>
 <h2 id="recommended-processing-pipeline">Recommended processing pipeline<a class="headerlink" href="#recommended-processing-pipeline" title="Permanent link">#</a></h2>
 <pre class="mermaid"><code>graph TD
-    Driver["Lidar Driver"] --&gt;|"Cloud XYZIRCT"| FilterDC["Distortion Corrector Filter"]
+    Driver["Lidar Driver"] --&gt;|"Cloud XYZIRCT"| FilterDC["Motion Distortion Corrector Filter"]
 
     subgraph "sensing"
     FilterDC --&gt;|"Cloud XYZIRC"| FilterOF["Outlier Remover Filter"]
-    FilterOF --&gt;|"Cloud XYZI"| FilterDS["Downsampler Filter"]
-    FilterDS --&gt;|"Cloud XYZI"| FilterTrans["Cloud Transformer"]
-    FilterTrans --&gt;|"Cloud XYZI"| FilterPR["Polygon Remover Filter / CropBox Filter"]
+    FilterOF --&gt;|"Cloud XYZIRC"| FilterDS["Downsampler Filter"]
+    FilterDS --&gt;|"Cloud XYZIRC"| FilterTrans["Cloud Transformer"]
+    FilterTrans --&gt;|"Cloud XYZIRC"| FilterPR["Polygon Remover Filter / CropBox Filter"]
 
-    FilterPR --&gt;|"Cloud XYZI"| FilterC["Cloud Concatenator"]
-    FilterX["..."] --&gt;|"Cloud XYZI (i)"| FilterC
+    FilterPR --&gt;|"Cloud XYZIRC"| FilterC["Cloud Concatenator"]
+    FilterX["..."] --&gt;|"Cloud XYZIRC (i)"| FilterC
     end
 
-    FilterC --&gt;|"Cloud XYZI"| SegGr["Ground Segmentation"]</code></pre>
+    FilterC --&gt;|"Cloud XYZIRC"| SegGr["Ground Segmentation"]</code></pre>
 <h2 id="list-of-modules">List of modules<a class="headerlink" href="#list-of-modules" title="Permanent link">#</a></h2>
 <p>The modules used here are from <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/pointcloud_preprocessor">pointcloud_preprocessor package</a>.</p>
 <p>For details about the modules, see <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/pointcloud_preprocessor#inner-workings--algorithms">the following table</a>.</p>
@@ -3389,12 +3389,73 @@ different reflection characteristics.)</p>
 </blockquote>
 <p>So it is advised to map the [0, 255] to [0, 100] range.</p>
 <h3 id="return-type">Return type<a class="headerlink" href="#return-type" title="Permanent link">#</a></h3>
+<p>Various lidars support multiple return modes. Velodyne lidars support <strong>Strongest</strong> and <strong>Last</strong> return modes.</p>
+<p>In the <code>PointXYZIRCT</code> and <code>PointXYZIRC</code> types, <code>R</code> field represents return mode with an <code>UINT8</code>.</p>
+<table>
+<thead>
+<tr>
+<th>R (return type)</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0</code></td>
+<td>Unknown / Not Marked</td>
+</tr>
+<tr>
+<td><code>1</code></td>
+<td>Strongest</td>
+</tr>
+<tr>
+<td><code>2</code></td>
+<td>Last</td>
+</tr>
+</tbody>
+</table>
 <h3 id="channel">Channel<a class="headerlink" href="#channel" title="Permanent link">#</a></h3>
-<p>The channel field is used to identify the vertical channel of the laser that measured the point.</p>
-<p>For Velodyne VLP-16, there are 16 channels. The channels are numbered from 0 to 15, starting from the top of the lidar.</p>
-<h4 id="timing-of-the-channels">Timing of the channels<a class="headerlink" href="#timing-of-the-channels" title="Permanent link">#</a></h4>
+<p>The channel field is used to identify the vertical channel of the laser that measured the point.
+In various lidar manuals or literature, it can also be called <em>laser id</em>, <em>ring</em>, <em>laser line</em>.</p>
+<p>For Velodyne VLP-16, there are 16 channels. Default order of channels in drivers are generally in firing order.</p>
+<p>In the <code>PointXYZIRCT</code> and <code>PointXYZIRC</code> types, <code>C</code> field represents the vertical channel id with an <code>UINT16</code>.</p>
 <h4 id="solid-state-and-petal-pattern-lidars">Solid state and petal pattern lidars<a class="headerlink" href="#solid-state-and-petal-pattern-lidars" title="Permanent link">#</a></h4>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This section is subject to change. Following are suggestions and open for discussion.</p>
+</div>
+<p>For solid state lidars that have lines, assign row number as the channel id.</p>
+<p>For petal pattern lidars, you can keep channel 0.</p>
 <h3 id="time">Time<a class="headerlink" href="#time" title="Permanent link">#</a></h3>
+<p>In lidar point clouds, each point measurement can have its individual time stamp.
+This information can be used to eliminate the motion blur that is caused by the movement of the lidar during the scan.</p>
+<h4 id="point-cloud-header-time">Point cloud header time<a class="headerlink" href="#point-cloud-header-time" title="Permanent link">#</a></h4>
+<p>The header contains a <a href="https://github.com/ros2/rcl_interfaces/blob/rolling/builtin_interfaces/msg/Time.msg">Time field</a>.
+The time field has 2 components:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sec</code></td>
+<td><code>int32</code></td>
+<td>Unix time (seconds elapsed since January 1, 1970)</td>
+</tr>
+<tr>
+<td><code>nanosec</code></td>
+<td><code>uint32</code></td>
+<td>Nanoseconds elapsed since the <code>sec</code> field</td>
+</tr>
+</tbody>
+</table>
+<p>The header of the point cloud message is expected to have the time of the earliest point it has.</p>
+<h4 id="individual-point-time">Individual point time<a class="headerlink" href="#individual-point-time" title="Permanent link">#</a></h4>
+<p>Each <code>PointXYZIRCT</code> point type has the <code>T</code> field for representing the nanoseconds passed since the first-shot point of the point cloud.</p>
+<p>To calculate exact time each point was shot, the <code>T</code> nanoseconds are added to the header time.</p>
 <!-- prettier-ignore -->
 
 
