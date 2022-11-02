@@ -601,6 +601,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-180/how-to-guides/applying-clang-tidy-to-ros-packages/</loc>
+         <lastmod>2022-11-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-180/how-to-guides/calibrating-your-sensors/</loc>
          <lastmod>2022-11-02</lastmod>
          <changefreq>daily</changefreq>
