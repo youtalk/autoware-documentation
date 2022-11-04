@@ -696,7 +696,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-217/tutorials/scenario-simulation/rosbag-replay-simulation/driving_log_replayer/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-217/tutorials/scenario-simulation/rosbag-replay-simulation/driving-log-replayer/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
