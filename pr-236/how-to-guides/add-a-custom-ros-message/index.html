@@ -3116,9 +3116,9 @@
 
 <h1 id="add-a-custom-ros-message">Add a custom <abbr title="Robot Operating System">ROS</abbr> message<a class="headerlink" href="#add-a-custom-ros-message" title="Permanent link">#</a></h1>
 <h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">#</a></h2>
-<p>During the Autoware development, you will probably need to define your own messages, This page lists a simple example of adding a custom message to Autoware, For the general ROS2 tutorial see <a href="http://docs.ros.org/en/galactic/Tutorials/Beginner-Client-Libraries/Custom-ROS2-Interfaces.html">Create custom msg and srv files</a>. </p>
+<p>During the Autoware development, you will probably need to define your own messages, This page lists a simple example of adding a custom message to Autoware, For the general ROS2 tutorial see <a href="http://docs.ros.org/en/galactic/Tutorials/Beginner-Client-Libraries/Custom-ROS2-Interfaces.html">Create custom msg and srv files</a>.</p>
 <h2 id="how-to-create-custom-message">How to create custom message<a class="headerlink" href="#how-to-create-custom-message" title="Permanent link">#</a></h2>
-<p>Make sure you are in the Autoware workspace, and then run the following command to create a new package. 
+<p>Make sure you are in the Autoware workspace, and then run the following command to create a new package.
 For example we create a package to define sensor messages.</p>
 <ol>
 <li>
@@ -3129,7 +3129,7 @@ For example we create a package to define sensor messages.</p>
 <li>
 <p>Create custom messages</p>
 <p>You should create <code>.msg</code> files and place them in the <code>msg</code> directory.</p>
-<p><strong>NOTE</strong>:  The initial letters of the <code>.msg</code> and <code>.srv</code> files must be capitalized. </p>
+<p><strong>NOTE</strong>: The initial letters of the <code>.msg</code> and <code>.srv</code> files must be capitalized.</p>
 <p>For example we make msg files <code>GnssInsOrientation.msg</code> and <code>GnssInsOrientationStamped.msg</code> to define <abbr title="Global Navigation Satellite System">GNSS</abbr> INS orientation messages:</p>
 <div class="highlight"><pre><span></span><code><span class="go">mkdir msg</span>
 <span class="go">cd msg</span>
