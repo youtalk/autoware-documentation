@@ -11,18 +11,18 @@
         <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-180/design/autoware-architecture/sensing/">
       
       <link rel="icon" href="../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.7">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.8">
     
     
       
-        <title>Sensing stack design - Autoware Documentation</title>
+        <title>Sensing component design - Autoware Documentation</title>
       
     
     
       <link rel="stylesheet" href="../../../assets/stylesheets/main.20d9efc8.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.815d1a91.min.css">
         
       
       
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sensing-stack-design" class="md-skip">
+        <a href="#sensing-component-design" class="md-skip">
           Skip to content
         </a>
       
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Sensing stack design
+              Sensing component design
             
           </span>
         </div>
@@ -3082,6 +3082,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#role" class="md-nav__link">
+    Role
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#inputs" class="md-nav__link">
     Inputs
   </a>
@@ -3128,38 +3135,63 @@
   </a>
 
 
-<h1 id="sensing-stack-design">Sensing stack design<a class="headerlink" href="#sensing-stack-design" title="Permanent link">#</a></h1>
+<h1 id="sensing-component-design">Sensing component design<a class="headerlink" href="#sensing-component-design" title="Permanent link">#</a></h1>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
-<p>Sensing stack is a collection of modules that apply some primitive pre-processing to the raw sensor data.</p>
-<p>The sensor input formats are defined in this stack too.</p>
+<p>Sensing component is a collection of modules that apply some primitive pre-processing to the raw sensor data.</p>
+<p>The sensor input formats are defined in this component.</p>
+<h2 id="role">Role<a class="headerlink" href="#role" title="Permanent link">#</a></h2>
+<ul>
+<li>Abstraction of data formats to enable usage of sensors from various vendors</li>
+<li>Perform common/primitive sensor data processing required by each component</li>
+</ul>
 <h2 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">#</a></h2>
 <h3 id="input-types">Input types<a class="headerlink" href="#input-types" title="Permanent link">#</a></h3>
-<ul>
-<li>Point cloud (Lidars, depth cameras, etc.)<ul>
-<li><a href="https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/PointCloud2.msg">sensor_msgs/msg/PointCloud2.msg</a></li>
-</ul>
-</li>
-<li>Image (RGB, monochrome, depth, etc. cameras)<ul>
-<li><a href="https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/Image.msg">sensor_msgs/msg/Image.msg</a></li>
-</ul>
-</li>
-<li>Radar data<ul>
-<li><a href="https://github.com/ros-perception/radar_msgs/blob/ros2/msg/RadarScan.msg">radar_msgs/msg/RadarScan.msg</a></li>
-<li><a href="https://github.com/ros-perception/radar_msgs/blob/ros2/msg/RadarTracks.msg">radar_msgs/msg/RadarTracks.msg</a></li>
-</ul>
-</li>
-<li><abbr title="Global Navigation Satellite System">GNSS</abbr>-INS data<ul>
-<li><a href="https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/NavSatFix.msg">sensor_msgs/msg/NavSatFix.msg</a></li>
-<li><a href="https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_sensing_msgs/msg/GnssInsOrientationStamped.msg">autoware_sensing_msgs/GnssInsOrientationStamped.msg</a></li>
-<li><a href="https://github.com/ros2/common_interfaces/blob/rolling/geometry_msgs/msg/TwistWithCovarianceStamped.msg">geometry_msgs/msg/TwistWithCovarianceStamped.msg</a></li>
-<li><a href="https://github.com/ros2/common_interfaces/blob/rolling/geometry_msgs/msg/AccelWithCovarianceStamped.msg">geometry_msgs/msg/AccelWithCovarianceStamped.msg</a></li>
-</ul>
-</li>
-<li>Ultrasonics<ul>
-<li><a href="https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/Range.msg">sensor_msgs/msg/Range.msg</a></li>
-</ul>
-</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Sensor Data</th>
+<th>Message Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Point cloud (Lidars, depth cameras, etc.)</td>
+<td><a href="https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/PointCloud2.msg">sensor_msgs/msg/PointCloud2.msg</a></td>
+</tr>
+<tr>
+<td>Image (RGB, monochrome, depth, etc. cameras)</td>
+<td><a href="https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/Image.msg">sensor_msgs/msg/Image.msg</a></td>
+</tr>
+<tr>
+<td>Radar scan</td>
+<td><a href="https://github.com/ros-perception/radar_msgs/blob/ros2/msg/RadarScan.msg">radar_msgs/msg/RadarScan.msg</a></td>
+</tr>
+<tr>
+<td>Radar tracks</td>
+<td><a href="https://github.com/ros-perception/radar_msgs/blob/ros2/msg/RadarTracks.msg">radar_msgs/msg/RadarTracks.msg</a></td>
+</tr>
+<tr>
+<td><abbr title="Global Navigation Satellite System">GNSS</abbr>-INS position</td>
+<td><a href="https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/NavSatFix.msg">sensor_msgs/msg/NavSatFix.msg</a></td>
+</tr>
+<tr>
+<td><abbr title="Global Navigation Satellite System">GNSS</abbr>-INS orientation</td>
+<td><a href="https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_sensing_msgs/msg/GnssInsOrientationStamped.msg">autoware_sensing_msgs/GnssInsOrientationStamped.msg</a></td>
+</tr>
+<tr>
+<td><abbr title="Global Navigation Satellite System">GNSS</abbr>-INS velocity</td>
+<td><a href="https://github.com/ros2/common_interfaces/blob/rolling/geometry_msgs/msg/TwistWithCovarianceStamped.msg">geometry_msgs/msg/TwistWithCovarianceStamped.msg</a></td>
+</tr>
+<tr>
+<td><abbr title="Global Navigation Satellite System">GNSS</abbr>-INS acceleration</td>
+<td><a href="https://github.com/ros2/common_interfaces/blob/rolling/geometry_msgs/msg/AccelWithCovarianceStamped.msg">geometry_msgs/msg/AccelWithCovarianceStamped.msg</a></td>
+</tr>
+<tr>
+<td>Ultrasonics</td>
+<td><a href="https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/Range.msg">sensor_msgs/msg/Range.msg</a></td>
+</tr>
+</tbody>
+</table>
 <h2 id="design-by-data-types">Design by data-types<a class="headerlink" href="#design-by-data-types" title="Permanent link">#</a></h2>
 <ul>
 <li><a href="data-types/gnss-ins-data/"><abbr title="Global Navigation Satellite System">GNSS</abbr>/INS data pre-processing design</a></li>
@@ -3254,7 +3286,7 @@
     <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.8492ddcf.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
