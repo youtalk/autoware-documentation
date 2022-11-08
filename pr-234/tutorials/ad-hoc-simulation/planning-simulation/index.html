@@ -3228,22 +3228,17 @@ ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage <span clas
 <h2 id="advanced-simulations">Advanced Simulations<a class="headerlink" href="#advanced-simulations" title="Permanent link">#</a></h2>
 <h3 id="placing-dummy-objects">Placing dummy objects<a class="headerlink" href="#placing-dummy-objects" title="Permanent link">#</a></h3>
 <ol>
-<li>
-<p>Click the <code>2D Dummy Car</code> or <code>2D Dummy Pedestrian</code> button in the toolbar.</p>
-</li>
-<li>
-<p>Set the pose of the dummy object by clicking and dragging on the map.</p>
-</li>
+<li>Click the <code>2D Dummy Car</code> or <code>2D Dummy Pedestrian</code> button in the toolbar.</li>
+<li>Set the pose of the dummy object by clicking and dragging on the map.</li>
 <li>
 <p>Set the velocity of the object in <code>Tool Properties -&gt; 2D Dummy Car/Pedestrian</code> panel.</p>
+<p>!!! note</p>
+<div class="codehilite"><pre><span></span><code>Changes to the `velocity` parameter will only affect objects placed after the parameter is changed.
+
+![set-dummy-car](images/planning/lane-following/place-dummy-car.png)
+</code></pre></div>
+
 </li>
-</ol>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Changes to the <code>velocity</code> parameter will only affect objects placed after the parameter is changed.</p>
-</div>
-<p><img alt="set-dummy-car" src="../images/planning/lane-following/place-dummy-car.png" /></p>
-<ol>
 <li>
 <p>Delete any dummy objects placed in the view by clicking the <code>Delete All Objects</code> button in the toolbar.</p>
 </li>
