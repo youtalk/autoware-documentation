@@ -902,47 +902,10 @@
   
   
   
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_3_2" type="checkbox" id="__nav_3_3_2" checked>
-      
-      
-      
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_3_3_2">
-          Rosbag replay simulation
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Rosbag replay simulation" data-md-level="3">
-        <label class="md-nav__title" for="__nav_3_3_2">
-          <span class="md-nav__icon md-icon"></span>
-          Rosbag replay simulation
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
     <li class="md-nav__item">
-      <a href="../../tutorials/scenario-simulation/rosbag-replay-simulation/driving-log-replayer/" class="md-nav__link">
-        Driving Log Replayer
+      <a href="../../tutorials/scenario-simulation/rosbag-replay-simulation/" class="md-nav__link">
+        Rosbag replay simulation
       </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
     </li>
   
 
@@ -3116,9 +3079,9 @@
 
 <h1 id="add-a-custom-ros-message">Add a custom <abbr title="Robot Operating System">ROS</abbr> message<a class="headerlink" href="#add-a-custom-ros-message" title="Permanent link">#</a></h1>
 <h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">#</a></h2>
-<p>During the Autoware development, you will probably need to define your own messages, This page lists a simple example of adding a custom message to Autoware, For the general ROS2 tutorial see <a href="http://docs.ros.org/en/galactic/Tutorials/Beginner-Client-Libraries/Custom-ROS2-Interfaces.html">Create custom msg and srv files</a>.</p>
+<p>During the Autoware development, you will probably need to define your own messages, This page lists a simple example of adding a custom message to Autoware, For the general ROS2 tutorial see <a href="http://docs.ros.org/en/galactic/Tutorials/Beginner-Client-Libraries/Custom-ROS2-Interfaces.html">Create custom msg and srv files</a>. </p>
 <h2 id="how-to-create-custom-message">How to create custom message<a class="headerlink" href="#how-to-create-custom-message" title="Permanent link">#</a></h2>
-<p>Make sure you are in the Autoware workspace, and then run the following command to create a new package.
+<p>Make sure you are in the Autoware workspace, and then run the following command to create a new package. 
 For example we create a package to define sensor messages.</p>
 <ol>
 <li>
@@ -3129,7 +3092,7 @@ For example we create a package to define sensor messages.</p>
 <li>
 <p>Create custom messages</p>
 <p>You should create <code>.msg</code> files and place them in the <code>msg</code> directory.</p>
-<p><strong>NOTE</strong>: The initial letters of the <code>.msg</code> and <code>.srv</code> files must be capitalized.</p>
+<p><strong>NOTE</strong>:  The initial letters of the <code>.msg</code> and <code>.srv</code> files must be capitalized. </p>
 <p>For example we make msg files <code>GnssInsOrientation.msg</code> and <code>GnssInsOrientationStamped.msg</code> to define <abbr title="Global Navigation Satellite System">GNSS</abbr> INS orientation messages:</p>
 <div class="highlight"><pre><span></span><code><span class="go">mkdir msg</span>
 <span class="go">cd msg</span>
@@ -3150,7 +3113,7 @@ For example we create a package to define sensor messages.</p>
 <p>In this case, the custom message uses a message from another message package <code>std_msgs/Header</code>.</p>
 </li>
 <li>
-<p>CmakeList.txt</p>
+<p>CmakeLists.txt</p>
 <p>In order to use this custom message in <code>C++</code> or <code>Python</code> languages, we need add the following lines to <code>CmakeList.txt</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">rosidl_generate_interfaces</span><span class="p">(</span><span class="o">${</span><span class="nv">PROJECT_NAME</span><span class="o">}</span>
 <span class="w">  </span><span class="s2">&quot;msg/GnssInsOrientation.msg&quot;</span>
@@ -3160,6 +3123,17 @@ For example we create a package to define sensor messages.</p>
 <span class="w">    </span><span class="s">std_msgs</span>
 <span class="w">  </span><span class="s">ADD_LINTER_TESTS</span>
 <span class="p">)</span>
+</code></pre></div>
+<p><img alt="💬" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4ac.svg" title=":speech_balloon:" /> The <code>ament_cmake_auto</code> tool is very useful and is more widely used in Autoware, so we recommend using <code>ament_cmake_auto</code> instead of <code>ament_cmake</code>. </p>
+<p>We need to replace</p>
+<div class="highlight"><pre><span></span><code><span class="nb">find_package</span><span class="p">(</span><span class="s">ament_cmake</span><span class="w"> </span><span class="s">REQUIRED</span><span class="p">)</span>
+
+<span class="nb">ament_package</span><span class="p">()</span>
+</code></pre></div>
+<p>with</p>
+<div class="highlight"><pre><span></span><code><span class="nb">find_package</span><span class="p">(</span><span class="s">ament_cmake_auto</span><span class="w"> </span><span class="s">REQUIRED</span><span class="p">)</span>
+
+<span class="nb">ament_auto_package</span><span class="p">()</span>
 </code></pre></div>
 </li>
 <li>
@@ -3171,6 +3145,7 @@ For example we create a package to define sensor messages.</p>
 <span class="nt">&lt;exec_depend&gt;</span>rosidl_default_runtime<span class="nt">&lt;/exec_depend&gt;</span>
 <span class="nt">&lt;member_of_group&gt;</span>rosidl_interface_packages<span class="nt">&lt;/member_of_group&gt;</span>
 </code></pre></div>
+<p>We need to replace <code>&lt;buildtool_depend&gt;ament_cmake&lt;/buildtool_depend&gt;</code> with <code>&lt;buildtool_depend&gt;ament_cmake_auto&lt;/buildtool_depend&gt;</code> in the package.xml file.</p>
 </li>
 <li>
 <p>Build the custom message package</p>
