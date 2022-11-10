@@ -3166,6 +3166,8 @@
   </a>
 
 
+<!-- markdownlint-disable -->
+
 <h1 id="planning-simulation">Planning simulation<a class="headerlink" href="#planning-simulation" title="Permanent link">#</a></h1>
 <h2 id="preparation">Preparation<a class="headerlink" href="#preparation" title="Permanent link">#</a></h2>
 <p>Download and unpack a sample map.</p>
@@ -3234,10 +3236,10 @@ ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage <span clas
 <li>Set the pose of the dummy object by clicking and dragging on the map.</li>
 <li>
 <p>Set the velocity of the object in <code>Tool Properties -&gt; 2D Dummy Car/Pedestrian</code> panel.</p>
-<p>!!! note</p>
-<div class="codehilite"><pre><span></span><code>  Changes to the `velocity` parameter will only affect objects placed after the parameter is changed.
-</code></pre></div>
-
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Changes to the <code>velocity</code> parameter will only affect objects placed after the parameter is changed.</p>
+</div>
 <p><img alt="set-dummy-car" src="../images/planning/lane-following/place-dummy-car.png" /></p>
 </li>
 <li>
