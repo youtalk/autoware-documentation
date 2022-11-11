@@ -3229,17 +3229,13 @@ ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage <span clas
 </ol>
 <h2 id="advanced-simulations">Advanced Simulations<a class="headerlink" href="#advanced-simulations" title="Permanent link">#</a></h2>
 <h3 id="placing-dummy-objects">Placing dummy objects<a class="headerlink" href="#placing-dummy-objects" title="Permanent link">#</a></h3>
-<!-- markdownlint-capture -->
-<!-- markdownlint-disable -->
 <ol>
 <li>Click the <code>2D Dummy Car</code> or <code>2D Dummy Pedestrian</code> button in the toolbar.</li>
 <li>Set the pose of the dummy object by clicking and dragging on the map.</li>
 <li>
 <p>Set the velocity of the object in <code>Tool Properties -&gt; 2D Dummy Car/Pedestrian</code> panel.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<p>!!! note</p>
 <p>Changes to the <code>velocity</code> parameter will only affect objects placed after the parameter is changed.</p>
-</div>
 <p><img alt="set-dummy-car" src="../images/planning/lane-following/place-dummy-car.png" /></p>
 </li>
 <li>
@@ -3256,8 +3252,6 @@ ros2 topic pub /autoware/engage autoware_auto_vehicle_msgs/msg/Engage <span clas
 <li>For moving an interactive dummy object, hold the <code>right click</code> drag and drop the object.<p><img alt="move-interactive-dummy-car" src="../images/planning/lane-following/move-dummy-object.png" /></p>
 </li>
 </ol>
-<!-- markdownlint-restore -->
-
 <h3 id="traffic-light-recognition-simulation">Traffic light recognition simulation<a class="headerlink" href="#traffic-light-recognition-simulation" title="Permanent link">#</a></h3>
 <p>By default, traffic lights on the map are all treated as if they are set to green. As a result, when a path is created that passed through an intersection with a traffic light, the ego vehicle will drive through the intersection without stopping.</p>
 <p>The following steps explain how to set and reset traffic lights in order to test how the Planning component will respond.</p>
