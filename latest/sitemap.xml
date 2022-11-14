@@ -596,6 +596,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/how-to-guides/evaluating-controller-performance/</loc>
+         <lastmod>2022-11-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/latest/how-to-guides/integrating-autoware-with-a-diff-drive-vehicle/</loc>
          <lastmod>2022-11-14</lastmod>
          <changefreq>daily</changefreq>
