@@ -3055,6 +3055,19 @@
     Notation
   </a>
   
+    <nav class="md-nav" aria-label="Notation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-self-crossing-road-and-overlapped" class="md-nav__link">
+    [1] self-crossing road and overlapped
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -3222,7 +3235,8 @@
 <h2 id="supported-functions">Supported Functions<a class="headerlink" href="#supported-functions" title="Permanent link">#</a></h2>
 <p><img alt="supported-functions" src="image/planning-functions.drawio.svg" /></p>
 <h2 id="notation">Notation<a class="headerlink" href="#notation" title="Permanent link">#</a></h2>
-<p>[1] To support the self-crossing road and overlapped road in the opposite direction, each planning module has to meet the <a href="https://autowarefoundation.github.io/autoware.universe/main/common/motion_utils/">specifications</a></p>
+<h3 id="1-self-crossing-road-and-overlapped">[1] self-crossing road and overlapped<a class="headerlink" href="#1-self-crossing-road-and-overlapped" title="Permanent link">#</a></h3>
+<p>To support the self-crossing road and overlapped road in the opposite direction, each planning module has to meet the <a href="https://autowarefoundation.github.io/autoware.universe/main/common/motion_utils/">specifications</a></p>
 <p>Currently, the supported modules are as follows.</p>
 <ul>
 <li>lane_following (in behavior_path_planner)</li>
@@ -3233,6 +3247,8 @@
 <li>obstacle_stop_planner</li>
 <li>motion_velocity_smoother</li>
 </ul>
+<h4 id="2-size-of-path-points">[2] Size of Path Points<a class="headerlink" href="#2-size-of-path-points" title="Permanent link">#</a></h4>
+<p>Some functions do not support paths with only one point. Therefore, each modules should generate the path with more than two path points.</p>
 <!-- prettier-ignore -->
 
 
