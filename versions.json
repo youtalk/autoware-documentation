@@ -68,5 +68,10 @@
     "version": "latest",
     "title": "latest",
     "aliases": []
+  },
+  {
+    "version": "fix-toggle",
+    "title": "fix-toggle",
+    "aliases": []
   }
 ]
