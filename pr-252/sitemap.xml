@@ -631,11 +631,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-252/how-to-guides/creating-maps-for-autoware/fast-lio-slam/images/</loc>
-         <lastmod>2022-11-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-252/how-to-guides/creating-maps-for-autoware/fd-slam/</loc>
          <lastmod>2022-11-29</lastmod>
          <changefreq>daily</changefreq>
