@@ -3701,19 +3701,29 @@
 </ul>
 <h3 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">#</a></h3>
 <ul>
-<li><a href="http://wiki.ros.org/ROS/Installation"><abbr title="Robot Operating System">ROS</abbr></a> (tested with Kinetic and Melodic) <ul>
-<li><code>for ROS melodic:</code>
-  <div class="highlight"><pre><span></span><code>sudo apt-get install -y ros-melodic-navigation
+<li>
+<p><a href="http://wiki.ros.org/ROS/Installation"><abbr title="Robot Operating System">ROS</abbr></a> (tested with Kinetic and Melodic)</p>
+<ul>
+<li>
+<p><code>for ROS melodic:</code></p>
+<div class="highlight"><pre><span></span><code>sudo apt-get install -y ros-melodic-navigation
 sudo apt-get install -y ros-melodic-robot-localization
 sudo apt-get install -y ros-melodic-robot-state-publisher
-</code></pre></div></li>
-<li><code>for ROS kinetic:</code>
-  <div class="highlight"><pre><span></span><code>sudo apt-get install -y ros-kinetic-navigation
+</code></pre></div>
+</li>
+</ul>
+<ul>
+<li>
+<p><code>for ROS kinetic:</code></p>
+<div class="highlight"><pre><span></span><code>sudo apt-get install -y ros-kinetic-navigation
 sudo apt-get install -y ros-kinetic-robot-localization
 sudo apt-get install -y ros-kinetic-robot-state-publisher
-</code></pre></div></li>
+</code></pre></div>
+</li>
 </ul>
 </li>
+</ul>
+<ul>
 <li>
 <p><a href="https://github.com/borglab/gtsam/releases">GTSAM</a> (Georgia Tech Smoothing and Mapping library)</p>
 <div class="highlight"><pre><span></span><code>wget -O ~/Downloads/gtsam.zip https://github.com/borglab/gtsam/archive/4.0.2.zip
@@ -3735,7 +3745,7 @@ sudo make install -j8
 </code></pre></div>
 <h3 id="2-set-parameters">2) Set parameters<a class="headerlink" href="#2-set-parameters" title="Permanent link">#</a></h3>
 <ul>
-<li>After downloading the repository, change topic and sensor settings on the config file (<code>workspace/src/IA_LIO_SAM/config/params.yaml</code>)   </li>
+<li>After downloading the repository, change topic and sensor settings on the config file (<code>workspace/src/IA_LIO_SAM/config/params.yaml</code>)</li>
 </ul>
 <ul>
 <li>For imu-lidar compatibility, extrinsic matrices from calibration must be changed.</li>
@@ -3762,14 +3772,14 @@ sudo make install -j8
 </p>
 
 <h2 id="example-dataset">Example dataset<a class="headerlink" href="#example-dataset" title="Permanent link">#</a></h2>
-<p>Check original repo link for example dataset.   </p>
+<p>Check original repo link for example dataset.</p>
 <h2 id="contact">Contact<a class="headerlink" href="#contact" title="Permanent link">#</a></h2>
 <ul>
 <li>Maintainer: Kevin Jung (<code>Github: minwoo0611</code>)</li>
 </ul>
 <h2 id="paper">Paper<a class="headerlink" href="#paper" title="Permanent link">#</a></h2>
-<p>Thank you for citing IA-LIO-SAM(./config/doc/KRS-2021-17.pdf) if you use any of this code. </p>
-<p>Part of the code is adapted from <a href="https://github.com/TixiaoShan/LIO-SAM">LIO-SAM (IROS-2020)</a>.
+<p>Thank you for citing IA-LIO-SAM(./config/doc/KRS-2021-17.pdf) if you use any of this code.</p>
+<p>Part of the code is adapted from <a href="https://github.com/TixiaoShan/LIO-SAM">LIO-SAM (IROS-2020)</a>.</p>
 <div class="highlight"><pre><span></span><code>@inproceedings<span class="o">{</span>legoloam2018shan,
   <span class="nv">title</span><span class="o">={</span>LeGO-LOAM: Lightweight and Ground-Optimized Lidar Odometry and Mapping on Variable Terrain<span class="o">}</span>,
   <span class="nv">author</span><span class="o">={</span>Shan, Tixiao and Englot, Brendan<span class="o">}</span>,
@@ -3778,9 +3788,11 @@ sudo make install -j8
   <span class="nv">year</span><span class="o">={</span><span class="m">2018</span><span class="o">}</span>,
   <span class="nv">organization</span><span class="o">={</span>IEEE<span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></p>
+</code></pre></div>
 <h2 id="acknowledgements">Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permanent link">#</a></h2>
-<p>- IA-LIO-SAM is based on LIO-SAM (T. Shan, B. Englot, D. Meyers, W. Wang, C. Ratti, and D. Rus. LIO-SAM: Tightly-coupled Lidar Inertial Odometry via Smoothing and Mapping).</p>
+<ul>
+<li>IA-LIO-SAM is based on LIO-SAM (T. Shan, B. Englot, D. Meyers, W. Wang, C. Ratti, and D. Rus. LIO-SAM: Tightly-coupled Lidar Inertial Odometry via Smoothing and Mapping).</li>
+</ul>
 <!-- prettier-ignore -->
 
 

@@ -3705,9 +3705,9 @@
 <li>OpenCV <a href="https://opencv.org/releases/">OPENCV Installation</a></li>
 <li>Trajectory visualization</li>
 </ul>
-<p>For visualization purpose, this package uses hector trajectory sever, you may install the package by
+<p>For visualization purpose, this package uses hector trajectory sever, you may install the package by</p>
 <div class="highlight"><pre><span></span><code>sudo apt-get install ros-melodic-hector-trajectory-server
-</code></pre></div></p>
+</code></pre></div>
 <h2 id="build-and-run">Build and Run<a class="headerlink" href="#build-and-run" title="Permanent link">#</a></h2>
 <h3 id="1-clone-repository">1. Clone repository<a class="headerlink" href="#1-clone-repository" title="Permanent link">#</a></h3>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/catkin_ws/src
@@ -3721,16 +3721,16 @@ catkin_make -j1
 <p><img src="images/bag_name.png" width=800></p>
 
 <h3 id="3-launch">3. Launch<a class="headerlink" href="#3-launch" title="Permanent link">#</a></h3>
-<p><div class="highlight"><pre><span></span><code>roslaunch iscloam iscloam.launch
+<div class="highlight"><pre><span></span><code>roslaunch iscloam iscloam.launch
 </code></pre></div>
-if you would like to generate the map of environment at the same time, you can run 
+<p>if you would like to generate the map of environment at the same time, you can run</p>
 <div class="highlight"><pre><span></span><code>roslaunch iscloam iscloam_mapping.launch
 </code></pre></div>
-Note that the global map can be very large, so it may takes a while to perform global optimization, some lag is expected between trajectory and map since they are running in separate thread. More CPU usage will happen when loop closure is identified.</p>
+<p>Note that the global map can be very large, so it may takes a while to perform global optimization, some lag is expected between trajectory and map since they are running in separate thread. More CPU usage will happen when loop closure is identified.</p>
 <h2 id="example-result">Example Result<a class="headerlink" href="#example-result" title="Permanent link">#</a></h2>
 <p>Watch demo video at <a href="https://youtu.be/Kfi6CFK4Ke4">Video Link</a></p>
 <h3 id="ground-truth-comparison">Ground Truth Comparison<a class="headerlink" href="#ground-truth-comparison" title="Permanent link">#</a></h3>
-<p>Green: ISCLOAM        Red: Ground Truth</p>
+<p>Green: ISCLOAM Red: Ground Truth</p>
 <p>
 <img src="images/00.png" width = 45% />
 <img src="images/05.png" width = 45% />
@@ -3740,11 +3740,11 @@ Note that the global map can be very large, so it may takes a while to perform g
 </code></pre></div>
 
 <h2 id="citation">Citation<a class="headerlink" href="#citation" title="Permanent link">#</a></h2>
-<p>If you use this work for your research, you may want to cite the paper below, your citation will be appreciated </p>
+<p>If you use this work for your research, you may want to cite the paper below, your citation will be appreciated</p>
 <div class="highlight"><pre><span></span><code>@inproceedings<span class="o">{</span>wang2020intensity,
   <span class="nv">author</span><span class="o">={</span>H. <span class="o">{</span>Wang<span class="o">}</span> and C. <span class="o">{</span>Wang<span class="o">}</span> and L. <span class="o">{</span>Xie<span class="o">}}</span>,
-  <span class="nv">booktitle</span><span class="o">={</span><span class="m">2020</span> IEEE International Conference on Robotics and Automation <span class="o">(</span>ICRA<span class="o">)}</span>, 
-  <span class="nv">title</span><span class="o">={</span>Intensity Scan Context: Coding Intensity and Geometry Relations <span class="k">for</span> Loop Closure Detection<span class="o">}</span>, 
+  <span class="nv">booktitle</span><span class="o">={</span><span class="m">2020</span> IEEE International Conference on Robotics and Automation <span class="o">(</span>ICRA<span class="o">)}</span>,
+  <span class="nv">title</span><span class="o">={</span>Intensity Scan Context: Coding Intensity and Geometry Relations <span class="k">for</span> Loop Closure Detection<span class="o">}</span>,
   <span class="nv">year</span><span class="o">={</span><span class="m">2020</span><span class="o">}</span>,
   <span class="nv">volume</span><span class="o">={}</span>,
   <span class="nv">number</span><span class="o">={}</span>,

@@ -3701,7 +3701,7 @@
 <ul>
 <li>Ubunutu 18.04</li>
 <li><abbr title="Robot Operating System">ROS</abbr> Melodic</li>
-<li>PCL    &gt;= 1.8,   Follow <a href="https://pointclouds.org/downloads/#linux">PCL Installation</a>.</li>
+<li>PCL &gt;= 1.8, Follow <a href="https://pointclouds.org/downloads/#linux">PCL Installation</a>.</li>
 <li>Eigen &gt;= 3.3.4, Follow <a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen Installation</a>.</li>
 <li>GTSAM &gt;= 4.0.0, Follow <a href="https://gtsam.org/get_started">GTSAM Installation</a>.</li>
 </ul>
@@ -3718,12 +3718,12 @@
     <span class="nb">cd</span> ~/ws_fastlio_lc/src
     git clone https://github.com/gisbi-kim/FAST_LIO_SLAM.git
     git clone https://github.com/Livox-SDK/livox_ros_driver
-    <span class="nb">cd</span> .. 
+    <span class="nb">cd</span> ..
     catkin_make
 </code></pre></div>
 <h3 id="2-set-parameters">2) Set parameters<a class="headerlink" href="#2-set-parameters" title="Permanent link">#</a></h3>
 <ul>
-<li>After downloading the repository, change topic and sensor settings on the config file (<code>workspace/src/FAST_LIO_LC/FAST_LIO/config/ouster64_mulran.yaml</code>) with the lidar topic name in your bag file. </li>
+<li>After downloading the repository, change topic and sensor settings on the config file (<code>workspace/src/FAST_LIO_LC/FAST_LIO/config/ouster64_mulran.yaml</code>) with the lidar topic name in your bag file.</li>
 </ul>
 <p><img src="images/config_info.png" width="712" ></p>
 <ul>
@@ -3731,10 +3731,12 @@
 </ul>
 <p> <img src="images/extrinsic.png" alt="Extrinsic Matrices"></p>
 
-<p>- To enable auto-save, <code>pcd_save_enable</code> must be <code>1</code> from the launch file (<code>workspace/src/FAST_LIO_LC/FAST_LIO/launch/mapping_ouster64_mulran.launch</code>).</p>
+<ul>
+<li>To enable auto-save, <code>pcd_save_enable</code> must be <code>1</code> from the launch file (<code>workspace/src/FAST_LIO_LC/FAST_LIO/launch/mapping_ouster64_mulran.launch</code>).</li>
+</ul>
 <h3 id="3-run">3) Run<a class="headerlink" href="#3-run" title="Permanent link">#</a></h3>
 <ul>
-<li>For Ouster OS1-64<div class="codehilite"><pre><span></span><code># open new terminal: run FAST-LIO 
+<li>For Ouster OS1-64<div class="codehilite"><pre><span></span><code># open new terminal: run FAST-LIO
 roslaunch fast_lio mapping_ouster64.launch
 
 # open the other terminal tab: run SC-PGO
@@ -3756,7 +3758,7 @@ rosbag play RECORDED_BAG.bag --clock
 <p> <img src="images/fast-lio-lc-output.png" width="712" alt="example_results"></p>
 
 <h2 id="example-dataset">Example dataset<a class="headerlink" href="#example-dataset" title="Permanent link">#</a></h2>
-<p>Check original repository link for example dataset.   </p>
+<p>Check original repository link for example dataset.</p>
 <h2 id="contact">Contact<a class="headerlink" href="#contact" title="Permanent link">#</a></h2>
 <ul>
 <li>Maintainer: Yanliang Wang (<code>wyl410922@qq.com</code>)</li>

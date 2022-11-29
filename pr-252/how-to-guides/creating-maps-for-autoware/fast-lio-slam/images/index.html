@@ -3626,57 +3626,67 @@
 <h1 id="fast_lio_slam">FAST_LIO_SLAM<a class="headerlink" href="#fast_lio_slam" title="Permanent link">#</a></h1>
 <h2 id="news">News<a class="headerlink" href="#news" title="Permanent link">#</a></h2>
 <ul>
-<li><code>Aug 2021</code>: The Livox-lidar tests and corresponding launch files will be uploaded soon. Currenty only Ouster lidar tutorial videos had been made. </li>
+<li><code>Aug 2021</code>: The Livox-lidar tests and corresponding launch files will be uploaded soon. Currenty only Ouster lidar tutorial videos had been made.</li>
 </ul>
 <h2 id="what-is-fast_lio_slam">What is FAST_LIO_SLAM?<a class="headerlink" href="#what-is-fast_lio_slam" title="Permanent link">#</a></h2>
-<p>Integration of 
-1. <a href="https://github.com/hku-mars/FAST_LIO">FAST-LIO2</a> (Odometry): A computationally efficient and robust LiDAR-inertial odometry (LIO) package
-2. <a href="https://github.com/gisbi-kim/SC-A-LOAM">SC-PGO</a> (Loop detection and Pose-graph Optimization): <a href="https://github.com/irapkaist/scancontext">Scan Context</a>-based Loop detection and GTSAM-based Pose-graph optimization</p>
+<p>Integration of</p>
+<ol>
+<li><a href="https://github.com/hku-mars/FAST_LIO">FAST-LIO2</a> (Odometry): A computationally efficient and robust LiDAR-inertial odometry (LIO) package</li>
+<li><a href="https://github.com/gisbi-kim/SC-A-LOAM">SC-PGO</a> (Loop detection and Pose-graph Optimization): <a href="https://github.com/irapkaist/scancontext">Scan Context</a>-based Loop detection and GTSAM-based Pose-graph optimization</li>
+</ol>
 <h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">#</a></h2>
 <ul>
-<li>An easy-to-use plug-and-play LiDAR <abbr title="Simultaneous Localization And Mapping">SLAM</abbr> 
-    - FAST-LIO2 and SC-PGO run separately (see below How to use? tab).
-    - SC-PGO takes odometry and lidar point cloud topics from the FAST-LIO2 node. 
-    - Finally, an optimized map is made within the SC-PGO node. </li>
+<li>An easy-to-use plug-and-play LiDAR <abbr title="Simultaneous Localization And Mapping">SLAM</abbr><ul>
+<li>FAST-LIO2 and SC-PGO run separately (see below How to use? tab).</li>
+<li>SC-PGO takes odometry and lidar point cloud topics from the FAST-LIO2 node.</li>
+<li>Finally, an optimized map is made within the SC-PGO node.</li>
+</ul>
+</li>
 </ul>
 <h2 id="how-to-use">How to use?<a class="headerlink" href="#how-to-use" title="Permanent link">#</a></h2>
 <ul>
-<li>The below commands and the launch files are made for playing the <a href="https://sites.google.com/view/mulran-pr/home">MulRan dataset</a>, but applicable for livox lidars in the same way (you could easily make your own launch files).
-<div class="highlight"><pre><span></span><code>    # terminal 1: run FAST-LIO2 
+<li>The below commands and the launch files are made for playing the <a href="https://sites.google.com/view/mulran-pr/home">MulRan dataset</a>, but applicable for livox lidars in the same way (you could easily make your own launch files).</li>
+</ul>
+<div class="highlight"><pre><span></span><code>    # terminal 1: run FAST-LIO2
     mkdir -p ~/catkin_fastlio_slam/src
     cd ~/catkin_fastlio_slam/src
     git clone https://github.com/gisbi-kim/FAST_LIO_SLAM.git
     git clone https://github.com/Livox-SDK/livox_ros_driver
-    cd .. 
+    cd ..
     catkin_make
     source devel/setup.bash
-    roslaunch fast_lio mapping_ouster64_mulran.launch # setting for MulRan dataset 
+    roslaunch fast_lio mapping_ouster64_mulran.launch # setting for MulRan dataset
 
     # open the other terminal tab: run SC-PGO
     cd ~/catkin_fastlio_slam
     source devel/setup.bash
-    roslaunch aloam_velodyne fastlio_ouster64.launch # setting for MulRan dataset 
+    roslaunch aloam_velodyne fastlio_ouster64.launch # setting for MulRan dataset
 
     # open the other terminal tab
     # run file_player_mulran (for the details, refer here https://github.com/irapkaist/file_player_mulran)
-</code></pre></div></li>
-</ul>
+</code></pre></div>
 <h2 id="utility">Utility<a class="headerlink" href="#utility" title="Permanent link">#</a></h2>
 <ul>
 <li>We support keyframe scan saver (as in .pcd) and provide a script reconstructs a point cloud map by merging the saved scans using the optimized poses. See <a href="https://github.com/gisbi-kim/FAST_LIO_SLAM/blob/bf975560741c425f71811c864af5d35aa880c797/SC-PGO/utils/python/makeMergedMap.py#L7">here</a>.</li>
 </ul>
 <h2 id="example-results">Example results<a class="headerlink" href="#example-results" title="Permanent link">#</a></h2>
 <ul>
-<li><a href="https://youtu.be/nu8j4yaBMnw">Tutorial video 1</a> (using KAIST 03 sequence of <a href="https://sites.google.com/view/mulran-pr/dataset">MulRan dataset</a>)
-    - Example result captures 
-        <p align="center"><img src="docs/kaist03.png" width=700></p>
-    - <a href="https://www.dropbox.com/s/w599ozdg7h6215q/KAIST03.pcd?dl=0">download the KAIST03 pcd map</a> made by FAST-LIO-<abbr title="Simultaneous Localization And Mapping">SLAM</abbr>, 500MB</li>
+<li>
+<p><a href="https://youtu.be/nu8j4yaBMnw">Tutorial video 1</a> (using KAIST 03 sequence of <a href="https://sites.google.com/view/mulran-pr/dataset">MulRan dataset</a>)</p>
+<ul>
+<li>Example result captures
+  <p align="center"><img src="docs/kaist03.png" width=700></p></li>
+<li><a href="https://www.dropbox.com/s/w599ozdg7h6215q/KAIST03.pcd?dl=0">download the KAIST03 pcd map</a> made by FAST-LIO-<abbr title="Simultaneous Localization And Mapping">SLAM</abbr>, 500MB</li>
+</ul>
+</li>
 </ul>
 <ul>
-<li><a href="https://youtu.be/94mC05PesvQ">Example Video 2</a> (Riverside 02 sequence of <a href="https://sites.google.com/view/mulran-pr/dataset">MulRan dataset</a>)
-    - Example result captures
-        <p align="center"><img src="docs/riverside02.png" width=700></p>
-    -  <a href="https://www.dropbox.com/s/1aolth7ry4odxo4/Riverside02.pcd?dl=0">download the Riverisde02 pcd map</a> made by FAST-LIO-<abbr title="Simultaneous Localization And Mapping">SLAM</abbr>, 400MB</li>
+<li><a href="https://youtu.be/94mC05PesvQ">Example Video 2</a> (Riverside 02 sequence of <a href="https://sites.google.com/view/mulran-pr/dataset">MulRan dataset</a>)<ul>
+<li>Example result captures
+  <p align="center"><img src="docs/riverside02.png" width=700></p></li>
+<li><a href="https://www.dropbox.com/s/1aolth7ry4odxo4/Riverside02.pcd?dl=0">download the Riverisde02 pcd map</a> made by FAST-LIO-<abbr title="Simultaneous Localization And Mapping">SLAM</abbr>, 400MB</li>
+</ul>
+</li>
 </ul>
 <h2 id="acknowledgements">Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permanent link">#</a></h2>
 <ul>

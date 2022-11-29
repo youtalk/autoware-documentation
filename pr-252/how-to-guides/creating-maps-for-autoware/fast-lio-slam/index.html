@@ -3698,8 +3698,8 @@ cmake ..
 sudo make install
 </code></pre></div>
 <ul>
-<li>PCL    &gt;= 1.8,   Follow <a href="https://pointclouds.org/downloads/#linux">PCL Installation</a>.</li>
-<li>Eigen  &gt;= 3.3.4, Follow <a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen Installation</a>.</li>
+<li>PCL &gt;= 1.8, Follow <a href="https://pointclouds.org/downloads/#linux">PCL Installation</a>.</li>
+<li>Eigen &gt;= 3.3.4, Follow <a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen Installation</a>.</li>
 </ul>
 <h2 id="build-run">Build &amp; Run<a class="headerlink" href="#build-run" title="Permanent link">#</a></h2>
 <h3 id="1-build">1) Build<a class="headerlink" href="#1-build" title="Permanent link">#</a></h3>
@@ -3707,7 +3707,7 @@ sudo make install
     <span class="nb">cd</span> ~/catkin_fastlio_slam/src
     git clone https://github.com/gisbi-kim/FAST_LIO_SLAM.git
     git clone https://github.com/Livox-SDK/livox_ros_driver
-    <span class="nb">cd</span> .. 
+    <span class="nb">cd</span> ..
     catkin_make
     <span class="nb">source</span> devel/setup.bash
 </code></pre></div>
@@ -3716,16 +3716,16 @@ sudo make install
 <li>Set imu and lidar topic on <code>Fast_LIO/config/ouster64.yaml</code></li>
 </ul>
 <h3 id="3-run">3) Run<a class="headerlink" href="#3-run" title="Permanent link">#</a></h3>
-<div class="highlight"><pre><span></span><code>    <span class="c1"># terminal 1: run FAST-LIO2 </span>
-    roslaunch fast_lio mapping_ouster64.launch 
+<div class="highlight"><pre><span></span><code>    <span class="c1"># terminal 1: run FAST-LIO2</span>
+    roslaunch fast_lio mapping_ouster64.launch
 
     <span class="c1"># open the other terminal tab: run SC-PGO</span>
     <span class="nb">cd</span> ~/catkin_fastlio_slam
     <span class="nb">source</span> devel/setup.bash
-    roslaunch aloam_velodyne fastlio_ouster64.launch 
+    roslaunch aloam_velodyne fastlio_ouster64.launch
 
     <span class="c1"># play bag file in the other terminal</span>
-    rosbag play xxx.bag -- clock --pause 
+    rosbag play xxx.bag -- clock --pause
 </code></pre></div>
 <h2 id="example-result">Example Result<a class="headerlink" href="#example-result" title="Permanent link">#</a></h2>
 <p><img src="images/fast_lio_slam.png" width=712pix></p>
@@ -3734,16 +3734,22 @@ sudo make install
 
 <h2 id="other-examples">Other Examples<a class="headerlink" href="#other-examples" title="Permanent link">#</a></h2>
 <ul>
-<li><a href="https://youtu.be/nu8j4yaBMnw">Tutorial video 1</a> (using KAIST 03 sequence of <a href="https://sites.google.com/view/mulran-pr/dataset">MulRan dataset</a>)
-    - Example result captures 
-        <p><img src="images/kaist03.png" width=712pix></p>
-    - <a href="https://www.dropbox.com/s/w599ozdg7h6215q/KAIST03.pcd?dl=0">download the KAIST03 pcd map</a> made by FAST-LIO-<abbr title="Simultaneous Localization And Mapping">SLAM</abbr>, 500MB</li>
+<li>
+<p><a href="https://youtu.be/nu8j4yaBMnw">Tutorial video 1</a> (using KAIST 03 sequence of <a href="https://sites.google.com/view/mulran-pr/dataset">MulRan dataset</a>)</p>
+<ul>
+<li>Example result captures
+  <p><img src="images/kaist03.png" width=712pix></p></li>
+<li><a href="https://www.dropbox.com/s/w599ozdg7h6215q/KAIST03.pcd?dl=0">download the KAIST03 pcd map</a> made by FAST-LIO-<abbr title="Simultaneous Localization And Mapping">SLAM</abbr>, 500MB</li>
+</ul>
+</li>
 </ul>
 <ul>
-<li><a href="https://youtu.be/94mC05PesvQ">Example Video 2</a> (Riverside 02 sequence of <a href="https://sites.google.com/view/mulran-pr/dataset">MulRan dataset</a>)
-    - Example result captures
-        <p><img src="images/riverside02.png" width=712pix></p>
-    -  <a href="https://www.dropbox.com/s/1aolth7ry4odxo4/Riverside02.pcd?dl=0">download the Riverisde02 pcd map</a> made by FAST-LIO-<abbr title="Simultaneous Localization And Mapping">SLAM</abbr>, 400MB  </li>
+<li><a href="https://youtu.be/94mC05PesvQ">Example Video 2</a> (Riverside 02 sequence of <a href="https://sites.google.com/view/mulran-pr/dataset">MulRan dataset</a>)<ul>
+<li>Example result captures
+  <p><img src="images/riverside02.png" width=712pix></p></li>
+<li><a href="https://www.dropbox.com/s/1aolth7ry4odxo4/Riverside02.pcd?dl=0">download the Riverisde02 pcd map</a> made by FAST-LIO-<abbr title="Simultaneous Localization And Mapping">SLAM</abbr>, 400MB</li>
+</ul>
+</li>
 </ul>
 <h2 id="acknowledgements">Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permanent link">#</a></h2>
 <ul>

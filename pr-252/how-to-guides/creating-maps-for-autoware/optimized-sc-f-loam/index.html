@@ -3707,7 +3707,7 @@
 </ul>
 <h3 id="ros-compatibility"><abbr title="Robot Operating System">ROS</abbr> Compatibility<a class="headerlink" href="#ros-compatibility" title="Permanent link">#</a></h3>
 <ul>
-<li><abbr title="Robot Operating System">ROS</abbr> 1  </li>
+<li><abbr title="Robot Operating System">ROS</abbr> 1</li>
 </ul>
 <h3 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">#</a></h3>
 <ul>
@@ -3715,10 +3715,10 @@
 <li><a href="https://pointclouds.org/downloads/#linux">PCL</a></li>
 <li><a href="https://gtsam.org/get_started/">Gtsam</a></li>
 <li><a href="http://www.ceres-solver.org/installation.html">Ceres Solver</a></li>
-<li>For visualization purpose, this package uses hector trajectory sever, you may install the package by
-<div class="highlight"><pre><span></span><code>sudo apt-get install ros-noetic-hector-trajectory-server
-</code></pre></div></li>
+<li>For visualization purpose, this package uses hector trajectory sever, you may install the package by</li>
 </ul>
+<div class="highlight"><pre><span></span><code>sudo apt-get install ros-noetic-hector-trajectory-server
+</code></pre></div>
 <h2 id="build-run">Build &amp; Run<a class="headerlink" href="#build-run" title="Permanent link">#</a></h2>
 <h3 id="1-build">1) Build<a class="headerlink" href="#1-build" title="Permanent link">#</a></h3>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/catkin_ws/src
@@ -3727,11 +3727,11 @@ git clone https://github.com/SlamCabbage/Optimized-SC-F-LOAM.git
 catkin_make
 </code></pre></div>
 <h3 id="2-create-message-file">2) Create message file<a class="headerlink" href="#2-create-message-file" title="Permanent link">#</a></h3>
-<p>In this folder, Ground Truth information, optimized pose information, F-LOAM pose information and time information are stored
+<p>In this folder, Ground Truth information, optimized pose information, F-LOAM pose information and time information are stored</p>
 <div class="highlight"><pre><span></span><code>mkdir -p ~/message/Scans
 
 Change line <span class="m">383</span> <span class="k">in</span> the laserLoopOptimizationNode.cpp to your own <span class="s2">&quot;message&quot;</span> folder path
-</code></pre></div></p>
+</code></pre></div>
 <p>(Do not forget to rebuild your package)</p>
 <h3 id="3-set-parameters">3) Set parameters<a class="headerlink" href="#3-set-parameters" title="Permanent link">#</a></h3>
 <ul>

@@ -3718,18 +3718,20 @@
 </ul>
 <h3 id="prerequisites-dependencies">Prerequisites (dependencies)<a class="headerlink" href="#prerequisites-dependencies" title="Permanent link">#</a></h3>
 <ul>
-<li><abbr title="Robot Operating System">ROS</abbr>  </li>
+<li><abbr title="Robot Operating System">ROS</abbr></li>
 <li>GTSAM version 4.x.</li>
 </ul>
 <ul>
-<li>If GTSAM is not installed, follow the steps below.
-  <div class="highlight"><pre><span></span><code>  wget -O ~/Downloads/gtsam.zip https://github.com/borglab/gtsam/archive/4.0.2.zip    
-  <span class="nb">cd</span> ~/Downloads/ <span class="o">&amp;&amp;</span> unzip gtsam.zip -d ~/Downloads/                                  
-  <span class="nb">cd</span> ~/Downloads/gtsam-4.0.2/                                                        
+<li>
+<p>If GTSAM is not installed, follow the steps below.</p>
+<div class="highlight"><pre><span></span><code>  wget -O ~/Downloads/gtsam.zip https://github.com/borglab/gtsam/archive/4.0.2.zip
+  <span class="nb">cd</span> ~/Downloads/ <span class="o">&amp;&amp;</span> unzip gtsam.zip -d ~/Downloads/
+  <span class="nb">cd</span> ~/Downloads/gtsam-4.0.2/
   mkdir build <span class="o">&amp;&amp;</span> <span class="nb">cd</span> build
   cmake -DGTSAM_BUILD_WITH_MARCH_NATIVE<span class="o">=</span>OFF ..
   sudo make install -j8
-</code></pre></div></li>
+</code></pre></div>
+</li>
 </ul>
 <h3 id="ros-compatibility"><abbr title="Robot Operating System">ROS</abbr> Compatibility<a class="headerlink" href="#ros-compatibility" title="Permanent link">#</a></h3>
 <ul>
@@ -3738,14 +3740,16 @@
 <h2 id="build-run">Build &amp; Run<a class="headerlink" href="#build-run" title="Permanent link">#</a></h2>
 <h3 id="1-build">1) Build<a class="headerlink" href="#1-build" title="Permanent link">#</a></h3>
 <ul>
-<li>First, install the abovementioned dependencies and follow below lines.    <br />
-     <div class="highlight"><pre><span></span><code> mkdir -p ~/catkin_scaloam_ws/src                                  
- <span class="nb">cd</span> ~/catkin_scaloam_ws/src                                    
- git clone https://github.com/gisbi-kim/SC-A-LOAM.git          
+<li>
+<p>First, install the abovementioned dependencies and follow below lines.</p>
+<div class="highlight"><pre><span></span><code> mkdir -p ~/catkin_scaloam_ws/src
+ <span class="nb">cd</span> ~/catkin_scaloam_ws/src
+ git clone https://github.com/gisbi-kim/SC-A-LOAM.git
  <span class="nb">cd</span> ../
- catkin_make                                                                      
- <span class="nb">source</span> ~/catkin_scaloam_ws/devel/setup.bash                   
-</code></pre></div></li>
+ catkin_make
+ <span class="nb">source</span> ~/catkin_scaloam_ws/devel/setup.bash
+</code></pre></div>
+</li>
 </ul>
 <h3 id="2-set-parameters">2) Set parameters<a class="headerlink" href="#2-set-parameters" title="Permanent link">#</a></h3>
 <ul>
@@ -3771,10 +3775,14 @@
 <ul>
 <li>The MulRan dataset provides lidar scans (Ouster OS1-64, horizontally mounted, 10Hz) and consumer level gps (U-Blox EVK-7P, 4Hz) data.</li>
 <li>About how to use (publishing data) data: see here <a href="https://github.com/irapkaist/file_player_mulran">https://github.com/irapkaist/file_player_mulran</a></li>
-<li>example videos on Riverside 01 sequence.
-  <div class="highlight"><pre><span></span><code><span class="m">1</span>. with consumer level GPS-based altitude stabilization: https://youtu.be/FwAVX5TVm04
+<li>
+<p>example videos on Riverside 01 sequence.</p>
+<div class="highlight"><pre><span></span><code><span class="m">1</span>. with consumer level GPS-based altitude stabilization: https://youtu.be/FwAVX5TVm04
 <span class="m">2</span>. without the z stabilization: https://youtu.be/okML_zNadhY
-</code></pre></div></li>
+</code></pre></div>
+</li>
+</ul>
+<ul>
 <li>
 <p>example result:</p>
 <p><img src="images/riverside01.png" width=719></p>
@@ -3783,13 +3791,17 @@
 </ul>
 <h3 id="kitti-05">KITTI 05<a class="headerlink" href="#kitti-05" title="Permanent link">#</a></h3>
 <ul>
-<li>For KITTI (HDL-64 sensor), run using the command 
-  <div class="highlight"><pre><span></span><code>roslaunch aloam_velodyne aloam_velodyne_HDL_64.launch <span class="c1"># for KITTI dataset setting</span>
-</code></pre></div></li>
+<li>
+<p>For KITTI (HDL-64 sensor), run using the command</p>
+<div class="highlight"><pre><span></span><code>roslaunch aloam_velodyne aloam_velodyne_HDL_64.launch <span class="c1"># for KITTI dataset setting</span>
+</code></pre></div>
+</li>
+</ul>
+<ul>
 <li>To publish KITTI scans, you can use mini-kitti publisher, a simple python script: <a href="https://github.com/gisbi-kim/mini-kitti-publisher">https://github.com/gisbi-kim/mini-kitti-publisher</a></li>
 <li>example video (no GPS used here): <a href="https://youtu.be/hk3Xx8SKkv4">https://youtu.be/hk3Xx8SKkv4</a></li>
 <li>
-<p>example result: </p>
+<p>example result:</p>
 <p><img src="images/kitti05.png" width=719></p>
 
 </li>

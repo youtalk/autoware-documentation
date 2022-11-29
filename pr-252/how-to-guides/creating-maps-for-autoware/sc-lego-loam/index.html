@@ -3701,15 +3701,15 @@
 <ul>
 <li><abbr title="Robot Operating System">ROS</abbr></li>
 <li>PCL</li>
-<li>Gtsam
+<li>Gtsam</li>
+</ul>
 <div class="highlight"><pre><span></span><code>wget -O ~/Downloads/gtsam.zip https://github.com/borglab/gtsam/archive/4.0.0-alpha2.zip
 <span class="nb">cd</span> ~/Downloads/ <span class="o">&amp;&amp;</span> unzip gtsam.zip -d ~/Downloads/
 <span class="nb">cd</span> ~/Downloads/gtsam-4.0.0-alpha2/
 mkdir build <span class="o">&amp;&amp;</span> <span class="nb">cd</span> build
 cmake ..
 sudo make install
-</code></pre></div></li>
-</ul>
+</code></pre></div>
 <h2 id="build-run">Build &amp; Run<a class="headerlink" href="#build-run" title="Permanent link">#</a></h2>
 <h3 id="1-build">1) Build<a class="headerlink" href="#1-build" title="Permanent link">#</a></h3>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/catkin_ws/src
@@ -3742,10 +3742,10 @@ roslaunch lego_loam run.launch
 
 <h2 id="mulran-dataset">MulRan dataset<a class="headerlink" href="#mulran-dataset" title="Permanent link">#</a></h2>
 <ul>
-<li>If you want to reproduce the results as the above video, you can download the <a href="https://sites.google.com/view/mulran-pr/home"> MulRan dataset </a> and use the <a href="https://sites.google.com/view/mulran-pr/tool"> <abbr title="Robot Operating System">ROS</abbr> topic publishing tool </a>.   </li>
+<li>If you want to reproduce the results as the above video, you can download the <a href="https://sites.google.com/view/mulran-pr/home"> MulRan dataset </a> and use the <a href="https://sites.google.com/view/mulran-pr/tool"> <abbr title="Robot Operating System">ROS</abbr> topic publishing tool </a>.</li>
 </ul>
 <h2 id="cite-sc-lego-loam">Cite SC-LeGO-LOAM<a class="headerlink" href="#cite-sc-lego-loam" title="Permanent link">#</a></h2>
-<p><div class="highlight"><pre><span></span><code>@INPROCEEDINGS <span class="o">{</span> gkim-2018-iros,
+<div class="highlight"><pre><span></span><code>@INPROCEEDINGS <span class="o">{</span> gkim-2018-iros,
   <span class="nv">author</span> <span class="o">=</span> <span class="o">{</span>Kim, Giseop and Kim, Ayoung<span class="o">}</span>,
   <span class="nv">title</span> <span class="o">=</span> <span class="o">{</span> Scan Context: Egocentric Spatial Descriptor <span class="k">for</span> Place Recognition within <span class="o">{</span>3D<span class="o">}</span> Point Cloud Map <span class="o">}</span>,
   <span class="nv">booktitle</span> <span class="o">=</span> <span class="o">{</span> Proceedings of the IEEE/RSJ International Conference on Intelligent Robots and Systems <span class="o">}</span>,
@@ -3754,7 +3754,7 @@ roslaunch lego_loam run.launch
   <span class="nv">address</span> <span class="o">=</span> <span class="o">{</span> Madrid <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div>
-and 
+<p>and</p>
 <div class="highlight"><pre><span></span><code>@inproceedings<span class="o">{</span>legoloam2018,
   <span class="nv">title</span><span class="o">={</span>LeGO-LOAM: Lightweight and Ground-Optimized Lidar Odometry and Mapping on Variable Terrain<span class="o">}</span>,
   <span class="nv">author</span><span class="o">={</span>Shan, Tixiao and Englot, Brendan<span class="o">}</span>,
@@ -3763,7 +3763,7 @@ and
   <span class="nv">year</span><span class="o">={</span><span class="m">2018</span><span class="o">}</span>,
   <span class="nv">organization</span><span class="o">={</span>IEEE<span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></p>
+</code></pre></div>
 <h2 id="contact">Contact<a class="headerlink" href="#contact" title="Permanent link">#</a></h2>
 <ul>
 <li>Maintainer: Giseop Kim (<code>paulgkim@kaist.ac.kr</code>)</li>
