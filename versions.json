@@ -65,6 +65,11 @@
     "aliases": []
   },
   {
+    "version": "galactic",
+    "title": "galactic",
+    "aliases": []
+  },
+  {
     "version": "fix-toggle",
     "title": "fix-toggle",
     "aliases": []
