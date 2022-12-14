@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-279/design/autoware-interfaces/components/interfaces/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-279/design/autoware-interfaces/components/interfaces-current/">
       
       <link rel="icon" href="../../../../assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
-        <title>Interfaces - Autoware Documentation</title>
+        <title>Interfaces (current) - Autoware Documentation</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#list-of-component-interfaces" class="md-skip">
+        <a href="#list-of-component-interfaces-future-design" class="md-skip">
           Skip to content
         </a>
       
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Interfaces
+              Interfaces (current)
             
           </span>
         </div>
@@ -1896,6 +1896,8 @@
         
           
         
+          
+        
       
       
         
@@ -1934,12 +1936,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Interfaces
+          Interfaces (current)
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Interfaces
+        Interfaces (current)
       </a>
       
         
@@ -1974,6 +1976,13 @@
         <li class="md-nav__item">
   <a href="#localization" class="md-nav__link">
     localization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#map" class="md-nav__link">
+    map
   </a>
   
 </li>
@@ -2024,6 +2033,20 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interfaces-future/" class="md-nav__link">
+        Interfaces (future)
+      </a>
     </li>
   
 
@@ -3159,6 +3182,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#map" class="md-nav__link">
+    map
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#perception" class="md-nav__link">
     perception
   </a>
@@ -3214,13 +3244,13 @@
                 
                   
 
-  <a href="https://github.com/autowarefoundation/autoware-documentation/edit/main/docs/design/autoware-interfaces/components/interfaces.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/autowarefoundation/autoware-documentation/edit/main/docs/design/autoware-interfaces/components/interfaces-current.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="list-of-component-interfaces">List of component interfaces<a class="headerlink" href="#list-of-component-interfaces" title="Permanent link">#</a></h1>
+<h1 id="list-of-component-interfaces-future-design">List of component interfaces (future design)<a class="headerlink" href="#list-of-component-interfaces-future-design" title="Permanent link">#</a></h1>
 <h2 id="adapi">adapi<a class="headerlink" href="#adapi" title="Permanent link">#</a></h2>
 <table>
 <thead>
@@ -3232,39 +3262,9 @@
 </thead>
 <tbody>
 <tr>
-<td>sub</td>
-<td>/localization/initialization_state</td>
-<td>autoware_adapi_v1_msgs/msg/LocalizationInitializationState</td>
-</tr>
-<tr>
-<td>cli</td>
-<td>/localization/initialize</td>
-<td>autoware_adapi_v1_msgs/srv/InitializeLocalization</td>
-</tr>
-<tr>
-<td>cli</td>
-<td>/planning/mission_planning/set_route_points</td>
-<td>autoware_adapi_v1_msgs/srv/SetRoutePoints</td>
-</tr>
-<tr>
-<td>cli</td>
-<td>/planning/mission_planning/set_route</td>
-<td>autoware_planning_msgs/srv/SetRoute</td>
-</tr>
-<tr>
-<td>cli</td>
-<td>/planning/mission_planning/clear_route</td>
-<td>autoware_adapi_v1_msgs/msg/ClearRoute</td>
-</tr>
-<tr>
-<td>sub</td>
-<td>/planning/mission_planning/route</td>
-<td>autoware_planning_msgs/msg/LaneletRoute</td>
-</tr>
-<tr>
-<td>sub</td>
-<td>/planning/mission_planning/route_state</td>
-<td>autoware_adapi_v1_msgs/msg/RouteState</td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -3280,12 +3280,12 @@
 <tbody>
 <tr>
 <td>sub</td>
-<td>/vehicle/control_mode_report</td>
+<td>/vehicle/status/control_mode</td>
 <td>autoware_auto_vehicle_msgs/msg/ControlModeReport</td>
 </tr>
 <tr>
 <td>cli</td>
-<td>/vehicle/control_mode_request</td>
+<td>/control/control_mode_request</td>
 <td>autoware_auto_vehicle_msgs/srv/ControlModeCommand</td>
 </tr>
 </tbody>
@@ -3301,14 +3301,26 @@
 </thead>
 <tbody>
 <tr>
-<td>pub</td>
-<td>/localization/initialization_state</td>
-<td>autoware_adapi_v1_msgs/msg/LocalizationInitializationState</td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
+</tbody>
+</table>
+<h2 id="map">map<a class="headerlink" href="#map" title="Permanent link">#</a></h2>
+<table>
+<thead>
 <tr>
-<td>srv</td>
-<td>/localization/initialize</td>
-<td>autoware_adapi_v1_msgs/srv/InitializeLocalization</td>
+<th>interface type</th>
+<th>interface name</th>
+<th>data type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -3340,29 +3352,9 @@
 </thead>
 <tbody>
 <tr>
-<td>srv</td>
-<td>/planning/mission_planning/set_route_points</td>
-<td>autoware_adapi_v1_msgs/srv/SetRoutePoints</td>
-</tr>
-<tr>
-<td>srv</td>
-<td>/planning/mission_planning/set_route</td>
-<td>autoware_planning_msgs/srv/SetRoute</td>
-</tr>
-<tr>
-<td>srv</td>
-<td>/planning/mission_planning/clear_route</td>
-<td>autoware_adapi_v1_msgs/msg/ClearRoute</td>
-</tr>
-<tr>
-<td>pub</td>
-<td>/planning/mission_planning/route</td>
-<td>autoware_planning_msgs/msg/LaneletRoute</td>
-</tr>
-<tr>
-<td>pub</td>
-<td>/planning/mission_planning/route_state</td>
-<td>autoware_adapi_v1_msgs/msg/RouteState</td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -3429,12 +3421,12 @@
 <tbody>
 <tr>
 <td>pub</td>
-<td>/vehicle/control_mode_report</td>
+<td>/vehicle/status/control_mode</td>
 <td>autoware_auto_vehicle_msgs/msg/ControlModeReport</td>
 </tr>
 <tr>
 <td>srv</td>
-<td>/vehicle/control_mode_request</td>
+<td>/control/control_mode_request</td>
 <td>autoware_auto_vehicle_msgs/srv/ControlModeCommand</td>
 </tr>
 </tbody>
@@ -3481,13 +3473,13 @@
       
       
         
-        <a href="../planning/" class="md-footer__link md-footer__link--next" aria-label="Next: Planning" rel="next">
+        <a href="../interfaces-future/" class="md-footer__link md-footer__link--next" aria-label="Next: Interfaces (future)" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Planning
+              Interfaces (future)
             </div>
           </div>
           <div class="md-footer__button md-icon">

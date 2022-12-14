@@ -531,7 +531,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-279/design/autoware-interfaces/components/interfaces/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-279/design/autoware-interfaces/components/interfaces-current/</loc>
+         <lastmod>2022-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-279/design/autoware-interfaces/components/interfaces-future/</loc>
          <lastmod>2022-12-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
