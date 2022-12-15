@@ -3149,72 +3149,96 @@
 <h1 id="task-scheduling">Task scheduling<a class="headerlink" href="#task-scheduling" title="Permanent link">#</a></h1>
 <h2 id="scheduing-in-autoware">Scheduing in autoware<a class="headerlink" href="#scheduing-in-autoware" title="Permanent link">#</a></h2>
 <p>The software of autoware is the system of multiple nodes.In ROS2 the executor uses one or more threads of the underlying operating system to invoke the callbacks. The different type of callback has the different priority.<br />
-In autoware,there are two types about "publish-subscribe":
-- Timer callback
-- Subscription callback  </p>
+In autoware,there are two types about "publish-subscribe":</p>
+<ul>
+<li>Timer callback</li>
+<li>Subscription callback</li>
+</ul>
 <p>Timer callback has the high priority.For those with the same priority, the execution order is determined according to the registration order.<br />
-For example about timer callback:
+For example about timer callback:</p>
 <div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">planning_hz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">declare_parameter</span><span class="p">(</span><span class="s">&quot;planning_hz&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">10.0</span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">period_ns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">Rate</span><span class="p">(</span><span class="n">planning_hz</span><span class="p">).</span><span class="n">period</span><span class="p">();</span><span class="w"></span>
 <span class="w">    </span><span class="n">timer_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">create_timer</span><span class="p">(</span><span class="w"></span>
 <span class="w">      </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">get_clock</span><span class="p">(),</span><span class="w"> </span><span class="n">period_ns</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">bind</span><span class="p">(</span><span class="o">&amp;</span><span class="n">BehaviorPathPlannerNode</span><span class="o">::</span><span class="n">run</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">));</span><span class="w"></span>
 </code></pre></div>
-For example about subscription callback:
+<p>For example about subscription callback:</p>
 <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="n">route_subscriber_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">create_subscription</span><span class="o">&lt;</span><span class="n">LaneletRoute</span><span class="o">&gt;</span><span class="p">(</span><span class="w"></span>
 <span class="w">    </span><span class="s">&quot;~/input/route&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">qos_transient_local</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">bind</span><span class="p">(</span><span class="o">&amp;</span><span class="n">BehaviorPathPlannerNode</span><span class="o">::</span><span class="n">onRoute</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">_1</span><span class="p">),</span><span class="w"></span>
 <span class="w">    </span><span class="n">createSubscriptionOptions</span><span class="p">(</span><span class="k">this</span><span class="p">));</span><span class="w"></span>
 </code></pre></div>
-In autoware,you can use the create_callback_group() to organizing the callbacks of a node in groups.<br />
-For example:
+<p>In autoware,you can use the create_callback_group() to organizing the callbacks of a node in groups.<br />
+For example:</p>
 <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">CallbackGroup</span><span class="o">::</span><span class="n">SharedPtr</span><span class="w"> </span><span class="n">callback_group</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
 <span class="w">    </span><span class="n">node_ptr</span><span class="o">-&gt;</span><span class="n">create_callback_group</span><span class="p">(</span><span class="n">rclcpp</span><span class="o">::</span><span class="n">CallbackGroupType</span><span class="o">::</span><span class="n">MutuallyExclusive</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
-The type of MutuallyExclusive ensure that callbacks of this group must not be executed in parallel.You can see more information about scheduling of ROS2 in theses links:
-- <a href="https://docs.ros.org/en/humble/Concepts/About-Executors.html">https://docs.ros.org/en/humble/Concepts/About-Executors.html</a><br />
-- <a href="https://docs.ros.org/en/humble/How-To-Guides/Using-callback-groups.html">https://docs.ros.org/en/humble/How-To-Guides/Using-callback-groups.html</a> </p>
+<p>The type of MutuallyExclusive ensure that callbacks of this group must not be executed in parallel.You can see more information about scheduling of ROS2 in theses links:</p>
+<ul>
+<li><a href="https://docs.ros.org/en/humble/Concepts/About-Executors.html">https://docs.ros.org/en/humble/Concepts/About-Executors.html</a></li>
+<li><a href="https://docs.ros.org/en/humble/How-To-Guides/Using-callback-groups.html">https://docs.ros.org/en/humble/How-To-Guides/Using-callback-groups.html</a></li>
+</ul>
 <h2 id="analyse-of-data-flow-and-running-time">Analyse of data flow and running time<a class="headerlink" href="#analyse-of-data-flow-and-running-time" title="Permanent link">#</a></h2>
 <p>In autoware,there are many topics used by different nodes.You can analyse the data flow and running time of multiple nodes in the whole software. By the analyse,you can intuitively understand the nodes operation path and input/output flow.You can use CARET or TILDE of autoware to finish the analyse.</p>
 <h3 id="caret">CARET<a class="headerlink" href="#caret" title="Permanent link">#</a></h3>
 <p>By using caret,you can trace the application without changing codes of application.You can analyse the latency and the running time of nodes.<br />
- You can install TIDLE by following steps:
- 1. Clone caret and enter the directory.
-    <div class="highlight"><pre><span></span><code>    git clone https://github.com/tier4/caret.git ros2_caret_ws
+ You can install TIDLE by following steps:</p>
+<ol>
+<li>
+<p>Clone caret and enter the directory.</p>
+<div class="highlight"><pre><span></span><code>    git clone https://github.com/tier4/caret.git ros2_caret_ws
     <span class="nb">cd</span> ros2_caret_ws
 </code></pre></div>
- 2. Create the src directory and clone repositories into it.
-    <div class="highlight"><pre><span></span><code>    mkdir src
+</li>
+<li>
+<p>Create the src directory and clone repositories into it.</p>
+<div class="highlight"><pre><span></span><code>    mkdir src
     vcs import src &lt; caret.repos --recursive
 </code></pre></div>
- 3. Run setup_caret.sh.
-    <div class="highlight"><pre><span></span><code>    ./setup_caret.sh
+</li>
+<li>
+<p>Run setup_caret.sh.</p>
+<div class="highlight"><pre><span></span><code>    ./setup_caret.sh
 </code></pre></div>
- 4. Build the workspace.
-    <div class="highlight"><pre><span></span><code>    <span class="nb">source</span> /opt/ros/galactic/setup.bash<span class="o">(</span>or <span class="nb">source</span> /opt/ros/humble/setup.bash<span class="o">)</span>
+</li>
+<li>
+<p>Build the workspace.</p>
+<div class="highlight"><pre><span></span><code>    <span class="nb">source</span> /opt/ros/galactic/setup.bash<span class="o">(</span>or <span class="nb">source</span> /opt/ros/humble/setup.bash<span class="o">)</span>
     colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE<span class="o">=</span>Release
 </code></pre></div>
- 5. Check whether CARET (ros2-tracing) is enabled.
-    <div class="highlight"><pre><span></span><code>    <span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash
+</li>
+<li>
+<p>Check whether CARET (ros2-tracing) is enabled.</p>
+<div class="highlight"><pre><span></span><code>    <span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash
     ros2 run tracetools status <span class="c1"># return Tracing enabled</span>
-</code></pre></div></p>
+</code></pre></div>
+</li>
+</ol>
 <p>You can get more information in the link:</p>
 <ul>
 <li><a href="https://tier4.github.io/CARET_doc/">https://tier4.github.io/CARET_doc/</a></li>
 </ul>
 <h3 id="tilde">TILDE<a class="headerlink" href="#tilde" title="Permanent link">#</a></h3>
 <p>TILDE is a framework for latency measurement and deadline detection across multiple nodes. TILDE can track the topic output from the node and identify the original input topic. Latency measurement and deadline detection are possible to trace from input to output.By using the TILDE,you need change the codes of application and add the apis of TILDE in the application.<br />
-You can install TIDLE by following steps:
- 1. Clone TILDE and enter the directory.
-    <div class="highlight"><pre><span></span><code>    git clone https://github.com/tier4/TILDE.git ros2_TILDE_ws
+You can install TIDLE by following steps:</p>
+<ol>
+<li>
+<p>Clone TILDE and enter the directory.</p>
+<div class="highlight"><pre><span></span><code>    git clone https://github.com/tier4/TILDE.git ros2_TILDE_ws
     <span class="nb">cd</span> ros2_TILDE_ws
 </code></pre></div>
- 2. Create the src directory and clone repositories into it.
-    <div class="highlight"><pre><span></span><code>    mkdir src
+</li>
+<li>
+<p>Create the src directory and clone repositories into it.</p>
+<div class="highlight"><pre><span></span><code>    mkdir src
     vcs import src &lt; build_depends.repos
 </code></pre></div>
- 3. Build the workspace.
-    <div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/galactic/setup.bash<span class="o">(</span>or <span class="nb">source</span> /opt/ros/humble/setup.bash<span class="o">)</span>
+</li>
+<li>
+<p>Build the workspace.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/galactic/setup.bash<span class="o">(</span>or <span class="nb">source</span> /opt/ros/humble/setup.bash<span class="o">)</span>
 colcon build --symlink-install --cmake-args --cmake-args -DCMAKE_BUILD_TYPE<span class="o">=</span>Release
-</code></pre></div></p>
+</code></pre></div>
+</li>
+</ol>
 <p>You can get more information in the link:</p>
 <ul>
 <li><a href="https://github.com/tier4/TILDE/blob/master/doc/README.md">https://github.com/tier4/TILDE/blob/master/doc/README.md</a></li>
