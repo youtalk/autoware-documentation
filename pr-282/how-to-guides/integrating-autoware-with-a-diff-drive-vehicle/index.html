@@ -740,6 +740,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_3_2_4">
@@ -762,6 +764,20 @@
     <li class="md-nav__item">
       <a href="../../tutorials/ad-hoc-simulation/digital-twin-simulation/awsim-tutorial/" class="md-nav__link">
         AWSIM simulator
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/ad-hoc-simulation/digital-twin-simulation/MORAI_Sim-tutorial/" class="md-nav__link">
+        MORAI Sim: Drive
       </a>
     </li>
   
@@ -904,10 +920,47 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_3_2" type="checkbox" id="__nav_3_3_2" checked>
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_3_2">
+          Rosbag replay simulation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Rosbag replay simulation" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Rosbag replay simulation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../tutorials/scenario-simulation/rosbag-replay-simulation/" class="md-nav__link">
-        Rosbag replay simulation
+      <a href="../../tutorials/scenario-simulation/rosbag-replay-simulation/driving-log-replayer/" class="md-nav__link">
+        Driving Log Replayer
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -946,6 +999,8 @@
         
           
             
+          
+        
           
         
           
@@ -1164,6 +1219,20 @@
     <li class="md-nav__item">
       <a href="../calibrating-your-sensors/" class="md-nav__link">
         Calibrating your sensors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../evaluating-controller-performance/" class="md-nav__link">
+        Evaluating the controller performance
       </a>
     </li>
   
@@ -3148,7 +3217,7 @@ v_r = v + \frac{l\omega}{2}
 </script>
 </div>
 <p>where <span class="arithmatex"><span class="MathJax_Preview">l</span><script type="math/tex">l</script></span> denotes wheel tread.</p>
-<p>For information about other factors that need to be considered when creating a <code>vehicle_interface</code> package, refer to the <a href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-interface/"><code>vehicle_interface</code> component page</a>.</p>
+<p>For information about other factors that need to be considered when creating a <code>vehicle_interface</code> package, refer to the <a href="../../design/autoware-interfaces/components/vehicle-interface/"><code>vehicle_interface</code> component page</a>.</p>
 <h3 id="22-set-an-appropriate-wheel_base">2.2 Set an appropriate <code>wheel_base</code><a class="headerlink" href="#22-set-an-appropriate-wheel_base" title="Permanent link">#</a></h3>
 <p>A differential drive robot does not necessarily have front and rear wheels, which means that the wheelbase (the horizontal distance between the axles of the front and rear wheels) cannot be defined. However, Autoware expects <code>wheel_base</code> to be set in <code>vehicle_info.param.yaml</code> with some value.
 Thus, you need to set a pseudo value for <code>wheel_base</code>.</p>

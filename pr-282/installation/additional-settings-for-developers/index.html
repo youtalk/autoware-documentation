@@ -744,6 +744,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_3_2_4">
@@ -766,6 +768,20 @@
     <li class="md-nav__item">
       <a href="../../tutorials/ad-hoc-simulation/digital-twin-simulation/awsim-tutorial/" class="md-nav__link">
         AWSIM simulator
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/ad-hoc-simulation/digital-twin-simulation/MORAI_Sim-tutorial/" class="md-nav__link">
+        MORAI Sim: Drive
       </a>
     </li>
   
@@ -908,10 +924,47 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_3_2" type="checkbox" id="__nav_3_3_2" checked>
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_3_2">
+          Rosbag replay simulation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Rosbag replay simulation" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Rosbag replay simulation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../tutorials/scenario-simulation/rosbag-replay-simulation/" class="md-nav__link">
-        Rosbag replay simulation
+      <a href="../../tutorials/scenario-simulation/rosbag-replay-simulation/driving-log-replayer/" class="md-nav__link">
+        Driving Log Replayer
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -948,6 +1001,8 @@
         
           
             
+          
+        
           
         
           
@@ -1078,6 +1133,20 @@
     <li class="md-nav__item">
       <a href="../../how-to-guides/calibrating-your-sensors/" class="md-nav__link">
         Calibrating your sensors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-to-guides/evaluating-controller-performance/" class="md-nav__link">
+        Evaluating the controller performance
       </a>
     </li>
   
@@ -2989,6 +3058,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#tuning-dds" class="md-nav__link">
+    Tuning DDS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tuning-dds-for-multiple-host-computers-for-advanced-users" class="md-nav__link">
+    Tuning DDS for multiple host computers (for advanced users)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3041,6 +3124,29 @@ Since all <abbr title="Robot Operating System">ROS</abbr> 2 nodes use domain ID 
 <span class="nb">export</span> <span class="nv">ROS_DOMAIN_ID</span><span class="o">=</span>X
 </code></pre></div>
 <p>For more information, see <a href="https://docs.ros.org/en/foxy/Concepts/About-Domain-ID.html#the-ros-domain-id">here</a>.</p>
+<h3 id="tuning-dds">Tuning DDS<a class="headerlink" href="#tuning-dds" title="Permanent link">#</a></h3>
+<p>Autoware uses DDS for inter-node communication. <a href="https://docs.ros.org/en/humble/How-To-Guides/DDS-tuning.html"><abbr title="Robot Operating System">ROS</abbr> 2 documentation</a> recommends users to tune DDS to utilize its capability. Especially, receive buffer size is the critical parameter for Autoware. If the parameter is not large enough, Autoware will failed in receiving large data like point cloud or image.</p>
+<p>For example, to execute Autoware with CycloneDDS, prepare config file. A sample config file, named as <code>cyclonedds_config.xml</code>, is given below.</p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;CycloneDDS</span> <span class="na">xmlns=</span><span class="s">&quot;https://cdds.io/config&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&quot;https://cdds.io/config</span>
+<span class="s">https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/master/etc/cyclonedds.xsd&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Domain</span> <span class="na">id=</span><span class="s">&quot;any&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;Internal&gt;</span>
+            <span class="nt">&lt;SocketReceiveBufferSize</span> <span class="na">min=</span><span class="s">&quot;10MB&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/Internal&gt;</span>
+    <span class="nt">&lt;/Domain&gt;</span>
+<span class="nt">&lt;/CycloneDDS&gt;</span>
+</code></pre></div>
+<p>Set the config file path and enlarge the Linux kernel maximum buffer size before launching Autoware.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">CYCLONEDDS_URI</span><span class="o">=</span>file:///absolute/path/to/cyclonedds_config.xml
+sudo sysctl -w net.core.rmem_max<span class="o">=</span><span class="m">2147483647</span>
+</code></pre></div>
+<p>Refer to <a href="https://docs.ros.org/en/humble/How-To-Guides/DDS-tuning.html"><abbr title="Robot Operating System">ROS</abbr> 2 documentation</a> for more information. Reading user guide for chosen DDS is helpful for more understanding.</p>
+<h3 id="tuning-dds-for-multiple-host-computers-for-advanced-users">Tuning DDS for multiple host computers (for advanced users)<a class="headerlink" href="#tuning-dds-for-multiple-host-computers-for-advanced-users" title="Permanent link">#</a></h3>
+<p>When Autoware runs on multiple host computers, IP Fragmentation should be taken into account. As <a href="https://docs.ros.org/en/humble/How-To-Guides/DDS-tuning.html#cross-vendor-tuning"><abbr title="Robot Operating System">ROS</abbr> 2 documentation</a> recommends, parameters for IP Fragmentation should be set as shown in the following example.</p>
+<div class="highlight"><pre><span></span><code>sudo sysctl net.ipv4.ipfrag_time<span class="o">=</span><span class="m">3</span>
+sudo sysctl net.ipv4.ipfrag_high_thresh<span class="o">=</span><span class="m">134217728</span>     <span class="c1"># (128 MB)</span>
+</code></pre></div>
 <!-- prettier-ignore -->
 
 

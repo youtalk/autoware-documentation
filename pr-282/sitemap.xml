@@ -376,107 +376,107 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/design/autoware-interfaces/ad-api/types/autoware_ad_api_msgs/msg/localization_initialization_state/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/localization_initialization_state/</loc>
          <lastmod>2022-12-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/design/autoware-interfaces/ad-api/types/autoware_ad_api_msgs/msg/motion_state/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/motion_state/</loc>
          <lastmod>2022-12-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/design/autoware-interfaces/ad-api/types/autoware_ad_api_msgs/msg/mrm_state/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/mrm_state/</loc>
          <lastmod>2022-12-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/design/autoware-interfaces/ad-api/types/autoware_ad_api_msgs/msg/operation_mode_state/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/operation_mode_state/</loc>
          <lastmod>2022-12-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/design/autoware-interfaces/ad-api/types/autoware_ad_api_msgs/msg/response_status/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/response_status/</loc>
          <lastmod>2022-12-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/design/autoware-interfaces/ad-api/types/autoware_ad_api_msgs/msg/route/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/route/</loc>
          <lastmod>2022-12-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/design/autoware-interfaces/ad-api/types/autoware_ad_api_msgs/msg/route_optional/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/route_data/</loc>
          <lastmod>2022-12-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/design/autoware-interfaces/ad-api/types/autoware_ad_api_msgs/msg/route_primitive/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/route_primitive/</loc>
          <lastmod>2022-12-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/design/autoware-interfaces/ad-api/types/autoware_ad_api_msgs/msg/route_segment/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/route_segment/</loc>
          <lastmod>2022-12-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/design/autoware-interfaces/ad-api/types/autoware_ad_api_msgs/msg/route_state/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/route_state/</loc>
          <lastmod>2022-12-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/design/autoware-interfaces/ad-api/types/autoware_ad_api_msgs/msg/steering_factor/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/steering_factor/</loc>
          <lastmod>2022-12-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/design/autoware-interfaces/ad-api/types/autoware_ad_api_msgs/msg/steering_factor_array/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/steering_factor_array/</loc>
          <lastmod>2022-12-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/design/autoware-interfaces/ad-api/types/autoware_ad_api_msgs/msg/velocity_factor/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/velocity_factor/</loc>
          <lastmod>2022-12-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/design/autoware-interfaces/ad-api/types/autoware_ad_api_msgs/msg/velocity_factor_array/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/velocity_factor_array/</loc>
          <lastmod>2022-12-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/design/autoware-interfaces/ad-api/types/autoware_ad_api_msgs/srv/accept_start/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/srv/accept_start/</loc>
          <lastmod>2022-12-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/design/autoware-interfaces/ad-api/types/autoware_ad_api_msgs/srv/change_operation_mode/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/srv/change_operation_mode/</loc>
          <lastmod>2022-12-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/design/autoware-interfaces/ad-api/types/autoware_ad_api_msgs/srv/clear_route/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/srv/clear_route/</loc>
          <lastmod>2022-12-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/design/autoware-interfaces/ad-api/types/autoware_ad_api_msgs/srv/initialize_localization/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/srv/initialize_localization/</loc>
          <lastmod>2022-12-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/design/autoware-interfaces/ad-api/types/autoware_ad_api_msgs/srv/interface_version/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/srv/set_route/</loc>
          <lastmod>2022-12-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/design/autoware-interfaces/ad-api/types/autoware_ad_api_msgs/srv/set_route/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/srv/set_route_points/</loc>
          <lastmod>2022-12-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/design/autoware-interfaces/ad-api/types/autoware_ad_api_msgs/srv/set_route_points/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/design/autoware-interfaces/ad-api/types/autoware_adapi_version_msgs/srv/interface_version/</loc>
          <lastmod>2022-12-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -576,6 +576,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/how-to-guides/applying-clang-tidy-to-ros-packages/</loc>
+         <lastmod>2022-12-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/how-to-guides/calibrating-your-sensors/</loc>
          <lastmod>2022-12-15</lastmod>
          <changefreq>daily</changefreq>
@@ -587,6 +592,11 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/how-to-guides/determining-component-dependencies/</loc>
+         <lastmod>2022-12-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/how-to-guides/evaluating-controller-performance/</loc>
          <lastmod>2022-12-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -671,12 +681,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/tutorials/ad-hoc-simulation/digital-twin-simulation/awsim-tutorial/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/tutorials/ad-hoc-simulation/digital-twin-simulation/MORAI_Sim-tutorial/</loc>
          <lastmod>2022-12-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/tutorials/scenario-simulation/rosbag-replay-simulation/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/tutorials/ad-hoc-simulation/digital-twin-simulation/awsim-tutorial/</loc>
          <lastmod>2022-12-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -692,6 +702,11 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/tutorials/scenario-simulation/planning-simulation/scenario-test-simulation/</loc>
+         <lastmod>2022-12-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-282/tutorials/scenario-simulation/rosbag-replay-simulation/driving-log-replayer/</loc>
          <lastmod>2022-12-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
