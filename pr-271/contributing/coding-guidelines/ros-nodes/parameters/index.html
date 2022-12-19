@@ -3132,29 +3132,42 @@
 <h2 id="how-is-launch-parameter-loaded-in-autoware">How is <code>Launch Parameter</code> loaded in Autoware?<a class="headerlink" href="#how-is-launch-parameter-loaded-in-autoware" title="Permanent link">#</a></h2>
 <p>Here we use the <code>planning</code> module as an example component, but this applies to all of the other components (<code>sensing</code>, <code>localization</code>, <code>system</code>, etc) as well.</p>
 <p><code>Launch Parameter</code> is used when launching <a href="https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/launch/autoware.launch.xml"><code>autoware.launch.xml</code></a> in the <code>autoware_launch</code> package.
-In launching Autoware, you need a "parameter configuration file" for each component, that lists all the parameter file paths that should be loaded for Autoware. Currently, the file is stored as <code>autoware_launch/launch/tier4_planning_params.launch.xml</code>.
-<code>autoware.launch.xml</code> passes the path of the parameter configuration file to <code>tier4_planning_launch</code>, which then expands all the parameter file paths for all the packages used in the <code>planning</code> component.</p>
-<div class="highlight"><pre><span></span><code>...
-<span class="nt">&lt;include</span> <span class="na">file=</span><span class="s">&quot;$(find-pkg-share tier4_planning_launch)/launch/planning.launch.xml&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;parameter_configuration&quot;</span> <span class="na">value=</span><span class="s">&quot;$(find-pkg-share autoware_launch)/params/tier4_planning_params.launch.xml&quot;</span><span class="nt">/&gt;</span>
+<code>autoware.launch.xml</code> may include <code>tier4_planning_component.launch.xml</code> in which you call <code>tier4_planning_launch</code> with the arguments for <code>Launch Parameter</code> provided. Currently, the launch file is stored as <code>autoware_launch/launch/components/tier4_planning_components.launch.xml</code>.</p>
+<p><div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- autoware_launch: autoware_launch/launch/autoware.launch.xml --&gt;</span>
+...
+<span class="nt">&lt;include</span> <span class="na">file=</span><span class="s">&quot;$(find-pkg-share autoware_launch)/launch/tier4_planning_component.launch.xml&quot;</span><span class="nt">&gt;</span>
+  ...
 <span class="nt">&lt;/include&gt;</span>
 ...
 </code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- autoware_launch: autoware_launch/launch/components/tier4_planning_components.launch.xml --&gt;</span>
+...
+<span class="nt">&lt;include</span> <span class="na">file=</span><span class="s">&quot;$(find-pkg-share tier4_planning_launch)/launch/planning.launch.xml&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;package_A_param_path&quot;</span> <span class="na">value=</span><span class="s">&quot;$(find-pkg-share autoware_launch)/config/planning/package_A.param.yaml&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/include&gt;</span>
+...
+</code></pre></div></p>
 <h2 id="adding-a-new-launch-parameter">Adding a new <code>Launch Parameter</code><a class="headerlink" href="#adding-a-new-launch-parameter" title="Permanent link">#</a></h2>
 <p>If you want to customize the parameter for a package, a recommended way is to create a new <code>Launch Parameter</code> file.</p>
 <ul>
 <li>Add the parameter file in <code>autoware_launch/config</code></li>
-<li>Write a path to the parameter file in the parameter configuration file (e.g. <code>autoware_launch/launch/params/tier4_planning_params.launch.xml</code>)
-<div class="highlight"><pre><span></span><code>  ...
-  &lt;arg name=&quot;package_A_param_path&quot; default=&quot;$(find-pkg-share autoware_launch)/config/planning/package_A_customized.param.yaml&quot;/&gt;
-  ...
+<li>Write a path to the parameter file in the component launch file in <code>autoware_launch</code> (e.g. <code>autoware_launch/launch/components/tier4_planning_components.launch.xml</code>)
+<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- autoware_launch: autoware_launch/launch/components/tier4_planning_components.launch.xml --&gt;</span>
+...
+<span class="nt">&lt;include</span> <span class="na">file=</span><span class="s">&quot;$(find-pkg-share tier4_planning_launch)/launch/planning.launch.xml&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;package_A_param_path&quot;</span> <span class="na">value=</span><span class="s">&quot;$(find-pkg-share autoware_launch)/config/planning/package_A_customized.param.yaml&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/include&gt;</span>
+...
 </code></pre></div></li>
+</ul>
+<ul>
 <li>Load the parameter using the above argument, e.g. as follows.
-<div class="highlight"><pre><span></span><code>  ...
-  &lt;include file=&quot;$(find-pkg-share package_A)/launch/package_A.launch.xml&gt;
-    &lt;arg name=&quot;param_path&quot; value=&quot;$(var package_A_param_path)&quot;/&gt;
-  &lt;/include&gt;
-  ...
+<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- autoware.universe: launch/tier4_planning_launch/launch/.../package_A.launch.xml --&gt;</span>
+...
+<span class="nt">&lt;include</span> <span class="na">file=</span><span class="s">&quot;$(find-pkg-share package_A)/launch/package_A.launch.xml&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;param_path&quot;</span> <span class="na">value=</span><span class="s">&quot;$(var package_A_param_path)&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/include&gt;</span>
+...
 </code></pre></div></li>
 </ul>
 <h2 id="maintaining-your-custom-parameters">Maintaining your custom parameters<a class="headerlink" href="#maintaining-your-custom-parameters" title="Permanent link">#</a></h2>
