@@ -1207,8 +1207,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to-use-custom-message-in-autoware" class="md-nav__link">
-    How to use custom message in Autoware
+  <a href="#how-to-use-custom-messages-in-autoware" class="md-nav__link">
+    How to use custom messages in Autoware
   </a>
   
 </li>
@@ -3106,8 +3106,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to-use-custom-message-in-autoware" class="md-nav__link">
-    How to use custom message in Autoware
+  <a href="#how-to-use-custom-messages-in-autoware" class="md-nav__link">
+    How to use custom messages in Autoware
   </a>
   
 </li>
@@ -3134,23 +3134,25 @@
 
 <h1 id="add-a-custom-ros-message">Add a custom <abbr title="Robot Operating System">ROS</abbr> message<a class="headerlink" href="#add-a-custom-ros-message" title="Permanent link">#</a></h1>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
-<p>During the Autoware development, you will probably need to define your own messages, please read the following instructions before add a custom message.</p>
+<p>During the Autoware development, you will probably need to define your own messages. Read the following instructions before adding a custom message.</p>
 <ol>
 <li>
-<p>Message in <a href="https://github.com/autowarefoundation/autoware_msgs">autoware_msgs</a> will define <code>Core</code> interface for module</p>
+<p>Message in <a href="https://github.com/autowarefoundation/autoware_msgs">autoware_msgs</a> define interfaces of <code>Autoware Core</code>.</p>
 <ul>
-<li>key messages defined under <code>Design/Interface</code> section</li>
-<li>If a contributor wishes to make changes or add new message for <code>core</code> interface, they should create a new discussion post under <code>design</code> category.</li>
+<li>If a contributor wishes to make changes or add new messages to <code>autoware_msgs</code>, they should first create a new discussion post under the <a href="https://github.com/orgs/autowarefoundation/discussions/categories/design">Design category</a>.</li>
 </ul>
 </li>
 <li>
-<p>Any other "minor" message used for internal communication within module(e.g., planning) should be defined in another repository(e.g., under autoware.universe repository or contributor's own repository)</p>
+<p>Any other minor or proposal messages used for internal communication within a component(such as planning) should be defined in another repository.</p>
+<ul>
+<li><a href="https://github.com/tier4/tier4_autoware_msgs">tier4_autoware_msgs</a> is an example of that.</li>
+</ul>
 </li>
 </ol>
-<p>The following is a simple tutorial of adding a <code>autoware_msgs</code> to Autoware, for the general ROS2 tutorial see <a href="http://docs.ros.org/en/galactic/Tutorials/Beginner-Client-Libraries/Custom-ROS2-Interfaces.html">Create custom msg and srv files</a>.</p>
+<p>The following is a simple tutorial of adding a message package to <code>autoware_msgs</code>. For the general ROS2 tutorial, see <a href="http://docs.ros.org/en/galactic/Tutorials/Beginner-Client-Libraries/Custom-ROS2-Interfaces.html">Create custom msg and srv files</a>.</p>
 <h2 id="how-to-create-custom-message">How to create custom message<a class="headerlink" href="#how-to-create-custom-message" title="Permanent link">#</a></h2>
 <p>Make sure you are in the Autoware workspace, and then run the following command to create a new package.
-For example we create a package to define sensor messages.</p>
+As an example, let's create a package to define sensor messages.</p>
 <ol>
 <li>
 <p>Create a package</p>
@@ -3162,28 +3164,28 @@ For example we create a package to define sensor messages.</p>
 <p>Create custom messages</p>
 <p>You should create <code>.msg</code> files and place them in the <code>msg</code> directory.</p>
 <p><strong>NOTE</strong>: The initial letters of the <code>.msg</code> and <code>.srv</code> files must be capitalized.</p>
-<p>For example we make msg files <code>GnssInsOrientation.msg</code> and <code>GnssInsOrientationStamped.msg</code> to define <abbr title="Global Navigation Satellite System">GNSS</abbr> INS orientation messages:</p>
+<p>As an example, let's make <code>.msg</code> files <code>GnssInsOrientation.msg</code> and <code>GnssInsOrientationStamped.msg</code> to define <abbr title="Global Navigation Satellite System">GNSS</abbr>/INS orientation messages:</p>
 <div class="highlight"><pre><span></span><code><span class="go">mkdir msg</span>
 <span class="go">cd msg</span>
 <span class="go">touch GnssInsOrientation.msg</span>
 <span class="go">touch GnssInsOrientationStamped.msg</span>
 </code></pre></div>
-<p>The <code>GnssInsOrientation.msg</code> with the following content:</p>
+<p>Edit <code>GnssInsOrientation.msg</code> with your editor to be the following content:</p>
 <div class="highlight"><pre><span></span><code><span class="n">geometry_msgs</span><span class="o">/</span><span class="n">Quaternion</span><span class="w"> </span><span class="n">orientation</span><span class="w"></span>
 <span class="n">float32</span><span class="w"> </span><span class="n">rmse_rotation_x</span><span class="w"></span>
 <span class="n">float32</span><span class="w"> </span><span class="n">rmse_rotation_y</span><span class="w"></span>
 <span class="n">float32</span><span class="w"> </span><span class="n">rmse_rotation_z</span><span class="w"></span>
 </code></pre></div>
 <p>In this case, the custom message uses a message from another message package <code>geometry_msgs/Quaternion</code>.</p>
-<p>The <code>GnssInsOrientationStamped.msg</code> with the following content:</p>
+<p>Edit <code>GnssInsOrientationStamped.msg</code> with your editor to be the following content:</p>
 <div class="highlight"><pre><span></span><code><span class="n">std_msgs</span><span class="o">/</span><span class="n">Header</span><span class="w"> </span><span class="n">header</span><span class="w"></span>
 <span class="n">GnssInsOrientation</span><span class="w"> </span><span class="n">orientation</span><span class="w"></span>
 </code></pre></div>
 <p>In this case, the custom message uses a message from another message package <code>std_msgs/Header</code>.</p>
 </li>
 <li>
-<p>CmakeLists.txt</p>
-<p>In order to use this custom message in <code>C++</code> or <code>Python</code> languages, we need add the following lines to <code>CmakeList.txt</code>:</p>
+<p>Edit CMakeLists.txt</p>
+<p>In order to use this custom message in <code>C++</code> or <code>Python</code> languages, we need to add the following lines to <code>CMakeList.txt</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">rosidl_generate_interfaces</span><span class="p">(</span><span class="o">${</span><span class="nv">PROJECT_NAME</span><span class="o">}</span>
 <span class="w">  </span><span class="s2">&quot;msg/GnssInsOrientation.msg&quot;</span>
 <span class="w">  </span><span class="s2">&quot;msg/GnssInsOrientationStamped.msg&quot;</span>
@@ -3206,15 +3208,18 @@ For example we create a package to define sensor messages.</p>
 </code></pre></div>
 </li>
 <li>
-<p>package.xml</p>
+<p>Edit package.xml</p>
 <p>We need to declare relevant dependencies in <code>package.xml</code>. For the above example we need to add the following content:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;depend&gt;</span>geometry_msgs<span class="nt">&lt;/depend&gt;</span>
-<span class="nt">&lt;depend&gt;</span>std_msgs<span class="nt">&lt;/depend&gt;</span>
-<span class="nt">&lt;buildtool_depend&gt;</span>rosidl_default_generators<span class="nt">&lt;/buildtool_depend&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;buildtool_depend&gt;</span>rosidl_default_generators<span class="nt">&lt;/buildtool_depend&gt;</span>
+
 <span class="nt">&lt;exec_depend&gt;</span>rosidl_default_runtime<span class="nt">&lt;/exec_depend&gt;</span>
+
+<span class="nt">&lt;depend&gt;</span>geometry_msgs<span class="nt">&lt;/depend&gt;</span>
+<span class="nt">&lt;depend&gt;</span>std_msgs<span class="nt">&lt;/depend&gt;</span>
+
 <span class="nt">&lt;member_of_group&gt;</span>rosidl_interface_packages<span class="nt">&lt;/member_of_group&gt;</span>
 </code></pre></div>
-<p>We need to replace <code>&lt;buildtool_depend&gt;ament_cmake&lt;/buildtool_depend&gt;</code> with <code>&lt;buildtool_depend&gt;ament_cmake_auto&lt;/buildtool_depend&gt;</code> in the package.xml file.</p>
+<p>We need to replace <code>&lt;buildtool_depend&gt;ament_cmake&lt;/buildtool_depend&gt;</code> with <code>&lt;buildtool_depend&gt;ament_cmake_auto&lt;/buildtool_depend&gt;</code> in the <code>package.xml</code> file.</p>
 </li>
 <li>
 <p>Build the custom message package</p>
@@ -3224,15 +3229,15 @@ For example we create a package to define sensor messages.</p>
 <p>Now the <code>GnssInsOrientationStamped</code> message will be discoverable by other packages in Autoware.</p>
 </li>
 </ol>
-<h2 id="how-to-use-custom-message-in-autoware">How to use custom message in Autoware<a class="headerlink" href="#how-to-use-custom-message-in-autoware" title="Permanent link">#</a></h2>
+<h2 id="how-to-use-custom-messages-in-autoware">How to use custom messages in Autoware<a class="headerlink" href="#how-to-use-custom-messages-in-autoware" title="Permanent link">#</a></h2>
 <p>You can use the custom messages in Autoware by following these steps:</p>
 <ul>
-<li>add dependency in <code>package.xml</code><ul>
-<li>E.g., <code>&lt;depend&gt;autoware_sensing_msgs&lt;/depend&gt;</code>.</li>
+<li>Add dependency in <code>package.xml</code>.<ul>
+<li>For example, <code>&lt;depend&gt;autoware_sensing_msgs&lt;/depend&gt;</code>.</li>
 </ul>
 </li>
-<li>include the <code>.hpp</code> file of the relevant message in the code.<ul>
-<li>E.g., <code>#include &lt;autoware_sensing_msgs/msg/gnss_ins_orientation_stamped.hpp&gt;</code>.</li>
+<li>Include the <code>.hpp</code> file of the relevant message in the code.<ul>
+<li>For example, <code>#include &lt;autoware_sensing_msgs/msg/gnss_ins_orientation_stamped.hpp&gt;</code>.</li>
 </ul>
 </li>
 </ul>
