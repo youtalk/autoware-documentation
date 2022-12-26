@@ -3253,9 +3253,18 @@ For that, several rules are defined below.</p>
 <ul>
 <li><strong>DEBUG:</strong> Use this level to show debug information for developers. Note that logs with this level is hidden by default.</li>
 <li><strong>INFO:</strong> Use this level to notify events (cyclic notifications during initialization, state changes, service responses, etc.) to operators.</li>
-<li><strong>WARN:</strong> Use this level when a node can continue working correctly, but unintended behaviors might happen.</li>
-<li><strong>ERROR:</strong> Use this level when a node can't continue working correctly, and unintended behaviors would happen.</li>
-<li><strong>FATAL:</strong> Use this level when the entire system can't continue working correctly, and the system must be stopped.</li>
+<li><strong>WARN:</strong> Use this level when a node can continue working correctly, but unintended behaviors might happen.<ul>
+<li>For example, "path optimization failed but the previous data can be used", "the localization score is low", etc.</li>
+</ul>
+</li>
+<li><strong>ERROR:</strong> Use this level when a node can't continue working correctly, and unintended behaviors would happen.<ul>
+<li>For example, "path optimization failed and the path is empty", "the vehicle will trigger an emergency stop", etc.</li>
+</ul>
+</li>
+<li><strong>FATAL:</strong> Use this level when the entire system can't continue working correctly, and the system must be stopped.<ul>
+<li>For example, "the vehicle control <abbr title="Electronic Control Unit">ECU</abbr> doesn't respond", "the system storage crashed", etc.</li>
+</ul>
+</li>
 </ul>
 <h3 id="filter-out-unnecessary-logs-by-setting-logging-options-required-non-automated">Filter out unnecessary logs by setting logging options (required, non-automated)<a class="headerlink" href="#filter-out-unnecessary-logs-by-setting-logging-options-required-non-automated" title="Permanent link">#</a></h3>
 <h4 id="rationale_1">Rationale<a class="headerlink" href="#rationale_1" title="Permanent link">#</a></h4>
