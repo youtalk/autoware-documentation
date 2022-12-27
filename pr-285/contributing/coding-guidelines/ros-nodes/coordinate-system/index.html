@@ -3162,7 +3162,7 @@
 
 <h1 id="coordinate-system">Coordinate system<a class="headerlink" href="#coordinate-system" title="Permanent link">#</a></h1>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
-<p>The commonly used coordinate systems include the world coordinate system, the vehicle coordinate system, and the sensor coordinate system. </p>
+<p>The commonly used coordinate systems include the world coordinate system, the vehicle coordinate system, and the sensor coordinate system.</p>
 <ul>
 <li>The world coordinate system is a fixed coordinate system that defines the physical space in the environment where the vehicle is located.</li>
 </ul>
@@ -3200,7 +3200,7 @@
 <li>lidar: <code>lidar</code> coordinate system is converted to the vehicle coordinate system through the mounting relationship</li>
 </ul>
 <ul>
-<li>camera_link: <code>camera_link</code> is <abbr title="Robot Operating System">ROS</abbr> standard camera coordinate system </li>
+<li>camera_link: <code>camera_link</code> is <abbr title="Robot Operating System">ROS</abbr> standard camera coordinate system</li>
 </ul>
 <ul>
 <li>camera_optical_link: <code>camera_optical_link</code> is image standard camera coordinate system</li>
@@ -3210,26 +3210,28 @@
 </ul>
 <h3 id="coordinate-axes-conventions">Coordinate Axes Conventions<a class="headerlink" href="#coordinate-axes-conventions" title="Permanent link">#</a></h3>
 <p>We are using East, North, Up (ENU) coordinate axes convention by default throughout the stack.</p>
-<p><div class="highlight"><pre><span></span><code><span class="nt">X+</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">East</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nt">X+</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">East</span><span class="w"></span>
 <span class="nt">Y+</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">North</span><span class="w"></span>
 <span class="nt">Z+</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Up</span><span class="w"></span>
 </code></pre></div>
-The position, orientation, velocity, acceleration are all defined in the same axis convention.</p>
+<p>The position, orientation, velocity, acceleration are all defined in the same axis convention.</p>
 <p>Position by the <abbr title="Global Navigation Satellite System">GNSS</abbr>/INS sensor is expected to be in <code>earth</code> frame.</p>
 <p>Orientation, velocity, acceleration by the <abbr title="Global Navigation Satellite System">GNSS</abbr>/INS sensor are expected to be in the sensor frame. Axes parallel to the <code>map</code> frame.</p>
 <p>If roll, pitch, yaw is provided, they correspond to rotation around X, Y, Z axes respectively.</p>
-<p><div class="highlight"><pre><span></span><code><span class="nt">Rotation around</span><span class="p">:</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nt">Rotation around</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">X+</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">roll</span><span class="w"></span>
 <span class="w">  </span><span class="nt">Y+</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pitch</span><span class="w"></span>
 <span class="w">  </span><span class="nt">Z+</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yaw</span><span class="w"></span>
 </code></pre></div>
-References:
-- <a href="https://www.ros.org/reps/rep-0103.html#axis-orientation">https://www.ros.org/reps/rep-0103.html#axis-orientation</a></p>
+<p>References:</p>
+<ul>
+<li><a href="https://www.ros.org/reps/rep-0103.html#axis-orientation">https://www.ros.org/reps/rep-0103.html#axis-orientation</a></li>
+</ul>
 <h2 id="how-they-can-be-created">How they can be created<a class="headerlink" href="#how-they-can-be-created" title="Permanent link">#</a></h2>
 <ol>
 <li>
 <p>Calibration of sensor</p>
-<p>The conversion relationship between every sensor coordinate system  and <code>base_link</code> can be obtained through sensor calibration technology. </p>
+<p>The conversion relationship between every sensor coordinate system and <code>base_link</code> can be obtained through sensor calibration technology.</p>
 </li>
 <li>
 <p>Localization</p>
@@ -3237,7 +3239,7 @@ References:
 </li>
 <li>
 <p>Georeferencing of map data</p>
-<p>The georeferencing information can get the transformation relationship of <code>earth</code> coordinate system to  local <code>map</code> coordinate system.</p>
+<p>The georeferencing information can get the transformation relationship of <code>earth</code> coordinate system to local <code>map</code> coordinate system.</p>
 </li>
 </ol>
 <!-- prettier-ignore -->
