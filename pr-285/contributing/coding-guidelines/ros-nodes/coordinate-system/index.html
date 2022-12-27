@@ -2500,6 +2500,19 @@
     TF tree
   </a>
   
+    <nav class="md-nav" aria-label="TF tree">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#coordinate-axes-conventions" class="md-nav__link">
+    Coordinate Axes Conventions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3105,6 +3118,19 @@
     TF tree
   </a>
   
+    <nav class="md-nav" aria-label="TF tree">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#coordinate-axes-conventions" class="md-nav__link">
+    Coordinate Axes Conventions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3136,11 +3162,15 @@
 
 <h1 id="coordinate-system">Coordinate system<a class="headerlink" href="#coordinate-system" title="Permanent link">#</a></h1>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
-<p>The commonly used coordinate systems include the world coordinate system, the vehicle coordinate system, and the sensor coordinate system.</p>
+<p>The commonly used coordinate systems include the world coordinate system, the vehicle coordinate system, and the sensor coordinate system. </p>
 <ul>
 <li>The world coordinate system is a fixed coordinate system that defines the physical space in the environment where the vehicle is located.</li>
+</ul>
+<ul>
 <li>The vehicle coordinate system is the vehicle's own coordinate system, which defines the vehicle's position and orientation in the world coordinate system.</li>
-<li>The sensor coordinate system is the sensor's own coordinate system, which is used to define the sensor's position and orientation in the vehicle's coordinate system.</li>
+</ul>
+<ul>
+<li>The sensor coordinate system is the sensor's own coordinate system, which is used to define the sensor's position and orientation in the vehicle coordinate system.</li>
 </ul>
 <h2 id="how-coordinates-are-used-in-autoware">How coordinates are used in Autoware<a class="headerlink" href="#how-coordinates-are-used-in-autoware" title="Permanent link">#</a></h2>
 <p>In Autoware, coordinate systems are typically used to represent the position and movement of vehicles and obstacles in space. Coordinate systems are commonly used for path planning, perception and control, can help the vehicle decide how to avoid obstacles and to plan a safe and efficient path of travel.</p>
@@ -3158,19 +3188,48 @@
 <p>In Autoware, a common coordinate system structure is shown below:</p>
 <p><img alt="tf-tree" src="../images/coordinate-system-tf-tree.png" /></p>
 <ul>
-<li>earth: <code>earth</code> coordinate system describe the position of any point on the earth in terms of geodetic longitude, latitude, and altitude.</li>
-<li>map: <code>map</code> coordinate system is used to represent the location of points on a local map. Geographical coordinate system are mapped into plane rectangular coordinate system using UTM or MGRS.</li>
+<li>earth: <code>earth</code> coordinate system describe the position of any point on the earth in terms of geodetic longitude, latitude, and altitude. In Autoware, the <code>earth</code> frame is only used in the <code>GnssInsPositionStamped</code> message.</li>
+</ul>
+<ul>
+<li>map: <code>map</code> coordinate system is used to represent the location of points on a local map. Geographical coordinate system are mapped into plane rectangular coordinate system using UTM or MGRS. The <code>map</code> frame`s axes point to the East, North, Up directions as explained in <a href="#coordinate-axes-conventions">Coordinate Axes Conventions</a>.</li>
+</ul>
+<ul>
 <li>base_link: vehicle coordinate system, the origin of the coordinate system is the center of the rear axle of the vehicle</li>
+</ul>
+<ul>
 <li>lidar: <code>lidar</code> coordinate system is converted to the vehicle coordinate system through the mounting relationship</li>
-<li>camera_link: <code>camera_link</code> is <abbr title="Robot Operating System">ROS</abbr> standard camera coordinate system</li>
+</ul>
+<ul>
+<li>camera_link: <code>camera_link</code> is <abbr title="Robot Operating System">ROS</abbr> standard camera coordinate system </li>
+</ul>
+<ul>
 <li>camera_optical_link: <code>camera_optical_link</code> is image standard camera coordinate system</li>
+</ul>
+<ul>
 <li>imu: the <code>imu</code> coordinate system is converted to the vehicle coordinate system through the mounting relationship</li>
 </ul>
+<h3 id="coordinate-axes-conventions">Coordinate Axes Conventions<a class="headerlink" href="#coordinate-axes-conventions" title="Permanent link">#</a></h3>
+<p>We are using East, North, Up (ENU) coordinate axes convention by default throughout the stack.</p>
+<p><div class="highlight"><pre><span></span><code><span class="nt">X+</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">East</span><span class="w"></span>
+<span class="nt">Y+</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">North</span><span class="w"></span>
+<span class="nt">Z+</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Up</span><span class="w"></span>
+</code></pre></div>
+The position, orientation, velocity, acceleration are all defined in the same axis convention.</p>
+<p>Position by the <abbr title="Global Navigation Satellite System">GNSS</abbr>/INS sensor is expected to be in <code>earth</code> frame.</p>
+<p>Orientation, velocity, acceleration by the <abbr title="Global Navigation Satellite System">GNSS</abbr>/INS sensor are expected to be in the sensor frame. Axes parallel to the <code>map</code> frame.</p>
+<p>If roll, pitch, yaw is provided, they correspond to rotation around X, Y, Z axes respectively.</p>
+<p><div class="highlight"><pre><span></span><code><span class="nt">Rotation around</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">X+</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">roll</span><span class="w"></span>
+<span class="w">  </span><span class="nt">Y+</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pitch</span><span class="w"></span>
+<span class="w">  </span><span class="nt">Z+</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yaw</span><span class="w"></span>
+</code></pre></div>
+References:
+- <a href="https://www.ros.org/reps/rep-0103.html#axis-orientation">https://www.ros.org/reps/rep-0103.html#axis-orientation</a></p>
 <h2 id="how-they-can-be-created">How they can be created<a class="headerlink" href="#how-they-can-be-created" title="Permanent link">#</a></h2>
 <ol>
 <li>
 <p>Calibration of sensor</p>
-<p>The conversion relationship between every sensor coordinate system and <code>base_link</code> can be obtained through sensor calibration technology.</p>
+<p>The conversion relationship between every sensor coordinate system  and <code>base_link</code> can be obtained through sensor calibration technology. </p>
 </li>
 <li>
 <p>Localization</p>
@@ -3178,7 +3237,7 @@
 </li>
 <li>
 <p>Georeferencing of map data</p>
-<p>The georeferencing information can get the transformation relationship of <code>earth</code> coordinate system to local <code>map</code> coordinate system.</p>
+<p>The georeferencing information can get the transformation relationship of <code>earth</code> coordinate system to  local <code>map</code> coordinate system.</p>
 </li>
 </ol>
 <!-- prettier-ignore -->
