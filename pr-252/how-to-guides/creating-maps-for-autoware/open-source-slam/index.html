@@ -15,7 +15,7 @@
     
     
       
-        <title>Index - Autoware Documentation</title>
+        <title>Conclusions - Autoware Documentation</title>
       
     
     
@@ -71,6 +71,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#conclusions" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -106,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Index
+              Conclusions
             
           </span>
         </div>
@@ -3605,6 +3610,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -3624,8 +3631,10 @@
   </a>
 
 
-  <h1>Index</h1>
-
+<h1 id="conclusions">Conclusions<a class="headerlink" href="#conclusions" title="Permanent link">#</a></h1>
+<p>As a conclusion, lidar odometry drifts accumulatively as time goes by and there is solutions to solve that problem such as graph optimization, loop closure and using gps sensor to decrease accumulative drift error. Because of that, a <abbr title="Simultaneous Localization And Mapping">SLAM</abbr> algorithm should have loop closure feature, graph optimization and should use gps sensor. Additionally, some of the algorithms are using <abbr title="Inertial Measurement Unit">IMU</abbr> sensor to add another factor to graph for decreasing drift error. While some of the algorithms requires 9-axis <abbr title="Inertial Measurement Unit">IMU</abbr> sensor strictly, some of them requires only 6-axis <abbr title="Inertial Measurement Unit">IMU</abbr> sensor or not even using the <abbr title="Inertial Measurement Unit">IMU</abbr> sensor. Before choosing an algorithm to create maps for Autoware please consider these factors depends on your sensor setup or expected quality of generated map.</p>
+<p><br>
+<br></p>
 <table>
 <thead>
 <tr>
