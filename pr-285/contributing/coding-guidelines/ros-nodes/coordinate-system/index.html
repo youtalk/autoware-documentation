@@ -10,8 +10,14 @@
       
         <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-285/contributing/coding-guidelines/ros-nodes/coordinate-system/">
       
+      
+        <link rel="prev" href="../console-logging/">
+      
+      
+        <link rel="next" href="../directory-structure/">
+      
       <link rel="icon" href="../../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.1">
     
     
       
@@ -19,11 +25,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.975780f9.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.3bd4f189.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.2505c338.min.css">
-        
       
       
 
@@ -121,8 +126,6 @@
       <form class="md-header__option" data-md-component="palette">
         
           
-          
-          
           <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
@@ -130,8 +133,6 @@
             </label>
           
         
-          
-          
           
           <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
           
@@ -2504,6 +2505,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#estimating-the-base_link-frame-by-using-the-other-sensors" class="md-nav__link">
+    Estimating the base_link frame by using the other sensors
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#coordinate-axes-conventions" class="md-nav__link">
     Coordinate Axes Conventions
   </a>
@@ -3122,6 +3130,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#estimating-the-base_link-frame-by-using-the-other-sensors" class="md-nav__link">
+    Estimating the base_link frame by using the other sensors
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#coordinate-axes-conventions" class="md-nav__link">
     Coordinate Axes Conventions
   </a>
@@ -3154,10 +3169,9 @@
                 
                   
 
-  <a href="https://github.com/autowarefoundation/autoware-documentation/edit/main/docs/contributing/coding-guidelines/ros-nodes/coordinate-system.md" title="Edit this page" class="md-content__button md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
-  </a>
+  
+  
+
 
 
 <h1 id="coordinate-system">Coordinate system<a class="headerlink" href="#coordinate-system" title="Permanent link">#</a></h1>
@@ -3186,7 +3200,15 @@
 </ol>
 <h2 id="tf-tree">TF tree<a class="headerlink" href="#tf-tree" title="Permanent link">#</a></h2>
 <p>In Autoware, a common coordinate system structure is shown below:</p>
-<p><img alt="tf-tree" src="../images/coordinate-system-tf-tree.png" /></p>
+<pre class="mermaid"><code>graph TD
+    /earth --&gt; /map
+    /map --&gt; /base_link
+    /base_link --&gt; /imu
+    /base_link --&gt; /lidar
+    /base_link --&gt; /gnss
+    /base_link --&gt; /radar
+    /base_link --&gt; /camera_link
+    /camera_link --&gt; /camera_optical_link</code></pre>
 <ul>
 <li>earth: <code>earth</code> coordinate system describe the position of any point on the earth in terms of geodetic longitude, latitude, and altitude. In Autoware, the <code>earth</code> frame is only used in the <code>GnssInsPositionStamped</code> message.</li>
 </ul>
@@ -3205,20 +3227,39 @@
 <ul>
 <li>camera_optical_link: <code>camera_optical_link</code> is image standard camera coordinate system.</li>
 </ul>
+<h3 id="estimating-the-base_link-frame-by-using-the-other-sensors">Estimating the <code>base_link</code> frame by using the other sensors<a class="headerlink" href="#estimating-the-base_link-frame-by-using-the-other-sensors" title="Permanent link">#</a></h3>
+<p>Generally we don't have the localization sensors physically at the <code>base_link</code> frame. So various sensors localize with respect to their own frames, let's call it <code>sensor</code> frame.</p>
+<p>We introduce a new frame naming convention: <code>x_by_y</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">x</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">estimated frame name</span>
+<span class="nt">y</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localization method/source</span>
+</code></pre></div>
+<p>We cannot directly get the <code>sensor</code> frame. Because we would need the EKF module to estimate the <code>base_link</code> frame first.</p>
+<p>Without the EKF module the best we can do is to estimate <code>Map[map] --&gt; sensor_by_sensor --&gt; base_link_by_sensor</code> using this sensor.</p>
+<h4 id="example-by-the-gnssins-sensor">Example by the <abbr title="Global Navigation Satellite System">GNSS</abbr>/INS sensor<a class="headerlink" href="#example-by-the-gnssins-sensor" title="Permanent link">#</a></h4>
+<p>For the integrated <abbr title="Global Navigation Satellite System">GNSS</abbr>/INS we use the following frames:</p>
+<pre class="mermaid"><code>flowchart LR
+    earth --&gt; Map[map] --&gt; gnss_ins_by_gnss_ins --&gt; base_link_by_gnss_ins</code></pre>
+<p>The <code>gnss_ins_by_gnss_ins</code> frame is obtained by the coordinates from <abbr title="Global Navigation Satellite System">GNSS</abbr>/INS sensor. The coordinates are converted to <code>map</code> frame using the <code>gnss_poser</code> node.</p>
+<p>Finally <code>gnss_ins_by_gnss_ins</code> frame represents the position of the <code>gnss_ins</code> estimated by the <code>gnss_ins</code> sensor in the <code>map</code>.</p>
+<p>Then by using the static transformation between <code>gnss_ins</code> and the <code>base_link</code> frame, we can obtain the <code>base_link_by_gnss_ins</code> frame. Which represents the <code>base_link</code> estimated by the <code>gnss_ins</code> sensor.</p>
+<p>References:</p>
+<ul>
+<li><a href="https://www.ros.org/reps/rep-0105.html#earth">https://www.ros.org/reps/rep-0105.html#earth</a></li>
+</ul>
 <h3 id="coordinate-axes-conventions">Coordinate Axes Conventions<a class="headerlink" href="#coordinate-axes-conventions" title="Permanent link">#</a></h3>
 <p>We are using East, North, Up (ENU) coordinate axes convention by default throughout the stack.</p>
-<p><div class="highlight"><pre><span></span><code><span class="nt">X+</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">East</span><span class="w"></span>
-<span class="nt">Y+</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">North</span><span class="w"></span>
-<span class="nt">Z+</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Up</span><span class="w"></span>
+<p><div class="highlight"><pre><span></span><code><span class="nt">X+</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">East</span>
+<span class="nt">Y+</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">North</span>
+<span class="nt">Z+</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Up</span>
 </code></pre></div>
 The position, orientation, velocity, acceleration are all defined in the same axis convention.</p>
 <p>Position by the <abbr title="Global Navigation Satellite System">GNSS</abbr>/INS sensor is expected to be in <code>earth</code> frame.</p>
 <p>Orientation, velocity, acceleration by the <abbr title="Global Navigation Satellite System">GNSS</abbr>/INS sensor are expected to be in the sensor frame. Axes parallel to the <code>map</code> frame.</p>
 <p>If roll, pitch, yaw is provided, they correspond to rotation around X, Y, Z axes respectively.</p>
-<p><div class="highlight"><pre><span></span><code><span class="nt">Rotation around</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">X+</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">roll</span><span class="w"></span>
-<span class="w">  </span><span class="nt">Y+</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pitch</span><span class="w"></span>
-<span class="w">  </span><span class="nt">Z+</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yaw</span><span class="w"></span>
+<p><div class="highlight"><pre><span></span><code><span class="nt">Rotation around</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">X+</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">roll</span>
+<span class="w">  </span><span class="nt">Y+</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pitch</span>
+<span class="w">  </span><span class="nt">Z+</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yaw</span>
 </code></pre></div>
 References:
 - <a href="https://www.ros.org/reps/rep-0103.html#axis-orientation">https://www.ros.org/reps/rep-0103.html#axis-orientation</a></p>
@@ -3259,42 +3300,6 @@ References:
       
         <footer class="md-footer">
   
-    
-    <nav class="md-footer__inner md-grid" aria-label="Footer" >
-      
-        
-        <a href="../console-logging/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Console logging" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Console logging
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../directory-structure/" class="md-footer__link md-footer__link--next" aria-label="Next: Directory structure" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Directory structure
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
-  
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
@@ -3320,14 +3325,13 @@ References:
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../../../assets/javascripts/workers/search.12658920.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.5cf534bf.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
-    
     
   </body>
 </html>
