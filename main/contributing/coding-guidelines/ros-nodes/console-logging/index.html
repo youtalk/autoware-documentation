@@ -10,8 +10,14 @@
       
         <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/main/contributing/coding-guidelines/ros-nodes/console-logging/">
       
+      
+        <link rel="prev" href="../class-design/">
+      
+      
+        <link rel="next" href="../coordinate-system/">
+      
       <link rel="icon" href="../../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.0">
     
     
       
@@ -19,11 +25,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.975780f9.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.f79797b0.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.2505c338.min.css">
-        
       
       
 
@@ -121,8 +126,6 @@
       <form class="md-header__option" data-md-component="palette">
         
           
-          
-          
           <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
@@ -130,8 +133,6 @@
             </label>
           
         
-          
-          
           
           <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
           
@@ -3238,10 +3239,9 @@
                 
                   
 
-  <a href="https://github.com/autowarefoundation/autoware-documentation/edit/main/docs/contributing/coding-guidelines/ros-nodes/console-logging.md" title="Edit this page" class="md-content__button md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
-  </a>
+  
+  
+
 
 
 <h1 id="console-logging">Console logging<a class="headerlink" href="#console-logging" title="Permanent link">#</a></h1>
@@ -3289,19 +3289,19 @@ If the logs are noisy, unnecessary logs should be filtered out.</p>
 <h4 id="example_1">Example<a class="headerlink" href="#example_1" title="Permanent link">#</a></h4>
 <p>Use the <code>--log-level {level}</code> option to change the minimum level of logs to be displayed:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;launch&gt;</span>
-  <span class="cm">&lt;!-- This outputs only FATAL level logs. --&gt;</span>
-  <span class="nt">&lt;node</span> <span class="na">pkg=</span><span class="s">&quot;demo_nodes_cpp&quot;</span> <span class="na">exec=</span><span class="s">&quot;talker&quot;</span> <span class="na">ros_args=</span><span class="s">&quot;--log-level fatal&quot;</span> <span class="nt">/&gt;</span>
+<span class="w">  </span><span class="cm">&lt;!-- This outputs only FATAL level logs. --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;node</span><span class="w"> </span><span class="na">pkg=</span><span class="s">&quot;demo_nodes_cpp&quot;</span><span class="w"> </span><span class="na">exec=</span><span class="s">&quot;talker&quot;</span><span class="w"> </span><span class="na">ros_args=</span><span class="s">&quot;--log-level fatal&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/launch&gt;</span>
 </code></pre></div>
 <p>If you want to disable only specific output targets, use the <code>--disable-stdout-logs</code>, <code>--disable-rosout-logs</code>, and/or <code>--disable-external-lib-logs</code> options:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;launch&gt;</span>
-  <span class="cm">&lt;!-- This outputs to rosout and disk. --&gt;</span>
-  <span class="nt">&lt;node</span> <span class="na">pkg=</span><span class="s">&quot;demo_nodes_cpp&quot;</span> <span class="na">exec=</span><span class="s">&quot;talker&quot;</span> <span class="na">ros_args=</span><span class="s">&quot;--disable-stdout-logs&quot;</span> <span class="nt">/&gt;</span>
+<span class="w">  </span><span class="cm">&lt;!-- This outputs to rosout and disk. --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;node</span><span class="w"> </span><span class="na">pkg=</span><span class="s">&quot;demo_nodes_cpp&quot;</span><span class="w"> </span><span class="na">exec=</span><span class="s">&quot;talker&quot;</span><span class="w"> </span><span class="na">ros_args=</span><span class="s">&quot;--disable-stdout-logs&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/launch&gt;</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;launch&gt;</span>
-  <span class="cm">&lt;!-- This outputs to stdout. --&gt;</span>
-  <span class="nt">&lt;node</span> <span class="na">pkg=</span><span class="s">&quot;demo_nodes_cpp&quot;</span> <span class="na">exec=</span><span class="s">&quot;talker&quot;</span> <span class="na">ros_args=</span><span class="s">&quot;--disable-rosout-logs --disable-external-lib-logs&quot;</span> <span class="nt">/&gt;</span>
+<span class="w">  </span><span class="cm">&lt;!-- This outputs to stdout. --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;node</span><span class="w"> </span><span class="na">pkg=</span><span class="s">&quot;demo_nodes_cpp&quot;</span><span class="w"> </span><span class="na">exec=</span><span class="s">&quot;talker&quot;</span><span class="w"> </span><span class="na">ros_args=</span><span class="s">&quot;--disable-rosout-logs --disable-external-lib-logs&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/launch&gt;</span>
 </code></pre></div>
 <h3 id="use-throttled-logging-when-the-log-is-unnecessarily-shown-repeatedly-required-non-automated">Use throttled logging when the log is unnecessarily shown repeatedly (required, non-automated)<a class="headerlink" href="#use-throttled-logging-when-the-log-is-unnecessarily-shown-repeatedly-required-non-automated" title="Permanent link">#</a></h3>
@@ -3311,20 +3311,20 @@ If the logs are noisy, unnecessary logs should be filtered out.</p>
 <p>While waiting for some messages, throttled logs are usually enough.
 In such cases, wait about 5 seconds as a reference value.</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// Compliant</span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">FooNode::on_timer</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">current_pose_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">RCLCPP_ERROR_THROTTLE</span><span class="p">(</span><span class="n">get_logger</span><span class="p">(),</span><span class="w"> </span><span class="o">*</span><span class="n">get_clock</span><span class="p">(),</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Waiting for current_pose_.&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">FooNode::on_timer</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">current_pose_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">RCLCPP_ERROR_THROTTLE</span><span class="p">(</span><span class="n">get_logger</span><span class="p">(),</span><span class="w"> </span><span class="o">*</span><span class="n">get_clock</span><span class="p">(),</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Waiting for current_pose_.&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
 
 <span class="c1">// Non-compliant</span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">FooNode::on_timer</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">current_pose_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">RCLCPP_ERROR</span><span class="p">(</span><span class="n">get_logger</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;Waiting for current_pose_.&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">FooNode::on_timer</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">current_pose_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">RCLCPP_ERROR</span><span class="p">(</span><span class="n">get_logger</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;Waiting for current_pose_.&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 <h4 id="exception">Exception<a class="headerlink" href="#exception" title="Permanent link">#</a></h4>
 <p>The following cases are acceptable even if it's not throttled.</p>
@@ -3338,58 +3338,58 @@ In such cases, wait about 5 seconds as a reference value.</p>
 When porting libraries to other platforms, fewer dependencies are preferred.</p>
 <h4 id="example_3">Example<a class="headerlink" href="#example_3" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><span class="c1">// Compliant</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;rclcpp/logging.hpp&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;rclcpp/logging.hpp&gt;</span>
 
-<span class="k">class</span><span class="w"> </span><span class="nc">FooCore</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="k">public</span><span class="o">:</span><span class="w"></span>
-<span class="w">  </span><span class="k">explicit</span><span class="w"> </span><span class="n">FooCore</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">Logger</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">logger</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">logger_</span><span class="p">(</span><span class="n">logger</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">FooCore</span><span class="w"> </span><span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">  </span><span class="k">explicit</span><span class="w"> </span><span class="n">FooCore</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">Logger</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">logger</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">logger_</span><span class="p">(</span><span class="n">logger</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 
-<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">process</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">RCLCPP_INFO</span><span class="p">(</span><span class="n">logger_</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;message&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">process</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">RCLCPP_INFO</span><span class="p">(</span><span class="n">logger_</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;message&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-<span class="k">private</span><span class="o">:</span><span class="w"></span>
-<span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">Logger</span><span class="w"> </span><span class="n">logger_</span><span class="p">;</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
+<span class="k">private</span><span class="o">:</span>
+<span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">Logger</span><span class="w"> </span><span class="n">logger_</span><span class="p">;</span>
+<span class="p">};</span>
 
 <span class="c1">// Compliant</span>
 <span class="c1">// Note that logs aren&#39;t published to `/rosout` if the logger name is different from the node name.</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;rclcpp/logging.hpp&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;rclcpp/logging.hpp&gt;</span>
 
-<span class="k">class</span><span class="w"> </span><span class="nc">FooCore</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">process</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">RCLCPP_INFO</span><span class="p">(</span><span class="n">rclcpp</span><span class="o">::</span><span class="n">get_logger</span><span class="p">(</span><span class="s">&quot;foo_core_logger&quot;</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;message&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">FooCore</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">process</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">RCLCPP_INFO</span><span class="p">(</span><span class="n">rclcpp</span><span class="o">::</span><span class="n">get_logger</span><span class="p">(</span><span class="s">&quot;foo_core_logger&quot;</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;message&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">};</span>
 
 
 <span class="c1">// Non-compliant</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;rclcpp/node.hpp&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;rclcpp/node.hpp&gt;</span>
 
-<span class="k">class</span><span class="w"> </span><span class="nc">FooCore</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="k">public</span><span class="o">:</span><span class="w"></span>
-<span class="w">  </span><span class="k">explicit</span><span class="w"> </span><span class="n">FooCore</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">NodeOptions</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">node_options</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">node_</span><span class="p">(</span><span class="s">&quot;foo_core_node&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">node_options</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">FooCore</span><span class="w"> </span><span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">  </span><span class="k">explicit</span><span class="w"> </span><span class="n">FooCore</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">NodeOptions</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">node_options</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">node_</span><span class="p">(</span><span class="s">&quot;foo_core_node&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">node_options</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 
-<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">process</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">RCLCPP_INFO</span><span class="p">(</span><span class="n">node_</span><span class="p">.</span><span class="n">get_logger</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;message&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">process</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">RCLCPP_INFO</span><span class="p">(</span><span class="n">node_</span><span class="p">.</span><span class="n">get_logger</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;message&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-<span class="k">private</span><span class="o">:</span><span class="w"></span>
-<span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">Node</span><span class="w"> </span><span class="n">node_</span><span class="p">;</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
+<span class="k">private</span><span class="o">:</span>
+<span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">Node</span><span class="w"> </span><span class="n">node_</span><span class="p">;</span>
+<span class="p">};</span>
 </code></pre></div>
 <h2 id="tips">Tips<a class="headerlink" href="#tips" title="Permanent link">#</a></h2>
 <h3 id="use-rqt_console-to-filter-logs">Use rqt_console to filter logs<a class="headerlink" href="#use-rqt_console-to-filter-logs" title="Permanent link">#</a></h3>
 <p>To filter logs, using <code>rqt_console</code> is useful:</p>
-<div class="highlight"><pre><span></span><code>ros2 run rqt_console rqt_console
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>run<span class="w"> </span>rqt_console<span class="w"> </span>rqt_console
 </code></pre></div>
 <p>For more details, refer to <a href="https://docs.ros.org/en/rolling/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.html"><abbr title="Robot Operating System">ROS</abbr> 2 Documentation</a>.</p>
 <h3 id="useful-marco-expressions">Useful marco expressions<a class="headerlink" href="#useful-marco-expressions" title="Permanent link">#</a></h3>
 <p>To debug program, sometimes you need to see which functions and lines of code are executed.
 In that case, you can use <code>__FILE__</code>, <code>__LINE__</code> and <code>__FUNCTION__</code> macro:</p>
-<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">FooNode::on_timer</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="n">RCLCPP_DEBUG</span><span class="p">(</span><span class="n">get_logger</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;file: %s, line: %s, function: %s&quot;</span><span class="w"> </span><span class="n">__FILE__</span><span class="p">,</span><span class="w"> </span><span class="n">__LINE__</span><span class="p">,</span><span class="w"> </span><span class="n">__FUNCTION__</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">FooNode::on_timer</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">RCLCPP_DEBUG</span><span class="p">(</span><span class="n">get_logger</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;file: %s, line: %s, function: %s&quot;</span><span class="w"> </span><span class="n">__FILE__</span><span class="p">,</span><span class="w"> </span><span class="n">__LINE__</span><span class="p">,</span><span class="w"> </span><span class="n">__FUNCTION__</span><span class="p">);</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>The example output is as follows:</p>
 <blockquote>
@@ -3417,42 +3417,6 @@ In that case, you can use <code>__FILE__</code>, <code>__LINE__</code> and <code
       
         <footer class="md-footer">
   
-    
-    <nav class="md-footer__inner md-grid" aria-label="Footer" >
-      
-        
-        <a href="../class-design/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Class design" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Class design
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../coordinate-system/" class="md-footer__link md-footer__link--next" aria-label="Next: Coordinate system" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Coordinate system
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
-  
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
@@ -3478,14 +3442,13 @@ In that case, you can use <code>__FILE__</code>, <code>__LINE__</code> and <code
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../../../assets/javascripts/workers/search.12658920.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.5cf534bf.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
-    
     
   </body>
 </html>
