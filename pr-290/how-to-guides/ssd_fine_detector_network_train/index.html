@@ -17,7 +17,7 @@
         <link rel="next" href="../../design/">
       
       <link rel="icon" href="../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.1">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.2">
     
     
       
@@ -25,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.3bd4f189.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.f56500e0.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
@@ -3165,7 +3165,7 @@
 <h1 id="how-to-train-ssd-mobilenetv2-lite-inside-traffic_light_ssd_fine_detector-node">How to Train SSD Mobilenetv2 Lite Inside traffic_light_ssd_fine_detector Node<a class="headerlink" href="#how-to-train-ssd-mobilenetv2-lite-inside-traffic_light_ssd_fine_detector-node" title="Permanent link">#</a></h1>
 <p>SSD MobilenetV2 Lite is a fine detector for traffic light recognition. This node is a part of the traffic light recognition and classification pipeline. You can download original repo and pretrained weights from here <a href="https://github.com/qfgaohao/pytorch-ssd">https://github.com/qfgaohao/pytorch-ssd</a>. Output of this node is an array of traffic light bounding boxes and their labels and <code>traffic_light_classifier</code> node uses this output to classify the traffic lights.</p>
 <p>Neural Network supports two different annotation format as Open-Images and PASCAL-VOC datasets. We can train our dataset after editing label format according to these formats.
-With original repo requirements we sre not able to train the neural network so requirements should be updated as below.</p>
+With original repo requirements we are not able to train the neural network so requirements should be updated as below.</p>
 <p>Requirements are:</p>
 <ul>
 <li><code>Python 3.6+</code></li>
