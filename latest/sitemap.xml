@@ -596,6 +596,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/how-to-guides/debug-autoware/</loc>
+         <lastmod>2023-01-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/latest/how-to-guides/determining-component-dependencies/</loc>
          <lastmod>2023-01-12</lastmod>
          <changefreq>daily</changefreq>
