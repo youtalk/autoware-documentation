@@ -3999,10 +3999,7 @@ ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span c
 <p>If <code>~</code> is used, the map will fail to load.</p>
 </div>
 <p><img alt="after-autoware-launch" src="../images/planning/lane-following/after-autoware-launch.png" /></p>
-<h4 id="2-add-autoware-state-panel">2. Add Autoware State Panel<a class="headerlink" href="#2-add-autoware-state-panel" title="Permanent link">#</a></h4>
-<p>This panel is useful when running planning simulations. To add the panel, click <code>Panels -&gt; Add new panel</code>, select <code>AutowareStatePanel</code>, and then click <code>OK</code>.</p>
-<p><img alt="after-autoware-launch" src="../images/planning/lane-following/open-autoware-state-panel.png" /></p>
-<h4 id="3-set-an-initial-pose-for-the-ego-vehicle">3. Set an initial pose for the ego vehicle<a class="headerlink" href="#3-set-an-initial-pose-for-the-ego-vehicle" title="Permanent link">#</a></h4>
+<h4 id="2-set-an-initial-pose-for-the-ego-vehicle">2. Set an initial pose for the ego vehicle<a class="headerlink" href="#2-set-an-initial-pose-for-the-ego-vehicle" title="Permanent link">#</a></h4>
 <p><img alt="set-initial-pose" src="../images/planning/lane-following/set-initial-pose.png" /></p>
 <p>a) Click the <code>2D Pose estimate</code> button in the toolbar, or hit the <code>P</code> key.</p>
 <p>b) In the 3D View pane, click and hold the left-mouse button, and then drag to set the direction for the initial pose. An image representing the vehicle should now be displayed.</p>
@@ -4011,16 +4008,18 @@ ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span c
 <p>Remember to set the initial pose of the car in the same direction as the lane.</p>
 <p>To confirm the direction of the lane, check the arrowheads displayed on the map.</p>
 </div>
-<h4 id="4-set-a-goal-pose-for-the-ego-vehicle">4. Set a goal pose for the ego vehicle<a class="headerlink" href="#4-set-a-goal-pose-for-the-ego-vehicle" title="Permanent link">#</a></h4>
+<h4 id="3-set-a-goal-pose-for-the-ego-vehicle">3. Set a goal pose for the ego vehicle<a class="headerlink" href="#3-set-a-goal-pose-for-the-ego-vehicle" title="Permanent link">#</a></h4>
 <p>a) Click the <code>2D Goal Pose</code> button in the toolbar, or hit the <code>G</code> key.</p>
 <p>b) In the 3D View pane, click and hold the left-mouse button, and then drag to set the direction for the goal pose. If done correctly, you will see a planned path from initial pose to goal pose.</p>
 <p><img alt="set-goal-pose" src="../images/planning/lane-following/set-goal-pose.png" /></p>
-<h4 id="5-engage-the-ego-vehicle">5. Engage the ego vehicle<a class="headerlink" href="#5-engage-the-ego-vehicle" title="Permanent link">#</a></h4>
-<p>Now you can start the ego vehicle driving by clicking the <code>Engage</code> button in <code>AutowareStatePanel</code>. Alteratively, you can manually engage the vehicle by running the following command:</p>
+<h4 id="4-start-the-ego-vehicle">4. Start the ego vehicle<a class="headerlink" href="#4-start-the-ego-vehicle" title="Permanent link">#</a></h4>
+<p>Now you can start the ego vehicle driving by clicking the <code>AUTO</code> button on <code>OperationMode</code> in <code>AutowareStatePanel</code>.
+Alteratively, you can manually start the vehicle by running the following command:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/autoware/install/setup.bash
-ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>/autoware/engage<span class="w"> </span>autoware_auto_vehicle_msgs/msg/Engage<span class="w"> </span><span class="s2">&quot;engage: true&quot;</span><span class="w"> </span>-1
+ros2<span class="w"> </span>service<span class="w"> </span>call<span class="w"> </span>/api/operation_mode/change_to_autonomous<span class="w"> </span>autoware_adapi_v1_msgs/srv/ChangeOperationMode<span class="w"> </span><span class="o">{}</span>
 </code></pre></div>
-<p><img alt="start-driving" src="../images/planning/lane-following/engage-and-start-planning.png" /></p>
+<p>After that, you can see <code>AUTONOMOUS</code> sign on <code>OperationMode</code> and <code>AUTO</code> button is grayed out.</p>
+<p><img alt="start-driving" src="../images/planning/lane-following/start-driving.png" /></p>
 <h3 id="parking-scenario">Parking scenario<a class="headerlink" href="#parking-scenario" title="Permanent link">#</a></h3>
 <ol>
 <li>
