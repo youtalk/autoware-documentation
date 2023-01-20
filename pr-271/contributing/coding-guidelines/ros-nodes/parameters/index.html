@@ -3228,7 +3228,10 @@ It is recommended not to set default values when you declare <abbr title="Robot 
 </li>
 <li>All the nodes in Autoware <strong>must</strong> have the node parameter file.</li>
 <li>For <code>FOO_package</code>, the parameter is expected to be stored in <code>FOO_package/config</code>.</li>
-<li>The launch file for individual packages must load node parameter by default:
+<li>The launch file for individual packages must load node parameter by default:</li>
+</ul>
+</li>
+</ul>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;launch&gt;</span>
 <span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;foo_node_param_path&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;$(find-pkg-share FOO_package)/config/foo_node.param.yaml&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 
@@ -3236,10 +3239,7 @@ It is recommended not to set default values when you declare <abbr title="Robot 
 <span class="w">    </span><span class="nt">&lt;param</span><span class="w"> </span><span class="na">from=</span><span class="s">&quot;$(var foo_node_param_path)&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">  </span><span class="nt">&lt;/node&gt;</span>
 <span class="nt">&lt;/launch&gt;</span>
-</code></pre></div></li>
-</ul>
-</li>
-</ul>
+</code></pre></div>
 <ul>
 <li><strong>Launch parameter file</strong><ul>
 <li>Launch parameter files store the customized parameters for user's vehicle.<ul>
