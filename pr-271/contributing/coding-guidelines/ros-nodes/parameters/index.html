@@ -17,7 +17,7 @@
         <link rel="next" href="../task-scheduling/">
       
       <link rel="icon" href="../../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.5">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
     
     
       
@@ -2650,11 +2650,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ros-parameter-files" class="md-nav__link">
-    ROS Parameter files
+  <a href="#parameter-files" class="md-nav__link">
+    Parameter files
   </a>
   
-    <nav class="md-nav" aria-label="ROS Parameter files">
+    <nav class="md-nav" aria-label="Parameter files">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3209,11 +3209,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ros-parameter-files" class="md-nav__link">
-    ROS Parameter files
+  <a href="#parameter-files" class="md-nav__link">
+    Parameter files
   </a>
   
-    <nav class="md-nav" aria-label="ROS Parameter files">
+    <nav class="md-nav" aria-label="Parameter files">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3256,23 +3256,31 @@
 
 <h1 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h1>
 <h2 id="ros-parameters"><abbr title="Robot Operating System">ROS</abbr> parameters<a class="headerlink" href="#ros-parameters" title="Permanent link">#</a></h2>
-<p>The <abbr title="Robot Operating System">ROS</abbr> packages in Autoware may have <abbr title="Robot Operating System">ROS</abbr> parameter(s) for setting some variables that should be customized depending on the applications.
+<p>The <abbr title="Robot Operating System">ROS</abbr> packages in Autoware have <abbr title="Robot Operating System">ROS</abbr> parameters. You need to customize the parameters depending on your applications.
 It is recommended not to set default values when you declare <abbr title="Robot Operating System">ROS</abbr> parameters to avoid unintended behaviors.</p>
-<h2 id="ros-parameter-files"><abbr title="Robot Operating System">ROS</abbr> Parameter files<a class="headerlink" href="#ros-parameter-files" title="Permanent link">#</a></h2>
+<h2 id="parameter-files">Parameter files<a class="headerlink" href="#parameter-files" title="Permanent link">#</a></h2>
 <p>Autoware has the following two types of parameter files for <abbr title="Robot Operating System">ROS</abbr> packages:</p>
 <ul>
 <li>Node parameter file: the reference parameter for the node package<ul>
-<li>e.g., <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/planning/behavior_path_planner/config">the parameter for the <code>behavior_path_planner</code> package</a></li>
+<li>For example, <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/planning/behavior_path_planner/config">the parameter for the <code>behavior_path_planner</code> package</a></li>
 </ul>
 </li>
 <li>Launch parameter file: <a href="https://github.com/autowarefoundation/autoware_launch/tree/main/autoware_launch/config">the reference parameter for the <code>autoware_launch</code> package</a></li>
 </ul>
 <p>All the parameter files should have the <code>.param.yaml</code> suffix so that the auto-format can be applied properly.</p>
 <h3 id="node-parameter">Node parameter<a class="headerlink" href="#node-parameter" title="Permanent link">#</a></h3>
-<p>Node parameter files store the default parameters provided for each package in Autoware Universe.
+<p>Node parameter files store the default parameters provided for each package in Autoware.
 All the nodes in Autoware <strong>must</strong> have the node parameter file.
 For <code>FOO_package</code>, the parameter is expected to be stored in <code>FOO_package/config</code>.
-Also, the launch file for individual packages must load node parameter by default.</p>
+Also, the launch file for individual packages must load node parameter by default:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;launch&gt;</span>
+<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;foo_node_param_path&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;$(find-pkg-share FOO_package)/config/foo_node.param.yaml&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;node</span><span class="w"> </span><span class="err">...</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;param</span><span class="w"> </span><span class="na">from=</span><span class="s">&quot;$(var foo_node_param_path)&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/node&gt;</span>
+<span class="nt">&lt;/launch&gt;</span>
+</code></pre></div>
 <h3 id="launch-parameter">Launch parameter<a class="headerlink" href="#launch-parameter" title="Permanent link">#</a></h3>
 <p>Launch parameter files store the parameters that are used when launching Autoware, which are stored under <code>autoware_launch</code> repository. Basically, launch parameters are the subset of node parameters. It is expected that the users tune launch parameters in <code>autoware_launch</code>, and thus, a node parameter file should also be added to launch parameter if the parameter may be tuned depending on the vehicle.</p>
 <!-- prettier-ignore -->
