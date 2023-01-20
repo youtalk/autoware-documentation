@@ -3235,7 +3235,8 @@ It is recommended not to set default values when you declare <abbr title="Robot 
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;launch&gt;</span>
 <span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;foo_node_param_path&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;$(find-pkg-share FOO_package)/config/foo_node.param.yaml&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 
-<span class="w">  </span><span class="nt">&lt;node</span><span class="w"> </span><span class="err">...</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;node</span><span class="w"> </span><span class="na">pkg=</span><span class="s">&quot;FOO_package&quot;</span><span class="w"> </span><span class="na">exec=</span><span class="s">&quot;foo_node&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span>...
 <span class="w">    </span><span class="nt">&lt;param</span><span class="w"> </span><span class="na">from=</span><span class="s">&quot;$(var foo_node_param_path)&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">  </span><span class="nt">&lt;/node&gt;</span>
 <span class="nt">&lt;/launch&gt;</span>
