@@ -14,10 +14,10 @@
         <link rel="prev" href="../">
       
       
-        <link rel="next" href="../map/">
+        <link rel="next" href="data-types/gnss-ins-data/">
       
       <link rel="icon" href="../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.5">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
     
     
       
@@ -2058,12 +2058,18 @@
             
           
         
+          
+        
       
       
         
         
         <div class="md-nav__link md-nav__link--index md-nav__link--active">
           <a href="./">Sensing</a>
+          
+            <label for="__nav_5_3_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
           
         </div>
       
@@ -2074,6 +2080,124 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_3_2_2" type="checkbox" id="__nav_5_3_2_2" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_5_3_2_2" tabindex="0" aria-expanded="false">
+          Data types
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Data types" data-md-level="4">
+        <label class="md-nav__title" for="__nav_5_3_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Data types
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="data-types/gnss-ins-data/" class="md-nav__link">
+        GNSS/INS data pre-processing design
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="data-types/image/" class="md-nav__link">
+        Image pre-processing design
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="data-types/point-cloud/" class="md-nav__link">
+        Point cloud pre-processing design
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="data-types/radar-data/" class="md-nav__link">
+        Radar data pre-processing design
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="data-types/ultrasonics-data/" class="md-nav__link">
+        Ultrasonics data pre-processing design
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
             
           
         </ul>
@@ -3793,6 +3917,55 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#role" class="md-nav__link">
+    Role
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    Inputs
+  </a>
+  
+    <nav class="md-nav" aria-label="Inputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#input-types" class="md-nav__link">
+    Input types
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-by-data-types" class="md-nav__link">
+    Design by data-types
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -3811,10 +3984,70 @@
 
 
 <h1 id="sensing-component-design">Sensing component design<a class="headerlink" href="#sensing-component-design" title="Permanent link">#</a></h1>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Under Construction</p>
-</div>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
+<p>Sensing component is a collection of modules that apply some primitive pre-processing to the raw sensor data.</p>
+<p>The sensor input formats are defined in this component.</p>
+<h2 id="role">Role<a class="headerlink" href="#role" title="Permanent link">#</a></h2>
+<ul>
+<li>Abstraction of data formats to enable usage of sensors from various vendors</li>
+<li>Perform common/primitive sensor data processing required by each component</li>
+</ul>
+<h2 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">#</a></h2>
+<h3 id="input-types">Input types<a class="headerlink" href="#input-types" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Sensor Data</th>
+<th>Message Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Point cloud (Lidars, depth cameras, etc.)</td>
+<td><a href="https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/PointCloud2.msg">sensor_msgs/msg/PointCloud2.msg</a></td>
+</tr>
+<tr>
+<td>Image (RGB, monochrome, depth, etc. cameras)</td>
+<td><a href="https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/Image.msg">sensor_msgs/msg/Image.msg</a></td>
+</tr>
+<tr>
+<td>Radar scan</td>
+<td><a href="https://github.com/ros-perception/radar_msgs/blob/ros2/msg/RadarScan.msg">radar_msgs/msg/RadarScan.msg</a></td>
+</tr>
+<tr>
+<td>Radar tracks</td>
+<td><a href="https://github.com/ros-perception/radar_msgs/blob/ros2/msg/RadarTracks.msg">radar_msgs/msg/RadarTracks.msg</a></td>
+</tr>
+<tr>
+<td><abbr title="Global Navigation Satellite System">GNSS</abbr>-INS position</td>
+<td><a href="https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/NavSatFix.msg">sensor_msgs/msg/NavSatFix.msg</a></td>
+</tr>
+<tr>
+<td><abbr title="Global Navigation Satellite System">GNSS</abbr>-INS orientation</td>
+<td><a href="https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_sensing_msgs/msg/GnssInsOrientationStamped.msg">autoware_sensing_msgs/GnssInsOrientationStamped.msg</a></td>
+</tr>
+<tr>
+<td><abbr title="Global Navigation Satellite System">GNSS</abbr>-INS velocity</td>
+<td><a href="https://github.com/ros2/common_interfaces/blob/rolling/geometry_msgs/msg/TwistWithCovarianceStamped.msg">geometry_msgs/msg/TwistWithCovarianceStamped.msg</a></td>
+</tr>
+<tr>
+<td><abbr title="Global Navigation Satellite System">GNSS</abbr>-INS acceleration</td>
+<td><a href="https://github.com/ros2/common_interfaces/blob/rolling/geometry_msgs/msg/AccelWithCovarianceStamped.msg">geometry_msgs/msg/AccelWithCovarianceStamped.msg</a></td>
+</tr>
+<tr>
+<td>Ultrasonics</td>
+<td><a href="https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/Range.msg">sensor_msgs/msg/Range.msg</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-by-data-types">Design by data-types<a class="headerlink" href="#design-by-data-types" title="Permanent link">#</a></h2>
+<ul>
+<li><a href="data-types/gnss-ins-data/"><abbr title="Global Navigation Satellite System">GNSS</abbr>/INS data pre-processing design</a></li>
+<li><a href="data-types/image/">Image pre-processing design</a></li>
+<li><a href="data-types/point-cloud/">Point cloud pre-processing design</a></li>
+<li><a href="data-types/radar-data/">Radar data pre-processing design</a></li>
+<li><a href="data-types/ultrasonics-data/">Ultrasonics data pre-processing design</a></li>
+</ul>
 <!-- prettier-ignore -->
 
 
