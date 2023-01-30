@@ -3202,7 +3202,8 @@
 
 <h1 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h1>
 <p>The <abbr title="Robot Operating System">ROS</abbr> packages in Autoware have <abbr title="Robot Operating System">ROS</abbr> parameters. You need to customize the parameters depending on your applications.
-It is recommended not to set default values when you declare <abbr title="Robot Operating System">ROS</abbr> parameters to avoid unintended behaviors.</p>
+It is recommended not to set default values when declaring <abbr title="Robot Operating System">ROS</abbr> parameters to avoid unintended behaviors due to accidental use of default values.
+Instead, set parameters from configuration files named <code>*.param.yaml</code>.</p>
 <h2 id="parameter-files">Parameter files<a class="headerlink" href="#parameter-files" title="Permanent link">#</a></h2>
 <p>Autoware has the following two types of parameter files for <abbr title="Robot Operating System">ROS</abbr> packages:</p>
 <ul>
