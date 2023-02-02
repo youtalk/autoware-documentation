@@ -17,7 +17,7 @@
         <link rel="next" href="../add-a-custom-ros-message/">
       
       <link rel="icon" href="../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.9">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.10">
     
     
       
@@ -1878,6 +1878,20 @@
           <li class="md-nav__item">
   <a href="#using-rqt-tools" class="md-nav__link">
     Using rqt tools
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-ros2_graph" class="md-nav__link">
+    Using ros2_graph
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-ros2doctor" class="md-nav__link">
+    Using ros2doctor
   </a>
   
 </li>
@@ -4041,6 +4055,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#using-ros2_graph" class="md-nav__link">
+    Using ros2_graph
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-ros2doctor" class="md-nav__link">
+    Using ros2doctor
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4113,6 +4141,34 @@ it will open</p>
 </code></pre></div>
 </li>
 </ol>
+<h3 id="using-ros2_graph">Using ros2_graph<a class="headerlink" href="#using-ros2_graph" title="Permanent link">#</a></h3>
+<p><a href="https://github.com/kiwicampus/ros2_graph"><code>ros2_graph</code></a> can be used to generate <a href="https://mermaid.js.org/#/">mermaid</a> description of <abbr title="Robot Operating System">ROS</abbr> 2 graphs to add on your markdown files.</p>
+<p>It can also be used as a colorful alternative to <code>rqt_graph</code> even though it would require some tool to render the generated mermaid diagram.</p>
+<p>It can be installed with:</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>ros2-graph
+</code></pre></div>
+<p>Then you can generate a mermaid description of the graph with:</p>
+<div class="highlight"><pre><span></span><code>ros2_graph<span class="w"> </span>your_node
+
+<span class="c1"># or like with an output file</span>
+ros2_graph<span class="w"> </span>/turtlesim<span class="w"> </span>-o<span class="w"> </span>turtle_diagram.md
+
+<span class="c1"># or multiple nodes</span>
+ros2_graph<span class="w"> </span>/turtlesim<span class="w"> </span>/teleop_turtle
+</code></pre></div>
+<p>You can then visualize these graphs with:</p>
+<ul>
+<li><a href="https://mermaid-js.github.io/mermaid-live-editor/">Mermaid Live Editor</a></li>
+<li>Visual Studio Code extension <a href="https://marketplace.visualstudio.com/items?itemName=vstirbu.vscode-mermaid-preview">mermaid preview</a></li>
+<li>JetBrains IDEs <a href="https://www.jetbrains.com/go/guide/tips/mermaid-js-support-in-markdown/">with native support</a></li>
+</ul>
+<h3 id="using-ros2doctor">Using ros2doctor<a class="headerlink" href="#using-ros2doctor" title="Permanent link">#</a></h3>
+<p>When your <abbr title="Robot Operating System">ROS</abbr> 2 setup is not running as expected, you can check its settings with the <code>ros2doctor</code> tool.</p>
+<p><code>ros2doctor</code> checks all aspects of <abbr title="Robot Operating System">ROS</abbr> 2, including platform, version, network, environment, running systems and more, and warns you about possible errors and reasons for issues.</p>
+<p>It's as simple as just running <code>ros2 doctor</code> in your terminal.</p>
+<p>It has the ability to list "Subscribers without publishers" for all topics in the system.</p>
+<p>And this information can help you find if a necessary node isn't running.</p>
+<p>For more details, see the following official documentation for <a href="https://docs.ros.org/en/rolling/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.html">Using ros2doctor to identify issues</a>.</p>
 <h2 id="using-a-debugger-with-breakpoints">Using a debugger with breakpoints<a class="headerlink" href="#using-a-debugger-with-breakpoints" title="Permanent link">#</a></h2>
 <p>Many IDE(e.g. VSCode, CLion) supports debugging C/C++ executable with GBD on linux platform. The following lists some references for using the debugger:</p>
 <ul>
@@ -4169,7 +4225,7 @@ it will open</p>
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.a00a7c5e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.6df46069.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
