@@ -3951,6 +3951,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#error-when-building-python-package" class="md-nav__link">
+    Error when building python package
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4090,6 +4097,13 @@
           <li class="md-nav__item">
   <a href="#errors-when-using-a-fixed-version-of-autoware" class="md-nav__link">
     Errors when using a fixed version of Autoware
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-when-building-python-package" class="md-nav__link">
+    Error when building python package
   </a>
   
 </li>
@@ -4269,6 +4283,15 @@ git<span class="w"> </span>clone<span class="w"> </span>https://github.com/autow
    Changing the branch of <code>autowarefoundation/autoware</code> does not affect the files under <code>src/</code>. You have to run the <code>vcs import</code> command to update them.</p>
 </li>
 </ol>
+<h3 id="error-when-building-python-package">Error when building python package<a class="headerlink" href="#error-when-building-python-package" title="Permanent link">#</a></h3>
+<p>During building the following issue can occurs</p>
+<div class="highlight"><pre><span></span><code>pkg_resources.extern.packaging.version.InvalidVersion:<span class="w"> </span>Invalid<span class="w"> </span>version:<span class="w"> </span><span class="s1">&#39;0.23ubuntu1&#39;</span>
+</code></pre></div>
+<p>The error is due to the fact that since version 66.0.0 <code>setuptools</code> enforces the python packages to be
+<a href="https://peps.python.org/pep-0440/">PEP-440</a> conformant.</p>
+<p>The workaround is to lower the version of <code>setuptools</code> to 65 or lower. It can be done using the following command</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span><span class="nv">setuptools</span><span class="o">==</span><span class="m">65</span>.7.0
+</code></pre></div>
 <h2 id="dockerrocker-issues">Docker/rocker issues<a class="headerlink" href="#dockerrocker-issues" title="Permanent link">#</a></h2>
 <p>If any errors occur when running Autoware with Docker or rocker, first confirm that your Docker installation is working correctly by running the following commands:</p>
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-it<span class="w"> </span>hello-world
