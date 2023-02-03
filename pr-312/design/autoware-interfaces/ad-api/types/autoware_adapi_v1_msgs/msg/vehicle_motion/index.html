@@ -3961,10 +3961,9 @@
 <h1 id="autoware_adapi_v1_msgsmsgvehiclemotion">autoware_adapi_v1_msgs/msg/VehicleMotion<a class="headerlink" href="#autoware_adapi_v1_msgsmsgvehiclemotion" title="Permanent link">#</a></h1>
 <h2 id="definition">Definition<a class="headerlink" href="#definition" title="Permanent link">#</a></h2>
 <div class="highlight"><pre><span></span><code>std_msgs/Header header
-float64 velocity
-float64 angular_velocity
-float64 acceleration
-float64 steering
+geometry_msgs/TwistWithCovariance twist
+geometry_msgs/AccelWithCovariance accel
+float64 steering_tire_angle
 </code></pre></div>
 <h2 id="this-type-uses">This type uses<a class="headerlink" href="#this-type-uses" title="Permanent link">#</a></h2>
 <p>None</p>

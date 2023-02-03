@@ -3981,24 +3981,19 @@
 <td>header for pose transformation</td>
 </tr>
 <tr>
-<td>velocity</td>
-<td>float64</td>
-<td>Vehicle current velocity in [m/s]</td>
+<td>twist</td>
+<td>geometry_msgs/msg/TwistWithCovariance</td>
+<td>Vehicle current twist with covariance , input from /localization/kinematic_state</td>
 </tr>
 <tr>
-<td>angular_velocity</td>
-<td>float64</td>
-<td>Vehicle current angular velocity in [rad/s]</td>
+<td>accel</td>
+<td>geometry_msgs/msg/AccelWithCovariance</td>
+<td>Vehicle current acceleration with ovariance , input from /localization/acceleration</td>
 </tr>
 <tr>
-<td>acceleration</td>
+<td>steering_tire_angle</td>
 <td>float64</td>
-<td>Vehicle current acceleration in [m/ss]</td>
-</tr>
-<tr>
-<td>steering</td>
-<td>float64</td>
-<td>Vehicle current steering in [rad]</td>
+<td>Vehicle current tire angle in [rad], input from /vehicle/status/steering_status</td>
 </tr>
 </tbody>
 </table>
