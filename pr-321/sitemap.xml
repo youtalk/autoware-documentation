@@ -356,6 +356,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-321/design/autoware-interfaces/ad-api/list/api/perception/</loc>
+         <lastmod>2023-02-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-321/design/autoware-interfaces/ad-api/list/api/perception/object_recognition/objects/</loc>
          <lastmod>2023-02-08</lastmod>
          <changefreq>daily</changefreq>
