@@ -426,11 +426,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-312/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/geo_position/</loc>
-         <lastmod>2023-02-21</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-312/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/localization_initialization_state/</loc>
          <lastmod>2023-02-21</lastmod>
          <changefreq>daily</changefreq>
