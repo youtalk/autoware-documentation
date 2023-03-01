@@ -11,13 +11,13 @@
         <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-312/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/vehicle_state/">
       
       
-        <link rel="prev" href="../vehicle_position/">
+        <link rel="prev" href="../turn_indicator/">
       
       
-        <link rel="next" href="../vehicle_turn_indicator/">
+        <link rel="next" href="../velocity_factor/">
       
       <link rel="icon" href="../../../../../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.13">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.15">
     
     
       
@@ -25,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../../../assets/stylesheets/main.ffa9267a.min.css">
+      <link rel="stylesheet" href="../../../../../../../assets/stylesheets/main.113286f1.min.css">
       
         
         <link rel="stylesheet" href="../../../../../../../assets/stylesheets/palette.a0c5b2b5.min.css">
@@ -3960,15 +3960,17 @@
 <h1 id="autoware_adapi_v1_msgsmsgvehiclestate">autoware_adapi_v1_msgs/msg/VehicleState<a class="headerlink" href="#autoware_adapi_v1_msgsmsgvehiclestate" title="Permanent link">#</a></h1>
 <h2 id="definition">Definition<a class="headerlink" href="#definition" title="Permanent link">#</a></h2>
 <div class="highlight"><pre><span></span><code>builtin_interfaces/Time stamp
-autoware_adapi_v1_msgs/VehicleGear gear
-autoware_adapi_v1_msgs/VehicleTurnIndicator turn_indicator
-autoware_adapi_v1_msgs/VehicleHazardLight hazard_light
+float64 steering_tire_angle
+autoware_adapi_v1_msgs/Gear gear
+autoware_adapi_v1_msgs/TurnIndicator turn_indicator
+autoware_adapi_v1_msgs/HazardLight hazard_light
+float32 energy_level
 </code></pre></div>
 <h2 id="this-type-uses">This type uses<a class="headerlink" href="#this-type-uses" title="Permanent link">#</a></h2>
 <ul>
-<li><a href="../vehicle_gear/">autoware_adapi_v1_msgs/msg/VehicleGear</a></li>
-<li><a href="../vehicle_hazard_light/">autoware_adapi_v1_msgs/msg/VehicleHazardLight</a></li>
-<li><a href="../vehicle_turn_indicator/">autoware_adapi_v1_msgs/msg/VehicleTurnIndicator</a></li>
+<li><a href="../gear/">autoware_adapi_v1_msgs/msg/Gear</a></li>
+<li><a href="../hazard_light/">autoware_adapi_v1_msgs/msg/HazardLight</a></li>
+<li><a href="../turn_indicator/">autoware_adapi_v1_msgs/msg/TurnIndicator</a></li>
 </ul>
 <!-- prettier-ignore -->
 

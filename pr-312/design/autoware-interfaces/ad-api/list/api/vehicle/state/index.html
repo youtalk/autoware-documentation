@@ -11,13 +11,13 @@
         <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-312/design/autoware-interfaces/ad-api/list/api/vehicle/state/">
       
       
-        <link rel="prev" href="../position/">
+        <link rel="prev" href="../kinematic/">
       
       
-        <link rel="next" href="../../../../types/autoware_adapi_v1_msgs/msg/localization_initialization_state/">
+        <link rel="next" href="../../../../types/autoware_adapi_v1_msgs/msg/door_status/">
       
       <link rel="icon" href="../../../../../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.13">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.15">
     
     
       
@@ -25,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../../../assets/stylesheets/main.ffa9267a.min.css">
+      <link rel="stylesheet" href="../../../../../../../assets/stylesheets/main.113286f1.min.css">
       
         
         <link rel="stylesheet" href="../../../../../../../assets/stylesheets/palette.a0c5b2b5.min.css">
@@ -3975,18 +3975,23 @@
 </thead>
 <tbody>
 <tr>
+<td>steering_tire_angle</td>
+<td>float64</td>
+<td>Vehicle current tire angle in [rad], input from /vehicle/status/steering_status</td>
+</tr>
+<tr>
 <td>gear</td>
-<td>autoware_adapi_v1_msgs/msg/VehicleGear</td>
+<td>autoware_adapi_v1_msgs/msg/Gear</td>
 <td>gear current status</td>
 </tr>
 <tr>
 <td>turn_indicator</td>
-<td>autoware_adapi_v1_msgs/msg/VehicleTurnIndicator</td>
+<td>autoware_adapi_v1_msgs/msg/TurnIndicator</td>
 <td>turn indicator status, only either left or right will be enabled</td>
 </tr>
 <tr>
 <td>hazard_light</td>
-<td>autoware_adapi_v1_msgs/msg/VehicleHazardLight</td>
+<td>autoware_adapi_v1_msgs/msg/HazardLight</td>
 <td>hazard light status</td>
 </tr>
 </tbody>
