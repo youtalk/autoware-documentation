@@ -17,7 +17,7 @@
         <link rel="next" href="../debug-autoware/">
       
       <link rel="icon" href="../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.1">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
     
     
       
@@ -25,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.402914a4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.c4a75a56.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
@@ -4043,7 +4043,7 @@
   
 
 
-<h1 id="evaluating-the-controller-performance">Evaluating the controller performance<a class="headerlink" href="#evaluating-the-controller-performance" title="Permanent link">#</a></h1>
+<div><h1 id="evaluating-the-controller-performance">Evaluating the controller performance<a class="headerlink" href="#evaluating-the-controller-performance" title="Permanent link">#</a></h1>
 <p>This page shows how to use <code>control_performance_analysis</code> package to evaluate the controllers.</p>
 <p><code>control_performance_analysis</code> is the package to analyze the tracking performance of a control module
 and monitor the driving status of the vehicle.</p>
@@ -4084,28 +4084,28 @@ and monitor the driving status of the vehicle.</p>
 <ul>
 <li>Please mark the <code>If present, use the timestamp in the field [header.stamp]</code> box, then select the OK.</li>
 </ul>
-<p><img alt="Start PlotJuggler" src="../images/evaluating-controller-performance/start-plotjuggler.png" /></p>
+<p><img alt="Start PlotJuggler" src="../images/evaluating-controller-performance/start-plotjuggler.png"></p>
 <h4 id="6-now-you-can-start-to-driving-you-should-see-all-the-performance-and-driving-variables-in-plotjuggler">6. Now, you can start to driving. You should see all the performance and driving variables in PlotJuggler<a class="headerlink" href="#6-now-you-can-start-to-driving-you-should-see-all-the-performance-and-driving-variables-in-plotjuggler" title="Permanent link">#</a></h4>
-<p><img alt="Controller Monitor" src="../images/evaluating-controller-performance/controller-monitor.png" /></p>
+<p><img alt="Controller Monitor" src="../images/evaluating-controller-performance/controller-monitor.png"></p>
 <h3 id="after-driving">After Driving<a class="headerlink" href="#after-driving" title="Permanent link">#</a></h3>
 <h4 id="1-you-can-export-the-statistical-output-and-all-data-to-compare-and-later-usage">1. You can export the statistical output and all data to compare and later usage<a class="headerlink" href="#1-you-can-export-the-statistical-output-and-all-data-to-compare-and-later-usage" title="Permanent link">#</a></h4>
 <ul>
 <li>With statistical data, you can export the all statistical values like (min, max, average) to compare the controllers.</li>
 </ul>
-<p><img alt="CVS Export" src="../images/evaluating-controller-performance/export-cvs.png" /></p>
+<p><img alt="CVS Export" src="../images/evaluating-controller-performance/export-cvs.png"></p>
 <ul>
 <li>You can also export all data to later use. To investigate them again, after launch PlotJuggler, import the <code>.cvs</code> file from data section.</li>
 </ul>
-<p><img alt="Import Data" src="../images/evaluating-controller-performance/import-data.png" /></p>
+<p><img alt="Import Data" src="../images/evaluating-controller-performance/import-data.png"></p>
 <h3 id="tips">Tips<a class="headerlink" href="#tips" title="Permanent link">#</a></h3>
 <ul>
 <li>You can plot the vehicle position. Select the two curve (keeping CTRL key pressed) and Drag &amp; Drop them using the <strong>RIGHT Mouse button</strong>. Please visit the <code>Help -&gt; Cheatsheet</code> in PlotJuggler to see more tips about it.</li>
 </ul>
-<p><img alt="Plot XY Curve" src="../images/evaluating-controller-performance/plot-xy.png" /></p>
+<p><img alt="Plot XY Curve" src="../images/evaluating-controller-performance/plot-xy.png"></p>
 <ul>
 <li>If you see too much noised curve in plots, you can adjust the <code>odom_interval</code> and <code>low_pass_filter_gain</code> from <a href="https://github.com/autowarefoundation/autoware.universe/blob/main/control/control_performance_analysis/config/control_performance_analysis.param.yaml">here</a> to avoid noised data.</li>
 </ul>
-<!-- prettier-ignore -->
+<!-- prettier-ignore --></div>
 
 
 
@@ -4118,10 +4118,10 @@ and monitor the driving status of the vehicle.</p>
           
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             Back to top
-          </a>
+          </button>
         
       </main>
       
@@ -4155,7 +4155,7 @@ and monitor the driving status of the vehicle.</p>
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.b78d2936.min.js"></script>
+      <script src="../../assets/javascripts/bundle.efa0ade1.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
