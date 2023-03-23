@@ -4289,7 +4289,7 @@
   
 
 
-<h1 id="integrating-autoware-with-your-vehicle">Integrating Autoware with your vehicle<a class="headerlink" href="#integrating-autoware-with-your-vehicle" title="Permanent link">#</a></h1>
+<div><h1 id="integrating-autoware-with-your-vehicle">Integrating Autoware with your vehicle<a class="headerlink" href="#integrating-autoware-with-your-vehicle" title="Permanent link">#</a></h1>
 <h2 id="1-prepare-your-real-vehicle-hardware">1. Prepare your real vehicle hardware<a class="headerlink" href="#1-prepare-your-real-vehicle-hardware" title="Permanent link">#</a></h2>
 <p>Prerequisites for the vehicle:</p>
 <ul>
@@ -4404,11 +4404,11 @@ You can also refer to TIER IV's <a href="https://github.com/tier4/pacmod_interfa
 <h3 id="engage">Engage<a class="headerlink" href="#engage" title="Permanent link">#</a></h3>
 <p>In your terminal, execute the following command.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/autoware.YOURS/install/setup.bash
-ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>/autoware.YOURS/engage<span class="w"> </span>autoware_auto_vehicle_msgs/msg/Engage<span class="w"> </span><span class="s2">&quot;engage: true&quot;</span><span class="w"> </span>-1
+ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>/autoware.YOURS/engage<span class="w"> </span>autoware_auto_vehicle_msgs/msg/Engage<span class="w"> </span><span class="s2">"engage: true"</span><span class="w"> </span>-1
 </code></pre></div>
 <p>You can also engage via RViz with "AutowareStatePanel".
 The panel can be found in <code>Panels &gt; Add New Panel &gt; tier4_state_rviz_plugin &gt; AutowareStatePanel</code>.</p>
-<p><img alt="Autoware State Panel" src="../images/integrating-autoware-with-your-vehicle/autoware-state-panel.png" style="height:360px;width:640px" /></p>
+<p><img alt="Autoware State Panel" src="../images/integrating-autoware-with-your-vehicle/autoware-state-panel.png" style="height:360px;width:640px"></p>
 <p>Now the vehicle should drive along the calculated path!</p>
 <h2 id="7-tune-parameters-for-your-vehicle-environment">7. Tune parameters for your vehicle &amp; environment<a class="headerlink" href="#7-tune-parameters-for-your-vehicle-environment" title="Permanent link">#</a></h2>
 <p>You may need to tune your parameters depending on the domain in which you will operate your vehicle.</p>
@@ -4457,7 +4457,7 @@ The panel can be found in <code>Panels &gt; Add New Panel &gt; tier4_state_rviz_
 <ul>
 <li>Include the header file of the message type and start coding</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;interpolation/linear_interpolation.hpp&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"interpolation/linear_interpolation.hpp"</span>
 </code></pre></div>
 <h4 id="customization-in-other-platforms">Customization in other platforms<a class="headerlink" href="#customization-in-other-platforms" title="Permanent link">#</a></h4>
 <p>In this case, the compiled package shall be considered as a dynamic link library and could be linked with any project. You can configure the compile options, for example in "CMakeLists.txt":</p>
@@ -4466,10 +4466,10 @@ The panel can be found in <code>Panels &gt; Add New Panel &gt; tier4_state_rviz_
 <span class="nb">target_link_libraries</span><span class="p">(</span><span class="o">${</span><span class="nv">node_name</span><span class="o">}</span><span class="w"> </span><span class="s">PUBLIC</span><span class="w"> </span><span class="s">interpolation</span><span class="p">)</span>
 </code></pre></div>
 <p>Remember to replace the "${node_name}" with the correct name. And then you can include the header file and start coding</p>
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;interpolation/linear_interpolation.hpp&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"interpolation/linear_interpolation.hpp"</span>
 </code></pre></div>
 <p>If you have any issues or questions, feel free to create an <a href="https://github.com/orgs/autowarefoundation/discussions">Autoware Foundation GitHub Discussion</a> in the Q&amp;A category!</p>
-<!-- prettier-ignore -->
+<!-- prettier-ignore --></div>
 
 
 

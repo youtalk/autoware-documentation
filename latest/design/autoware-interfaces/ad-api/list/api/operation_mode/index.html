@@ -3982,7 +3982,7 @@
   
 
 
-<h1 id="operation-mode-api">Operation Mode API<a class="headerlink" href="#operation-mode-api" title="Permanent link">#</a></h1>
+<div><h1 id="operation-mode-api">Operation Mode API<a class="headerlink" href="#operation-mode-api" title="Permanent link">#</a></h1>
 <ul>
 <li><a href="../../../list/api/operation_mode/state">/api/operation_mode/state</a></li>
 <li><a href="../../../list/api/operation_mode/change_to_autonomous">/api/operation_mode/change_to_autonomous</a></li>
@@ -4023,7 +4023,7 @@ Autoware control mode has four operation modes.</p>
 </tr>
 </tbody>
 </table>
-<p><img alt="operation-mode-architecture" src="architecture.drawio.svg" /></p>
+<p><img alt="operation-mode-architecture" src="architecture.drawio.svg"></p>
 <h2 id="states">States<a class="headerlink" href="#states" title="Permanent link">#</a></h2>
 <h3 id="autoware-control-flag">Autoware control flag<a class="headerlink" href="#autoware-control-flag" title="Permanent link">#</a></h3>
 <p>The flag <code>is_autoware_control_enabled</code> indicates if the vehicle is controlled by Autoware.
@@ -4036,7 +4036,7 @@ The flags <code>change_to_*</code> can be used to check if it is possible to tra
 <p>Since Autoware may not be able to guarantee safety, such as switching to autonomous mode during overspeed.
 There is the flag <code>is_in_transition</code> for this situation and it will be true when changing modes.
 The operator who changed the mode should ensure safety while this flag is true. The flag will be false when the mode change is complete.</p>
-<!-- prettier-ignore -->
+<!-- prettier-ignore --></div>
 
 
 

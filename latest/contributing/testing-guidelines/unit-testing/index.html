@@ -4031,7 +4031,7 @@
   
 
 
-<h1 id="unit-testing">Unit testing<a class="headerlink" href="#unit-testing" title="Permanent link">#</a></h1>
+<div><h1 id="unit-testing">Unit testing<a class="headerlink" href="#unit-testing" title="Permanent link">#</a></h1>
 <p>Unit testing is the first phase of testing and is used to validate units of source code such as classes and functions.
 Typically, a unit of code is tested by validating its output for various inputs.
 Unit testing helps ensure that the code behaves as intended and prevents accidental changes of behavior.</p>
@@ -4045,8 +4045,8 @@ it is recommended to use commands from <a href="https://github.com/ros2/ament_cm
 All other tests follow a similar pattern.</p>
 <h2 id="create-a-unit-test-with-gtest">Create a unit test with gtest<a class="headerlink" href="#create-a-unit-test-with-gtest" title="Permanent link">#</a></h2>
 <p>In <code>my_cool_pkg/test</code>, create the <code>gtest</code> code file <code>test_my_cool_pkg.cpp</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;gtest/gtest.h&quot;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;my_cool_pkg/my_cool_pkg.hpp&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"gtest/gtest.h"</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"my_cool_pkg/my_cool_pkg.hpp"</span>
 <span class="n">TEST</span><span class="p">(</span><span class="n">TestMyCoolPkg</span><span class="p">,</span><span class="w"> </span><span class="n">TestHello</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="n">EXPECT_EQ</span><span class="p">(</span><span class="n">my_cool_pkg</span><span class="o">::</span><span class="n">print_hello</span><span class="p">(),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
 <span class="p">}</span>
@@ -4117,9 +4117,9 @@ There is also the <code>~/workspace/log/latest_*/</code> directory containing sy
 <span class="go">test 1</span>
 <span class="go">    Start 1: test_my_cool_pkg</span>
 
-<span class="go">1: Test command: /usr/bin/python3 &quot;-u&quot; &quot;~/workspace/install/share/ament_cmake_test/cmake/run_test.py&quot; &quot;~/workspace/build/my_cool_pkg/test_results/my_cool_pkg/test_my_cool_pkg.gtest.xml&quot; &quot;--package-name&quot; &quot;my_cool_pkg&quot; &quot;--output-file&quot; &quot;~/workspace/build/my_cool_pkg/ament_cmake_gtest/test_my_cool_pkg.txt&quot; &quot;--command&quot; &quot;~/workspace/build/my_cool_pkg/test_my_cool_pkg&quot; &quot;--gtest_output=xml:~/workspace/build/my_cool_pkg/test_results/my_cool_pkg/test_my_cool_pkg.gtest.xml&quot;</span>
+<span class="go">1: Test command: /usr/bin/python3 "-u" "~/workspace/install/share/ament_cmake_test/cmake/run_test.py" "~/workspace/build/my_cool_pkg/test_results/my_cool_pkg/test_my_cool_pkg.gtest.xml" "--package-name" "my_cool_pkg" "--output-file" "~/workspace/build/my_cool_pkg/ament_cmake_gtest/test_my_cool_pkg.txt" "--command" "~/workspace/build/my_cool_pkg/test_my_cool_pkg" "--gtest_output=xml:~/workspace/build/my_cool_pkg/test_results/my_cool_pkg/test_my_cool_pkg.gtest.xml"</span>
 <span class="go">1: Test timeout computed to be: 60</span>
-<span class="go">1: -- run_test.py: invoking following command in &#39;~/workspace/src/my_cool_pkg&#39;:</span>
+<span class="go">1: -- run_test.py: invoking following command in '~/workspace/src/my_cool_pkg':</span>
 <span class="go">1:  - ~/workspace/build/my_cool_pkg/test_my_cool_pkg --gtest_output=xml:~/workspace/build/my_cool_pkg/test_results/my_cool_pkg/test_my_cool_pkg.gtest.xml</span>
 <span class="go">1: [==========] Running 1 test from 1 test case.</span>
 <span class="go">1: [----------] Global test environment set-up.</span>
@@ -4133,8 +4133,8 @@ There is also the <code>~/workspace/log/latest_*/</code> directory containing sy
 <span class="go">1: [==========] 1 test from 1 test case ran. (0 ms total)</span>
 <span class="go">1: [  PASSED  ] 1 test.</span>
 <span class="go">1: -- run_test.py: return code 0</span>
-<span class="go">1: -- run_test.py: inject classname prefix into gtest result file &#39;~/workspace/build/my_cool_pkg/test_results/my_cool_pkg/test_my_cool_pkg.gtest.xml&#39;</span>
-<span class="go">1: -- run_test.py: verify result file &#39;~/workspace/build/my_cool_pkg/test_results/my_cool_pkg/test_my_cool_pkg.gtest.xml&#39;</span>
+<span class="go">1: -- run_test.py: inject classname prefix into gtest result file '~/workspace/build/my_cool_pkg/test_results/my_cool_pkg/test_my_cool_pkg.gtest.xml'</span>
+<span class="go">1: -- run_test.py: verify result file '~/workspace/build/my_cool_pkg/test_results/my_cool_pkg/test_my_cool_pkg.gtest.xml'</span>
 <span class="go">1/5 Test #1: test_my_cool_pkg ...................   Passed    0.09 sec</span>
 
 <span class="go">...</span>
@@ -4157,7 +4157,7 @@ There is also the <code>~/workspace/log/latest_*/</code> directory containing sy
 a code coverage metric is a measure of how much of the program code has been exercised (covered) during testing.</p>
 <p>In the Autoware repositories, <a href="https://app.codecov.io/gh/autowarefoundation/autoware.universe/">Codecov</a> is used to automatically calculate coverage of any open pull request.</p>
 <p>More details about the code coverage metrics can be found in the <a href="https://docs.codecov.com/docs/about-code-coverage">Codecov documentation</a>.</p>
-<!-- prettier-ignore -->
+<!-- prettier-ignore --></div>
 
 
 

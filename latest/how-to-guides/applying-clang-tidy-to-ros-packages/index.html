@@ -3989,7 +3989,7 @@
   
 
 
-<h1 id="applying-clang-tidy-to-ros-packages">Applying Clang-Tidy to <abbr title="Robot Operating System">ROS</abbr> packages<a class="headerlink" href="#applying-clang-tidy-to-ros-packages" title="Permanent link">#</a></h1>
+<div><h1 id="applying-clang-tidy-to-ros-packages">Applying Clang-Tidy to <abbr title="Robot Operating System">ROS</abbr> packages<a class="headerlink" href="#applying-clang-tidy-to-ros-packages" title="Permanent link">#</a></h1>
 <p><a href="https://clang.llvm.org/extra/clang-tidy/">Clang-Tidy</a> is a powerful C++ linter.</p>
 <h2 id="preparation">Preparation<a class="headerlink" href="#preparation" title="Permanent link">#</a></h2>
 <p>You need to generate <code>build/compile_commands.json</code> before using Clang-Tidy.</p>
@@ -4000,7 +4000,7 @@
 </code></pre></div>
 <p>If you want to apply Clang-Tidy to all files in a package, using the <a href="https://github.com/sharkdp/fd">fd</a> command is useful.
 To install <code>fd</code>, see the <a href="https://github.com/sharkdp/fd#on-ubuntu">installation manual</a>.</p>
-<div class="highlight"><pre><span></span><code>clang-tidy<span class="w"> </span>-p<span class="w"> </span>build/<span class="w"> </span><span class="k">$(</span>fd<span class="w"> </span>-e<span class="w"> </span>cpp<span class="w"> </span>-e<span class="w"> </span>hpp<span class="w"> </span>--full-path<span class="w"> </span><span class="s2">&quot;/autoware_utils/&quot;</span><span class="k">)</span>
+<div class="highlight"><pre><span></span><code>clang-tidy<span class="w"> </span>-p<span class="w"> </span>build/<span class="w"> </span><span class="k">$(</span>fd<span class="w"> </span>-e<span class="w"> </span>cpp<span class="w"> </span>-e<span class="w"> </span>hpp<span class="w"> </span>--full-path<span class="w"> </span><span class="s2">"/autoware_utils/"</span><span class="k">)</span>
 </code></pre></div>
 <h2 id="ide-integration">IDE integration<a class="headerlink" href="#ide-integration" title="Permanent link">#</a></h2>
 <h3 id="clion">CLion<a class="headerlink" href="#clion" title="Permanent link">#</a></h3>
@@ -4014,7 +4014,7 @@ To install <code>fd</code>, see the <a href="https://github.com/sharkdp/fd#on-ub
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">#</a></h2>
 <p>If you encounter <code>clang-diagnostic-error</code>, try installing <code>libomp-dev</code>.</p>
 <p>Related: <a href="https://github.com/autowarefoundation/autoware-github-actions/pull/172">https://github.com/autowarefoundation/autoware-github-actions/pull/172</a></p>
-<!-- prettier-ignore -->
+<!-- prettier-ignore --></div>
 
 
 

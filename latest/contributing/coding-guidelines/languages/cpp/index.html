@@ -4085,7 +4085,7 @@
   
 
 
-<h1 id="c">C++<a class="headerlink" href="#c" title="Permanent link">#</a></h1>
+<div><h1 id="c">C++<a class="headerlink" href="#c" title="Permanent link">#</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Under Construction</p>
@@ -4123,9 +4123,9 @@ For the usage, see <a href="../../../../how-to-guides/applying-clang-tidy-to-ros
 <li>C++ system headers</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="c1">// Compliant</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;my_header.hpp&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"my_header.hpp"</span>
 
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;my_package/foo.hpp&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"my_package/foo.hpp"</span>
 
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;package1/foo.hpp&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;package2/bar.hpp&gt;</span>
@@ -4142,8 +4142,8 @@ For the usage, see <a href="../../../../how-to-guides/applying-clang-tidy-to-ros
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;package2/bar.hpp&gt;</span>
 
 <span class="cp">#define EIGEN_MPL2_ONLY</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;my_header.hpp&quot;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;my_package/foo.hpp&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"my_header.hpp"</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"my_package/foo.hpp"</span>
 
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Eigen/Core&gt;</span>
 
@@ -4156,9 +4156,9 @@ For the usage, see <a href="../../../../how-to-guides/applying-clang-tidy-to-ros
 <div class="highlight"><pre><span></span><code><span class="c1">// Compliant</span>
 <span class="cp">#define EIGEN_MPL2_ONLY</span>
 
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;my_header.hpp&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"my_header.hpp"</span>
 
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;my_package/foo.hpp&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"my_package/foo.hpp"</span>
 
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Eigen/Core&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;package1/foo.hpp&gt;</span>
@@ -4171,9 +4171,9 @@ For the usage, see <a href="../../../../how-to-guides/applying-clang-tidy-to-ros
 </code></pre></div>
 <p>If there are any reasons for defining macros at a specific position, write a comment before the macro.</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// Compliant</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;my_header.hpp&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"my_header.hpp"</span>
 
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;my_package/foo.hpp&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"my_package/foo.hpp"</span>
 
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;package1/foo.hpp&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;package2/bar.hpp&gt;</span>
@@ -4255,7 +4255,7 @@ For the usage, see <a href="../../../../how-to-guides/applying-clang-tidy-to-ros
 <div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">RosApi</span><span class="p">;</span>
 <span class="n">RosApi</span><span class="w"> </span><span class="n">ros_api</span><span class="p">;</span>
 </code></pre></div>
-<!-- prettier-ignore -->
+<!-- prettier-ignore --></div>
 
 
 
