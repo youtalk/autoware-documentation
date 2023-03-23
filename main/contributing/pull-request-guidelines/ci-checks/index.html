@@ -4073,18 +4073,18 @@
   
 
 
-<h1 id="ci-checks">CI checks<a class="headerlink" href="#ci-checks" title="Permanent link">#</a></h1>
+<div><h1 id="ci-checks">CI checks<a class="headerlink" href="#ci-checks" title="Permanent link">#</a></h1>
 <p>Autoware has several checks for a pull request.
 The results are shown at the bottom of the pull request page as below.</p>
-<p><img alt="ci-checks" src="../images/ci-checks.png" /></p>
+<p><img alt="ci-checks" src="../images/ci-checks.png"></p>
 <p>If the ❌ mark is shown, click the <code>Details</code> button and investigate the failure reason.</p>
 <p>If the <code>Required</code> mark is shown, you cannot merge the pull request unless you resolve the error.
 If not, it is optional, but preferably it should be fixed.</p>
-<p>The following sections explain about common CI checks in Autoware.<br />
+<p>The following sections explain about common CI checks in Autoware.<br>
 Note that some repositories may have different settings.</p>
 <h2 id="dco">DCO<a class="headerlink" href="#dco" title="Permanent link">#</a></h2>
 <p>The Developer Certificate of Origin (DCO) is a lightweight way for contributors to certify that they wrote or otherwise have the right to submit the code they are contributing to the project.</p>
-<p>This workflow checks whether the pull request fulfills <code>DCO</code>.<br />
+<p>This workflow checks whether the pull request fulfills <code>DCO</code>.<br>
 You need to confirm the <a href="https://developercertificate.org/">required items</a> and commit with <code>git commit -s</code>.</p>
 <p>For more information, refer to the <a href="https://github.com/apps/dco">GitHub App page</a>.</p>
 <h2 id="semantic-pull-request">semantic-pull-request<a class="headerlink" href="#semantic-pull-request" title="Permanent link">#</a></h2>
@@ -4093,7 +4093,7 @@ You need to confirm the <a href="https://developercertificate.org/">required ite
 <h2 id="pre-commit">pre-commit<a class="headerlink" href="#pre-commit" title="Permanent link">#</a></h2>
 <p><a href="https://pre-commit.com/">pre-commit</a> is a tool to run formatters or linters when you commit.</p>
 <p>This workflow checks whether the pull request has no error with <code>pre-commit</code>.</p>
-<p>In the workflow <code>pre-commit.ci - pr</code> is enabled in the repository, it will automatically fix errors by <a href="https://pre-commit.ci/">pre-commit.ci</a> as many as possible.<br />
+<p>In the workflow <code>pre-commit.ci - pr</code> is enabled in the repository, it will automatically fix errors by <a href="https://pre-commit.ci/">pre-commit.ci</a> as many as possible.<br>
 If there are some errors remain, fix them manually.</p>
 <p>You can run <code>pre-commit</code> in your local environment by the following command:</p>
 <div class="highlight"><pre><span></span><code>pre-commit<span class="w"> </span>run<span class="w"> </span>-a
@@ -4101,26 +4101,26 @@ If there are some errors remain, fix them manually.</p>
 <p>Or you can install <code>pre-commit</code> to the repository and automatically run it before committing:</p>
 <div class="highlight"><pre><span></span><code>pre-commit<span class="w"> </span>install
 </code></pre></div>
-<p>Since it is difficult to detect errors with no false positives, some jobs are split into another config file and marked as optional.<br />
+<p>Since it is difficult to detect errors with no false positives, some jobs are split into another config file and marked as optional.<br>
 To check them, use the <code>--config</code> option:</p>
 <div class="highlight"><pre><span></span><code>pre-commit<span class="w"> </span>run<span class="w"> </span>-a<span class="w"> </span>--config<span class="w"> </span>.pre-commit-config-optional.yaml
 </code></pre></div>
 <h2 id="spell-check-differential">spell-check-differential<a class="headerlink" href="#spell-check-differential" title="Permanent link">#</a></h2>
-<p>This workflow detects spelling mistakes using <a href="https://github.com/streetsidesoftware/cspell">CSpell</a> with <a href="https://github.com/tier4/autoware-spell-check-dict/blob/main/.cspell.json">our dictionary file</a>.<br />
+<p>This workflow detects spelling mistakes using <a href="https://github.com/streetsidesoftware/cspell">CSpell</a> with <a href="https://github.com/tier4/autoware-spell-check-dict/blob/main/.cspell.json">our dictionary file</a>.<br>
 You can submit pull requests to <a href="https://github.com/tier4/autoware-spell-check-dict">tier4/autoware-spell-check-dict</a> to update the dictionary.</p>
 <p>Since it is difficult to detect errors with no false positives, it is an optional workflow, but it is preferable to remove spelling mistakes as many as possible.</p>
 <h2 id="build-and-test-differential">build-and-test-differential<a class="headerlink" href="#build-and-test-differential" title="Permanent link">#</a></h2>
-<p>This workflow checks <code>colcon build</code> and <code>colcon test</code> for the pull request.<br />
+<p>This workflow checks <code>colcon build</code> and <code>colcon test</code> for the pull request.<br>
 To make the CI faster, it doesn't check all packages but only modified packages and the dependencies.</p>
 <h2 id="build-and-test-differential-self-hosted">build-and-test-differential-self-hosted<a class="headerlink" href="#build-and-test-differential-self-hosted" title="Permanent link">#</a></h2>
-<p>This workflow is the <code>ARM64</code> version of <code>build-and-test-differential</code>.<br />
+<p>This workflow is the <code>ARM64</code> version of <code>build-and-test-differential</code>.<br>
 You need to add the <code>ARM64</code> label to run this workflow.</p>
-<p>For reference information, since ARM machines are not supported by GitHub-hosted runners, we use self-hosted runners prepared by the <abbr title="Autoware Foundation">AWF</abbr>.<br />
+<p>For reference information, since ARM machines are not supported by GitHub-hosted runners, we use self-hosted runners prepared by the <abbr title="Autoware Foundation">AWF</abbr>.<br>
 For the details about self-hosted runners, refer to <a href="https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners">GitHub Docs</a>.</p>
 <h2 id="deploy-docs">deploy-docs<a class="headerlink" href="#deploy-docs" title="Permanent link">#</a></h2>
-<p>This workflow deploys the preview documentation site for the pull request.<br />
+<p>This workflow deploys the preview documentation site for the pull request.<br>
 You need to add the <code>deploy-docs</code> label to run this workflow.</p>
-<!-- prettier-ignore -->
+<!-- prettier-ignore --></div>
 
 
 

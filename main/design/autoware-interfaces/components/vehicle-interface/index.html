@@ -4153,8 +4153,8 @@
   
 
 
-<h1 id="vehicle-interface">Vehicle Interface<a class="headerlink" href="#vehicle-interface" title="Permanent link">#</a></h1>
-<p><img alt="Node diagram" src="../images/Vehicle-Interface-Bus-ODD-Architecture.drawio.svg" /></p>
+<div><h1 id="vehicle-interface">Vehicle Interface<a class="headerlink" href="#vehicle-interface" title="Permanent link">#</a></h1>
+<p><img alt="Node diagram" src="../images/Vehicle-Interface-Bus-ODD-Architecture.drawio.svg"></p>
 <p>The <code>Vehicle Interface</code> receives the <code>Vehicle Signal Commands</code> and <code>Vehicle Control Commands</code> and publishes the vehicle status. It also communicates with vehicle by the vehicle-specific protocol.</p>
 <p>The <code>Gate</code> switches multiple <code>Vehicle Control Commands</code>. These signals include autonomous diving command, joystick, remote control, and emergency operation, etc.
 The <code>Adapter</code> converts generalized control command (target steering, steering rate, velocity, acceleration, jerk) into vehicle-specific control values (steering-torque, wheel-torque, voltage, pressure, accel pedal position, etc).</p>
@@ -4208,7 +4208,7 @@ The <code>Adapter</code> converts generalized control command (target steering, 
 <p><strong>The message definition is under discussion.</strong></p>
 <h3 id="vehicle-communication">Vehicle Communication<a class="headerlink" href="#vehicle-communication" title="Permanent link">#</a></h3>
 <p>Vehicle specific messages protocol like CAN (Controller Area Network).</p>
-<!-- prettier-ignore -->
+<!-- prettier-ignore --></div>
 
 
 

@@ -4065,26 +4065,26 @@
   
 
 
-<h1 id="autoware-interface-design">Autoware interface design<a class="headerlink" href="#autoware-interface-design" title="Permanent link">#</a></h1>
+<div><h1 id="autoware-interface-design">Autoware interface design<a class="headerlink" href="#autoware-interface-design" title="Permanent link">#</a></h1>
 <h2 id="abstract">Abstract<a class="headerlink" href="#abstract" title="Permanent link">#</a></h2>
 <p>Autoware defines three categories of interfaces. The first one is Autoware AD API for operating the vehicle from outside the autonomous driving system such as the Fleet Management System (<abbr title="Fleet Management System">FMS</abbr>) and Human Machine Interface (<abbr title="Human Machine Interface">HMI</abbr>) for operators or passengers. The second one is Autoware component interface for components to communicate with each other. The last one is the local interface used inside the component.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">#</a></h2>
 <ul>
 <li>
 <p>Applications can operate multiple and various vehicles in a common way.</p>
-<p><img alt="unified-access" src="general/unified-access.drawio.svg" /></p>
+<p><img alt="unified-access" src="general/unified-access.drawio.svg"></p>
 </li>
 </ul>
 <ul>
 <li>
 <p>Applications are not affected by version updates and implementation changes.</p>
-<p><img alt="absorb-changes" src="general/absorb-changes.drawio.svg" /></p>
+<p><img alt="absorb-changes" src="general/absorb-changes.drawio.svg"></p>
 </li>
 </ul>
 <ul>
 <li>
 <p>Developers only need to know the interface to add new features and hardware.</p>
-<p><img alt="new-feature" src="general/new-feature.drawio.svg" /></p>
+<p><img alt="new-feature" src="general/new-feature.drawio.svg"></p>
 </li>
 </ul>
 <h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">#</a></h2>
@@ -4117,7 +4117,7 @@ Each component uses the interface to provide functionality and to access other c
 AD API implementation is also a component.
 Since the functional elements required for AD API are defined as the component interface, other components do not need to consider AD API directly.
 Tools for evaluation and debugging, such as simulators, access both AD API and the component interface.</p>
-<p><img alt="architecture" src="general/architecture.drawio.svg" /></p>
+<p><img alt="architecture" src="general/architecture.drawio.svg"></p>
 <p>The component interface has a hierarchical specification.
 The top-level architecture consists of some components. Each component has some options of the next-level architecture.
 Developers select one of them when implementing the component. The simplest next-level architecture is monolithic.
@@ -4126,7 +4126,7 @@ Others are arbitrary architecture consists of sub-components and have advantages
 A sub-component can be combined with others that adopt the same architecture.
 Third parties can define and publish their own architecture and interface for open source development.
 It is desirable to propose them for standardization if they are sufficiently evaluated.</p>
-<p><img alt="component" src="general/hierarchy.drawio.svg" /></p>
+<p><img alt="component" src="general/hierarchy.drawio.svg"></p>
 <h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">#</a></h2>
 <h3 id="communication-methods">Communication methods<a class="headerlink" href="#communication-methods" title="Permanent link">#</a></h3>
 <p>As shown in the table below, interfaces are classified into four communication methods to define their behavior.
@@ -4240,7 +4240,7 @@ See <a href="https://github.com/autowarefoundation/autoware_adapi_msgs/tree/main
   Autoware tries to keep working as long as possible, but it is not guaranteed to be safe.
   Safety should be considered for the entire system, including the applications.</li>
 </ul>
-<!-- prettier-ignore -->
+<!-- prettier-ignore --></div>
 
 
 

@@ -4127,7 +4127,7 @@
   
 
 
-<h1 id="advanced-usage-of-colcon">Advanced usage of colcon<a class="headerlink" href="#advanced-usage-of-colcon" title="Permanent link">#</a></h1>
+<div><h1 id="advanced-usage-of-colcon">Advanced usage of colcon<a class="headerlink" href="#advanced-usage-of-colcon" title="Permanent link">#</a></h1>
 <p>This page shows some advanced and useful usage of <code>colcon</code>.
 If you need more detailed information, refer to the <a href="https://colcon.readthedocs.io/">colcon documentation</a>.</p>
 <h2 id="common-mistakes">Common mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">#</a></h2>
@@ -4173,8 +4173,8 @@ To remove the cache and rebuild the workspace, run the following command:</p>
 <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.colcon
 cat<span class="w"> </span>&lt;&lt;<span class="w"> </span>EOS<span class="w"> </span>&gt;<span class="w"> </span>~/.colcon/defaults.yaml
 <span class="o">{</span>
-<span class="w">    </span><span class="s2">&quot;build&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<span class="w">        </span><span class="s2">&quot;symlink-install&quot;</span>:<span class="w"> </span><span class="nb">true</span>
+<span class="w">    </span><span class="s2">"build"</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="s2">"symlink-install"</span>:<span class="w"> </span><span class="nb">true</span>
 <span class="w">    </span><span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div>
@@ -4200,12 +4200,12 @@ It is recommended to use it to save your time unless you have a specific reason 
 </li>
 <li>
 <p>Write the following in your <code>.bashrc</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">CC</span><span class="o">=</span><span class="s2">&quot;/usr/lib/ccache/gcc&quot;</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">CXX</span><span class="o">=</span><span class="s2">&quot;/usr/lib/ccache/g++&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">CC</span><span class="o">=</span><span class="s2">"/usr/lib/ccache/gcc"</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CXX</span><span class="o">=</span><span class="s2">"/usr/lib/ccache/g++"</span>
 </code></pre></div>
 </li>
 </ol>
-<!-- prettier-ignore -->
+<!-- prettier-ignore --></div>
 
 
 

@@ -3943,14 +3943,14 @@
   
 
 
-<h1 id="fixing-dependent-package-versions">Fixing dependent package versions<a class="headerlink" href="#fixing-dependent-package-versions" title="Permanent link">#</a></h1>
+<div><h1 id="fixing-dependent-package-versions">Fixing dependent package versions<a class="headerlink" href="#fixing-dependent-package-versions" title="Permanent link">#</a></h1>
 <p>Autoware manages dependent package versions in autoware.repos.
 For example, let's say you make a branch in autoware.universe and add new features.
 Suppose you update other dependencies with <code>vcs pull</code> after cutting a branch from autoware.universe. Then the version of autoware.universe you are developing and other dependencies will become inconsistent, and the entire Autoware build will fail.
 We recommend saving the dependent package versions by executing the following command when starting the development.</p>
 <div class="highlight"><pre><span></span><code>vcs<span class="w"> </span><span class="nb">export</span><span class="w"> </span>src<span class="w"> </span>--exact<span class="w"> </span>&gt;<span class="w"> </span>my_autoware.repos
 </code></pre></div>
-<!-- prettier-ignore -->
+<!-- prettier-ignore --></div>
 
 
 

@@ -4125,7 +4125,7 @@
   
 
 
-<h1 id="console-logging">Console logging<a class="headerlink" href="#console-logging" title="Permanent link">#</a></h1>
+<div><h1 id="console-logging">Console logging<a class="headerlink" href="#console-logging" title="Permanent link">#</a></h1>
 <p><abbr title="Robot Operating System">ROS</abbr> 2 logging is a powerful tool for understanding and debugging <abbr title="Robot Operating System">ROS</abbr> nodes.</p>
 <p>This page focuses on how to design console logging in Autoware and shows several practical examples.
 To comprehensively understand how <abbr title="Robot Operating System">ROS</abbr> 2 logging works, refer to the <a href="https://docs.ros.org/en/humble/Concepts/About-Logging.html">logging documentation</a>.</p>
@@ -4171,18 +4171,18 @@ If the logs are noisy, unnecessary logs should be filtered out.</p>
 <p>Use the <code>--log-level {level}</code> option to change the minimum level of logs to be displayed:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;launch&gt;</span>
 <span class="w">  </span><span class="cm">&lt;!-- This outputs only FATAL level logs. --&gt;</span>
-<span class="w">  </span><span class="nt">&lt;node</span><span class="w"> </span><span class="na">pkg=</span><span class="s">&quot;demo_nodes_cpp&quot;</span><span class="w"> </span><span class="na">exec=</span><span class="s">&quot;talker&quot;</span><span class="w"> </span><span class="na">ros_args=</span><span class="s">&quot;--log-level fatal&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;node</span><span class="w"> </span><span class="na">pkg=</span><span class="s">"demo_nodes_cpp"</span><span class="w"> </span><span class="na">exec=</span><span class="s">"talker"</span><span class="w"> </span><span class="na">ros_args=</span><span class="s">"--log-level fatal"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/launch&gt;</span>
 </code></pre></div>
 <p>If you want to disable only specific output targets, use the <code>--disable-stdout-logs</code>, <code>--disable-rosout-logs</code>, and/or <code>--disable-external-lib-logs</code> options:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;launch&gt;</span>
 <span class="w">  </span><span class="cm">&lt;!-- This outputs to rosout and disk. --&gt;</span>
-<span class="w">  </span><span class="nt">&lt;node</span><span class="w"> </span><span class="na">pkg=</span><span class="s">&quot;demo_nodes_cpp&quot;</span><span class="w"> </span><span class="na">exec=</span><span class="s">&quot;talker&quot;</span><span class="w"> </span><span class="na">ros_args=</span><span class="s">&quot;--disable-stdout-logs&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;node</span><span class="w"> </span><span class="na">pkg=</span><span class="s">"demo_nodes_cpp"</span><span class="w"> </span><span class="na">exec=</span><span class="s">"talker"</span><span class="w"> </span><span class="na">ros_args=</span><span class="s">"--disable-stdout-logs"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/launch&gt;</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;launch&gt;</span>
 <span class="w">  </span><span class="cm">&lt;!-- This outputs to stdout. --&gt;</span>
-<span class="w">  </span><span class="nt">&lt;node</span><span class="w"> </span><span class="na">pkg=</span><span class="s">&quot;demo_nodes_cpp&quot;</span><span class="w"> </span><span class="na">exec=</span><span class="s">&quot;talker&quot;</span><span class="w"> </span><span class="na">ros_args=</span><span class="s">&quot;--disable-rosout-logs --disable-external-lib-logs&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;node</span><span class="w"> </span><span class="na">pkg=</span><span class="s">"demo_nodes_cpp"</span><span class="w"> </span><span class="na">exec=</span><span class="s">"talker"</span><span class="w"> </span><span class="na">ros_args=</span><span class="s">"--disable-rosout-logs --disable-external-lib-logs"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/launch&gt;</span>
 </code></pre></div>
 <h3 id="use-throttled-logging-when-the-log-is-unnecessarily-shown-repeatedly-required-non-automated">Use throttled logging when the log is unnecessarily shown repeatedly (required, non-automated)<a class="headerlink" href="#use-throttled-logging-when-the-log-is-unnecessarily-shown-repeatedly-required-non-automated" title="Permanent link">#</a></h3>
@@ -4194,7 +4194,7 @@ In such cases, wait about 5 seconds as a reference value.</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// Compliant</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">FooNode::on_timer</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">current_pose_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">RCLCPP_ERROR_THROTTLE</span><span class="p">(</span><span class="n">get_logger</span><span class="p">(),</span><span class="w"> </span><span class="o">*</span><span class="n">get_clock</span><span class="p">(),</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Waiting for current_pose_.&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">RCLCPP_ERROR_THROTTLE</span><span class="p">(</span><span class="n">get_logger</span><span class="p">(),</span><span class="w"> </span><span class="o">*</span><span class="n">get_clock</span><span class="p">(),</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w"> </span><span class="s">"Waiting for current_pose_."</span><span class="p">);</span>
 <span class="w">    </span><span class="k">return</span><span class="p">;</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
@@ -4202,7 +4202,7 @@ In such cases, wait about 5 seconds as a reference value.</p>
 <span class="c1">// Non-compliant</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">FooNode::on_timer</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">current_pose_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">RCLCPP_ERROR</span><span class="p">(</span><span class="n">get_logger</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;Waiting for current_pose_.&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">RCLCPP_ERROR</span><span class="p">(</span><span class="n">get_logger</span><span class="p">(),</span><span class="w"> </span><span class="s">"Waiting for current_pose_."</span><span class="p">);</span>
 <span class="w">    </span><span class="k">return</span><span class="p">;</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
@@ -4226,7 +4226,7 @@ When porting libraries to other platforms, fewer dependencies are preferred.</p>
 <span class="w">  </span><span class="k">explicit</span><span class="w"> </span><span class="n">FooCore</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">Logger</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">logger</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">logger_</span><span class="p">(</span><span class="n">logger</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 
 <span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">process</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">RCLCPP_INFO</span><span class="p">(</span><span class="n">logger_</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;message&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">RCLCPP_INFO</span><span class="p">(</span><span class="n">logger_</span><span class="p">,</span><span class="w"> </span><span class="s">"message"</span><span class="p">);</span>
 <span class="w">  </span><span class="p">}</span>
 
 <span class="k">private</span><span class="o">:</span>
@@ -4234,12 +4234,12 @@ When porting libraries to other platforms, fewer dependencies are preferred.</p>
 <span class="p">};</span>
 
 <span class="c1">// Compliant</span>
-<span class="c1">// Note that logs aren&#39;t published to `/rosout` if the logger name is different from the node name.</span>
+<span class="c1">// Note that logs aren't published to `/rosout` if the logger name is different from the node name.</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;rclcpp/logging.hpp&gt;</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">FooCore</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">process</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">RCLCPP_INFO</span><span class="p">(</span><span class="n">rclcpp</span><span class="o">::</span><span class="n">get_logger</span><span class="p">(</span><span class="s">&quot;foo_core_logger&quot;</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;message&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">RCLCPP_INFO</span><span class="p">(</span><span class="n">rclcpp</span><span class="o">::</span><span class="n">get_logger</span><span class="p">(</span><span class="s">"foo_core_logger"</span><span class="p">),</span><span class="w"> </span><span class="s">"message"</span><span class="p">);</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">};</span>
 
@@ -4249,10 +4249,10 @@ When porting libraries to other platforms, fewer dependencies are preferred.</p>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">FooCore</span><span class="w"> </span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-<span class="w">  </span><span class="k">explicit</span><span class="w"> </span><span class="n">FooCore</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">NodeOptions</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">node_options</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">node_</span><span class="p">(</span><span class="s">&quot;foo_core_node&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">node_options</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="k">explicit</span><span class="w"> </span><span class="n">FooCore</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">NodeOptions</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">node_options</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">node_</span><span class="p">(</span><span class="s">"foo_core_node"</span><span class="p">,</span><span class="w"> </span><span class="n">node_options</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 
 <span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">process</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">RCLCPP_INFO</span><span class="p">(</span><span class="n">node_</span><span class="p">.</span><span class="n">get_logger</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;message&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">RCLCPP_INFO</span><span class="p">(</span><span class="n">node_</span><span class="p">.</span><span class="n">get_logger</span><span class="p">(),</span><span class="w"> </span><span class="s">"message"</span><span class="p">);</span>
 <span class="w">  </span><span class="p">}</span>
 
 <span class="k">private</span><span class="o">:</span>
@@ -4269,14 +4269,14 @@ When porting libraries to other platforms, fewer dependencies are preferred.</p>
 <p>To debug program, sometimes you need to see which functions and lines of code are executed.
 In that case, you can use <code>__FILE__</code>, <code>__LINE__</code> and <code>__FUNCTION__</code> macro:</p>
 <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">FooNode::on_timer</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">RCLCPP_DEBUG</span><span class="p">(</span><span class="n">get_logger</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;file: %s, line: %s, function: %s&quot;</span><span class="w"> </span><span class="n">__FILE__</span><span class="p">,</span><span class="w"> </span><span class="n">__LINE__</span><span class="p">,</span><span class="w"> </span><span class="n">__FUNCTION__</span><span class="p">);</span>
+<span class="w">  </span><span class="n">RCLCPP_DEBUG</span><span class="p">(</span><span class="n">get_logger</span><span class="p">(),</span><span class="w"> </span><span class="s">"file: %s, line: %s, function: %s"</span><span class="w"> </span><span class="n">__FILE__</span><span class="p">,</span><span class="w"> </span><span class="n">__LINE__</span><span class="p">,</span><span class="w"> </span><span class="n">__FUNCTION__</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>The example output is as follows:</p>
 <blockquote>
 <p>[DEBUG] [1671720414.395456931] [foo]: file: /path/to/file.cpp, line: 100, function: on_timer</p>
 </blockquote>
-<!-- prettier-ignore -->
+<!-- prettier-ignore --></div>
 
 
 

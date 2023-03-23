@@ -3966,6 +3966,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#important-parameters" class="md-nav__link">
+    Important Parameters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#notation" class="md-nav__link">
     Notation
   </a>
@@ -3976,6 +3983,13 @@
           <li class="md-nav__item">
   <a href="#1-self-crossing-road-and-overlapped" class="md-nav__link">
     [1] self-crossing road and overlapped
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-size-of-path-points" class="md-nav__link">
+    [2] Size of Path Points
   </a>
   
 </li>
@@ -4003,7 +4017,7 @@
   
 
 
-<h1 id="planning-component-design">Planning component design<a class="headerlink" href="#planning-component-design" title="Permanent link">#</a></h1>
+<div><h1 id="planning-component-design">Planning component design<a class="headerlink" href="#planning-component-design" title="Permanent link">#</a></h1>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
 <p>Planning stack acts as the “brain” of autonomous driving. It uses all the results from Localization, Perception, and Map stacks to decide its maneuver and gives final trajectory to Control stack.</p>
 <h2 id="role">Role<a class="headerlink" href="#role" title="Permanent link">#</a></h2>
@@ -4105,7 +4119,7 @@
 </table>
 <h2 id="implementation">Implementation<a class="headerlink" href="#implementation" title="Permanent link">#</a></h2>
 <p>The implementation of the planning module in the latest version is shown as below.</p>
-<p><img alt="reference-implementation" src="image/planning-diagram.drawio.svg" /></p>
+<p><img alt="reference-implementation" src="image/planning-diagram.drawio.svg"></p>
 <p>For more details, please refer to the design documents in each package.</p>
 <ul>
 <li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/mission_planner/"><em>mission_planner</em></a>: calculate route from start to goal based on the map information.</li>
@@ -4146,7 +4160,50 @@
 <li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/motion_velocity_smoother/"><em>motion_velocity_smoother</em></a>: calculates final velocity considering velocity, acceleration, and jerk constraints.</li>
 </ul>
 <h2 id="supported-functions">Supported Functions<a class="headerlink" href="#supported-functions" title="Permanent link">#</a></h2>
-<p><img alt="supported-functions" src="image/planning-functions.drawio.svg" /></p>
+<p><img alt="supported-functions" src="image/planning-functions.drawio.svg"></p>
+<h2 id="important-parameters">Important Parameters<a class="headerlink" href="#important-parameters" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>obstacle_stop_planner</code></td>
+<td><code>stop_planner.stop_position.max_longitudinal_margin</code></td>
+<td>double</td>
+<td>distance between the ego and the front vehicle when stopping (when <code>cruise_planner_type:=obstacle_stop_planner</code>)</td>
+</tr>
+<tr>
+<td><code>obstacle_cruise_planner</code></td>
+<td><code>common.safe_distance_margin</code></td>
+<td>double</td>
+<td>distance between the ego and the front vehicle when stopping (when <code>cruise_planner_type:=obstacle_cruise_planner</code>)</td>
+</tr>
+<tr>
+<td><code>behavior_path_planner</code></td>
+<td><code>avoidance.avoidance.lateral.lateral_collision_margin</code></td>
+<td>double</td>
+<td>minimum lateral margin to obstacle on avoidance</td>
+</tr>
+<tr>
+<td><code>behavior_path_planner</code></td>
+<td><code>avoidance.avoidance.lateral.lateral_collision_safety_buffer</code></td>
+<td>double</td>
+<td>additional lateral margin to obstacle if possible on avoidance</td>
+</tr>
+<tr>
+<td><code>obstacle_avoidance_planner</code></td>
+<td><code>option.enable_outside_drivable_area_stop</code></td>
+<td>bool</td>
+<td>If set true, a stop point will be inserted before the path footprint is outside the drivable area.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="notation">Notation<a class="headerlink" href="#notation" title="Permanent link">#</a></h2>
 <h3 id="1-self-crossing-road-and-overlapped">[1] self-crossing road and overlapped<a class="headerlink" href="#1-self-crossing-road-and-overlapped" title="Permanent link">#</a></h3>
 <p>To support the self-crossing road and overlapped road in the opposite direction, each planning module has to meet the <a href="https://autowarefoundation.github.io/autoware.universe/main/common/motion_utils/">specifications</a></p>
@@ -4160,9 +4217,9 @@
 <li>obstacle_stop_planner</li>
 <li>motion_velocity_smoother</li>
 </ul>
-<h4 id="2-size-of-path-points">[2] Size of Path Points<a class="headerlink" href="#2-size-of-path-points" title="Permanent link">#</a></h4>
+<h3 id="2-size-of-path-points">[2] Size of Path Points<a class="headerlink" href="#2-size-of-path-points" title="Permanent link">#</a></h3>
 <p>Some functions do not support paths with only one point. Therefore, each modules should generate the path with more than two path points.</p>
-<!-- prettier-ignore -->
+<!-- prettier-ignore --></div>
 
 
 

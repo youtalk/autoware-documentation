@@ -4051,7 +4051,7 @@
   
 
 
-<h1 id="hdl_graph_slam">hdl_graph_slam<a class="headerlink" href="#hdl_graph_slam" title="Permanent link">#</a></h1>
+<div><h1 id="hdl_graph_slam">hdl_graph_slam<a class="headerlink" href="#hdl_graph_slam" title="Permanent link">#</a></h1>
 <h2 id="what-is-hdl_graph_slam">What is hdl_graph_slam?<a class="headerlink" href="#what-is-hdl_graph_slam" title="Permanent link">#</a></h2>
 <ul>
 <li>An open source <abbr title="Robot Operating System">ROS</abbr> package for real-time 6DOF <abbr title="Simultaneous Localization And Mapping">SLAM</abbr> using a 3D LIDAR. It is based on 3D Graph <abbr title="Simultaneous Localization And Mapping">SLAM</abbr> with NDT scan matching-based odometry estimation and loop detection. It also supports several graph constraints, such as GPS, <abbr title="Inertial Measurement Unit">IMU</abbr> acceleration (gravity vector), <abbr title="Inertial Measurement Unit">IMU</abbr> orientation (magnetic sensor), and floor plane (detected in a point cloud).</li>
@@ -4109,11 +4109,11 @@ git<span class="w"> </span>clone<span class="w"> </span>https://github.com/koide
 <ul>
 <li>Set lidar topic on <code>launch/hdl_graph_slam_400.launch</code></li>
 </ul>
-<p><img src="images/lidar_topic.png" width="550pix" /></p>
+<p><img src="images/lidar_topic.png" width="550pix"></p>
 <ul>
 <li>Set registration settings on <code>launch/hdl_graph_slam_400.launch</code></li>
 </ul>
-<p><img src="images/reg_params.png" width="550pix" /></p>
+<p><img src="images/reg_params.png" width="550pix"></p>
 <h3 id="3-run">3) Run<a class="headerlink" href="#3-run" title="Permanent link">#</a></h3>
 <div class="highlight"><pre><span></span><code>rosparam<span class="w"> </span><span class="nb">set</span><span class="w"> </span>use_sim_time<span class="w"> </span><span class="nb">true</span>
 roslaunch<span class="w"> </span>hdl_graph_slam<span class="w"> </span>hdl_graph_slam_400.launch
@@ -4124,11 +4124,11 @@ rviz<span class="w"> </span>-d<span class="w"> </span>hdl_graph_slam.rviz
 <div class="highlight"><pre><span></span><code>rosbag<span class="w"> </span>play<span class="w"> </span>--clock<span class="w"> </span>hdl_400.bag
 </code></pre></div>
 <p>Save the generated map by:</p>
-<div class="highlight"><pre><span></span><code>rosservice<span class="w"> </span>call<span class="w"> </span>/hdl_graph_slam/save_map<span class="w"> </span><span class="s2">&quot;resolution: 0.05</span>
-<span class="s2">destination: &#39;/full_path_directory/map.pcd&#39;&quot;</span>
+<div class="highlight"><pre><span></span><code>rosservice<span class="w"> </span>call<span class="w"> </span>/hdl_graph_slam/save_map<span class="w"> </span><span class="s2">"resolution: 0.05</span>
+<span class="s2">destination: '/full_path_directory/map.pcd'"</span>
 </code></pre></div>
 <h2 id="example-result">Example Result<a class="headerlink" href="#example-result" title="Permanent link">#</a></h2>
-<p><img src="images/hdl_graph_slam.png" width="712pix" /></p>
+<p><img src="images/hdl_graph_slam.png" width="712pix"></p>
 <h2 id="example2-outdoor">Example2 (Outdoor)<a class="headerlink" href="#example2-outdoor" title="Permanent link">#</a></h2>
 <p>Bag file (recorded in an outdoor environment):</p>
 <ul>
@@ -4142,15 +4142,15 @@ rviz<span class="w"> </span>-d<span class="w"> </span>hdl_graph_slam.rviz
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>rosbag<span class="w"> </span>play<span class="w"> </span>--clock<span class="w"> </span>dataset.bag
 </code></pre></div>
-<p><img src="images/hdl_400_points.png" width="712pix" /> <img src="images/hdl_400_graph.png" width="712pix" /></p>
-<p><img src="images/example_1.png" width="712pix" /> <img src="images/example_2.png" width="712pix" /></p>
+<p><img src="images/hdl_400_points.png" width="712pix"> <img src="images/hdl_400_graph.png" width="712pix"></p>
+<p><img src="images/example_1.png" width="712pix"> <img src="images/example_2.png" width="712pix"></p>
 <h2 id="papers">Papers<a class="headerlink" href="#papers" title="Permanent link">#</a></h2>
 <p>Kenji Koide, Jun Miura, and Emanuele Menegatti, A Portable 3D LIDAR-based System for Long-term and Wide-area People Behavior Measurement, Advanced Robotic Systems, 2019 <a href="https://www.researchgate.net/publication/331283709_A_Portable_3D_LIDAR-based_System_for_Long-term_and_Wide-area_People_Behavior_Measurement">[link]</a>.</p>
 <h2 id="contact">Contact<a class="headerlink" href="#contact" title="Permanent link">#</a></h2>
 <p>Kenji Koide, k.koide@aist.go.jp, <a href="https://staff.aist.go.jp/k.koide">https://staff.aist.go.jp/k.koide</a></p>
-<p><a href="http://www.aisl.cs.tut.ac.jp">[Active Intelligent Systems Laboratory, Toyohashi University of Technology, Japan]</a><br />
+<p><a href="http://www.aisl.cs.tut.ac.jp">[Active Intelligent Systems Laboratory, Toyohashi University of Technology, Japan]</a><br>
 <a href="https://unit.aist.go.jp/hcmrc/mr-rt/contact.html">[Mobile Robotics Research Team, National Institute of Advanced Industrial Science and Technology (AIST), Japan]</a></p>
-<!-- prettier-ignore -->
+<!-- prettier-ignore --></div>
 
 
 

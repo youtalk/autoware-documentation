@@ -4071,7 +4071,7 @@
   
 
 
-<h1 id="optimized-sc-f-loam">Optimized-SC-F-LOAM<a class="headerlink" href="#optimized-sc-f-loam" title="Permanent link">#</a></h1>
+<div><h1 id="optimized-sc-f-loam">Optimized-SC-F-LOAM<a class="headerlink" href="#optimized-sc-f-loam" title="Permanent link">#</a></h1>
 <h2 id="what-is-optimized-sc-f-loam">What is Optimized-SC-F-LOAM?<a class="headerlink" href="#what-is-optimized-sc-f-loam" title="Permanent link">#</a></h2>
 <ul>
 <li>An improved version of F-LOAM and uses an adaptive threshold to further judge the loop closure detection results and reducing false loop closure detections. Also it uses feature point-based matching to calculate the constraints between a pair of loop closure frame point clouds and decreases time consumption of constructing loop frame constraints.</li>
@@ -4108,7 +4108,7 @@ catkin_make
 <p>In this folder, Ground Truth information, optimized pose information, F-LOAM pose information and time information are stored</p>
 <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/message/Scans
 
-Change<span class="w"> </span>line<span class="w"> </span><span class="m">383</span><span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>laserLoopOptimizationNode.cpp<span class="w"> </span>to<span class="w"> </span>your<span class="w"> </span>own<span class="w"> </span><span class="s2">&quot;message&quot;</span><span class="w"> </span>folder<span class="w"> </span>path
+Change<span class="w"> </span>line<span class="w"> </span><span class="m">383</span><span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>laserLoopOptimizationNode.cpp<span class="w"> </span>to<span class="w"> </span>your<span class="w"> </span>own<span class="w"> </span><span class="s2">"message"</span><span class="w"> </span>folder<span class="w"> </span>path
 </code></pre></div>
 <p>(Do not forget to rebuild your package)</p>
 <h3 id="3-set-parameters">3) Set parameters<a class="headerlink" href="#3-set-parameters" title="Permanent link">#</a></h3>
@@ -4120,11 +4120,11 @@ Change<span class="w"> </span>line<span class="w"> </span><span class="m">383</s
 roslaunch<span class="w"> </span>optimized_sc_f_loam<span class="w"> </span>optimized_sc_f_loam_mapping.launch
 </code></pre></div>
 <h2 id="example-result">Example Result<a class="headerlink" href="#example-result" title="Permanent link">#</a></h2>
-<p><img alt="image" src="https://user-images.githubusercontent.com/95751923/155124889-934ea649-3b03-4e8d-84af-608753f34c93.png" /></p>
+<p><img alt="image" src="https://user-images.githubusercontent.com/95751923/155124889-934ea649-3b03-4e8d-84af-608753f34c93.png"></p>
 <h3 id="results-on-kitti-sequence-00-and-sequence-05">Results on KITTI Sequence 00 and Sequence 05<a class="headerlink" href="#results-on-kitti-sequence-00-and-sequence-05" title="Permanent link">#</a></h3>
-<p><img alt="image" src="https://user-images.githubusercontent.com/95751923/155125294-980e6a3d-6e76-4a23-9771-493ba278677e.png" /></p>
+<p><img alt="image" src="https://user-images.githubusercontent.com/95751923/155125294-980e6a3d-6e76-4a23-9771-493ba278677e.png"></p>
 <h3 id="comparison-of-trajectories-on-kitti-dataset">Comparison of trajectories on KITTI dataset<a class="headerlink" href="#comparison-of-trajectories-on-kitti-dataset" title="Permanent link">#</a></h3>
-<p><img alt="image" src="https://user-images.githubusercontent.com/95751923/155125478-a361762f-f18e-4161-b892-6f5080f5681f.png" /></p>
+<p><img alt="image" src="https://user-images.githubusercontent.com/95751923/155125478-a361762f-f18e-4161-b892-6f5080f5681f.png"></p>
 <p>Test on KITTI sequence
 You can download the sequence 00 and 05 datasets from the KITTI official website and convert them into bag files using the kitti2bag open source method.</p>
 <p>00: 2011_10_03_drive_0027 000000 004540</p>
@@ -4151,7 +4151,7 @@ You can download the sequence 00 and 05 datasets from the KITTI official website
 <span class="w">  </span><span class="nv">copyright</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>arXiv.org<span class="w"> </span>perpetual,<span class="w"> </span>non-exclusive<span class="w"> </span>license<span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div>
-<!-- prettier-ignore -->
+<!-- prettier-ignore --></div>
 
 
 

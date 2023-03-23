@@ -4165,7 +4165,7 @@
   
 
 
-<h1 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">#</a></h1>
+<div><h1 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">#</a></h1>
 <h2 id="setup-issues">Setup issues<a class="headerlink" href="#setup-issues" title="Permanent link">#</a></h2>
 <h3 id="cuda-related-errors">CUDA-related errors<a class="headerlink" href="#cuda-related-errors" title="Permanent link">#</a></h3>
 <p>When installing CUDA, errors may occur because of version conflicts. To resolve these types of errors, try one of the following methods:</p>
@@ -4173,13 +4173,13 @@
 <li>
 <p>Unhold all CUDA-related libraries and rerun the setup script.</p>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-mark<span class="w"> </span>unhold<span class="w">  </span><span class="se">\</span>
-<span class="w">  </span><span class="s2">&quot;cuda*&quot;</span><span class="w">             </span><span class="se">\</span>
-<span class="w">  </span><span class="s2">&quot;libcudnn*&quot;</span><span class="w">         </span><span class="se">\</span>
-<span class="w">  </span><span class="s2">&quot;libnvinfer*&quot;</span><span class="w">       </span><span class="se">\</span>
-<span class="w">  </span><span class="s2">&quot;libnvonnxparsers*&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span><span class="s2">&quot;libnvparsers*&quot;</span><span class="w">     </span><span class="se">\</span>
-<span class="w">  </span><span class="s2">&quot;tensorrt*&quot;</span><span class="w">         </span><span class="se">\</span>
-<span class="w">  </span><span class="s2">&quot;nvidia*&quot;</span>
+<span class="w">  </span><span class="s2">"cuda*"</span><span class="w">             </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">"libcudnn*"</span><span class="w">         </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">"libnvinfer*"</span><span class="w">       </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">"libnvonnxparsers*"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">"libnvparsers*"</span><span class="w">     </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">"tensorrt*"</span><span class="w">         </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">"nvidia*"</span>
 
 ./setup-dev-env.sh
 </code></pre></div>
@@ -4189,13 +4189,13 @@
 <li>
 <p>Uninstall all CUDA-related libraries and rerun the setup script.</p>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>purge<span class="w">        </span><span class="se">\</span>
-<span class="w">  </span><span class="s2">&quot;cuda*&quot;</span><span class="w">             </span><span class="se">\</span>
-<span class="w">  </span><span class="s2">&quot;libcudnn*&quot;</span><span class="w">         </span><span class="se">\</span>
-<span class="w">  </span><span class="s2">&quot;libnvinfer*&quot;</span><span class="w">       </span><span class="se">\</span>
-<span class="w">  </span><span class="s2">&quot;libnvonnxparsers*&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span><span class="s2">&quot;libnvparsers*&quot;</span><span class="w">     </span><span class="se">\</span>
-<span class="w">  </span><span class="s2">&quot;tensorrt*&quot;</span><span class="w">         </span><span class="se">\</span>
-<span class="w">  </span><span class="s2">&quot;nvidia*&quot;</span>
+<span class="w">  </span><span class="s2">"cuda*"</span><span class="w">             </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">"libcudnn*"</span><span class="w">         </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">"libnvinfer*"</span><span class="w">       </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">"libnvonnxparsers*"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">"libnvparsers*"</span><span class="w">     </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">"tensorrt*"</span><span class="w">         </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">"nvidia*"</span>
 
 sudo<span class="w"> </span>apt<span class="w"> </span>autoremove
 
@@ -4241,7 +4241,7 @@ free<span class="w"> </span>-h
 <p>For more detailed configuration steps, along with an explanation of swap, refer to Digital Ocean's <a href="https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-20-04">"How To Add Swap Space on Ubuntu 20.04" tutorial</a></p>
 <p>If there are too many CPU cores (more than 64) in your machine, it might requires larger memory.
 A workaround here is to limit the job number while building.</p>
-<div class="highlight"><pre><span></span><code><span class="nv">MAKEFLAGS</span><span class="o">=</span><span class="s2">&quot;-j4&quot;</span><span class="w"> </span>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release
+<div class="highlight"><pre><span></span><code><span class="nv">MAKEFLAGS</span><span class="o">=</span><span class="s2">"-j4"</span><span class="w"> </span>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release
 </code></pre></div>
 <p>You can adjust <code>-j4</code> to any number based on your system.</p>
 <h3 id="errors-when-using-the-latest-version-of-autoware">Errors when using the latest version of Autoware<a class="headerlink" href="#errors-when-using-the-latest-version-of-autoware" title="Permanent link">#</a></h3>
@@ -4284,7 +4284,7 @@ git<span class="w"> </span>clone<span class="w"> </span>https://github.com/autow
 </ol>
 <h3 id="error-when-building-python-package">Error when building python package<a class="headerlink" href="#error-when-building-python-package" title="Permanent link">#</a></h3>
 <p>During building the following issue can occurs</p>
-<div class="highlight"><pre><span></span><code>pkg_resources.extern.packaging.version.InvalidVersion:<span class="w"> </span>Invalid<span class="w"> </span>version:<span class="w"> </span><span class="s1">&#39;0.23ubuntu1&#39;</span>
+<div class="highlight"><pre><span></span><code>pkg_resources.extern.packaging.version.InvalidVersion:<span class="w"> </span>Invalid<span class="w"> </span>version:<span class="w"> </span><span class="s1">'0.23ubuntu1'</span>
 </code></pre></div>
 <p>The error is due to the fact that since version 66.0.0 <code>setuptools</code> enforces the python packages to be
 <a href="https://peps.python.org/pep-0440/">PEP-440</a> conformant.</p>
@@ -4314,7 +4314,7 @@ docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>DDS configuration can be determined by running the following command.</p>
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="nv">$RMW_IMPLEMENTATION</span><span class="w">  </span>//<span class="w"> </span><span class="k">if</span><span class="w"> </span>Cyclone<span class="w"> </span>DDS<span class="w"> </span>is<span class="w"> </span>configured,<span class="w"> </span>this<span class="w"> </span><span class="nb">command</span><span class="w"> </span>will<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;rmw_cyclonedds_cpp&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="nv">$RMW_IMPLEMENTATION</span><span class="w">  </span>//<span class="w"> </span><span class="k">if</span><span class="w"> </span>Cyclone<span class="w"> </span>DDS<span class="w"> </span>is<span class="w"> </span>configured,<span class="w"> </span>this<span class="w"> </span><span class="nb">command</span><span class="w"> </span>will<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s2">"rmw_cyclonedds_cpp"</span>
 </code></pre></div>
 </div>
 <p>If that does not work or you need more information, read the following documents.</p>
@@ -4326,7 +4326,7 @@ docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </
 <p>If you get the error message <code>selected interface "{your-interface-name}" is not multicast-capable: disabling multicast</code>, run the following command to allow multicast.</p>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>ip<span class="w"> </span>link<span class="w"> </span><span class="nb">set</span><span class="w"> </span>multicast<span class="w"> </span>on<span class="w"> </span><span class="o">{</span>your-interface-name<span class="o">}</span>
 </code></pre></div>
-<!-- prettier-ignore -->
+<!-- prettier-ignore --></div>
 
 
 
