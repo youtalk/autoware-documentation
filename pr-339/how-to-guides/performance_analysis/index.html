@@ -17,7 +17,7 @@
         <link rel="next" href="../running-autoware-without-cuda/">
       
       <link rel="icon" href="../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.4">
     
     
       
@@ -25,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.c4a75a56.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.240905d7.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
@@ -3935,6 +3935,40 @@
     Performance Measurement
   </a>
   
+    <nav class="md-nav" aria-label="Performance Measurement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-node-execution" class="md-nav__link">
+    Single Node Execution
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prepare-separated-cores" class="md-nav__link">
+    Prepare Separated Cores
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-single-node-separately" class="md-nav__link">
+    Run Single Node Separately
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#measurement-and-visualization" class="md-nav__link">
+    Measurement and Visualization
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3988,10 +4022,9 @@
 <ul>
 <li>Performance Measurement<ul>
 <li>Single Node Execution</li>
-<li>Prepare separated cores</li>
+<li>Prepare Separated Cores</li>
 <li>Run Single Node Separatedly</li>
-<li>Measure turn-around time and performance counter</li>
-<li>Visualization</li>
+<li>Measurement and Visualization</li>
 </ul>
 </li>
 <li>Case Studies<ul>
@@ -4001,13 +4034,111 @@
 </li>
 </ul>
 <h2 id="performance-measurement">Performance Measurement<a class="headerlink" href="#performance-measurement" title="Permanent link">#</a></h2>
-<p>To be filled by @sykwer</p>
+<p>Improvement is impossible without precise measurements.
+To measure the performance of the application code, it is essential to eliminate any external influences.
+Such influences include interference from the operating system and CPU frequency fluctuations.
+Scheduling effects also occur when core resources are shared by multiple threads.
+This section outlines a technique for accurately measuring the performance of the application code for a specific node.
+Though this section only discusses the case of Linux on Intel CPUs, similar considerations should be made in other environments.</p>
+<h3 id="single-node-execution">Single Node Execution<a class="headerlink" href="#single-node-execution" title="Permanent link">#</a></h3>
+<p>To eliminate the influence of scheduling, the node being measured should operate independently, using the same logic as when the entire Autoware system is running.
+To accomplish this, record all input topics of the node to be measured while the whole Autoware system is running.
+To achieve this objective, a tool called <code>ros2_single_node_replayer</code> has been prepared.</p>
+<p><a href="https://github.com/sykwer/ros2_single_node_replayer">sykwer/ros2_single_node_replayer</a></p>
+<p>Details on how to use the tool can be found in the README.
+This tool records the input topics of a specific node during the entire Autoware operation and replays it in a single node with the same logic.</p>
+<h3 id="prepare-separated-cores">Prepare Separated Cores<a class="headerlink" href="#prepare-separated-cores" title="Permanent link">#</a></h3>
+<p>Isolated cores running the node to be measured must meet the following conditions.
+- Fix CPU frequency and disable turbo boost
+- Minimize timer interruptions
+- Offload RCU (Read Copy Update) callback
+- Isolate the paired core if hyperthreading enabled</p>
+<p>To fulfill these conditions on Linux, a custom kernel build with the following kernel configurations is required.
+Note that even if Full tickless is enabled, timer interrupts are generated for scheduling if more than two tasks exist in one core.</p>
+<div class="highlight"><pre><span></span><code># Enable CONFIG_NO_HZ_FULL
+-&gt; General setup
+-&gt; Timers subsystem
+-&gt; Timer tick handling (Full dynticks system (tickless))
+(X) Full dynticks system (tickless)
+
+# Allows RCU callback processing to be offloaded from selected CPUs
+# (CONFIG_RCU_NOCB_CPU=y)
+-&gt; General setup
+-&gt; RCU Subsystem
+-*- Offload RCU callback processing from boot-selected CPUs
+</code></pre></div>
+<p>Additionally, the kernel boot parameters need to be set as follows.</p>
+<div class="highlight"><pre><span></span><code>GRUB_CMDLINE_LINUX_DEFAULT=
+  "... isolcpus=2,8 rcu_nocbs=2,8 rcu_nocb_poll nohz_full=2,8 intel_pstate=disable”
+</code></pre></div>
+<p>In the above configuration, for example, the node to be measured is assumed to run on core 2, and core 8, which is a hyperthreading pair, is also being isolated.
+Appropriate decisions on which cores to run the measurement target and which nodes to isolate need to be made based on the cache and core layout of the measurement machine.
+You can easily check if it is properly configured by running <code>cat /proc/softirqs</code>.
+Since <code>intel_pstate=disable</code> is specified in the kernel boot parameter, <code>userspace</code> can be specified in the scaling governor.</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>cat<span class="w"> </span>/sys/devices/system/cpu/cpu2/cpufreq/scaling_governor<span class="w"> </span>//<span class="w"> </span>ondemand
+$<span class="w"> </span>sudo<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">"echo userspace &gt; /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor"</span>
+</code></pre></div>
+<p>This allows you to freely set the desired frequency within a defined range.</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">"echo &lt;freq(kz)&gt; &gt; /sys/devices/system/cpu/cpu2/cpufreq/scaling_setspeed"</span>
+</code></pre></div>
+<p>Turbo Boost needs to be switched off on Intel CPUs, which is often overlooked.
+</p><div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">"echo 0 &gt; /sys/devices/system/cpu/cpufreq/boost"</span>
+</code></pre></div>
+<h3 id="run-single-node-separately">Run Single Node Separately<a class="headerlink" href="#run-single-node-separately" title="Permanent link">#</a></h3>
+<p>Following the instructions in the <code>ros2_single_node_replayer</code> README, start the node and play the dedicated rosbag created by the tool.
+Before playing the rosbag, appropriately set the CPU affinity of the thread on which the node runs, so it is placed on the isolated core prepared.</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>taskset<span class="w"> </span>--cpu-list<span class="w"> </span>-p<span class="w"> </span>&lt;target<span class="w"> </span>cpu&gt;<span class="w"> </span>&lt;pid&gt;
+</code></pre></div>
+<p>To avoid interference in the last level cache, minimize the number of other applications running during the measurement.</p>
+<h3 id="measurement-and-visualization">Measurement and Visualization<a class="headerlink" href="#measurement-and-visualization" title="Permanent link">#</a></h3>
+<p>To visualize the performance of the measurement target, embed code for logging timestamps and performance counter values in the target source code.
+To achieve this objective, a tool called <code>pmu_analyzer</code> has been prepared.</p>
+<p><a href="https://github.com/sykwer/pmu_analyzer">sykwer/pmu_analyzer</a></p>
+<p>Details on how to use the tool can be found in the README.
+This tool can measure the turnaround time of any section in the source code, as well as various performance counters.</p>
 <h2 id="case-studies">Case Studies<a class="headerlink" href="#case-studies" title="Permanent link">#</a></h2>
 <p>In this section, we will present several case studies that demonstrate the performance improvements. These examples not only showcase our commitment to enhancing the system's efficiency but also serve as a valuable resource for developers who may face similar challenges in their own projects. The performance improvements discussed here span various components of the Autoware system, including sensing modules and planning modules. There are tendencies for each component regarding which points are becoming bottlenecks. By examining the methods, techniques, and tools employed in these case studies, readers can gain a better understanding of the practical aspects of optimizing complex software systems like Autoware.</p>
 <h3 id="sensing-component">Sensing Component<a class="headerlink" href="#sensing-component" title="Permanent link">#</a></h3>
-<p>To be filled by @sykwer</p>
+<p>In the sensing component, which handles large message data such as LiDAR point cloud data, minimizing copying is important.
+A callback that takes sensor data message types as input and output should be written in an in-place algorithm as much as possible.
+This means that in the following pseudocode, when generating <code>output_msg</code> from <code>input_msg</code>, it is crucial to avoid using buffers as much as possible to reduce the number of memory copies.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">callback</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">PointCloudMsg</span><span class="w"> </span><span class="o">&amp;</span><span class="n">input_msg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">output_msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">allocate_msg</span><span class="o">&lt;</span><span class="n">PointCloudMsg</span><span class="o">&gt;</span><span class="p">(</span><span class="n">output_size</span><span class="p">);</span>
+<span class="w">  </span><span class="n">fill</span><span class="p">(</span><span class="n">input_msg</span><span class="p">,</span><span class="w"> </span><span class="n">output_msg</span><span class="p">);</span>
+<span class="w">  </span><span class="n">publish</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">output_msg</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>To improve cache efficiency, implement an in-place style as much as possible, instead of touching memory areas sporadically.
+In <abbr title="Robot Operating System">ROS</abbr> applications using PCL, the code shown below is often seen.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">callback</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">sensor_msgs</span><span class="o">::</span><span class="n">PointCloud2ConstPtr</span><span class="w"> </span><span class="o">&amp;</span><span class="n">input_msg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">pcl</span><span class="o">::</span><span class="n">PointCloud</span><span class="o">&lt;</span><span class="n">PointT</span><span class="o">&gt;::</span><span class="n">Ptr</span><span class="w"> </span><span class="n">input_pcl</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">pcl</span><span class="o">::</span><span class="n">PointCloud</span><span class="o">&lt;</span><span class="n">PointT</span><span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">pcl</span><span class="o">::</span><span class="n">fromROSMsg</span><span class="p">(</span><span class="o">*</span><span class="n">input_msg</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">input_pcl</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Algorithm is described for point cloud type of pcl</span>
+<span class="w">  </span><span class="n">pcl</span><span class="o">::</span><span class="n">PointCloud</span><span class="o">&lt;</span><span class="n">PointT</span><span class="o">&gt;::</span><span class="n">Ptr</span><span class="w"> </span><span class="n">output_pcl</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">pcl</span><span class="o">::</span><span class="n">PointCloud</span><span class="o">&lt;</span><span class="n">PointT</span><span class="o">&gt;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">fill_pcl</span><span class="p">(</span><span class="o">*</span><span class="n">input_pcl</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">output_pcl</span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">output_msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">allocate_msg</span><span class="o">&lt;</span><span class="n">sensor_msgs</span><span class="o">::</span><span class="n">PointCloud2</span><span class="o">&gt;</span><span class="p">(</span><span class="n">output_size</span><span class="p">);</span>
+<span class="w">  </span><span class="n">pcl</span><span class="o">::</span><span class="n">toROSMsg</span><span class="p">(</span><span class="o">*</span><span class="n">output_pcl</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">output_msg</span><span class="p">);</span>
+<span class="w">  </span><span class="n">publish</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">output_msg</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>To use the PCL library, <code>fromROSMsg()</code> and <code>toROSMsg()</code> are used to perform message type conversion at the beginning and end of the callback.
+This is a wasteful copying process and should be avoided.
+We should eliminate unnecessary type conversions by removing dependencies on PCL.
+For large message types such as map data, there should be only one instance in the entire system in terms of physical memory.
+When analyzing the performance of the sensing module from the viewpoint of performance counter, pay attention to <code>instructions</code>, <code>LLC-load-misses</code>, <code>LLC-store-misses</code>, <code>cache-misses</code>, and <code>minor-faults</code>.
+As a case study, we present a performance analysis performed to speed up <code>ring_outlier_filter</code> (https://github.com/autowarefoundation/autoware.universe/pull/3014).
+The following figure is a time-series plot of the turnaround time of the main processing part of <code>ring_outlier_filter</code>, analyzed as described in the "Performance Measurement" section above.</p>
+<p>TODO: image here</p>
+<p>The horizontal axis indicates the number of callbacks called (i.e., callback index), and the vertical axis indicates the turnaround time.
+Analysis of the performance counter shows that the largest fluctuations come from <code>minor-faults</code> (i.e., soft page faults), the second largest from <code>LLC-store-misses</code> and <code>LLC-load-misses</code> (i.e., cache misses in the last level cache), and the slowest fluctuations come from instructions (i.e., message data size fluctuations).
+For example, when we plot <code>minor-faults</code> on the horizontal axis and turnaround time on the vertical axis, we can see the following dominant proportional relationship.</p>
+<p>TODO: image here</p>
+<p>As a side note, we have developed a library called <code>heaphook</code> to avoid soft page faults while running Autoware callback (<a href="https://github.com/tier4/heaphook">tier4/heaphook</a>).
+If you are interested, refer to a GitHub discussion (https://github.com/orgs/autowarefoundation/discussions/3274) and an issue (https://github.com/autowarefoundation/autoware/issues/3310).</p>
 <h3 id="planning-component">Planning Component<a class="headerlink" href="#planning-component" title="Permanent link">#</a></h3>
-<p>In planning module, we take into consideration thousands to tens of thousands of point clouds, thousands of points in a path representing our own route, and polygons representing obstacles and detection areas in the surroundings, and we repeatedly create paths based on them. Therefore, we access the contents of the point clouds and paths multiple times using for-loops. In most cases, the bottleneck lies in these naive for-loops. Here, understanding Big O notation and reducing the order of computational complexity directly leads to performance improvements.</p>
+<p>In the planning component, we take into consideration thousands to tens of thousands of point clouds, thousands of points in a path representing our own route, and polygons representing obstacles and detection areas in the surroundings, and we repeatedly create paths based on them. Therefore, we access the contents of the point clouds and paths multiple times using for-loops. In most cases, the bottleneck lies in these naive for-loops. Here, understanding Big O notation and reducing the order of computational complexity directly leads to performance improvements.</p>
 <p>For example, in <code>detection_area</code> module in <code>behavior_velocity_planner</code> node, there is a program that checks whether each point cloud is contained in each detection area by. Below is the pseudocode.</p>
 <div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">area</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">detection_areas</span><span class="w"> </span><span class="p">)</span>
 <span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">point</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">point_clouds</span><span class="w"> </span><span class="p">)</span>
@@ -4123,7 +4254,7 @@ Here is the <a href="https://github.com/autowarefoundation/autoware.universe/pul
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.efa0ade1.min.js"></script>
+      <script src="../../assets/javascripts/bundle.19047be9.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
