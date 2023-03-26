@@ -4023,7 +4023,7 @@
 <li>Performance Measurement<ul>
 <li>Single Node Execution</li>
 <li>Prepare Separated Cores</li>
-<li>Run Single Node Separatedly</li>
+<li>Run Single Node Separately</li>
 <li>Measurement and Visualization</li>
 </ul>
 </li>
@@ -4053,7 +4053,7 @@ This tool records the input topics of a specific node during the entire Autoware
 <li>Fix CPU frequency and disable turbo boost</li>
 <li>Minimize timer interruptions</li>
 <li>Offload RCU (Read Copy Update) callback</li>
-<li>Isolate the paired core if hyperthreading enabled</li>
+<li>Isolate the paired core if hyper-threading enabled</li>
 </ul>
 <p>To fulfill these conditions on Linux, a custom kernel build with the following kernel configurations is required.
 Note that even if Full tickless is enabled, timer interrupts are generated for scheduling if more than two tasks exist in one core.</p>
@@ -4073,7 +4073,7 @@ Note that even if Full tickless is enabled, timer interrupts are generated for s
 <div class="highlight"><pre><span></span><code>GRUB_CMDLINE_LINUX_DEFAULT=
   "... isolcpus=2,8 rcu_nocbs=2,8 rcu_nocb_poll nohz_full=2,8 intel_pstate=disable”
 </code></pre></div>
-<p>In the above configuration, for example, the node to be measured is assumed to run on core 2, and core 8, which is a hyperthreading pair, is also being isolated.
+<p>In the above configuration, for example, the node to be measured is assumed to run on core 2, and core 8, which is a hyper-threading pair, is also being isolated.
 Appropriate decisions on which cores to run the measurement target and which nodes to isolate need to be made based on the cache and core layout of the measurement machine.
 You can easily check if it is properly configured by running <code>cat /proc/softirqs</code>.
 Since <code>intel_pstate=disable</code> is specified in the kernel boot parameter, <code>userspace</code> can be specified in the scaling governor.</p>
