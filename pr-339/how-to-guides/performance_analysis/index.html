@@ -4127,7 +4127,7 @@ In <abbr title="Robot Operating System">ROS</abbr> applications using PCL, the c
 </code></pre></div>
 <p>To use the PCL library, <code>fromROSMsg()</code> and <code>toROSMsg()</code> are used to perform message type conversion at the beginning and end of the callback.
 This is a wasteful copying process and should be avoided.
-We should eliminate unnecessary type conversions by removing dependencies on PCL.
+We should eliminate unnecessary type conversions by removing dependencies on PCL (e.g., <a href="https://github.com/tier4/velodyne_vls/pull/39">https://github.com/tier4/velodyne_vls/pull/39</a>).
 For large message types such as map data, there should be only one instance in the entire system in terms of physical memory.
 When analyzing the performance of the sensing module from the viewpoint of performance counter, pay attention to <code>instructions</code>, <code>LLC-load-misses</code>, <code>LLC-store-misses</code>, <code>cache-misses</code>, and <code>minor-faults</code>.
 As a case study, we present a performance analysis performed to speed up <code>ring_outlier_filter</code> (<a href="https://github.com/autowarefoundation/autoware.universe/pull/3014">https://github.com/autowarefoundation/autoware.universe/pull/3014</a>).
