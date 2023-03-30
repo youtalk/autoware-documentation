@@ -17,7 +17,7 @@
         <link rel="next" href="../perception/">
       
       <link rel="icon" href="../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.4">
     
     
       
@@ -25,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.c4a75a56.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.240905d7.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.a0c5b2b5.min.css">
@@ -4106,7 +4106,7 @@
 
   <h1>Index</h1>
 
-<p>LOCALIZATION COMPONENT DESIGN DOC</p>
+<div><p>LOCALIZATION COMPONENT DESIGN DOC</p>
 <h2 id="abstract">Abstract<a class="headerlink" href="#abstract" title="Permanent link">#</a></h2>
 <h2 id="1-requirements">1. Requirements<a class="headerlink" href="#1-requirements" title="Permanent link">#</a></h2>
 <p>Localization aims to estimate vehicle pose, velocity, and acceleration.</p>
@@ -4258,7 +4258,7 @@ Each sensor has its own advantages and disadvantages, but overall performance ca
 <h3 id="abstract_1">Abstract<a class="headerlink" href="#abstract_1" title="Permanent link">#</a></h3>
 <p>Two architectures are defined, "Required" and "Recommended". However, the "Required" architecture only contains the inputs and outputs necessary to accept various localization algorithms. To improve the reusability of each module, the required components are defined in the "Recommended" architecture section along with a more detailed explanation.</p>
 <h3 id="required-architecture">Required Architecture<a class="headerlink" href="#required-architecture" title="Permanent link">#</a></h3>
-<p><img alt="required-architecture" src="../image/localization/required-architecture.png" /></p>
+<p><img alt="required-architecture" src="../image/localization/required-architecture.png"></p>
 <h4 id="input">Input<a class="headerlink" href="#input" title="Permanent link">#</a></h4>
 <ul>
 <li>Sensor message<ul>
@@ -4305,7 +4305,7 @@ Each sensor has its own advantages and disadvantages, but overall performance ca
 </li>
 </ul>
 <h3 id="recommended-architecture">Recommended Architecture<a class="headerlink" href="#recommended-architecture" title="Permanent link">#</a></h3>
-<p><img alt="recommended-architecture" src="../image/localization/recommended-architecture.png" /></p>
+<p><img alt="recommended-architecture" src="../image/localization/recommended-architecture.png"></p>
 <h4 id="pose-estimator">Pose Estimator<a class="headerlink" href="#pose-estimator" title="Permanent link">#</a></h4>
 <ul>
 <li>Estimates the vehicle pose on the map coordinate by matching external sensor observation to the map</li>
@@ -4335,7 +4335,7 @@ Each sensor has its own advantages and disadvantages, but overall performance ca
 <li>Reports error status to the error monitor</li>
 </ul>
 <h4 id="tf-tree">TF tree<a class="headerlink" href="#tf-tree" title="Permanent link">#</a></h4>
-<p><img alt="tf-tree" src="../image/localization/tf-tree.png" /></p>
+<p><img alt="tf-tree" src="../image/localization/tf-tree.png"></p>
 <table>
 <thead>
 <tr>
@@ -4431,13 +4431,13 @@ Each sensor has its own advantages and disadvantages, but overall performance ca
 </ul>
 <!-- prettier-ignore -->
 <div class="footnote">
-<hr />
+<hr>
 <ol>
 <li id="fn:1">
-<p>For more details about bias, refer to the <a href="https://www.vectornav.com/resources/inertial-navigation-primer/specifications--and--error-budgets/specs-imuspecs">VectorNav <abbr title="Inertial Measurement Unit">IMU</abbr> specifications page</a>.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>For more details about bias, refer to the <a href="https://www.vectornav.com/resources/inertial-navigation-primer/specifications--and--error-budgets/specs-imuspecs">VectorNav <abbr title="Inertial Measurement Unit">IMU</abbr> specifications page</a>. <a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
 </li>
 </ol>
-</div>
+</div></div>
 
 
 
@@ -4525,7 +4525,7 @@ Each sensor has its own advantages and disadvantages, but overall performance ca
     <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.efa0ade1.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.19047be9.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       

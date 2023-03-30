@@ -17,7 +17,7 @@
         <link rel="next" href="../source-installation/">
       
       <link rel="icon" href="../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.4">
     
     
       
@@ -25,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.c4a75a56.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.240905d7.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.a0c5b2b5.min.css">
@@ -4097,7 +4097,7 @@
   
 
 
-<h1 id="docker-installation">Docker installation<a class="headerlink" href="#docker-installation" title="Permanent link">#</a></h1>
+<div><h1 id="docker-installation">Docker installation<a class="headerlink" href="#docker-installation" title="Permanent link">#</a></h1>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>Since this page explains Docker-specific information, it is recommended to see <a href="../source-installation/">Source installation</a> as well if you need detailed information.</p>
@@ -4111,15 +4111,15 @@
 </ul>
 <h2 id="docker-installation-for-quick-start">Docker installation for quick start<a class="headerlink" href="#docker-installation-for-quick-start" title="Permanent link">#</a></h2>
 <p><a href="../docker-installation-prebuilt/">docker installation for quick start</a></p>
-<p><div class="video-container"><iframe src="https://youtube.com/embed/3KUhEFkEbI8" style="position: relative; width: 100%; height: 22.172vw" frameborder="0"allowfullscreen></iframe></div></p>
+<p><div class="video-container"><iframe src="https://youtube.com/embed/3KUhEFkEbI8" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></p>
 <h2 id="docker-installation-for-development">Docker installation for development<a class="headerlink" href="#docker-installation-for-development" title="Permanent link">#</a></h2>
 <p><a href="../docker-installation-devel/">docker installation for development</a></p>
-<p><div class="video-container"><iframe src="https://youtube.com/embed/UrSF-VwncGQ" style="position: relative; width: 100%; height: 22.172vw" frameborder="0"allowfullscreen></iframe></div></p>
+<p><div class="video-container"><iframe src="https://youtube.com/embed/UrSF-VwncGQ" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></p>
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">#</a></h2>
 <p>Here are solutions for a few specific errors:</p>
 <h3 id="cuda-error-forward-compatibility-was-attempted-on-non-supported-hw">cuda error: forward compatibility was attempted on non supported hw<a class="headerlink" href="#cuda-error-forward-compatibility-was-attempted-on-non-supported-hw" title="Permanent link">#</a></h3>
 <p>When starting Docker with <abbr title="Graphics Processing Unit">GPU</abbr> support enabled for NVIDIA graphics, you may sometimes receive the following error:</p>
-<div class="highlight"><pre><span></span><code>docker:<span class="w"> </span>Error<span class="w"> </span>response<span class="w"> </span>from<span class="w"> </span>daemon:<span class="w"> </span>OCI<span class="w"> </span>runtime<span class="w"> </span>create<span class="w"> </span>failed:<span class="w"> </span>container_linux.go:349:<span class="w"> </span>starting<span class="w"> </span>container<span class="w"> </span>process<span class="w"> </span>caused<span class="w"> </span><span class="s2">&quot;process_linux.go:449: container init caused \&quot;process_linux.go:432: running prestart hook 0 caused \\\&quot;error running hook: exit status 1, stdout: , stderr: nvidia-container-cli: initialization error: cuda error: forward compatibility was attempted on non supported hw\\\\n\\\&quot;\&quot;&quot;</span>:<span class="w"> </span>unknown.
+<div class="highlight"><pre><span></span><code>docker:<span class="w"> </span>Error<span class="w"> </span>response<span class="w"> </span>from<span class="w"> </span>daemon:<span class="w"> </span>OCI<span class="w"> </span>runtime<span class="w"> </span>create<span class="w"> </span>failed:<span class="w"> </span>container_linux.go:349:<span class="w"> </span>starting<span class="w"> </span>container<span class="w"> </span>process<span class="w"> </span>caused<span class="w"> </span><span class="s2">"process_linux.go:449: container init caused \"process_linux.go:432: running prestart hook 0 caused \\\"error running hook: exit status 1, stdout: , stderr: nvidia-container-cli: initialization error: cuda error: forward compatibility was attempted on non supported hw\\\\n\\\"\""</span>:<span class="w"> </span>unknown.
 ERROR:<span class="w"> </span>Command<span class="w"> </span><span class="k">return</span><span class="w"> </span>non-zero<span class="w"> </span><span class="nb">exit</span><span class="w"> </span>code<span class="w"> </span><span class="o">(</span>see<span class="w"> </span>above<span class="o">)</span>:<span class="w"> </span><span class="m">125</span>
 </code></pre></div>
 <p>This usually indicates that a new NVIDIA graphics driver has been installed (usually via <code>apt</code>) but the system has not yet been restarted. A similar message may appear if the graphics driver is not available, for example because of resuming after suspend.</p>
@@ -4133,12 +4133,12 @@ Collecting<span class="w"> </span><span class="nv">staticx</span><span class="o"
 Downloading<span class="w"> </span>https://files.pythonhosted.org/packages/92/ff/d9960ea1f9db48d6044a24ee0f3d78d07bcaddf96eb0c0e8806f941fb7d3/staticx-0.12.3.tar.gz<span class="w"> </span><span class="o">(</span>68kB<span class="o">)</span>
 Complete<span class="w"> </span>output<span class="w"> </span>from<span class="w"> </span><span class="nb">command</span><span class="w"> </span>python<span class="w"> </span>setup.py<span class="w"> </span>egg_info:
 Traceback<span class="w"> </span><span class="o">(</span>most<span class="w"> </span>recent<span class="w"> </span>call<span class="w"> </span>last<span class="o">)</span>:
-File<span class="w"> </span><span class="s2">&quot;&quot;</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">1</span>,<span class="w"> </span><span class="k">in</span>
-File<span class="w"> </span><span class="s2">&quot;/tmp/pip-install-m_nm8mya/staticx/setup.py&quot;</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">4</span>,<span class="w"> </span><span class="k">in</span>
+File<span class="w"> </span><span class="s2">""</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">1</span>,<span class="w"> </span><span class="k">in</span>
+File<span class="w"> </span><span class="s2">"/tmp/pip-install-m_nm8mya/staticx/setup.py"</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">4</span>,<span class="w"> </span><span class="k">in</span>
 from<span class="w"> </span>wheel.bdist_wheel<span class="w"> </span>import<span class="w"> </span>bdist_wheel
-ModuleNotFoundError:<span class="w"> </span>No<span class="w"> </span>module<span class="w"> </span>named<span class="w"> </span><span class="s1">&#39;wheel&#39;</span>
+ModuleNotFoundError:<span class="w"> </span>No<span class="w"> </span>module<span class="w"> </span>named<span class="w"> </span><span class="s1">'wheel'</span>
 
-Command<span class="w"> </span><span class="s2">&quot;python setup.py egg_info&quot;</span><span class="w"> </span>failed<span class="w"> </span>with<span class="w"> </span>error<span class="w"> </span>code<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="k">in</span><span class="w"> </span>/tmp/pip-install-m_nm8mya/staticx/
+Command<span class="w"> </span><span class="s2">"python setup.py egg_info"</span><span class="w"> </span>failed<span class="w"> </span>with<span class="w"> </span>error<span class="w"> </span>code<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="k">in</span><span class="w"> </span>/tmp/pip-install-m_nm8mya/staticx/
 ...
 </code></pre></div>
 <p>This error exists in current version of rocker tool, which relates to the os_detection function of rocker.</p>
@@ -4153,22 +4153,22 @@ Command<span class="w"> </span><span class="s2">&quot;python setup.py egg_info&q
 <p>Initially, your system is usually incompatible with <code>arm64</code> systems.
 To check that:</p>
 <div class="highlight"><pre><span></span><code>$ docker run --rm -t arm64v8/ubuntu uname -m
-WARNING: The requested image&#39;s platform (linux/arm64/v8) does not match the detected host platform (linux/amd64) and no specific platform was requested
+WARNING: The requested image's platform (linux/arm64/v8) does not match the detected host platform (linux/amd64) and no specific platform was requested
 standard_init_linux.go:228: exec user process caused: exec format error
 </code></pre></div>
 <p>Installing <code>qemu-user-static</code> enables us to run <code>arm64</code> images on <code>amd64</code> systems.</p>
 <div class="highlight"><pre><span></span><code>$ sudo apt-get install qemu-user-static
 $ docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
 $ docker run --rm -t arm64v8/ubuntu uname -m
-WARNING: The requested image&#39;s platform (linux/arm64/v8) does not match the detected host platform (linux/amd64) and no specific platform was requested
+WARNING: The requested image's platform (linux/arm64/v8) does not match the detected host platform (linux/amd64) and no specific platform was requested
 aarch64
 </code></pre></div>
 <p>To run Autoware's Docker images of <code>arm64</code> architecture, add the suffix <code>-arm64</code>.</p>
 <div class="highlight"><pre><span></span><code>$ docker run --rm -it ghcr.io/autowarefoundation/autoware-universe:humble-latest-cuda-arm64
-WARNING: The requested image&#39;s platform (linux/arm64) does not match the detected host platform (linux/amd64) and no specific platform was requested
+WARNING: The requested image's platform (linux/arm64) does not match the detected host platform (linux/amd64) and no specific platform was requested
 root@5b71391ad50f:/autoware#
 </code></pre></div>
-<!-- prettier-ignore -->
+<!-- prettier-ignore --></div>
 
 
 
@@ -4256,7 +4256,7 @@ root@5b71391ad50f:/autoware#
     <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.efa0ade1.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.19047be9.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       

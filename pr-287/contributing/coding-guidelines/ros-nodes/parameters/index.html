@@ -17,7 +17,7 @@
         <link rel="next" href="../task-scheduling/">
       
       <link rel="icon" href="../../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.4">
     
     
       
@@ -25,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.c4a75a56.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.240905d7.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.a0c5b2b5.min.css">
@@ -3989,7 +3989,7 @@
   
 
 
-<h1 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h1>
+<div><h1 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h1>
 <p>The <abbr title="Robot Operating System">ROS</abbr> packages in Autoware have <abbr title="Robot Operating System">ROS</abbr> parameters. You need to customize the parameters depending on your applications.
 It is recommended not to set default values when declaring <abbr title="Robot Operating System">ROS</abbr> parameters to avoid unintended behaviors due to accidental use of default values.
 Instead, set parameters from configuration files named <code>*.param.yaml</code>.</p>
@@ -4009,11 +4009,11 @@ Instead, set parameters from configuration files named <code>*.param.yaml</code>
 </li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;launch&gt;</span>
-<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;foo_node_param_path&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;$(find-pkg-share FOO_package)/config/foo_node.param.yaml&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"foo_node_param_path"</span><span class="w"> </span><span class="na">default=</span><span class="s">"$(find-pkg-share FOO_package)/config/foo_node.param.yaml"</span><span class="w"> </span><span class="nt">/&gt;</span>
 
-<span class="w">  </span><span class="nt">&lt;node</span><span class="w"> </span><span class="na">pkg=</span><span class="s">&quot;FOO_package&quot;</span><span class="w"> </span><span class="na">exec=</span><span class="s">&quot;foo_node&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;node</span><span class="w"> </span><span class="na">pkg=</span><span class="s">"FOO_package"</span><span class="w"> </span><span class="na">exec=</span><span class="s">"foo_node"</span><span class="nt">&gt;</span>
 <span class="w">    </span>...
-<span class="w">    </span><span class="nt">&lt;param</span><span class="w"> </span><span class="na">from=</span><span class="s">&quot;$(var foo_node_param_path)&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;param</span><span class="w"> </span><span class="na">from=</span><span class="s">"$(var foo_node_param_path)"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">  </span><span class="nt">&lt;/node&gt;</span>
 <span class="nt">&lt;/launch&gt;</span>
 </code></pre></div>
@@ -4028,7 +4028,7 @@ Instead, set parameters from configuration files named <code>*.param.yaml</code>
 </li>
 </ul>
 <p>All the parameter files should have the <code>.param.yaml</code> suffix so that the auto-format can be applied properly.</p>
-<!-- prettier-ignore -->
+<!-- prettier-ignore --></div>
 
 
 
@@ -4116,7 +4116,7 @@ Instead, set parameters from configuration files named <code>*.param.yaml</code>
     <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.efa0ade1.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.19047be9.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
