@@ -17,7 +17,7 @@
         <link rel="next" href="ci-checks/">
       
       <link rel="icon" href="../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.4">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.5">
     
     
       
@@ -25,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.240905d7.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7a7fce14.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
@@ -4071,6 +4071,37 @@ Use this workflow as a reference when you contribute to Autoware.</p>
 <li>The unified style of descriptions by templates can make reviews efficient.</li>
 </ul>
 <h4 id="example">Example<a class="headerlink" href="#example" title="Permanent link">#</a></h4>
+<p>There are two types of templates. Select one based on the following condition.</p>
+<ol>
+<li><a href="https://github.com/autowarefoundation/autoware/blob/main/.github/PULL_REQUEST_TEMPLATE/standard-change.md">Standard change</a>:<ul>
+<li>Complexity:<ul>
+<li>New features or significant updates.</li>
+<li>Requires deeper understanding of the codebase.</li>
+</ul>
+</li>
+<li>Impact:<ul>
+<li>Affects multiple parts of the system.</li>
+<li>Basically includes minor features, bug fixes and performance improvement.</li>
+<li>Needs testing before merging.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://github.com/autowarefoundation/autoware/blob/main/.github/PULL_REQUEST_TEMPLATE/small-change.md">Small change</a>:<ul>
+<li>Complexity:<ul>
+<li>Documentation, simple refactoring, or style adjustments.</li>
+<li>Easy to understand and review.</li>
+</ul>
+</li>
+<li>Impact:<ul>
+<li>Minimal effect on the system.</li>
+<li>Quicker merge with less testing needed.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h5 id="steps-to-use-an-appropriate-pull-request-template">Steps to use an appropriate pull request template<a class="headerlink" href="#steps-to-use-an-appropriate-pull-request-template" title="Permanent link">#</a></h5>
 <ol>
 <li>Select the appropriate template, as shown in <a href="https://user-images.githubusercontent.com/31987104/184344710-2adee239-799f-4fdf-bfab-be76345bfac1.mp4">this video</a>.</li>
 <li>Read the selected template carefully and fill the required content.</li>
@@ -4209,10 +4240,10 @@ refactor(planning, control): use common utils
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
             <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
               <div class="md-ellipsis">
-                <span class="md-footer__direction">
-                  Previous
-                </span>
                 Documentation guidelines
               </div>
             </div>
@@ -4222,10 +4253,10 @@ refactor(planning, control): use common utils
           
           <a href="ci-checks/" class="md-footer__link md-footer__link--next" aria-label="Next: CI checks" rel="next">
             <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
               <div class="md-ellipsis">
-                <span class="md-footer__direction">
-                  Next
-                </span>
                 CI checks
               </div>
             </div>
@@ -4265,7 +4296,7 @@ refactor(planning, control): use common utils
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.19047be9.min.js"></script>
+      <script src="../../assets/javascripts/bundle.407015b8.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
