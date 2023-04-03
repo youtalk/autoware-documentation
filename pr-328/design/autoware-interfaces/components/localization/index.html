@@ -8,27 +8,27 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-328/contributing/pull-request-guidelines/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-328/design/autoware-interfaces/components/localization/">
       
       
-        <link rel="prev" href="../documentation-guidelines/">
+        <link rel="prev" href="../control/">
       
       
-        <link rel="next" href="ci-checks/">
+        <link rel="next" href="../planning/">
       
-      <link rel="icon" href="../../assets/images/autoware-foundation.png">
+      <link rel="icon" href="../../../../assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.5">
     
     
       
-        <title>Pull request guidelines - Autoware Documentation</title>
+        <title>Localization - Autoware Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.7a7fce14.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7a7fce14.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.a0c5b2b5.min.css">
       
       
 
@@ -44,11 +44,11 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/css/extra.css">
+      <link rel="stylesheet" href="../../../../assets/css/extra.css">
     
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#pull-request-guidelines" class="md-skip">
+        <a href="#localization" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Autoware Documentation" class="md-header__button md-logo" aria-label="Autoware Documentation" data-md-component="logo">
+    <a href="../../../.." title="Autoware Documentation" class="md-header__button md-logo" aria-label="Autoware Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M135.2 117.4 109.1 192h293.8l-26.1-74.6c-4.5-12.8-16.6-21.4-30.2-21.4H165.4c-13.6 0-25.7 8.6-30.2 21.4zm-95.6 79.4L74.8 96.3C88.3 57.8 124.6 32 165.4 32h181.2c40.8 0 77.1 25.8 90.6 64.3l35.2 100.5c23.2 9.6 39.6 32.5 39.6 59.2v192c0 17.7-14.3 32-32 32h-32c-17.7 0-32-14.3-32-32v-48H96v48c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V256c0-26.7 16.4-49.6 39.6-59.2zM128 288a32 32 0 1 0-64 0 32 32 0 1 0 64 0zm288 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/></svg>
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Pull request guidelines
+              Localization
             
           </span>
         </div>
@@ -205,7 +205,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="../.." class="md-tabs__link">
+    <a href="../../../.." class="md-tabs__link">
       Introduction
     </a>
   </li>
@@ -220,7 +220,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../installation/" class="md-tabs__link">
+      <a href="../../../../installation/" class="md-tabs__link">
         Installation
       </a>
     </li>
@@ -236,7 +236,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../tutorials/" class="md-tabs__link">
+      <a href="../../../../tutorials/" class="md-tabs__link">
         Tutorials
       </a>
     </li>
@@ -252,24 +252,8 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../how-to-guides/" class="md-tabs__link">
+      <a href="../../../../how-to-guides/" class="md-tabs__link">
         How to guides
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../design/" class="md-tabs__link">
-        Design
       </a>
     </li>
   
@@ -286,7 +270,23 @@
   
   
     <li class="md-tabs__item">
-      <a href="../" class="md-tabs__link md-tabs__link--active">
+      <a href="../../../" class="md-tabs__link md-tabs__link--active">
+        Design
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../contributing/" class="md-tabs__link">
         Contributing
       </a>
     </li>
@@ -302,7 +302,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../datasets/" class="md-tabs__link">
+      <a href="../../../../datasets/" class="md-tabs__link">
         Datasets
       </a>
     </li>
@@ -318,7 +318,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../support/" class="md-tabs__link">
+      <a href="../../../../support/" class="md-tabs__link">
         Support
       </a>
     </li>
@@ -352,7 +352,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Autoware Documentation" class="md-nav__button md-logo" aria-label="Autoware Documentation" data-md-component="logo">
+    <a href="../../../.." title="Autoware Documentation" class="md-nav__button md-logo" aria-label="Autoware Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M135.2 117.4 109.1 192h293.8l-26.1-74.6c-4.5-12.8-16.6-21.4-30.2-21.4H165.4c-13.6 0-25.7 8.6-30.2 21.4zm-95.6 79.4L74.8 96.3C88.3 57.8 124.6 32 165.4 32h181.2c40.8 0 77.1 25.8 90.6 64.3l35.2 100.5c23.2 9.6 39.6 32.5 39.6 59.2v192c0 17.7-14.3 32-32 32h-32c-17.7 0-32-14.3-32-32v-48H96v48c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V256c0-26.7 16.4-49.6 39.6-59.2zM128 288a32 32 0 1 0-64 0 32 32 0 1 0 64 0zm288 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/></svg>
@@ -383,7 +383,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../../.." class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -424,7 +424,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../installation/">Installation</a>
+          <a href="../../../../installation/">Installation</a>
           
             <label for="__nav_2">
               <span class="md-nav__icon md-icon"></span>
@@ -484,7 +484,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../installation/autoware/docker-installation/" class="md-nav__link">
+      <a href="../../../../installation/autoware/docker-installation/" class="md-nav__link">
         Docker installation
       </a>
     </li>
@@ -498,7 +498,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../installation/autoware/source-installation/" class="md-nav__link">
+      <a href="../../../../installation/autoware/source-installation/" class="md-nav__link">
         Source installation
       </a>
     </li>
@@ -541,7 +541,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../installation/related-tools/">Related tools</a>
+          <a href="../../../../installation/related-tools/">Related tools</a>
           
         </div>
       
@@ -589,7 +589,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../installation/additional-settings-for-developers/">Additional settings for developers</a>
+          <a href="../../../../installation/additional-settings-for-developers/">Additional settings for developers</a>
           
         </div>
       
@@ -647,7 +647,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../tutorials/">Tutorials</a>
+          <a href="../../../../tutorials/">Tutorials</a>
           
             <label for="__nav_3">
               <span class="md-nav__icon md-icon"></span>
@@ -698,7 +698,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../tutorials/ad-hoc-simulation/">Ad hoc simulation</a>
+          <a href="../../../../tutorials/ad-hoc-simulation/">Ad hoc simulation</a>
           
             <label for="__nav_3_2">
               <span class="md-nav__icon md-icon"></span>
@@ -721,7 +721,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/ad-hoc-simulation/planning-simulation/" class="md-nav__link">
+      <a href="../../../../tutorials/ad-hoc-simulation/planning-simulation/" class="md-nav__link">
         Planning simulation
       </a>
     </li>
@@ -735,7 +735,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/ad-hoc-simulation/rosbag-replay-simulation/" class="md-nav__link">
+      <a href="../../../../tutorials/ad-hoc-simulation/rosbag-replay-simulation/" class="md-nav__link">
         Rosbag replay simulation
       </a>
     </li>
@@ -784,7 +784,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/ad-hoc-simulation/digital-twin-simulation/awsim-tutorial/" class="md-nav__link">
+      <a href="../../../../tutorials/ad-hoc-simulation/digital-twin-simulation/awsim-tutorial/" class="md-nav__link">
         AWSIM simulator
       </a>
     </li>
@@ -798,7 +798,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/ad-hoc-simulation/digital-twin-simulation/MORAI_Sim-tutorial/" class="md-nav__link">
+      <a href="../../../../tutorials/ad-hoc-simulation/digital-twin-simulation/MORAI_Sim-tutorial/" class="md-nav__link">
         MORAI Sim: Drive
       </a>
     </li>
@@ -900,7 +900,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/scenario-simulation/planning-simulation/installation/" class="md-nav__link">
+      <a href="../../../../tutorials/scenario-simulation/planning-simulation/installation/" class="md-nav__link">
         Installation
       </a>
     </li>
@@ -914,7 +914,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/scenario-simulation/planning-simulation/scenario-test-simulation/" class="md-nav__link">
+      <a href="../../../../tutorials/scenario-simulation/planning-simulation/scenario-test-simulation/" class="md-nav__link">
         Scenario test simulation
       </a>
     </li>
@@ -928,7 +928,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/scenario-simulation/planning-simulation/random-test-simulation/" class="md-nav__link">
+      <a href="../../../../tutorials/scenario-simulation/planning-simulation/random-test-simulation/" class="md-nav__link">
         Random test simulation
       </a>
     </li>
@@ -982,7 +982,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/scenario-simulation/rosbag-replay-simulation/driving-log-replayer/" class="md-nav__link">
+      <a href="../../../../tutorials/scenario-simulation/rosbag-replay-simulation/driving-log-replayer/" class="md-nav__link">
         Driving Log Replayer
       </a>
     </li>
@@ -1060,7 +1060,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../how-to-guides/">How to guides</a>
+          <a href="../../../../how-to-guides/">How to guides</a>
           
             <label for="__nav_4">
               <span class="md-nav__icon md-icon"></span>
@@ -1083,7 +1083,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../how-to-guides/advanced-usage-of-colcon/" class="md-nav__link">
+      <a href="../../../../how-to-guides/advanced-usage-of-colcon/" class="md-nav__link">
         Advanced usage of colcon
       </a>
     </li>
@@ -1121,7 +1121,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../how-to-guides/creating-maps-for-autoware/">Creating maps for autoware</a>
+          <a href="../../../../how-to-guides/creating-maps-for-autoware/">Creating maps for autoware</a>
           
             <label for="__nav_4_3">
               <span class="md-nav__icon md-icon"></span>
@@ -1186,7 +1186,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../how-to-guides/creating-maps-for-autoware/open-source-slam/">Open-source SLAM algorithms</a>
+          <a href="../../../../how-to-guides/creating-maps-for-autoware/open-source-slam/">Open-source SLAM algorithms</a>
           
             <label for="__nav_4_3_2">
               <span class="md-nav__icon md-icon"></span>
@@ -1229,7 +1229,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../how-to-guides/creating-maps-for-autoware/open-source-slam/fast-lio-lc/">FAST-LIO-LC</a>
+          <a href="../../../../how-to-guides/creating-maps-for-autoware/open-source-slam/fast-lio-lc/">FAST-LIO-LC</a>
           
         </div>
       
@@ -1275,7 +1275,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../how-to-guides/creating-maps-for-autoware/open-source-slam/fast-lio-slam/">FAST_LIO_SLAM</a>
+          <a href="../../../../how-to-guides/creating-maps-for-autoware/open-source-slam/fast-lio-slam/">FAST_LIO_SLAM</a>
           
         </div>
       
@@ -1321,7 +1321,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../how-to-guides/creating-maps-for-autoware/open-source-slam/fd-slam/">FD-SLAM</a>
+          <a href="../../../../how-to-guides/creating-maps-for-autoware/open-source-slam/fd-slam/">FD-SLAM</a>
           
         </div>
       
@@ -1367,7 +1367,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../how-to-guides/creating-maps-for-autoware/open-source-slam/hdl-graph-slam/">hdl_graph_slam</a>
+          <a href="../../../../how-to-guides/creating-maps-for-autoware/open-source-slam/hdl-graph-slam/">hdl_graph_slam</a>
           
         </div>
       
@@ -1413,7 +1413,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../how-to-guides/creating-maps-for-autoware/open-source-slam/ia-lio-slam/">IA_LIO_SAM</a>
+          <a href="../../../../how-to-guides/creating-maps-for-autoware/open-source-slam/ia-lio-slam/">IA_LIO_SAM</a>
           
         </div>
       
@@ -1459,7 +1459,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../how-to-guides/creating-maps-for-autoware/open-source-slam/iscloam/">iscloam</a>
+          <a href="../../../../how-to-guides/creating-maps-for-autoware/open-source-slam/iscloam/">iscloam</a>
           
         </div>
       
@@ -1505,7 +1505,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../how-to-guides/creating-maps-for-autoware/open-source-slam/lego-loam-bor/">LeGO-LOAM-BOR</a>
+          <a href="../../../../how-to-guides/creating-maps-for-autoware/open-source-slam/lego-loam-bor/">LeGO-LOAM-BOR</a>
           
         </div>
       
@@ -1551,7 +1551,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../how-to-guides/creating-maps-for-autoware/open-source-slam/lio-sam/">LIO-SAM</a>
+          <a href="../../../../how-to-guides/creating-maps-for-autoware/open-source-slam/lio-sam/">LIO-SAM</a>
           
         </div>
       
@@ -1597,7 +1597,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../how-to-guides/creating-maps-for-autoware/open-source-slam/optimized-sc-f-loam/">Optimized-SC-F-LOAM</a>
+          <a href="../../../../how-to-guides/creating-maps-for-autoware/open-source-slam/optimized-sc-f-loam/">Optimized-SC-F-LOAM</a>
           
         </div>
       
@@ -1643,7 +1643,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../how-to-guides/creating-maps-for-autoware/open-source-slam/sc-a-loam/">SC-A-LOAM</a>
+          <a href="../../../../how-to-guides/creating-maps-for-autoware/open-source-slam/sc-a-loam/">SC-A-LOAM</a>
           
         </div>
       
@@ -1689,7 +1689,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../how-to-guides/creating-maps-for-autoware/open-source-slam/sc-lego-loam/">SC-LeGO-LOAM</a>
+          <a href="../../../../how-to-guides/creating-maps-for-autoware/open-source-slam/sc-lego-loam/">SC-LeGO-LOAM</a>
           
         </div>
       
@@ -1729,7 +1729,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../how-to-guides/determining-component-dependencies/" class="md-nav__link">
+      <a href="../../../../how-to-guides/determining-component-dependencies/" class="md-nav__link">
         Determining component dependencies
       </a>
     </li>
@@ -1743,7 +1743,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../how-to-guides/integrating-autoware-with-your-vehicle/" class="md-nav__link">
+      <a href="../../../../how-to-guides/integrating-autoware-with-your-vehicle/" class="md-nav__link">
         Integrating Autoware with your vehicle
       </a>
     </li>
@@ -1757,7 +1757,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../how-to-guides/integrating-autoware-with-a-diff-drive-vehicle/" class="md-nav__link">
+      <a href="../../../../how-to-guides/integrating-autoware-with-a-diff-drive-vehicle/" class="md-nav__link">
         Integrating Autoware with a differential drive vehicle
       </a>
     </li>
@@ -1771,7 +1771,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../how-to-guides/running-autoware-without-cuda/" class="md-nav__link">
+      <a href="../../../../how-to-guides/running-autoware-without-cuda/" class="md-nav__link">
         Running Autoware without CUDA
       </a>
     </li>
@@ -1785,7 +1785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../how-to-guides/calibrating-your-sensors/" class="md-nav__link">
+      <a href="../../../../how-to-guides/calibrating-your-sensors/" class="md-nav__link">
         Calibrating your sensors
       </a>
     </li>
@@ -1799,7 +1799,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../how-to-guides/evaluating-controller-performance/" class="md-nav__link">
+      <a href="../../../../how-to-guides/evaluating-controller-performance/" class="md-nav__link">
         Evaluating the controller performance
       </a>
     </li>
@@ -1813,7 +1813,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../how-to-guides/debug-autoware/" class="md-nav__link">
+      <a href="../../../../how-to-guides/debug-autoware/" class="md-nav__link">
         Debug Autoware
       </a>
     </li>
@@ -1827,7 +1827,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../how-to-guides/add-a-custom-ros-message/" class="md-nav__link">
+      <a href="../../../../how-to-guides/add-a-custom-ros-message/" class="md-nav__link">
         Add a custom ROS message
       </a>
     </li>
@@ -1841,7 +1841,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../how-to-guides/fixing-dependent-package-versions/" class="md-nav__link">
+      <a href="../../../../how-to-guides/fixing-dependent-package-versions/" class="md-nav__link">
         Fixing dependent package versions
       </a>
     </li>
@@ -1861,16 +1861,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
       
       
         
@@ -1891,7 +1891,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/">Design</a>
+          <a href="../../../">Design</a>
           
             <label for="__nav_5">
               <span class="md-nav__icon md-icon"></span>
@@ -1899,7 +1899,7 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
           Design
@@ -1938,7 +1938,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/autoware-concepts/">Autoware concepts</a>
+          <a href="../../../autoware-concepts/">Autoware concepts</a>
           
             <label for="__nav_5_2">
               <span class="md-nav__icon md-icon"></span>
@@ -1961,7 +1961,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/autoware-concepts/difference-from-ai-and-auto/" class="md-nav__link">
+      <a href="../../../autoware-concepts/difference-from-ai-and-auto/" class="md-nav__link">
         How is Autoware Core/Universe different from Autoware.AI and Autoware.Auto?
       </a>
     </li>
@@ -2020,7 +2020,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/autoware-architecture/">Autoware architecture</a>
+          <a href="../../../autoware-architecture/">Autoware architecture</a>
           
             <label for="__nav_5_3">
               <span class="md-nav__icon md-icon"></span>
@@ -2065,7 +2065,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/autoware-architecture/sensing/">Sensing</a>
+          <a href="../../../autoware-architecture/sensing/">Sensing</a>
           
             <label for="__nav_5_3_2">
               <span class="md-nav__icon md-icon"></span>
@@ -2129,7 +2129,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/autoware-architecture/sensing/data-types/gnss-ins-data/" class="md-nav__link">
+      <a href="../../../autoware-architecture/sensing/data-types/gnss-ins-data/" class="md-nav__link">
         GNSS/INS data pre-processing design
       </a>
     </li>
@@ -2143,7 +2143,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/autoware-architecture/sensing/data-types/image/" class="md-nav__link">
+      <a href="../../../autoware-architecture/sensing/data-types/image/" class="md-nav__link">
         Image pre-processing design
       </a>
     </li>
@@ -2157,7 +2157,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/autoware-architecture/sensing/data-types/point-cloud/" class="md-nav__link">
+      <a href="../../../autoware-architecture/sensing/data-types/point-cloud/" class="md-nav__link">
         Point cloud pre-processing design
       </a>
     </li>
@@ -2171,7 +2171,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/autoware-architecture/sensing/data-types/radar-data/" class="md-nav__link">
+      <a href="../../../autoware-architecture/sensing/data-types/radar-data/" class="md-nav__link">
         Radar data pre-processing design
       </a>
     </li>
@@ -2185,7 +2185,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/autoware-architecture/sensing/data-types/ultrasonics-data/" class="md-nav__link">
+      <a href="../../../autoware-architecture/sensing/data-types/ultrasonics-data/" class="md-nav__link">
         Ultrasonics data pre-processing design
       </a>
     </li>
@@ -2233,7 +2233,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/autoware-architecture/map/">Map</a>
+          <a href="../../../autoware-architecture/map/">Map</a>
           
         </div>
       
@@ -2279,7 +2279,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/autoware-architecture/localization/">Localization</a>
+          <a href="../../../autoware-architecture/localization/">Localization</a>
           
         </div>
       
@@ -2325,7 +2325,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/autoware-architecture/perception/">Perception</a>
+          <a href="../../../autoware-architecture/perception/">Perception</a>
           
         </div>
       
@@ -2371,7 +2371,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/autoware-architecture/planning/">Planning</a>
+          <a href="../../../autoware-architecture/planning/">Planning</a>
           
         </div>
       
@@ -2417,7 +2417,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/autoware-architecture/control/">Control</a>
+          <a href="../../../autoware-architecture/control/">Control</a>
           
         </div>
       
@@ -2463,7 +2463,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/autoware-architecture/vehicle/">Vehicle</a>
+          <a href="../../../autoware-architecture/vehicle/">Vehicle</a>
           
         </div>
       
@@ -2509,7 +2509,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/autoware-architecture/node-diagram/">Node diagram</a>
+          <a href="../../../autoware-architecture/node-diagram/">Node diagram</a>
           
         </div>
       
@@ -2540,18 +2540,18 @@
               
   
   
+    
+  
   
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_4" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" checked>
       
       
         
@@ -2568,7 +2568,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/autoware-interfaces/">Autoware interfaces</a>
+          <a href="../../">Autoware interfaces</a>
           
             <label for="__nav_5_4">
               <span class="md-nav__icon md-icon"></span>
@@ -2576,7 +2576,7 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_5_4">
           <span class="md-nav__icon md-icon"></span>
           Autoware interfaces
@@ -2615,7 +2615,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/autoware-interfaces/ad-api/">AD API</a>
+          <a href="../../ad-api/">AD API</a>
           
             <label for="__nav_5_4_2">
               <span class="md-nav__icon md-icon"></span>
@@ -2658,7 +2658,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/autoware-interfaces/ad-api/use-cases/">Use cases</a>
+          <a href="../../ad-api/use-cases/">Use cases</a>
           
         </div>
       
@@ -2704,7 +2704,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/autoware-interfaces/ad-api/list/">List</a>
+          <a href="../../ad-api/list/">List</a>
           
         </div>
       
@@ -2735,16 +2735,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_4_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_3" checked>
       
       
         
@@ -2765,7 +2765,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/autoware-interfaces/components/">Components</a>
+          <a href="../">Components</a>
           
             <label for="__nav_5_4_3">
               <span class="md-nav__icon md-icon"></span>
@@ -2773,7 +2773,7 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_4_3_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_4_3_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_5_4_3">
           <span class="md-nav__icon md-icon"></span>
           Components
@@ -2788,7 +2788,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/autoware-interfaces/components/planning/" class="md-nav__link">
+      <a href="../planning/" class="md-nav__link">
         Planning
       </a>
     </li>
@@ -2802,7 +2802,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/autoware-interfaces/components/control/" class="md-nav__link">
+      <a href="../control/" class="md-nav__link">
         Control
       </a>
     </li>
@@ -2816,7 +2816,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/autoware-interfaces/components/vehicle-interface/" class="md-nav__link">
+      <a href="../vehicle-interface/" class="md-nav__link">
         Vehicle Interface
       </a>
     </li>
@@ -2830,7 +2830,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/autoware-interfaces/components/vehicle-dimensions/" class="md-nav__link">
+      <a href="../vehicle-dimensions/" class="md-nav__link">
         Vehicle dimensions
       </a>
     </li>
@@ -2886,7 +2886,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/configuration-management/">Configuration management</a>
+          <a href="../../../configuration-management/">Configuration management</a>
           
             <label for="__nav_5_5">
               <span class="md-nav__icon md-icon"></span>
@@ -2909,7 +2909,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/configuration-management/development-process/" class="md-nav__link">
+      <a href="../../../configuration-management/development-process/" class="md-nav__link">
         Development process
       </a>
     </li>
@@ -2923,7 +2923,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/configuration-management/repository-structure/" class="md-nav__link">
+      <a href="../../../configuration-management/repository-structure/" class="md-nav__link">
         Repository structure
       </a>
     </li>
@@ -2937,7 +2937,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/configuration-management/release-process/" class="md-nav__link">
+      <a href="../../../configuration-management/release-process/" class="md-nav__link">
         Release process
       </a>
     </li>
@@ -2964,16 +2964,16 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
       
       
         
@@ -2998,7 +2998,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../">Contributing</a>
+          <a href="../../../../contributing/">Contributing</a>
           
             <label for="__nav_6">
               <span class="md-nav__icon md-icon"></span>
@@ -3006,7 +3006,7 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
           Contributing
@@ -3021,7 +3021,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../license/" class="md-nav__link">
+      <a href="../../../../contributing/license/" class="md-nav__link">
         License
       </a>
     </li>
@@ -3061,7 +3061,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../coding-guidelines/">Coding guidelines</a>
+          <a href="../../../../contributing/coding-guidelines/">Coding guidelines</a>
           
             <label for="__nav_6_3">
               <span class="md-nav__icon md-icon"></span>
@@ -3131,7 +3131,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../coding-guidelines/languages/cpp/" class="md-nav__link">
+      <a href="../../../../contributing/coding-guidelines/languages/cpp/" class="md-nav__link">
         C++
       </a>
     </li>
@@ -3145,7 +3145,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../coding-guidelines/languages/python/" class="md-nav__link">
+      <a href="../../../../contributing/coding-guidelines/languages/python/" class="md-nav__link">
         Python
       </a>
     </li>
@@ -3159,7 +3159,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../coding-guidelines/languages/shell-scripts/" class="md-nav__link">
+      <a href="../../../../contributing/coding-guidelines/languages/shell-scripts/" class="md-nav__link">
         Shell scripts
       </a>
     </li>
@@ -3173,7 +3173,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../coding-guidelines/languages/markdown/" class="md-nav__link">
+      <a href="../../../../contributing/coding-guidelines/languages/markdown/" class="md-nav__link">
         Markdown
       </a>
     </li>
@@ -3187,7 +3187,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../coding-guidelines/languages/cmake/" class="md-nav__link">
+      <a href="../../../../contributing/coding-guidelines/languages/cmake/" class="md-nav__link">
         CMake
       </a>
     </li>
@@ -3201,7 +3201,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../coding-guidelines/languages/package-xml/" class="md-nav__link">
+      <a href="../../../../contributing/coding-guidelines/languages/package-xml/" class="md-nav__link">
         package.xml
       </a>
     </li>
@@ -3215,7 +3215,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../coding-guidelines/languages/docker/" class="md-nav__link">
+      <a href="../../../../contributing/coding-guidelines/languages/docker/" class="md-nav__link">
         Docker
       </a>
     </li>
@@ -3229,7 +3229,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../coding-guidelines/languages/github-actions/" class="md-nav__link">
+      <a href="../../../../contributing/coding-guidelines/languages/github-actions/" class="md-nav__link">
         GitHub Actions
       </a>
     </li>
@@ -3301,7 +3301,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../coding-guidelines/ros-nodes/class-design/" class="md-nav__link">
+      <a href="../../../../contributing/coding-guidelines/ros-nodes/class-design/" class="md-nav__link">
         Class design
       </a>
     </li>
@@ -3315,7 +3315,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../coding-guidelines/ros-nodes/console-logging/" class="md-nav__link">
+      <a href="../../../../contributing/coding-guidelines/ros-nodes/console-logging/" class="md-nav__link">
         Console logging
       </a>
     </li>
@@ -3329,7 +3329,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../coding-guidelines/ros-nodes/coordinate-system/" class="md-nav__link">
+      <a href="../../../../contributing/coding-guidelines/ros-nodes/coordinate-system/" class="md-nav__link">
         Coordinate system
       </a>
     </li>
@@ -3343,7 +3343,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../coding-guidelines/ros-nodes/directory-structure/" class="md-nav__link">
+      <a href="../../../../contributing/coding-guidelines/ros-nodes/directory-structure/" class="md-nav__link">
         Directory structure
       </a>
     </li>
@@ -3357,7 +3357,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../coding-guidelines/ros-nodes/launch-files/" class="md-nav__link">
+      <a href="../../../../contributing/coding-guidelines/ros-nodes/launch-files/" class="md-nav__link">
         Launch files
       </a>
     </li>
@@ -3371,7 +3371,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../coding-guidelines/ros-nodes/message-guidelines/" class="md-nav__link">
+      <a href="../../../../contributing/coding-guidelines/ros-nodes/message-guidelines/" class="md-nav__link">
         Message guidelines
       </a>
     </li>
@@ -3385,7 +3385,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../coding-guidelines/ros-nodes/naming/" class="md-nav__link">
+      <a href="../../../../contributing/coding-guidelines/ros-nodes/naming/" class="md-nav__link">
         Topic namespaces
       </a>
     </li>
@@ -3399,7 +3399,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../coding-guidelines/ros-nodes/parameters/" class="md-nav__link">
+      <a href="../../../../contributing/coding-guidelines/ros-nodes/parameters/" class="md-nav__link">
         Parameters
       </a>
     </li>
@@ -3413,7 +3413,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../coding-guidelines/ros-nodes/task-scheduling/" class="md-nav__link">
+      <a href="../../../../contributing/coding-guidelines/ros-nodes/task-scheduling/" class="md-nav__link">
         Task scheduling
       </a>
     </li>
@@ -3427,7 +3427,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../coding-guidelines/ros-nodes/topic-namespaces/" class="md-nav__link">
+      <a href="../../../../contributing/coding-guidelines/ros-nodes/topic-namespaces/" class="md-nav__link">
         Topic namespaces
       </a>
     </li>
@@ -3481,7 +3481,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../testing-guidelines/">Testing guidelines</a>
+          <a href="../../../../contributing/testing-guidelines/">Testing guidelines</a>
           
             <label for="__nav_6_4">
               <span class="md-nav__icon md-icon"></span>
@@ -3504,7 +3504,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../testing-guidelines/unit-testing/" class="md-nav__link">
+      <a href="../../../../contributing/testing-guidelines/unit-testing/" class="md-nav__link">
         Unit testing
       </a>
     </li>
@@ -3518,7 +3518,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../testing-guidelines/integration-testing/" class="md-nav__link">
+      <a href="../../../../contributing/testing-guidelines/integration-testing/" class="md-nav__link">
         Integration testing
       </a>
     </li>
@@ -3561,7 +3561,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../documentation-guidelines/">Documentation guidelines</a>
+          <a href="../../../../contributing/documentation-guidelines/">Documentation guidelines</a>
           
         </div>
       
@@ -3585,18 +3585,18 @@
               
   
   
-    
-  
   
     
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_6" checked>
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_6" >
       
       
         
@@ -3616,8 +3616,8 @@
       
         
         
-        <div class="md-nav__link md-nav__link--index md-nav__link--active">
-          <a href="./">Pull request guidelines</a>
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../contributing/pull-request-guidelines/">Pull request guidelines</a>
           
             <label for="__nav_6_6">
               <span class="md-nav__icon md-icon"></span>
@@ -3625,7 +3625,7 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_6_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_6_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_6_6">
           <span class="md-nav__icon md-icon"></span>
           Pull request guidelines
@@ -3640,7 +3640,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ci-checks/" class="md-nav__link">
+      <a href="../../../../contributing/pull-request-guidelines/ci-checks/" class="md-nav__link">
         CI checks
       </a>
     </li>
@@ -3654,7 +3654,7 @@
   
   
     <li class="md-nav__item">
-      <a href="commit-guidelines/" class="md-nav__link">
+      <a href="../../../../contributing/pull-request-guidelines/commit-guidelines/" class="md-nav__link">
         Commit guidelines
       </a>
     </li>
@@ -3668,7 +3668,7 @@
   
   
     <li class="md-nav__item">
-      <a href="review-guidelines/" class="md-nav__link">
+      <a href="../../../../contributing/pull-request-guidelines/review-guidelines/" class="md-nav__link">
         Review guidelines
       </a>
     </li>
@@ -3682,7 +3682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="review-tips/" class="md-nav__link">
+      <a href="../../../../contributing/pull-request-guidelines/review-tips/" class="md-nav__link">
         Review tips
       </a>
     </li>
@@ -3725,7 +3725,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../discussion-guidelines/">Discussion guidelines</a>
+          <a href="../../../../contributing/discussion-guidelines/">Discussion guidelines</a>
           
         </div>
       
@@ -3779,7 +3779,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../datasets/">Datasets</a>
+          <a href="../../../../datasets/">Datasets</a>
           
         </div>
       
@@ -3832,7 +3832,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../support/">Support</a>
+          <a href="../../../../support/">Support</a>
           
             <label for="__nav_8">
               <span class="md-nav__icon md-icon"></span>
@@ -3855,7 +3855,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../support/support-guidelines/" class="md-nav__link">
+      <a href="../../../../support/support-guidelines/" class="md-nav__link">
         Support guidelines
       </a>
     </li>
@@ -3869,7 +3869,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../support/troubleshooting/" class="md-nav__link">
+      <a href="../../../../support/troubleshooting/" class="md-nav__link">
         Troubleshooting
       </a>
     </li>
@@ -3883,7 +3883,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../support/docs-guide/" class="md-nav__link">
+      <a href="../../../../support/docs-guide/" class="md-nav__link">
         Docs guide
       </a>
     </li>
@@ -3924,58 +3924,99 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#general-pull-request-workflow" class="md-nav__link">
-    General pull request workflow
+  <a href="#inputs" class="md-nav__link">
+    Inputs
   </a>
+  
+    <nav class="md-nav" aria-label="Inputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pointcloud-map" class="md-nav__link">
+    Pointcloud Map
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manual-initial-pose" class="md-nav__link">
+    Manual Initial Pose
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3d-lidar-scanning" class="md-nav__link">
+    3D-LiDAR Scanning
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automatic-initial-pose" class="md-nav__link">
+    Automatic Initial pose
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imu-data" class="md-nav__link">
+    IMU Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vehicle-velocity-status" class="md-nav__link">
+    Vehicle Velocity Status
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#pull-request-rules" class="md-nav__link">
-    Pull request rules
+  <a href="#outputs" class="md-nav__link">
+    Outputs
   </a>
   
-    <nav class="md-nav" aria-label="Pull request rules">
+    <nav class="md-nav" aria-label="Outputs">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#use-an-appropriate-pull-request-template-required-non-automated" class="md-nav__link">
-    Use an appropriate pull request template (required, non-automated)
+  <a href="#vehicle-pose" class="md-nav__link">
+    Vehicle pose
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#set-appropriate-reviewers-after-creating-a-pull-request-required-partially-automated" class="md-nav__link">
-    Set appropriate reviewers after creating a pull request (required, partially automated)
+  <a href="#vehicle-velocity" class="md-nav__link">
+    Vehicle velocity
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#apply-conventional-commits-to-the-pull-request-title-required-automated" class="md-nav__link">
-    Apply Conventional Commits to the pull request title (required, automated)
+  <a href="#vehicle-acceleration" class="md-nav__link">
+    Vehicle acceleration
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#add-the-related-component-names-to-the-scope-of-conventional-commits-advisory-non-automated" class="md-nav__link">
-    Add the related component names to the scope of Conventional Commits (advisory, non-automated)
+  <a href="#vehicle-kinematic-state" class="md-nav__link">
+    Vehicle kinematic state
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#keep-a-pull-request-small-advisory-non-automated" class="md-nav__link">
-    Keep a pull request small (advisory, non-automated)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#remind-reviewers-if-there-is-no-response-for-more-than-a-week-advisory-non-automated" class="md-nav__link">
-    Remind reviewers if there is no response for more than a week (advisory, non-automated)
+  <a href="#localization-accuracy" class="md-nav__link">
+    Localization Accuracy
   </a>
   
 </li>
@@ -4003,211 +4044,178 @@
   
 
 
-<div><h1 id="pull-request-guidelines">Pull request guidelines<a class="headerlink" href="#pull-request-guidelines" title="Permanent link">#</a></h1>
-<h2 id="general-pull-request-workflow">General pull request workflow<a class="headerlink" href="#general-pull-request-workflow" title="Permanent link">#</a></h2>
-<p>Autoware uses the fork-and-pull model.
-For more details about the model, refer to <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests">GitHub Docs</a>.</p>
-<p>The following is a general example of the pull request workflow based on the fork-and-pull model.
-Use this workflow as a reference when you contribute to Autoware.</p>
-<ol>
-<li>Create an issue.<ul>
-<li>Discuss the approaches to the issue with maintainers.</li>
-<li>Confirm the <a href="../../support/support-guidelines/">support guidelines</a> before creating an issue.</li>
-<li>Follow the <a href="../discussion-guidelines/">discussion guidelines</a> when you discuss with other contributors.</li>
-</ul>
-</li>
-<li>Create a fork repository. (for the first time only)</li>
-<li>Write code in your fork repository according to the approach agreed upon in the issue.<ul>
-<li>Write the tests and documentation as appropriate.</li>
-<li>Follow the <a href="../coding-guidelines/">coding guidelines</a> guidelines when you write code.</li>
-<li>Follow the <a href="../testing-guidelines/">Testing guidelines</a> guidelines when you write tests.</li>
-<li>Follow the <a href="../documentation-guidelines/">Documentation guidelines</a> guidelines when you write documentation.</li>
-<li>Follow the <a href="commit-guidelines/">commit guidelines</a> when you commit your changes.</li>
-</ul>
-</li>
-<li>Test the code.<ul>
-<li>It is recommended that you summarize the test results, because you will need to explain the test results in the later review process.</li>
-<li>If you are not sure what tests should be done, discuss them with maintainers.</li>
-</ul>
-</li>
-<li>Create a pull request.<ul>
-<li>Follow the <a href="#pull-request-rules">pull request rules</a> when you create a pull request.</li>
-</ul>
-</li>
-<li>Wait for the pull request to be reviewed.<ul>
-<li>The reviewers will review your code following the <a href="review-guidelines/">review guidelines</a>.<ul>
-<li>Not only the reviewers, but also the author is encouraged to understand the review guidelines.</li>
-</ul>
-</li>
-<li>If <a href="ci-checks/">CI checks</a> have failed, fix the errors.</li>
-</ul>
-</li>
-<li>Address the review comments pointed out by the reviewers.<ul>
-<li>If you don't understand the meaning of a review comment, ask the reviewers until you understand it.<ul>
-<li>Fixing without understanding the reason is not recommended because the author should be responsible for the final content of their own pull request.</li>
-</ul>
-</li>
-<li>If you don't agree with a review comment, ask the reviewers for a rational reason.<ul>
-<li>The reviewers are obligated to make the author understand the meanings of each comment.</li>
-</ul>
-</li>
-<li>After you have done with the review comments, re-request a review to the reviewers and back to 6.</li>
-<li>If there are no more new review comments, the reviewers will approve the pull request and proceed to 8.</li>
-</ul>
-</li>
-<li>Merge the pull request.<ul>
-<li>Anyone with write access can merge the pull request if there is no special request from maintainers.<ul>
-<li>The author is encouraged to merge the pull request to feel responsible for their own pull request.</li>
-<li>If the author does not have write access, ask the reviewers or maintainers.</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<h2 id="pull-request-rules">Pull request rules<a class="headerlink" href="#pull-request-rules" title="Permanent link">#</a></h2>
-<h3 id="use-an-appropriate-pull-request-template-required-non-automated">Use an appropriate pull request template (required, non-automated)<a class="headerlink" href="#use-an-appropriate-pull-request-template-required-non-automated" title="Permanent link">#</a></h3>
-<h4 id="rationale">Rationale<a class="headerlink" href="#rationale" title="Permanent link">#</a></h4>
+<div><h1 id="localization">Localization<a class="headerlink" href="#localization" title="Permanent link">#</a></h1>
+<p><img alt="Node diagram" src="../images/Localization-Bus-ODD-Architecture.drawio.svg"></p>
+<h2 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">#</a></h2>
+<h3 id="pointcloud-map">Pointcloud Map<a class="headerlink" href="#pointcloud-map" title="Permanent link">#</a></h3>
+<p>Environment map created with point cloud, published by the map server.</p>
 <ul>
-<li>The unified style of descriptions by templates can make reviews efficient.</li>
+<li>sensor_msgs/msg/PointCloud2</li>
 </ul>
-<h4 id="example">Example<a class="headerlink" href="#example" title="Permanent link">#</a></h4>
-<p>There are two types of templates. Select one based on the following condition.</p>
-<ol>
-<li><a href="https://github.com/autowarefoundation/autoware/blob/main/.github/PULL_REQUEST_TEMPLATE/standard-change.md">Standard change</a>:<ul>
-<li>Complexity:<ul>
-<li>New features or significant updates.</li>
-<li>Requires deeper understanding of the codebase.</li>
-</ul>
-</li>
-<li>Impact:<ul>
-<li>Affects multiple parts of the system.</li>
-<li>Basically includes minor features, bug fixes and performance improvement.</li>
-<li>Needs testing before merging.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="https://github.com/autowarefoundation/autoware/blob/main/.github/PULL_REQUEST_TEMPLATE/small-change.md">Small change</a>:<ul>
-<li>Complexity:<ul>
-<li>Documentation, simple refactoring, or style adjustments.</li>
-<li>Easy to understand and review.</li>
-</ul>
-</li>
-<li>Impact:<ul>
-<li>Minimal effect on the system.</li>
-<li>Quicker merge with less testing needed.</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<h5 id="steps-to-use-an-appropriate-pull-request-template">Steps to use an appropriate pull request template<a class="headerlink" href="#steps-to-use-an-appropriate-pull-request-template" title="Permanent link">#</a></h5>
-<ol>
-<li>Select the appropriate template, as shown in <a href="https://user-images.githubusercontent.com/31987104/184344710-2adee239-799f-4fdf-bfab-be76345bfac1.mp4">this video</a>.</li>
-<li>Read the selected template carefully and fill the required content.</li>
-<li>Check the checkboxes during a review.<ul>
-<li>There are <a href="https://github.com/autowarefoundation/autoware/blob/44c70d33825617b56d8de5e6fe921000238238bd/.github/PULL_REQUEST_TEMPLATE/standard-change.md#pre-review-checklist-for-the-pr-author">pre-review checklist</a> and <a href="https://github.com/autowarefoundation/autoware/blob/44c70d33825617b56d8de5e6fe921000238238bd/.github/PULL_REQUEST_TEMPLATE/standard-change.md#post-review-checklist-for-the-pr-author">post-review checklist</a> for the author.</li>
-</ul>
-</li>
-</ol>
-<h3 id="set-appropriate-reviewers-after-creating-a-pull-request-required-partially-automated">Set appropriate reviewers after creating a pull request (required, partially automated)<a class="headerlink" href="#set-appropriate-reviewers-after-creating-a-pull-request-required-partially-automated" title="Permanent link">#</a></h3>
-<h4 id="rationale_1">Rationale<a class="headerlink" href="#rationale_1" title="Permanent link">#</a></h4>
+<p>A 3d point cloud map is used for LiDAR-based localization in Autoware.</p>
+<h3 id="manual-initial-pose">Manual Initial Pose<a class="headerlink" href="#manual-initial-pose" title="Permanent link">#</a></h3>
+<p>Start pose of ego, published by the user interface.</p>
 <ul>
-<li>Pull requests must be reviewed by appropriate reviewers to keep the quality of the codebase.</li>
-</ul>
-<h4 id="example_1">Example<a class="headerlink" href="#example_1" title="Permanent link">#</a></h4>
-<ul>
-<li>For most <abbr title="Robot Operating System">ROS</abbr> packages, reviewers will be automatically assigned based on the <code>maintainer</code> information in <code>package.xml</code>.</li>
-<li>If no reviewer is assigned automatically, assign reviewers manually following the instructions in <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review">GitHub Docs</a>.<ul>
-<li>You can find the reviewers by seeing the <code>.github/CODEOWNERS</code> file of the repository.</li>
-</ul>
-</li>
-<li>If you are not sure the appropriate reviewers, ask <code>@autoware-maintainers</code>.</li>
-<li>If you have no rights to assign reviewers, mention reviewers instead.</li>
-</ul>
-<h3 id="apply-conventional-commits-to-the-pull-request-title-required-automated">Apply Conventional Commits to the pull request title (required, automated)<a class="headerlink" href="#apply-conventional-commits-to-the-pull-request-title-required-automated" title="Permanent link">#</a></h3>
-<h4 id="rationale_2">Rationale<a class="headerlink" href="#rationale_2" title="Permanent link">#</a></h4>
-<ul>
-<li><a href="https://www.conventionalcommits.org/en/v1.0.0/">Conventional Commits</a> can generate categorized changelogs, for example using <a href="https://github.com/orhun/git-cliff">git-cliff</a>.</li>
-</ul>
-<h4 id="example_2">Example<a class="headerlink" href="#example_2" title="Permanent link">#</a></h4>
-<div class="highlight"><pre><span></span><code>feat(trajectory_follower): add an awesome feature
-</code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>You have to start the description part (here <code>add an awesome feature</code>) with a lowercase.</p>
-</div>
-<p>If your change breaks some interfaces, use the <code>!</code> (breaking changes) mark as follows:</p>
-<div class="highlight"><pre><span></span><code>feat(trajectory_follower)!: remove package
-feat(trajectory_follower)!: change parameter names
-feat(planning)!: change topic names
-feat(autoware_utils)!: change function names
-</code></pre></div>
-<p>For the repositories that contain code (most repositories), use the <a href="https://github.com/commitizen/conventional-commit-types/blob/c3a9be4c73e47f2e8197de775f41d981701407fb/index.json">definition of conventional-commit-types</a> for the type.</p>
-<p>For documentation repositories such as <a href="https://github.com/autowarefoundation/autoware-documentation">autoware-documentation</a>, use the following definition:</p>
-<ul>
-<li><code>feat</code><ul>
-<li>Add new pages.</li>
-<li>Add contents to the existing pages.</li>
+<li>geometry_msgs/msg/PoseWithCovarianceStamped<ul>
+<li>std_msgs/msg/Header header</li>
+<li>geometry_msgs/msg/PoseWithCovariance pose<ul>
+<li>geometry_msgs/msg/Pose pose<ul>
+<li>geometry_msgs/msg/Point position</li>
+<li>geometry_msg/msg/Quaternion orientation</li>
 </ul>
 </li>
-<li><code>fix</code><ul>
-<li>Fix the contents in the existing pages.</li>
-</ul>
-</li>
-<li><code>refactor</code><ul>
-<li>Move contents to different pages.</li>
-</ul>
-</li>
-<li><code>docs</code><ul>
-<li>Update documentation for the documentation repository itself.</li>
-</ul>
-</li>
-<li><code>build</code><ul>
-<li>Update the settings of the documentation site builder.</li>
-</ul>
-</li>
-<li><code>!</code> (breaking changes)<ul>
-<li>Remove pages.</li>
-<li>Change the URL of pages.</li>
+<li>double[36] covariance</li>
 </ul>
 </li>
 </ul>
-<p><code>perf</code> and <code>test</code> are generally unused.
-Other types have the same meaning as the code repositories.</p>
-<h3 id="add-the-related-component-names-to-the-scope-of-conventional-commits-advisory-non-automated">Add the related component names to the scope of Conventional Commits (advisory, non-automated)<a class="headerlink" href="#add-the-related-component-names-to-the-scope-of-conventional-commits-advisory-non-automated" title="Permanent link">#</a></h3>
-<h4 id="rationale_3">Rationale<a class="headerlink" href="#rationale_3" title="Permanent link">#</a></h4>
-<ul>
-<li>It helps contributors find pull requests that are relevant to them.</li>
-<li>It makes the changelog clearer.</li>
+</li>
 </ul>
-<h4 id="example_3">Example<a class="headerlink" href="#example_3" title="Permanent link">#</a></h4>
-<p>For <abbr title="Robot Operating System">ROS</abbr> packages, adding the package name or component name is good.</p>
-<div class="highlight"><pre><span></span><code>feat(trajectory_follower): add an awesome feature
-refactor(planning, control): use common utils
-</code></pre></div>
-<h3 id="keep-a-pull-request-small-advisory-non-automated">Keep a pull request small (advisory, non-automated)<a class="headerlink" href="#keep-a-pull-request-small-advisory-non-automated" title="Permanent link">#</a></h3>
-<h4 id="rationale_4">Rationale<a class="headerlink" href="#rationale_4" title="Permanent link">#</a></h4>
+<h3 id="3d-lidar-scanning">3D-LiDAR Scanning<a class="headerlink" href="#3d-lidar-scanning" title="Permanent link">#</a></h3>
+<p>LiDAR scanning for NDT matching, published by the LiDAR sensor.</p>
 <ul>
-<li>Small pull requests are easy to understand for reviewers.</li>
-<li>Small pull requests are easy to revert for maintainers.</li>
+<li>sensor_msgs/msg/PointCloud2</li>
 </ul>
-<h4 id="exception">Exception<a class="headerlink" href="#exception" title="Permanent link">#</a></h4>
-<p>It is acceptable if it is agreed with maintainers that there is no other way but to submit a big pull request.</p>
-<h4 id="example_4">Example<a class="headerlink" href="#example_4" title="Permanent link">#</a></h4>
+<p>The raw 3D-LiDAR data needs to be processed by the <a href="../../../autoware-architecture/sensing/data-types/point-cloud/">point cloud pre-processing modules</a> before being used for localization.</p>
+<h3 id="automatic-initial-pose">Automatic Initial pose<a class="headerlink" href="#automatic-initial-pose" title="Permanent link">#</a></h3>
+<p>Start pose of ego, calculated from INS(Inertial navigation sensor) sensing data.</p>
 <ul>
-<li>Avoid developing two features in one pull request.</li>
-<li>Avoid mixing different types (<code>feat</code>, <code>fix</code>, <code>refactor</code>, etc.) of changes in the same commit.</li>
+<li>geometry_msgs/msg/PoseWithCovarianceStamped<ul>
+<li>std_msgs/msg/Header header</li>
+<li>geometry_msgs/msg/PoseWithCovariance pose<ul>
+<li>geometry_msgs/msg/Pose pose<ul>
+<li>geometry_msgs/msg/Point position</li>
+<li>geometry_msg/msg/Quaternion orientation</li>
 </ul>
-<h3 id="remind-reviewers-if-there-is-no-response-for-more-than-a-week-advisory-non-automated">Remind reviewers if there is no response for more than a week (advisory, non-automated)<a class="headerlink" href="#remind-reviewers-if-there-is-no-response-for-more-than-a-week-advisory-non-automated" title="Permanent link">#</a></h3>
-<h4 id="rationale_5">Rationale<a class="headerlink" href="#rationale_5" title="Permanent link">#</a></h4>
+</li>
+<li>double[36] covariance</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>When the initial pose is not set manually, the message can be used for automatic pose initialization.</p>
+<p>Current Geographic coordinate of the ego, published by the <abbr title="Global Navigation Satellite System">GNSS</abbr> sensor.</p>
 <ul>
-<li>It is the author's responsibility to care about their own pull request until it is merged.</li>
+<li>sensor_msgs/msg/NavSatFix<ul>
+<li>std_msgs/msg/Header header</li>
+<li>sensor_msgs/msg/NavSatStatus status</li>
+<li>double latitude</li>
+<li>double longitude</li>
+<li>double altitude</li>
+<li>double[9] position_covariance</li>
+<li>unit8 position_covariance_type</li>
 </ul>
-<h4 id="example_5">Example<a class="headerlink" href="#example_5" title="Permanent link">#</a></h4>
-<div class="highlight"><pre><span></span><code>@{some-of-developers} Would it be possible for you to review this PR?
-@autoware-maintainers friendly ping.
-</code></pre></div>
+</li>
+</ul>
+<p>Current orientation of the ego, published by the <abbr title="Global Navigation Satellite System">GNSS</abbr>-INS.</p>
+<ul>
+<li>autoware_sensing_msgs/msg/GnssInsOrientationStamped<ul>
+<li>std_msgs/Header header</li>
+<li>autoware_sensing_msgs/msg/GnssInsOrientation orientation<ul>
+<li>geometry_msgs/Quaternion orientation</li>
+<li>float32 rmse_rotation_x</li>
+<li>float32 rmse_rotation_y</li>
+<li>float32 rmse_rotation_z</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="imu-data"><abbr title="Inertial Measurement Unit">IMU</abbr> Data<a class="headerlink" href="#imu-data" title="Permanent link">#</a></h3>
+<p>Current orientation, angular velocity and linear acceleration of ego, calculated from <abbr title="Inertial Measurement Unit">IMU</abbr> sensing data.</p>
+<ul>
+<li>sensor_msgs/msg/Imu<ul>
+<li>std_msgs/msg/Header header</li>
+<li>geometry_msgs/msg/Quaternion orientation</li>
+<li>double[9] orientation_covariance</li>
+<li>geometry_msgs/msg/Vector3 angular_velocity</li>
+<li>double[9] angular_velocity_covariance</li>
+<li>geometry_msgs/msg/Vector3 linear_acceleration</li>
+<li>double[9] linear_acceleration_covariance</li>
+</ul>
+</li>
+</ul>
+<h3 id="vehicle-velocity-status">Vehicle Velocity Status<a class="headerlink" href="#vehicle-velocity-status" title="Permanent link">#</a></h3>
+<p>Current velocity of the ego vehicle, published by the vehicle interface.</p>
+<ul>
+<li>autoware_auto_vehicle_msgs/msg/VelocityReport<ul>
+<li>std_msgs/msg/Header header;</li>
+<li>float longitudinal_velocity;</li>
+<li>float lateral_velocity;</li>
+<li>float heading_rate;</li>
+</ul>
+</li>
+</ul>
+<p>Before the velocity input localization interface, module <code>vehicle_velocity_converter</code> converts message type <code>autoware_auto_vehicle_msgs/msg/VelocityReport</code> to <code>geometry_msgs/msg/TwistWithCovarianceStamped</code>.</p>
+<h2 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">#</a></h2>
+<h3 id="vehicle-pose">Vehicle pose<a class="headerlink" href="#vehicle-pose" title="Permanent link">#</a></h3>
+<p>Current pose of ego, calculated from localization interface.</p>
+<ul>
+<li>geometry_msgs/msg/PoseWithCovarianceStamped<ul>
+<li>std_msgs/msg/Header header</li>
+<li>geometry_msg/PoseWithCovariance pose<ul>
+<li>geometry_msgs/msg/Pose pose<ul>
+<li>geometry_msgs/msg/Point position</li>
+<li>geometry_msgs/msg/Quaternion orientation</li>
+</ul>
+</li>
+<li>double[36] covariance</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="vehicle-velocity">Vehicle velocity<a class="headerlink" href="#vehicle-velocity" title="Permanent link">#</a></h3>
+<p>Current velocity of ego, calculated from localization interface.</p>
+<ul>
+<li>geometry_msgs/msg/TwistWithCovarianceStamped<ul>
+<li>std_msgs/msg/Header header</li>
+<li>geometry_msg/TwistWithCovariance twist<ul>
+<li>geometry_msgs/msg/Twist twist<ul>
+<li>geometry_msgs/msg/Vector3 linear</li>
+<li>geometry_msgs/msg/Vector3 angular</li>
+</ul>
+</li>
+<li>double[36] covariance</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="vehicle-acceleration">Vehicle acceleration<a class="headerlink" href="#vehicle-acceleration" title="Permanent link">#</a></h3>
+<p>Current acceleration of ego, calculated from localization interface.</p>
+<ul>
+<li>geometry_msgs/msg/AccelWithCovarianceStamped<ul>
+<li>std_msgs/msg/Header header</li>
+<li>geometry_msg/AccelWithCovariance accel<ul>
+<li>geometry_msgs/msg/Accel accel<ul>
+<li>geometry_msgs/msg/Vector3 linear</li>
+<li>geometry_msgs/msg/Vector3 angular</li>
+</ul>
+</li>
+<li>double[36] covariance</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="vehicle-kinematic-state">Vehicle kinematic state<a class="headerlink" href="#vehicle-kinematic-state" title="Permanent link">#</a></h3>
+<p>Current pose, velocity and acceleration of ego, calculated from localization interface.</p>
+<p><strong>Note:</strong> Kinematic state contains pose, velocity and acceleration. In the future, <a href="#vehicle-pose">pose</a>, <a href="#vehicle-velocity">velocity</a> and <a href="#vehicle-acceleration">acceleration</a> will not be used as output for localization.</p>
+<ul>
+<li>autoware_msgs/autoware_localization_msgs/msg/KinematicState<ul>
+<li>std_msgs/msg/Header header</li>
+<li>string child_frame_id</li>
+<li>geometry_msgs/PoseWithCovariance pose_with_covariance</li>
+<li>geometry_msgs/TwistWithCovariance twist_with_covariance</li>
+<li>geometry_msgs/AccelWithCovariance accel_with_covariance</li>
+</ul>
+</li>
+</ul>
+<p>The message will be subscribed by the planning and control module.</p>
+<h3 id="localization-accuracy">Localization Accuracy<a class="headerlink" href="#localization-accuracy" title="Permanent link">#</a></h3>
+<p>Diagnostics information that indicates if the localization module works properly.</p>
+<p>TBD.</p>
 <!-- prettier-ignore --></div>
 
 
@@ -4235,7 +4243,7 @@ refactor(planning, control): use common utils
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../documentation-guidelines/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Documentation guidelines" rel="prev">
+          <a href="../control/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Control" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -4244,20 +4252,20 @@ refactor(planning, control): use common utils
                 Previous
               </span>
               <div class="md-ellipsis">
-                Documentation guidelines
+                Control
               </div>
             </div>
           </a>
         
         
           
-          <a href="ci-checks/" class="md-footer__link md-footer__link--next" aria-label="Next: CI checks" rel="next">
+          <a href="../planning/" class="md-footer__link md-footer__link--next" aria-label="Next: Planning" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                CI checks
+                Planning
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -4293,10 +4301,10 @@ refactor(planning, control): use common utils
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.407015b8.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.407015b8.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       

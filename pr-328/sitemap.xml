@@ -556,6 +556,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-328/design/autoware-interfaces/components/localization/</loc>
+         <lastmod>2023-04-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-328/design/autoware-interfaces/components/planning/</loc>
          <lastmod>2023-04-03</lastmod>
          <changefreq>daily</changefreq>
