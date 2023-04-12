@@ -3992,6 +3992,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#node-performance-degradation" class="md-nav__link">
+    Node performance degradation
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4138,6 +4145,13 @@
           <li class="md-nav__item">
   <a href="#multicast-is-disabled" class="md-nav__link">
     Multicast is disabled
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#node-performance-degradation" class="md-nav__link">
+    Node performance degradation
   </a>
   
 </li>
@@ -4326,6 +4340,10 @@ docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </
 <h3 id="multicast-is-disabled">Multicast is disabled<a class="headerlink" href="#multicast-is-disabled" title="Permanent link">#</a></h3>
 <p>If you get the error message <code>selected interface "{your-interface-name}" is not multicast-capable: disabling multicast</code>, run the following command to allow multicast.</p>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>ip<span class="w"> </span>link<span class="w"> </span><span class="nb">set</span><span class="w"> </span>multicast<span class="w"> </span>on<span class="w"> </span><span class="o">{</span>your-interface-name<span class="o">}</span>
+</code></pre></div>
+<h3 id="node-performance-degradation">Node performance degradation<a class="headerlink" href="#node-performance-degradation" title="Permanent link">#</a></h3>
+<p>If you notice a decrease in the running performance of a node, such as <a href="https://github.com/autowarefoundation/autoware.universe/issues/2597#issuecomment-1491789081">issue2597</a>, you need to check if your compilation instructions use <code>Release</code> or <code>RelWithDebInfo</code> tags. If not, recompile the project using the following instructions:</p>
+<div class="highlight"><pre><span></span><code>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release
 </code></pre></div>
 <!-- prettier-ignore --></div>
 
