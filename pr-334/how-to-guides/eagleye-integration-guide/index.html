@@ -4166,12 +4166,12 @@ Using <abbr title="Global Navigation Satellite System">GNSS</abbr> Doppler veloc
 <p>There are two ways to utilize Eagleye results in the Autoware localization stack:</p>
 <ol>
 <li>
-<p>Feed only twist into the EKF localizer.
-<img alt="Eagleye twist integration" src="../images/eagleye-integration-guide/eagleye_twist.drawio.svg"></p>
+<p>Feed only twist into the EKF localizer.</p>
+<p><img alt="Eagleye twist integration" src="../images/eagleye-integration-guide/eagleye_twist.drawio.svg"></p>
 </li>
 <li>
-<p>Feed both twist and pose from Eagleye into the EKF localizer (twist can also be used with regular <code>gyro_odometry</code>).
-<img alt="Eagleye pose twist integration" src="../images/eagleye-integration-guide/eagleye_pose_twist.drawio.svg"></p>
+<p>Feed both twist and pose from Eagleye into the EKF localizer (twist can also be used with regular <code>gyro_odometry</code>).</p>
+<p><img alt="Eagleye pose twist integration" src="../images/eagleye-integration-guide/eagleye_pose_twist.drawio.svg"></p>
 </li>
 </ol>
 <p>Note that RTK positioning is only required for localization using the Eagleye pose. RTK positioning is not required for twist.</p>
