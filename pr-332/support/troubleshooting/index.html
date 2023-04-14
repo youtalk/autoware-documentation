@@ -3992,13 +3992,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#node-performance-degradation" class="md-nav__link">
-    Node performance degradation
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -4149,13 +4142,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#node-performance-degradation" class="md-nav__link">
-    Node performance degradation
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -4300,11 +4286,10 @@ git<span class="w"> </span>clone<span class="w"> </span>https://github.com/autow
 <p>During building the following issue can occurs</p>
 <div class="highlight"><pre><span></span><code>pkg_resources.extern.packaging.version.InvalidVersion:<span class="w"> </span>Invalid<span class="w"> </span>version:<span class="w"> </span><span class="s1">'0.23ubuntu1'</span>
 </code></pre></div>
-<p>The error is due to the fact that for versions between 66.0.0 and 67.5.0 <code>setuptools</code> enforces the python packages to be
-<a href="https://peps.python.org/pep-0440/">PEP-440</a> conformant.
-Since version 67.5.1 <code>setuptools</code> has a <a href="https://github.com/pypa/setuptools/commit/1640731114734043b8500d211366fc941b741f67">fallback</a> that makes it possible to work with old packages again.</p>
-<p>The solution is to update <code>setuptools</code> to the newest version with the following command</p>
-<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>setuptools
+<p>The error is due to the fact that since version 66.0.0 <code>setuptools</code> enforces the python packages to be
+<a href="https://peps.python.org/pep-0440/">PEP-440</a> conformant.</p>
+<p>The workaround is to lower the version of <code>setuptools</code> to 65 or lower. It can be done using the following command</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span><span class="nv">setuptools</span><span class="o">==</span><span class="m">65</span>.7.0
 </code></pre></div>
 <h2 id="dockerrocker-issues">Docker/rocker issues<a class="headerlink" href="#dockerrocker-issues" title="Permanent link">#</a></h2>
 <p>If any errors occur when running Autoware with Docker or rocker, first confirm that your Docker installation is working correctly by running the following commands:</p>
@@ -4340,10 +4325,6 @@ docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </
 <h3 id="multicast-is-disabled">Multicast is disabled<a class="headerlink" href="#multicast-is-disabled" title="Permanent link">#</a></h3>
 <p>If you get the error message <code>selected interface "{your-interface-name}" is not multicast-capable: disabling multicast</code>, run the following command to allow multicast.</p>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>ip<span class="w"> </span>link<span class="w"> </span><span class="nb">set</span><span class="w"> </span>multicast<span class="w"> </span>on<span class="w"> </span><span class="o">{</span>your-interface-name<span class="o">}</span>
-</code></pre></div>
-<h3 id="node-performance-degradation">Node performance degradation<a class="headerlink" href="#node-performance-degradation" title="Permanent link">#</a></h3>
-<p>If you notice a decrease in the running performance of a node, such as <a href="https://github.com/autowarefoundation/autoware.universe/issues/2597#issuecomment-1491789081">issue2597</a>, you need to check if your compilation instructions use <code>Release</code> or <code>RelWithDebInfo</code> tags. If not, recompile the project using the following instructions:</p>
-<div class="highlight"><pre><span></span><code>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release
 </code></pre></div>
 <!-- prettier-ignore --></div>
 
