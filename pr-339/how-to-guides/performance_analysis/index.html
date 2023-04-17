@@ -4056,7 +4056,7 @@ The tool relies on the <code>ros2 bag record</code> command, and the recording o
 <li>Isolate the paired core if hyper-threading enabled</li>
 </ul>
 <p>To fulfill these conditions on Linux, a custom kernel build with the following kernel configurations is required.
-You can find many resoruces to instruct you on how to build a custom Linux kernel (like <a href="https://phoenixnap.com/kb/build-linux-kernel">this one</a>).
+You can find many resources to instruct you on how to build a custom Linux kernel (like <a href="https://phoenixnap.com/kb/build-linux-kernel">this one</a>).
 Note that even if full tickless is enabled, timer interrupts are generated for scheduling if more than two tasks exist in one core.</p>
 <div class="highlight"><pre><span></span><code># Enable CONFIG_NO_HZ_FULL
 -&gt; General setup
