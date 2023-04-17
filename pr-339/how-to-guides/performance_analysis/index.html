@@ -4146,7 +4146,7 @@ For large message types such as map data, there should be only one instance in t
 <p>First, we will pick up <code>detection_area</code> module in <code>behavior_velocity_planner</code> node, which tends to have long turnaround time.
 We have followed the performance analysis steps above to obtain the following graph.
 Axises are the same as the graphs in the sensing case study.</p>
-<p><img alt="detection area turnaround time" src="https://raw.githubusercontent.com/autowarefoundation/autoware-documentation/0ad57338ca24b35f0a271c6ae003aa303b3dd4ce/docs/assets/images/detection_area_turnaround_time.png"></p>
+<p><img alt="detection area turnaround time" src="https://raw.githubusercontent.com/autowarefoundation/autoware-documentation/36647431080a837a1c8a983faf5045d6524cee66/docs/assets/images/detection_area_turnaround_time.png"></p>
 <p>Using <a href="https://github.com/sykwer/pmu_analyzer"><code>pmu_analyzer</code></a> tool to further identify the bottleneck, we have found that the following multiple loops were taking up a lot of processing time:</p>
 <div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">area</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">detection_areas</span><span class="w"> </span><span class="p">)</span>
 <span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">point</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">point_clouds</span><span class="w"> </span><span class="p">)</span>
