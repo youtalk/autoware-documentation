@@ -4160,7 +4160,7 @@
 For the details of the integration proposal, please refer to <a href="https://github.com/orgs/autowarefoundation/discussions/3257">this</a> Discussion.</p>
 <h2 id="what-is-eagleye">What is Eagleye?<a class="headerlink" href="#what-is-eagleye" title="Permanent link">#</a></h2>
 <p>Eagleye is an open-source <abbr title="Global Navigation Satellite System">GNSS</abbr>/<abbr title="Inertial Measurement Unit">IMU</abbr>-based localizer initially developed by <a href="https://map4.jp/">MAP IV. Inc</a>.
-Eagleye provides a cost-effective alternative to LiDAR and point cloud-based localization by using low-cost <abbr title="Global Navigation Satellite System">GNSS</abbr> and <abbr title="Inertial Measurement Unit">IMU</abbr> sensors to provide vehicle position, orientation, and altitude information.<br>
+Eagleye provides a cost-effective alternative to LiDAR and point cloud-based localization by using low-cost <abbr title="Global Navigation Satellite System">GNSS</abbr> and <abbr title="Inertial Measurement Unit">IMU</abbr> sensors to provide vehicle position, orientation, and altitude information.
 Using <abbr title="Global Navigation Satellite System">GNSS</abbr> Doppler velocity, Eagleye can also compensate for wheel speed and <abbr title="Inertial Measurement Unit">IMU</abbr> angular velocity bias to achieve more accurate speed and heading estimation.</p>
 <p>With the addition of Eagleye integration into Autoware, users will be able to choose between their existing LiDAR and point cloud-based localization stacks or <abbr title="Global Navigation Satellite System">GNSS</abbr>/<abbr title="Inertial Measurement Unit">IMU</abbr>-based Eagleye localizer, depending on their specific needs and operating environment.</p>
 <p>There are two ways to utilize Eagleye results in the Autoware localization stack:</p>
@@ -4187,7 +4187,7 @@ Static initialization is performed even in environments where <abbr title="Globa
 <p>In addition to latitude, longitude, and height information (<code>sensor_msgs/msg/NavSatFix</code>), Eagleye also requires velocity information from <abbr title="Global Navigation Satellite System">GNSS</abbr>.
 The settings needed for each <abbr title="Global Navigation Satellite System">GNSS</abbr> <abbr title="Robot Operating System">ROS</abbr> driver are as follows:</p>
 <ul>
-<li><a href="https://github.com/KumarRobotics/ublox/tree/humble-devel/ublox_gps">ublox_gps</a>: This <abbr title="Robot Operating System">ROS</abbr> driver publishes <code>sensor_msgs/msg/NavSatFix</code> and <code>geometry_msgs/msg/TwistWithCovarianceStamped</code> required by Eagleye with default settings. Therefore, no additional settings are required.</li>
+<li><a href="https://github.com/KumarRobotics/ublox/tree/ros2/ublox_gps">ublox_gps</a>: This <abbr title="Robot Operating System">ROS</abbr> driver publishes <code>sensor_msgs/msg/NavSatFix</code> and <code>geometry_msgs/msg/TwistWithCovarianceStamped</code> required by Eagleye with default settings. Therefore, no additional settings are required.</li>
 <li><a href="https://github.com/septentrio-gnss/septentrio_gnss_driver/tree/ros2">septentrio_gnss_driver</a>: Set <code>publish.navsatfix</code> and <code>publish.twist</code> in the config file <a href="https://github.com/septentrio-gnss/septentrio_gnss_driver/blob/ros2/config/gnss.yaml#L90"><code>gnss.yaml</code></a> to <code>true</code></li>
 </ul>
 <h3 id="eagleye-topic-setting">Eagleye topic setting<a class="headerlink" href="#eagleye-topic-setting" title="Permanent link">#</a></h3>
