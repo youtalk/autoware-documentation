@@ -1933,8 +1933,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#gnss-ros-driver-setting" class="md-nav__link">
-    GNSS ROS driver setting
+  <a href="#gnss-ros-driver-requirements-for-eagleye" class="md-nav__link">
+    GNSS ROS driver requirements for Eagleye
   </a>
   
 </li>
@@ -4098,8 +4098,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#gnss-ros-driver-setting" class="md-nav__link">
-    GNSS ROS driver setting
+  <a href="#gnss-ros-driver-requirements-for-eagleye" class="md-nav__link">
+    GNSS ROS driver requirements for Eagleye
   </a>
   
 </li>
@@ -4183,9 +4183,13 @@ Static initialization is performed even in environments where <abbr title="Globa
 <h3 id="dynamic-initialization">Dynamic initialization<a class="headerlink" href="#dynamic-initialization" title="Permanent link">#</a></h3>
 <p>Next, it needs to travel in a straight line for about 20~30 seconds, as defined by the parameter <code>heading.estimated_minimum_interval</code> and <code>velocity_scale_factor.estimated_minimum_interval</code>, in order to estimate the wheel speed scale factor and azimuth angle. Once the dynamic initialization is completed, Eagleye will begin to output both twist and pose.</p>
 <h2 id="eagleye-setup">Eagleye setup<a class="headerlink" href="#eagleye-setup" title="Permanent link">#</a></h2>
-<h3 id="gnss-ros-driver-setting"><abbr title="Global Navigation Satellite System">GNSS</abbr> <abbr title="Robot Operating System">ROS</abbr> driver setting<a class="headerlink" href="#gnss-ros-driver-setting" title="Permanent link">#</a></h3>
-<p>In addition to latitude, longitude, and height information (<code>sensor_msgs/msg/NavSatFix</code>), Eagleye also requires velocity information from <abbr title="Global Navigation Satellite System">GNSS</abbr>.
-The settings needed for each <abbr title="Global Navigation Satellite System">GNSS</abbr> <abbr title="Robot Operating System">ROS</abbr> driver are as follows:</p>
+<h3 id="gnss-ros-driver-requirements-for-eagleye"><abbr title="Global Navigation Satellite System">GNSS</abbr> <abbr title="Robot Operating System">ROS</abbr> driver requirements for Eagleye<a class="headerlink" href="#gnss-ros-driver-requirements-for-eagleye" title="Permanent link">#</a></h3>
+<p>To use Eagleye, your <abbr title="Global Navigation Satellite System">GNSS</abbr> <abbr title="Robot Operating System">ROS</abbr> driver must publish the following messages:</p>
+<ul>
+<li>sensor_msgs/msg/NavSatFix: This message contains latitude, longitude, and height information.</li>
+<li>geometry_msgs/msg/TwistWithCovarianceStamped: This message contains velocity information.</li>
+</ul>
+<p>Eagleye has been tested with the following example <abbr title="Global Navigation Satellite System">GNSS</abbr> <abbr title="Robot Operating System">ROS</abbr> drivers: ublox_gps and septentrio_gnss_driver. The settings needed for each of these drivers are as follows:</p>
 <ul>
 <li><a href="https://github.com/KumarRobotics/ublox/tree/ros2/ublox_gps">ublox_gps</a>: This <abbr title="Robot Operating System">ROS</abbr> driver publishes <code>sensor_msgs/msg/NavSatFix</code> and <code>geometry_msgs/msg/TwistWithCovarianceStamped</code> required by Eagleye with default settings. Therefore, no additional settings are required.</li>
 <li><a href="https://github.com/septentrio-gnss/septentrio_gnss_driver/tree/ros2">septentrio_gnss_driver</a>: Set <code>publish.navsatfix</code> and <code>publish.twist</code> in the config file <a href="https://github.com/septentrio-gnss/septentrio_gnss_driver/blob/ros2/config/gnss.yaml#L90"><code>gnss.yaml</code></a> to <code>true</code></li>
@@ -4212,8 +4216,13 @@ The settings needed for each <abbr title="Global Navigation Satellite System">GN
 <p>The basic parameters that do not need to be changed except those mentioned above, i.e., topic names and sensors' frequency, are described below <a href="https://github.com/MapIV/eagleye/tree/autoware-main/eagleye_rt/config">here</a>.
 Additionally, the parameters for converting NavSatFix to pose is listed in <a href="https://github.com/MapIV/eagleye/blob/autoware-main/eagleye_util/fix2pose/launch/fix2pose.xml"><code>fix2pose.yaml</code></a>.</p>
 <h3 id="autoware-setting-for-eagleye">Autoware setting for Eagleye<a class="headerlink" href="#autoware-setting-for-eagleye" title="Permanent link">#</a></h3>
-<p>Please refer to <a href="https://github.com/autowarefoundation/autoware/pull/3261">this PR</a> when introducing Eagleye to your Autoware setup.
-You need to install Eagleye-related packages and change Autoware's launcher.
+<p>When integrating Eagleye into your Autoware setup, please clone the following three packages:</p>
+<ol>
+<li><a href="https://github.com/MapIV/eagleye.git">Eagleye</a> (autoware-main branch)</li>
+<li><a href="https://github.com/MapIV/rtklib_ros_bridge.git">RTKLIB <abbr title="Robot Operating System">ROS</abbr> Bridge</a> (ros2-v0.1.0 branch)</li>
+<li><a href="https://github.com/MapIV/llh_converter.git">LLH Converter</a> (ros2 branch)</li>
+</ol>
+<p>You need to install Eagleye-related packages and change Autoware's launcher.
 Four files are required in the Autoware localization launcher to run Eagleye: <code>eagleye_rt.launch.xml</code>, <code>eagleye_config.yaml</code>, <code>gnss_converter.launch.xml</code> and <code>fix2pose.launch.xml</code>.</p>
 <h3 id="usage-of-eagleye-in-autoware">Usage of Eagleye in Autoware<a class="headerlink" href="#usage-of-eagleye-in-autoware" title="Permanent link">#</a></h3>
 <p>Eagleye has a function for position estimation and a function for twist estimation, namely <code>pose_estimator</code> and <code>twist_estimator</code>, respectively.</p>
