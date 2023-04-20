@@ -21,7 +21,7 @@
     
     
       
-        <title>Using Eagleye in Autoware - Autoware Documentation</title>
+        <title>Using Eagleye with Autoware - Autoware Documentation</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#using-eagleye-in-autoware" class="md-skip">
+        <a href="#using-eagleye-with-autoware" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Using Eagleye in Autoware
+              Using Eagleye with Autoware
             
           </span>
         </div>
@@ -1867,12 +1867,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Using Eagleye in Autoware
+          Using Eagleye with Autoware
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Using Eagleye in Autoware
+        Using Eagleye with Autoware
       </a>
       
         
@@ -1898,23 +1898,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#behavior-when-eagleye-is-executed-by-autoware" class="md-nav__link">
-    Behavior when Eagleye is executed by Autoware
+  <a href="#architecture" class="md-nav__link">
+    Architecture
   </a>
   
-    <nav class="md-nav" aria-label="Behavior when Eagleye is executed by Autoware">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirements">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#static-initialization" class="md-nav__link">
-    Static initialization
+  <a href="#imu-topic" class="md-nav__link">
+    IMU topic
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#dynamic-initialization" class="md-nav__link">
-    Dynamic initialization
+  <a href="#vehicle-speed-topic" class="md-nav__link">
+    Vehicle speed topic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gnss-topic" class="md-nav__link">
+    GNSS topic
   </a>
   
 </li>
@@ -1926,43 +1940,42 @@
       
         <li class="md-nav__item">
   <a href="#eagleye-setup" class="md-nav__link">
-    Eagleye setup
+    Eagleye Setup
   </a>
   
-    <nav class="md-nav" aria-label="Eagleye setup">
+    <nav class="md-nav" aria-label="Eagleye Setup">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#gnss-ros-driver-requirements-for-eagleye" class="md-nav__link">
-    GNSS ROS driver requirements for Eagleye
+  <a href="#install-dependencies" class="md-nav__link">
+    Install dependencies
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#eagleye-topic-setting" class="md-nav__link">
-    Eagleye topic setting
+  <a href="#modifying-autoware-launch-files" class="md-nav__link">
+    Modifying Autoware Launch files
   </a>
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#eagleye-parameter-tuning" class="md-nav__link">
-    Eagleye parameter tuning
-  </a>
+      </ul>
+    </nav>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#autoware-setting-for-eagleye" class="md-nav__link">
-    Autoware setting for Eagleye
+      
+        <li class="md-nav__item">
+  <a href="#executing-launch-files" class="md-nav__link">
+    Executing Launch files
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="Executing Launch files">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#usage-of-eagleye-in-autoware" class="md-nav__link">
-    Usage of Eagleye in Autoware
+  <a href="#execution-command" class="md-nav__link">
+    Execution command
   </a>
   
 </li>
@@ -4063,23 +4076,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#behavior-when-eagleye-is-executed-by-autoware" class="md-nav__link">
-    Behavior when Eagleye is executed by Autoware
+  <a href="#architecture" class="md-nav__link">
+    Architecture
   </a>
   
-    <nav class="md-nav" aria-label="Behavior when Eagleye is executed by Autoware">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirements">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#static-initialization" class="md-nav__link">
-    Static initialization
+  <a href="#imu-topic" class="md-nav__link">
+    IMU topic
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#dynamic-initialization" class="md-nav__link">
-    Dynamic initialization
+  <a href="#vehicle-speed-topic" class="md-nav__link">
+    Vehicle speed topic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gnss-topic" class="md-nav__link">
+    GNSS topic
   </a>
   
 </li>
@@ -4091,43 +4118,42 @@
       
         <li class="md-nav__item">
   <a href="#eagleye-setup" class="md-nav__link">
-    Eagleye setup
+    Eagleye Setup
   </a>
   
-    <nav class="md-nav" aria-label="Eagleye setup">
+    <nav class="md-nav" aria-label="Eagleye Setup">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#gnss-ros-driver-requirements-for-eagleye" class="md-nav__link">
-    GNSS ROS driver requirements for Eagleye
+  <a href="#install-dependencies" class="md-nav__link">
+    Install dependencies
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#eagleye-topic-setting" class="md-nav__link">
-    Eagleye topic setting
+  <a href="#modifying-autoware-launch-files" class="md-nav__link">
+    Modifying Autoware Launch files
   </a>
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#eagleye-parameter-tuning" class="md-nav__link">
-    Eagleye parameter tuning
-  </a>
+      </ul>
+    </nav>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#autoware-setting-for-eagleye" class="md-nav__link">
-    Autoware setting for Eagleye
+      
+        <li class="md-nav__item">
+  <a href="#executing-launch-files" class="md-nav__link">
+    Executing Launch files
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="Executing Launch files">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#usage-of-eagleye-in-autoware" class="md-nav__link">
-    Usage of Eagleye in Autoware
+  <a href="#execution-command" class="md-nav__link">
+    Execution command
   </a>
   
 </li>
@@ -4155,15 +4181,13 @@
   
 
 
-<div><h1 id="using-eagleye-in-autoware">Using Eagleye in Autoware<a class="headerlink" href="#using-eagleye-in-autoware" title="Permanent link">#</a></h1>
+<div><h1 id="using-eagleye-with-autoware">Using Eagleye with Autoware<a class="headerlink" href="#using-eagleye-with-autoware" title="Permanent link">#</a></h1>
 <p>This page will show you how to set up <a href="https://github.com/MapIV/eagleye">Eagleye</a> in order to use it with Autoware.
 For the details of the integration proposal, please refer to <a href="https://github.com/orgs/autowarefoundation/discussions/3257">this</a> Discussion.</p>
 <h2 id="what-is-eagleye">What is Eagleye?<a class="headerlink" href="#what-is-eagleye" title="Permanent link">#</a></h2>
-<p>Eagleye is an open-source <abbr title="Global Navigation Satellite System">GNSS</abbr>/<abbr title="Inertial Measurement Unit">IMU</abbr>-based localizer initially developed by <a href="https://map4.jp/">MAP IV. Inc</a>.
-Eagleye provides a cost-effective alternative to LiDAR and point cloud-based localization by using low-cost <abbr title="Global Navigation Satellite System">GNSS</abbr> and <abbr title="Inertial Measurement Unit">IMU</abbr> sensors to provide vehicle position, orientation, and altitude information.
-Using <abbr title="Global Navigation Satellite System">GNSS</abbr> Doppler velocity, Eagleye can also compensate for wheel speed and <abbr title="Inertial Measurement Unit">IMU</abbr> angular velocity bias to achieve more accurate speed and heading estimation.</p>
-<p>With the addition of Eagleye integration into Autoware, users will be able to choose between their existing LiDAR and point cloud-based localization stacks or <abbr title="Global Navigation Satellite System">GNSS</abbr>/<abbr title="Inertial Measurement Unit">IMU</abbr>-based Eagleye localizer, depending on their specific needs and operating environment.</p>
-<p>There are two ways to utilize Eagleye results in the Autoware localization stack:</p>
+<p>Eagleye is an open-source <abbr title="Global Navigation Satellite System">GNSS</abbr>/<abbr title="Inertial Measurement Unit">IMU</abbr>-based localizer initially developed by <a href="https://map4.jp/">MAP IV. Inc</a>. It provides a cost-effective alternative to LiDAR and point cloud-based localization by using low-cost <abbr title="Global Navigation Satellite System">GNSS</abbr> and <abbr title="Inertial Measurement Unit">IMU</abbr> sensors to provide vehicle position, orientation, and altitude information. By integrating Eagleye into Autoware, users can choose between LiDAR and point cloud-based localization stacks or <abbr title="Global Navigation Satellite System">GNSS</abbr>/<abbr title="Inertial Measurement Unit">IMU</abbr>-based Eagleye localizer, depending on their specific needs and operating environment.</p>
+<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">#</a></h2>
+<p>Eagleye can be utilized in the Autoware localization stack in two ways:</p>
 <ol>
 <li>
 <p>Feed only twist into the EKF localizer.</p>
@@ -4175,26 +4199,34 @@ Using <abbr title="Global Navigation Satellite System">GNSS</abbr> Doppler veloc
 </li>
 </ol>
 <p>Note that RTK positioning is only required for localization using the Eagleye pose. RTK positioning is not required for twist.</p>
-<h2 id="behavior-when-eagleye-is-executed-by-autoware">Behavior when Eagleye is executed by Autoware<a class="headerlink" href="#behavior-when-eagleye-is-executed-by-autoware" title="Permanent link">#</a></h2>
-<p>On startup, Eagleye will perform static and dynamic initialization.</p>
-<h3 id="static-initialization">Static initialization<a class="headerlink" href="#static-initialization" title="Permanent link">#</a></h3>
-<p>Eagleye needs to be stationary for about 3~5 seconds, according to the parameter <code>yaw_rate_offset_stop.estimated_interval</code> in <code>eagleye_config.yaml</code>, after startup for the yaw rate offset to be estimated.
-Static initialization is performed even in environments where <abbr title="Global Navigation Satellite System">GNSS</abbr> is not received.</p>
-<h3 id="dynamic-initialization">Dynamic initialization<a class="headerlink" href="#dynamic-initialization" title="Permanent link">#</a></h3>
-<p>Next, it needs to travel in a straight line for about 20~30 seconds, as defined by the parameter <code>heading.estimated_minimum_interval</code> and <code>velocity_scale_factor.estimated_minimum_interval</code>, in order to estimate the wheel speed scale factor and azimuth angle. Once the dynamic initialization is completed, Eagleye will begin to output both twist and pose.</p>
-<h2 id="eagleye-setup">Eagleye setup<a class="headerlink" href="#eagleye-setup" title="Permanent link">#</a></h2>
-<h3 id="gnss-ros-driver-requirements-for-eagleye"><abbr title="Global Navigation Satellite System">GNSS</abbr> <abbr title="Robot Operating System">ROS</abbr> driver requirements for Eagleye<a class="headerlink" href="#gnss-ros-driver-requirements-for-eagleye" title="Permanent link">#</a></h3>
-<p>To use Eagleye, your <abbr title="Global Navigation Satellite System">GNSS</abbr> <abbr title="Robot Operating System">ROS</abbr> driver must publish the following messages:</p>
+<h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">#</a></h2>
+<p><abbr title="Global Navigation Satellite System">GNSS</abbr>/<abbr title="Inertial Measurement Unit">IMU</abbr>/vehicle speed is required for Eagleye input.</p>
+<h3 id="imu-topic"><abbr title="Inertial Measurement Unit">IMU</abbr> topic<a class="headerlink" href="#imu-topic" title="Permanent link">#</a></h3>
+<p><code>sensor_msgs/msg/Imu</code> are supported for <abbr title="Inertial Measurement Unit">IMU</abbr>.</p>
+<h3 id="vehicle-speed-topic">Vehicle speed topic<a class="headerlink" href="#vehicle-speed-topic" title="Permanent link">#</a></h3>
+<p><code>geometry_msgs/msg/TwistStamped</code> and <code>geometry_msgs/msg/TwistWithCovarianceStamped</code> are supported for the input vehicle speed.</p>
+<h3 id="gnss-topic"><abbr title="Global Navigation Satellite System">GNSS</abbr> topic<a class="headerlink" href="#gnss-topic" title="Permanent link">#</a></h3>
+<p>Eagleye requires latitude/longitude height information and velocity information generated by the <abbr title="Global Navigation Satellite System">GNSS</abbr> receiver.
+Your <abbr title="Global Navigation Satellite System">GNSS</abbr> <abbr title="Robot Operating System">ROS</abbr> driver must publish the following messages:</p>
 <ul>
-<li>sensor_msgs/msg/NavSatFix: This message contains latitude, longitude, and height information.</li>
-<li>geometry_msgs/msg/TwistWithCovarianceStamped: This message contains velocity information.</li>
+<li><code>sensor_msgs/msg/NavSatFix</code>: This message contains latitude, longitude, and height information.</li>
+<li><code>geometry_msgs/msg/TwistWithCovarianceStamped</code>: This message contains gnss doppler velocity information.</li>
 </ul>
 <p>Eagleye has been tested with the following example <abbr title="Global Navigation Satellite System">GNSS</abbr> <abbr title="Robot Operating System">ROS</abbr> drivers: ublox_gps and septentrio_gnss_driver. The settings needed for each of these drivers are as follows:</p>
 <ul>
 <li><a href="https://github.com/KumarRobotics/ublox/tree/ros2/ublox_gps">ublox_gps</a>: This <abbr title="Robot Operating System">ROS</abbr> driver publishes <code>sensor_msgs/msg/NavSatFix</code> and <code>geometry_msgs/msg/TwistWithCovarianceStamped</code> required by Eagleye with default settings. Therefore, no additional settings are required.</li>
 <li><a href="https://github.com/septentrio-gnss/septentrio_gnss_driver/tree/ros2">septentrio_gnss_driver</a>: Set <code>publish.navsatfix</code> and <code>publish.twist</code> in the config file <a href="https://github.com/septentrio-gnss/septentrio_gnss_driver/blob/ros2/config/gnss.yaml#L90"><code>gnss.yaml</code></a> to <code>true</code></li>
 </ul>
-<h3 id="eagleye-topic-setting">Eagleye topic setting<a class="headerlink" href="#eagleye-topic-setting" title="Permanent link">#</a></h3>
+<h2 id="eagleye-setup">Eagleye Setup<a class="headerlink" href="#eagleye-setup" title="Permanent link">#</a></h2>
+<h3 id="install-dependencies">Install dependencies<a class="headerlink" href="#install-dependencies" title="Permanent link">#</a></h3>
+<p>Clone the following three packages for Eagleye:</p>
+<ol>
+<li><a href="https://github.com/MapIV/eagleye.git">Eagleye</a> (autoware-main branch)</li>
+<li><a href="https://github.com/MapIV/rtklib_ros_bridge.git">RTKLIB <abbr title="Robot Operating System">ROS</abbr> Bridge</a> (ros2-v0.1.0 branch)</li>
+<li><a href="https://github.com/MapIV/llh_converter.git">LLH Converter</a> (ros2 branch)</li>
+</ol>
+<h3 id="modifying-autoware-launch-files">Modifying Autoware Launch files<a class="headerlink" href="#modifying-autoware-launch-files" title="Permanent link">#</a></h3>
+<p>You need to install Eagleye-related packages and change Autoware's launcher. Four files are required in the Autoware localization launcher to run Eagleye: <code>eagleye_rt.launch.xml</code>, <code>eagleye_config.yaml</code>, <code>gnss_converter.launch.xml</code>, and <code>fix2pose.launch.xml</code>.</p>
 <p>You must correctly specify input topics for <abbr title="Global Navigation Satellite System">GNSS</abbr> latitude, longitude, and height information, <abbr title="Global Navigation Satellite System">GNSS</abbr> speed information, <abbr title="Inertial Measurement Unit">IMU</abbr> information, and vehicle speed information in the <a href="https://github.com/MapIV/autoware_launch/blob/3f04a9dd7bc4a4c49d4ec790e3f6b9958ab822da/autoware_launch/config/localization/eagleye_config.param.yaml#L7-L16"><code>eagleye_config.yaml</code></a>.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Topic</span>
 <span class="nt">twist</span><span class="p">:</span>
@@ -4212,19 +4244,9 @@ Static initialization is performed even in environments where <abbr title="Globa
 <span class="w">  </span><span class="nt">imu_rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">50</span>
 <span class="w">  </span><span class="nt">gnss_rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
 </code></pre></div>
-<h3 id="eagleye-parameter-tuning">Eagleye parameter tuning<a class="headerlink" href="#eagleye-parameter-tuning" title="Permanent link">#</a></h3>
 <p>The basic parameters that do not need to be changed except those mentioned above, i.e., topic names and sensors' frequency, are described below <a href="https://github.com/MapIV/eagleye/tree/autoware-main/eagleye_rt/config">here</a>.
-Additionally, the parameters for converting NavSatFix to pose is listed in <a href="https://github.com/MapIV/eagleye/blob/autoware-main/eagleye_util/fix2pose/launch/fix2pose.xml"><code>fix2pose.yaml</code></a>.</p>
-<h3 id="autoware-setting-for-eagleye">Autoware setting for Eagleye<a class="headerlink" href="#autoware-setting-for-eagleye" title="Permanent link">#</a></h3>
-<p>When integrating Eagleye into your Autoware setup, please clone the following three packages:</p>
-<ol>
-<li><a href="https://github.com/MapIV/eagleye.git">Eagleye</a> (autoware-main branch)</li>
-<li><a href="https://github.com/MapIV/rtklib_ros_bridge.git">RTKLIB <abbr title="Robot Operating System">ROS</abbr> Bridge</a> (ros2-v0.1.0 branch)</li>
-<li><a href="https://github.com/MapIV/llh_converter.git">LLH Converter</a> (ros2 branch)</li>
-</ol>
-<p>You need to install Eagleye-related packages and change Autoware's launcher.
-Four files are required in the Autoware localization launcher to run Eagleye: <code>eagleye_rt.launch.xml</code>, <code>eagleye_config.yaml</code>, <code>gnss_converter.launch.xml</code> and <code>fix2pose.launch.xml</code>.</p>
-<h3 id="usage-of-eagleye-in-autoware">Usage of Eagleye in Autoware<a class="headerlink" href="#usage-of-eagleye-in-autoware" title="Permanent link">#</a></h3>
+Additionally, the parameters for converting <code>sensor_msgs/msg/NavSatFix</code> to <code>geometry_msgs/msg/PoseWithCovarianceStamped</code> is listed in <a href="https://github.com/MapIV/eagleye/blob/autoware-main/eagleye_util/fix2pose/launch/fix2pose.xml"><code>fix2pose.yaml</code></a>.</p>
+<p>Please refer to <code>map4_localization_launch</code> in the <code>autoware.universe</code> package and <code>map4_localization_component.launch.xml</code> in <code>autoware_launch</code> package for information on how to modify the localization launch.</p>
 <p>Eagleye has a function for position estimation and a function for twist estimation, namely <code>pose_estimator</code> and <code>twist_estimator</code>, respectively.</p>
 <table>
 <thead>
@@ -4238,35 +4260,39 @@ Four files are required in the Autoware localization launcher to run Eagleye: <c
 <tr>
 <td><code>tier4_localization_launch</code></td>
 <td><code>gyro_odometry</code></td>
-<td>NDT</td>
+<td><code>ndt_scan_matcher</code></td>
 </tr>
 <tr>
 <td><code>map4_localization_launch/eagleye_twist_localization_launch</code></td>
-<td>eagleye_rt(gyro/odom/gnss fusion)</td>
-<td>NDT</td>
+<td><code>eagleye_rt</code>(gyro/odom/gnss fusion)</td>
+<td><code>ndt_scan_matcher</code></td>
 </tr>
 <tr>
 <td><code>map4_localization_launch/eagleye_pose_twist_localization_launch</code></td>
-<td>eagleye_rt(gyro/odom/gnss fusion)</td>
-<td>eagleye_rt(gyro/odom/gnss fusion)</td>
+<td><code>eagleye_rt</code>(gyro/odom/gnss fusion)</td>
+<td><code>eagleye_rt</code>(gyro/odom/gnss fusion)</td>
 </tr>
 </tbody>
 </table>
-<p>Enabling Eagleye in Autoware requires switching the localization module in <code>autoware.launch.xml</code> and the <code>pose_estimator_mode</code> parameter in <code>map4_localization_component.launch.xml</code>.
-When using Eagleye, comment out <code>tier4_localization_component.launch.xml</code> and start <code>map4_localization_component.launch.xml</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="cm">&lt;!-- Localization --&gt;</span>
-<span class="w">  </span><span class="nt">&lt;group</span><span class="w"> </span><span class="na">if=</span><span class="s">"$(var launch_localization)"</span><span class="nt">&gt;</span>
-<span class="w">    </span><span class="nt">&lt;include</span><span class="w"> </span><span class="na">file=</span><span class="s">"$(find-pkg-share autoware_launch)/launch/components/map4_localization_component.launch.xml"</span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="cm">&lt;!-- &lt;include file="$(find-pkg-share autoware_launch)/launch/components/tier4_localization_component.launch.xml"/&gt; --&gt;</span>
-<span class="w">  </span><span class="nt">&lt;/group&gt;</span>
-</code></pre></div>
-<h4 id="eagleye-as-a-pose-estimator">Eagleye as a pose estimator<a class="headerlink" href="#eagleye-as-a-pose-estimator" title="Permanent link">#</a></h4>
-<p>In Autoware, you can set the pose estimator to <abbr title="Global Navigation Satellite System">GNSS</abbr> by setting <code>pose_estimator_mode:=gnss</code> in <code>map4_localization_component.launch.xml</code>.
+<p>In Autoware, you can set the pose estimator to <abbr title="Global Navigation Satellite System">GNSS</abbr> by setting <code>pose_estimator_mode:=gnss</code> in <code>map4_localization_component.launch.xml</code> in <code>autoware_launch</code> package.
 Note that the output position might not appear to be in the point cloud maps if you are using maps that are not properly georeferenced.
 In the case of a single <abbr title="Global Navigation Satellite System">GNSS</abbr> antenna, initial position estimation (dynamic initialization) can take several seconds to complete after starting to run in an environment where <abbr title="Global Navigation Satellite System">GNSS</abbr> positioning is available.</p>
-<h4 id="eagleye-as-a-twist-estimator">Eagleye as a twist estimator<a class="headerlink" href="#eagleye-as-a-twist-estimator" title="Permanent link">#</a></h4>
-<p>In Autoware, you can set the pose estimator to NDT by setting <code>pose_estimator_mode:=lidar</code> in <code>map4_localization_component.launch.xml</code>.
+<p>Alternatively, the twist estimator can be set to Eagleye and the pose estimator to NDT by specifying <code>pose_estimator_mode:=lidar</code> in the same launch file.
 Unlike Eagleye position estimation, Eagleye twist estimation first outputs uncorrected raw values when activated, and then outputs corrected twists as soon as static initialization is complete.</p>
+<h2 id="executing-launch-files">Executing Launch files<a class="headerlink" href="#executing-launch-files" title="Permanent link">#</a></h2>
+<h3 id="execution-command">Execution command<a class="headerlink" href="#execution-command" title="Permanent link">#</a></h3>
+<p>Enable Eagleye in Autoware by switching the localization module in autoware.launch.xml and the <code>pose_estimator_mode</code> parameter in <code>map4_localization_component.launch.xml</code> in <code>autoware.launch.xml</code>.</p>
+<p>When using Eagleye, comment out <code>tier4_localization_component.launch.xml</code> and start <code>map4_localization_component.launch.xml</code> in <code>autoware.launch.xml</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="cm">&lt;!-- Localization --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;group</span><span class="w"> </span><span class="na">if=</span><span class="s">"$(var launch_localization)"</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="cm">&lt;!-- &lt;include file="$(find-pkg-share autoware_launch)/launch/components/tier4_localization_component.launch.xml"/&gt; --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;include</span><span class="w"> </span><span class="na">file=</span><span class="s">"$(find-pkg-share autoware_launch)/launch/components/map4_localization_component.launch.xml"</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/group&gt;</span>
+</code></pre></div>
+<h4 id="notes-with-initialization">Notes with initialization<a class="headerlink" href="#notes-with-initialization" title="Permanent link">#</a></h4>
+<p>Eagleye requires an initialization process for proper operation. Without initialization, the output for twist will be in the raw value, and the pose data will not be available.</p>
+<p>The first step is static initialization, which involves allowing the Eagleye to remain stationary for approximately 5 seconds after startup to estimate the yaw-rate offset.</p>
+<p>The next step is dynamic initialization, which involves running the Eagleye in a straight line for approximately 30 seconds. This process estimates the scale factor of wheel speed and azimuth angle. Once dynamic initialization is complete, the Eagleye will be able to provide corrected twist and pose data.</p>
 <!-- prettier-ignore --></div>
 
 
