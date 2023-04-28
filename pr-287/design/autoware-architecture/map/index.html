@@ -3923,6 +3923,62 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-requirements" class="md-nav__link">
+    1. Requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-architecture" class="md-nav__link">
+    2. Architecture
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-features" class="md-nav__link">
+    3. Features
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-interface-and-data-structure" class="md-nav__link">
+    4. Interface and Data Structure
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Interface and Data Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pointcloud-map" class="md-nav__link">
+    Pointcloud map
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vector-map" class="md-nav__link">
+    Vector map
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -3940,6 +3996,54 @@
 
 
 <div><h1 id="map-component-design">Map component design<a class="headerlink" href="#map-component-design" title="Permanent link">#</a></h1>
+<h2 id="1-requirements">1. Requirements<a class="headerlink" href="#1-requirements" title="Permanent link">#</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Under Construction</p>
+</div>
+<h2 id="2-architecture">2. Architecture<a class="headerlink" href="#2-architecture" title="Permanent link">#</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Under Construction</p>
+</div>
+<h2 id="3-features">3. Features<a class="headerlink" href="#3-features" title="Permanent link">#</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Under Construction</p>
+</div>
+<h2 id="4-interface-and-data-structure">4. Interface and Data Structure<a class="headerlink" href="#4-interface-and-data-structure" title="Permanent link">#</a></h2>
+<h3 id="pointcloud-map">Pointcloud map<a class="headerlink" href="#pointcloud-map" title="Permanent link">#</a></h3>
+<p>The point cloud map must be supplied as a .pcd file, regardless of whether it is a single file or split into multiple files.</p>
+<p>If it is split into a single file, Autoware assumes the following directory structure by default.</p>
+<div class="highlight"><pre><span></span><code>sample-map-rosbag
+├──<span class="w"> </span>lanelet2_map.osm
+├──<span class="w"> </span>pointcloud_map.pcd
+</code></pre></div>
+<p>If it is split into multiple files, Autoware assumes the following directory structure by default.</p>
+<div class="highlight"><pre><span></span><code>sample-map-rosbag
+├──<span class="w"> </span>lanelet2_map.osm
+├──<span class="w"> </span>pointcloud_map
+├──<span class="w"> </span>pcd_00.pcd
+├──<span class="w"> </span>pcd_01.pcd
+├──<span class="w"> </span>pcd_02.pcd
+├──<span class="w"> </span>...
+└──<span class="w"> </span>pointcloud_map_metadata.yaml
+</code></pre></div>
+<p>Note that, if you split the map into multiple files, you must meet the following additional conditions:</p>
+<ul>
+<li>It must be split by lines parallel to the x-y axis.</li>
+<li>Additional metadata must be provided as well.</li>
+</ul>
+<p>Metadata should look like as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">x_resolution</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100.0</span>
+<span class="nt">y_resolution</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">150.0</span>
+<span class="nt">A.pcd</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">1200</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">2500</span><span class="p p-Indicator">]</span><span class="w"> </span><span class="c1"># -&gt; 1200 &lt; x &lt; 1300, 2500 &lt; y &lt; 2650</span>
+<span class="nt">B.pcd</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">1300</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">2500</span><span class="p p-Indicator">]</span><span class="w"> </span><span class="c1"># -&gt; 1300 &lt; x &lt; 1400, 2500 &lt; y &lt; 2650</span>
+<span class="nt">C.pcd</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">1200</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">2650</span><span class="p p-Indicator">]</span><span class="w"> </span><span class="c1"># -&gt; 1200 &lt; x &lt; 1300, 2650 &lt; y &lt; 2800</span>
+<span class="nt">D.pcd</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">1400</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">2650</span><span class="p p-Indicator">]</span><span class="w"> </span><span class="c1"># -&gt; 1400 &lt; x &lt; 1500, 2650 &lt; y &lt; 2800</span>
+</code></pre></div>
+<p>You may use <a href="https://github.com/MapIV/pointcloud_divider">pointcloud_divider</a> from MAP IV for dividing pointcloud map as well as generating the compatible metadata.yaml.</p>
+<h3 id="vector-map">Vector map<a class="headerlink" href="#vector-map" title="Permanent link">#</a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Under Construction</p>
