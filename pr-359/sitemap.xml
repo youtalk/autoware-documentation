@@ -601,127 +601,127 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/add-a-custom-ros-message/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/integrating-autoware/</loc>
          <lastmod>2023-05-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/advanced-usage-of-colcon/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/integrating-autoware/calibrating-your-sensors/</loc>
          <lastmod>2023-05-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/applying-clang-tidy-to-ros-packages/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/integrating-autoware/integrating-autoware-with-a-diff-drive-vehicle/</loc>
          <lastmod>2023-05-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/calibrating-your-sensors/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/integrating-autoware/creating-maps-for-autoware/</loc>
          <lastmod>2023-05-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/debug-autoware/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/integrating-autoware/creating-maps-for-autoware/open-source-slam/</loc>
          <lastmod>2023-05-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/determining-component-dependencies/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/integrating-autoware/creating-maps-for-autoware/open-source-slam/fast-lio-lc/</loc>
          <lastmod>2023-05-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/evaluating-controller-performance/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/integrating-autoware/creating-maps-for-autoware/open-source-slam/fast-lio-slam/</loc>
          <lastmod>2023-05-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/evaluating-real-time-performance/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/integrating-autoware/creating-maps-for-autoware/open-source-slam/fd-slam/</loc>
          <lastmod>2023-05-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/fixing-dependent-package-versions/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/integrating-autoware/creating-maps-for-autoware/open-source-slam/hdl-graph-slam/</loc>
          <lastmod>2023-05-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/integrating-autoware-with-a-diff-drive-vehicle/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/integrating-autoware/creating-maps-for-autoware/open-source-slam/ia-lio-slam/</loc>
          <lastmod>2023-05-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/integrating-autoware-with-your-vehicle/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/integrating-autoware/creating-maps-for-autoware/open-source-slam/iscloam/</loc>
          <lastmod>2023-05-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/running-autoware-without-cuda/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/integrating-autoware/creating-maps-for-autoware/open-source-slam/lego-loam-bor/</loc>
          <lastmod>2023-05-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/creating-maps-for-autoware/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/integrating-autoware/creating-maps-for-autoware/open-source-slam/lio-sam/</loc>
          <lastmod>2023-05-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/creating-maps-for-autoware/open-source-slam/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/integrating-autoware/creating-maps-for-autoware/open-source-slam/optimized-sc-f-loam/</loc>
          <lastmod>2023-05-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/creating-maps-for-autoware/open-source-slam/fast-lio-lc/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/integrating-autoware/creating-maps-for-autoware/open-source-slam/sc-a-loam/</loc>
          <lastmod>2023-05-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/creating-maps-for-autoware/open-source-slam/fast-lio-slam/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/integrating-autoware/creating-maps-for-autoware/open-source-slam/sc-lego-loam/</loc>
          <lastmod>2023-05-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/creating-maps-for-autoware/open-source-slam/fd-slam/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/others/add-a-custom-ros-message/</loc>
          <lastmod>2023-05-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/creating-maps-for-autoware/open-source-slam/hdl-graph-slam/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/others/advanced-usage-of-colcon/</loc>
          <lastmod>2023-05-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/creating-maps-for-autoware/open-source-slam/ia-lio-slam/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/others/applying-clang-tidy-to-ros-packages/</loc>
          <lastmod>2023-05-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/creating-maps-for-autoware/open-source-slam/iscloam/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/others/debug-autoware/</loc>
          <lastmod>2023-05-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/creating-maps-for-autoware/open-source-slam/lego-loam-bor/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/others/determining-component-dependencies/</loc>
          <lastmod>2023-05-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/creating-maps-for-autoware/open-source-slam/lio-sam/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/others/fixing-dependent-package-versions/</loc>
          <lastmod>2023-05-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/creating-maps-for-autoware/open-source-slam/optimized-sc-f-loam/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/others/running-autoware-without-cuda/</loc>
          <lastmod>2023-05-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/creating-maps-for-autoware/open-source-slam/sc-a-loam/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/tuning/evaluating-controller-performance/</loc>
          <lastmod>2023-05-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/creating-maps-for-autoware/open-source-slam/sc-lego-loam/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/tuning/evaluating-real-time-performance/</loc>
          <lastmod>2023-05-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
