@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-364/how-to-guides/performance-analysis/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-364/how-to-guides/evaluating-real-time-performance/">
       
       
         <link rel="prev" href="../evaluating-controller-performance/">
@@ -21,7 +21,7 @@
     
     
       
-        <title>Performance analysis - Autoware Documentation</title>
+        <title>Evaluationg real-time performance - Autoware Documentation</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#performance-analysis" class="md-skip">
+        <a href="#evaluationg-real-time-performance" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Performance analysis
+              Evaluationg real-time performance
             
           </span>
         </div>
@@ -1831,12 +1831,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Performance analysis
+          Evaluationg real-time performance
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Performance analysis
+        Evaluationg real-time performance
       </a>
       
         
@@ -4147,7 +4147,7 @@
   
 
 
-<div><h1 id="performance-analysis">Performance analysis<a class="headerlink" href="#performance-analysis" title="Permanent link">#</a></h1>
+<div><h1 id="evaluationg-real-time-performance">Evaluationg real-time performance<a class="headerlink" href="#evaluationg-real-time-performance" title="Permanent link">#</a></h1>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h2>
 <p>Autoware should be real-time system when integrated to a service. Therefore, the response time of each callback should be as small as possible. If Autoware appears to be slow, it is imperative to conduct performance measurements and implement improvements based on the analysis. However, Autoware is a complex software system comprising numerous <abbr title="Robot Operating System">ROS</abbr> 2 nodes, potentially complicating the process of identifying bottlenecks. To address this challenge, we will discuss methods for conducting detailed performance measurements for Autoware and provide case studies. It is worth noting that multiple factors can contribute to poor performance, such as scheduling and memory allocation in the OS layer, but our focus in this page will be on user code bottlenecks. The outline of this section is as follows:</p>
 <ul>
