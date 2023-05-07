@@ -621,11 +621,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/creating-maps-for-autoware/</loc>
-         <lastmod>2023-05-07</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-359/how-to-guides/debug-autoware/</loc>
          <lastmod>2023-05-07</lastmod>
          <changefreq>daily</changefreq>
