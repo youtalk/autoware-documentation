@@ -8,27 +8,27 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/latest/contributing/coding-guidelines/ros-nodes/console-logging/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/latest/how-to-guides/eagleye-integration-guide/">
       
       
-        <link rel="prev" href="../class-design/">
+        <link rel="prev" href="../fixing-dependent-package-versions/">
       
       
-        <link rel="next" href="../coordinate-system/">
+        <link rel="next" href="../../design/">
       
-      <link rel="icon" href="../../../../assets/images/autoware-foundation.png">
+      <link rel="icon" href="../../assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.9">
     
     
       
-        <title>Console logging - Autoware Documentation</title>
+        <title>Using Eagleye with Autoware - Autoware Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.85bb2934.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.85bb2934.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.a6bdf11c.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a6bdf11c.min.css">
       
       
 
@@ -44,11 +44,11 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/css/extra.css">
+      <link rel="stylesheet" href="../../assets/css/extra.css">
     
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#console-logging" class="md-skip">
+        <a href="#using-eagleye-with-autoware" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../.." title="Autoware Documentation" class="md-header__button md-logo" aria-label="Autoware Documentation" data-md-component="logo">
+    <a href="../.." title="Autoware Documentation" class="md-header__button md-logo" aria-label="Autoware Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M135.2 117.4 109.1 192h293.8l-26.1-74.6c-4.5-12.8-16.6-21.4-30.2-21.4H165.4c-13.6 0-25.7 8.6-30.2 21.4zm-95.6 79.4L74.8 96.3C88.3 57.8 124.6 32 165.4 32h181.2c40.8 0 77.1 25.8 90.6 64.3l35.2 100.5c23.2 9.6 39.6 32.5 39.6 59.2v192c0 17.7-14.3 32-32 32h-32c-17.7 0-32-14.3-32-32v-48H96v48c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V256c0-26.7 16.4-49.6 39.6-59.2zM128 288a32 32 0 1 0-64 0 32 32 0 1 0 64 0zm288 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/></svg>
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Console logging
+              Using Eagleye with Autoware
             
           </span>
         </div>
@@ -211,7 +211,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="../../../.." class="md-tabs__link">
+    <a href="../.." class="md-tabs__link">
       Introduction
     </a>
   </li>
@@ -226,7 +226,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../installation/" class="md-tabs__link">
+      <a href="../../installation/" class="md-tabs__link">
         Installation
       </a>
     </li>
@@ -242,40 +242,8 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../tutorials/" class="md-tabs__link">
+      <a href="../../tutorials/" class="md-tabs__link">
         Tutorials
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../../../how-to-guides/" class="md-tabs__link">
-        How to guides
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../../../design/" class="md-tabs__link">
-        Design
       </a>
     </li>
   
@@ -292,7 +260,39 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../" class="md-tabs__link md-tabs__link--active">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
+        How to guides
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../design/" class="md-tabs__link">
+        Design
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../contributing/" class="md-tabs__link">
         Contributing
       </a>
     </li>
@@ -308,7 +308,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../datasets/" class="md-tabs__link">
+      <a href="../../datasets/" class="md-tabs__link">
         Datasets
       </a>
     </li>
@@ -324,7 +324,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../support/" class="md-tabs__link">
+      <a href="../../support/" class="md-tabs__link">
         Support
       </a>
     </li>
@@ -358,7 +358,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="Autoware Documentation" class="md-nav__button md-logo" aria-label="Autoware Documentation" data-md-component="logo">
+    <a href="../.." title="Autoware Documentation" class="md-nav__button md-logo" aria-label="Autoware Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M135.2 117.4 109.1 192h293.8l-26.1-74.6c-4.5-12.8-16.6-21.4-30.2-21.4H165.4c-13.6 0-25.7 8.6-30.2 21.4zm-95.6 79.4L74.8 96.3C88.3 57.8 124.6 32 165.4 32h181.2c40.8 0 77.1 25.8 90.6 64.3l35.2 100.5c23.2 9.6 39.6 32.5 39.6 59.2v192c0 17.7-14.3 32-32 32h-32c-17.7 0-32-14.3-32-32v-48H96v48c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V256c0-26.7 16.4-49.6 39.6-59.2zM128 288a32 32 0 1 0-64 0 32 32 0 1 0 64 0zm288 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/></svg>
@@ -389,7 +389,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -430,7 +430,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../installation/">Installation</a>
+          <a href="../../installation/">Installation</a>
           
             <label for="__nav_2">
               <span class="md-nav__icon md-icon"></span>
@@ -490,7 +490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../installation/autoware/docker-installation/" class="md-nav__link">
+      <a href="../../installation/autoware/docker-installation/" class="md-nav__link">
         Docker installation
       </a>
     </li>
@@ -504,7 +504,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../installation/autoware/source-installation/" class="md-nav__link">
+      <a href="../../installation/autoware/source-installation/" class="md-nav__link">
         Source installation
       </a>
     </li>
@@ -547,7 +547,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../installation/related-tools/">Related tools</a>
+          <a href="../../installation/related-tools/">Related tools</a>
           
         </div>
       
@@ -595,7 +595,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../installation/additional-settings-for-developers/">Additional settings for developers</a>
+          <a href="../../installation/additional-settings-for-developers/">Additional settings for developers</a>
           
         </div>
       
@@ -653,7 +653,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../tutorials/">Tutorials</a>
+          <a href="../../tutorials/">Tutorials</a>
           
             <label for="__nav_3">
               <span class="md-nav__icon md-icon"></span>
@@ -704,7 +704,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../tutorials/ad-hoc-simulation/">Ad hoc simulation</a>
+          <a href="../../tutorials/ad-hoc-simulation/">Ad hoc simulation</a>
           
             <label for="__nav_3_2">
               <span class="md-nav__icon md-icon"></span>
@@ -727,7 +727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/ad-hoc-simulation/planning-simulation/" class="md-nav__link">
+      <a href="../../tutorials/ad-hoc-simulation/planning-simulation/" class="md-nav__link">
         Planning simulation
       </a>
     </li>
@@ -741,7 +741,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/ad-hoc-simulation/rosbag-replay-simulation/" class="md-nav__link">
+      <a href="../../tutorials/ad-hoc-simulation/rosbag-replay-simulation/" class="md-nav__link">
         Rosbag replay simulation
       </a>
     </li>
@@ -790,7 +790,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/ad-hoc-simulation/digital-twin-simulation/awsim-tutorial/" class="md-nav__link">
+      <a href="../../tutorials/ad-hoc-simulation/digital-twin-simulation/awsim-tutorial/" class="md-nav__link">
         AWSIM simulator
       </a>
     </li>
@@ -804,7 +804,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/ad-hoc-simulation/digital-twin-simulation/MORAI_Sim-tutorial/" class="md-nav__link">
+      <a href="../../tutorials/ad-hoc-simulation/digital-twin-simulation/MORAI_Sim-tutorial/" class="md-nav__link">
         MORAI Sim: Drive
       </a>
     </li>
@@ -858,7 +858,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../tutorials/scenario-simulation/">Scenario simulation</a>
+          <a href="../../tutorials/scenario-simulation/">Scenario simulation</a>
           
             <label for="__nav_3_3">
               <span class="md-nav__icon md-icon"></span>
@@ -918,7 +918,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/scenario-simulation/planning-simulation/installation/" class="md-nav__link">
+      <a href="../../tutorials/scenario-simulation/planning-simulation/installation/" class="md-nav__link">
         Installation
       </a>
     </li>
@@ -932,7 +932,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/scenario-simulation/planning-simulation/scenario-test-simulation/" class="md-nav__link">
+      <a href="../../tutorials/scenario-simulation/planning-simulation/scenario-test-simulation/" class="md-nav__link">
         Scenario test simulation
       </a>
     </li>
@@ -946,7 +946,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/scenario-simulation/planning-simulation/random-test-simulation/" class="md-nav__link">
+      <a href="../../tutorials/scenario-simulation/planning-simulation/random-test-simulation/" class="md-nav__link">
         Random test simulation
       </a>
     </li>
@@ -1000,7 +1000,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/scenario-simulation/rosbag-replay-simulation/driving-log-replayer/" class="md-nav__link">
+      <a href="../../tutorials/scenario-simulation/rosbag-replay-simulation/driving-log-replayer/" class="md-nav__link">
         Driving Log Replayer
       </a>
     </li>
@@ -1034,16 +1034,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
       
       
         
@@ -1082,7 +1082,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../how-to-guides/">How to guides</a>
+          <a href="../">How to guides</a>
           
             <label for="__nav_4">
               <span class="md-nav__icon md-icon"></span>
@@ -1090,7 +1090,7 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           How to guides
@@ -1105,7 +1105,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to-guides/advanced-usage-of-colcon/" class="md-nav__link">
+      <a href="../advanced-usage-of-colcon/" class="md-nav__link">
         Advanced usage of colcon
       </a>
     </li>
@@ -1143,7 +1143,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../how-to-guides/creating-maps-for-autoware/">Creating maps for autoware</a>
+          <a href="../creating-maps-for-autoware/">Creating maps for autoware</a>
           
             <label for="__nav_4_3">
               <span class="md-nav__icon md-icon"></span>
@@ -1208,7 +1208,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../how-to-guides/creating-maps-for-autoware/open-source-slam/">Open-source SLAM algorithms</a>
+          <a href="../creating-maps-for-autoware/open-source-slam/">Open-source SLAM algorithms</a>
           
             <label for="__nav_4_3_2">
               <span class="md-nav__icon md-icon"></span>
@@ -1251,7 +1251,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../how-to-guides/creating-maps-for-autoware/open-source-slam/fast-lio-lc/">FAST-LIO-LC</a>
+          <a href="../creating-maps-for-autoware/open-source-slam/fast-lio-lc/">FAST-LIO-LC</a>
           
         </div>
       
@@ -1297,7 +1297,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../how-to-guides/creating-maps-for-autoware/open-source-slam/fast-lio-slam/">FAST_LIO_SLAM</a>
+          <a href="../creating-maps-for-autoware/open-source-slam/fast-lio-slam/">FAST_LIO_SLAM</a>
           
         </div>
       
@@ -1343,7 +1343,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../how-to-guides/creating-maps-for-autoware/open-source-slam/fd-slam/">FD-SLAM</a>
+          <a href="../creating-maps-for-autoware/open-source-slam/fd-slam/">FD-SLAM</a>
           
         </div>
       
@@ -1389,7 +1389,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../how-to-guides/creating-maps-for-autoware/open-source-slam/hdl-graph-slam/">hdl_graph_slam</a>
+          <a href="../creating-maps-for-autoware/open-source-slam/hdl-graph-slam/">hdl_graph_slam</a>
           
         </div>
       
@@ -1435,7 +1435,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../how-to-guides/creating-maps-for-autoware/open-source-slam/ia-lio-slam/">IA_LIO_SAM</a>
+          <a href="../creating-maps-for-autoware/open-source-slam/ia-lio-slam/">IA_LIO_SAM</a>
           
         </div>
       
@@ -1481,7 +1481,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../how-to-guides/creating-maps-for-autoware/open-source-slam/iscloam/">iscloam</a>
+          <a href="../creating-maps-for-autoware/open-source-slam/iscloam/">iscloam</a>
           
         </div>
       
@@ -1527,7 +1527,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../how-to-guides/creating-maps-for-autoware/open-source-slam/lego-loam-bor/">LeGO-LOAM-BOR</a>
+          <a href="../creating-maps-for-autoware/open-source-slam/lego-loam-bor/">LeGO-LOAM-BOR</a>
           
         </div>
       
@@ -1573,7 +1573,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../how-to-guides/creating-maps-for-autoware/open-source-slam/lio-sam/">LIO-SAM</a>
+          <a href="../creating-maps-for-autoware/open-source-slam/lio-sam/">LIO-SAM</a>
           
         </div>
       
@@ -1619,7 +1619,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../how-to-guides/creating-maps-for-autoware/open-source-slam/optimized-sc-f-loam/">Optimized-SC-F-LOAM</a>
+          <a href="../creating-maps-for-autoware/open-source-slam/optimized-sc-f-loam/">Optimized-SC-F-LOAM</a>
           
         </div>
       
@@ -1665,7 +1665,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../how-to-guides/creating-maps-for-autoware/open-source-slam/sc-a-loam/">SC-A-LOAM</a>
+          <a href="../creating-maps-for-autoware/open-source-slam/sc-a-loam/">SC-A-LOAM</a>
           
         </div>
       
@@ -1711,7 +1711,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../how-to-guides/creating-maps-for-autoware/open-source-slam/sc-lego-loam/">SC-LeGO-LOAM</a>
+          <a href="../creating-maps-for-autoware/open-source-slam/sc-lego-loam/">SC-LeGO-LOAM</a>
           
         </div>
       
@@ -1751,7 +1751,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to-guides/determining-component-dependencies/" class="md-nav__link">
+      <a href="../determining-component-dependencies/" class="md-nav__link">
         Determining component dependencies
       </a>
     </li>
@@ -1765,7 +1765,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to-guides/integrating-autoware-with-your-vehicle/" class="md-nav__link">
+      <a href="../integrating-autoware-with-your-vehicle/" class="md-nav__link">
         Integrating Autoware with your vehicle
       </a>
     </li>
@@ -1779,7 +1779,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to-guides/integrating-autoware-with-a-diff-drive-vehicle/" class="md-nav__link">
+      <a href="../integrating-autoware-with-a-diff-drive-vehicle/" class="md-nav__link">
         Integrating Autoware with a differential drive vehicle
       </a>
     </li>
@@ -1793,7 +1793,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to-guides/running-autoware-without-cuda/" class="md-nav__link">
+      <a href="../running-autoware-without-cuda/" class="md-nav__link">
         Running Autoware without CUDA
       </a>
     </li>
@@ -1807,7 +1807,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to-guides/calibrating-your-sensors/" class="md-nav__link">
+      <a href="../calibrating-your-sensors/" class="md-nav__link">
         Calibrating your sensors
       </a>
     </li>
@@ -1821,7 +1821,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to-guides/evaluating-controller-performance/" class="md-nav__link">
+      <a href="../evaluating-controller-performance/" class="md-nav__link">
         Evaluating the controller performance
       </a>
     </li>
@@ -1835,7 +1835,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to-guides/evaluating-real-time-performance/" class="md-nav__link">
+      <a href="../evaluating-real-time-performance/" class="md-nav__link">
         Evaluating real-time performance
       </a>
     </li>
@@ -1849,7 +1849,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to-guides/debug-autoware/" class="md-nav__link">
+      <a href="../debug-autoware/" class="md-nav__link">
         Debug Autoware
       </a>
     </li>
@@ -1863,7 +1863,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to-guides/add-a-custom-ros-message/" class="md-nav__link">
+      <a href="../add-a-custom-ros-message/" class="md-nav__link">
         Add a custom ROS message
       </a>
     </li>
@@ -1877,7 +1877,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../how-to-guides/fixing-dependent-package-versions/" class="md-nav__link">
+      <a href="../fixing-dependent-package-versions/" class="md-nav__link">
         Fixing dependent package versions
       </a>
     </li>
@@ -1889,11 +1889,140 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../../../how-to-guides/eagleye-integration-guide/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Using Eagleye with Autoware
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Using Eagleye with Autoware
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-eagleye" class="md-nav__link">
+    What is Eagleye?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    Architecture
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#imu-topic" class="md-nav__link">
+    IMU topic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vehicle-speed-topic" class="md-nav__link">
+    Vehicle speed topic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gnss-topic" class="md-nav__link">
+    GNSS topic
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eagleye-setup" class="md-nav__link">
+    Eagleye Setup
+  </a>
+  
+    <nav class="md-nav" aria-label="Eagleye Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-dependencies" class="md-nav__link">
+    Install dependencies
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modifying-autoware-launch-files" class="md-nav__link">
+    Modifying Autoware Launch files
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#executing-launch-files" class="md-nav__link">
+    Executing Launch files
+  </a>
+  
+    <nav class="md-nav" aria-label="Executing Launch files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#execution-command" class="md-nav__link">
+    Execution command
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1941,7 +2070,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../design/">Design</a>
+          <a href="../../design/">Design</a>
           
             <label for="__nav_5">
               <span class="md-nav__icon md-icon"></span>
@@ -1988,7 +2117,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../design/autoware-concepts/">Autoware concepts</a>
+          <a href="../../design/autoware-concepts/">Autoware concepts</a>
           
             <label for="__nav_5_2">
               <span class="md-nav__icon md-icon"></span>
@@ -2011,7 +2140,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../design/autoware-concepts/difference-from-ai-and-auto/" class="md-nav__link">
+      <a href="../../design/autoware-concepts/difference-from-ai-and-auto/" class="md-nav__link">
         How is Autoware Core/Universe different from Autoware.AI and Autoware.Auto?
       </a>
     </li>
@@ -2070,7 +2199,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../design/autoware-architecture/">Autoware architecture</a>
+          <a href="../../design/autoware-architecture/">Autoware architecture</a>
           
             <label for="__nav_5_3">
               <span class="md-nav__icon md-icon"></span>
@@ -2115,7 +2244,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../design/autoware-architecture/sensing/">Sensing</a>
+          <a href="../../design/autoware-architecture/sensing/">Sensing</a>
           
             <label for="__nav_5_3_2">
               <span class="md-nav__icon md-icon"></span>
@@ -2179,7 +2308,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../design/autoware-architecture/sensing/data-types/gnss-ins-data/" class="md-nav__link">
+      <a href="../../design/autoware-architecture/sensing/data-types/gnss-ins-data/" class="md-nav__link">
         GNSS/INS data pre-processing design
       </a>
     </li>
@@ -2193,7 +2322,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../design/autoware-architecture/sensing/data-types/image/" class="md-nav__link">
+      <a href="../../design/autoware-architecture/sensing/data-types/image/" class="md-nav__link">
         Image pre-processing design
       </a>
     </li>
@@ -2207,7 +2336,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../design/autoware-architecture/sensing/data-types/point-cloud/" class="md-nav__link">
+      <a href="../../design/autoware-architecture/sensing/data-types/point-cloud/" class="md-nav__link">
         Point cloud pre-processing design
       </a>
     </li>
@@ -2221,7 +2350,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../design/autoware-architecture/sensing/data-types/radar-data/" class="md-nav__link">
+      <a href="../../design/autoware-architecture/sensing/data-types/radar-data/" class="md-nav__link">
         Radar data pre-processing design
       </a>
     </li>
@@ -2235,7 +2364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../design/autoware-architecture/sensing/data-types/ultrasonics-data/" class="md-nav__link">
+      <a href="../../design/autoware-architecture/sensing/data-types/ultrasonics-data/" class="md-nav__link">
         Ultrasonics data pre-processing design
       </a>
     </li>
@@ -2283,7 +2412,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../design/autoware-architecture/map/">Map</a>
+          <a href="../../design/autoware-architecture/map/">Map</a>
           
         </div>
       
@@ -2329,7 +2458,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../design/autoware-architecture/localization/">Localization</a>
+          <a href="../../design/autoware-architecture/localization/">Localization</a>
           
         </div>
       
@@ -2375,7 +2504,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../design/autoware-architecture/perception/">Perception</a>
+          <a href="../../design/autoware-architecture/perception/">Perception</a>
           
         </div>
       
@@ -2421,7 +2550,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../design/autoware-architecture/planning/">Planning</a>
+          <a href="../../design/autoware-architecture/planning/">Planning</a>
           
         </div>
       
@@ -2467,7 +2596,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../design/autoware-architecture/control/">Control</a>
+          <a href="../../design/autoware-architecture/control/">Control</a>
           
         </div>
       
@@ -2513,7 +2642,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../design/autoware-architecture/vehicle/">Vehicle</a>
+          <a href="../../design/autoware-architecture/vehicle/">Vehicle</a>
           
         </div>
       
@@ -2559,7 +2688,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../design/autoware-architecture/node-diagram/">Node diagram</a>
+          <a href="../../design/autoware-architecture/node-diagram/">Node diagram</a>
           
         </div>
       
@@ -2618,7 +2747,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../design/autoware-interfaces/">Autoware interfaces</a>
+          <a href="../../design/autoware-interfaces/">Autoware interfaces</a>
           
             <label for="__nav_5_4">
               <span class="md-nav__icon md-icon"></span>
@@ -2665,7 +2794,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../design/autoware-interfaces/ad-api/">AD API</a>
+          <a href="../../design/autoware-interfaces/ad-api/">AD API</a>
           
             <label for="__nav_5_4_2">
               <span class="md-nav__icon md-icon"></span>
@@ -2708,7 +2837,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../design/autoware-interfaces/ad-api/use-cases/">Use cases</a>
+          <a href="../../design/autoware-interfaces/ad-api/use-cases/">Use cases</a>
           
         </div>
       
@@ -2754,7 +2883,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../design/autoware-interfaces/ad-api/list/">List</a>
+          <a href="../../design/autoware-interfaces/ad-api/list/">List</a>
           
         </div>
       
@@ -2815,7 +2944,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../design/autoware-interfaces/components/">Components</a>
+          <a href="../../design/autoware-interfaces/components/">Components</a>
           
             <label for="__nav_5_4_3">
               <span class="md-nav__icon md-icon"></span>
@@ -2838,7 +2967,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../design/autoware-interfaces/components/planning/" class="md-nav__link">
+      <a href="../../design/autoware-interfaces/components/planning/" class="md-nav__link">
         Planning
       </a>
     </li>
@@ -2852,7 +2981,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../design/autoware-interfaces/components/control/" class="md-nav__link">
+      <a href="../../design/autoware-interfaces/components/control/" class="md-nav__link">
         Control
       </a>
     </li>
@@ -2866,7 +2995,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../design/autoware-interfaces/components/vehicle-interface/" class="md-nav__link">
+      <a href="../../design/autoware-interfaces/components/vehicle-interface/" class="md-nav__link">
         Vehicle Interface
       </a>
     </li>
@@ -2880,7 +3009,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../design/autoware-interfaces/components/vehicle-dimensions/" class="md-nav__link">
+      <a href="../../design/autoware-interfaces/components/vehicle-dimensions/" class="md-nav__link">
         Vehicle dimensions
       </a>
     </li>
@@ -2936,7 +3065,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../design/configuration-management/">Configuration management</a>
+          <a href="../../design/configuration-management/">Configuration management</a>
           
             <label for="__nav_5_5">
               <span class="md-nav__icon md-icon"></span>
@@ -2959,7 +3088,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../design/configuration-management/development-process/" class="md-nav__link">
+      <a href="../../design/configuration-management/development-process/" class="md-nav__link">
         Development process
       </a>
     </li>
@@ -2973,7 +3102,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../design/configuration-management/repository-structure/" class="md-nav__link">
+      <a href="../../design/configuration-management/repository-structure/" class="md-nav__link">
         Repository structure
       </a>
     </li>
@@ -2987,7 +3116,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../design/configuration-management/release-process/" class="md-nav__link">
+      <a href="../../design/configuration-management/release-process/" class="md-nav__link">
         Release process
       </a>
     </li>
@@ -3014,16 +3143,16 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
       
       
         
@@ -3048,7 +3177,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../">Contributing</a>
+          <a href="../../contributing/">Contributing</a>
           
             <label for="__nav_6">
               <span class="md-nav__icon md-icon"></span>
@@ -3056,7 +3185,7 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
           Contributing
@@ -3071,7 +3200,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../license/" class="md-nav__link">
+      <a href="../../contributing/license/" class="md-nav__link">
         License
       </a>
     </li>
@@ -3083,18 +3212,18 @@
               
   
   
-    
-  
   
     
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" checked>
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_3" >
       
       
         
@@ -3111,7 +3240,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../">Coding guidelines</a>
+          <a href="../../contributing/coding-guidelines/">Coding guidelines</a>
           
             <label for="__nav_6_3">
               <span class="md-nav__icon md-icon"></span>
@@ -3119,7 +3248,7 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_6_3">
           <span class="md-nav__icon md-icon"></span>
           Coding guidelines
@@ -3181,7 +3310,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../languages/cpp/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/languages/cpp/" class="md-nav__link">
         C++
       </a>
     </li>
@@ -3195,7 +3324,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../languages/python/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/languages/python/" class="md-nav__link">
         Python
       </a>
     </li>
@@ -3209,7 +3338,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../languages/shell-scripts/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/languages/shell-scripts/" class="md-nav__link">
         Shell scripts
       </a>
     </li>
@@ -3223,7 +3352,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../languages/markdown/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/languages/markdown/" class="md-nav__link">
         Markdown
       </a>
     </li>
@@ -3237,7 +3366,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../languages/cmake/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/languages/cmake/" class="md-nav__link">
         CMake
       </a>
     </li>
@@ -3251,7 +3380,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../languages/package-xml/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/languages/package-xml/" class="md-nav__link">
         package.xml
       </a>
     </li>
@@ -3265,7 +3394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../languages/docker/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/languages/docker/" class="md-nav__link">
         Docker
       </a>
     </li>
@@ -3279,7 +3408,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../languages/github-actions/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/languages/github-actions/" class="md-nav__link">
         GitHub Actions
       </a>
     </li>
@@ -3298,16 +3427,16 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3_3" checked>
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_3_3" >
       
       
         
@@ -3338,7 +3467,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_3_3_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_3_3_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_6_3_3">
           <span class="md-nav__icon md-icon"></span>
           ROS nodes guidelines
@@ -3351,7 +3480,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../class-design/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/ros-nodes/class-design/" class="md-nav__link">
         Class design
       </a>
     </li>
@@ -3363,120 +3492,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Console logging
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../contributing/coding-guidelines/ros-nodes/console-logging/" class="md-nav__link">
         Console logging
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#logging-use-cases-in-autoware" class="md-nav__link">
-    Logging use cases in Autoware
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rules" class="md-nav__link">
-    Rules
-  </a>
-  
-    <nav class="md-nav" aria-label="Rules">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#choose-appropriate-severity-levels-required-non-automated" class="md-nav__link">
-    Choose appropriate severity levels (required, non-automated)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#filter-out-unnecessary-logs-by-setting-logging-options-required-non-automated" class="md-nav__link">
-    Filter out unnecessary logs by setting logging options (required, non-automated)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#use-throttled-logging-when-the-log-is-unnecessarily-shown-repeatedly-required-non-automated" class="md-nav__link">
-    Use throttled logging when the log is unnecessarily shown repeatedly (required, non-automated)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#do-not-depend-on-rclcppnode-in-core-library-classes-but-depend-only-on-rclcpplogginghpp-advisory-non-automated" class="md-nav__link">
-    Do not depend on rclcpp::Node in core library classes but depend only on rclcpp/logging.hpp (advisory, non-automated)
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tips" class="md-nav__link">
-    Tips
-  </a>
-  
-    <nav class="md-nav" aria-label="Tips">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#use-rqt_console-to-filter-logs" class="md-nav__link">
-    Use rqt_console to filter logs
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#useful-marco-expressions" class="md-nav__link">
-    Useful marco expressions
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3488,7 +3508,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../coordinate-system/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/ros-nodes/coordinate-system/" class="md-nav__link">
         Coordinate system
       </a>
     </li>
@@ -3502,7 +3522,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../directory-structure/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/ros-nodes/directory-structure/" class="md-nav__link">
         Directory structure
       </a>
     </li>
@@ -3516,7 +3536,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../launch-files/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/ros-nodes/launch-files/" class="md-nav__link">
         Launch files
       </a>
     </li>
@@ -3530,7 +3550,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../message-guidelines/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/ros-nodes/message-guidelines/" class="md-nav__link">
         Message guidelines
       </a>
     </li>
@@ -3544,7 +3564,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../naming/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/ros-nodes/naming/" class="md-nav__link">
         Topic namespaces
       </a>
     </li>
@@ -3558,7 +3578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../parameters/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/ros-nodes/parameters/" class="md-nav__link">
         Parameters
       </a>
     </li>
@@ -3572,7 +3592,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../task-scheduling/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/ros-nodes/task-scheduling/" class="md-nav__link">
         Task scheduling
       </a>
     </li>
@@ -3586,7 +3606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../topic-namespaces/" class="md-nav__link">
+      <a href="../../contributing/coding-guidelines/ros-nodes/topic-namespaces/" class="md-nav__link">
         Topic namespaces
       </a>
     </li>
@@ -3640,7 +3660,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../testing-guidelines/">Testing guidelines</a>
+          <a href="../../contributing/testing-guidelines/">Testing guidelines</a>
           
             <label for="__nav_6_4">
               <span class="md-nav__icon md-icon"></span>
@@ -3663,7 +3683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing-guidelines/unit-testing/" class="md-nav__link">
+      <a href="../../contributing/testing-guidelines/unit-testing/" class="md-nav__link">
         Unit testing
       </a>
     </li>
@@ -3677,7 +3697,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing-guidelines/integration-testing/" class="md-nav__link">
+      <a href="../../contributing/testing-guidelines/integration-testing/" class="md-nav__link">
         Integration testing
       </a>
     </li>
@@ -3720,7 +3740,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../documentation-guidelines/">Documentation guidelines</a>
+          <a href="../../contributing/documentation-guidelines/">Documentation guidelines</a>
           
         </div>
       
@@ -3776,7 +3796,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../pull-request-guidelines/">Pull request guidelines</a>
+          <a href="../../contributing/pull-request-guidelines/">Pull request guidelines</a>
           
             <label for="__nav_6_6">
               <span class="md-nav__icon md-icon"></span>
@@ -3799,7 +3819,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pull-request-guidelines/ci-checks/" class="md-nav__link">
+      <a href="../../contributing/pull-request-guidelines/ci-checks/" class="md-nav__link">
         CI checks
       </a>
     </li>
@@ -3813,7 +3833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pull-request-guidelines/commit-guidelines/" class="md-nav__link">
+      <a href="../../contributing/pull-request-guidelines/commit-guidelines/" class="md-nav__link">
         Commit guidelines
       </a>
     </li>
@@ -3827,7 +3847,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pull-request-guidelines/review-guidelines/" class="md-nav__link">
+      <a href="../../contributing/pull-request-guidelines/review-guidelines/" class="md-nav__link">
         Review guidelines
       </a>
     </li>
@@ -3841,7 +3861,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pull-request-guidelines/review-tips/" class="md-nav__link">
+      <a href="../../contributing/pull-request-guidelines/review-tips/" class="md-nav__link">
         Review tips
       </a>
     </li>
@@ -3884,7 +3904,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../discussion-guidelines/">Discussion guidelines</a>
+          <a href="../../contributing/discussion-guidelines/">Discussion guidelines</a>
           
         </div>
       
@@ -3938,7 +3958,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../datasets/">Datasets</a>
+          <a href="../../datasets/">Datasets</a>
           
         </div>
       
@@ -3991,7 +4011,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../support/">Support</a>
+          <a href="../../support/">Support</a>
           
             <label for="__nav_8">
               <span class="md-nav__icon md-icon"></span>
@@ -4014,7 +4034,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../support/support-guidelines/" class="md-nav__link">
+      <a href="../../support/support-guidelines/" class="md-nav__link">
         Support guidelines
       </a>
     </li>
@@ -4028,7 +4048,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../support/troubleshooting/" class="md-nav__link">
+      <a href="../../support/troubleshooting/" class="md-nav__link">
         Troubleshooting
       </a>
     </li>
@@ -4042,7 +4062,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../support/docs-guide/" class="md-nav__link">
+      <a href="../../support/docs-guide/" class="md-nav__link">
         Docs guide
       </a>
     </li>
@@ -4083,44 +4103,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#logging-use-cases-in-autoware" class="md-nav__link">
-    Logging use cases in Autoware
+  <a href="#what-is-eagleye" class="md-nav__link">
+    What is Eagleye?
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#rules" class="md-nav__link">
-    Rules
+  <a href="#architecture" class="md-nav__link">
+    Architecture
   </a>
   
-    <nav class="md-nav" aria-label="Rules">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirements">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#choose-appropriate-severity-levels-required-non-automated" class="md-nav__link">
-    Choose appropriate severity levels (required, non-automated)
+  <a href="#imu-topic" class="md-nav__link">
+    IMU topic
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#filter-out-unnecessary-logs-by-setting-logging-options-required-non-automated" class="md-nav__link">
-    Filter out unnecessary logs by setting logging options (required, non-automated)
+  <a href="#vehicle-speed-topic" class="md-nav__link">
+    Vehicle speed topic
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#use-throttled-logging-when-the-log-is-unnecessarily-shown-repeatedly-required-non-automated" class="md-nav__link">
-    Use throttled logging when the log is unnecessarily shown repeatedly (required, non-automated)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#do-not-depend-on-rclcppnode-in-core-library-classes-but-depend-only-on-rclcpplogginghpp-advisory-non-automated" class="md-nav__link">
-    Do not depend on rclcpp::Node in core library classes but depend only on rclcpp/logging.hpp (advisory, non-automated)
+  <a href="#gnss-topic" class="md-nav__link">
+    GNSS topic
   </a>
   
 </li>
@@ -4131,23 +4151,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tips" class="md-nav__link">
-    Tips
+  <a href="#eagleye-setup" class="md-nav__link">
+    Eagleye Setup
   </a>
   
-    <nav class="md-nav" aria-label="Tips">
+    <nav class="md-nav" aria-label="Eagleye Setup">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#use-rqt_console-to-filter-logs" class="md-nav__link">
-    Use rqt_console to filter logs
+  <a href="#install-dependencies" class="md-nav__link">
+    Install dependencies
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#useful-marco-expressions" class="md-nav__link">
-    Useful marco expressions
+  <a href="#modifying-autoware-launch-files" class="md-nav__link">
+    Modifying Autoware Launch files
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#executing-launch-files" class="md-nav__link">
+    Executing Launch files
+  </a>
+  
+    <nav class="md-nav" aria-label="Executing Launch files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#execution-command" class="md-nav__link">
+    Execution command
   </a>
   
 </li>
@@ -4175,157 +4215,118 @@
   
 
 
-<div><h1 id="console-logging">Console logging<a class="headerlink" href="#console-logging" title="Permanent link">#</a></h1>
-<p><abbr title="Robot Operating System">ROS</abbr> 2 logging is a powerful tool for understanding and debugging <abbr title="Robot Operating System">ROS</abbr> nodes.</p>
-<p>This page focuses on how to design console logging in Autoware and shows several practical examples.
-To comprehensively understand how <abbr title="Robot Operating System">ROS</abbr> 2 logging works, refer to the <a href="https://docs.ros.org/en/humble/Concepts/About-Logging.html">logging documentation</a>.</p>
-<h2 id="logging-use-cases-in-autoware">Logging use cases in Autoware<a class="headerlink" href="#logging-use-cases-in-autoware" title="Permanent link">#</a></h2>
-<ul>
-<li>Developers debug code by seeing the console logs.</li>
-<li>Vehicle operators take appropriate risk-avoiding actions depending on the console logs.</li>
-<li>Log analysts analyze the console logs that are recorded in rosbag files.</li>
-</ul>
-<p>To efficiently support these use cases, clean and highly visible logs are required.
-For that, several rules are defined below.</p>
-<h2 id="rules">Rules<a class="headerlink" href="#rules" title="Permanent link">#</a></h2>
-<h3 id="choose-appropriate-severity-levels-required-non-automated">Choose appropriate severity levels (required, non-automated)<a class="headerlink" href="#choose-appropriate-severity-levels-required-non-automated" title="Permanent link">#</a></h3>
-<h4 id="rationale">Rationale<a class="headerlink" href="#rationale" title="Permanent link">#</a></h4>
-<p>It's confusing if severity levels are inappropriate as follows:</p>
-<ul>
-<li>Useless messages are marked as <code>FATAL</code>.</li>
-<li>Very important error messages are marked as <code>INFO</code>.</li>
-</ul>
-<h4 id="example">Example<a class="headerlink" href="#example" title="Permanent link">#</a></h4>
-<p>Use the following criteria as a reference:</p>
-<ul>
-<li><strong>DEBUG:</strong> Use this level to show debug information for developers. Note that logs with this level is hidden by default.</li>
-<li><strong>INFO:</strong> Use this level to notify events (cyclic notifications during initialization, state changes, service responses, etc.) to operators.</li>
-<li><strong>WARN:</strong> Use this level when a node can continue working correctly, but unintended behaviors might happen.<ul>
-<li>For example, "path optimization failed but the previous data can be used", "the localization score is low", etc.</li>
-</ul>
+<div><h1 id="using-eagleye-with-autoware">Using Eagleye with Autoware<a class="headerlink" href="#using-eagleye-with-autoware" title="Permanent link">#</a></h1>
+<p>This page will show you how to set up <a href="https://github.com/MapIV/eagleye">Eagleye</a> in order to use it with Autoware.
+For the details of the integration proposal, please refer to <a href="https://github.com/orgs/autowarefoundation/discussions/3257">this</a> Discussion.</p>
+<h2 id="what-is-eagleye">What is Eagleye?<a class="headerlink" href="#what-is-eagleye" title="Permanent link">#</a></h2>
+<p>Eagleye is an open-source <abbr title="Global Navigation Satellite System">GNSS</abbr>/<abbr title="Inertial Measurement Unit">IMU</abbr>-based localizer initially developed by <a href="https://map4.jp/">MAP IV. Inc</a>. It provides a cost-effective alternative to LiDAR and point cloud-based localization by using low-cost <abbr title="Global Navigation Satellite System">GNSS</abbr> and <abbr title="Inertial Measurement Unit">IMU</abbr> sensors to provide vehicle position, orientation, and altitude information. By integrating Eagleye into Autoware, users can choose between LiDAR and point cloud-based localization stacks or <abbr title="Global Navigation Satellite System">GNSS</abbr>/<abbr title="Inertial Measurement Unit">IMU</abbr>-based Eagleye localizer, depending on their specific needs and operating environment.</p>
+<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">#</a></h2>
+<p>Eagleye can be utilized in the Autoware localization stack in two ways:</p>
+<ol>
+<li>
+<p>Feed only twist into the EKF localizer.</p>
+<p><img alt="Eagleye twist integration" src="../images/eagleye-integration-guide/eagleye_twist.drawio.svg"></p>
 </li>
-<li><strong>ERROR:</strong> Use this level when a node can't continue working correctly, and unintended behaviors would happen.<ul>
-<li>For example, "path optimization failed and the path is empty", "the vehicle will trigger an emergency stop", etc.</li>
-</ul>
+<li>
+<p>Feed both twist and pose from Eagleye into the EKF localizer (twist can also be used with regular <code>gyro_odometry</code>).</p>
+<p><img alt="Eagleye pose twist integration" src="../images/eagleye-integration-guide/eagleye_pose_twist.drawio.svg"></p>
 </li>
-<li><strong>FATAL:</strong> Use this level when the entire system can't continue working correctly, and the system must be stopped.<ul>
-<li>For example, "the vehicle control <abbr title="Electronic Control Unit">ECU</abbr> doesn't respond", "the system storage crashed", etc.</li>
-</ul>
-</li>
-</ul>
-<h3 id="filter-out-unnecessary-logs-by-setting-logging-options-required-non-automated">Filter out unnecessary logs by setting logging options (required, non-automated)<a class="headerlink" href="#filter-out-unnecessary-logs-by-setting-logging-options-required-non-automated" title="Permanent link">#</a></h3>
-<h4 id="rationale_1">Rationale<a class="headerlink" href="#rationale_1" title="Permanent link">#</a></h4>
-<p>Some third-party nodes such as drivers may not follow the Autoware's guidelines.
-If the logs are noisy, unnecessary logs should be filtered out.</p>
-<h4 id="example_1">Example<a class="headerlink" href="#example_1" title="Permanent link">#</a></h4>
-<p>Use the <code>--log-level {level}</code> option to change the minimum level of logs to be displayed:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;launch&gt;</span>
-<span class="w">  </span><span class="cm">&lt;!-- This outputs only FATAL level logs. --&gt;</span>
-<span class="w">  </span><span class="nt">&lt;node</span><span class="w"> </span><span class="na">pkg=</span><span class="s">"demo_nodes_cpp"</span><span class="w"> </span><span class="na">exec=</span><span class="s">"talker"</span><span class="w"> </span><span class="na">ros_args=</span><span class="s">"--log-level fatal"</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="nt">&lt;/launch&gt;</span>
-</code></pre></div>
-<p>If you want to disable only specific output targets, use the <code>--disable-stdout-logs</code>, <code>--disable-rosout-logs</code>, and/or <code>--disable-external-lib-logs</code> options:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;launch&gt;</span>
-<span class="w">  </span><span class="cm">&lt;!-- This outputs to rosout and disk. --&gt;</span>
-<span class="w">  </span><span class="nt">&lt;node</span><span class="w"> </span><span class="na">pkg=</span><span class="s">"demo_nodes_cpp"</span><span class="w"> </span><span class="na">exec=</span><span class="s">"talker"</span><span class="w"> </span><span class="na">ros_args=</span><span class="s">"--disable-stdout-logs"</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="nt">&lt;/launch&gt;</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;launch&gt;</span>
-<span class="w">  </span><span class="cm">&lt;!-- This outputs to stdout. --&gt;</span>
-<span class="w">  </span><span class="nt">&lt;node</span><span class="w"> </span><span class="na">pkg=</span><span class="s">"demo_nodes_cpp"</span><span class="w"> </span><span class="na">exec=</span><span class="s">"talker"</span><span class="w"> </span><span class="na">ros_args=</span><span class="s">"--disable-rosout-logs --disable-external-lib-logs"</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="nt">&lt;/launch&gt;</span>
-</code></pre></div>
-<h3 id="use-throttled-logging-when-the-log-is-unnecessarily-shown-repeatedly-required-non-automated">Use throttled logging when the log is unnecessarily shown repeatedly (required, non-automated)<a class="headerlink" href="#use-throttled-logging-when-the-log-is-unnecessarily-shown-repeatedly-required-non-automated" title="Permanent link">#</a></h3>
-<h4 id="rationale_2">Rationale<a class="headerlink" href="#rationale_2" title="Permanent link">#</a></h4>
-<p>If tons of logs are shown on the console, people miss important message.</p>
-<h4 id="example_2">Example<a class="headerlink" href="#example_2" title="Permanent link">#</a></h4>
-<p>While waiting for some messages, throttled logs are usually enough.
-In such cases, wait about 5 seconds as a reference value.</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// Compliant</span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">FooNode::on_timer</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">current_pose_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">RCLCPP_ERROR_THROTTLE</span><span class="p">(</span><span class="n">get_logger</span><span class="p">(),</span><span class="w"> </span><span class="o">*</span><span class="n">get_clock</span><span class="p">(),</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w"> </span><span class="s">"Waiting for current_pose_."</span><span class="p">);</span>
-<span class="w">    </span><span class="k">return</span><span class="p">;</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-
-<span class="c1">// Non-compliant</span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">FooNode::on_timer</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">current_pose_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">RCLCPP_ERROR</span><span class="p">(</span><span class="n">get_logger</span><span class="p">(),</span><span class="w"> </span><span class="s">"Waiting for current_pose_."</span><span class="p">);</span>
-<span class="w">    </span><span class="k">return</span><span class="p">;</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<h4 id="exception">Exception<a class="headerlink" href="#exception" title="Permanent link">#</a></h4>
-<p>The following cases are acceptable even if it's not throttled.</p>
+</ol>
+<p>Note that RTK positioning is only required for localization using the Eagleye pose. RTK positioning is not required for twist.</p>
+<h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">#</a></h2>
+<p><abbr title="Global Navigation Satellite System">GNSS</abbr>/<abbr title="Inertial Measurement Unit">IMU</abbr>/vehicle speed is required for Eagleye input.</p>
+<h3 id="imu-topic"><abbr title="Inertial Measurement Unit">IMU</abbr> topic<a class="headerlink" href="#imu-topic" title="Permanent link">#</a></h3>
+<p><code>sensor_msgs/msg/Imu</code> are supported for <abbr title="Inertial Measurement Unit">IMU</abbr>.</p>
+<h3 id="vehicle-speed-topic">Vehicle speed topic<a class="headerlink" href="#vehicle-speed-topic" title="Permanent link">#</a></h3>
+<p><code>geometry_msgs/msg/TwistStamped</code> and <code>geometry_msgs/msg/TwistWithCovarianceStamped</code> are supported for the input vehicle speed.</p>
+<h3 id="gnss-topic"><abbr title="Global Navigation Satellite System">GNSS</abbr> topic<a class="headerlink" href="#gnss-topic" title="Permanent link">#</a></h3>
+<p>Eagleye requires latitude/longitude height information and velocity information generated by the <abbr title="Global Navigation Satellite System">GNSS</abbr> receiver.
+Your <abbr title="Global Navigation Satellite System">GNSS</abbr> <abbr title="Robot Operating System">ROS</abbr> driver must publish the following messages:</p>
 <ul>
-<li>The message is really worth displaying every time.</li>
-<li>The message level is DEBUG.</li>
+<li><code>sensor_msgs/msg/NavSatFix</code>: This message contains latitude, longitude, and height information.</li>
+<li><code>geometry_msgs/msg/TwistWithCovarianceStamped</code>: This message contains gnss doppler velocity information.</li>
 </ul>
-<h3 id="do-not-depend-on-rclcppnode-in-core-library-classes-but-depend-only-on-rclcpplogginghpp-advisory-non-automated">Do not depend on rclcpp::Node in core library classes but depend only on rclcpp/logging.hpp (advisory, non-automated)<a class="headerlink" href="#do-not-depend-on-rclcppnode-in-core-library-classes-but-depend-only-on-rclcpplogginghpp-advisory-non-automated" title="Permanent link">#</a></h3>
-<h4 id="rationale_3">Rationale<a class="headerlink" href="#rationale_3" title="Permanent link">#</a></h4>
-<p>Core library classes, which contain reusable algorithms, may also be used for non-<abbr title="Robot Operating System">ROS</abbr> platforms.
-When porting libraries to other platforms, fewer dependencies are preferred.</p>
-<h4 id="example_3">Example<a class="headerlink" href="#example_3" title="Permanent link">#</a></h4>
-<div class="highlight"><pre><span></span><code><span class="c1">// Compliant</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;rclcpp/logging.hpp&gt;</span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">FooCore</span><span class="w"> </span><span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-<span class="w">  </span><span class="k">explicit</span><span class="w"> </span><span class="n">FooCore</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">Logger</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">logger</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">logger_</span><span class="p">(</span><span class="n">logger</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
-
-<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">process</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">RCLCPP_INFO</span><span class="p">(</span><span class="n">logger_</span><span class="p">,</span><span class="w"> </span><span class="s">"message"</span><span class="p">);</span>
-<span class="w">  </span><span class="p">}</span>
-
-<span class="k">private</span><span class="o">:</span>
-<span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">Logger</span><span class="w"> </span><span class="n">logger_</span><span class="p">;</span>
-<span class="p">};</span>
-
-<span class="c1">// Compliant</span>
-<span class="c1">// Note that logs aren't published to `/rosout` if the logger name is different from the node name.</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;rclcpp/logging.hpp&gt;</span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">FooCore</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">process</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">RCLCPP_INFO</span><span class="p">(</span><span class="n">rclcpp</span><span class="o">::</span><span class="n">get_logger</span><span class="p">(</span><span class="s">"foo_core_logger"</span><span class="p">),</span><span class="w"> </span><span class="s">"message"</span><span class="p">);</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">};</span>
-
-
-<span class="c1">// Non-compliant</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;rclcpp/node.hpp&gt;</span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">FooCore</span><span class="w"> </span><span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-<span class="w">  </span><span class="k">explicit</span><span class="w"> </span><span class="n">FooCore</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">NodeOptions</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">node_options</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">node_</span><span class="p">(</span><span class="s">"foo_core_node"</span><span class="p">,</span><span class="w"> </span><span class="n">node_options</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
-
-<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">process</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">RCLCPP_INFO</span><span class="p">(</span><span class="n">node_</span><span class="p">.</span><span class="n">get_logger</span><span class="p">(),</span><span class="w"> </span><span class="s">"message"</span><span class="p">);</span>
-<span class="w">  </span><span class="p">}</span>
-
-<span class="k">private</span><span class="o">:</span>
-<span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">Node</span><span class="w"> </span><span class="n">node_</span><span class="p">;</span>
-<span class="p">};</span>
+<p>Eagleye has been tested with the following example <abbr title="Global Navigation Satellite System">GNSS</abbr> <abbr title="Robot Operating System">ROS</abbr> drivers: ublox_gps and septentrio_gnss_driver. The settings needed for each of these drivers are as follows:</p>
+<ul>
+<li><a href="https://github.com/KumarRobotics/ublox/tree/ros2/ublox_gps">ublox_gps</a>: This <abbr title="Robot Operating System">ROS</abbr> driver publishes <code>sensor_msgs/msg/NavSatFix</code> and <code>geometry_msgs/msg/TwistWithCovarianceStamped</code> required by Eagleye with default settings. Therefore, no additional settings are required.</li>
+<li><a href="https://github.com/septentrio-gnss/septentrio_gnss_driver/tree/ros2">septentrio_gnss_driver</a>: Set <code>publish.navsatfix</code> and <code>publish.twist</code> in the config file <a href="https://github.com/septentrio-gnss/septentrio_gnss_driver/blob/ros2/config/gnss.yaml#L90"><code>gnss.yaml</code></a> to <code>true</code></li>
+</ul>
+<h2 id="eagleye-setup">Eagleye Setup<a class="headerlink" href="#eagleye-setup" title="Permanent link">#</a></h2>
+<h3 id="install-dependencies">Install dependencies<a class="headerlink" href="#install-dependencies" title="Permanent link">#</a></h3>
+<p>Clone the following three packages for Eagleye:</p>
+<ol>
+<li><a href="https://github.com/MapIV/eagleye.git">Eagleye</a> (autoware-main branch)</li>
+<li><a href="https://github.com/MapIV/rtklib_ros_bridge.git">RTKLIB <abbr title="Robot Operating System">ROS</abbr> Bridge</a> (ros2-v0.1.0 branch)</li>
+<li><a href="https://github.com/MapIV/llh_converter.git">LLH Converter</a> (ros2 branch)</li>
+</ol>
+<h3 id="modifying-autoware-launch-files">Modifying Autoware Launch files<a class="headerlink" href="#modifying-autoware-launch-files" title="Permanent link">#</a></h3>
+<p>You need to install Eagleye-related packages and change Autoware's launcher. Four files are required in the Autoware localization launcher to run Eagleye: <code>eagleye_rt.launch.xml</code>, <code>eagleye_config.yaml</code>, <code>gnss_converter.launch.xml</code>, and <code>fix2pose.launch.xml</code>.</p>
+<p>You must correctly specify input topics for <abbr title="Global Navigation Satellite System">GNSS</abbr> latitude, longitude, and height information, <abbr title="Global Navigation Satellite System">GNSS</abbr> speed information, <abbr title="Inertial Measurement Unit">IMU</abbr> information, and vehicle speed information in the <a href="https://github.com/MapIV/autoware_launch/blob/3f04a9dd7bc4a4c49d4ec790e3f6b9958ab822da/autoware_launch/config/localization/eagleye_config.param.yaml#L7-L16"><code>eagleye_config.yaml</code></a>.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Topic</span>
+<span class="nt">twist</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">twist_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w"> </span><span class="c1"># TwistStamped : 0, TwistWithCovarianceStamped: 1</span>
+<span class="w">  </span><span class="nt">twist_topic</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/sensing/vehicle_velocity_converter/twist_with_covariance</span>
+<span class="nt">imu_topic</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/sensing/imu/tamagawa/imu_raw</span>
+<span class="nt">gnss</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">velocity_source_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span><span class="w"> </span><span class="c1"># rtklib_msgs/RtklibNav: 0, nmea_msgs/Sentence: 1, ublox_msgs/NavPVT: 2, geometry_msgs/TwistWithCovarianceStamped: 3</span>
+<span class="w">  </span><span class="nt">velocity_source_topic</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/sensing/gnss/ublox/navpvt</span>
+<span class="w">  </span><span class="nt">llh_source_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span><span class="w"> </span><span class="c1"># rtklib_msgs/RtklibNav: 0, nmea_msgs/Sentence: 1, sensor_msgs/NavSatFix: 2</span>
+<span class="w">  </span><span class="nt">llh_source_topic</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/sensing/gnss/ublox/nav_sat_fix</span>
 </code></pre></div>
-<h2 id="tips">Tips<a class="headerlink" href="#tips" title="Permanent link">#</a></h2>
-<h3 id="use-rqt_console-to-filter-logs">Use rqt_console to filter logs<a class="headerlink" href="#use-rqt_console-to-filter-logs" title="Permanent link">#</a></h3>
-<p>To filter logs, using <code>rqt_console</code> is useful:</p>
-<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>run<span class="w"> </span>rqt_console<span class="w"> </span>rqt_console
+<p>Also, the frequency of <abbr title="Global Navigation Satellite System">GNSS</abbr> and <abbr title="Inertial Measurement Unit">IMU</abbr> must be set in <a href="https://github.com/MapIV/autoware_launch/blob/3f04a9dd7bc4a4c49d4ec790e3f6b9958ab822da/autoware_launch/config/localization/eagleye_config.param.yaml#L36"><code>eagleye_config.yaml</code></a></p>
+<div class="highlight"><pre><span></span><code><span class="nt">common</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">imu_rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">50</span>
+<span class="w">  </span><span class="nt">gnss_rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
 </code></pre></div>
-<p>For more details, refer to <a href="https://docs.ros.org/en/rolling/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.html"><abbr title="Robot Operating System">ROS</abbr> 2 Documentation</a>.</p>
-<h3 id="useful-marco-expressions">Useful marco expressions<a class="headerlink" href="#useful-marco-expressions" title="Permanent link">#</a></h3>
-<p>To debug program, sometimes you need to see which functions and lines of code are executed.
-In that case, you can use <code>__FILE__</code>, <code>__LINE__</code> and <code>__FUNCTION__</code> macro:</p>
-<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">FooNode::on_timer</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">RCLCPP_DEBUG</span><span class="p">(</span><span class="n">get_logger</span><span class="p">(),</span><span class="w"> </span><span class="s">"file: %s, line: %s, function: %s"</span><span class="w"> </span><span class="n">__FILE__</span><span class="p">,</span><span class="w"> </span><span class="n">__LINE__</span><span class="p">,</span><span class="w"> </span><span class="n">__FUNCTION__</span><span class="p">);</span>
-<span class="p">}</span>
+<p>The basic parameters that do not need to be changed except those mentioned above, i.e., topic names and sensors' frequency, are described below <a href="https://github.com/MapIV/eagleye/tree/autoware-main/eagleye_rt/config">here</a>.
+Additionally, the parameters for converting <code>sensor_msgs/msg/NavSatFix</code> to <code>geometry_msgs/msg/PoseWithCovarianceStamped</code> is listed in <a href="https://github.com/MapIV/eagleye/blob/autoware-main/eagleye_util/fix2pose/launch/fix2pose.xml"><code>fix2pose.yaml</code></a>.</p>
+<p>Please refer to <code>map4_localization_launch</code> in the <code>autoware.universe</code> package and <code>map4_localization_component.launch.xml</code> in <code>autoware_launch</code> package for information on how to modify the localization launch.</p>
+<p>Eagleye has a function for position estimation and a function for twist estimation, namely <code>pose_estimator</code> and <code>twist_estimator</code>, respectively.</p>
+<table>
+<thead>
+<tr>
+<th>localization launch</th>
+<th>twist estimator</th>
+<th>pose estimator</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>tier4_localization_launch</code></td>
+<td><code>gyro_odometry</code></td>
+<td><code>ndt_scan_matcher</code></td>
+</tr>
+<tr>
+<td><code>map4_localization_launch/eagleye_twist_localization_launch</code></td>
+<td><code>eagleye_rt</code>(gyro/odom/gnss fusion)</td>
+<td><code>ndt_scan_matcher</code></td>
+</tr>
+<tr>
+<td><code>map4_localization_launch/eagleye_pose_twist_localization_launch</code></td>
+<td><code>eagleye_rt</code>(gyro/odom/gnss fusion)</td>
+<td><code>eagleye_rt</code>(gyro/odom/gnss fusion)</td>
+</tr>
+</tbody>
+</table>
+<p>In Autoware, you can set the pose estimator to <abbr title="Global Navigation Satellite System">GNSS</abbr> by setting <code>pose_estimator_mode:=gnss</code> in <code>map4_localization_component.launch.xml</code> in <code>autoware_launch</code> package.
+Note that the output position might not appear to be in the point cloud maps if you are using maps that are not properly georeferenced.
+In the case of a single <abbr title="Global Navigation Satellite System">GNSS</abbr> antenna, initial position estimation (dynamic initialization) can take several seconds to complete after starting to run in an environment where <abbr title="Global Navigation Satellite System">GNSS</abbr> positioning is available.</p>
+<p>Alternatively, the twist estimator can be set to Eagleye and the pose estimator to NDT by specifying <code>pose_estimator_mode:=lidar</code> in the same launch file.
+Unlike Eagleye position estimation, Eagleye twist estimation first outputs uncorrected raw values when activated, and then outputs corrected twists as soon as static initialization is complete.</p>
+<h2 id="executing-launch-files">Executing Launch files<a class="headerlink" href="#executing-launch-files" title="Permanent link">#</a></h2>
+<h3 id="execution-command">Execution command<a class="headerlink" href="#execution-command" title="Permanent link">#</a></h3>
+<p>Enable Eagleye in Autoware by switching the localization module in autoware.launch.xml and the <code>pose_estimator_mode</code> parameter in <code>map4_localization_component.launch.xml</code> in <code>autoware.launch.xml</code>.</p>
+<p>When using Eagleye, comment out <code>tier4_localization_component.launch.xml</code> and start <code>map4_localization_component.launch.xml</code> in <code>autoware.launch.xml</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="cm">&lt;!-- Localization --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;group</span><span class="w"> </span><span class="na">if=</span><span class="s">"$(var launch_localization)"</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="cm">&lt;!-- &lt;include file="$(find-pkg-share autoware_launch)/launch/components/tier4_localization_component.launch.xml"/&gt; --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;include</span><span class="w"> </span><span class="na">file=</span><span class="s">"$(find-pkg-share autoware_launch)/launch/components/map4_localization_component.launch.xml"</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/group&gt;</span>
 </code></pre></div>
-<p>The example output is as follows:</p>
-<blockquote>
-<p>[DEBUG] [1671720414.395456931] [foo]: file: /path/to/file.cpp, line: 100, function: on_timer</p>
-</blockquote>
+<h4 id="notes-with-initialization">Notes with initialization<a class="headerlink" href="#notes-with-initialization" title="Permanent link">#</a></h4>
+<p>Eagleye requires an initialization process for proper operation. Without initialization, the output for twist will be in the raw value, and the pose data will not be available.</p>
+<p>The first step is static initialization, which involves allowing the Eagleye to remain stationary for approximately 5 seconds after startup to estimate the yaw-rate offset.</p>
+<p>The next step is dynamic initialization, which involves running the Eagleye in a straight line for approximately 30 seconds. This process estimates the scale factor of wheel speed and azimuth angle. Once dynamic initialization is complete, the Eagleye will be able to provide corrected twist and pose data.</p>
 <!-- prettier-ignore --></div>
 
 
@@ -4353,7 +4354,7 @@ In that case, you can use <code>__FILE__</code>, <code>__LINE__</code> and <code
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../class-design/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Class design" rel="prev">
+          <a href="../fixing-dependent-package-versions/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Fixing dependent package versions" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -4362,20 +4363,20 @@ In that case, you can use <code>__FILE__</code>, <code>__LINE__</code> and <code
                 Previous
               </span>
               <div class="md-ellipsis">
-                Class design
+                Fixing dependent package versions
               </div>
             </div>
           </a>
         
         
           
-          <a href="../coordinate-system/" class="md-footer__link md-footer__link--next" aria-label="Next: Coordinate system" rel="next">
+          <a href="../../design/" class="md-footer__link md-footer__link--next" aria-label="Next: Autoware&#39;s Design" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Coordinate system
+                Autoware's Design
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -4411,10 +4412,10 @@ In that case, you can use <code>__FILE__</code>, <code>__LINE__</code> and <code
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.fac441b0.min.js"></script>
+      <script src="../../assets/javascripts/bundle.fac441b0.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
