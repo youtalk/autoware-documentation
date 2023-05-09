@@ -17,7 +17,7 @@
         <link rel="next" href="../localization/">
       
       <link rel="icon" href="../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.9">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.11">
     
     
       
@@ -4094,44 +4094,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-requirements" class="md-nav__link">
-    1. Requirements
+  <a href="#1-overview" class="md-nav__link">
+    1. Overview
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-architecture" class="md-nav__link">
-    2. Architecture
+  <a href="#2-requirements" class="md-nav__link">
+    2. Requirements
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-features" class="md-nav__link">
-    3. Features
+  <a href="#3-architecture" class="md-nav__link">
+    3. Architecture
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-interface-and-data-structure" class="md-nav__link">
-    4. Interface and Data Structure
+  <a href="#4-features" class="md-nav__link">
+    4. Features
   </a>
   
-    <nav class="md-nav" aria-label="4. Interface and Data Structure">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-map-specification" class="md-nav__link">
+    5. Map Specification
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Map Specification">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#pointcloud-map" class="md-nav__link">
-    Pointcloud map
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vector-map" class="md-nav__link">
-    Vector map
+  <a href="#point-cloud-map" class="md-nav__link">
+    Point Cloud Map
   </a>
   
 </li>
@@ -4160,24 +4160,40 @@
 
 
 <div><h1 id="map-component-design">Map component design<a class="headerlink" href="#map-component-design" title="Permanent link">#</a></h1>
-<h2 id="1-requirements">1. Requirements<a class="headerlink" href="#1-requirements" title="Permanent link">#</a></h2>
+<h2 id="1-overview">1. Overview<a class="headerlink" href="#1-overview" title="Permanent link">#</a></h2>
+<p>Autoware relies on high-definition point cloud maps and vector maps of the driving environment to perform various tasks such as localization, route planning, traffic light detection, and predicting the trajectories of pedestrians and other vehicles.</p>
+<p>This document describes the design of map component of Autoware, including its requirements, architecture design, features, data formats, and interface to distribute map information to the rest of autonomous driving stack.</p>
+<h2 id="2-requirements">2. Requirements<a class="headerlink" href="#2-requirements" title="Permanent link">#</a></h2>
+<p>Map should provide two types of information to the rest of the stack:
+* Semantic information about roads as a vector map
+* Geometric information about the environment as a point cloud map (optional)</p>
+<p>A vector map contains highly accurate information about a road network, lane geometry, and traffic lights. It is required for route planning, traffic light detection, and predicting the trajectories of other vehicles and pedestrians.</p>
+<p>A 3D point cloud map is primarily used for LiDAR-based localization and part of perception in Autoware. In order to determine the current position and orientation of the vehicle, a live scan captured from one or more LiDAR units is matched against a pre-generated 3D point cloud map. Therefore, an accurate point cloud map is crucial for good localization results. However, if the vehicle has an alternate localization method with enough accuracy, for example using camera-based localization, point cloud map may not be required to use Autoware.</p>
+<h2 id="3-architecture">3. Architecture<a class="headerlink" href="#3-architecture" title="Permanent link">#</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Under Construction</p>
 </div>
-<h2 id="2-architecture">2. Architecture<a class="headerlink" href="#2-architecture" title="Permanent link">#</a></h2>
+<h2 id="4-features">4. Features<a class="headerlink" href="#4-features" title="Permanent link">#</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Under Construction</p>
 </div>
-<h2 id="3-features">3. Features<a class="headerlink" href="#3-features" title="Permanent link">#</a></h2>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Under Construction</p>
+<h2 id="5-map-specification">5. Map Specification<a class="headerlink" href="#5-map-specification" title="Permanent link">#</a></h2>
+<h3 id="point-cloud-map">Point Cloud Map<a class="headerlink" href="#point-cloud-map" title="Permanent link">#</a></h3>
+<p>The point cloud map must be supplied as a file with the following requirements:
+- It must be in the <a href="https://pointclouds.org/documentation/tutorials/pcd_file_format.html"><abbr title="Point Cloud Data">PCD</abbr> (Point Cloud Data) file format</a>, but can be a single <abbr title="Point Cloud Data">PCD</abbr> file or divided into multiple <abbr title="Point Cloud Data">PCD</abbr> files.
+- Each point in the map must contain X, Y, and Z coordinates.
+- An intensity or RGB value for each point may be optionally included.
+- It must cover the entire operational area of the vehicle. It is also recommended to include an additional buffer zone according to the detection range of sensors attached to the vehicle.
+- Its resolution should be at least 0.2 m to yield reliable localization results.
+- It can be in either local or global coordinates, but must be in global coordinates (georeferenced) to use <abbr title="Global Navigation Satellite System">GNSS</abbr> data for localization.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Three global coordinate systems are currently supported by Autoware, including <a href="https://en.wikipedia.org/wiki/Military_Grid_Reference_System">Military Grid Reference System (MGRS)</a>, <a href="https://en.wikipedia.org/wiki/Universal_Transverse_Mercator_coordinate_system">Universal Transverse Mercator (UTM)</a>, and <a href="https://ja.wikipedia.org/wiki/%E5%B9%B3%E9%9D%A2%E7%9B%B4%E8%A7%92%E5%BA%A7%E6%A8%99%E7%B3%BB">Japan Rectangular Coordinate System</a>.
+However, MGRS is a preferred coordinate system for georeferenced maps.
+In a map with MGRS coordinate system, the X and Y coordinates of each point represent the point's location within the 100,000-meter square, while the Z coordinate represents the point's elevation.</p>
 </div>
-<h2 id="4-interface-and-data-structure">4. Interface and Data Structure<a class="headerlink" href="#4-interface-and-data-structure" title="Permanent link">#</a></h2>
-<h3 id="pointcloud-map">Pointcloud map<a class="headerlink" href="#pointcloud-map" title="Permanent link">#</a></h3>
-<p>The point cloud map must be supplied as a .pcd file, regardless of whether it is a single file or split into multiple files.</p>
 <p>If it is split into a single file, Autoware assumes the following directory structure by default.</p>
 <div class="highlight"><pre><span></span><code>sample-map-rosbag
 ├──<span class="w"> </span>lanelet2_map.osm
@@ -4208,7 +4224,13 @@
 </code></pre></div>
 <p>TODO(yukkysaito): move to <a href="../../how-to-guides/creating-maps-for-autoware/index.md">here</a>?
 You may use <a href="https://github.com/MapIV/pointcloud_divider">pointcloud_divider</a> from MAP IV for dividing pointcloud map as well as generating the compatible metadata.yaml.</p>
-<h3 id="vector-map">Vector map<a class="headerlink" href="#vector-map" title="Permanent link">#</a></h3>
+<h4 id="vector-map">Vector Map<a class="headerlink" href="#vector-map" title="Permanent link">#</a></h4>
+<p>The vector cloud map must be supplied as a file with the following requirements:
+- It must be in <a href="https://github.com/fzi-forschungszentrum-informatik/Lanelet2">Lanelet2</a> format, with <a href="https://github.com/autowarefoundation/autoware_common/blob/main/tmp/lanelet2_extension/docs/lanelet2_format_extension.md">additional modifications required by Autoware</a>.
+- It must contain the shape and position information of lanes, traffic lights, stop lines, crosswalks, parking spaces, and parking lots.
+- Except at the beginning or end of a road, each lanelet in the map must be correctly connected to its predecessor, successors, left neighbor, and right neighbor.
+- Each lanelet in the map must contain traffic rule information including its speed limit, right of way, traffic direction, associated traffic lights, stop lines, and traffic signs.
+- It must cover the entire operational area of the vehicle.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Under Construction</p>

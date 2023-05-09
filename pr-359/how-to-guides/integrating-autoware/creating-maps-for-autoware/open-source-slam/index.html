@@ -17,11 +17,11 @@
         <link rel="next" href="fast-lio-lc/">
       
       <link rel="icon" href="../../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.9">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.11">
     
     
       
-        <title>Conclusions - Autoware Documentation</title>
+        <title>Available Open Source SLAM - Autoware Documentation</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#conclusions" class="md-skip">
+        <a href="#available-open-source-slam" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Conclusions
+              Available Open Source SLAM
             
           </span>
         </div>
@@ -4087,6 +4087,35 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#selecting-which-implementation-to-use" class="md-nav__link">
+    Selecting which implementation to use
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tips" class="md-nav__link">
+    Tips
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list-of-third-party-slam-implementations" class="md-nav__link">
+    List of Third Party SLAM Implementations
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -4103,8 +4132,15 @@
   
 
 
-<div><h1 id="conclusions">Conclusions<a class="headerlink" href="#conclusions" title="Permanent link">#</a></h1>
-<p>As a conclusion, lidar odometry drifts accumulatively as time goes by and there is solutions to solve that problem such as graph optimization, loop closure and using gps sensor to decrease accumulative drift error. Because of that, a <abbr title="Simultaneous Localization And Mapping">SLAM</abbr> algorithm should have loop closure feature, graph optimization and should use gps sensor. Additionally, some of the algorithms are using <abbr title="Inertial Measurement Unit">IMU</abbr> sensor to add another factor to graph for decreasing drift error. While some of the algorithms requires 9-axis <abbr title="Inertial Measurement Unit">IMU</abbr> sensor strictly, some of them requires only 6-axis <abbr title="Inertial Measurement Unit">IMU</abbr> sensor or not even using the <abbr title="Inertial Measurement Unit">IMU</abbr> sensor. Before choosing an algorithm to create maps for Autoware please consider these factors depends on your sensor setup or expected quality of generated map.</p>
+<div><h1 id="available-open-source-slam">Available Open Source <abbr title="Simultaneous Localization And Mapping">SLAM</abbr><a class="headerlink" href="#available-open-source-slam" title="Permanent link">#</a></h1>
+<p>This page provides the list of available open source Simultaneous Localization And Mapping (<abbr title="Simultaneous Localization And Mapping">SLAM</abbr>) implementation that can be used to generete a point cloud (.pcd) map file. </p>
+<h2 id="selecting-which-implementation-to-use">Selecting which implementation to use<a class="headerlink" href="#selecting-which-implementation-to-use" title="Permanent link">#</a></h2>
+<p>Lidar odometry drifts accumulatively as time goes by and there is solutions to solve that problem such as graph optimization, loop closure and using gps sensor to decrease accumulative drift error. Because of that, a <abbr title="Simultaneous Localization And Mapping">SLAM</abbr> algorithm should have loop closure feature, graph optimization and should use gps sensor. Additionally, some of the algorithms are using <abbr title="Inertial Measurement Unit">IMU</abbr> sensor to add another factor to graph for decreasing drift error. While some of the algorithms requires 9-axis <abbr title="Inertial Measurement Unit">IMU</abbr> sensor strictly, some of them requires only 6-axis <abbr title="Inertial Measurement Unit">IMU</abbr> sensor or not even using the <abbr title="Inertial Measurement Unit">IMU</abbr> sensor. Before choosing an algorithm to create maps for Autoware please consider these factors depends on your sensor setup or expected quality of generated map.</p>
+<h2 id="tips">Tips<a class="headerlink" href="#tips" title="Permanent link">#</a></h2>
+<p>Commonly used open-source <abbr title="Simultaneous Localization And Mapping">SLAM</abbr> implementations are <a href="https://github.com/rsasaki0109/lidarslam_ros2">lidarslam-ros2</a> (LiDAR, <abbr title="Inertial Measurement Unit">IMU</abbr>*) and <a href="https://github.com/TixiaoShan/LIO-SAM/tree/ros2">LIO-SAM</a> (LiDAR, <abbr title="Inertial Measurement Unit">IMU</abbr>, <abbr title="Global Navigation Satellite System">GNSS</abbr>). The required sensor data for each algorithm is specified in the parentheses, where an asterisk (*) indicates that such sensor data is optional. For supported LiDAR models, please check the Github repository of each algorithm. While these <abbr title="Robot Operating System">ROS</abbr> 2-based <abbr title="Simultaneous Localization And Mapping">SLAM</abbr> implementations can be easily installed and used directly on the same machine that runs Autoware, it is important to note that they may not be as well-tested or as mature as <abbr title="Robot Operating System">ROS</abbr> 1-based alternatives.</p>
+<p>The notable open-source <abbr title="Simultaneous Localization And Mapping">SLAM</abbr> implementations that are based on <abbr title="Robot Operating System">ROS</abbr> 1 include <a href="https://github.com/koide3/hdl_graph_slam">hdl-graph-slam</a> (LiDAR, <abbr title="Inertial Measurement Unit">IMU</abbr>*, <abbr title="Global Navigation Satellite System">GNSS</abbr>*), <a href="https://github.com/facontidavide/LeGO-LOAM-BOR">LeGO-LOAM</a> (LiDAR, <abbr title="Inertial Measurement Unit">IMU</abbr>*), <a href="https://github.com/RobustFieldAutonomyLab/LeGO-LOAM">LeGO-LOAM-BOR</a> (LiDAR), and <a href="https://github.com/TixiaoShan/LIO-SAM">LIO-SAM</a> (LiDAR, <abbr title="Inertial Measurement Unit">IMU</abbr>, <abbr title="Global Navigation Satellite System">GNSS</abbr>).</p>
+<p>Most of these algorithms already have a built-in loop-closure and pose graph optimization. However, if the built-in, automatic loop-closure fails or does not work correctly, you can use <a href="https://github.com/SMRT-AIST/interactive_slam">Interactive <abbr title="Simultaneous Localization And Mapping">SLAM</abbr></a> to adjust and optimize a pose graph manually.</p>
+<h2 id="list-of-third-party-slam-implementations">List of Third Party <abbr title="Simultaneous Localization And Mapping">SLAM</abbr> Implementations<a class="headerlink" href="#list-of-third-party-slam-implementations" title="Permanent link">#</a></h2>
 <p><br>
 <br></p>
 <table>
