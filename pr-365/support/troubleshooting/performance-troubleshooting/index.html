@@ -4195,13 +4195,11 @@ ros2<span class="w"> </span>run<span class="w"> </span>demo_nodes_cpp<span class
 <li>Create a service to run this on startup (recommended)</li>
 <li>
 <p><strong>OR</strong> put following lines to the <code>~/.bashrc</code> file:</p>
-<ul>
-<li><code>bash
-  if [ ! -e /tmp/multicast_is_set ]; then
-  sudo ip link set lo multicast on
-  touch /tmp/multicast_is_set
-  fi</code></li>
-</ul>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>!<span class="w"> </span>-e<span class="w"> </span>/tmp/multicast_is_set<span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+sudo<span class="w"> </span>ip<span class="w"> </span>link<span class="w"> </span><span class="nb">set</span><span class="w"> </span>lo<span class="w"> </span>multicast<span class="w"> </span>on
+touch<span class="w"> </span>/tmp/multicast_is_set
+<span class="k">fi</span>
+</code></pre></div>
 <ul>
 <li>This will probably ask for password on the terminal every time you restart the computer.</li>
 </ul>
@@ -4222,14 +4220,10 @@ ros2<span class="w"> </span>run<span class="w"> </span>demo_nodes_cpp<span class
 <h4 id="solution_1">Solution<a class="headerlink" href="#solution_1" title="Permanent link">#</a></h4>
 <ul>
 <li>Remove the <code>build</code>, <code>install</code> and optionally <code>log</code> folders in the main <code>autoware</code> folder.</li>
-<li>
-<p>Compile the Autoware with either <code>Release</code> or <code>RelWithDebInfo</code> tags:</p>
-<ul>
-<li><code>bash
-  colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
-  # Or build with debug flags too (comparable performance but you can debug too)
-  colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo</code></li>
-</ul>
+<li>Compile the Autoware with either <code>Release</code> or <code>RelWithDebInfo</code> tags:<div class="highlight"><pre><span></span><code>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release
+<span class="c1"># Or build with debug flags too (comparable performance but you can debug too)</span>
+colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>RelWithDebInfo
+</code></pre></div>
 </li>
 </ul>
 <h3 id="check-the-dds-settings">Check the DDS settings<a class="headerlink" href="#check-the-dds-settings" title="Permanent link">#</a></h3>
@@ -4310,20 +4304,18 @@ ros2<span class="w"> </span>run<span class="w"> </span>demo_nodes_cpp<span class
 <ul>
 <li>
 <p>Edit the file to contain (<code>sudo gedit /etc/sysctl.d/10-cyclone-max.conf</code>):</p>
+<div class="highlight"><pre><span></span><code>net.core.rmem_max<span class="o">=</span><span class="m">2147483647</span>
+net.ipv4.ipfrag_time<span class="o">=</span><span class="m">3</span>
+net.ipv4.ipfrag_high_thresh<span class="o">=</span><span class="m">134217728</span><span class="w"> </span><span class="c1"># (128 MB)</span>
+</code></pre></div>
 <ul>
-<li><code>bash
-  net.core.rmem_max=2147483647
-  net.ipv4.ipfrag_time=3
-  net.ipv4.ipfrag_high_thresh=134217728 # (128 MB)</code></li>
-</ul>
-<ul>
-<li>Either restart the computer or run following to enable the changes:</li>
-</ul>
-<ul>
-<li><code>bash
-  sudo sysctl -w net.core.rmem_max=2147483647
-  sudo sysctl -w net.ipv4.ipfrag_time=3
-  sudo sysctl -w net.ipv4.ipfrag_high_thresh=134217728</code></li>
+<li>
+<p>Either restart the computer or run following to enable the changes:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>sysctl<span class="w"> </span>-w<span class="w"> </span>net.core.rmem_max<span class="o">=</span><span class="m">2147483647</span>
+sudo<span class="w"> </span>sysctl<span class="w"> </span>-w<span class="w"> </span>net.ipv4.ipfrag_time<span class="o">=</span><span class="m">3</span>
+sudo<span class="w"> </span>sysctl<span class="w"> </span>-w<span class="w"> </span>net.ipv4.ipfrag_high_thresh<span class="o">=</span><span class="m">134217728</span>
+</code></pre></div>
+</li>
 </ul>
 </li>
 </ul>
@@ -4332,14 +4324,12 @@ ros2<span class="w"> </span>run<span class="w"> </span>demo_nodes_cpp<span class
 <ul>
 <li>
 <p><strong>OR</strong> put following lines to the <code>~/.bashrc</code> file:</p>
-<ul>
-<li><code>bash
-  if [ ! -e /tmp/kernel_network_conf_is_set ]; then
-  sudo sysctl -w net.core.rmem_max=2147483647
-  sudo sysctl -w net.ipv4.ipfrag_time=3
-  sudo sysctl -w net.ipv4.ipfrag_high_thresh=134217728 # (128 MB)
-  fi</code></li>
-</ul>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>!<span class="w"> </span>-e<span class="w"> </span>/tmp/kernel_network_conf_is_set<span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+sudo<span class="w"> </span>sysctl<span class="w"> </span>-w<span class="w"> </span>net.core.rmem_max<span class="o">=</span><span class="m">2147483647</span>
+sudo<span class="w"> </span>sysctl<span class="w"> </span>-w<span class="w"> </span>net.ipv4.ipfrag_time<span class="o">=</span><span class="m">3</span>
+sudo<span class="w"> </span>sysctl<span class="w"> </span>-w<span class="w"> </span>net.ipv4.ipfrag_high_thresh<span class="o">=</span><span class="m">134217728</span><span class="w"> </span><span class="c1"># (128 MB)</span>
+<span class="k">fi</span>
+</code></pre></div>
 <ul>
 <li>This will probably ask for password on the terminal every time you restart the computer.</li>
 </ul>
