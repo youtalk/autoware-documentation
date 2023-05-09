@@ -4220,7 +4220,9 @@ touch<span class="w"> </span>/tmp/multicast_is_set
 <h4 id="solution_1">Solution<a class="headerlink" href="#solution_1" title="Permanent link">#</a></h4>
 <ul>
 <li>Remove the <code>build</code>, <code>install</code> and optionally <code>log</code> folders in the main <code>autoware</code> folder.</li>
-<li>Compile the Autoware with either <code>Release</code> or <code>RelWithDebInfo</code> tags:<div class="highlight"><pre><span></span><code>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release
+<li>
+<p>Compile the Autoware with either <code>Release</code> or <code>RelWithDebInfo</code> tags:</p>
+<div class="highlight"><pre><span></span><code>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release
 <span class="c1"># Or build with debug flags too (comparable performance but you can debug too)</span>
 colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>RelWithDebInfo
 </code></pre></div>
