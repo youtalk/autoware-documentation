@@ -4311,7 +4311,8 @@ ros2<span class="w"> </span>run<span class="w"> </span>demo_nodes_cpp<span class
 <li>
 <p>Edit the file to contain (<code>sudo gedit /etc/sysctl.d/10-cyclone-max.conf</code>):</p>
 <ul>
-<li><code>net.core.rmem_max=2147483647
+<li><code>bash
+  net.core.rmem_max=2147483647
   net.ipv4.ipfrag_time=3
   net.ipv4.ipfrag_high_thresh=134217728 # (128 MB)</code></li>
 </ul>
