@@ -2046,6 +2046,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
@@ -2220,6 +2222,20 @@
     <li class="md-nav__item">
       <a href="../determining-component-dependencies/" class="md-nav__link">
         Determining component dependencies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eagleye-integration-guide/" class="md-nav__link">
+        Using Eagleye with Autoware
       </a>
     </li>
   
@@ -4418,12 +4434,12 @@
 <div><h1 id="debug-autoware">Debug Autoware<a class="headerlink" href="#debug-autoware" title="Permanent link">#</a></h1>
 <p>This page provides some methods for debugging Autoware.</p>
 <h2 id="print-debug-messages">Print debug messages<a class="headerlink" href="#print-debug-messages" title="Permanent link">#</a></h2>
-<p>The essential thing for debug is to print the program information clearly, which can quickly judge the program operation and locate the problem. Autoware uses ROS2 logging tool to print debug messages, how to design console logging refer to tutorial <a href="../../../contributing/coding-guidelines/ros-nodes/console-logging/">Console logging</a>.</p>
+<p>The essential thing for debug is to print the program information clearly, which can quickly judge the program operation and locate the problem. Autoware uses <abbr title="Robot Operating System">ROS</abbr> 2 logging tool to print debug messages, how to design console logging refer to tutorial <a href="../../../contributing/coding-guidelines/ros-nodes/console-logging/">Console logging</a>.</p>
 <h2 id="using-ros2-tools-debug-autoware">Using ROS2 tools debug Autoware<a class="headerlink" href="#using-ros2-tools-debug-autoware" title="Permanent link">#</a></h2>
 <h3 id="using-command-line-tools">Using command line tools<a class="headerlink" href="#using-command-line-tools" title="Permanent link">#</a></h3>
-<p>ROS2 includes a suite of command-line tools for introspecting a ROS2 system. The main entry point for the tools is the command <code>ros2</code>, which itself has various sub-commands for introspecting and working with nodes, topics, services, and more. How to use the ROS2 command line tool refer to tutorial <a href="http://docs.ros.org/en/galactic/Tutorials/Beginner-CLI-Tools.html">CLI tools</a>.</p>
+<p><abbr title="Robot Operating System">ROS</abbr> 2 includes a suite of command-line tools for introspecting a <abbr title="Robot Operating System">ROS</abbr> 2 system. The main entry point for the tools is the command <code>ros2</code>, which itself has various sub-commands for introspecting and working with nodes, topics, services, and more. How to use the <abbr title="Robot Operating System">ROS</abbr> 2 command line tool refer to tutorial <a href="http://docs.ros.org/en/galactic/Tutorials/Beginner-CLI-Tools.html">CLI tools</a>.</p>
 <h3 id="using-rviz2">Using rviz2<a class="headerlink" href="#using-rviz2" title="Permanent link">#</a></h3>
-<p>Rviz2 is a port of Rviz to ROS2. It provides a graphical interface for users to view their robot, sensor data, maps, and more. You can run Rviz2 tool easily by:
+<p>Rviz2 is a port of Rviz to <abbr title="Robot Operating System">ROS</abbr> 2. It provides a graphical interface for users to view their robot, sensor data, maps, and more. You can run Rviz2 tool easily by:
 it will open</p>
 <div class="highlight"><pre><span></span><code><span class="go">rviz2</span>
 </code></pre></div>

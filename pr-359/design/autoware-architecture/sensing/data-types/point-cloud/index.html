@@ -2046,6 +2046,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
@@ -2124,6 +2126,20 @@
     <li class="md-nav__item">
       <a href="../../../../../how-to-guides/others/determining-component-dependencies/" class="md-nav__link">
         Determining component dependencies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../how-to-guides/others/eagleye-integration-guide/" class="md-nav__link">
+        Using Eagleye with Autoware
       </a>
     </li>
   
@@ -4437,7 +4453,7 @@
 <h2 id="list-of-modules">List of modules<a class="headerlink" href="#list-of-modules" title="Permanent link">#</a></h2>
 <p>The modules used here are from <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/pointcloud_preprocessor">pointcloud_preprocessor package</a>.</p>
 <p>For details about the modules, see <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/pointcloud_preprocessor#inner-workings--algorithms">the following table</a>.</p>
-<p>It is recommended that these modules are used in a single container as components. For details see <a href="https://docs.ros.org/en/rolling/Tutorials/Intermediate/Composition.html">ROS2 Composition</a></p>
+<p>It is recommended that these modules are used in a single container as components. For details see <a href="https://docs.ros.org/en/rolling/Tutorials/Intermediate/Composition.html"><abbr title="Robot Operating System">ROS</abbr> 2 Composition</a></p>
 <h2 id="point-cloud-fields">Point cloud fields<a class="headerlink" href="#point-cloud-fields" title="Permanent link">#</a></h2>
 <p>In the ideal case, the driver is expected to output a point cloud with the <code>PointXYZIRCADT</code> point type.</p>
 <table>
@@ -4650,8 +4666,8 @@ The time field has 2 components:</p>
 <p>The header of the point cloud message is expected to have the time of the earliest point it has.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The <code>sec</code> field is <code>int32</code> in ROS2 humble. The largest value it can represent is 2^31 seconds, it is subject to
-year 2038 problems. We will wait for actions on ROS2 community side.</p>
+<p>The <code>sec</code> field is <code>int32</code> in <abbr title="Robot Operating System">ROS</abbr> 2 humble. The largest value it can represent is 2^31 seconds, it is subject to
+year 2038 problems. We will wait for actions on <abbr title="Robot Operating System">ROS</abbr> 2 community side.</p>
 <p><strong>More info at:</strong> https://github.com/ros2/rcl_interfaces/issues/85</p>
 </div>
 <h4 id="individual-point-time">Individual point time<a class="headerlink" href="#individual-point-time" title="Permanent link">#</a></h4>
