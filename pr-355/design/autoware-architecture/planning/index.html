@@ -4064,7 +4064,11 @@
 <ul>
 <li><strong>Mission Planning</strong>: calculates the route based on a given goal and map information.</li>
 <li><strong>Scenario Planning</strong>: calculates the trajectory based on the current scenario (e.g. Lane Driving, Parking, etc).<ul>
-<li><strong>Lane Driving</strong>: calculates the trajectory for constructed lane driving.</li>
+<li><strong>Lane Driving</strong>: calculates the trajectory for constructed lane driving.<ul>
+<li><strong>Behavior Planner</strong>: calculates appropriate trajectories based on safety considerations and traffic rules.</li>
+<li><strong>Motion Planner</strong>: calculates appropriate trajectories for the vehicle, taking into account vehicle motion considerations based on safety factors and instructions from the behavior planner.</li>
+</ul>
+</li>
 <li><strong>Parking</strong>: calculates the trajectory for un-constructed parking area.</li>
 </ul>
 </li>
@@ -4074,33 +4078,33 @@
 <p>The following describes the concept of the input/output between Planning Component and other components. See <a href="/docs/design/autoware-interfaces/components/planning.md">Planning Component Interface</a> for the current implementation.</p>
 <h3 id="input-to-the-planning-component">Input to the planning component<a class="headerlink" href="#input-to-the-planning-component" title="Permanent link">#</a></h3>
 <ul>
-<li><strong>From API Layer</strong><ul>
-<li>Goal: This is the final pose that Planning Component will try to achieve.</li>
-<li>Check point: This is the midpoint that Planning will try to go at on the way to the destination. This is used when calculating the route.</li>
-<li>Velocity Limit: This is used to limit the maximum vehicle speed.</li>
-</ul>
-</li>
 <li><strong>From Map</strong><ul>
-<li>Map data: This includes all static information about the environment, such as: Lane connection information used for route planning from starting position to goal position, lane geometry to generate reference path used to calculate trajectory, and all information related to traffic rules.</li>
+<li>Vector map: This includes all static information about the environment, such as: Lane connection information used for route planning from starting position to goal position, lane geometry to generate reference path used to calculate trajectory, and all information related to traffic rules.</li>
 </ul>
 </li>
 <li><strong>From Perception</strong><ul>
-<li>Detected Object Information: This includes information that cannot be known beforehand such as pedestrians and other vehicles. Planning Component will plan maneuvers to avoid collision with such objects.</li>
-<li>Detected Obstacle Information: This includes information on the location of obstacles. This is more primitive information and is used for emergency stops, etc.</li>
-<li>Occupancy Map Information: This includes information that cannot be known beforehand such as pedestrians and other vehicles. Planning Component will plan maneuvers to avoid collision with such objects.</li>
-<li>TrafficLight recognition result: This is the real time information about the state of each traffic light. Planning Component will extract the one that is relevant to planned path and use it to decide whether to stop at intersections.</li>
+<li>Detected object information: This includes information that cannot be known beforehand such as pedestrians and other vehicles. Planning Component will plan maneuvers to avoid collision with such objects.</li>
+<li>Detected obstacle information: This includes information on the location of obstacles. This is more primitive information and is used for emergency stops, etc.</li>
+<li>Occupancy map information: This includes information that cannot be known beforehand such as pedestrians and other vehicles. Planning Component will plan maneuvers to avoid collision with such objects.</li>
+<li>Traffic light recognition result: This is the real time information about the state of each traffic light. Planning Component will extract the one that is relevant to planned path and use it to decide whether to stop at intersections.</li>
 </ul>
 </li>
 <li><strong>From Localization</strong><ul>
-<li>Vehicle Motion Information: This includes ego vehicle's motion information for position, velocity, acceleration etc...</li>
+<li>Vehicle motion information: This includes ego vehicle's motion information for position, velocity, acceleration etc...</li>
 </ul>
 </li>
 <li><strong>From System</strong><ul>
-<li>WIP.</li>
+<li>Operation mode: This is used to see if the vehicle is operated in the Autonomous mode.</li>
 </ul>
 </li>
 <li><strong>From Human Machine Interface (<abbr title="Human Machine Interface">HMI</abbr>)</strong><ul>
 <li>Approval: to authorize the execution of autonomous driving operations, execute lane change, entry into intersection.</li>
+</ul>
+</li>
+<li><strong>From API Layer</strong><ul>
+<li>Goal: This is the final pose that Planning Component will try to achieve.</li>
+<li>Check point: This is the midpoint that Planning will try to go at on the way to the destination. This is used when calculating the route.</li>
+<li>Velocity limit: This is used to limit the maximum vehicle speed.</li>
 </ul>
 </li>
 </ul>
@@ -4113,6 +4117,15 @@
 </li>
 <li><strong>To System</strong><ul>
 <li>Diagnostics: This reports the state of the Planning Component, indicating whether the processing is running correctly or whether a safe planning is being generated.</li>
+</ul>
+</li>
+<li><strong>To Human Machine Interface (<abbr title="Human Machine Interface">HMI</abbr>)</strong><ul>
+<li>Approval Request: This is to request user approval for the execution of a specific function, e.g. lane change.</li>
+<li>Trajectory candidate: to show the candidate trajectory that will be used with user approval.</li>
+</ul>
+</li>
+<li><strong>To API Layer</strong><ul>
+<li>Planning factors: This information indicates the reasoning behind the current planning behavior. It may include the position of target objects of avoidance, obstacles that led to the decision to stop, and other relevant information.</li>
 </ul>
 </li>
 </ul>
