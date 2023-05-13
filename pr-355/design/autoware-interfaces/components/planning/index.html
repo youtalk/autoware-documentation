@@ -17,7 +17,7 @@
         <link rel="next" href="../control/">
       
       <link rel="icon" href="../../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.11">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.12">
     
     
       
@@ -2372,18 +2372,12 @@
             
           
         
-          
-        
       
       
         
         
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../../autoware-architecture/planning/">Planning</a>
-          
-            <label for="__nav_5_3_6">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
           
         </div>
       
@@ -2394,20 +2388,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../autoware-architecture/planning/tmp/" class="md-nav__link">
-        Planning component design
-      </a>
-    </li>
-  
-
             
           
         </ul>
@@ -4222,6 +4202,116 @@
 
 
 <div><h1 id="planning">Planning<a class="headerlink" href="#planning" title="Permanent link">#</a></h1>
+<table>
+<thead>
+<tr>
+<th>Input From Perception Component</th>
+<th>Topic Name(Data Type)</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Detected Object Information</td>
+<td><code>/perception/object_recognition/objects</code><br>(<em>autoware_auto_perception_msgs/msg/PredictedObjects</em>)</td>
+<td>This includes information that cannot be known beforehand such as pedestrians and other vehicles. Planning stack will plan maneuvers to avoid collision with such objects.</td>
+</tr>
+<tr>
+<td>Detected Obstacle Information</td>
+<td><code>/perception/obstacle_segmentation/pointcloud</code><br>(<em>sensor_msgs/msg/PointCloud2</em>)</td>
+<td>This includes information on the location of obstacles. This is more primitive information and is used for emergency stops, etc.</td>
+</tr>
+<tr>
+<td>Occupancy Map Information</td>
+<td><code>/perception/occupancy_grid_map/map</code><br>(<em>nav_msgs/msg/OccupancyGrid</em>)</td>
+<td>This includes information that cannot be known beforehand such as pedestrians and other vehicles. Planning stack will plan maneuvers to avoid collision with such objects.</td>
+</tr>
+<tr>
+<td>TrafficLight recognition result</td>
+<td><code>/perception/traffic_light_recognition/traffic_signals</code><br>(<em>autoware_auto_perception_msgs/msg/TrafficSignalArray</em>)</td>
+<td>This is the real time information about the state of each traffic light. Planning stack will extract the one that is relevant to planned path and use it to decide whether to stop at intersections.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Input From Localization Component</th>
+<th>Topic Name(Data Type)</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vehicle Kinematics</td>
+<td><code>/localization/kinematic_state</code><br>(<em>nav_msgs/msg/Odometry</em>)</td>
+<td>This includes ego vehicle's pose and velocity information.</td>
+</tr>
+<tr>
+<td>Vehicle Acceleration</td>
+<td><code>/localization/acceleration</code><br>(_)</td>
+<td>This includes ego vehicle's acceleration.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Input From Map Component</th>
+<th>Topic Name(Data Type)</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Map data</td>
+<td><code>/map/vector_map</code><br>(<em>autoware_auto_mapping_msgs/msg/HADMapBin</em>)</td>
+<td>This includes all static information about the environment, such as: <ul><li>Lane connection information used for route planning from starting position to goal position</li><li>Lane geometry to generate reference path used to calculate trajectory </li><li> All information related to traffic rules</li></ul></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Input From <abbr title="Human Machine Interface">HMI</abbr></th>
+<th>Topic Name(Data Type)</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vehicle Kinematics</td>
+<td><code>/localization/kinematic_state</code><br>(<em>nav_msgs/msg/Odometry</em>)</td>
+<td>This includes ego vehicle's pose and velocity information.</td>
+</tr>
+<tr>
+<td>Vehicle Acceleration</td>
+<td><code>/localization/acceleration</code><br>(_)</td>
+<td>自車加速度</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Input From API Layer</th>
+<th>Topic Name(Data Type)</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Goal position</td>
+<td><code>/planning/mission_planning/goal</code><br>(<em>geometry_msgs::PoseStamped</em>)</td>
+<td>This is the final pose that Planning stack will try to achieve.</td>
+</tr>
+<tr>
+<td>Check point position</td>
+<td><code>/planning/mission_planning/check_point</code><br>(<em>geometry_msgs::PoseStamped</em>)</td>
+<td>This is the midpoint that Planning will try to go at on the way to the destination. This is used when calculating the route.</td>
+</tr>
+</tbody>
+</table>
 <p><img alt="Node diagram" src="../images/Planning-Bus-ODD-Architecture.drawio.svg"></p>
 <h2 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">#</a></h2>
 <h3 id="3d-object-predictions">3D Object Predictions<a class="headerlink" href="#3d-object-predictions" title="Permanent link">#</a></h3>
@@ -4461,7 +4551,7 @@
     <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.fac441b0.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.c2be25ad.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
