@@ -4045,13 +4045,13 @@
 
 <div><h1 id="planning-component-design">Planning component design<a class="headerlink" href="#planning-component-design" title="Permanent link">#</a></h1>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
-<p>Planning Component acts as the “brain” of autonomous driving. It uses all the results from Localization, Perception, and Map components to decide its maneuver and gives final trajectory to Control component.</p>
+<p>Planning Component acts as the “brain” of autonomous driving. It uses all the results from Localization, Perception, and Map components to decide its maneuver and send the final trajectory to the Control component.</p>
 <h2 id="role">Role<a class="headerlink" href="#role" title="Permanent link">#</a></h2>
 <p>These are high-level roles of Planning Component:</p>
 <ul>
 <li>Calculates route that navigates to desired goal</li>
 <li>Plans trajectory to follow the route<ul>
-<li>Make sure that vehicle does not collide with obstacles, including pedestrians and other vehicles</li>
+<li>Makes sure that the vehicle does not collide with obstacles, including pedestrians and other vehicles</li>
 <li>Make sure that the vehicle follows traffic rules during the navigation. This includes following traffic light, stopping at stop lines, stopping at crosswalks, etc.</li>
 </ul>
 </li>
