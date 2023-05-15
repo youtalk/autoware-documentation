@@ -549,26 +549,6 @@
     How to set up a development environment
   </a>
   
-    <nav class="md-nav" aria-label="How to set up a development environment">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#installing-dependencies-manually" class="md-nav__link">
-    Installing dependencies manually
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#installing-dependencies-using-ansible" class="md-nav__link">
-    Installing dependencies using Ansible
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -4365,26 +4345,6 @@
     How to set up a development environment
   </a>
   
-    <nav class="md-nav" aria-label="How to set up a development environment">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#installing-dependencies-manually" class="md-nav__link">
-    Installing dependencies manually
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#installing-dependencies-using-ansible" class="md-nav__link">
-    Installing dependencies using Ansible
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -4459,18 +4419,24 @@ sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </
 </code></pre></div>
 </li>
 <li>
-<p>You can install the dependencies either manually or using the provided Ansible script.</p>
+<p>If you are installing Autoware for the first time, you can automatically install the dependencies by using the provided Ansible script.</p>
+<div class="highlight"><pre><span></span><code>./setup-dev-env.sh
+</code></pre></div>
+<p>If you encounter any build issues, please consult the <a href="../../../support/troubleshooting/#build-issues">Troubleshooting</a> section for assistance.</p>
 </li>
 </ol>
-<blockquote>
-<p>Note: Before installing NVIDIA libraries, confirm and agree with the licenses.</p>
-</blockquote>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Before installing NVIDIA libraries, please ensure that you have reviewed and agreed to the licenses.</p>
 <ul>
 <li><a href="https://docs.nvidia.com/cuda/eula/index.html">CUDA</a></li>
 <li><a href="https://docs.nvidia.com/deeplearning/cudnn/sla/index.html">cuDNN</a></li>
 <li><a href="https://docs.nvidia.com/deeplearning/tensorrt/sla/index.html">TensorRT</a></li>
 </ul>
-<h3 id="installing-dependencies-manually">Installing dependencies manually<a class="headerlink" href="#installing-dependencies-manually" title="Permanent link">#</a></h3>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The following items will be automatically installed. If the ansible script doesn't work or if you already have different versions of dependent libraries installed, please install the following items manually.</p>
 <ul>
 <li><a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/ros2#manual-installation">Install <abbr title="Robot Operating System">ROS</abbr> 2</a></li>
 <li><a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/ros2_dev_tools#manual-installation">Install <abbr title="Robot Operating System">ROS</abbr> 2 Dev Tools</a></li>
@@ -4482,11 +4448,7 @@ sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </
 <li><a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/cuda#manual-installation">Install Nvidia CUDA</a></li>
 <li><a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/tensorrt#manual-installation">Install Nvidia cuDNN and TensorRT</a></li>
 </ul>
-<h3 id="installing-dependencies-using-ansible">Installing dependencies using Ansible<a class="headerlink" href="#installing-dependencies-using-ansible" title="Permanent link">#</a></h3>
-<p>Be very careful with this method. Make sure you read and confirmed all the steps in the Ansible configuration before using it.</p>
-<p>If you've manually installed the dependencies, you can skip this section.</p>
-<div class="highlight"><pre><span></span><code>./setup-dev-env.sh
-</code></pre></div>
+</div>
 <h2 id="how-to-set-up-a-workspace">How to set up a workspace<a class="headerlink" href="#how-to-set-up-a-workspace" title="Permanent link">#</a></h2>
 <ol>
 <li>
