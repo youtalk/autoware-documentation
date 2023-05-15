@@ -3092,6 +3092,10 @@
         
           
         
+          
+        
+          
+        
       
       
         
@@ -3136,6 +3140,34 @@
     <li class="md-nav__item">
       <a href="../../../../design/autoware-interfaces/components/control/" class="md-nav__link">
         Control
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../design/autoware-interfaces/components/localization/" class="md-nav__link">
+        Localization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../design/autoware-interfaces/components/map/" class="md-nav__link">
+        Map
       </a>
     </li>
   
@@ -3611,8 +3643,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_6_3_3" id="__nav_6_3_3_label" tabindex="0">
@@ -3787,20 +3817,6 @@
     <li class="md-nav__item">
       <a href="../message-guidelines/" class="md-nav__link">
         Message guidelines
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../naming/" class="md-nav__link">
-        Topic namespaces
       </a>
     </li>
   
@@ -4420,7 +4436,7 @@
 <ol>
 <li>
 <p>Transformation of sensor data</p>
-<p>In Autoware, each sensor has a unique coordinate system and their data is expressed in terms of the coordinates. In order to correlate the independent datas between different sensors, we need to find the position relationship between each sensor and the vehicle body. Once the installation position of the sensor on the vehicle body is determined, it will remain fixed during running, so the offline calibration method can be used to determine the precise position of each sensor relative to the vehicle body.</p>
+<p>In Autoware, each sensor has a unique coordinate system and their data is expressed in terms of the coordinates. In order to correlate the independent data between different sensors, we need to find the position relationship between each sensor and the vehicle body. Once the installation position of the sensor on the vehicle body is determined, it will remain fixed during running, so the offline calibration method can be used to determine the precise position of each sensor relative to the vehicle body.</p>
 </li>
 <li>
 <p><abbr title="Robot Operating System">ROS</abbr> TF2</p>
@@ -4498,15 +4514,15 @@
 <ol>
 <li>
 <p>Calibration of sensor</p>
-<p>The conversion relationship between every sensor coordinate system and <code>base_link</code> can be obtained through sensor calibration technology. How to calibrating your sensors refer to this link <a href="https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/calibrating-your-sensors/">calibrating your sensors</a>.</p>
+<p>The conversion relationship between every sensor coordinate system and <code>base_link</code> can be obtained through sensor calibration technology. How to calibrating your sensors refer to this link <a href="../../../../how-to-guides/integrating-autoware/creating-vehicle-and-sensor-description/calibrating-sensors/">calibrating your sensors</a>.</p>
 </li>
 <li>
 <p>Localization</p>
 <p>The relationship between the <code>base_link</code> coordinate system and the <code>map</code> coordinate system is determined by the position and orientation of the vehicle, and can be obtained from the vehicle localization result.</p>
 </li>
 <li>
-<p>Georeferencing of map data</p>
-<p>The georeferencing information can get the transformation relationship of <code>earth</code> coordinate system to local <code>map</code> coordinate system.</p>
+<p>Geo-referencing of map data</p>
+<p>The geo-referencing information can get the transformation relationship of <code>earth</code> coordinate system to local <code>map</code> coordinate system.</p>
 </li>
 </ol>
 <!-- prettier-ignore --></div>

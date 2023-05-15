@@ -2151,11 +2151,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-ros2-tools-debug-autoware" class="md-nav__link">
-    Using ROS2 tools debug Autoware
+  <a href="#using-ros-tools-debug-autoware" class="md-nav__link">
+    Using ROS tools debug Autoware
   </a>
   
-    <nav class="md-nav" aria-label="Using ROS2 tools debug Autoware">
+    <nav class="md-nav" aria-label="Using ROS tools debug Autoware">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3188,6 +3188,10 @@
         
           
         
+          
+        
+          
+        
       
       
         
@@ -3232,6 +3236,34 @@
     <li class="md-nav__item">
       <a href="../../../design/autoware-interfaces/components/control/" class="md-nav__link">
         Control
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../design/autoware-interfaces/components/localization/" class="md-nav__link">
+        Localization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../design/autoware-interfaces/components/map/" class="md-nav__link">
+        Map
       </a>
     </li>
   
@@ -3707,8 +3739,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_6_3_3" id="__nav_6_3_3_label" tabindex="0">
@@ -3801,20 +3831,6 @@
     <li class="md-nav__item">
       <a href="../../../contributing/coding-guidelines/ros-nodes/message-guidelines/" class="md-nav__link">
         Message guidelines
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../contributing/coding-guidelines/ros-nodes/naming/" class="md-nav__link">
-        Topic namespaces
       </a>
     </li>
   
@@ -4359,11 +4375,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-ros2-tools-debug-autoware" class="md-nav__link">
-    Using ROS2 tools debug Autoware
+  <a href="#using-ros-tools-debug-autoware" class="md-nav__link">
+    Using ROS tools debug Autoware
   </a>
   
-    <nav class="md-nav" aria-label="Using ROS2 tools debug Autoware">
+    <nav class="md-nav" aria-label="Using ROS tools debug Autoware">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -4435,12 +4451,11 @@
 <p>This page provides some methods for debugging Autoware.</p>
 <h2 id="print-debug-messages">Print debug messages<a class="headerlink" href="#print-debug-messages" title="Permanent link">#</a></h2>
 <p>The essential thing for debug is to print the program information clearly, which can quickly judge the program operation and locate the problem. Autoware uses <abbr title="Robot Operating System">ROS</abbr> 2 logging tool to print debug messages, how to design console logging refer to tutorial <a href="../../../contributing/coding-guidelines/ros-nodes/console-logging/">Console logging</a>.</p>
-<h2 id="using-ros2-tools-debug-autoware">Using ROS2 tools debug Autoware<a class="headerlink" href="#using-ros2-tools-debug-autoware" title="Permanent link">#</a></h2>
+<h2 id="using-ros-tools-debug-autoware">Using <abbr title="Robot Operating System">ROS</abbr> tools debug Autoware<a class="headerlink" href="#using-ros-tools-debug-autoware" title="Permanent link">#</a></h2>
 <h3 id="using-command-line-tools">Using command line tools<a class="headerlink" href="#using-command-line-tools" title="Permanent link">#</a></h3>
 <p><abbr title="Robot Operating System">ROS</abbr> 2 includes a suite of command-line tools for introspecting a <abbr title="Robot Operating System">ROS</abbr> 2 system. The main entry point for the tools is the command <code>ros2</code>, which itself has various sub-commands for introspecting and working with nodes, topics, services, and more. How to use the <abbr title="Robot Operating System">ROS</abbr> 2 command line tool refer to tutorial <a href="http://docs.ros.org/en/galactic/Tutorials/Beginner-CLI-Tools.html">CLI tools</a>.</p>
 <h3 id="using-rviz2">Using rviz2<a class="headerlink" href="#using-rviz2" title="Permanent link">#</a></h3>
-<p>Rviz2 is a port of Rviz to <abbr title="Robot Operating System">ROS</abbr> 2. It provides a graphical interface for users to view their robot, sensor data, maps, and more. You can run Rviz2 tool easily by:
-it will open</p>
+<p>Rviz2 is a port of Rviz to <abbr title="Robot Operating System">ROS</abbr> 2. It provides a graphical interface for users to view their robot, sensor data, maps, and more. You can run Rviz2 tool easily by:</p>
 <div class="highlight"><pre><span></span><code><span class="go">rviz2</span>
 </code></pre></div>
 <p>When Autoware launch the simulators, the Rviz2 tool is opened by default to visualize the autopilot graphic information.</p>
@@ -4501,7 +4516,7 @@ ros2_graph<span class="w"> </span>/turtlesim<span class="w"> </span>/teleop_turt
 <p>And this information can help you find if a necessary node isn't running.</p>
 <p>For more details, see the following official documentation for <a href="https://docs.ros.org/en/rolling/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.html">Using ros2doctor to identify issues</a>.</p>
 <h2 id="using-a-debugger-with-breakpoints">Using a debugger with breakpoints<a class="headerlink" href="#using-a-debugger-with-breakpoints" title="Permanent link">#</a></h2>
-<p>Many IDE(e.g. VSCode, CLion) supports debugging C/C++ executable with GBD on linux platform. The following lists some references for using the debugger:</p>
+<p>Many IDE(e.g. Visual Studio Code, CLion) supports debugging C/C++ executable with GBD on linux platform. The following lists some references for using the debugger:</p>
 <ul>
 <li><a href="https://code.visualstudio.com/docs/cpp/cpp-debug">https://code.visualstudio.com/docs/cpp/cpp-debug</a></li>
 <li><a href="https://www.jetbrains.com/help/clion/debugging-code.html#useful-debugger-shortcuts">https://www.jetbrains.com/help/clion/debugging-code.html#useful-debugger-shortcuts</a></li>

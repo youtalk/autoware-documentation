@@ -91,11 +91,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/main/contributing/coding-guidelines/ros-nodes/naming/</loc>
-         <lastmod>2023-05-15</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/main/contributing/coding-guidelines/ros-nodes/parameters/</loc>
          <lastmod>2023-05-15</lastmod>
          <changefreq>daily</changefreq>
