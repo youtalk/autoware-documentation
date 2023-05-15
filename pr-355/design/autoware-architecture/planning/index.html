@@ -4045,19 +4045,23 @@
 
 <div><h1 id="planning-component-design">Planning component design<a class="headerlink" href="#planning-component-design" title="Permanent link">#</a></h1>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
-<p>The Planning component generates the trajectory message that will be subscribed to by the Control component based on the environmental state obtained from the Localization and the Perception components. </p>
+<p>The Planning component generates the trajectory message that will be subscribed to by the Control component based on the environmental state obtained from the Localization and the Perception components.</p>
 <h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">#</a></h2>
 <p>The goal of the Planning component is to generate a trajectory (path and velocity) of the ego vehicle that is safe and well-regulated while satisfying the given mission.</p>
-<p><strong>Goals:</strong>
- - The basic functions are provided so that a simple <abbr title="Operational Design Domain">ODD</abbr> can be defined.
- - The functionality is modularized to accommodate the third-party components. That is, a complicated or realistic <abbr title="Operational Design Domain">ODD</abbr> needs not be defined by the basic functions provided by default.
- - The capability is extensible with the third-party components or the decision of human operators.
- - The mechanism and policy are separated to allow the system or operators to change the behavior of the ego vehicle. Ultimately speaking, the policy can be set to crash an obstacle and the mechanism always follows. Otherwise, the system is not safe from the design point of view.</p>
-<p><strong>Non-goals:</strong>
- - The Planning component is not self-contained but can be extended with third parties.
- - The Planning component is not aimed at the complete functionality and capability.
- - The Planning component is not designed to always outperform human drivers.
- - The Planning component is not capable of “never crashes”.</p>
+<p><strong>Goals:</strong></p>
+<ul>
+<li>The basic functions are provided so that a simple <abbr title="Operational Design Domain">ODD</abbr> can be defined.</li>
+<li>The functionality is modularized to accommodate the third-party components. That is, a complicated or realistic <abbr title="Operational Design Domain">ODD</abbr> needs not be defined by the basic functions provided by default.</li>
+<li>The capability is extensible with the third-party components or the decision of human operators.</li>
+<li>The mechanism and policy are separated to allow the system or operators to change the behavior of the ego vehicle. Ultimately speaking, the policy can be set to crash an obstacle and the mechanism always follows. Otherwise, the system is not safe from the design point of view.</li>
+</ul>
+<p><strong>Non-goals:</strong></p>
+<ul>
+<li>The Planning component is not self-contained but can be extended with third parties.</li>
+<li>The Planning component is not aimed at the complete functionality and capability.</li>
+<li>The Planning component is not designed to always outperform human drivers.</li>
+<li>The Planning component is not capable of “never crashes”.</li>
+</ul>
 <h2 id="high-level-architecture">High-level architecture<a class="headerlink" href="#high-level-architecture" title="Permanent link">#</a></h2>
 <p>This diagram describes the high-level architecture of the Planning Component.</p>
 <p><img alt="overall-planning-architecture" src="image/high-level-planning-diagram.drawio.svg"></p>
