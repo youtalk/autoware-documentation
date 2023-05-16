@@ -17,7 +17,7 @@
         <link rel="next" href="../../docs-guide/">
       
       <link rel="icon" href="../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.11">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.13">
     
     
       
@@ -4258,7 +4258,7 @@ colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<spa
 <p>This should print the <code>.xml</code> file on the terminal.</p>
 <h5 id="solution_3">Solution<a class="headerlink" href="#solution_3" title="Permanent link">#</a></h5>
 <p>Follow <a href="../../../installation/additional-settings-for-developers/#tuning-dds">DDS settings</a></p>
-<p>Also make sure you have <code>export CYCLONEDDS_URI=/absoulte_path_to_your/cyclonedds.xml</code> as a line on your <code>~/.bashrc</code> file.</p>
+<p>Also make sure you have <code>export CYCLONEDDS_URI=/absolute_path_to_your/cyclonedds.xml</code> as a line on your <code>~/.bashrc</code> file.</p>
 <p>Here is an example recommended <code>cyclonedds_config.xml</code> file:</p>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
 <span class="nt">&lt;CycloneDDS</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">"https://cdds.io/config"</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="w"> </span><span class="na">xsi:schemaLocation=</span><span class="s">"https://cdds.io/config https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/master/etc/cyclonedds.xsd"</span><span class="nt">&gt;</span>
@@ -4347,7 +4347,7 @@ sudo<span class="w"> </span>sysctl<span class="w"> </span>-w<span class="w"> </s
 <ul>
 <li>You see topics that shouldn't exist</li>
 <li>You see point clouds that don't belong to your machine<ul>
-<li>They might be from another computer running ROS2 on your network</li>
+<li>They might be from another computer running <abbr title="Robot Operating System">ROS</abbr> 2 on your network</li>
 </ul>
 </li>
 <li>Point clouds or markers flicker on RViz2<ul>
@@ -4456,7 +4456,7 @@ sudo<span class="w"> </span>sysctl<span class="w"> </span>-w<span class="w"> </s
     <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.fac441b0.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.b4d07000.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
