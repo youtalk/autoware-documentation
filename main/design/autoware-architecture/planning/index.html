@@ -4314,8 +4314,22 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#internal-interface-in-the-planning-component" class="md-nav__link">
+    Internal interface in the planning component
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-add-new-modules-wip" class="md-nav__link">
+    How to add new modules (WIP)
+  </a>
   
 </li>
       
@@ -4327,37 +4341,23 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#implementation" class="md-nav__link">
-    Implementation
+  <a href="#reference-implementation" class="md-nav__link">
+    Reference Implementation
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Reference Implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#important-parameters" class="md-nav__link">
     Important Parameters
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#notation" class="md-nav__link">
     Notation
-  </a>
-  
-    <nav class="md-nav" aria-label="Notation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-self-crossing-road-and-overlapped" class="md-nav__link">
-    [1] self-crossing road and overlapped
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-size-of-path-points" class="md-nav__link">
-    [2] Size of Path Points
   </a>
   
 </li>
@@ -4416,13 +4416,15 @@
 <li><strong>Motion Planner</strong>: Calculates suitable trajectory for the vehicle by taking into account safety factors, vehicle motion considerations, and instructions from the behavior planner.</li>
 </ul>
 </li>
-<li><strong>Parking</strong>: Calculates the trajectory for parking in unconstructed areas.</li>
+<li><strong>Parking</strong>: Calculates the trajectory for parking in unstructured areas.</li>
 </ul>
 </li>
 <li><strong>Validation</strong>: Verifies the safety of the trajectory.</li>
 </ul>
+<p>Each component contains some modules that can be dynamically loaded and unloaded based on the situation. For instance, the Behavior Planning component includes modules such as lane change, intersection, and crosswalk modules.</p>
+<p>Our planning components are built based on the microautonomy architecture with Autoware. We adopt a modular system framework where the tasks are implemented as modules that can be dynamically loaded and unloaded to achieve different features depending on the given use cases.</p>
 <h2 id="component-interface">Component interface<a class="headerlink" href="#component-interface" title="Permanent link">#</a></h2>
-<p>The following describes the input/output concept between Planning Component and other components. See <a href="/docs/design/autoware-interfaces/components/planning.md">Planning Component Interface</a> for the current implementation.</p>
+<p>The following describes the input/output concept between Planning Component and other components. See the <a href="/docs/design/autoware-interfaces/components/planning.md">Planning Component Interface (WIP)</a> page for the current implementation.</p>
 <h3 id="input-to-the-planning-component">Input to the planning component<a class="headerlink" href="#input-to-the-planning-component" title="Permanent link">#</a></h3>
 <ul>
 <li><strong>From Map</strong><ul>
@@ -4476,6 +4478,28 @@
 </ul>
 </li>
 </ul>
+<h3 id="internal-interface-in-the-planning-component">Internal interface in the planning component<a class="headerlink" href="#internal-interface-in-the-planning-component" title="Permanent link">#</a></h3>
+<ul>
+<li><strong>Mission Planning to Scenario Planning</strong><ul>
+<li>Route: Offers guidance for the path that needs to be followed from the starting point to the destination. This path is determined based on information such as lane IDs defined on the map. At the route level, it doesn't explicitly indicate which specific lanes to take, and the route can contain multiple lanes.</li>
+</ul>
+</li>
+<li><strong>Behavior Planning to Motion Planning</strong><ul>
+<li>Path: Provides a rough position and velocity to be followed by the vehicle. These path points are usually defined with an interval of about 1 meter. Although other interval distances are possible, it may impact the precision or performance of the planning component.</li>
+<li>Drivable area: Defines regions where the vehicle can drive, such as within lanes or physically drivable areas. It assumes that the motion planner will calculate the final trajectory within this defined area.</li>
+</ul>
+</li>
+<li><strong>Scenario Planning to Validation</strong><ul>
+<li>Trajectory: Defines the desired positions, velocities, and accelerations which the Control Component will try to follow. Trajectory points are defined at intervals of approximately 0.1 seconds based on the trajectory velocities.</li>
+</ul>
+</li>
+<li><strong>Validation to Control Component</strong><ul>
+<li>Trajectory: Same as above but with some additional safety considerations.</li>
+</ul>
+</li>
+</ul>
+<h2 id="how-to-add-new-modules-wip">How to add new modules (WIP)<a class="headerlink" href="#how-to-add-new-modules-wip" title="Permanent link">#</a></h2>
+<p>As mentioned in the goal session, this planning module is designed to be extensible by third-party components. For specific instructions on how to add new modules and expand its functionality, please refer to the provided documentation or guidelines (WIP).</p>
 <h2 id="supported-functions">Supported Functions<a class="headerlink" href="#supported-functions" title="Permanent link">#</a></h2>
 <table>
 <thead>
@@ -4713,8 +4737,9 @@
 </table>
 <!-- ![supported-functions](image/planning-functions.drawio.svg) -->
 
-<h2 id="implementation">Implementation<a class="headerlink" href="#implementation" title="Permanent link">#</a></h2>
-<p>The implementation of the planning module in the latest version is shown as below.</p>
+<h2 id="reference-implementation">Reference Implementation<a class="headerlink" href="#reference-implementation" title="Permanent link">#</a></h2>
+<p>The following diagram describes the reference implementation of the Planning component. By adding new modules or extending the functionalities, various ODDs can be supported.</p>
+<p><em>Note that some implementation does not adhere to the high-level architecture design and require updating.</em></p>
 <p><img alt="reference-implementation" src="image/planning-diagram.drawio.svg"></p>
 <p>For more details, please refer to the design documents in each package.</p>
 <ul>
@@ -4755,7 +4780,7 @@
 <li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/external_velocity_limit_selector/"><em>external_velocity_limit_selector</em></a>: takes an appropriate velocity limit from multiple candidates.</li>
 <li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/motion_velocity_smoother/"><em>motion_velocity_smoother</em></a>: calculates final velocity considering velocity, acceleration, and jerk constraints.</li>
 </ul>
-<h2 id="important-parameters">Important Parameters<a class="headerlink" href="#important-parameters" title="Permanent link">#</a></h2>
+<h3 id="important-parameters">Important Parameters<a class="headerlink" href="#important-parameters" title="Permanent link">#</a></h3>
 <table>
 <thead>
 <tr>
@@ -4798,8 +4823,8 @@
 </tr>
 </tbody>
 </table>
-<h2 id="notation">Notation<a class="headerlink" href="#notation" title="Permanent link">#</a></h2>
-<h3 id="1-self-crossing-road-and-overlapped">[1] self-crossing road and overlapped<a class="headerlink" href="#1-self-crossing-road-and-overlapped" title="Permanent link">#</a></h3>
+<h3 id="notation">Notation<a class="headerlink" href="#notation" title="Permanent link">#</a></h3>
+<h4 id="1-self-crossing-road-and-overlapped">[1] self-crossing road and overlapped<a class="headerlink" href="#1-self-crossing-road-and-overlapped" title="Permanent link">#</a></h4>
 <p>To support the self-crossing road and overlapped road in the opposite direction, each planning module has to meet the <a href="https://autowarefoundation.github.io/autoware.universe/main/common/motion_utils/">specifications</a></p>
 <p>Currently, the supported modules are as follows.</p>
 <ul>
@@ -4811,7 +4836,7 @@
 <li>obstacle_stop_planner</li>
 <li>motion_velocity_smoother</li>
 </ul>
-<h3 id="2-size-of-path-points">[2] Size of Path Points<a class="headerlink" href="#2-size-of-path-points" title="Permanent link">#</a></h3>
+<h4 id="2-size-of-path-points">[2] Size of Path Points<a class="headerlink" href="#2-size-of-path-points" title="Permanent link">#</a></h4>
 <p>Some functions do not support paths with only one point. Therefore, each modules should generate the path with more than two path points.</p>
 <!-- prettier-ignore --></div>
 
