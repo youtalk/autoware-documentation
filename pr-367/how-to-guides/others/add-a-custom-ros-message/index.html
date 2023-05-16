@@ -4365,7 +4365,7 @@
   
 
 
-<div><h1 id="add-a-custom-ros-message">Add a custom ROS message<a class="headerlink" href="#add-a-custom-ros-message" title="Permanent link">#</a></h1>
+<div><h1 id="add-a-custom-ros-message">Add a custom <abbr title="Robot Operating System">ROS</abbr> message<a class="headerlink" href="#add-a-custom-ros-message" title="Permanent link">#</a></h1>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
 <p>During the Autoware development, you will probably need to define your own messages. Read the following instructions before adding a custom message.</p>
 <ol>
@@ -4397,7 +4397,7 @@ As an example, let's create a package to define sensor messages.</p>
 <p>Create custom messages</p>
 <p>You should create <code>.msg</code> files and place them in the <code>msg</code> directory.</p>
 <p><strong>NOTE</strong>: The initial letters of the <code>.msg</code> and <code>.srv</code> files must be capitalized.</p>
-<p>As an example, let's make <code>.msg</code> files <code>GnssInsOrientation.msg</code> and <code>GnssInsOrientationStamped.msg</code> to define GNSS/INS orientation messages:</p>
+<p>As an example, let's make <code>.msg</code> files <code>GnssInsOrientation.msg</code> and <code>GnssInsOrientationStamped.msg</code> to define <abbr title="Global Navigation Satellite System">GNSS</abbr>/INS orientation messages:</p>
 <div class="highlight"><pre><span></span><code><span class="go">mkdir msg</span>
 <span class="go">cd msg</span>
 <span class="go">touch GnssInsOrientation.msg</span>
@@ -4473,7 +4473,8 @@ As an example, let's create a package to define sensor messages.</p>
 <li>For example, <code>#include &lt;autoware_sensing_msgs/msg/gnss_ins_orientation_stamped.hpp&gt;</code>.</li>
 </ul>
 </li>
-</ul></div>
+</ul>
+<!-- prettier-ignore --></div>
 
 
 

@@ -4448,7 +4448,7 @@
 </table>
 <h2 id="control-feature-design">Control Feature Design<a class="headerlink" href="#control-feature-design" title="Permanent link">#</a></h2>
 <p>The following lists the features provided by Autoware's Control/Vehicle component, as well as the conditions and assumptions required to utilize them effectively.</p>
-<p>The proper operation of the ODD is limited by factors such as whether the functions are enabled, delay time, calibration accuracy and degradation rate, and sensor accuracy.</p>
+<p>The proper operation of the <abbr title="Operational Design Domain">ODD</abbr> is limited by factors such as whether the functions are enabled, delay time, calibration accuracy and degradation rate, and sensor accuracy.</p>
 <table>
 <thead>
 <tr>
@@ -4556,11 +4556,12 @@
 <p>The list above does not cover wheel control systems such as ABS commonly used in vehicles. Regarding these features, the following considerations are taken into account.</p>
 <h3 id="integration-with-vehicle-side-functions">Integration with vehicle-side functions<a class="headerlink" href="#integration-with-vehicle-side-functions" title="Permanent link">#</a></h3>
 <p>ABS (Anti-lock Brake System) and ESC (Electric Stability Control) are two functions that may be pre-installed on a vehicle, directly impacting its controllability.
-The control modules of Autoware assume that both ABS and ESC are installed on the vehicle and their absence may cause unreliable controls depending on the target ODD. For example, with low-velocity driving in a controlled environment, these functions are not necessary.</p>
+The control modules of Autoware assume that both ABS and ESC are installed on the vehicle and their absence may cause unreliable controls depending on the target <abbr title="Operational Design Domain">ODD</abbr>. For example, with low-velocity driving in a controlled environment, these functions are not necessary.</p>
 <p>Also, note that this statement does not negate the development of ABS functionality in autonomous driving systems.</p>
 <h3 id="autoware-capabilities-and-vehicle-requirements">Autoware Capabilities and Vehicle Requirements<a class="headerlink" href="#autoware-capabilities-and-vehicle-requirements" title="Permanent link">#</a></h3>
-<p>As an alternative to human driving, autonomous driving systems essentially aim to handle tasks that humans can perform. This includes not only controlling the steering wheel, accel, and brake, but also automatically detecting issues such as poor brake response or a misaligned steering angle. However, this is a trade-off, as better vehicle performance will lead to superior system behavior, ultimately affecting the design of ODD.</p>
-<p>On the other hand, for tasks that are not typically anticipated or cannot be handled by a human driver, processing in the vehicle ECU is expected. Examples of such scenarios include cases where the brake response is clearly delayed or when the vehicle rotates due to a single-side tire slipping. These tasks are typically handled by ABS or ESC.</p></div>
+<p>As an alternative to human driving, autonomous driving systems essentially aim to handle tasks that humans can perform. This includes not only controlling the steering wheel, accel, and brake, but also automatically detecting issues such as poor brake response or a misaligned steering angle. However, this is a trade-off, as better vehicle performance will lead to superior system behavior, ultimately affecting the design of <abbr title="Operational Design Domain">ODD</abbr>.</p>
+<p>On the other hand, for tasks that are not typically anticipated or cannot be handled by a human driver, processing in the vehicle <abbr title="Electronic Control Unit">ECU</abbr> is expected. Examples of such scenarios include cases where the brake response is clearly delayed or when the vehicle rotates due to a single-side tire slipping. These tasks are typically handled by ABS or ESC.</p>
+<!-- prettier-ignore --></div>
 
 
 

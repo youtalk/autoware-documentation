@@ -4593,7 +4593,7 @@
 <li>LiDAR</li>
 <li>Optional: Inertial measurement unit</li>
 <li>Optional: Camera</li>
-<li>Optional: GNSS</li>
+<li>Optional: <abbr title="Global Navigation Satellite System">GNSS</abbr></li>
 </ul>
 </li>
 </ul>
@@ -4635,13 +4635,13 @@ For how to fork a repository, refer to <a href="https://docs.github.com/en/get-s
 </code></pre></div>
 <h3 id="adapt-your_vehicle_launch-for-autoware-launching-system">Adapt YOUR_VEHICLE_launch for autoware launching system<a class="headerlink" href="#adapt-your_vehicle_launch-for-autoware-launching-system" title="Permanent link">#</a></h3>
 <h4 id="at-your_vehicle_description">At YOUR_VEHICLE_description<a class="headerlink" href="#at-your_vehicle_description" title="Permanent link">#</a></h4>
-<p>Define URDF and parameters in the vehicle description package (refer to the <a href="https://github.com/autowarefoundation/sample_vehicle_launch/tree/main/sample_vehicle_description">sample vehicle description package</a> for an example).</p>
+<p>Define <abbr title="Universal Robotic Description Format">URDF</abbr> and parameters in the vehicle description package (refer to the <a href="https://github.com/autowarefoundation/sample_vehicle_launch/tree/main/sample_vehicle_description">sample vehicle description package</a> for an example).</p>
 <h4 id="at-your_vehicle_launch">At YOUR_VEHICLE_launch<a class="headerlink" href="#at-your_vehicle_launch" title="Permanent link">#</a></h4>
 <p>Create a launch file (refer to the <a href="https://github.com/autowarefoundation/sample_vehicle_launch/tree/main/sample_vehicle_launch">sample vehicle launch package</a> for example).
 If you have multiple vehicles with the same hardware setup, you can specify <code>vehicle_id</code> to distinguish them.</p>
 <h3 id="adapt-your_sensor_kit_description-for-autoware-launching-system">Adapt YOUR_SENSOR_KIT_description for autoware launching system<a class="headerlink" href="#adapt-your_sensor_kit_description-for-autoware-launching-system" title="Permanent link">#</a></h3>
 <h4 id="at-your_sensor_kit_description">At YOUR_SENSOR_KIT_description<a class="headerlink" href="#at-your_sensor_kit_description" title="Permanent link">#</a></h4>
-<p>Define URDF and extrinsic parameters for all the sensors here (refer to the <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch/tree/main/sample_sensor_kit_description">sample sensor kit description package</a> for example).
+<p>Define <abbr title="Universal Robotic Description Format">URDF</abbr> and extrinsic parameters for all the sensors here (refer to the <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch/tree/main/sample_sensor_kit_description">sample sensor kit description package</a> for example).
 Note that you need to calibrate extrinsic parameters for all the sensors beforehand.</p>
 <h4 id="at-your_sensor_kit_launch">At YOUR_SENSOR_KIT_launch<a class="headerlink" href="#at-your_sensor_kit_launch" title="Permanent link">#</a></h4>
 <p>Create <code>launch/sensing.launch.xml</code> that launches the interfaces of all the sensors on the vehicle. (refer to the <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch/tree/main/sample_sensor_kit_launch">sample sensor kit launch package</a> for example).</p>
@@ -4665,7 +4665,7 @@ You can also refer to TIER IV's <a href="https://github.com/tier4/pacmod_interfa
 <p>You need both a pointcloud map and a vector map in order to use Autoware.
 For more information on map design, please click <a href="../../../design/autoware-architecture/map/">here</a>.</p>
 <h3 id="create-a-pointcloud-map">Create a pointcloud map<a class="headerlink" href="#create-a-pointcloud-map" title="Permanent link">#</a></h3>
-<p>Use third-party tools such as a LiDAR-based SLAM (Simultaneous Localization And Mapping) package to create a pointcloud map in the <code>.pcd</code> format.
+<p>Use third-party tools such as a LiDAR-based <abbr title="Simultaneous Localization And Mapping">SLAM</abbr> (Simultaneous Localization And Mapping) package to create a pointcloud map in the <code>.pcd</code> format.
 For more information, please click <a href="../creating-maps/">here</a>.</p>
 <h3 id="create-vector-map">Create vector map<a class="headerlink" href="#create-vector-map" title="Permanent link">#</a></h3>
 <p>Use third-party tools such as <a href="https://tools.tier4.jp/">TIER IV's Vector Map Builder</a> to create a Lanelet2 format <code>.osm</code> file.</p>
@@ -4678,7 +4678,7 @@ For more information, please click <a href="../creating-maps/">here</a>.</p>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>autoware.launch.xml<span class="w"> </span>vehicle_model:<span class="o">=</span>YOUR_VEHICLE<span class="w"> </span>sensor_kit:<span class="o">=</span>YOUR_SENSOR_KIT<span class="w"> </span>map_path:<span class="o">=</span>/PATH/TO/YOUR/MAP
 </code></pre></div>
 <h3 id="set-initial-pose">Set initial pose<a class="headerlink" href="#set-initial-pose" title="Permanent link">#</a></h3>
-<p>If GNSS is available, Autoware automatically initializes the vehicle's pose.</p>
+<p>If <abbr title="Global Navigation Satellite System">GNSS</abbr> is available, Autoware automatically initializes the vehicle's pose.</p>
 <p>If not, you need to set the initial pose using the RViz GUI.</p>
 <ol>
 <li>Click the 2D Pose estimate button in the toolbar, or hit the P key</li>
@@ -4701,7 +4701,8 @@ The panel can be found in <code>Panels &gt; Add New Panel &gt; tier4_state_rviz_
 <p><img alt="Autoware State Panel" src="../images/autoware-state-panel.png" style="height:360px;width:640px"></p>
 <p>Now the vehicle should drive along the calculated path!</p>
 <h2 id="6-tune-parameters-for-your-vehicle-environment">6. Tune parameters for your vehicle &amp; environment<a class="headerlink" href="#6-tune-parameters-for-your-vehicle-environment" title="Permanent link">#</a></h2>
-<p>You may need to tune your parameters depending on the domain in which you will operate your vehicle.</p></div>
+<p>You may need to tune your parameters depending on the domain in which you will operate your vehicle.</p>
+<!-- prettier-ignore --></div>
 
 
 

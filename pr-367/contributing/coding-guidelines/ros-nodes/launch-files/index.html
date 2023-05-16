@@ -4407,7 +4407,7 @@
 
 <div><h1 id="launch-files">Launch files<a class="headerlink" href="#launch-files" title="Permanent link">#</a></h1>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
-<p>Autoware use ROS2 launch system to startup the software. Please see the <a href="https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Launch-Main.html">official documentation</a> to get a basic understanding about ROS 2 Launch system if you are not familiar with it.</p>
+<p>Autoware use ROS2 launch system to startup the software. Please see the <a href="https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Launch-Main.html">official documentation</a> to get a basic understanding about <abbr title="Robot Operating System">ROS</abbr> 2 Launch system if you are not familiar with it.</p>
 <h2 id="guideline">Guideline<a class="headerlink" href="#guideline" title="Permanent link">#</a></h2>
 <h3 id="the-organization-of-launch-files-in-autoware">The organization of launch files in Autoware<a class="headerlink" href="#the-organization-of-launch-files-in-autoware" title="Permanent link">#</a></h3>
 <p>Autoware mainly has two repositories related to launch file organization: the <a href="https://github.com/autowarefoundation/autoware.universe">autoware.universe</a> and the <a href="https://github.com/autowarefoundation/autoware_launch">autoware_launch</a>.</p>
@@ -4422,7 +4422,7 @@
 </li>
 </ul>
 <ul>
-<li>The <code>logging_simulator.launch.xml</code> is often used together with the recorded ROS bag to debug if the target module (e.g, <em>Sensing</em>, <em>Localization</em> or <em>Perception</em>) functions normally.</li>
+<li>The <code>logging_simulator.launch.xml</code> is often used together with the recorded <abbr title="Robot Operating System">ROS</abbr> bag to debug if the target module (e.g, <em>Sensing</em>, <em>Localization</em> or <em>Perception</em>) functions normally.</li>
 </ul>
 <ul>
 <li>The <code>planning_simulator.launch.xml</code> is based on the Planning Simulator tool, mainly used for testing/validation of <em>Planning</em> module by simulating traffic rules, interactions with dynamic objects and control commands to the ego vehicle.</li>
@@ -4460,7 +4460,8 @@ A33--&gt;A43[twist2accel.launch.xml]</code></pre>
 <li>all the “launch parameters” for localization component is listed in the files under <code>autoware_launch/autoware_launch/config/localization</code>.</li>
 <li>the "launch parameters" file paths are set in the <code>autoware_launch/autoware_launch/launch/components/tier4_localization_component.launch.xml</code> file.</li>
 <li>in <code>autoware.universe/launch/tier4_localization_launch/launch</code>, the launch files loads the “launch parameters” if the argument is given in the parameter configuration file. You can still use the default parameters in each packages to launch <code>tier4_localization_launch</code> within <code>autoware.universe</code>.</li>
-</ol></div>
+</ol>
+<!-- prettier-ignore --></div>
 
 
 

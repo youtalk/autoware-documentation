@@ -4314,7 +4314,7 @@
 <p>Autoware requires a pointcloud map and a vector map for the vehicle's operating environment. (Check the <a href="../../../design/autoware-architecture/map/">map design documentation page</a> for the detailed specification).</p>
 <p>This page explains how users can create maps that can be used for Autoware.</p>
 <h2 id="creating-a-point-cloud-map">Creating a point cloud map<a class="headerlink" href="#creating-a-point-cloud-map" title="Permanent link">#</a></h2>
-<p>Traditionally, a Mobile Mapping System (MMS) is used in order to create highly accurate large-scale point cloud maps. However, since a MMS requires high-end sensors for precise positioning, its operational cost can be very expensive and may not be suitable for a relatively small driving environment. Alternatively, a Simultaneous Localization And Mapping (SLAM) algorithm can be used to create a point cloud map from recorded LiDAR scans. Some of the useful open-source SLAM implementations are listed in this <a href="open-source-slam/">page</a>.</p>
+<p>Traditionally, a Mobile Mapping System (<abbr title="Mobile Mapping System">MMS</abbr>) is used in order to create highly accurate large-scale point cloud maps. However, since a <abbr title="Mobile Mapping System">MMS</abbr> requires high-end sensors for precise positioning, its operational cost can be very expensive and may not be suitable for a relatively small driving environment. Alternatively, a Simultaneous Localization And Mapping (<abbr title="Simultaneous Localization And Mapping">SLAM</abbr>) algorithm can be used to create a point cloud map from recorded LiDAR scans. Some of the useful open-source <abbr title="Simultaneous Localization And Mapping">SLAM</abbr> implementations are listed in this <a href="open-source-slam/">page</a>.</p>
 <p>If you prefer proprietary software that is easy to use, you can try a fully automatic mapping tool from <a href="https://www.map4.jp/">MAP IV, Inc.</a>, <a href="https://www.map4.jp/solutions/mapping_localization/map-%e2%85%b3-engine/"><em>MapIV Engine</em></a>. They currently provide a trial license for Autoware users free of charge.</p>
 <h2 id="creating-a-vector-map">Creating a vector map<a class="headerlink" href="#creating-a-vector-map" title="Permanent link">#</a></h2>
 <p>The easiest way to create an Autoware-compatible vector map is to use <a href="https://tools.tier4.jp/feature/vector_map_builder_ll2/">Vector Map Builder</a>, a free web-based tool provided by <a href="https://www.tier4.jp/">TIER IV, Inc.</a>.
@@ -4340,17 +4340,17 @@ Although <a href="https://josm.openstreetmap.de/">JOSM</a> is another open-sourc
 <tbody>
 <tr>
 <td><a href="https://www.map4.jp/">MAP IV, Inc.</a></td>
-<td>SLAM</td>
+<td><abbr title="Simultaneous Localization And Mapping">SLAM</abbr></td>
 <td>Point cloud and vector maps</td>
 </tr>
 <tr>
 <td><a href="https://www.aisantec.co.jp/">AISAN TECHNOLOGY CO., LTD.</a></td>
-<td>MMS</td>
+<td><abbr title="Mobile Mapping System">MMS</abbr></td>
 <td>Point cloud and vector maps</td>
 </tr>
 <tr>
 <td><a href="https://www.tomtom.com/">TomTom</a></td>
-<td>MMS</td>
+<td><abbr title="Mobile Mapping System">MMS</abbr></td>
 <td>Vector map*</td>
 </tr>
 </tbody>
@@ -4360,7 +4360,8 @@ Although <a href="https://josm.openstreetmap.de/">JOSM</a> is another open-sourc
 <p>Maps provided by TomTom use their proprietary AutoStream format, not Lanelet2.
 The open-source <a href="https://github.com/tomtom-international/AutoStreamForAutoware">AutoStreamForAutoware tool</a> can be used to convert an AutoStream map to a Lanelet2 map.
 However, the converter is still in its early stages and has some <a href="https://github.com/tomtom-international/AutoStreamForAutoware/blob/main/docs/known-issues.md">known limitations</a>.</p>
-</div></div>
+</div>
+<!-- prettier-ignore --></div>
 
 
 

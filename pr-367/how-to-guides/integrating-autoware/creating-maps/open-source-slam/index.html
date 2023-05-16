@@ -4310,15 +4310,15 @@
   
 
 
-<div><h1 id="available-open-source-slam">Available Open Source SLAM<a class="headerlink" href="#available-open-source-slam" title="Permanent link">#</a></h1>
-<p>This page provides the list of available open source Simultaneous Localization And Mapping (SLAM) implementation that can be used to generete a point cloud (.pcd) map file.</p>
+<div><h1 id="available-open-source-slam">Available Open Source <abbr title="Simultaneous Localization And Mapping">SLAM</abbr><a class="headerlink" href="#available-open-source-slam" title="Permanent link">#</a></h1>
+<p>This page provides the list of available open source Simultaneous Localization And Mapping (<abbr title="Simultaneous Localization And Mapping">SLAM</abbr>) implementation that can be used to generete a point cloud (.pcd) map file.</p>
 <h2 id="selecting-which-implementation-to-use">Selecting which implementation to use<a class="headerlink" href="#selecting-which-implementation-to-use" title="Permanent link">#</a></h2>
-<p>Lidar odometry drifts accumulatively as time goes by and there is solutions to solve that problem such as graph optimization, loop closure and using gps sensor to decrease accumulative drift error. Because of that, a SLAM algorithm should have loop closure feature, graph optimization and should use gps sensor. Additionally, some of the algorithms are using IMU sensor to add another factor to graph for decreasing drift error. While some of the algorithms requires 9-axis IMU sensor strictly, some of them requires only 6-axis IMU sensor or not even using the IMU sensor. Before choosing an algorithm to create maps for Autoware please consider these factors depends on your sensor setup or expected quality of generated map.</p>
+<p>Lidar odometry drifts accumulatively as time goes by and there is solutions to solve that problem such as graph optimization, loop closure and using gps sensor to decrease accumulative drift error. Because of that, a <abbr title="Simultaneous Localization And Mapping">SLAM</abbr> algorithm should have loop closure feature, graph optimization and should use gps sensor. Additionally, some of the algorithms are using <abbr title="Inertial Measurement Unit">IMU</abbr> sensor to add another factor to graph for decreasing drift error. While some of the algorithms requires 9-axis <abbr title="Inertial Measurement Unit">IMU</abbr> sensor strictly, some of them requires only 6-axis <abbr title="Inertial Measurement Unit">IMU</abbr> sensor or not even using the <abbr title="Inertial Measurement Unit">IMU</abbr> sensor. Before choosing an algorithm to create maps for Autoware please consider these factors depends on your sensor setup or expected quality of generated map.</p>
 <h2 id="tips">Tips<a class="headerlink" href="#tips" title="Permanent link">#</a></h2>
-<p>Commonly used open-source SLAM implementations are <a href="https://github.com/rsasaki0109/lidarslam_ros2">lidarslam-ros2</a> (LiDAR, IMU*) and <a href="https://github.com/TixiaoShan/LIO-SAM/tree/ros2">LIO-SAM</a> (LiDAR, IMU, GNSS). The required sensor data for each algorithm is specified in the parentheses, where an asterisk (*) indicates that such sensor data is optional. For supported LiDAR models, please check the Github repository of each algorithm. While these ROS 2-based SLAM implementations can be easily installed and used directly on the same machine that runs Autoware, it is important to note that they may not be as well-tested or as mature as ROS 1-based alternatives.</p>
-<p>The notable open-source SLAM implementations that are based on ROS 1 include <a href="https://github.com/koide3/hdl_graph_slam">hdl-graph-slam</a> (LiDAR, IMU*, GNSS*), <a href="https://github.com/facontidavide/LeGO-LOAM-BOR">LeGO-LOAM</a> (LiDAR, IMU*), <a href="https://github.com/RobustFieldAutonomyLab/LeGO-LOAM">LeGO-LOAM-BOR</a> (LiDAR), and <a href="https://github.com/TixiaoShan/LIO-SAM">LIO-SAM</a> (LiDAR, IMU, GNSS).</p>
-<p>Most of these algorithms already have a built-in loop-closure and pose graph optimization. However, if the built-in, automatic loop-closure fails or does not work correctly, you can use <a href="https://github.com/SMRT-AIST/interactive_slam">Interactive SLAM</a> to adjust and optimize a pose graph manually.</p>
-<h2 id="list-of-third-party-slam-implementations">List of Third Party SLAM Implementations<a class="headerlink" href="#list-of-third-party-slam-implementations" title="Permanent link">#</a></h2>
+<p>Commonly used open-source <abbr title="Simultaneous Localization And Mapping">SLAM</abbr> implementations are <a href="https://github.com/rsasaki0109/lidarslam_ros2">lidarslam-ros2</a> (LiDAR, <abbr title="Inertial Measurement Unit">IMU</abbr>*) and <a href="https://github.com/TixiaoShan/LIO-SAM/tree/ros2">LIO-SAM</a> (LiDAR, <abbr title="Inertial Measurement Unit">IMU</abbr>, <abbr title="Global Navigation Satellite System">GNSS</abbr>). The required sensor data for each algorithm is specified in the parentheses, where an asterisk (*) indicates that such sensor data is optional. For supported LiDAR models, please check the Github repository of each algorithm. While these <abbr title="Robot Operating System">ROS</abbr> 2-based <abbr title="Simultaneous Localization And Mapping">SLAM</abbr> implementations can be easily installed and used directly on the same machine that runs Autoware, it is important to note that they may not be as well-tested or as mature as <abbr title="Robot Operating System">ROS</abbr> 1-based alternatives.</p>
+<p>The notable open-source <abbr title="Simultaneous Localization And Mapping">SLAM</abbr> implementations that are based on <abbr title="Robot Operating System">ROS</abbr> 1 include <a href="https://github.com/koide3/hdl_graph_slam">hdl-graph-slam</a> (LiDAR, <abbr title="Inertial Measurement Unit">IMU</abbr>*, <abbr title="Global Navigation Satellite System">GNSS</abbr>*), <a href="https://github.com/facontidavide/LeGO-LOAM-BOR">LeGO-LOAM</a> (LiDAR, <abbr title="Inertial Measurement Unit">IMU</abbr>*), <a href="https://github.com/RobustFieldAutonomyLab/LeGO-LOAM">LeGO-LOAM-BOR</a> (LiDAR), and <a href="https://github.com/TixiaoShan/LIO-SAM">LIO-SAM</a> (LiDAR, <abbr title="Inertial Measurement Unit">IMU</abbr>, <abbr title="Global Navigation Satellite System">GNSS</abbr>).</p>
+<p>Most of these algorithms already have a built-in loop-closure and pose graph optimization. However, if the built-in, automatic loop-closure fails or does not work correctly, you can use <a href="https://github.com/SMRT-AIST/interactive_slam">Interactive <abbr title="Simultaneous Localization And Mapping">SLAM</abbr></a> to adjust and optimize a pose graph manually.</p>
+<h2 id="list-of-third-party-slam-implementations">List of Third Party <abbr title="Simultaneous Localization And Mapping">SLAM</abbr> Implementations<a class="headerlink" href="#list-of-third-party-slam-implementations" title="Permanent link">#</a></h2>
 <p><br>
 <br></p>
 <table>
@@ -4329,7 +4329,7 @@
 <th align="center">Repository Link</th>
 <th align="center">Loop Closure</th>
 <th align="center">Sensors</th>
-<th align="center">ROS Version</th>
+<th align="center"><abbr title="Robot Operating System">ROS</abbr> Version</th>
 <th align="center">Dependencies</th>
 </tr>
 </thead>
@@ -4339,34 +4339,34 @@
 <td align="center">A computationally efficient and robust LiDAR-inertial odometry package with loop closure module and graph optimization</td>
 <td align="center"><a href="https://github.com/yanliang-wang/FAST_LIO_LC">https://github.com/yanliang-wang/FAST_LIO_LC</a></td>
 <td align="center">&amp;check;</td>
-<td align="center">Lidar<br>IMU<br>GPS [Optional]</td>
+<td align="center">Lidar<br><abbr title="Inertial Measurement Unit">IMU</abbr><br>GPS [Optional]</td>
 <td align="center">ROS1</td>
-<td align="center">ROS Melodic<br>PCL &gt;= 1.8<br>Eigen &gt;= 3.3.4<br>GTSAM &gt;= 4.0.0</td>
+<td align="center"><abbr title="Robot Operating System">ROS</abbr> Melodic<br>PCL &gt;= 1.8<br>Eigen &gt;= 3.3.4<br>GTSAM &gt;= 4.0.0</td>
 </tr>
 <tr>
 <td>FAST_LIO_SLAM</td>
 <td align="center">FAST_LIO_SLAM is the integration of FAST_LIO and SC-PGO which is scan context based loop detection and GTSAM based pose-graph optimization</td>
 <td align="center"><a href="https://github.com/gisbi-kim/FAST_LIO_SLAM">https://github.com/gisbi-kim/FAST_LIO_SLAM</a></td>
 <td align="center">&amp;check;</td>
-<td align="center">Lidar<br>IMU<br>GPS [Optional]</td>
+<td align="center">Lidar<br><abbr title="Inertial Measurement Unit">IMU</abbr><br>GPS [Optional]</td>
 <td align="center">ROS1</td>
 <td align="center">PCL &gt;= 1.8<br>Eigen &gt;= 3.3.4</td>
 </tr>
 <tr>
-<td>FD-SLAM</td>
-<td align="center">FD_SLAM is Feature&amp;Distribution-based 3D LiDAR SLAM method based on Surface Representation Refinement. In this algorithm novel feature-based Lidar odometry used for fast scan-matching, and used a proposed UGICP method for keyframe matching</td>
-<td align="center"><a href="https://github.com/SLAMWang/FD-SLAM">https://github.com/SLAMWang/FD-SLAM</a></td>
+<td>FD-<abbr title="Simultaneous Localization And Mapping">SLAM</abbr></td>
+<td align="center">FD_SLAM is Feature&amp;Distribution-based 3D LiDAR <abbr title="Simultaneous Localization And Mapping">SLAM</abbr> method based on Surface Representation Refinement. In this algorithm novel feature-based Lidar odometry used for fast scan-matching, and used a proposed UGICP method for keyframe matching</td>
+<td align="center"><a href="https://github.com/SLAMWang/FD-SLAM">https://github.com/SLAMWang/FD-<abbr title="Simultaneous Localization And Mapping">SLAM</abbr></a></td>
 <td align="center">&amp;check;</td>
-<td align="center">Lidar<br>IMU [Optional]<br>GPS</td>
+<td align="center">Lidar<br><abbr title="Inertial Measurement Unit">IMU</abbr> [Optional]<br>GPS</td>
 <td align="center">ROS1</td>
 <td align="center">PCL<br>g2o<br>Suitesparse</td>
 </tr>
 <tr>
 <td>hdl_graph_slam</td>
-<td align="center">An open source ROS package for real-time 6DOF SLAM using a 3D LIDAR. It is based on 3D Graph SLAM with NDT scan matching-based odometry estimation and loop detection. It also supports several graph constraints, such as GPS, IMU acceleration (gravity vector), IMU orientation (magnetic sensor), and floor plane (detected in a point cloud)</td>
+<td align="center">An open source <abbr title="Robot Operating System">ROS</abbr> package for real-time 6DOF <abbr title="Simultaneous Localization And Mapping">SLAM</abbr> using a 3D LIDAR. It is based on 3D Graph <abbr title="Simultaneous Localization And Mapping">SLAM</abbr> with NDT scan matching-based odometry estimation and loop detection. It also supports several graph constraints, such as GPS, <abbr title="Inertial Measurement Unit">IMU</abbr> acceleration (gravity vector), <abbr title="Inertial Measurement Unit">IMU</abbr> orientation (magnetic sensor), and floor plane (detected in a point cloud)</td>
 <td align="center"><a href="https://github.com/koide3/hdl_graph_slam">https://github.com/koide3/hdl_graph_slam</a></td>
 <td align="center">&amp;check;</td>
-<td align="center">Lidar<br>IMU [Optional]<br>GPS [Optional]</td>
+<td align="center">Lidar<br><abbr title="Inertial Measurement Unit">IMU</abbr> [Optional]<br>GPS [Optional]</td>
 <td align="center">ROS1</td>
 <td align="center">PCL<br>g2o<br>OpenMP</td>
 </tr>
@@ -4375,7 +4375,7 @@
 <td align="center">IA_LIO_SLAM is created for data acquisition in unstructured environment and it is a framework for Intensity and Ambient Enhanced Lidar Inertial Odometry via Smoothing and Mapping that achieves highly accurate robot trajectories and mapping</td>
 <td align="center"><a href="https://github.com/minwoo0611/IA_LIO_SAM">https://github.com/minwoo0611/IA_LIO_SAM</a></td>
 <td align="center">&amp;check;</td>
-<td align="center">Lidar<br>IMU<br>GPS</td>
+<td align="center">Lidar<br><abbr title="Inertial Measurement Unit">IMU</abbr><br>GPS</td>
 <td align="center">ROS1</td>
 <td align="center">GTSAM</td>
 </tr>
@@ -4386,23 +4386,23 @@
 <td align="center">&amp;check;</td>
 <td align="center">Lidar</td>
 <td align="center">ROS1</td>
-<td align="center">Ubuntu 18.04<br>ROS Melodic<br>Ceres<br>PCL<br>GTSAM<br>OpenCV</td>
+<td align="center">Ubuntu 18.04<br><abbr title="Robot Operating System">ROS</abbr> Melodic<br>Ceres<br>PCL<br>GTSAM<br>OpenCV</td>
 </tr>
 <tr>
 <td>LeGO-LOAM-BOR</td>
 <td align="center">LeGO-LOAM-BOR is improved version of the LeGO-LOAM by improving quality of the code, making it more readable and consistent. Also, performance is improved by converting processes to multi-threaded approach</td>
 <td align="center"><a href="https://github.com/facontidavide/LeGO-LOAM-BOR">https://github.com/facontidavide/LeGO-LOAM-BOR</a></td>
 <td align="center">&amp;check;</td>
-<td align="center">Lidar<br>IMU</td>
+<td align="center">Lidar<br><abbr title="Inertial Measurement Unit">IMU</abbr></td>
 <td align="center">ROS1</td>
-<td align="center">ROS Melodic<br>PCL<br>GTSAM</td>
+<td align="center"><abbr title="Robot Operating System">ROS</abbr> Melodic<br>PCL<br>GTSAM</td>
 </tr>
 <tr>
 <td>LIO_SAM</td>
 <td align="center">A framework that achieves highly accurate, real-time mobile robot trajectory estimation and map-building. It formulates lidar-inertial odometry atop a factor graph, allowing a multitude of relative and absolute measurements, including loop closures, to be incorporated from different sources as factors into the system</td>
 <td align="center"><a href="https://github.com/TixiaoShan/LIO-SAM">https://github.com/TixiaoShan/LIO-SAM</a></td>
 <td align="center">&amp;check;</td>
-<td align="center">Lidar<br>IMU<br>GPS [Optional]</td>
+<td align="center">Lidar<br><abbr title="Inertial Measurement Unit">IMU</abbr><br>GPS [Optional]</td>
 <td align="center">ROS1<br>ROS2</td>
 <td align="center">PCL<br>GTSAM</td>
 </tr>
@@ -4417,7 +4417,7 @@
 </tr>
 <tr>
 <td>SC-A-LOAM</td>
-<td align="center">A real-time LiDAR SLAM package that integrates A-LOAM and ScanContext.</td>
+<td align="center">A real-time LiDAR <abbr title="Simultaneous Localization And Mapping">SLAM</abbr> package that integrates A-LOAM and ScanContext.</td>
 <td align="center"><a href="https://github.com/gisbi-kim/SC-A-LOAM">https://github.com/gisbi-kim/SC-A-LOAM</a></td>
 <td align="center">&amp;check;</td>
 <td align="center">Lidar</td>
@@ -4429,12 +4429,13 @@
 <td align="center">SC-LeGO-LOAM integrated LeGO-LOAM for lidar odometry and 2 different loop closure methods: ScanContext and Radius search based loop closure. While ScanContext is correcting large drifts, radius search based method is good for fine-stitching</td>
 <td align="center"><a href="https://github.com/irapkaist/SC-LeGO-LOAM">https://github.com/irapkaist/SC-LeGO-LOAM</a></td>
 <td align="center">&amp;check;</td>
-<td align="center">Lidar<br>IMU</td>
+<td align="center">Lidar<br><abbr title="Inertial Measurement Unit">IMU</abbr></td>
 <td align="center">ROS1</td>
 <td align="center">PCL<br>GTSAM</td>
 </tr>
 </tbody>
-</table></div>
+</table>
+<!-- prettier-ignore --></div>
 
 
 

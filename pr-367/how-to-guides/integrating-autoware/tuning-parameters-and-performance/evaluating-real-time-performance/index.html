@@ -4475,7 +4475,7 @@
 
 <div><h1 id="evaluating-real-time-performance">Evaluating real-time performance<a class="headerlink" href="#evaluating-real-time-performance" title="Permanent link">#</a></h1>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h2>
-<p>Autoware should be real-time system when integrated to a service. Therefore, the response time of each callback should be as small as possible. If Autoware appears to be slow, it is imperative to conduct performance measurements and implement improvements based on the analysis. However, Autoware is a complex software system comprising numerous ROS 2 nodes, potentially complicating the process of identifying bottlenecks. To address this challenge, we will discuss methods for conducting detailed performance measurements for Autoware and provide case studies. It is worth noting that multiple factors can contribute to poor performance, such as scheduling and memory allocation in the OS layer, but our focus in this page will be on user code bottlenecks. The outline of this section is as follows:</p>
+<p>Autoware should be real-time system when integrated to a service. Therefore, the response time of each callback should be as small as possible. If Autoware appears to be slow, it is imperative to conduct performance measurements and implement improvements based on the analysis. However, Autoware is a complex software system comprising numerous <abbr title="Robot Operating System">ROS</abbr> 2 nodes, potentially complicating the process of identifying bottlenecks. To address this challenge, we will discuss methods for conducting detailed performance measurements for Autoware and provide case studies. It is worth noting that multiple factors can contribute to poor performance, such as scheduling and memory allocation in the OS layer, but our focus in this page will be on user code bottlenecks. The outline of this section is as follows:</p>
 <ul>
 <li>Performance measurement<ul>
 <li>Single node execution</li>
@@ -4503,7 +4503,7 @@ To accomplish this, record all input topics of the node to be measured while the
 To achieve this objective, a tool called <a href="https://github.com/sykwer/ros2_single_node_replayer"><code>ros2_single_node_replayer</code></a> has been prepared.</p>
 <p>Details on how to use the tool can be found in the README.
 This tool records the input topics of a specific node during the entire Autoware operation and replays it in a single node with the same logic.
-The tool relies on the <code>ros2 bag record</code> command, and the recording of service/action is not supported as of ROS 2 Humble, so nodes that use service/action as their main logic may not work well.</p>
+The tool relies on the <code>ros2 bag record</code> command, and the recording of service/action is not supported as of <abbr title="Robot Operating System">ROS</abbr> 2 Humble, so nodes that use service/action as their main logic may not work well.</p>
 <h3 id="prepare-separated-cores">Prepare separated cores<a class="headerlink" href="#prepare-separated-cores" title="Permanent link">#</a></h3>
 <p>Isolated cores running the node to be measured must meet the following conditions.</p>
 <ul>
@@ -4581,7 +4581,7 @@ This means that in the following pseudocode, when generating <code>output_msg</c
 <span class="p">}</span>
 </code></pre></div>
 <p>To improve cache efficiency, implement an in-place style as much as possible, instead of touching memory areas sporadically.
-In ROS applications using PCL, the code shown below is often seen.</p>
+In <abbr title="Robot Operating System">ROS</abbr> applications using PCL, the code shown below is often seen.</p>
 <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">callback</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">sensor_msgs</span><span class="o">::</span><span class="n">PointCloud2ConstPtr</span><span class="w"> </span><span class="o">&amp;</span><span class="n">input_msg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="n">pcl</span><span class="o">::</span><span class="n">PointCloud</span><span class="o">&lt;</span><span class="n">PointT</span><span class="o">&gt;::</span><span class="n">Ptr</span><span class="w"> </span><span class="n">input_pcl</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">pcl</span><span class="o">::</span><span class="n">PointCloud</span><span class="o">&lt;</span><span class="n">PointT</span><span class="o">&gt;</span><span class="p">);</span>
 <span class="w">  </span><span class="n">pcl</span><span class="o">::</span><span class="n">fromROSMsg</span><span class="p">(</span><span class="o">*</span><span class="n">input_msg</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">input_pcl</span><span class="p">);</span>
@@ -4621,7 +4621,8 @@ Let <code>N</code> be the size of <code>point_clouds</code> and <code>M</code> b
 </code></pre></div>
 <p>By using O(N) algorithm for minimum enclosing circle, the computational complexity of this program is reduced to almost O(N * (N + M)) (note that the exact computational complexity does not really change).
 If you are interested, refer to the <a href="https://github.com/autowarefoundation/autoware.universe/pull/2846">Pull Request</a>.</p>
-<p>Similar to this example, in the planning component, we take into consideration thousands to tens of thousands of point clouds, thousands of points in a path representing our own route, and polygons representing obstacles and detection areas in the surroundings, and we repeatedly create paths based on them. Therefore, we access the contents of the point clouds and paths multiple times using for-loops. In most cases, the bottleneck lies in these naive for-loops. Here, understanding Big O notation and reducing the order of computational complexity directly leads to performance improvements.</p></div>
+<p>Similar to this example, in the planning component, we take into consideration thousands to tens of thousands of point clouds, thousands of points in a path representing our own route, and polygons representing obstacles and detection areas in the surroundings, and we repeatedly create paths based on them. Therefore, we access the contents of the point clouds and paths multiple times using for-loops. In most cases, the bottleneck lies in these naive for-loops. Here, understanding Big O notation and reducing the order of computational complexity directly leads to performance improvements.</p>
+<!-- prettier-ignore --></div>
 
 
 

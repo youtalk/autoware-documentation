@@ -4439,7 +4439,7 @@
 <p>In Autoware, each sensor has a unique coordinate system and their data is expressed in terms of the coordinates. In order to correlate the independent data between different sensors, we need to find the position relationship between each sensor and the vehicle body. Once the installation position of the sensor on the vehicle body is determined, it will remain fixed during running, so the offline calibration method can be used to determine the precise position of each sensor relative to the vehicle body.</p>
 </li>
 <li>
-<p>ROS TF2</p>
+<p><abbr title="Robot Operating System">ROS</abbr> TF2</p>
 <p>The <code>TF2</code> system maintains a tree of coordinate transformations to represent the relationships between different coordinate systems. Each coordinate system is given a unique name and they are connected by coordinate transformations. How to use <code>TF2</code>, refer to the <a href="http://docs.ros.org/en/galactic/Concepts/About-Tf2.html">TF2 tutorial</a>.</p>
 </li>
 </ol>
@@ -4467,7 +4467,7 @@
 <li>imu, lidar, gnss, radar: these are sensor frames, transfer to vehicle coordinate system through mounting relationship.</li>
 </ul>
 <ul>
-<li>camera_link: <code>camera_link</code> is ROS standard camera coordinate system .</li>
+<li>camera_link: <code>camera_link</code> is <abbr title="Robot Operating System">ROS</abbr> standard camera coordinate system .</li>
 </ul>
 <ul>
 <li>camera_optical_link: <code>camera_optical_link</code> is image standard camera coordinate system.</li>
@@ -4480,11 +4480,11 @@
 </code></pre></div>
 <p>We cannot directly get the <code>sensor</code> frame. Because we would need the EKF module to estimate the <code>base_link</code> frame first.</p>
 <p>Without the EKF module the best we can do is to estimate <code>Map[map] --&gt; sensor_by_sensor --&gt; base_link_by_sensor</code> using this sensor.</p>
-<h4 id="example-by-the-gnssins-sensor">Example by the GNSS/INS sensor<a class="headerlink" href="#example-by-the-gnssins-sensor" title="Permanent link">#</a></h4>
-<p>For the integrated GNSS/INS we use the following frames:</p>
+<h4 id="example-by-the-gnssins-sensor">Example by the <abbr title="Global Navigation Satellite System">GNSS</abbr>/INS sensor<a class="headerlink" href="#example-by-the-gnssins-sensor" title="Permanent link">#</a></h4>
+<p>For the integrated <abbr title="Global Navigation Satellite System">GNSS</abbr>/INS we use the following frames:</p>
 <pre class="mermaid"><code>flowchart LR
     earth --&gt; Map[map] --&gt; gnss_ins_by_gnss_ins --&gt; base_link_by_gnss_ins</code></pre>
-<p>The <code>gnss_ins_by_gnss_ins</code> frame is obtained by the coordinates from GNSS/INS sensor. The coordinates are converted to <code>map</code> frame using the <code>gnss_poser</code> node.</p>
+<p>The <code>gnss_ins_by_gnss_ins</code> frame is obtained by the coordinates from <abbr title="Global Navigation Satellite System">GNSS</abbr>/INS sensor. The coordinates are converted to <code>map</code> frame using the <code>gnss_poser</code> node.</p>
 <p>Finally <code>gnss_ins_by_gnss_ins</code> frame represents the position of the <code>gnss_ins</code> estimated by the <code>gnss_ins</code> sensor in the <code>map</code>.</p>
 <p>Then by using the static transformation between <code>gnss_ins</code> and the <code>base_link</code> frame, we can obtain the <code>base_link_by_gnss_ins</code> frame. Which represents the <code>base_link</code> estimated by the <code>gnss_ins</code> sensor.</p>
 <p>References:</p>
@@ -4498,8 +4498,8 @@
 <span class="nt">Z+</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Up</span>
 </code></pre></div>
 <p>The position, orientation, velocity, acceleration are all defined in the same axis convention.</p>
-<p>Position by the GNSS/INS sensor is expected to be in <code>earth</code> frame.</p>
-<p>Orientation, velocity, acceleration by the GNSS/INS sensor are expected to be in the sensor frame. Axes parallel to the <code>map</code> frame.</p>
+<p>Position by the <abbr title="Global Navigation Satellite System">GNSS</abbr>/INS sensor is expected to be in <code>earth</code> frame.</p>
+<p>Orientation, velocity, acceleration by the <abbr title="Global Navigation Satellite System">GNSS</abbr>/INS sensor are expected to be in the sensor frame. Axes parallel to the <code>map</code> frame.</p>
 <p>If roll, pitch, yaw is provided, they correspond to rotation around X, Y, Z axes respectively.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">Rotation around</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">X+</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">roll</span>
@@ -4524,7 +4524,8 @@
 <p>Geo-referencing of map data</p>
 <p>The geo-referencing information can get the transformation relationship of <code>earth</code> coordinate system to local <code>map</code> coordinate system.</p>
 </li>
-</ol></div>
+</ol>
+<!-- prettier-ignore --></div>
 
 
 

@@ -4474,9 +4474,9 @@
 
 
 <div><h1 id="console-logging">Console logging<a class="headerlink" href="#console-logging" title="Permanent link">#</a></h1>
-<p>ROS 2 logging is a powerful tool for understanding and debugging ROS nodes.</p>
+<p><abbr title="Robot Operating System">ROS</abbr> 2 logging is a powerful tool for understanding and debugging <abbr title="Robot Operating System">ROS</abbr> nodes.</p>
 <p>This page focuses on how to design console logging in Autoware and shows several practical examples.
-To comprehensively understand how ROS 2 logging works, refer to the <a href="https://docs.ros.org/en/humble/Concepts/About-Logging.html">logging documentation</a>.</p>
+To comprehensively understand how <abbr title="Robot Operating System">ROS</abbr> 2 logging works, refer to the <a href="https://docs.ros.org/en/humble/Concepts/About-Logging.html">logging documentation</a>.</p>
 <h2 id="logging-use-cases-in-autoware">Logging use cases in Autoware<a class="headerlink" href="#logging-use-cases-in-autoware" title="Permanent link">#</a></h2>
 <ul>
 <li>Developers debug code by seeing the console logs.</li>
@@ -4507,7 +4507,7 @@ For that, several rules are defined below.</p>
 </ul>
 </li>
 <li><strong>FATAL:</strong> Use this level when the entire system can't continue working correctly, and the system must be stopped.<ul>
-<li>For example, "the vehicle control ECU doesn't respond", "the system storage crashed", etc.</li>
+<li>For example, "the vehicle control <abbr title="Electronic Control Unit">ECU</abbr> doesn't respond", "the system storage crashed", etc.</li>
 </ul>
 </li>
 </ul>
@@ -4563,7 +4563,7 @@ In such cases, wait about 5 seconds as a reference value.</p>
 </ul>
 <h3 id="do-not-depend-on-rclcppnode-in-core-library-classes-but-depend-only-on-rclcpplogginghpp-advisory-non-automated">Do not depend on rclcpp::Node in core library classes but depend only on rclcpp/logging.hpp (advisory, non-automated)<a class="headerlink" href="#do-not-depend-on-rclcppnode-in-core-library-classes-but-depend-only-on-rclcpplogginghpp-advisory-non-automated" title="Permanent link">#</a></h3>
 <h4 id="rationale_3">Rationale<a class="headerlink" href="#rationale_3" title="Permanent link">#</a></h4>
-<p>Core library classes, which contain reusable algorithms, may also be used for non-ROS platforms.
+<p>Core library classes, which contain reusable algorithms, may also be used for non-<abbr title="Robot Operating System">ROS</abbr> platforms.
 When porting libraries to other platforms, fewer dependencies are preferred.</p>
 <h4 id="example_3">Example<a class="headerlink" href="#example_3" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><span class="c1">// Compliant</span>
@@ -4612,7 +4612,7 @@ When porting libraries to other platforms, fewer dependencies are preferred.</p>
 <p>To filter logs, using <code>rqt_console</code> is useful:</p>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>run<span class="w"> </span>rqt_console<span class="w"> </span>rqt_console
 </code></pre></div>
-<p>For more details, refer to <a href="https://docs.ros.org/en/rolling/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.html">ROS 2 Documentation</a>.</p>
+<p>For more details, refer to <a href="https://docs.ros.org/en/rolling/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.html"><abbr title="Robot Operating System">ROS</abbr> 2 Documentation</a>.</p>
 <h3 id="useful-marco-expressions">Useful marco expressions<a class="headerlink" href="#useful-marco-expressions" title="Permanent link">#</a></h3>
 <p>To debug program, sometimes you need to see which functions and lines of code are executed.
 In that case, you can use <code>__FILE__</code>, <code>__LINE__</code> and <code>__FUNCTION__</code> macro:</p>
@@ -4623,7 +4623,8 @@ In that case, you can use <code>__FILE__</code>, <code>__LINE__</code> and <code
 <p>The example output is as follows:</p>
 <blockquote>
 <p>[DEBUG] [1671720414.395456931] [foo]: file: /path/to/file.cpp, line: 100, function: on_timer</p>
-</blockquote></div>
+</blockquote>
+<!-- prettier-ignore --></div>
 
 
 

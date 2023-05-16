@@ -549,26 +549,6 @@
     How to set up a development environment
   </a>
   
-    <nav class="md-nav" aria-label="How to set up a development environment">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#installing-dependencies-manually" class="md-nav__link">
-    Installing dependencies manually
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#installing-dependencies-using-ansible" class="md-nav__link">
-    Installing dependencies using Ansible
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -4365,26 +4345,6 @@
     How to set up a development environment
   </a>
   
-    <nav class="md-nav" aria-label="How to set up a development environment">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#installing-dependencies-manually" class="md-nav__link">
-    Installing dependencies manually
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#installing-dependencies-using-ansible" class="md-nav__link">
-    Installing dependencies using Ansible
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -4431,11 +4391,11 @@
 </ul>
 <ul>
 <li>
-<p>ROS</p>
+<p><abbr title="Robot Operating System">ROS</abbr></p>
 <ul>
-<li>ROS 2 Humble</li>
+<li><abbr title="Robot Operating System">ROS</abbr> 2 Humble</li>
 </ul>
-<p>For ROS 2 system dependencies, refer to <a href="https://www.ros.org/reps/rep-2000.html">REP-2000</a>.</p>
+<p>For <abbr title="Robot Operating System">ROS</abbr> 2 system dependencies, refer to <a href="https://www.ros.org/reps/rep-2000.html">REP-2000</a>.</p>
 </li>
 </ul>
 <ul>
@@ -4448,7 +4408,7 @@
 sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>git
 </code></pre></div>
 <blockquote>
-<p>Note: If you wish to use ROS 2 Galactic on Ubuntu 20.04, refer to installation instruction from <a href="https://autowarefoundation.github.io/autoware-documentation/galactic/installation/autoware/source-installation/">galactic</a> branch, but be aware that Galactic version of Autoware might not have latest features.</p>
+<p>Note: If you wish to use <abbr title="Robot Operating System">ROS</abbr> 2 Galactic on Ubuntu 20.04, refer to installation instruction from <a href="https://autowarefoundation.github.io/autoware-documentation/galactic/installation/autoware/source-installation/">galactic</a> branch, but be aware that Galactic version of Autoware might not have latest features.</p>
 </blockquote>
 <h2 id="how-to-set-up-a-development-environment">How to set up a development environment<a class="headerlink" href="#how-to-set-up-a-development-environment" title="Permanent link">#</a></h2>
 <ol>
@@ -4459,21 +4419,27 @@ sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </
 </code></pre></div>
 </li>
 <li>
-<p>You can install the dependencies either manually or using the provided Ansible script.</p>
+<p>If you are installing Autoware for the first time, you can automatically install the dependencies by using the provided Ansible script.</p>
+<div class="highlight"><pre><span></span><code>./setup-dev-env.sh
+</code></pre></div>
+<p>If you encounter any build issues, please consult the <a href="../../../support/troubleshooting/#build-issues">Troubleshooting</a> section for assistance.</p>
 </li>
 </ol>
-<blockquote>
-<p>Note: Before installing NVIDIA libraries, confirm and agree with the licenses.</p>
-</blockquote>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Before installing NVIDIA libraries, please ensure that you have reviewed and agreed to the licenses.</p>
 <ul>
 <li><a href="https://docs.nvidia.com/cuda/eula/index.html">CUDA</a></li>
 <li><a href="https://docs.nvidia.com/deeplearning/cudnn/sla/index.html">cuDNN</a></li>
 <li><a href="https://docs.nvidia.com/deeplearning/tensorrt/sla/index.html">TensorRT</a></li>
 </ul>
-<h3 id="installing-dependencies-manually">Installing dependencies manually<a class="headerlink" href="#installing-dependencies-manually" title="Permanent link">#</a></h3>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The following items will be automatically installed. If the ansible script doesn't work or if you already have different versions of dependent libraries installed, please install the following items manually.</p>
 <ul>
-<li><a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/ros2#manual-installation">Install ROS 2</a></li>
-<li><a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/ros2_dev_tools#manual-installation">Install ROS 2 Dev Tools</a></li>
+<li><a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/ros2#manual-installation">Install <abbr title="Robot Operating System">ROS</abbr> 2</a></li>
+<li><a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/ros2_dev_tools#manual-installation">Install <abbr title="Robot Operating System">ROS</abbr> 2 Dev Tools</a></li>
 <li><a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/rmw_implementation#manual-installation">Install the RMW Implementation</a></li>
 <li><a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/pacmod#manual-installation">Install pacmod</a></li>
 <li><a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/autoware_core#manual-installation">Install Autoware Core dependencies</a></li>
@@ -4482,11 +4448,7 @@ sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </
 <li><a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/cuda#manual-installation">Install Nvidia CUDA</a></li>
 <li><a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/tensorrt#manual-installation">Install Nvidia cuDNN and TensorRT</a></li>
 </ul>
-<h3 id="installing-dependencies-using-ansible">Installing dependencies using Ansible<a class="headerlink" href="#installing-dependencies-using-ansible" title="Permanent link">#</a></h3>
-<p>Be very careful with this method. Make sure you read and confirmed all the steps in the Ansible configuration before using it.</p>
-<p>If you've manually installed the dependencies, you can skip this section.</p>
-<div class="highlight"><pre><span></span><code>./setup-dev-env.sh
-</code></pre></div>
+</div>
 <h2 id="how-to-set-up-a-workspace">How to set up a workspace<a class="headerlink" href="#how-to-set-up-a-workspace" title="Permanent link">#</a></h2>
 <ol>
 <li>
@@ -4498,8 +4460,8 @@ vcs<span class="w"> </span>import<span class="w"> </span>src<span class="w"> </s
 </code></pre></div>
 </li>
 <li>
-<p>Install dependent ROS packages.</p>
-<p>Autoware requires some ROS 2 packages in addition to the core components.
+<p>Install dependent <abbr title="Robot Operating System">ROS</abbr> packages.</p>
+<p>Autoware requires some <abbr title="Robot Operating System">ROS</abbr> 2 packages in addition to the core components.
  The tool <code>rosdep</code> allows an automatic search and installation of such dependencies.
  You might need to run <code>rosdep update</code> before <code>rosdep install</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>/opt/ros/humble/setup.bash
@@ -4542,7 +4504,7 @@ vcs<span class="w"> </span>pull<span class="w"> </span>src
 <p>For more information, refer to the <a href="https://github.com/dirk-thomas/vcstool">official documentation</a>.</p>
 </li>
 <li>
-<p>Install dependent ROS packages.</p>
+<p>Install dependent <abbr title="Robot Operating System">ROS</abbr> packages.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>/opt/ros/humble/setup.bash
 rosdep<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>--from-paths<span class="w"> </span>src<span class="w"> </span>--ignore-src<span class="w"> </span>--rosdistro<span class="w"> </span><span class="nv">$ROS_DISTRO</span>
 </code></pre></div>
@@ -4552,7 +4514,8 @@ rosdep<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> 
 <div class="highlight"><pre><span></span><code>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release
 </code></pre></div>
 </li>
-</ol></div>
+</ol>
+<!-- prettier-ignore --></div>
 
 
 

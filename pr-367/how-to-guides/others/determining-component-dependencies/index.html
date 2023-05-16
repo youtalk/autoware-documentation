@@ -4338,7 +4338,7 @@
 
 
 <div><h1 id="determining-component-dependencies">Determining component dependencies<a class="headerlink" href="#determining-component-dependencies" title="Permanent link">#</a></h1>
-<p>For any developers who wish to try and deploy Autoware as a microservices architecture, it is necessary to understand the software dependencies, communication, and implemented features of each ROS package/node.</p>
+<p>For any developers who wish to try and deploy Autoware as a microservices architecture, it is necessary to understand the software dependencies, communication, and implemented features of each <abbr title="Robot Operating System">ROS</abbr> package/node.</p>
 <p>As an example, the commands necessary to determine the dependencies for the Perception component are shown below.</p>
 <h2 id="perception-component-dependencies">Perception component dependencies<a class="headerlink" href="#perception-component-dependencies" title="Permanent link">#</a></h2>
 <p>To generate a graph of package dependencies, use the following <code>colcon</code> command:</p>
@@ -4402,11 +4402,13 @@ vehicle_info_util
 <p class="admonition-title">Tip</p>
 <p>To output a list of modules with their respective paths, run the command above without the <code>--names-only</code> parameter.</p>
 </div>
-<p>To see which ROS topics are being subscribed and published to, use <code>rqt_graph</code> as follows:</p>
+<p>To see which <abbr title="Robot Operating System">ROS</abbr> topics are being subscribed and published to, use <code>rqt_graph</code> as follows:</p>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>tier4_perception_launch<span class="w"> </span>perception.launch.xml<span class="w"> </span>mode:<span class="o">=</span>lidar
 ros2<span class="w"> </span>run<span class="w"> </span>rqt_graph<span class="w"> </span>rqt_graph
 </code></pre></div>
-<!-- TODO: Add a way of determining software dependencies --></div>
+<!-- TODO: Add a way of determining software dependencies -->
+
+<!-- prettier-ignore --></div>
 
 
 

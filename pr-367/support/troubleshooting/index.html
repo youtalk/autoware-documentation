@@ -4634,8 +4634,8 @@ git<span class="w"> </span>clone<span class="w"> </span>https://github.com/autow
 <h3 id="errors-when-using-a-fixed-version-of-autoware">Errors when using a fixed version of Autoware<a class="headerlink" href="#errors-when-using-a-fixed-version-of-autoware" title="Permanent link">#</a></h3>
 <p>In principle, errors should not occur when using a fixed version. That said, possible causes include:</p>
 <ul>
-<li>ROS 2 has been updated with breaking changes.<ul>
-<li>For confirmation, check the <a href="https://discourse.ros.org/c/release/16">Packaging and Release Management</a> tag on ROS Discourse.</li>
+<li><abbr title="Robot Operating System">ROS</abbr> 2 has been updated with breaking changes.<ul>
+<li>For confirmation, check the <a href="https://discourse.ros.org/c/release/16">Packaging and Release Management</a> tag on <abbr title="Robot Operating System">ROS</abbr> Discourse.</li>
 </ul>
 </li>
 <li>Your local environment is broken.<ul>
@@ -4702,7 +4702,8 @@ docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </
 <h3 id="node-performance-degradation">Node performance degradation<a class="headerlink" href="#node-performance-degradation" title="Permanent link">#</a></h3>
 <p>If you notice a decrease in the running performance of a node, such as <a href="https://github.com/autowarefoundation/autoware.universe/issues/2597#issuecomment-1491789081">issue2597</a>, you need to check if your compilation instructions use <code>Release</code> or <code>RelWithDebInfo</code> tags. If not, recompile the project using the following instructions:</p>
 <div class="highlight"><pre><span></span><code>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release
-</code></pre></div></div>
+</code></pre></div>
+<!-- prettier-ignore --></div>
 
 
 

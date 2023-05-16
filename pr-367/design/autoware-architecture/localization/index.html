@@ -4468,7 +4468,7 @@
 <ul>
 <li>This design document does not aim to develop a localization system that<ul>
 <li>is infallible in all environments</li>
-<li>works outside of the pre-defined ODD (Operational Design Domain)</li>
+<li>works outside of the pre-defined <abbr title="Operational Design Domain">ODD</abbr> (Operational Design Domain)</li>
 <li>has better performance than is required for autonomous driving</li>
 </ul>
 </li>
@@ -4508,24 +4508,24 @@ Each sensor has its own advantages and disadvantages, but overall performance ca
 <h4 id="functionalities">Functionalities<a class="headerlink" href="#functionalities" title="Permanent link">#</a></h4>
 <ul>
 <li>Correct vehicle positions along the lateral direction.</li>
-<li>Pose correction along the longitudinal can be inaccurate, but can be resolved by fusing with GNSS.</li>
+<li>Pose correction along the longitudinal can be inaccurate, but can be resolved by fusing with <abbr title="Global Navigation Satellite System">GNSS</abbr>.</li>
 </ul>
-<h3 id="gnss">GNSS<a class="headerlink" href="#gnss" title="Permanent link">#</a></h3>
+<h3 id="gnss"><abbr title="Global Navigation Satellite System">GNSS</abbr><a class="headerlink" href="#gnss" title="Permanent link">#</a></h3>
 <h4 id="expected-situation_2">Expected situation<a class="headerlink" href="#expected-situation_2" title="Permanent link">#</a></h4>
 <ul>
 <li>The vehicle is placed in an open environment with few to no surrounding objects, such as a rural landscape.</li>
 </ul>
 <h4 id="situation-that-can-make-the-system-unstable">Situation that can make the system unstable<a class="headerlink" href="#situation-that-can-make-the-system-unstable" title="Permanent link">#</a></h4>
 <ul>
-<li>GNSS signals are blocked by surrounding objects, e.g., tunnels or buildings.</li>
+<li><abbr title="Global Navigation Satellite System">GNSS</abbr> signals are blocked by surrounding objects, e.g., tunnels or buildings.</li>
 </ul>
 <h4 id="functionality_1">Functionality<a class="headerlink" href="#functionality_1" title="Permanent link">#</a></h4>
 <ul>
 <li>The system can estimate vehicle position in the world coordinate within an error of ~10m.</li>
-<li>With a RKT-GNSS (Real Time Kinematic Global Navigation Satellite System) attached, the accuracy can be improved to ~10cm.</li>
+<li>With a RKT-<abbr title="Global Navigation Satellite System">GNSS</abbr> (Real Time Kinematic Global Navigation Satellite System) attached, the accuracy can be improved to ~10cm.</li>
 <li>A system with this configuration can work without environment maps (both point cloud and vector map types).</li>
 </ul>
-<h3 id="camera-visual-odometry-visual-slam">Camera (Visual Odometry, Visual SLAM)<a class="headerlink" href="#camera-visual-odometry-visual-slam" title="Permanent link">#</a></h3>
+<h3 id="camera-visual-odometry-visual-slam">Camera (Visual Odometry, Visual <abbr title="Simultaneous Localization And Mapping">SLAM</abbr>)<a class="headerlink" href="#camera-visual-odometry-visual-slam" title="Permanent link">#</a></h3>
 <h4 id="expected-situation_3">Expected situation<a class="headerlink" href="#expected-situation_3" title="Permanent link">#</a></h4>
 <ul>
 <li>The vehicle is placed in an environment with rich visual features, such as an urban area.</li>
@@ -4554,7 +4554,7 @@ Each sensor has its own advantages and disadvantages, but overall performance ca
 <ul>
 <li>The system can acquire the vehicle velocity and estimate distance traveled.</li>
 </ul>
-<h3 id="imu">IMU<a class="headerlink" href="#imu" title="Permanent link">#</a></h3>
+<h3 id="imu"><abbr title="Inertial Measurement Unit">IMU</abbr><a class="headerlink" href="#imu" title="Permanent link">#</a></h3>
 <h4 id="expected-environments">Expected environments<a class="headerlink" href="#expected-environments" title="Permanent link">#</a></h4>
 <ul>
 <li>Flat, smooth roads</li>
@@ -4610,14 +4610,14 @@ Each sensor has its own advantages and disadvantages, but overall performance ca
 <h4 id="input">Input<a class="headerlink" href="#input" title="Permanent link">#</a></h4>
 <ul>
 <li>Sensor message<ul>
-<li>e.g., LiDAR, camera, GNSS, IMU, CAN Bus, etc.</li>
-<li>Data types should be ROS primitives for reusability</li>
+<li>e.g., LiDAR, camera, <abbr title="Global Navigation Satellite System">GNSS</abbr>, <abbr title="Inertial Measurement Unit">IMU</abbr>, CAN Bus, etc.</li>
+<li>Data types should be <abbr title="Robot Operating System">ROS</abbr> primitives for reusability</li>
 </ul>
 </li>
 <li>Map data<ul>
 <li>e.g., point cloud map, lanelet2 map, feature map, etc.</li>
 <li>The map format should be chosen based on use case and sensor configuration</li>
-<li>Note that map data is not required for some specific cases (e.g., GNSS-only localization)</li>
+<li>Note that map data is not required for some specific cases (e.g., <abbr title="Global Navigation Satellite System">GNSS</abbr>-only localization)</li>
 </ul>
 </li>
 <li>tf, static_tf<ul>
@@ -4718,7 +4718,7 @@ Each sensor has its own advantages and disadvantages, but overall performance ca
 <h3 id="the-localization-modules-ideal-functionality">The localization module's ideal functionality<a class="headerlink" href="#the-localization-modules-ideal-functionality" title="Permanent link">#</a></h3>
 <ul>
 <li>The localization module should provide pose, velocity, and acceleration for control, planning, and perception.</li>
-<li>Latency and stagger should be sufficiently small or adjustable such that the estimated values can be used for control within the ODD (Operational Design Domain).</li>
+<li>Latency and stagger should be sufficiently small or adjustable such that the estimated values can be used for control within the <abbr title="Operational Design Domain">ODD</abbr> (Operational Design Domain).</li>
 <li>The localization module should produce the pose on a fixed coordinate frame.</li>
 <li>Sensors should be independent of each other so that they can be easily replaced.</li>
 <li>The localization module should provide a status indicating whether or not the autonomous vehicle can operate with the self-contained function or map information.</li>
@@ -4729,9 +4729,9 @@ Each sensor has its own advantages and disadvantages, but overall performance ca
 <p>To maintain sufficient pose estimation performance for safe operation, the following metrics are considered:</p>
 <ul>
 <li>Safety<ul>
-<li>The distance traveled within the ODD where pose estimation met the required accuracy, divided by the overall distance traveled within the ODD, as a percentage.</li>
-<li>The anomaly detection rate for situations where the localization module cannot estimate pose within the ODD</li>
-<li>The accuracy of detecting when the vehicle goes outside of the ODD, as a percentage.</li>
+<li>The distance traveled within the <abbr title="Operational Design Domain">ODD</abbr> where pose estimation met the required accuracy, divided by the overall distance traveled within the <abbr title="Operational Design Domain">ODD</abbr>, as a percentage.</li>
+<li>The anomaly detection rate for situations where the localization module cannot estimate pose within the <abbr title="Operational Design Domain">ODD</abbr></li>
+<li>The accuracy of detecting when the vehicle goes outside of the <abbr title="Operational Design Domain">ODD</abbr>, as a percentage.</li>
 </ul>
 </li>
 <li>Computational load</li>
@@ -4743,7 +4743,7 @@ Each sensor has its own advantages and disadvantages, but overall performance ca
 <h4 id="sensor-prerequisites">Sensor prerequisites<a class="headerlink" href="#sensor-prerequisites" title="Permanent link">#</a></h4>
 <ul>
 <li>Input data is not defective.<ul>
-<li>Internal sensor observation such as IMU continuously keeps the proper frequency.</li>
+<li>Internal sensor observation such as <abbr title="Inertial Measurement Unit">IMU</abbr> continuously keeps the proper frequency.</li>
 </ul>
 </li>
 <li>Input data has correct and exact time stamps.<ul>
@@ -4777,11 +4777,12 @@ Each sensor has its own advantages and disadvantages, but overall performance ca
 <ul>
 <li>Sufficient computational resources should be provided to maintain accuracy and computation speed.</li>
 </ul>
+<!-- prettier-ignore -->
 <div class="footnote">
 <hr>
 <ol>
 <li id="fn:1">
-<p>For more details about bias, refer to the <a href="https://www.vectornav.com/resources/inertial-navigation-primer/specifications--and--error-budgets/specs-imuspecs">VectorNav IMU specifications page</a>. <a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
+<p>For more details about bias, refer to the <a href="https://www.vectornav.com/resources/inertial-navigation-primer/specifications--and--error-budgets/specs-imuspecs">VectorNav <abbr title="Inertial Measurement Unit">IMU</abbr> specifications page</a>. <a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
 </li>
 </ol>
 </div></div>

@@ -4466,14 +4466,14 @@
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">#</a></h2>
 <p>Here are solutions for a few specific errors:</p>
 <h3 id="cuda-error-forward-compatibility-was-attempted-on-non-supported-hw">cuda error: forward compatibility was attempted on non supported hw<a class="headerlink" href="#cuda-error-forward-compatibility-was-attempted-on-non-supported-hw" title="Permanent link">#</a></h3>
-<p>When starting Docker with GPU support enabled for NVIDIA graphics, you may sometimes receive the following error:</p>
+<p>When starting Docker with <abbr title="Graphics Processing Unit">GPU</abbr> support enabled for NVIDIA graphics, you may sometimes receive the following error:</p>
 <div class="highlight"><pre><span></span><code>docker:<span class="w"> </span>Error<span class="w"> </span>response<span class="w"> </span>from<span class="w"> </span>daemon:<span class="w"> </span>OCI<span class="w"> </span>runtime<span class="w"> </span>create<span class="w"> </span>failed:<span class="w"> </span>container_linux.go:349:<span class="w"> </span>starting<span class="w"> </span>container<span class="w"> </span>process<span class="w"> </span>caused<span class="w"> </span><span class="s2">"process_linux.go:449: container init caused \"process_linux.go:432: running prestart hook 0 caused \\\"error running hook: exit status 1, stdout: , stderr: nvidia-container-cli: initialization error: cuda error: forward compatibility was attempted on non supported hw\\\\n\\\"\""</span>:<span class="w"> </span>unknown.
 ERROR:<span class="w"> </span>Command<span class="w"> </span><span class="k">return</span><span class="w"> </span>non-zero<span class="w"> </span><span class="nb">exit</span><span class="w"> </span>code<span class="w"> </span><span class="o">(</span>see<span class="w"> </span>above<span class="o">)</span>:<span class="w"> </span><span class="m">125</span>
 </code></pre></div>
 <p>This usually indicates that a new NVIDIA graphics driver has been installed (usually via <code>apt</code>) but the system has not yet been restarted. A similar message may appear if the graphics driver is not available, for example because of resuming after suspend.</p>
 <p>To fix this, restart your system after installing the new NVIDIA driver.</p>
 <h3 id="docker-with-nvidia-gpu-fails-to-start-autoware-on-arm64-devices">Docker with NVIDIA gpu fails to start Autoware on arm64 devices<a class="headerlink" href="#docker-with-nvidia-gpu-fails-to-start-autoware-on-arm64-devices" title="Permanent link">#</a></h3>
-<p>When starting Docker with GPU support enabled for NVIDIA graphics on arm64 devices, e.g. NVIDIA jetson AGX xavier, you may receive the following error:</p>
+<p>When starting Docker with <abbr title="Graphics Processing Unit">GPU</abbr> support enabled for NVIDIA graphics on arm64 devices, e.g. NVIDIA jetson AGX xavier, you may receive the following error:</p>
 <div class="highlight"><pre><span></span><code>nvidia@xavier:~$<span class="w"> </span>rocker<span class="w"> </span>--nvidia<span class="w"> </span>--x11<span class="w"> </span>--user<span class="w"> </span>--volume<span class="w"> </span><span class="nv">$HOME</span>/autoware<span class="w"> </span>--<span class="w"> </span>ghcr.io/autowarefoundation/autoware-universe:humble-latest-cuda-arm64
 ...
 
@@ -4515,7 +4515,8 @@ aarch64
 <div class="highlight"><pre><span></span><code>$ docker run --rm -it ghcr.io/autowarefoundation/autoware-universe:humble-latest-cuda-arm64
 WARNING: The requested image's platform (linux/arm64) does not match the detected host platform (linux/amd64) and no specific platform was requested
 root@5b71391ad50f:/autoware#
-</code></pre></div></div>
+</code></pre></div>
+<!-- prettier-ignore --></div>
 
 
 

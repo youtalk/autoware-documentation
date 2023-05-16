@@ -4397,14 +4397,14 @@ By pulling and using the Autoware Universe images, you accept the terms and cond
 <p>Launch a Docker container.</p>
 <ul>
 <li>
-<p>For amd64 architecture computers with NVIDIA GPU:</p>
+<p>For amd64 architecture computers with NVIDIA <abbr title="Graphics Processing Unit">GPU</abbr>:</p>
 <div class="highlight"><pre><span></span><code>rocker<span class="w"> </span>--nvidia<span class="w"> </span>--x11<span class="w"> </span>--user<span class="w"> </span>--volume<span class="w"> </span><span class="nv">$HOME</span>/autoware<span class="w"> </span>--volume<span class="w"> </span><span class="nv">$HOME</span>/autoware_map<span class="w"> </span>--<span class="w"> </span>ghcr.io/autowarefoundation/autoware-universe:latest-cuda
 </code></pre></div>
 </li>
 </ul>
 <ul>
 <li>
-<p>If you want to run container without using NVIDIA GPU, or for arm64 architecture computers:</p>
+<p>If you want to run container without using NVIDIA <abbr title="Graphics Processing Unit">GPU</abbr>, or for arm64 architecture computers:</p>
 <div class="highlight"><pre><span></span><code>rocker<span class="w"> </span>-e<span class="w"> </span><span class="nv">LIBGL_ALWAYS_SOFTWARE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>--x11<span class="w"> </span>--user<span class="w"> </span>--volume<span class="w"> </span><span class="nv">$HOME</span>/autoware<span class="w"> </span>--volume<span class="w"> </span><span class="nv">$HOME</span>/autoware_map<span class="w"> </span>--<span class="w"> </span>ghcr.io/autowarefoundation/autoware-universe:latest-cuda
 </code></pre></div>
 <p>For detailed reason could be found <a href="../docker-installation/#docker-with-nvidia-gpu-fails-to-start-autoware-on-arm64-devices">here</a></p>
@@ -4422,7 +4422,7 @@ vcs<span class="w"> </span>import<span class="w"> </span>src<span class="w"> </s
 </code></pre></div>
 </li>
 <li>
-<p>Update dependent ROS packages.</p>
+<p>Update dependent <abbr title="Robot Operating System">ROS</abbr> packages.</p>
 <p>The dependency of Autoware may change after the Docker image was created.
  In that case, you need to run the following commands to update the dependency.</p>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
@@ -4455,7 +4455,7 @@ rosdep<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> 
 </ul>
 <ul>
 <li>
-<p>If you want to run container without using NVIDIA GPU, or for arm64 architecture computers:</p>
+<p>If you want to run container without using NVIDIA <abbr title="Graphics Processing Unit">GPU</abbr>, or for arm64 architecture computers:</p>
 <div class="highlight"><pre><span></span><code>rocker<span class="w"> </span>-e<span class="w"> </span><span class="nv">LIBGL_ALWAYS_SOFTWARE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>--x11<span class="w"> </span>--user<span class="w"> </span>--volume<span class="w"> </span><span class="nv">$HOME</span>/autoware<span class="w"> </span>--<span class="w"> </span>ghcr.io/autowarefoundation/autoware-universe:latest-cuda
 </code></pre></div>
 </li>
@@ -4478,7 +4478,8 @@ vcs<span class="w"> </span>pull<span class="w"> </span>src
 <div class="highlight"><pre><span></span><code>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release
 </code></pre></div>
 </li>
-</ol></div>
+</ol>
+<!-- prettier-ignore --></div>
 
 
 

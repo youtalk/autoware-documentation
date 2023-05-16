@@ -4344,23 +4344,23 @@
 
 
 <div><h1 id="additional-settings-for-developers">Additional settings for developers<a class="headerlink" href="#additional-settings-for-developers" title="Permanent link">#</a></h1>
-<h2 id="console-settings-for-ros-2">Console settings for ROS 2<a class="headerlink" href="#console-settings-for-ros-2" title="Permanent link">#</a></h2>
+<h2 id="console-settings-for-ros-2">Console settings for <abbr title="Robot Operating System">ROS</abbr> 2<a class="headerlink" href="#console-settings-for-ros-2" title="Permanent link">#</a></h2>
 <h3 id="colorizing-logger-output">Colorizing logger output<a class="headerlink" href="#colorizing-logger-output" title="Permanent link">#</a></h3>
-<p>By default, ROS 2 logger doesn't colorize the output.
+<p>By default, <abbr title="Robot Operating System">ROS</abbr> 2 logger doesn't colorize the output.
 To colorize it, write the following in your <code>.bashrc</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">RCUTILS_COLORIZED_OUTPUT</span><span class="o">=</span><span class="m">1</span>
 </code></pre></div>
 <h3 id="customizing-the-format-of-logger-output">Customizing the format of logger output<a class="headerlink" href="#customizing-the-format-of-logger-output" title="Permanent link">#</a></h3>
-<p>By default, ROS 2 logger doesn't output detailed information such as file name, function name, or line number.
+<p>By default, <abbr title="Robot Operating System">ROS</abbr> 2 logger doesn't output detailed information such as file name, function name, or line number.
 To customize it, write the following in your <code>.bashrc</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">RCUTILS_CONSOLE_OUTPUT_FORMAT</span><span class="o">=</span><span class="s2">"[{severity} {time}] [{name}]: {message} ({function_name}() at {file_name}:{line_number})"</span>
 </code></pre></div>
 <p>For more options, see <a href="https://docs.ros.org/en/rolling/Tutorials/Logging-and-logger-configuration.html#console-output-formatting">here</a>.</p>
-<h2 id="network-settings-for-ros-2">Network settings for ROS 2<a class="headerlink" href="#network-settings-for-ros-2" title="Permanent link">#</a></h2>
-<p>ROS 2 employs DDS, and the configuration of ROS 2 and DDS is described separately.
-For ROS 2 networking concepts, refer to the <a href="http://design.ros2.org/articles/ros_on_dds.html">official documentation</a>.</p>
-<h3 id="ros-2-network-setting">ROS 2 network setting<a class="headerlink" href="#ros-2-network-setting" title="Permanent link">#</a></h3>
-<p>ROS 2 multicasts data on the local network by default.
+<h2 id="network-settings-for-ros-2">Network settings for <abbr title="Robot Operating System">ROS</abbr> 2<a class="headerlink" href="#network-settings-for-ros-2" title="Permanent link">#</a></h2>
+<p><abbr title="Robot Operating System">ROS</abbr> 2 employs DDS, and the configuration of <abbr title="Robot Operating System">ROS</abbr> 2 and DDS is described separately.
+For <abbr title="Robot Operating System">ROS</abbr> 2 networking concepts, refer to the <a href="http://design.ros2.org/articles/ros_on_dds.html">official documentation</a>.</p>
+<h3 id="ros-2-network-setting"><abbr title="Robot Operating System">ROS</abbr> 2 network setting<a class="headerlink" href="#ros-2-network-setting" title="Permanent link">#</a></h3>
+<p><abbr title="Robot Operating System">ROS</abbr> 2 multicasts data on the local network by default.
 Therefore, when you develop in an office, the data flows over the local network of your office.
 It may cause collisions of packets or increases in network traffic.</p>
 <p>To avoid these, there are two options.</p>
@@ -4372,7 +4372,7 @@ It may cause collisions of packets or increases in network traffic.</p>
 For details, refer to the sections below.</p>
 <h4 id="enabling-localhost-only-communication">Enabling localhost-only communication<a class="headerlink" href="#enabling-localhost-only-communication" title="Permanent link">#</a></h4>
 <p>Write the following in your <code>.bashrc</code>:
-For more information, see the <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Configuring-ROS2-Environment.html#the-ros-localhost-only-variable">ROS 2 documentation</a>.</p>
+For more information, see the <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Configuring-ROS2-Environment.html#the-ros-localhost-only-variable"><abbr title="Robot Operating System">ROS</abbr> 2 documentation</a>.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">ROS_LOCALHOST_ONLY</span><span class="o">=</span><span class="m">1</span>
 </code></pre></div>
 <p>If you export <code>ROS_LOCALHOST_ONLY=1</code>, <code>MULTICAST</code> must be enabled at the loopback address.
@@ -4384,8 +4384,8 @@ To verify that <code>MULTICAST</code> is enabled, use the following command.</p>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>ip<span class="w"> </span>link<span class="w"> </span><span class="nb">set</span><span class="w"> </span>lo<span class="w"> </span>multicast<span class="w"> </span>on
 </code></pre></div>
 <h4 id="same-domain-only-communication-on-the-local-network">Same domain only communication on the local network<a class="headerlink" href="#same-domain-only-communication-on-the-local-network" title="Permanent link">#</a></h4>
-<p>ROS 2 uses <code>ROS_DOMAIN_ID</code> to create groups and communicate between machines in the groups.
-Since all ROS 2 nodes use domain ID <code>0</code> by default, it may cause unintended interference.</p>
+<p><abbr title="Robot Operating System">ROS</abbr> 2 uses <code>ROS_DOMAIN_ID</code> to create groups and communicate between machines in the groups.
+Since all <abbr title="Robot Operating System">ROS</abbr> 2 nodes use domain ID <code>0</code> by default, it may cause unintended interference.</p>
 <p>To avoid it, set a different domain ID for each group in your <code>.bashrc</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Replace X with the Domain ID you want to use</span>
 <span class="c1"># Domain ID should be a number in range [0, 101] (inclusive)</span>
@@ -4394,9 +4394,9 @@ Since all ROS 2 nodes use domain ID <code>0</code> by default, it may cause unin
 <p>Also confirm that <code>ROS_LOCALHOST_ONLY</code> is <code>0</code> by using the following command.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="nv">$ROS_LOCALHOST_ONLY</span><span class="w"> </span><span class="c1"># If the output is 1, localhost has priority.</span>
 </code></pre></div>
-<p>For more information, see the <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Configuring-ROS2-Environment.html#the-ros-domain-id-variable">ROS 2 Documentation</a>.</p>
+<p>For more information, see the <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Configuring-ROS2-Environment.html#the-ros-domain-id-variable"><abbr title="Robot Operating System">ROS</abbr> 2 Documentation</a>.</p>
 <h3 id="dds-settings">DDS settings<a class="headerlink" href="#dds-settings" title="Permanent link">#</a></h3>
-<p>Autoware uses DDS for inter-node communication. <a href="https://docs.ros.org/en/humble/How-To-Guides/DDS-tuning.html">ROS 2 documentation</a> recommends users to tune DDS to utilize its capability. Especially, receive buffer size is the critical parameter for Autoware. If the parameter is not large enough, Autoware will failed in receiving large data like point cloud or image.</p>
+<p>Autoware uses DDS for inter-node communication. <a href="https://docs.ros.org/en/humble/How-To-Guides/DDS-tuning.html"><abbr title="Robot Operating System">ROS</abbr> 2 documentation</a> recommends users to tune DDS to utilize its capability. Especially, receive buffer size is the critical parameter for Autoware. If the parameter is not large enough, Autoware will failed in receiving large data like point cloud or image.</p>
 <h4 id="tuning-dds">Tuning DDS<a class="headerlink" href="#tuning-dds" title="Permanent link">#</a></h4>
 <p>Unless customized, CycloneDDS is adopted by default. For example, to execute Autoware with CycloneDDS, prepare a config file. A sample config file is given below. Save it as <code>cyclonedds_config.xml</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
@@ -4413,12 +4413,13 @@ Since all ROS 2 nodes use domain ID <code>0</code> by default, it may cause unin
 <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">CYCLONEDDS_URI</span><span class="o">=</span>file:///absolute/path/to/cyclonedds_config.xml
 sudo<span class="w"> </span>sysctl<span class="w"> </span>-w<span class="w"> </span>net.core.rmem_max<span class="o">=</span><span class="m">2147483647</span>
 </code></pre></div>
-<p>For more information, Refer to <a href="https://docs.ros.org/en/humble/How-To-Guides/DDS-tuning.html">ROS 2 documentation</a>. Reading user guide for chosen DDS is helpful for more understanding.</p>
+<p>For more information, Refer to <a href="https://docs.ros.org/en/humble/How-To-Guides/DDS-tuning.html"><abbr title="Robot Operating System">ROS</abbr> 2 documentation</a>. Reading user guide for chosen DDS is helpful for more understanding.</p>
 <h4 id="tuning-dds-for-multiple-host-computers-for-advanced-users">Tuning DDS for multiple host computers (for advanced users)<a class="headerlink" href="#tuning-dds-for-multiple-host-computers-for-advanced-users" title="Permanent link">#</a></h4>
-<p>When Autoware runs on multiple host computers, IP Fragmentation should be taken into account. As <a href="https://docs.ros.org/en/humble/How-To-Guides/DDS-tuning.html#cross-vendor-tuning">ROS 2 documentation</a> recommends, parameters for IP Fragmentation should be set as shown in the following example.</p>
+<p>When Autoware runs on multiple host computers, IP Fragmentation should be taken into account. As <a href="https://docs.ros.org/en/humble/How-To-Guides/DDS-tuning.html#cross-vendor-tuning"><abbr title="Robot Operating System">ROS</abbr> 2 documentation</a> recommends, parameters for IP Fragmentation should be set as shown in the following example.</p>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>sysctl<span class="w"> </span>net.ipv4.ipfrag_time<span class="o">=</span><span class="m">3</span>
 sudo<span class="w"> </span>sysctl<span class="w"> </span>net.ipv4.ipfrag_high_thresh<span class="o">=</span><span class="m">134217728</span><span class="w">     </span><span class="c1"># (128 MB)</span>
-</code></pre></div></div>
+</code></pre></div>
+<!-- prettier-ignore --></div>
 
 
 

@@ -4420,14 +4420,14 @@
 
 
 <div><h1 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h1>
-<p>Autoware ROS nodes have declared parameters which values are provided during the node start up in the form of a parameter file. All the expected parameters with corresponding values should exist in the parameter file. Depending on the application, the parameter values might need to be modified.</p>
-<p>Find more information on parameters from the official ROS documentation:</p>
+<p>Autoware <abbr title="Robot Operating System">ROS</abbr> nodes have declared parameters which values are provided during the node start up in the form of a parameter file. All the expected parameters with corresponding values should exist in the parameter file. Depending on the application, the parameter values might need to be modified.</p>
+<p>Find more information on parameters from the official <abbr title="Robot Operating System">ROS</abbr> documentation:</p>
 <ul>
-<li><a href="https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.html">Understanding ROS 2 Parameters</a></li>
-<li><a href="https://docs.ros.org/en/humble/Concepts/About-ROS-2-Parameters.html">About ROS 2 Parameters</a></li>
+<li><a href="https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.html">Understanding <abbr title="Robot Operating System">ROS</abbr> 2 Parameters</a></li>
+<li><a href="https://docs.ros.org/en/humble/Concepts/About-ROS-2-Parameters.html">About <abbr title="Robot Operating System">ROS</abbr> 2 Parameters</a></li>
 </ul>
 <h2 id="json-schema">JSON Schema<a class="headerlink" href="#json-schema" title="Permanent link">#</a></h2>
-<p><a href="https://json-schema.org/understanding-json-schema/index.html">JSON Schema</a> is used the validate the parameter file(s) ensuring that it has the correct structure and content. Using JSON Schema for this purpose is considered best practice for cloud-native development. The schema template below shall be used as a starting point when defining the schema for a ROS node.</p>
+<p><a href="https://json-schema.org/understanding-json-schema/index.html">JSON Schema</a> is used the validate the parameter file(s) ensuring that it has the correct structure and content. Using JSON Schema for this purpose is considered best practice for cloud-native development. The schema template below shall be used as a starting point when defining the schema for a <abbr title="Robot Operating System">ROS</abbr> node.</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">"$schema"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://json-schema.org/draft-07/schema#"</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INSERT_TITLE"</span><span class="p">,</span>
@@ -4466,7 +4466,7 @@
 <span class="w">  </span><span class="nt">"required"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"/**"</span><span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>The schema file path is <code>INSERT_PATH_TO_PACKAGE/schema/</code> and the schema file name is <code>INSERT_NODE_NAME.schema.json</code>. To adapt the template to the ROS node, replace each <code>INSERT_...</code> and add all parameters <code>1..N</code>.</p>
+<p>The schema file path is <code>INSERT_PATH_TO_PACKAGE/schema/</code> and the schema file name is <code>INSERT_NODE_NAME.schema.json</code>. To adapt the template to the <abbr title="Robot Operating System">ROS</abbr> node, replace each <code>INSERT_...</code> and add all parameters <code>1..N</code>.</p>
 <p>See example: <em>Lidar Apollo Segmentation TVM Nodes</em> <a href="https://github.com/autowarefoundation/autoware.universe/blob/main/perception/lidar_apollo_segmentation_tvm_nodes/schema/lidar_apollo_segmentation_tvm_nodes.schema.json">schema</a></p>
 <h3 id="attributes">Attributes<a class="headerlink" href="#attributes" title="Permanent link">#</a></h3>
 <p>Parameters have several attributes, some are required and some optional. The optional attributes are highly encouraged when applicable, as they provide useful information about a parameter to the user.</p>
@@ -4491,15 +4491,15 @@
 </li>
 </ul>
 <h2 id="parameter-file">Parameter File<a class="headerlink" href="#parameter-file" title="Permanent link">#</a></h2>
-<p>The parameter file is minimal as there is no need to provide the user with additional information, e.g., description or type. This is because the associated JSON Schema provides the additional information. Use the template below as a starting point for a ROS node.</p>
+<p>The parameter file is minimal as there is no need to provide the user with additional information, e.g., description or type. This is because the associated JSON Schema provides the additional information. Use the template below as a starting point for a <abbr title="Robot Operating System">ROS</abbr> node.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">/**</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">ros__parameters</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">INSERT_PARAMETER_1_NAME</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">INSERT_PARAMETER_1_VALUE</span>
 <span class="w">    </span><span class="nt">INSERT_PARAMETER_N_NAME</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">INSERT_PARAMETER_N_VALUE</span>
 </code></pre></div>
-<p>The parameter file path is <code>INSERT_PATH_TO_PACKAGE/config/</code> and parameter file name is <code>INSERT_NODE_NAME.param.yaml</code>. To adapt the template to the ROS node, replace each <code>INSERT_...</code> and add all parameters <code>1..N</code>.</p>
+<p>The parameter file path is <code>INSERT_PATH_TO_PACKAGE/config/</code> and parameter file name is <code>INSERT_NODE_NAME.param.yaml</code>. To adapt the template to the <abbr title="Robot Operating System">ROS</abbr> node, replace each <code>INSERT_...</code> and add all parameters <code>1..N</code>.</p>
 <p>See example: <em>Lidar Apollo Segmentation TVM Nodes</em> <a href="https://github.com/autowarefoundation/autoware.universe/blob/main/perception/lidar_apollo_segmentation_tvm_nodes/config/lidar_apollo_segmentation_tvm_nodes.param.yaml">parameter file</a></p>
-<p>Note: <code>/**</code> is used instead of the explicit node namespace, this allows the parameter file to be passed to a ROS node which has been <a href="https://design.ros2.org/articles/static_remapping.html">remapped</a>.</p>
+<p>Note: <code>/**</code> is used instead of the explicit node namespace, this allows the parameter file to be passed to a <abbr title="Robot Operating System">ROS</abbr> node which has been <a href="https://design.ros2.org/articles/static_remapping.html">remapped</a>.</p>
 <h2 id="launch-parameter-file">Launch parameter file<a class="headerlink" href="#launch-parameter-file" title="Permanent link">#</a></h2>
 <p>(Original content, will need updating)</p>
 <ul>
@@ -4577,7 +4577,8 @@
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>The RedHat YAML extension enables validation of YAML files using JSON Schema and the <code>"yaml.schemas"</code> setting associates the <code>*.schema.json</code> file with all <code>*.param.yaml</code> files in the <code>config/</code> folder.</p></div>
+<p>The RedHat YAML extension enables validation of YAML files using JSON Schema and the <code>"yaml.schemas"</code> setting associates the <code>*.schema.json</code> file with all <code>*.param.yaml</code> files in the <code>config/</code> folder.</p>
+<!-- prettier-ignore --></div>
 
 
 

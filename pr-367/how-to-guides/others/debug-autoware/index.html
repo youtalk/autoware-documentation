@@ -4450,12 +4450,12 @@
 <div><h1 id="debug-autoware">Debug Autoware<a class="headerlink" href="#debug-autoware" title="Permanent link">#</a></h1>
 <p>This page provides some methods for debugging Autoware.</p>
 <h2 id="print-debug-messages">Print debug messages<a class="headerlink" href="#print-debug-messages" title="Permanent link">#</a></h2>
-<p>The essential thing for debug is to print the program information clearly, which can quickly judge the program operation and locate the problem. Autoware uses ROS 2 logging tool to print debug messages, how to design console logging refer to tutorial <a href="../../../contributing/coding-guidelines/ros-nodes/console-logging/">Console logging</a>.</p>
-<h2 id="using-ros-tools-debug-autoware">Using ROS tools debug Autoware<a class="headerlink" href="#using-ros-tools-debug-autoware" title="Permanent link">#</a></h2>
+<p>The essential thing for debug is to print the program information clearly, which can quickly judge the program operation and locate the problem. Autoware uses <abbr title="Robot Operating System">ROS</abbr> 2 logging tool to print debug messages, how to design console logging refer to tutorial <a href="../../../contributing/coding-guidelines/ros-nodes/console-logging/">Console logging</a>.</p>
+<h2 id="using-ros-tools-debug-autoware">Using <abbr title="Robot Operating System">ROS</abbr> tools debug Autoware<a class="headerlink" href="#using-ros-tools-debug-autoware" title="Permanent link">#</a></h2>
 <h3 id="using-command-line-tools">Using command line tools<a class="headerlink" href="#using-command-line-tools" title="Permanent link">#</a></h3>
-<p>ROS 2 includes a suite of command-line tools for introspecting a ROS 2 system. The main entry point for the tools is the command <code>ros2</code>, which itself has various sub-commands for introspecting and working with nodes, topics, services, and more. How to use the ROS 2 command line tool refer to tutorial <a href="http://docs.ros.org/en/galactic/Tutorials/Beginner-CLI-Tools.html">CLI tools</a>.</p>
+<p><abbr title="Robot Operating System">ROS</abbr> 2 includes a suite of command-line tools for introspecting a <abbr title="Robot Operating System">ROS</abbr> 2 system. The main entry point for the tools is the command <code>ros2</code>, which itself has various sub-commands for introspecting and working with nodes, topics, services, and more. How to use the <abbr title="Robot Operating System">ROS</abbr> 2 command line tool refer to tutorial <a href="http://docs.ros.org/en/galactic/Tutorials/Beginner-CLI-Tools.html">CLI tools</a>.</p>
 <h3 id="using-rviz2">Using rviz2<a class="headerlink" href="#using-rviz2" title="Permanent link">#</a></h3>
-<p>Rviz2 is a port of Rviz to ROS 2. It provides a graphical interface for users to view their robot, sensor data, maps, and more. You can run Rviz2 tool easily by:</p>
+<p>Rviz2 is a port of Rviz to <abbr title="Robot Operating System">ROS</abbr> 2. It provides a graphical interface for users to view their robot, sensor data, maps, and more. You can run Rviz2 tool easily by:</p>
 <div class="highlight"><pre><span></span><code><span class="go">rviz2</span>
 </code></pre></div>
 <p>When Autoware launch the simulators, the Rviz2 tool is opened by default to visualize the autopilot graphic information.</p>
@@ -4470,25 +4470,25 @@
 <ol>
 <li>
 <p>rqt_graph: view node interaction</p>
-<p>In complex applications, it may be helpful to get a visual representation of the ROS node interactions.</p>
+<p>In complex applications, it may be helpful to get a visual representation of the <abbr title="Robot Operating System">ROS</abbr> node interactions.</p>
 <div class="highlight"><pre><span></span><code><span class="go">ros2 run rqt_graph rqt_graph</span>
 </code></pre></div>
 </li>
 <li>
 <p>rqt_console: view messages</p>
-<p>rqt_console is a great gui for viewing ROS topics.</p>
+<p>rqt_console is a great gui for viewing <abbr title="Robot Operating System">ROS</abbr> topics.</p>
 <div class="highlight"><pre><span></span><code><span class="go">ros2 run rqt_console rqt_console</span>
 </code></pre></div>
 </li>
 <li>
 <p>rqt_plot: view data plots</p>
-<p>rqt_plot is an easy way to plot ROS data in real time.</p>
+<p>rqt_plot is an easy way to plot <abbr title="Robot Operating System">ROS</abbr> data in real time.</p>
 <div class="highlight"><pre><span></span><code><span class="go">ros2 run rqt_plot rqt_plot</span>
 </code></pre></div>
 </li>
 </ol>
 <h3 id="using-ros2_graph">Using ros2_graph<a class="headerlink" href="#using-ros2_graph" title="Permanent link">#</a></h3>
-<p><a href="https://github.com/kiwicampus/ros2_graph"><code>ros2_graph</code></a> can be used to generate <a href="https://mermaid.js.org/#/">mermaid</a> description of ROS 2 graphs to add on your markdown files.</p>
+<p><a href="https://github.com/kiwicampus/ros2_graph"><code>ros2_graph</code></a> can be used to generate <a href="https://mermaid.js.org/#/">mermaid</a> description of <abbr title="Robot Operating System">ROS</abbr> 2 graphs to add on your markdown files.</p>
 <p>It can also be used as a colorful alternative to <code>rqt_graph</code> even though it would require some tool to render the generated mermaid diagram.</p>
 <p>It can be installed with:</p>
 <div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>ros2-graph
@@ -4509,8 +4509,8 @@ ros2_graph<span class="w"> </span>/turtlesim<span class="w"> </span>/teleop_turt
 <li>JetBrains IDEs <a href="https://www.jetbrains.com/go/guide/tips/mermaid-js-support-in-markdown/">with native support</a></li>
 </ul>
 <h3 id="using-ros2doctor">Using ros2doctor<a class="headerlink" href="#using-ros2doctor" title="Permanent link">#</a></h3>
-<p>When your ROS 2 setup is not running as expected, you can check its settings with the <code>ros2doctor</code> tool.</p>
-<p><code>ros2doctor</code> checks all aspects of ROS 2, including platform, version, network, environment, running systems and more, and warns you about possible errors and reasons for issues.</p>
+<p>When your <abbr title="Robot Operating System">ROS</abbr> 2 setup is not running as expected, you can check its settings with the <code>ros2doctor</code> tool.</p>
+<p><code>ros2doctor</code> checks all aspects of <abbr title="Robot Operating System">ROS</abbr> 2, including platform, version, network, environment, running systems and more, and warns you about possible errors and reasons for issues.</p>
 <p>It's as simple as just running <code>ros2 doctor</code> in your terminal.</p>
 <p>It has the ability to list "Subscribers without publishers" for all topics in the system.</p>
 <p>And this information can help you find if a necessary node isn't running.</p>
@@ -4520,7 +4520,8 @@ ros2_graph<span class="w"> </span>/turtlesim<span class="w"> </span>/teleop_turt
 <ul>
 <li><a href="https://code.visualstudio.com/docs/cpp/cpp-debug">https://code.visualstudio.com/docs/cpp/cpp-debug</a></li>
 <li><a href="https://www.jetbrains.com/help/clion/debugging-code.html#useful-debugger-shortcuts">https://www.jetbrains.com/help/clion/debugging-code.html#useful-debugger-shortcuts</a></li>
-</ul></div>
+</ul>
+<!-- prettier-ignore --></div>
 
 
 
