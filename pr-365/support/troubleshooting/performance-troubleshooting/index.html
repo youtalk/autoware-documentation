@@ -4555,28 +4555,9 @@ colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<spa
 </code></pre></div>
 <p>This should print the <code>.xml</code> file on the terminal.</p>
 <h5 id="solution_3">Solution<a class="headerlink" href="#solution_3" title="Permanent link">#</a></h5>
-<p>Follow <a href="../../../installation/additional-settings-for-developers/#tuning-dds">DDS settings</a></p>
-<p>Also make sure you have <code>export CYCLONEDDS_URI=/absolute_path_to_your/cyclonedds.xml</code> as a line on your <code>~/.bashrc</code> file.</p>
-<p>Here is an example recommended <code>cyclonedds_config.xml</code> file:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
-<span class="nt">&lt;CycloneDDS</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">"https://cdds.io/config"</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="w"> </span><span class="na">xsi:schemaLocation=</span><span class="s">"https://cdds.io/config https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/master/etc/cyclonedds.xsd"</span><span class="nt">&gt;</span>
-<span class="w">    </span><span class="nt">&lt;Domain</span><span class="w"> </span><span class="na">Id=</span><span class="s">"any"</span><span class="nt">&gt;</span>
-<span class="w">        </span><span class="nt">&lt;General&gt;</span>
-<span class="w">            </span><span class="nt">&lt;Interfaces&gt;</span>
-<span class="w">                </span><span class="nt">&lt;NetworkInterface</span><span class="w"> </span><span class="na">autodetermine=</span><span class="s">"true"</span><span class="w"> </span><span class="na">priority=</span><span class="s">"default"</span><span class="w"> </span><span class="na">multicast=</span><span class="s">"default"</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">            </span><span class="nt">&lt;/Interfaces&gt;</span>
-<span class="w">            </span><span class="nt">&lt;AllowMulticast&gt;</span>default<span class="nt">&lt;/AllowMulticast&gt;</span>
-<span class="w">            </span><span class="nt">&lt;MaxMessageSize&gt;</span>65500B<span class="nt">&lt;/MaxMessageSize&gt;</span>
-<span class="w">        </span><span class="nt">&lt;/General&gt;</span>
-<span class="w">        </span><span class="nt">&lt;Internal&gt;</span>
-<span class="w">            </span><span class="nt">&lt;SocketReceiveBufferSize</span><span class="w"> </span><span class="na">min=</span><span class="s">"10MB"</span><span class="nt">/&gt;</span>
-<span class="w">            </span><span class="nt">&lt;Watermarks&gt;</span>
-<span class="w">                </span><span class="nt">&lt;WhcHigh&gt;</span>500kB<span class="nt">&lt;/WhcHigh&gt;</span>
-<span class="w">            </span><span class="nt">&lt;/Watermarks&gt;</span>
-<span class="w">        </span><span class="nt">&lt;/Internal&gt;</span>
-<span class="w">    </span><span class="nt">&lt;/Domain&gt;</span>
-<span class="nt">&lt;/CycloneDDS&gt;</span>
-</code></pre></div>
+<p>Follow <a href="../../../installation/additional-settings-for-developers/#tuning-dds">DDS settings:Tuning DDS documentation</a> and make sure:
+- you have <code>export CYCLONEDDS_URI=/absolute_path_to_your/cyclonedds_config.xml</code> as a line on your <code>~/.bashrc</code> file.
+- you have the <code>cyclonedds_config.xml</code> with the configuration provided in the documentation.</p>
 <h4 id="check-the-linux-kernel-maximum-buffer-size">Check the Linux kernel maximum buffer size<a class="headerlink" href="#check-the-linux-kernel-maximum-buffer-size" title="Permanent link">#</a></h4>
 <h5 id="diagnosis_4">Diagnosis<a class="headerlink" href="#diagnosis_4" title="Permanent link">#</a></h5>
 <ul>
