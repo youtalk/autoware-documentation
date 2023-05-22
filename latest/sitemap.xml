@@ -396,107 +396,112 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/localization_initialization_state/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/LocalizationInitializationState/</loc>
          <lastmod>2023-05-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/motion_state/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/MotionState/</loc>
          <lastmod>2023-05-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/mrm_state/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/MrmState/</loc>
          <lastmod>2023-05-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/operation_mode_state/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/OperationModeState/</loc>
          <lastmod>2023-05-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/response_status/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/ResponseStatus/</loc>
          <lastmod>2023-05-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/route/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/Route/</loc>
          <lastmod>2023-05-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/route_data/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/RouteData/</loc>
          <lastmod>2023-05-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/route_primitive/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/RouteOption/</loc>
          <lastmod>2023-05-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/route_segment/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/RoutePrimitive/</loc>
          <lastmod>2023-05-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/route_state/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/RouteSegment/</loc>
          <lastmod>2023-05-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/steering_factor/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/RouteState/</loc>
          <lastmod>2023-05-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/steering_factor_array/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/SteeringFactor/</loc>
          <lastmod>2023-05-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/velocity_factor/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/SteeringFactorArray/</loc>
          <lastmod>2023-05-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/velocity_factor_array/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/VelocityFactor/</loc>
          <lastmod>2023-05-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/srv/accept_start/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/VelocityFactorArray/</loc>
          <lastmod>2023-05-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/srv/change_operation_mode/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/srv/AcceptStart/</loc>
          <lastmod>2023-05-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/srv/clear_route/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/srv/ChangeOperationMode/</loc>
          <lastmod>2023-05-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/srv/initialize_localization/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/srv/ClearRoute/</loc>
          <lastmod>2023-05-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/srv/set_route/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/srv/InitializeLocalization/</loc>
          <lastmod>2023-05-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/srv/set_route_points/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/srv/SetRoute/</loc>
          <lastmod>2023-05-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_version_msgs/srv/interface_version/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/srv/SetRoutePoints/</loc>
+         <lastmod>2023-05-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_version_msgs/srv/InterfaceVersion/</loc>
          <lastmod>2023-05-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
