@@ -4500,26 +4500,20 @@ Here are two points that you need to consider:</p>
 <h3 id="21-create-a-vehicle_interface-package-for-differential-drive-vehicle">2.1 Create a <code>vehicle_interface</code> package for differential drive vehicle<a class="headerlink" href="#21-create-a-vehicle_interface-package-for-differential-drive-vehicle" title="Permanent link">#</a></h3>
 <p>An Ackermann command in Autoware consists of two main control inputs:</p>
 <ul>
-<li>steering angle (<span class="arithmatex"><span class="MathJax_Preview">\omega</span><script type="math/tex">\omega</script></span>)</li>
-<li>velocity (<span class="arithmatex"><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span>)</li>
+<li>steering angle (<span class="arithmatex">\(\omega\)</span>)</li>
+<li>velocity (<span class="arithmatex">\(v\)</span>)</li>
 </ul>
 <p>Conversely, a typical differential drive command consists of the following inputs:</p>
 <ul>
-<li>left wheel velocity (<span class="arithmatex"><span class="MathJax_Preview">v_l</span><script type="math/tex">v_l</script></span>)</li>
-<li>right wheel velocity (<span class="arithmatex"><span class="MathJax_Preview">v_r</span><script type="math/tex">v_r</script></span>)</li>
+<li>left wheel velocity (<span class="arithmatex">\(v_l\)</span>)</li>
+<li>right wheel velocity (<span class="arithmatex">\(v_r\)</span>)</li>
 </ul>
 <p>So, one way in which an Ackermann command can be converted to a differential drive command is by using the following equations:</p>
-<div class="arithmatex">
-<div class="MathJax_Preview">
+<div class="arithmatex">\[
 v_l = v - \frac{l\omega}{2},
 v_r = v + \frac{l\omega}{2}
-</div>
-<script type="math/tex; mode=display">
-v_l = v - \frac{l\omega}{2},
-v_r = v + \frac{l\omega}{2}
-</script>
-</div>
-<p>where <span class="arithmatex"><span class="MathJax_Preview">l</span><script type="math/tex">l</script></span> denotes wheel tread.</p>
+\]</div>
+<p>where <span class="arithmatex">\(l\)</span> denotes wheel tread.</p>
 <p>For information about other factors that need to be considered when creating a <code>vehicle_interface</code> package, refer to the <a href="../../../../design/autoware-interfaces/components/vehicle-interface/"><code>vehicle_interface</code> component page</a>.</p>
 <h3 id="22-set-an-appropriate-wheel_base">2.2 Set an appropriate <code>wheel_base</code><a class="headerlink" href="#22-set-an-appropriate-wheel_base" title="Permanent link">#</a></h3>
 <p>A differential drive robot does not necessarily have front and rear wheels, which means that the wheelbase (the horizontal distance between the axles of the front and rear wheels) cannot be defined. However, Autoware expects <code>wheel_base</code> to be set in <code>vehicle_info.param.yaml</code> with some value.
@@ -4627,7 +4621,11 @@ Setting it to be the same value as <code>wheel_tread</code> is one possible choi
     
       <script src="../../../../assets/javascripts/bundle.b4d07000.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../../../assets/js/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>
