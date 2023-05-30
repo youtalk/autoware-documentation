@@ -11,7 +11,7 @@
 1. Clone `autowarefoundation/autoware` and move to the directory.
 
    ```bash
-   git clone https://github.com/autowarefoundation/autoware.git
+   git clone -b 2023.05 https://github.com/autowarefoundation/autoware.git
    cd autoware
    ```
 
@@ -56,7 +56,7 @@ You might need to log out and log back to make the current user able to use dock
 2. Pull the Docker image
 
    ```bash
-   docker pull ghcr.io/autowarefoundation/autoware-universe:latest-cuda
+   docker pull ghcr.io/autowarefoundation/autoware-universe:humble-2023.05-cuda-amd64
    ```
 
 3. Launch a Docker container.
@@ -64,13 +64,13 @@ You might need to log out and log back to make the current user able to use dock
    - For amd64 architecture computers with NVIDIA GPU:
 
      ```bash
-     rocker --nvidia --x11 --user --volume $HOME/autoware --volume $HOME/autoware_map -- ghcr.io/autowarefoundation/autoware-universe:latest-cuda
+     rocker --nvidia --x11 --user --volume $HOME/autoware --volume $HOME/autoware_map -- ghcr.io/autowarefoundation/autoware-universe:humble-2023.05-cuda-amd64
      ```
 
    - If you want to run container without using NVIDIA GPU, or for arm64 architecture computers:
 
      ```bash
-     rocker -e LIBGL_ALWAYS_SOFTWARE=1 --x11 --user --volume $HOME/autoware --volume $HOME/autoware_map -- ghcr.io/autowarefoundation/autoware-universe:latest-cuda
+     rocker -e LIBGL_ALWAYS_SOFTWARE=1 --x11 --user --volume $HOME/autoware --volume $HOME/autoware_map -- ghcr.io/autowarefoundation/autoware-universe:humble-2023.05-cuda-arm64
      ```
 
      For detailed reason could be found [here](./docker-installation.md#docker-with-nvidia-gpu-fails-to-start-autoware-on-arm64-devices)

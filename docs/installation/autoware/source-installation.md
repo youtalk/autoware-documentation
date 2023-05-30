@@ -27,7 +27,7 @@ sudo apt-get -y install git
 1. Clone `autowarefoundation/autoware` and move to the directory.
 
    ```bash
-   git clone https://github.com/autowarefoundation/autoware.git
+   git clone -b 2023.05 https://github.com/autowarefoundation/autoware.git
    cd autoware
    ```
 
