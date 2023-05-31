@@ -4334,8 +4334,57 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#the-sensing-module-contains-the-driver-for-the-sensor-so-there-is-no-input" class="md-nav__link">
-    The sensing module contains the driver for the sensor, so there is no input
+  <a href="#ultrasonics" class="md-nav__link">
+    Ultrasonics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#camera-image" class="md-nav__link">
+    Camera image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#radar-tracks" class="md-nav__link">
+    Radar tracks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#radar-scan" class="md-nav__link">
+    Radar scan
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lidar-pointcloud" class="md-nav__link">
+    Lidar pointcloud
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imu-data" class="md-nav__link">
+    IMU data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gnss-pose" class="md-nav__link">
+    GNSS pose
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gnss-velocity" class="md-nav__link">
+    GNSS velocity
   </a>
   
 </li>
@@ -4354,29 +4403,29 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#camera-image" class="md-nav__link">
+  <a href="#ultrasonics_1" class="md-nav__link">
+    Ultrasonics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#camera-image_1" class="md-nav__link">
     Camera image
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#radar-tracks" class="md-nav__link">
-    Radar tracks
+  <a href="#combined-radar-tracks" class="md-nav__link">
+    Combined Radar tracks
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#radar-pointcloud" class="md-nav__link">
-    Radar pointcloud
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lidar-preprocessed-pointcloud" class="md-nav__link">
-    Lidar preprocessed pointcloud
+  <a href="#combined-lidar-pointcloud" class="md-nav__link">
+    Combined Lidar pointcloud
   </a>
   
 </li>
@@ -4389,15 +4438,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#vehicle-velocity" class="md-nav__link">
-    Vehicle velocity
+  <a href="#gnss-pose_1" class="md-nav__link">
+    GNSS pose
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#gnss-pose" class="md-nav__link">
-    GNSS pose
+  <a href="#gnss-velocity_1" class="md-nav__link">
+    GNSS velocity
   </a>
   
 </li>
@@ -4428,24 +4477,60 @@
 <div><h1 id="sensing">Sensing<a class="headerlink" href="#sensing" title="Permanent link">#</a></h1>
 <p><img alt="Node diagram" src="../images/Sensing-Bus-ODD-Architecture.drawio.svg"></p>
 <h2 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">#</a></h2>
-<h3 id="the-sensing-module-contains-the-driver-for-the-sensor-so-there-is-no-input">The sensing module contains the driver for the sensor, so there is no input<a class="headerlink" href="#the-sensing-module-contains-the-driver-for-the-sensor-so-there-is-no-input" title="Permanent link">#</a></h3>
-<h2 id="output">Output<a class="headerlink" href="#output" title="Permanent link">#</a></h2>
+<h3 id="ultrasonics">Ultrasonics<a class="headerlink" href="#ultrasonics" title="Permanent link">#</a></h3>
+<p>Distance data from ultrasonic radar driver.</p>
+<ul>
+<li><a href="https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/Range.msg">sensor_msgs/Range</a></li>
+</ul>
 <h3 id="camera-image">Camera image<a class="headerlink" href="#camera-image" title="Permanent link">#</a></h3>
-<p>Image data from camera. Used by the Perception.</p>
+<p>Image data from camera driver.</p>
 <ul>
 <li><a href="https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/Image.msg">sensor_msgs/Image</a></li>
 </ul>
 <h3 id="radar-tracks">Radar tracks<a class="headerlink" href="#radar-tracks" title="Permanent link">#</a></h3>
-<p>Tracks from radar. Used by the Perception.</p>
+<p>Tracks from radar driver.</p>
 <ul>
-<li><a href="https://docs.ros.org/en/noetic/api/radar_msgs/html/msg/RadarTracks.html">radar_msgs/RadarTracks</a></li>
+<li><a href="https://github.com/ros-perception/radar_msgs/blob/ros2/msg/RadarTracks.msg">radar_msgs/RadarTracks</a></li>
 </ul>
-<h3 id="radar-pointcloud">Radar pointcloud<a class="headerlink" href="#radar-pointcloud" title="Permanent link">#</a></h3>
-<p>Pointcloud from radar. Used by the Perception.</p>
+<h3 id="radar-scan">Radar scan<a class="headerlink" href="#radar-scan" title="Permanent link">#</a></h3>
+<p>Scan from radar driver.</p>
+<ul>
+<li><a href="https://github.com/ros-perception/radar_msgs/blob/ros2/msg/RadarScan.msg">radar_msgs/RadarScan</a></li>
+</ul>
+<h3 id="lidar-pointcloud">Lidar pointcloud<a class="headerlink" href="#lidar-pointcloud" title="Permanent link">#</a></h3>
+<p>Pointcloud from lidar driver.</p>
 <ul>
 <li><a href="https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/PointCloud2.msg">sensor_msgs/PointCloud2</a></li>
 </ul>
-<h3 id="lidar-preprocessed-pointcloud">Lidar preprocessed pointcloud<a class="headerlink" href="#lidar-preprocessed-pointcloud" title="Permanent link">#</a></h3>
+<h3 id="imu-data"><abbr title="Inertial Measurement Unit">IMU</abbr> data<a class="headerlink" href="#imu-data" title="Permanent link">#</a></h3>
+<p><abbr title="Inertial Measurement Unit">IMU</abbr> data from <abbr title="Inertial Measurement Unit">IMU</abbr> driver.</p>
+<ul>
+<li><a href="https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/Imu.msg">sensor_msgs/Imu</a></li>
+</ul>
+<h3 id="gnss-pose"><abbr title="Global Navigation Satellite System">GNSS</abbr> pose<a class="headerlink" href="#gnss-pose" title="Permanent link">#</a></h3>
+<p>Initial pose from <abbr title="Global Navigation Satellite System">GNSS</abbr> driver.</p>
+<ul>
+<li><a href="https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/NavSatFix.msg">geometry_msgs/NavSatFix</a></li>
+</ul>
+<h3 id="gnss-velocity"><abbr title="Global Navigation Satellite System">GNSS</abbr> velocity<a class="headerlink" href="#gnss-velocity" title="Permanent link">#</a></h3>
+<p>Initial velocity from <abbr title="Global Navigation Satellite System">GNSS</abbr> driver.</p>
+<ul>
+<li><a href="https://github.com/ros2/common_interfaces/blob/rolling/geometry_msgs/msg/TwistWithCovarianceStamped.msg">geometry_msgs/TwistWithCovarianceStamped</a></li>
+</ul>
+<h2 id="output">Output<a class="headerlink" href="#output" title="Permanent link">#</a></h2>
+<h3 id="ultrasonics_1">Ultrasonics<a class="headerlink" href="#ultrasonics_1" title="Permanent link">#</a></h3>
+<p>Distance data from ultrasonic radar. Used by the Perception.</p>
+<ul>
+<li><a href="https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/Range.msg">sensor_msgs/Range</a></li>
+</ul>
+<h3 id="camera-image_1">Camera image<a class="headerlink" href="#camera-image_1" title="Permanent link">#</a></h3>
+<p>Image data from camera. Used by the Perception.</p>
+<ul>
+<li><a href="https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/Image.msg">sensor_msgs/Image</a></li>
+</ul>
+<h3 id="combined-radar-tracks">Combined Radar tracks<a class="headerlink" href="#combined-radar-tracks" title="Permanent link">#</a></h3>
+<p>TBD</p>
+<h3 id="combined-lidar-pointcloud">Combined Lidar pointcloud<a class="headerlink" href="#combined-lidar-pointcloud" title="Permanent link">#</a></h3>
 <p>Lidar pointcloud after preprocessing. Used by the Perception and Localization.</p>
 <ul>
 <li><a href="https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/PointCloud2.msg">sensor_msgs/PointCloud2</a></li>
@@ -4455,16 +4540,15 @@
 <ul>
 <li><a href="https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/Imu.msg">sensor_msgs/Imu</a></li>
 </ul>
-<h3 id="vehicle-velocity">Vehicle velocity<a class="headerlink" href="#vehicle-velocity" title="Permanent link">#</a></h3>
-<p>Velocity of the ego vehicle. Used by the Localization.</p>
-<ul>
-<li><a href="https://github.com/ros2/common_interfaces/blob/rolling/geometry_msgs/msg/TwistWithCovarianceStamped.msg">geometry_msgs/TwistWithCovarianceStamped</a></li>
-</ul>
-<h3 id="gnss-pose"><abbr title="Global Navigation Satellite System">GNSS</abbr> pose<a class="headerlink" href="#gnss-pose" title="Permanent link">#</a></h3>
+<h3 id="gnss-pose_1"><abbr title="Global Navigation Satellite System">GNSS</abbr> pose<a class="headerlink" href="#gnss-pose_1" title="Permanent link">#</a></h3>
 <p>Initial pose of the ego vehicle from <abbr title="Global Navigation Satellite System">GNSS</abbr>. Used by the Localization.</p>
 <ul>
-<li><a href="https://github.com/ros2/common_interfaces/blob/rolling/geometry_msgs/msg/PoseStamped.msg">geometry_msgs/PoseStamped</a></li>
 <li><a href="https://github.com/ros2/common_interfaces/blob/rolling/geometry_msgs/msg/PoseWithCovarianceStamped.msg">geometry_msgs/PoseWithCovarianceStamped</a></li>
+</ul>
+<h3 id="gnss-velocity_1"><abbr title="Global Navigation Satellite System">GNSS</abbr> velocity<a class="headerlink" href="#gnss-velocity_1" title="Permanent link">#</a></h3>
+<p>Velocity of the ego vehicle from <abbr title="Global Navigation Satellite System">GNSS</abbr>. Used by the Localization.</p>
+<ul>
+<li><a href="https://github.com/ros2/common_interfaces/blob/rolling/geometry_msgs/msg/TwistWithCovarianceStamped.msg">geometry_msgs/TwistWithCovarianceStamped</a></li>
 </ul>
 <!-- prettier-ignore --></div>
 
