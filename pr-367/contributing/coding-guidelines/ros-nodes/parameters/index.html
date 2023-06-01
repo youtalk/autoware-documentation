@@ -3781,22 +3781,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#json-schema" class="md-nav__link">
-    JSON Schema
-  </a>
-  
-    <nav class="md-nav" aria-label="JSON Schema">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#attributes" class="md-nav__link">
-    Attributes
+  <a href="#workflow" class="md-nav__link">
+    Workflow
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#declare-parameter-function" class="md-nav__link">
+    Declare Parameter Function
+  </a>
   
 </li>
       
@@ -3815,9 +3809,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#declare-parameter-function" class="md-nav__link">
-    Declare Parameter Function
+  <a href="#json-schema" class="md-nav__link">
+    JSON Schema
   </a>
+  
+    <nav class="md-nav" aria-label="JSON Schema">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#attributes" class="md-nav__link">
+    Attributes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -4408,22 +4415,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#json-schema" class="md-nav__link">
-    JSON Schema
-  </a>
-  
-    <nav class="md-nav" aria-label="JSON Schema">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#attributes" class="md-nav__link">
-    Attributes
+  <a href="#workflow" class="md-nav__link">
+    Workflow
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#declare-parameter-function" class="md-nav__link">
+    Declare Parameter Function
+  </a>
   
 </li>
       
@@ -4442,9 +4443,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#declare-parameter-function" class="md-nav__link">
-    Declare Parameter Function
+  <a href="#json-schema" class="md-nav__link">
+    JSON Schema
   </a>
+  
+    <nav class="md-nav" aria-label="JSON Schema">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#attributes" class="md-nav__link">
+    Attributes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -4480,95 +4494,37 @@
 <li><a href="https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.html">Understanding <abbr title="Robot Operating System">ROS</abbr> 2 Parameters</a></li>
 <li><a href="https://docs.ros.org/en/humble/Concepts/About-ROS-2-Parameters.html">About <abbr title="Robot Operating System">ROS</abbr> 2 Parameters</a></li>
 </ul>
-<h2 id="json-schema">JSON Schema<a class="headerlink" href="#json-schema" title="Permanent link">#</a></h2>
-<p><a href="https://json-schema.org/understanding-json-schema/index.html">JSON Schema</a> is used the validate the parameter file(s) ensuring that it has the correct structure and content. Using JSON Schema for this purpose is considered best practice for cloud-native development. The schema template below shall be used as a starting point when defining the schema for a <abbr title="Robot Operating System">ROS</abbr> node.</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">"$schema"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://json-schema.org/draft-07/schema#"</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INSERT_TITLE"</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"object"</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">"definitions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">"INSERT_ROS_NODE_NAME"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"object"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">"INSERT_PARAMETER_1_NAME"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INSERT_TYPE"</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INSERT_DESCRIPTION"</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">"default"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INSERT_DEFAULT"</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">"INSERT_BOUND_CONDITION(S)"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INSERT_BOUND_VALUE(S)"</span>
-<span class="w">        </span><span class="p">},</span>
-<span class="w">        </span><span class="nt">"INSERT_PARAMETER_N_NAME"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INSERT_TYPE"</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INSERT_DESCRIPTION"</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">"default"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INSERT_DEFAULT"</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">"INSERT_BOUND_CONDITION(S)"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INSERT_BOUND_VALUE(S)"</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="nt">"required"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"INSERT_PARAMETER_1_NAME"</span><span class="p">,</span><span class="w"> </span><span class="s2">"INSERT_PARAMETER_N_NAME"</span><span class="p">]</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">"/**"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"object"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">"ros__parameters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">"$ref"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#/definitions/INSERT_ROS_NODE_NAME"</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="nt">"required"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"ros__parameters"</span><span class="p">]</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">"required"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"/**"</span><span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>The schema file path is <code>INSERT_PATH_TO_PACKAGE/schema/</code> and the schema file name is <code>INSERT_NODE_NAME.schema.json</code>. To adapt the template to the <abbr title="Robot Operating System">ROS</abbr> node, replace each <code>INSERT_...</code> and add all parameters <code>1..N</code>.</p>
-<p>See example: <em>Lidar Apollo Segmentation TVM Nodes</em> <a href="https://github.com/autowarefoundation/autoware.universe/blob/main/perception/lidar_apollo_segmentation_tvm_nodes/schema/lidar_apollo_segmentation_tvm_nodes.schema.json">schema</a></p>
-<h3 id="attributes">Attributes<a class="headerlink" href="#attributes" title="Permanent link">#</a></h3>
-<p>Parameters have several attributes, some are required and some optional. The optional attributes are highly encouraged when applicable, as they provide useful information about a parameter to the user.</p>
-<h4 id="required">Required<a class="headerlink" href="#required" title="Permanent link">#</a></h4>
+<h2 id="workflow">Workflow<a class="headerlink" href="#workflow" title="Permanent link">#</a></h2>
+<p>A <abbr title="Robot Operating System">ROS</abbr> package which uses the <a href="https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/classrclcpp_1_1Node.html#_CPPv4N6rclcpp4Node17declare_parameterERKNSt6stringERKN6rclcpp14ParameterValueERKN14rcl_interfaces3msg19ParameterDescriptorEb">declare_parameter(...)</a> function should:</p>
 <ul>
-<li>name</li>
-<li>type<ul>
-<li>see <a href="http://json-schema.org/understanding-json-schema/reference/type.html">JSON Schema types</a></li>
+<li>use the <a href="https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/classrclcpp_1_1Node.html#_CPPv4N6rclcpp4Node17declare_parameterERKNSt6stringERKN6rclcpp14ParameterValueERKN14rcl_interfaces3msg19ParameterDescriptorEb">declare_parameter(...)</a> with out a default value</li>
+<li>create a parameter file</li>
+<li>create a schema file</li>
 </ul>
-</li>
-<li>description</li>
-</ul>
-<h4 id="optional">Optional<a class="headerlink" href="#optional" title="Permanent link">#</a></h4>
+<p>The rationale behind this workflow is to have a verified single source of truth to pass to the <abbr title="Robot Operating System">ROS</abbr> node and to be used in the web documentation. The approach reduces the risk of using invalid parameter values and makes maintenance of documentation easier. This is achieved by:</p>
 <ul>
-<li>default<ul>
-<li>a tested and verified value, see <a href="https://json-schema.org/understanding-json-schema/reference/generic.html">JSON Schema default</a></li>
-</ul>
+<li><a href="https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/classrclcpp_1_1Node.html#_CPPv4N6rclcpp4Node17declare_parameterERKNSt6stringERKN6rclcpp14ParameterValueERKN14rcl_interfaces3msg19ParameterDescriptorEb">declare_parameter(...)</a> throws an exception if an expected parameter is missing in the parameter file</li>
+<li>
+<p>the schema validates the parameter file in the CI and renders a parameter table, as depicted in the graphics below</p>
+<pre class="mermaid"><code>flowchart TD
+    NodeSchema[Schema file: *.schema.json]
+    ParameterFile[Parameter file: *.param.yaml]
+    WebDocumentation[Web documentation table]
+
+    NodeSchema --&gt;|Validation| ParameterFile
+    NodeSchema --&gt;|Generate| WebDocumentation</code></pre>
 </li>
-<li>bound(s)<ul>
-<li>type dependent, e.g., <a href="https://json-schema.org/understanding-json-schema/reference/numeric.html#integer">integer</a>, <a href="https://json-schema.org/understanding-json-schema/reference/numeric.html#range">range</a> and <a href="https://json-schema.org/understanding-json-schema/reference/object.html#size">size</a></li>
 </ul>
-</li>
-</ul>
-<h2 id="parameter-file">Parameter File<a class="headerlink" href="#parameter-file" title="Permanent link">#</a></h2>
-<p>The parameter file is minimal as there is no need to provide the user with additional information, e.g., description or type. This is because the associated JSON Schema provides the additional information. Use the template below as a starting point for a <abbr title="Robot Operating System">ROS</abbr> node.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">/**</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">ros__parameters</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">INSERT_PARAMETER_1_NAME</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">INSERT_PARAMETER_1_VALUE</span>
-<span class="w">    </span><span class="nt">INSERT_PARAMETER_N_NAME</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">INSERT_PARAMETER_N_VALUE</span>
-</code></pre></div>
-<p>The parameter file path is <code>INSERT_PATH_TO_PACKAGE/config/</code> and parameter file name is <code>INSERT_NODE_NAME.param.yaml</code>. To adapt the template to the <abbr title="Robot Operating System">ROS</abbr> node, replace each <code>INSERT_...</code> and add all parameters <code>1..N</code>.</p>
-<p>See example: <em>Lidar Apollo Segmentation TVM Nodes</em> <a href="https://github.com/autowarefoundation/autoware.universe/blob/main/perception/lidar_apollo_segmentation_tvm_nodes/config/lidar_apollo_segmentation_tvm_nodes.param.yaml">parameter file</a></p>
-<p>Note: <code>/**</code> is used instead of the explicit node namespace, this allows the parameter file to be passed to a <abbr title="Robot Operating System">ROS</abbr> node which has been <a href="https://design.ros2.org/articles/static_remapping.html">remapped</a>.</p>
-<h2 id="launch-parameter-file">Launch parameter file<a class="headerlink" href="#launch-parameter-file" title="Permanent link">#</a></h2>
-<p>(Original content, will need updating)</p>
 <ul>
-<li>Launch parameter files store the customized parameters for user's vehicle.<ul>
-<li>For example, <a href="https://github.com/autowarefoundation/autoware_launch/tree/5fa613b9d80bf4f0db77efde03a43f7ede6bac86/autoware_launch/config">the customized parameter of <code>behavior_path_planner</code> stored under <code>autoware_launch</code></a></li>
-<li>Launch parameter files are stored under <code>autoware_launch</code>.</li>
+<li>
 </ul>
-</li>
-</ul>
+<p>Note: a parameter value can still be modified and bypass the validation, as there is no validation during runtime.</p>
 <h2 id="declare-parameter-function">Declare Parameter Function<a class="headerlink" href="#declare-parameter-function" title="Permanent link">#</a></h2>
 <p>It is the <a href="https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/classrclcpp_1_1Node.html#_CPPv4N6rclcpp4Node17declare_parameterERKNSt6stringERKN6rclcpp14ParameterValueERKN14rcl_interfaces3msg19ParameterDescriptorEb">declare_parameter(...)</a> function which sets the parameter values during a node startup.</p>
-<div class="highlight"><pre><span></span><code><span class="n">declare_parameter</span><span class="o">&lt;</span><span class="n">INSERT_TYPE</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"INSERT_PARAMETER_1_NAME"</span><span class="p">),</span>
+<p></p><div class="highlight"><pre><span></span><code><span class="n">declare_parameter</span><span class="o">&lt;</span><span class="n">INSERT_TYPE</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"INSERT_PARAMETER_1_NAME"</span><span class="p">),</span>
 <span class="n">declare_parameter</span><span class="o">&lt;</span><span class="n">INSERT_TYPE</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"INSERT_PARAMETER_N_NAME"</span><span class="p">)</span>
 </code></pre></div>
-<p>As there is no <em>default_value</em> provided, the function throws an exception if a parameter were to be missing in the provided <code>*.param.yaml</code> file. Find the types in the table below.</p>
+As there is no <em>default_value</em> provided, the function throws an exception if a parameter were to be missing in the provided <code>*.param.yaml</code> file. Use a type from the <em>C++ Type</em> column in the table below for the <a href="https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/classrclcpp_1_1Node.html#_CPPv4N6rclcpp4Node17declare_parameterERKNSt6stringERKN6rclcpp14ParameterValueERKN14rcl_interfaces3msg19ParameterDescriptorEb">declare_parameter(...)</a> function, replacing <em>INSERT_TYPE</em>.
 <table>
 <thead>
 <tr>
@@ -4617,8 +4573,90 @@
 </table>
 <p>The table has been derived from <a href="https://github.com/ros2/rcl_interfaces/blob/humble/rcl_interfaces/msg/ParameterType.msg">Parameter Type</a> and <a href="https://github.com/ros2/rcl_interfaces/blob/humble/rcl_interfaces/msg/ParameterValue.msg">Parameter Value</a>.</p>
 <p>See example: <em>Lidar Apollo Segmentation TVM Nodes</em> <a href="https://github.com/autowarefoundation/autoware.universe/blob/f85c90b56ed4c7d6b52e787570e590cff786b28b/perception/lidar_apollo_segmentation_tvm_nodes/src/lidar_apollo_segmentation_tvm_node.cpp#L38">declare function</a></p>
+<h2 id="parameter-file">Parameter File<a class="headerlink" href="#parameter-file" title="Permanent link">#</a></h2>
+<p>The parameter file is minimal as there is no need to provide the user with additional information, e.g., description or type. This is because the associated schema file provides the additional information. Use the template below as a starting point for a <abbr title="Robot Operating System">ROS</abbr> node.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">/**</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">ros__parameters</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">INSERT_PARAMETER_1_NAME</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">INSERT_PARAMETER_1_VALUE</span>
+<span class="w">    </span><span class="nt">INSERT_PARAMETER_N_NAME</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">INSERT_PARAMETER_N_VALUE</span>
+</code></pre></div>
+<p>The parameter file path is <code>INSERT_PATH_TO_PACKAGE/config/</code> and parameter file name is <code>INSERT_NODE_NAME.param.yaml</code>. To adapt the template to the <abbr title="Robot Operating System">ROS</abbr> node, replace each <code>INSERT_PARAMETER_..._NAME</code> and <code>INSERT_PARAMETER_..._VALUE</code> for all parameters. Each <a href="https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/classrclcpp_1_1Node.html#_CPPv4N6rclcpp4Node17declare_parameterERKNSt6stringERKN6rclcpp14ParameterValueERKN14rcl_interfaces3msg19ParameterDescriptorEb">declare_parameter(...)</a> takes one parameter as input.</p>
+<p>See example: <em>Lidar Apollo Segmentation TVM Nodes</em> <a href="https://github.com/autowarefoundation/autoware.universe/blob/main/perception/lidar_apollo_segmentation_tvm_nodes/config/lidar_apollo_segmentation_tvm_nodes.param.yaml">parameter file</a></p>
+<p>Note: <code>/**</code> is used instead of the explicit node namespace, this allows the parameter file to be passed to a <abbr title="Robot Operating System">ROS</abbr> node which has been <a href="https://design.ros2.org/articles/static_remapping.html">remapped</a>.</p>
+<h2 id="launch-parameter-file">Launch parameter file<a class="headerlink" href="#launch-parameter-file" title="Permanent link">#</a></h2>
+<ul>
+<li>Launch parameter files store the customized parameters for user's vehicle.<ul>
+<li>For example, <a href="https://github.com/autowarefoundation/autoware_launch/tree/5fa613b9d80bf4f0db77efde03a43f7ede6bac86/autoware_launch/config">the customized parameter of <code>behavior_path_planner</code> stored under <code>autoware_launch</code></a></li>
+<li>Launch parameter files are stored under <code>autoware_launch</code>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="json-schema">JSON Schema<a class="headerlink" href="#json-schema" title="Permanent link">#</a></h2>
+<p><a href="https://json-schema.org/understanding-json-schema/index.html">JSON Schema</a> is used the validate the parameter file(s) ensuring that it has the correct structure and content. Using JSON Schema for this purpose is considered best practice for cloud-native development. The schema template below shall be used as a starting point when defining the schema for a <abbr title="Robot Operating System">ROS</abbr> node.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"$schema"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://json-schema.org/draft-07/schema#"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INSERT_TITLE"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"object"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"definitions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"INSERT_ROS_NODE_NAME"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"object"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"INSERT_PARAMETER_1_NAME"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INSERT_TYPE"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INSERT_DESCRIPTION"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"default"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INSERT_DEFAULT"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"INSERT_BOUND_CONDITION(S)"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INSERT_BOUND_VALUE(S)"</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">"INSERT_PARAMETER_N_NAME"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INSERT_TYPE"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INSERT_DESCRIPTION"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"default"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INSERT_DEFAULT"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"INSERT_BOUND_CONDITION(S)"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INSERT_BOUND_VALUE(S)"</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">"required"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"INSERT_PARAMETER_1_NAME"</span><span class="p">,</span><span class="w"> </span><span class="s2">"INSERT_PARAMETER_N_NAME"</span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"/**"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"object"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"ros__parameters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">"$ref"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#/definitions/INSERT_ROS_NODE_NAME"</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">"required"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"ros__parameters"</span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"required"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"/**"</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The schema file path is <code>INSERT_PATH_TO_PACKAGE/schema/</code> and the schema file name is <code>INSERT_NODE_NAME.schema.json</code>. To adapt the template to the <abbr title="Robot Operating System">ROS</abbr> node, replace each <code>INSERT_...</code> and add all parameters <code>1..N</code>.</p>
+<p>See example: <em>Lidar Apollo Segmentation TVM Nodes</em> <a href="https://github.com/autowarefoundation/autoware.universe/blob/main/perception/lidar_apollo_segmentation_tvm_nodes/schema/lidar_apollo_segmentation_tvm_nodes.schema.json">schema</a></p>
+<h3 id="attributes">Attributes<a class="headerlink" href="#attributes" title="Permanent link">#</a></h3>
+<p>Parameters have several attributes, some are required and some optional. The optional attributes are highly encouraged when applicable, as they provide useful information about a parameter and can ensure the value of the parameter is within its bounds.</p>
+<h4 id="required">Required<a class="headerlink" href="#required" title="Permanent link">#</a></h4>
+<ul>
+<li>name</li>
+<li>type<ul>
+<li>see <a href="http://json-schema.org/understanding-json-schema/reference/type.html">JSON Schema types</a></li>
+</ul>
+</li>
+<li>description</li>
+</ul>
+<h4 id="optional">Optional<a class="headerlink" href="#optional" title="Permanent link">#</a></h4>
+<ul>
+<li>default<ul>
+<li>a tested and verified value, see <a href="https://json-schema.org/understanding-json-schema/reference/generic.html">JSON Schema default</a></li>
+</ul>
+</li>
+<li>bound(s)<ul>
+<li>type dependent, e.g., <a href="https://json-schema.org/understanding-json-schema/reference/numeric.html#integer">integer</a>, <a href="https://json-schema.org/understanding-json-schema/reference/numeric.html#range">range</a> and <a href="https://json-schema.org/understanding-json-schema/reference/object.html#size">size</a></li>
+</ul>
+</li>
+</ul>
 <h2 id="tips-and-tricks">Tips and Tricks<a class="headerlink" href="#tips-and-tricks" title="Permanent link">#</a></h2>
-<p>Using well established standards enables the use of conventional tooling. Below is an example of how to link a schema to the parameter file(s) using VS Code. This enables convenient features such as auto-complete and parameter bound validation.</p>
+<p>Using well established standards enables the use of conventional tooling. Below is an example of how to link a schema to the parameter file(s) using VS Code. This enables a developer with convenient features such as auto-complete and parameter bound validation.</p>
 <p>In the root directory of where the project is hosted, create a <code>.vscode</code> folder with two files; <code>extensions.json</code> containing</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">"recommendations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"redhat.vscode-yaml"</span><span class="p">]</span>
