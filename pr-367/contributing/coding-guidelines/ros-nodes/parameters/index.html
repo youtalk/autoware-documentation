@@ -4515,16 +4515,14 @@
     NodeSchema --&gt;|Generate| WebDocumentation</code></pre>
 </li>
 </ul>
-<ul>
-<li>
-</ul>
+<p>*</p>
 <p>Note: a parameter value can still be modified and bypass the validation, as there is no validation during runtime.</p>
 <h2 id="declare-parameter-function">Declare Parameter Function<a class="headerlink" href="#declare-parameter-function" title="Permanent link">#</a></h2>
 <p>It is the <a href="https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/classrclcpp_1_1Node.html#_CPPv4N6rclcpp4Node17declare_parameterERKNSt6stringERKN6rclcpp14ParameterValueERKN14rcl_interfaces3msg19ParameterDescriptorEb">declare_parameter(...)</a> function which sets the parameter values during a node startup.</p>
-<p></p><div class="highlight"><pre><span></span><code><span class="n">declare_parameter</span><span class="o">&lt;</span><span class="n">INSERT_TYPE</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"INSERT_PARAMETER_1_NAME"</span><span class="p">),</span>
+<div class="highlight"><pre><span></span><code><span class="n">declare_parameter</span><span class="o">&lt;</span><span class="n">INSERT_TYPE</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"INSERT_PARAMETER_1_NAME"</span><span class="p">),</span>
 <span class="n">declare_parameter</span><span class="o">&lt;</span><span class="n">INSERT_TYPE</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"INSERT_PARAMETER_N_NAME"</span><span class="p">)</span>
 </code></pre></div>
-As there is no <em>default_value</em> provided, the function throws an exception if a parameter were to be missing in the provided <code>*.param.yaml</code> file. Use a type from the <em>C++ Type</em> column in the table below for the <a href="https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/classrclcpp_1_1Node.html#_CPPv4N6rclcpp4Node17declare_parameterERKNSt6stringERKN6rclcpp14ParameterValueERKN14rcl_interfaces3msg19ParameterDescriptorEb">declare_parameter(...)</a> function, replacing <em>INSERT_TYPE</em>.
+<p>As there is no <em>default_value</em> provided, the function throws an exception if a parameter were to be missing in the provided <code>*.param.yaml</code> file. Use a type from the <em>C++ Type</em> column in the table below for the <a href="https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/classrclcpp_1_1Node.html#_CPPv4N6rclcpp4Node17declare_parameterERKNSt6stringERKN6rclcpp14ParameterValueERKN14rcl_interfaces3msg19ParameterDescriptorEb">declare_parameter(...)</a> function, replacing <em>INSERT_TYPE</em>.</p>
 <table>
 <thead>
 <tr>
