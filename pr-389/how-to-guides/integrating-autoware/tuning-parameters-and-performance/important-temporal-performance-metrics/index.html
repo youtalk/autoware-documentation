@@ -4567,7 +4567,7 @@
 </tr>
 <tr>
 <td>AWOV-002</td>
-<td><strong>Response time</strong> from CPA #0 to CPA #20 <br>or<br> from CPA #1 to CPA #20</td>
+<td><strong>Response time</strong> from CPA #0 to CPA #20 via CPA #18</td>
 <td>Processing time in main body of Perception if delay compensation is disabled in Tracking.</td>
 <td>Perception</td>
 <td>N/A</td>
@@ -4671,14 +4671,14 @@
 <td>Vehicle Interface</td>
 <td>N/A</td>
 <td>Vehicle expects Autoware to communicate with each other at predetermined frequency</td>
-<td>Performance requirement varies depending on vehicle type.</td>
+<td>Temporal performance requirement varies depending on vehicle type.</td>
 </tr>
 </tbody>
 </table>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-</div>
 <p>There is an assumption that LiDAR outputs a set of pointcloud with a timestamp. CPA #0 is observed with the timestamp. If the LiDARs are not configured to output the timestamp, the time when Autoware receives the pointcloud is used instead. This is represented by CPA #1 in the model.</p>
+</div>
 <h3 id="detailed-temporal-performance-metrics-for-perception">Detailed temporal performance metrics for Perception<a class="headerlink" href="#detailed-temporal-performance-metrics-for-perception" title="Permanent link">#</a></h3>
 <p>The diagram below introduces the model for temporal performance metrics for Perception.</p>
 <p><img alt="Model for Perception temporal performance metrics" src="../images/important-temporal-performance-metrics/model-for-perception-metrics.svg"></p>
@@ -4714,10 +4714,10 @@
 <h3 id="detailed-temporal-performance-metrics-for-paths-between-obstacle-segmentation-and-planning">Detailed temporal performance metrics for Paths between Obstacle segmentation and Planning<a class="headerlink" href="#detailed-temporal-performance-metrics-for-paths-between-obstacle-segmentation-and-planning" title="Permanent link">#</a></h3>
 <p>Obstacle segmentation, which is a crucial part of Perception, transmits data to Planning. The figure below illustrates the model that takes into account performance metrics related to Obstacle segmentation and Planning.</p>
 <p><img alt="Model for Obstacle segmentation temporal performance metrics" src="../images/important-temporal-performance-metrics/model-for-obstacle-segmentation-metrics.svg"></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-</div>
+<div class="admonition ote">
+<p class="admonition-title">Ote</p>
 <p>Both the Obstacle grid map and Obstacle segmentation transmit data to multiple sub-components of Planning. However, not all of these sub-components are described in the model. This is because our primary focus is on the paths from LiDAR to Planning via Obstacle segmentation.</p>
+</div>
 <p>The following list shows the temporal performance metrics around Obstacle segmentation and Planning.</p>
 <table>
 <thead>
