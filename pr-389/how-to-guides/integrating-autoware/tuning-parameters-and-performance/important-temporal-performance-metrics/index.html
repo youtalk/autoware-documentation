@@ -4688,210 +4688,29 @@
 <li>Splitting the merging point of data from multiple processing paths and considering the frequency and response time around that point</li>
 </ul>
 <p>The following list shows the temporal performance metrics for Perception.</p>
-<table>
-<thead>
-<tr>
-<th>ID</th>
-<th>Representation in the model</th>
-<th>Metric meaning</th>
-<th>Related functionality</th>
-<th>Reference value</th>
-<th>Reason to choose it as a metric</th>
-<th>Note</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>APER-001</td>
-<td>Message rate from CPP #2 to CPP #26</td>
-<td>Update rate of Traffic Light Recognition.</td>
-<td>Perception/Traffic light Recognition</td>
-<td>It is essential to update traffic light Recognition frequently and seamlessly.</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>APER-002</td>
-<td>Response time from CPP #0 to CPP #30</td>
-<td>Response time from camera input to consumption of the result in Planning.</td>
-<td>Perception/Traffic light Recognition</td>
-<td>N/A</td>
-<td>Planning relies on fresh and up-to-date perceived data from Traffic Light Recognition.</td>
-<td></td>
-</tr>
-<tr>
-<td>APER-003</td>
-<td>Message rate from CPP #26 to CPP #28</td>
-<td>Update rate of result from Prediction (Object Recognition) to Planning.</td>
-<td>Perception/Object recognition</td>
-<td>10 Hz</td>
-<td>Object Recognition must be updated frequently and smoothly.</td>
-<td>Same as AWOV-001</td>
-</tr>
-<tr>
-<td>APER-004</td>
-<td>Response time from CPP #0 to CPP #30 <br>or <br>from CPP #1 to CPP #30</td>
-<td>Processing time in main body of Object Recognition if delay compensation is disabled in Tracking.</td>
-<td>Perception/Object Recognition</td>
-<td>N/A</td>
-<td>Planning relies on fresh and up-to-date perceived data from Obstacle Recognition.</td>
-<td>Same as AWOV-002</td>
-</tr>
-<tr>
-<td>APER-005</td>
-<td>Response time from CPP #23 to CPP #30</td>
-<td>Processing time Object Recognition if delay compensation is enabled in Tracking</td>
-<td>Perception/Object Recognition</td>
-<td>Planning relies on Obstacle Recognition to provide real-time and up-to-date perceived data.</td>
-<td>Same as AWOV-003</td>
-<td></td>
-</tr>
-<tr>
-<td>APER-006</td>
-<td>Response time from CPP #0 to CPP #21 <br>or <br>CPP #1 to CPP #21</td>
-<td>Time to process pointcloud data in Sensing and Detection if delay compensation is enabled in Tracking.</td>
-<td>N/A</td>
-<td>Tracking relies on Detection to provide real-time and up-to-date perceived data.</td>
-<td>Same as AWOV-004</td>
-<td></td>
-</tr>
-<tr>
-<td>APER-007</td>
-<td>Message rate from CPP #20 to CPP #21</td>
-<td>Update rate of Detection result received by Tracking.</td>
-<td>Perception/Object Recognition</td>
-<td>10 Hz</td>
-<td>Tracking expects Detection to update perceived data frequently and smoothly</td>
-<td>Same as AWOV-005</td>
-</tr>
-<tr>
-<td>APER-008</td>
-<td>Message rate from CPP #14 to CPP #19</td>
-<td>Update rate of result from Sensor Fusion.</td>
-<td>Perception/Object Recognition</td>
-<td>10 Hz</td>
-<td>Association Merger expects three inputs to synchronize with each others.</td>
-<td></td>
-</tr>
-<tr>
-<td>APER-009</td>
-<td>Message rate from CPP #16 to CPP #19</td>
-<td>Update rate of result from Detection by Tracker.</td>
-<td>Perception/Object Recognition.</td>
-<td>10 Hz</td>
-<td>Association Merger expects three inputs to synchronize with each others.</td>
-<td></td>
-</tr>
-<tr>
-<td>APER-010</td>
-<td>Message rate from CPP #18 to CPP #19</td>
-<td>Update rate of result from Validation</td>
-<td>Perception/Object Recognition.</td>
-<td>10 Hz</td>
-<td>Association Merger expects three inputs to synchronize with each others.</td>
-<td></td>
-</tr>
-<tr>
-<td>APER-011</td>
-<td>Response time from CPP #6 to CPP #19 via CPP #14</td>
-<td>Response time for result from Sensor Fusion after LiDARs output pointcloud.</td>
-<td>Perception/Object Recognition</td>
-<td>N/A</td>
-<td>Association Merger expects three inputs to synchronize with each others.</td>
-<td></td>
-</tr>
-<tr>
-<td>APER-012</td>
-<td>Response time from CPP #6 to CPP #19 via CPP #16</td>
-<td>Response time for result from Detection by Tracker after LiDARs output pointcloud.</td>
-<td>Perception/Object Recognition</td>
-<td>N/A</td>
-<td>Association Merger expects three inputs to synchronize with each others.</td>
-<td></td>
-</tr>
-<tr>
-<td>APER-013</td>
-<td>Response time from CPP #6 to CPP #19 via CPP #18</td>
-<td>Response time for result from Validator after LiDARs output pointcloud.</td>
-<td>Perception/Object Recognition</td>
-<td>N/A</td>
-<td>Association Merger expects three inputs to synchronize with each others.</td>
-<td></td>
-</tr>
-<tr>
-<td>APER-014</td>
-<td>Message rate from CPP #10 to CPP #13</td>
-<td>Update rate of result from Clustering.</td>
-<td>Perception/Object Recognition</td>
-<td>10 Hz</td>
-<td>Sensor Fusion expects two inputs to synchronize with each other.</td>
-<td>Response time from CPP #6 to CPP #13</td>
-</tr>
-<tr>
-<td>APER-015</td>
-<td>Response time from CPP #6 to CPP #13</td>
-<td>Response time for result from Clustering after LiDARs output pointcloud.</td>
-<td>Perception/Object Recognition</td>
-<td>N/A</td>
-<td>Sensor Fusion expects two inputs to synchronize with each other.</td>
-<td></td>
-</tr>
-<tr>
-<td>APER-016</td>
-<td>Message rate from CPP #5 to CPP #13</td>
-<td>Update rate of result from Camera-based Object detection.</td>
-<td>10 Hz</td>
-<td>Sensor Fusion expects two inputs to synchronize with each other.</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>APER-017</td>
-<td>Response time from CPP #3 to CPP #13</td>
-<td>Response time for result from Camera-based Object detection after Cameras output images.</td>
-<td>Perception/Object Recognition</td>
-<td>N/A</td>
-<td>Sensor Fusion expects two inputs to synchronize with each other.</td>
-<td></td>
-</tr>
-<tr>
-<td>APER-018</td>
-<td>Message rate from CPP #10 to CPP #17</td>
-<td>Update rate of result from Clustering.</td>
-<td>Perception/Object Recognition</td>
-<td>10 Hz</td>
-<td>Validator expects two inputs to synchronize with each other.</td>
-<td>It seems similar to APER-014, but the topic message is different.</td>
-</tr>
-<tr>
-<td>APER-019</td>
-<td>Response time from CPP #6 to CPP #17 via CPP #10</td>
-<td>Response time for result from Clustering after LiDARs output pointcloud.</td>
-<td>Perception/Object Recognition</td>
-<td>N/A</td>
-<td>Validator expects two inputs to synchronize with each other.</td>
-<td>It seems similar to APER-015, but the topic message is different.</td>
-</tr>
-<tr>
-<td>APER-020</td>
-<td>Message rate from CPP #12 to CPP #17</td>
-<td>Update rate of result from DNN-based Object Recognition.</td>
-<td>Perception/Object Recognition</td>
-<td>10 Hz</td>
-<td>Validator expects two inputs to synchronize with each other.</td>
-<td></td>
-</tr>
-<tr>
-<td>APER-021</td>
-<td>Response time from CPP #6 to CPP #17 via CPP #12</td>
-<td>Response time for result from DNN-based Object Recognition after LiDARs output pointcloud.</td>
-<td>Perception/Object Recognition</td>
-<td>N/A</td>
-<td>Validator expects two inputs to synchronize with each other.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<p>| ID       | Representation in the model                                            | Metric meaning                                                                                         | Related functionality                | Reference value                                                                             | Reason to choose it as a metric                                                        | Note                                                              |
+| -------- | ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------ | ------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | ------------------------------------------------------------------------ | ----------------------------- | --- | ---------------------------------------------------------------- | --- |
+| APER-001 | Message rate from CPP #2 to CPP #26                                    | Update rate of Traffic Light Recognition.                                                              | Perception/Traffic light Recognition | It is essential to update traffic light Recognition frequently and seamlessly.              |                                                                                        |
+| APER-002 | Response time from CPP #0 to CPP #30                                   | Response time from camera input to consumption of the result in Planning.                              | Perception/Traffic light Recognition | N/A                                                                                         | Planning relies on fresh and up-to-date perceived data from Traffic Light Recognition. |                                                                   |
+| APER-003 | Message rate from CPP #26 to CPP #28                                   | Update rate of result from Prediction (Object Recognition) to Planning.                                | Perception/Object recognition        | 10 Hz                                                                                       | Object Recognition must be updated frequently and smoothly.                            | Same as AWOV-001                                                  |
+| APER-004 | Response time from CPP #0 to CPP #30 <br>or <br>from CPP #1 to CPP #30 | Processing time in main body of Object Recognition if delay compensation is disabled in Tracking.      | Perception/Object Recognition        | N/A                                                                                         | Planning relies on fresh and up-to-date perceived data from Obstacle Recognition.      | Same as AWOV-002                                                  |
+| APER-005 | Response time from CPP #23 to CPP #30                                  | Processing time Object Recognition if delay compensation is enabled in Tracking                        | Perception/Object Recognition        | Planning relies on Obstacle Recognition to provide real-time and up-to-date perceived data. | Same as AWOV-003                                                                       |
+| APER-006 | Response time from CPP #0 to CPP #21 <br>or <br>CPP #1 to CPP #21      | Time to process pointcloud data in Sensing and Detection if delay compensation is enabled in Tracking. | N/A                                  | Tracking relies on Detection to provide real-time and up-to-date perceived data.            | Same as AWOV-004                                                                       |
+| APER-007 | Message rate from CPP #20 to CPP #21                                   | Update rate of Detection result received by Tracking.                                                  | Perception/Object Recognition        | 10 Hz                                                                                       | Tracking expects Detection to update perceived data frequently and smoothly            | Same as AWOV-005                                                  |
+| APER-008 | Message rate from CPP #14 to CPP #19                                   | Update rate of result from Sensor Fusion.                                                              | Perception/Object Recognition        | 10 Hz                                                                                       | Association Merger expects three inputs to synchronize with each others.               |                                                                   |
+| APER-009 | Message rate from CPP #16 to CPP #19                                   | Update rate of result from Detection by Tracker.                                                       | Perception/Object Recognition.       | 10 Hz                                                                                       | Association Merger expects three inputs to synchronize with each others.               |                                                                   |
+| APER-010 | Message rate from CPP #18 to CPP #19                                   | Update rate of result from Validation                                                                  | Perception/Object Recognition.       | 10 Hz                                                                                       | Association Merger expects three inputs to synchronize with each others.               |
+| APER-011 | Response time from CPP #6 to CPP #19 via CPP #14                       | Response time for result from Sensor Fusion after LiDARs output pointcloud.                            | Perception/Object Recognition        | N/A                                                                                         | Association Merger expects three inputs to synchronize with each others.               |                                                                   |
+| APER-012 | Response time from CPP #6 to CPP #19 via CPP #16                       | Response time for result from Detection by Tracker after LiDARs output pointcloud.                     | Perception/Object Recognition        | N/A                                                                                         | Association Merger expects three inputs to synchronize with each others.               |                                                                   |
+| APER-013 | Response time from CPP #6 to CPP #19 via CPP #18                       | Response time for result from Validator after LiDARs output pointcloud.                                | Perception/Object Recognition        | N/A                                                                                         | Association Merger expects three inputs to synchronize with each others.               |                                                                   |
+| APER-014 | Message rate from CPP #10 to CPP #13                                   | Update rate of result from Clustering.                                                                 | Perception/Object Recognition        | 10 Hz                                                                                       | Sensor Fusion expects two inputs to synchronize with each other.                       | Response time from CPP #6 to CPP #13                              | Response time for result from Clustering after LiDARs output pointcloud. | Perception/Object Recognition | N/A | Sensor Fusion expects two inputs to synchronize with each other. |     |
+| APER-015 | Response time from CPP #6 to CPP #13                                   | Response time for result from Clustering after LiDARs output pointcloud.                               | Perception/Object Recognition        | N/A                                                                                         | Sensor Fusion expects two inputs to synchronize with each other.                       |                                                                   |
+| APER-016 | Message rate from CPP #5 to CPP #13                                    | Update rate of result from Camera-based Object detection.                                              | 10 Hz                                | Sensor Fusion expects two inputs to synchronize with each other.                            |                                                                                        |
+| APER-017 | Response time from CPP #3 to CPP #13                                   | Response time for result from Camera-based Object detection after Cameras output images.               | Perception/Object Recognition        | N/A                                                                                         | Sensor Fusion expects two inputs to synchronize with each other.                       |                                                                   |
+| APER-018 | Message rate from CPP #10 to CPP #17                                   | Update rate of result from Clustering.                                                                 | Perception/Object Recognition        | 10 Hz                                                                                       | Validator expects two inputs to synchronize with each other.                           | It seems similar to APER-014, but the topic message is different. |
+| APER-019 | Response time from CPP #6 to CPP #17 via CPP #10                       | Response time for result from Clustering after LiDARs output pointcloud.                               | Perception/Object Recognition        | N/A                                                                                         | Validator expects two inputs to synchronize with each other.                           | It seems similar to APER-015, but the topic message is different. |
+| APER-020 | Message rate from CPP #12 to CPP #17                                   | Update rate of result from DNN-based Object Recognition.                                               | Perception/Object Recognition        | 10 Hz                                                                                       | Validator expects two inputs to synchronize with each other.                           |
+| APER-021 | Response time from CPP #6 to CPP #17 via CPP #12                       | Response time for result from DNN-based Object Recognition after LiDARs output pointcloud.             | Perception/Object Recognition        | N/A                                                                                         | Validator expects two inputs to synchronize with each other.                           |                                                                   |</p>
 <h3 id="detailed-temporal-performance-metrics-for-paths-between-obstacle-segmentation-and-planning">Detailed temporal performance metrics for Paths between Obstacle segmentation and Planning<a class="headerlink" href="#detailed-temporal-performance-metrics-for-paths-between-obstacle-segmentation-and-planning" title="Permanent link">#</a></h3>
 <p>Obstacle segmentation, which is a crucial part of Perception, transmits data to Planning. The figure below illustrates the model that takes into account performance metrics related to Obstacle segmentation and Planning.</p>
 <p><img alt="Model for Obstacle segmentation temporal performance metrics" src="../images/important-temporal-performance-metrics/model-for-obstacle-segmentation-metrics.svg"></p>
