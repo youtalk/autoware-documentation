@@ -4559,26 +4559,26 @@
 <tr>
 <td>AWOV-001</td>
 <td><strong>Message rate</strong> from CPA #9 to CPA #18</td>
-<td>Update rate of result from Prediction (Object Recognition) to Planning.</td>
-<td>Perception/Object Recognition</td>
+<td>Update rate of  result from Prediction to Planning.</td>
+<td>Perception</td>
 <td>10 Hz</td>
-<td>Object Recognition must be updated frequently and smoothly.</td>
+<td>Perceived data from Prediction must be updated frequently and smoothly.</td>
 <td></td>
 </tr>
 <tr>
 <td>AWOV-002</td>
 <td><strong>Response time</strong> from CPA #0 to CPA #20 <br>or<br> from CPA #1 to CPA #20</td>
-<td>Processing time in main body of Object Recognition if delay compensation is disabled in Tracking.</td>
-<td>Perception/Object Recognition</td>
+<td>Processing time in main body of Perception if delay compensation is disabled in Tracking.</td>
+<td>Perception</td>
 <td>N/A</td>
-<td>Planning relies on fresh and up-to-date perceived data from Obstacle Recognition.</td>
+<td>Planning relies on fresh and up-to-date perceived data from Perception.</td>
 <td>If sensor provides timestamp, CPA #0 is starting point. Otherwise, #1 is used instead.</td>
 </tr>
 <tr>
 <td>AWOV-003</td>
 <td><strong>Response time</strong> from CPA #7 to CPA #20</td>
-<td>Processing time in main body of Object Recognition if delay compensation is disabled in Tracking.</td>
-<td>Perception/Object Recognition</td>
+<td>Processing time in main body of Perception if delay compensation is disabled in Tracking.</td>
+<td>Perception</td>
 <td>N/A</td>
 <td>Planning relies on Obstacle Recognition to provide real-time and up-to-date perceived data.</td>
 <td></td>
@@ -4587,7 +4587,7 @@
 <td>AWOV-004</td>
 <td><strong>Response time</strong> from CPA #0 to CPA #6 <br>or <br> CPA #1 to CPA #6</td>
 <td>Duration to process pointcloud data in Sensing and Detection if delay compensation is enabled in Tracking.</td>
-<td>Perception/Object Recognition</td>
+<td>Perception</td>
 <td>N/A</td>
 <td>Tracking relies on Detection to provide real-time and up-to-date perceived data.</td>
 <td>If sensor provides timestamp, CPA #0 is starting point. Otherwise, #1 is used instead.</td>
@@ -4596,7 +4596,7 @@
 <td>AWOV-005</td>
 <td><strong>Message rate</strong> from CPA #4 to CPA #5</td>
 <td>Update rate of Detection result received by Tracking.</td>
-<td>Perception/Object Recognition</td>
+<td>Perception</td>
 <td>10 Hz</td>
 <td>Tracking expects Detection to update perceived data frequently and smoothly.</td>
 <td></td>
@@ -4649,7 +4649,7 @@
 <tr>
 <td>AWOV-011</td>
 <td><strong>Message rate</strong> from CPA #21 to CPA #22</td>
-<td>Update rate of Trajectory message from Planning.</td>
+<td>Update rate of Trajectory message  from Planning.</td>
 <td>Planning</td>
 <td>10 Hz</td>
 <td>Trajectory message should be updated frequently to achieve optimal driving behavior.</td>
@@ -4675,6 +4675,10 @@
 </tr>
 </tbody>
 </table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There is an assumption that LiDAR outputs a set of pointcloud with a timestamp. CPA #0 is observed with the timestamp. If the LiDARs are not configured to output the timestamp, the time when Autoware receives the pointcloud is used instead. This is represented by CPA #1 in the model.</p>
+</div>
 <h3 id="detailed-temporal-performance-metrics-for-perception">Detailed temporal performance metrics for Perception<a class="headerlink" href="#detailed-temporal-performance-metrics-for-perception" title="Permanent link">#</a></h3>
 <p>The diagram below introduces the model for temporal performance metrics for Perception.</p>
 <p><img alt="Model for Perception temporal performance metrics" src="../images/important-temporal-performance-metrics/model-for-perception-metrics.svg"></p>
