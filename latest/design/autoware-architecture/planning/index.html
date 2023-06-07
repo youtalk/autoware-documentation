@@ -4663,79 +4663,79 @@
 </tr>
 <tr>
 <td>Crosswalk</td>
-<td>Plan velocity to stop or decelerate for pedestrians approaching or walking on a crosswalk. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_planner/crosswalk-design/">Crosswalk Module</a>.</td>
+<td>Plan velocity to stop or decelerate for pedestrians approaching or walking on a crosswalk. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_crosswalk_module/docs/crosswalk-design/">Crosswalk Module</a>.</td>
 <td>- objects information <br> - Lanelet map (pedestrian crossing)</td>
 <td><img alt="crosswalk" src="image/features-crosswalk.drawio.svg"></td>
 </tr>
 <tr>
 <td>Intersection Oncoming Vehicle Check</td>
-<td>Plan velocity for turning right/left at intersection to avoid a risk with oncoming other vehicles. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_planner/intersection-design/">Intersection Module</a>.</td>
+<td>Plan velocity for turning right/left at intersection to avoid a risk with oncoming other vehicles. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_intersection_module/docs/intersection-design/">Intersection Module</a>.</td>
 <td>- objects information <br> - Lanelet map (intersection lane and yield lane)</td>
 <td><img alt="intersection" src="image/features-intersection.drawio.svg"></td>
 </tr>
 <tr>
 <td>Intersection Blind Spot Check</td>
-<td>Plan velocity for turning right/left at intersection to avoid a risk with other vehicles or motorcycles coming from behind blind spot. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_planner/intersection-design/">Intersection Module</a>.</td>
+<td>Plan velocity for turning right/left at intersection to avoid a risk with other vehicles or motorcycles coming from behind blind spot. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_intersection_module/docs/intersection-design/">Intersection Module</a>.</td>
 <td>- objects information <br> - Lanelet map (intersection lane)</td>
 <td><img alt="blind-spot" src="image/features-blind-spot.drawio.svg"></td>
 </tr>
 <tr>
 <td>Intersection Occlusion Check</td>
-<td>Plan velocity for turning right/left at intersection to avoid a risk with the possibility of coming vehicles from occlusion area. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_planner/intersection-design/">Intersection Module</a>.</td>
+<td>Plan velocity for turning right/left at intersection to avoid a risk with the possibility of coming vehicles from occlusion area. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_intersection_module/docs/intersection-design/">Intersection Module</a>.</td>
 <td>- objects information <br> - Lanelet map (intersection lane)</td>
 <td><img alt="intersection-occlusion" src="image/features-intersection-occlusion.drawio.svg"></td>
 </tr>
 <tr>
 <td>Intersection Traffic Jam Detection</td>
-<td>Plan velocity for intersection not to enter the intersection when a vehicle is stopped ahead for a traffic jam. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_planner/intersection-design/">Intersection Module</a>.</td>
+<td>Plan velocity for intersection not to enter the intersection when a vehicle is stopped ahead for a traffic jam. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_intersection_module/docs/intersection-design/">Intersection Module</a>.</td>
 <td>- objects information <br> - Lanelet map (intersection lane)</td>
 <td><img alt="intersection-traffic-jam" src="image/features-intersection-traffic-jam.drawio.svg"></td>
 </tr>
 <tr>
 <td>Traffic Light</td>
-<td>Plan velocity for intersection according to a traffic light signal. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_planner/traffic-light-design/">Traffic Light Module</a>.</td>
+<td>Plan velocity for intersection according to a traffic light signal. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_traffic_light_module/docs/traffic-light-design/">Traffic Light Module</a>.</td>
 <td>- Traffic light color information</td>
 <td><img alt="traffic-light" src="image/features-traffic-light.drawio.svg"></td>
 </tr>
 <tr>
 <td>Run-out Check</td>
-<td>Plan velocity to decelerate for the possibility of nearby objects running out into the path. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_planner/run-out-design/">Run Out Module</a>.</td>
+<td>Plan velocity to decelerate for the possibility of nearby objects running out into the path. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_run_out_module/docs/run-out-design/">Run Out Module</a>.</td>
 <td>- objects information</td>
 <td><img alt="run-out" src="image/features-run-out.drawio.svg"></td>
 </tr>
 <tr>
 <td>Stop Line</td>
-<td>Plan velocity to stop at a stop line. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_planner/stop-line-design/">Stop Line Module</a>.</td>
+<td>Plan velocity to stop at a stop line. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_stop_line_module/docs/stop-line-design/">Stop Line Module</a>.</td>
 <td>- Lanelet map (stop line)</td>
 <td><img alt="stop-line" src="image/features-stop-line.drawio.svg"></td>
 </tr>
 <tr>
 <td>Occlusion Spot Check</td>
-<td>Plan velocity to decelerate for objects running out from occlusion area, for example, from behind a large vehicle. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_planner/occlusion-spot-design/">Occlusion Spot Module</a>.</td>
+<td>Plan velocity to decelerate for objects running out from occlusion area, for example, from behind a large vehicle. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_occlusion_spot_module/docs/occlusion-spot-design/">Occlusion Spot Module</a>.</td>
 <td>- objects information <br> - Lanelet map (private/public lane)</td>
 <td><img alt="occlusion-spot" src="image/features-occlusion-spot.drawio.svg"></td>
 </tr>
 <tr>
 <td>No Stop Area</td>
-<td>Plan velocity not to stop in areas where stopping is prohibited, such as in front of the fire station entrance. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_planner/no-stopping-area-design/">No Stopping Area Module</a>.</td>
+<td>Plan velocity not to stop in areas where stopping is prohibited, such as in front of the fire station entrance. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_no_stopping_area_module/docs/no-stopping-area-design/">No Stopping Area Module</a>.</td>
 <td>- Lanelet map (no stopping area)</td>
 <td><img alt="no-stopping-area" src="image/features-no-stopping-area.drawio.svg"></td>
 </tr>
 <tr>
 <td>Merge from Private Area to Public Road</td>
-<td>Plan velocity for entering the public road from a private driveway to avoid a risk of collision with pedestrians or other vehicles. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_planner/merge-from-private-design/">Merge from Private Area Module</a>.</td>
+<td>Plan velocity for entering the public road from a private driveway to avoid a risk of collision with pedestrians or other vehicles. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_intersection_module/docs/merge-from-private-design/">Merge from Private Area Module</a>.</td>
 <td>- objects information <br> - Lanelet map (private/public lane)</td>
 <td>WIP</td>
 </tr>
 <tr>
 <td>Speed Bump</td>
-<td>Plan velocity to decelerate for speed bumps. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_planner/speed-bump-design/">Speed Bump Module</a>.</td>
+<td>Plan velocity to decelerate for speed bumps. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_speed_bump_module/docs/speed-bump-design/">Speed Bump Module</a>.</td>
 <td>- Lanelet map (speed bump)</td>
 <td><img alt="speed-bump" src="image/features-speed-bump.drawio.svg"></td>
 </tr>
 <tr>
 <td>Detection Area</td>
-<td>Plan velocity to stop at the corresponding stop when an object exist in the designated detection area. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_planner/detection-area-design/">Detection Area Module</a>.</td>
+<td>Plan velocity to stop at the corresponding stop when an object exist in the designated detection area. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_detection_area_module/docs/detection-area-design/">Detection Area Module</a>.</td>
 <td>- Lanelet map (detection area)</td>
 <td><img alt="detection-area" src="image/features-detection-area.drawio.svg"></td>
 </tr>
@@ -4747,7 +4747,7 @@
 </tr>
 <tr>
 <td>Collision Detection when deviating from lane</td>
-<td>Plan velocity to avoid conflict with other vehicles driving in the another lane when the ego vehicle is deviating from own lane. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_planner/out-of-lane-design/">Out of Lane Module</a>.</td>
+<td>Plan velocity to avoid conflict with other vehicles driving in the another lane when the ego vehicle is deviating from own lane. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_out_of_lane_module/docs/out-of-lane-design/">Out of Lane Module</a>.</td>
 <td>- objects information <br> - Lanelet map (driving lane)</td>
 <td>WIP</td>
 </tr>
@@ -4759,7 +4759,7 @@
 </tr>
 <tr>
 <td>Autonomous Emergency Braking (AEB)</td>
-<td>Perform an emergency stop if a collision with an object ahead is anticipated. It is noted that this function is expected as a final safety layer, and this should work even in the event of failures in the Localization or Perception system. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_planner/out-of-lane-design/">Out of Lane Module</a>.</td>
+<td>Perform an emergency stop if a collision with an object ahead is anticipated. It is noted that this function is expected as a final safety layer, and this should work even in the event of failures in the Localization or Perception system. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_out_of_lane_module/docs/out-of-lane-design/">Out of Lane Module</a>.</td>
 <td>- Primitive objects</td>
 <td><img alt="aeb" src="image/features-aeb.drawio.svg"></td>
 </tr>
@@ -4808,16 +4808,16 @@
 </ul>
 </li>
 <li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_planner/"><em>behavior_velocity_planner</em></a>: calculates max speed based on the traffic rules.<ul>
-<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_planner/detection-area-design/"><em>detection_area</em></a></li>
-<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_planner/blind-spot-design/"><em>blind_spot</em></a></li>
-<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_planner/crosswalk-design/"><em>cross_walk</em></a></li>
-<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_planner/stop-line-design/"><em>stop_line</em></a></li>
-<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_planner/traffic-light-design/"><em>traffic_light</em></a></li>
-<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_planner/intersection-design/"><em>intersection</em></a></li>
-<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_planner/no-stopping-area-design/"><em>no_stopping_area</em></a></li>
-<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_planner/virtual-traffic-light-design/"><em>virtual_traffic_light</em></a></li>
-<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_planner/occlusion-spot-design/"><em>occlusion_spot</em></a></li>
-<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_planner/run-out-design/"><em>run_out</em></a></li>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_detection_area_module/docs/detection-area-design/"><em>detection_area</em></a></li>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_blind_spot_module/docs/blind-spot-design/"><em>blind_spot</em></a></li>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_crosswalk_module/docs/crosswalk-design/"><em>cross_walk</em></a></li>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_stop_line_module/docs/stop-line-design/"><em>stop_line</em></a></li>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_traffic_light_module/docs/traffic-light-design/"><em>traffic_light</em></a></li>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_intersection_module/docs/intersection-design/"><em>intersection</em></a></li>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_no_stopping_area_module/docs/no-stopping-area-design/"><em>no_stopping_area</em></a></li>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_virtual_traffic_light_module/docs/virtual-traffic-light-design/"><em>virtual_traffic_light</em></a></li>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_occlusion_spot_module/docs/occlusion-spot-design/"><em>occlusion_spot</em></a></li>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_run_out_module/docs/run-out-design/"><em>run_out</em></a></li>
 </ul>
 </li>
 <li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/obstacle_avoidance_planner/"><em>obstacle_avoidance_planner</em></a>: calculate path shape under obstacle and drivable area constraints</li>
