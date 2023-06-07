@@ -3158,11 +3158,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#inputs" class="md-nav__link">
-    Inputs
+  <a href="#input" class="md-nav__link">
+    Input
   </a>
   
-    <nav class="md-nav" aria-label="Inputs">
+    <nav class="md-nav" aria-label="Input">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3223,6 +3223,40 @@
           <li class="md-nav__item">
   <a href="#to-api" class="md-nav__link">
     To API
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#planning-internal-interface" class="md-nav__link">
+    Planning internal interface
+  </a>
+  
+    <nav class="md-nav" aria-label="Planning internal interface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#from-mission-planning-to-scenario-planning" class="md-nav__link">
+    From Mission Planning to Scenario Planning
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#from-behavior-planning-to-motion-planning" class="md-nav__link">
+    From Behavior Planning to Motion Planning
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#from-scenario-planning-to-validation" class="md-nav__link">
+    From Scenario Planning to Validation
   </a>
   
 </li>
@@ -4435,11 +4469,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#inputs" class="md-nav__link">
-    Inputs
+  <a href="#input" class="md-nav__link">
+    Input
   </a>
   
-    <nav class="md-nav" aria-label="Inputs">
+    <nav class="md-nav" aria-label="Input">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -4509,6 +4543,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#planning-internal-interface" class="md-nav__link">
+    Planning internal interface
+  </a>
+  
+    <nav class="md-nav" aria-label="Planning internal interface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#from-mission-planning-to-scenario-planning" class="md-nav__link">
+    From Mission Planning to Scenario Planning
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#from-behavior-planning-to-motion-planning" class="md-nav__link">
+    From Behavior Planning to Motion Planning
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#from-scenario-planning-to-validation" class="md-nav__link">
+    From Scenario Planning to Validation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4530,7 +4598,8 @@
 <div><h1 id="planning">Planning<a class="headerlink" href="#planning" title="Permanent link">#</a></h1>
 <p>This page provides specific specifications about the Interface of the Planning Component. Please refer to the <a href="../../../autoware-architecture/planning/">planning architecture design document</a> for high-level concepts and data flow.</p>
 <p><strong>TODO: The detailed definitions (meanings of elements included in each topic) are not described yet, need to be updated.</strong></p>
-<h2 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">#</a></h2>
+<h2 id="input">Input<a class="headerlink" href="#input" title="Permanent link">#</a></h2>
+<p><img alt="planning-input" src="../images/planning-interface-input.drawio.svg"></p>
 <h3 id="from-map-component">From Map Component<a class="headerlink" href="#from-map-component" title="Permanent link">#</a></h3>
 <table>
 <thead>
@@ -4682,6 +4751,7 @@
 </tbody>
 </table>
 <h2 id="output">Output<a class="headerlink" href="#output" title="Permanent link">#</a></h2>
+<p><img alt="planning-output" src="../images/planning-interface-output.drawio.svg"></p>
 <h3 id="to-control">To Control<a class="headerlink" href="#to-control" title="Permanent link">#</a></h3>
 <table>
 <thead>
@@ -4760,6 +4830,66 @@
 <td><code>/planning/velocity_factors/*</code></td>
 <td><a href="https://github.com/autowarefoundation/autoware_adapi_msgs/blob/main/autoware_adapi_v1_msgs/planning/msg/VelocityFactorArray.msg">autoware_adapi_v1_msgs/msg/VelocityFactorArray</a></td>
 <td>Information about the velocity maneuvers performed by Autoware (e.g., stop for an obstacle, etc.)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="planning-internal-interface">Planning internal interface<a class="headerlink" href="#planning-internal-interface" title="Permanent link">#</a></h2>
+<p>This section explains the communication between the different planning modules shown in the <a href="../../../autoware-architecture/planning/#high-level-architecture">Planning Architecture Design</a>.</p>
+<p><img alt="planning-internal" src="../images/planning-interface-internal.drawio.svg"></p>
+<h3 id="from-mission-planning-to-scenario-planning">From Mission Planning to Scenario Planning<a class="headerlink" href="#from-mission-planning-to-scenario-planning" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Topic</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Route</td>
+<td><code>/planning/mission_planning/route</code></td>
+<td><a href="https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_planning_msgs/msg/LaneletRoute.msg">autoware_planning_msgs/msg/LaneletRoute</a></td>
+<td>A sequence of lane IDs on a Lanelet map, from the starting point to the destination.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="from-behavior-planning-to-motion-planning">From Behavior Planning to Motion Planning<a class="headerlink" href="#from-behavior-planning-to-motion-planning" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Topic</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Path</td>
+<td><code>/planning/scenario_planning/lane_driving/behavior_planning/path</code></td>
+<td><a href="https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_planning_msgs/msg/Path.idl">autoware_auto_planning_msgs/msg/Path</a></td>
+<td>A sequence of approximate vehicle positions for driving, along with information on the maximum speed and the drivable areas. Modules receiving this message are expected to make changes to the path within the constraints of the drivable areas and the maximum speed, generating the desired final trajectory.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="from-scenario-planning-to-validation">From Scenario Planning to Validation<a class="headerlink" href="#from-scenario-planning-to-validation" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Topic</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trajectory</td>
+<td><code>/planning/scenario_planning/trajectory</code></td>
+<td><a href="https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_planning_msgs/msg/Trajectory.idl">autoware_auto_planning_msgs/msg/Trajectory</a></td>
+<td>A sequence of precise vehicle positions, speeds, and accelerations required for driving. It is expected that the vehicle will follow this trajectory.</td>
 </tr>
 </tbody>
 </table>
