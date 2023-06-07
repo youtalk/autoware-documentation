@@ -4562,26 +4562,26 @@
 <td>Update rate of result from Prediction to Planning.</td>
 <td>Perception</td>
 <td>10 Hz</td>
-<td>Perceived data from Prediction must be updated frequently and smoothly.</td>
+<td>Planning relies on fresh and up-to-date perceived data from Perception for creating accurate trajectory.</td>
 <td></td>
 </tr>
 <tr>
 <td>AWOV-002</td>
 <td><strong>Response time</strong> from CPA #0 to CPA #20 via CPA #18</td>
-<td>Processing time in main body of Perception.</td>
+<td>Response time in main body of Perception.</td>
 <td>Perception</td>
 <td>N/A</td>
-<td>Planning relies on fresh and up-to-date perceived data from Perception.</td>
-<td>If delay compensation is disabled in Tracking.</td>
+<td>Planning relies on fresh and up-to-date perceived data from Perception for creating accurate trajectory.</td>
+<td>The metric is used if delay compensation is disabled in Tracking.</td>
 </tr>
 <tr>
 <td>AWOV-003</td>
 <td><strong>Response time</strong> from CPA #7 to CPA #20</td>
-<td>Processing time in main body of Perception.</td>
+<td>Response time from Tracking output of Tracking to its data consumption in Planning.</td>
 <td>Perception</td>
 <td>N/A</td>
-<td>Planning relies on Obstacle Recognition to provide real-time and up-to-date perceived data.</td>
-<td>If delay compensation is enabled in Tracking.</td>
+<td>Planning relies on fresh and up-to-date perceived data from Perception for creating accurate trajectory.</td>
+<td>The metric is used if delay compensation is enabled in Tracking.</td>
 </tr>
 <tr>
 <td>AWOV-004</td>
@@ -4589,8 +4589,8 @@
 <td>Duration to process pointcloud data in Sensing and Detection.</td>
 <td>Perception</td>
 <td>N/A</td>
-<td>Tracking relies on Detection to provide real-time and up-to-date perceived data.</td>
-<td>If delay compensation is enabled in Tracking.</td>
+<td>Tracking relies on detection to provide real-time and up-to-date sensed data for accurate tracking.</td>
+<td>The metric is used if delay compensation is enabled in Tracking.</td>
 </tr>
 <tr>
 <td>AWOV-005</td>
@@ -4598,7 +4598,7 @@
 <td>Update rate of Detection result received by Tracking.</td>
 <td>Perception</td>
 <td>10 Hz</td>
-<td>Tracking expects Detection to update perceived data frequently and smoothly.</td>
+<td>Tracking relies on detection to provide real-time and up-to-date sensed data for accurate tracking.</td>
 <td></td>
 </tr>
 <tr>
@@ -4607,7 +4607,7 @@
 <td>Response time from output of observed data from LiDARs to its consumption in EKF Localizer via NDT Scan Matcher.</td>
 <td>Localization</td>
 <td>N/A</td>
-<td>EKF Localizer requires fresh and up-to-date observed data from sensors.</td>
+<td>EKF Localizer relies on fresh and up-to-date observed data from sensors for accurate estimation of self pose.</td>
 <td></td>
 </tr>
 <tr>
@@ -4616,7 +4616,7 @@
 <td>Update rate of pose estimated by NDT Scan Matcher.</td>
 <td>Localization</td>
 <td>10 Hz</td>
-<td>EKF Localizer expects observed data to be updated frequently.</td>
+<td>EKF Localizer relies on fresh and up-to-date observed data from sensors for accurate estimation of self pose.</td>
 <td></td>
 </tr>
 <tr>
@@ -4625,7 +4625,7 @@
 <td>Update rate of feed backed pose estimated by EKF Localizer.</td>
 <td>Localization</td>
 <td>50 Hz</td>
-<td>NDT Scan Matcher relies on receiving estimated pose from the EKF Localizer smoothly for interpolation purposes.</td>
+<td>NDT Scan Matcher relies on receiving estimated pose from EKF Localizer smoothly for linear interpolation.</td>
 <td></td>
 </tr>
 <tr>
@@ -4634,7 +4634,7 @@
 <td>Update rate of Localization result received by Planning.</td>
 <td>Localization</td>
 <td>50 Hz</td>
-<td>Planning requires Localization to update the estimated pose frequently.</td>
+<td>Planning relies on Localization to update the estimated pose frequently.</td>
 <td></td>
 </tr>
 <tr>
@@ -4643,7 +4643,7 @@
 <td>Processing time from beginning of Planning to consumption of Trajectory message in Control.</td>
 <td>Planning</td>
 <td>N/A</td>
-<td>Trajectory message should be updated within a short time frame to achieve appropriate driving behavior.</td>
+<td>The vehicle relies on Planning to update trajectory within a short time frame to achieve safe driving behavior.</td>
 <td></td>
 </tr>
 <tr>
@@ -4652,7 +4652,7 @@
 <td>Update rate of Trajectory message from Planning.</td>
 <td>Planning</td>
 <td>10 Hz</td>
-<td>Trajectory message should be updated frequently to achieve optimal driving behavior.</td>
+<td>The vehicle relies on Planning to update trajectory frequently to achieve safe driving behavior.</td>
 <td></td>
 </tr>
 <tr>
@@ -4661,7 +4661,7 @@
 <td>Update rate of Control command.</td>
 <td>Control</td>
 <td>33 Hz</td>
-<td>Sampling frequency influences on control stability so that Control should run at expected frequency.</td>
+<td>Control stability and comfort relies on sampling frequency of Control.</td>
 <td></td>
 </tr>
 <tr>
@@ -4670,7 +4670,7 @@
 <td>Communication rate between Autoware and Vehicle.</td>
 <td>Vehicle Interface</td>
 <td>N/A</td>
-<td>Vehicle expects Autoware to communicate with each other at predetermined frequency.</td>
+<td>Vehicle requires Autoware to communicate with each other at predetermined frequency.</td>
 <td>Temporal performance requirement varies depending on vehicle type.</td>
 </tr>
 </tbody>
@@ -4707,7 +4707,7 @@
 <td>Update rate of Traffic Light Recognition.</td>
 <td>Traffic Light Recognition</td>
 <td>10 Hz</td>
-<td>It is essential to update Traffic Light Recognition frequently and seamlessly.</td>
+<td>Planning relies on fresh and up-to-date perceived data from Traffic Light Recognition for making precise decisions.</td>
 <td></td>
 </tr>
 <tr>
@@ -4716,7 +4716,7 @@
 <td>Response time from camera input to consumption of the result in Planning.</td>
 <td>Traffic Light Recognition</td>
 <td>N/A</td>
-<td>Planning relies on fresh and up-to-date perceived data from Traffic Light Recognition.</td>
+<td>Planning relies on fresh and up-to-date perceived data from Traffic Light Recognition for making precise decisions.</td>
 <td></td>
 </tr>
 <tr>
@@ -4725,35 +4725,35 @@
 <td>Update rate of result from Prediction (Object Recognition) to Planning.</td>
 <td>Object Recognition</td>
 <td>10 Hz</td>
-<td>Object Recognition must be updated frequently and smoothly.</td>
-<td>Same as AWOV-001</td>
+<td>Planning relies on fresh and up-to-date perceived data from Perception for creating accurate trajectory.</td>
+<td>The metric is same as AWOV-001.</td>
 </tr>
 <tr>
 <td>APER-004</td>
 <td><strong>Response time</strong> from CPP #6 to CPP #30</td>
-<td>Processing time in main body of Object Recognition if delay compensation is disabled in Tracking.</td>
+<td>Response time from Tracking output of Tracking to its data consumption in Planning.</td>
 <td>Object Recognition</td>
 <td>N/A</td>
-<td>Planning relies on fresh and up-to-date perceived data from Obstacle Recognition.</td>
-<td>Same as AWOV-002</td>
+<td>Planning relies on fresh and up-to-date perceived data from Perception for creating accurate trajectory.</td>
+<td>The metric is same as AWOV-002 and used if delay compensation is disabled in Tracking.</td>
 </tr>
 <tr>
 <td>APER-005</td>
 <td><strong>Response time</strong> from CPP #23 to CPP #30</td>
-<td>Processing time Object Recognition if delay compensation is enabled in Tracking</td>
+<td>Response time from Tracking output of Tracking to its data consumption in Planning.</td>
 <td>Object Recognition</td>
 <td>N/A</td>
-<td>Planning relies on Obstacle Recognition to provide real-time and up-to-date perceived data.</td>
-<td>Same as AWOV-003</td>
+<td>Planning relies on fresh and up-to-date perceived data from Perception for creating accurate trajectory.</td>
+<td>The metric is same as AWOV-003 and used if delay compensation is enabled in Tracking.</td>
 </tr>
 <tr>
 <td>APER-006</td>
 <td><strong>Response time</strong> from CPP #6 to CPP #21</td>
-<td>Time to process pointcloud data in Sensing and Detection if delay compensation is enabled in Tracking.</td>
+<td>Duration to process pointcloud data in Sensing and Detection.</td>
 <td>Object Recognition</td>
 <td>N/A</td>
 <td>Tracking relies on Detection to provide real-time and up-to-date perceived data.</td>
-<td>Same as AWOV-004</td>
+<td>The metrics is same as AWOV-004 and used if delay compensation is enabled in Tracking.</td>
 </tr>
 <tr>
 <td>APER-007</td>
@@ -4761,133 +4761,133 @@
 <td>Update rate of Detection result received by Tracking.</td>
 <td>Object Recognition</td>
 <td>10 Hz</td>
-<td>Tracking expects Detection to update perceived data frequently and smoothly</td>
-<td>Same as AWOV-005</td>
+<td>Tracking relies on detection to provide real-time and up-to-date sensed data for accurate tracking.</td>
+<td>The metric is same as AWOV-005</td>
 </tr>
 <tr>
 <td>APER-008</td>
 <td><strong>Message rate</strong> from CPP #14 to CPP #19</td>
-<td>Update rate of result from Sensor Fusion.</td>
+<td>Update rate of data sent from Sensor Fusion.</td>
 <td>Object Recognition</td>
 <td>10 Hz</td>
-<td>Association Merger wants each input to be updated at expected frequency.</td>
+<td>Association Merger relies on the data to be updated at expected frequency for data synchronization.</td>
 <td></td>
 </tr>
 <tr>
 <td>APER-009</td>
 <td><strong>Message rate</strong> from CPP #16 to CPP #19</td>
-<td>Update rate of result from Detection by Tracker.</td>
-<td>Object Recognition.</td>
+<td>Update rate of data sent from Detection by Tracker.</td>
+<td>Object Recognition</td>
 <td>10 Hz</td>
-<td>Association Merger wants each input to be updated at expected frequency.</td>
+<td>Association Merger relies on the data to be updated at expected frequency for data synchronization.</td>
 <td></td>
 </tr>
 <tr>
 <td>APER-010</td>
 <td><strong>Message rate</strong> from CPP #18 to CPP #19</td>
-<td>Update rate of result from Validation</td>
+<td>Update rate of data sent from Validation</td>
 <td>Object Recognition.</td>
 <td>10 Hz</td>
-<td>Association Merger wants each input to be updated at expected frequency.</td>
+<td>Association Merger relies on the data to be updated at expected frequency for data synchronization.</td>
 <td></td>
 </tr>
 <tr>
 <td>APER-011</td>
 <td><strong>Response time</strong> from CPP #6 to CPP #19 via CPP #14</td>
-<td>Response time for result from Sensor Fusion after LiDARs output pointcloud.</td>
+<td>Response time to consume data sent from Sensor Fusion after LiDARs output pointcloud.</td>
 <td>Object Recognition</td>
 <td>N/A</td>
-<td>Association Merger expects three inputs to synchronize with each others.</td>
+<td>Association Merger relies on fresh and up-to-date data for data synchronization.</td>
 <td></td>
 </tr>
 <tr>
 <td>APER-012</td>
 <td><strong>Response time</strong> from CPP #6 to CPP #19 via CPP #16</td>
-<td>Response time for result from Detection by Tracker after LiDARs output pointcloud.</td>
+<td>Response time to consume data sent from Detection by Tracker after LiDARs output pointcloud.</td>
 <td>Object Recognition</td>
 <td>N/A</td>
-<td>Association Merger expects three inputs to synchronize with each others.</td>
+<td>Association Merger relies on fresh and up-to-date data for data synchronization.</td>
 <td></td>
 </tr>
 <tr>
 <td>APER-013</td>
 <td><strong>Response time</strong> from CPP #6 to CPP #19 via CPP #18</td>
-<td>Response time for result from Validator after LiDARs output pointcloud.</td>
+<td>Response time to consume data sent from Validator after LiDARs output pointcloud.</td>
 <td>Object Recognition</td>
 <td>N/A</td>
-<td>Association Merger expects three inputs to synchronize with each others.</td>
+<td>Association Merger relies on fresh and up-to-date data for data synchronization.</td>
 <td></td>
 </tr>
 <tr>
 <td>APER-014</td>
 <td><strong>Message rate</strong> from CPP #10 to CPP #13</td>
-<td>Update rate of result from Clustering.</td>
+<td>Update rate of data sent from Clustering.</td>
 <td>Object Recognition</td>
 <td>10 Hz</td>
-<td>Sensor Fusion wants two inputs to be updated at expected frequency.</td>
+<td>Sensor Fusion relies on the data to be updated at expected frequency for data synchronization.</td>
 <td></td>
 </tr>
 <tr>
 <td>APER-015</td>
 <td><strong>Message rate</strong> from CPP #5 to CPP #13</td>
-<td>Update rate of result from Camera-based Object detection.</td>
+<td>Update rate of data sent from Camera-based Object detection.</td>
 <td>Object Recognition</td>
 <td>10 Hz</td>
-<td>Sensor Fusion wants two inputs to be updated at expected frequency.</td>
+<td>Sensor Fusion relies on the data to be updated at expected frequency for data synchronization.</td>
 <td></td>
 </tr>
 <tr>
 <td>APER-016</td>
 <td><strong>Response time</strong> from CPP #6 to CPP #13</td>
-<td>Response time for result from Clustering after LiDARs output pointcloud.</td>
+<td>Response time to consume data sent from Clustering after LiDARs output pointcloud.</td>
 <td>Object Recognition</td>
 <td>N/A</td>
-<td>Sensor Fusion expects two inputs to synchronize with each other.</td>
+<td>Sensor Fusion relies on fresh and up-to-date data for data synchronization.</td>
 <td></td>
 </tr>
 <tr>
 <td>APER-017</td>
 <td><strong>Response time</strong> from CPP #3 to CPP #13</td>
-<td>Response time for result from Camera-based Object detection after Cameras output images.</td>
+<td>Response time to consume data sent from Camera-based Object detection after Cameras output images.</td>
 <td>Object Recognition</td>
 <td>N/A</td>
-<td>Sensor Fusion expects two inputs to synchronize with each other.</td>
+<td>Sensor Fusion relies on fresh and up-to-date data for data synchronization.</td>
 <td></td>
 </tr>
 <tr>
 <td>APER-018</td>
 <td><strong>Message rate</strong> from CPP #10 to CPP #17</td>
-<td>Update rate of result from Clustering.</td>
+<td>Update rate of data sent from Clustering.</td>
 <td>Object Recognition</td>
 <td>10 Hz</td>
-<td>Validator wants two inputs to be updated at expected frequency.</td>
+<td>Validator relies on the data to be updated at expected frequency for data synchronization.</td>
 <td>It seems similar to APER-014, but the topic message is different.</td>
 </tr>
 <tr>
 <td>APER-019</td>
 <td><strong>Message rate</strong> from CPP #12 to CPP #17</td>
-<td>Update rate of result from DNN-based Object Recognition.</td>
+<td>Update rate of data sent from DNN-based Object Recognition.</td>
 <td>Object Recognition</td>
 <td>10 Hz</td>
-<td>Validator wants two inputs to be updated at expected frequency.</td>
+<td>Validator relies on the data to be updated at expected frequency for data synchronization.</td>
 <td></td>
 </tr>
 <tr>
 <td>APER-020</td>
 <td><strong>Response time</strong> from CPP #6 to CPP #17 via CPP #10</td>
-<td>Response time for result from Clustering after LiDARs output pointcloud.</td>
+<td>Response time to consume data sent from Clustering after LiDARs output pointcloud.</td>
 <td>Object Recognition</td>
 <td>N/A</td>
-<td>Validator expects two inputs to synchronize with each other.</td>
+<td>Validator relies on fresh and update-date data for data synchronization.</td>
 <td>It seems similar to APER-015, but the topic message is different.</td>
 </tr>
 <tr>
 <td>APER-021</td>
 <td><strong>Response time</strong> from CPP #6 to CPP #17 via CPP #12</td>
-<td>Response time for result from DNN-based Object Recognition after LiDARs output pointcloud.</td>
+<td>Response time to consume data sent from DNN-based Object Recognition after LiDARs output pointcloud.</td>
 <td>Object Recognition</td>
 <td>N/A</td>
-<td>Validator expects two inputs to synchronize with each other.</td>
+<td>Validator relies on fresh and update-date data for data synchronization.</td>
 <td></td>
 </tr>
 </tbody>
@@ -4916,19 +4916,19 @@
 <tr>
 <td>OSEG-001</td>
 <td><strong>Message rate</strong> from CPS #4 to CPS #7</td>
-<td>Update rate of occupancy grid map received by Planning (<code>behavior_path_planner</code>)</td>
+<td>Update rate of Occupancy grid map received by Planning (<code>behavior_path_planner</code>)</td>
 <td>Obstacle segmentation</td>
 <td>10 Hz</td>
-<td>Occupancy grid map must be updated frequently and smoothly.</td>
+<td>Planning relies on occupancy grid map to be updated frequently and smoothly for creating accurate trajectory.</td>
 <td></td>
 </tr>
 <tr>
 <td>OSEG-002</td>
-<td><strong>Response time</strong> from CPS #0 to CPS #9</td>
-<td>Processing time to output occupancy grid map after LiDARs output sensing data.</td>
+<td><strong>Response time</strong> from CPS #0 to CPS #9 via CPS #7</td>
+<td>Response time to consume Occupancy grid map after LiDARs output sensing data.</td>
 <td>Obstacle segmentation</td>
 <td>N/A</td>
-<td>Planning relies on fresh and up-to-date perceived data from occupancy grid map.</td>
+<td>Planning relies on fresh and up-to-date perceived data from occupancy grid map for creating accurate trajectory..</td>
 <td></td>
 </tr>
 <tr>
@@ -4937,16 +4937,16 @@
 <td>Update rate of obstacle segmentation received by Planning (<code>behavior_velocity_planner</code>).</td>
 <td>Obstacle segmentation</td>
 <td>10 Hz</td>
-<td>Obstacle segmentation must be updated frequently and smoothly.</td>
+<td>Obstacle segmentation must be updated frequently and smoothly for creating accurate trajectory..</td>
 <td></td>
 </tr>
 <tr>
 <td>OSEG-004</td>
-<td><strong>Response time</strong> from CPS #0 to CPS #11</td>
-<td>Processing time to output obstacle segmentation after LiDARs output sensing data.</td>
+<td><strong>Response time</strong> from CPS #0 to CPS #13 via CPS #11</td>
+<td>Response time to consume Obstacle segmentation after LiDARs output sensing data.</td>
 <td>Obstacle segmentation</td>
 <td>N/A</td>
-<td>Planning relies on fresh and up-to-date perceived data from Obstacle segmentation.</td>
+<td>Planning relies on fresh and up-to-date perceived data from Obstacle segmentation for creating accurate trajectory..</td>
 <td></td>
 </tr>
 </tbody>
