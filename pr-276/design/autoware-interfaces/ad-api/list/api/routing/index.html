@@ -17,7 +17,7 @@
         <link rel="next" href="clear_route/">
       
       <link rel="icon" href="../../../../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
     
     
       
@@ -25,10 +25,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../../assets/stylesheets/main.85bb2934.min.css">
+      <link rel="stylesheet" href="../../../../../../assets/stylesheets/main.26e3688c.min.css">
       
         
-        <link rel="stylesheet" href="../../../../../../assets/stylesheets/palette.a6bdf11c.min.css">
+        <link rel="stylesheet" href="../../../../../../assets/stylesheets/palette.ecc896b0.min.css">
       
       
 
@@ -4339,6 +4339,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#goal-modification" class="md-nav__link">
+    Goal modification
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4394,6 +4401,22 @@ There are two ways to set the route. The one is a generic method that uses pose,
 <tr>
 <td>CHANGING</td>
 <td>Trying to change the route. Not implemented yet.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="goal-modification">Goal modification<a class="headerlink" href="#goal-modification" title="Permanent link">#</a></h2>
+<p>Autoware tries to look for an alternate goal when goal is unreachable (e.g., when there is an obstacle on the given goal). When setting a route from the API, applications can choose whether they allow Autoware to adjust goal pose in such situation. When set false, Autoware may get stuck until the given goal becomes reachable.</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>allow_goal_modification</td>
+<td>If true, allow goal modification.</td>
 </tr>
 </tbody>
 </table>
@@ -4487,7 +4510,11 @@ There are two ways to set the route. The one is a generic method that uses pose,
     
       <script src="../../../../../../assets/javascripts/bundle.b4d07000.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../../../../../assets/js/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

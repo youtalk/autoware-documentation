@@ -14,10 +14,10 @@
         <link rel="prev" href="../operation_mode/state/">
       
       
-        <link rel="next" href="steering_factors/">
+        <link rel="next" href="cooperation/">
       
       <link rel="icon" href="../../../../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
     
     
       
@@ -25,10 +25,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../../assets/stylesheets/main.85bb2934.min.css">
+      <link rel="stylesheet" href="../../../../../../assets/stylesheets/main.26e3688c.min.css">
       
         
-        <link rel="stylesheet" href="../../../../../../assets/stylesheets/palette.a6bdf11c.min.css">
+        <link rel="stylesheet" href="../../../../../../assets/stylesheets/palette.ecc896b0.min.css">
       
       
 
@@ -4346,13 +4346,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#cooperation" class="md-nav__link">
-    Cooperation
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -4375,9 +4368,6 @@
 <ul>
 <li><a href="velocity_factors">/api/planning/velocity_factors</a></li>
 <li><a href="steering_factors">/api/planning/steering_factors</a></li>
-<li><a href="cooperation/set_decisions">/api/planning/cooperation/set_decisions</a></li>
-<li><a href="cooperation/set_default">/api/planning/cooperation/set_default</a></li>
-<li><a href="cooperation/get_default">/api/planning/cooperation/get_default</a></li>
 </ul>
 <h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">#</a></h2>
 <p>This API manages the planned behavior of the vehicle.
@@ -4385,14 +4375,122 @@ Applications can notify the vehicle behavior to the people around and visualize 
 Also provides status and commands for modules that cooperation with operators.</p>
 <h2 id="velocity-factors">Velocity factors<a class="headerlink" href="#velocity-factors" title="Permanent link">#</a></h2>
 <p>The velocity factors is an array of information on the behavior that the vehicle stops or slows down.
-Each factor has a module name, pose in the base link, distance, status, and detailed data depending on its type.
+Each factor has a behavior type which is described below.
+Some behavior types have sequence and details as additional information.</p>
+<table>
+<thead>
+<tr>
+<th>Behavior</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>surrounding-obstacle</td>
+<td>There are obstacles immediately around the vehicle.</td>
+</tr>
+<tr>
+<td>route-obstacle</td>
+<td>There are obstacles along the route ahead.</td>
+</tr>
+<tr>
+<td>intersection</td>
+<td>There are obstacles in other lanes in the path.</td>
+</tr>
+<tr>
+<td>crosswalk</td>
+<td>There are obstacles on the crosswalk.</td>
+</tr>
+<tr>
+<td>rear-check</td>
+<td>There are obstacles behind that would be in a human driver's blind spot.</td>
+</tr>
+<tr>
+<td>user-defined-attention-area</td>
+<td>There are obstacles in the predefined attention area.</td>
+</tr>
+<tr>
+<td>no-stopping-area</td>
+<td>There is not enough space beyond the no stopping area.</td>
+</tr>
+<tr>
+<td>stop-sign</td>
+<td>A stop by a stop sign.</td>
+</tr>
+<tr>
+<td>traffic-signal</td>
+<td>A stop by a traffic signal.</td>
+</tr>
+<tr>
+<td>v2x-gate-area</td>
+<td>A stop by a gate area. It has enter and leave as sequences and v2x type as details.</td>
+</tr>
+<tr>
+<td>merge</td>
+<td>A stop before merging lanes.</td>
+</tr>
+<tr>
+<td>sidewalk</td>
+<td>A stop before crossing the sidewalk.</td>
+</tr>
+<tr>
+<td>lane-change</td>
+<td>A lane change.</td>
+</tr>
+<tr>
+<td>avoidance</td>
+<td>A path change to avoid an obstacle in the current lane.</td>
+</tr>
+<tr>
+<td>emergency-operation</td>
+<td>A stop by emergency instruction from the operator.</td>
+</tr>
+</tbody>
+</table>
+<p>Each factor also provides status, poses in the base link frame, and distance from that pose.
 As the vehicle approaches the stop position, this factor appears with a status of APPROACHING.
 And when the vehicle reaches that position and stops, the status will be STOPPED.
-The pose indicates the stop position or the base link if the stop position cannot be calculated.</p>
+The pose indicates the stop position, or the base link if the stop position cannot be calculated.</p>
 <p><img alt="velocity-factors" src="docs/velocity-factors.drawio.svg"></p>
 <h2 id="steering-factors">Steering factors<a class="headerlink" href="#steering-factors" title="Permanent link">#</a></h2>
 <p>The steering factors is an array of information on the maneuver that requires use of turn indicators, such as turning left or right.
-Each factor has a module name, poses in the base link, distances, status, and detailed data depending on its type.
+Each factor has a behavior type which is described below and steering direction.
+Some behavior types have sequence and details as additional information.</p>
+<table>
+<thead>
+<tr>
+<th>Behavior</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>intersection</td>
+<td>A turning left or right at an intersection.</td>
+</tr>
+<tr>
+<td>lane-change</td>
+<td>A lane change.</td>
+</tr>
+<tr>
+<td>avoidance</td>
+<td>A path change to avoid an obstacle. It has a sequence of change and return.</td>
+</tr>
+<tr>
+<td>start-planner</td>
+<td>T.B.D.</td>
+</tr>
+<tr>
+<td>goal-planner</td>
+<td>T.B.D.</td>
+</tr>
+<tr>
+<td>emergency-operation</td>
+<td>A path change by emergency instruction from the operator.</td>
+</tr>
+</tbody>
+</table>
+<p>Each factor also provides status, poses in the base link frame, and distances from that poses.
 As the vehicle approaches the position to start steering, this factor appears with a status of APPROACHING.
 And when the vehicle reaches that position, the status will be TURNING.
 The poses indicate the start and end position of the section where the status is TURNING.</p>
@@ -4400,50 +4498,6 @@ The poses indicate the start and end position of the section where the status is
 <p>In cases such as lane change and avoidance, the vehicle will start steering at any position in the range depending on the situation.
 For these types, the section where the status is TURNING will be updated dynamically and the poses will follow that.</p>
 <p><img alt="steering-factors-2" src="docs/steering-factors-2.drawio.svg"></p>
-<h2 id="cooperation">Cooperation<a class="headerlink" href="#cooperation" title="Permanent link">#</a></h2>
-<p>Some planning modules can receive the operator's decision and reflect it in their behavior.
-These modules have their own decisions, but use the the merged decision of theirs and operator's.
-The operator can check the module's decision and override the decision if necessary.</p>
-<p><img alt="cooperation-architecture" src="docs/cooperation-architecture.drawio.svg"></p>
-<p>The modules that support cooperation have their own decisions that is either deactivate or activate.
-Its meaning depends on the module and is shown in the table below.
-The merged decision will also be either of these, and the module will decide the behavior using it.</p>
-<table>
-<thead>
-<tr>
-<th>Module Group</th>
-<th>Module Type</th>
-<th>Deactivate</th>
-<th>Activate</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>velocity</td>
-<td>slow down</td>
-<td>slow down</td>
-<td>pass</td>
-</tr>
-<tr>
-<td>velocity</td>
-<td>stop</td>
-<td>stop</td>
-<td>pass</td>
-</tr>
-<tr>
-<td>steering</td>
-<td>path change</td>
-<td>keep the path</td>
-<td>change the path</td>
-</tr>
-</tbody>
-</table>
-<p>The operator's decision is either deactivate, activate, autonomous, or undecided.
-If the operator selects deactivate or activate, the module's decision is ignored and the operator's is used instead.
-If the operator selects autonomous, the module's decision is used.
-The undecided is the initial state of the operator's decision and is replaced with the system default when merging.
-The operator can also override the default decision to use when undecided.</p>
-<p><img alt="cooperation-state" src="docs/cooperation-state.drawio.svg"></p>
 <!-- prettier-ignore --></div>
 
 
@@ -4487,13 +4541,13 @@ The operator can also override the default decision to use when undecided.</p>
         
         
           
-          <a href="steering_factors/" class="md-footer__link md-footer__link--next" aria-label="Next: /api/planning/steering_factors" rel="next">
+          <a href="cooperation/" class="md-footer__link md-footer__link--next" aria-label="Next: Cooperation API" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                /api/planning/steering_factors
+                Cooperation API
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -4534,7 +4588,11 @@ The operator can also override the default decision to use when undecided.</p>
     
       <script src="../../../../../../assets/javascripts/bundle.b4d07000.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../../../../../assets/js/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>
