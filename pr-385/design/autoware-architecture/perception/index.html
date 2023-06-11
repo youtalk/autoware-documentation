@@ -14,7 +14,7 @@
         <link rel="prev" href="../localization/">
       
       
-        <link rel="next" href="../planning/">
+        <link rel="next" href="reference_implementation/">
       
       <link rel="icon" href="../../../assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
@@ -2652,12 +2652,18 @@
             
           
         
+          
+        
       
       
         
         
         <div class="md-nav__link md-nav__link--index md-nav__link--active">
           <a href="./">Perception</a>
+          
+            <label for="__nav_5_3_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
           
         </div>
       
@@ -2668,6 +2674,20 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reference_implementation/" class="md-nav__link">
+        Perception component Reference Implementation
+      </a>
+    </li>
+  
+
             
           
         </ul>
@@ -4375,13 +4395,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#internal-interface-in-the-perception-component" class="md-nav__link">
-    Internal interface in the perception component
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -4405,26 +4418,6 @@
   <a href="#reference-implementation" class="md-nav__link">
     Reference Implementation
   </a>
-  
-    <nav class="md-nav" aria-label="Reference Implementation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#important-parameters" class="md-nav__link">
-    Important Parameters
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#notation" class="md-nav__link">
-    Notation
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -4458,6 +4451,9 @@
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
 <p>The Perception Component receives inputs from Sensing, Localization, and Map components, and adds semantic information (e.g., Object Recognition, Obstacle Segmentation, Traffic Light Recognition, Occupancy Grid Map), which is then passed on to Planning Component. This component design follows the overarching philosophy of Autoware, defined as the <a href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-concepts/">microautonomy concept</a>.</p>
 <h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">#</a></h2>
+<!-- 最強のPerception Systemをdesignしたいわけではない。最強のPerception Systemでさえ実現可能な、platformをdesignしたい。 -->
+<!-- ある一つの尖ったODDに特化しているようなdesignは望ましくない。一方、ある一つの尖ったODDであっても実現可能であるようにはdesignしたい。 -->
+
 <p>The goal of the Perception Component is to provide functionality and APIs that enable the development of various Autonomous Driving Vehicles, such as trucks driving on freeways, robotaxis navigating urban areas, Autonomous Mobile Robots traversing inside buildings, self-driving vehicles conducting transport within factories, or rovers exploring the lunar surface. This aims to offer flexibility in creating such vehicles.</p>
 <p>In order to achieve this, it is necessary to design the Perception component with attention to Policy/Mechanism separation.
 In other words, it means the following:</p>
@@ -4465,8 +4461,6 @@ In other words, it means the following:</p>
 <li>Should not only consider how to achieve the best possible Perception functionality for autonomous driving. Should consider how to design a system that can enable a platform capable of achieving even the best possible Perception functionality for autonomous driving.</li>
 <li>In order to be able to develop any type of autonomous vehicle, we must design the Perception Component in a way that allows its implementation. For example, while it is possible to add features for a rover to traverse the lunar surface, it is not acceptable to design the Perception Component to work exclusively for the lunar rover, limiting its functionality to that specific purpose.</li>
 </ul>
-<!-- to accurately perform Object Recognition, Traffic Light Recognition, and Blind-spot Detection from sensor information. -->
-
 <p><strong>Goals:</strong></p>
 <ul>
 <li>To achieve a design that can provide Perception functionality to every autonomous vehicle.</li>
@@ -4489,16 +4483,7 @@ In other words, it means the following:</p>
 <p><img alt="overall-perception-architecture" src="image/high-level-perception-diagram.drawio.svg"></p>
 <p>The Perception component consists of the following sub-components:</p>
 <ul>
-<li><strong>Object Recognition</strong>: Recognizes dynamic objects surrounding the ego vehicle in the current frame and predicts their future trajectories.<ul>
-<li><strong>Detection</strong>: Detects the pose and velocity of dynamic objects such as vehicles and pedestrians.<ul>
-<li><strong>Detector</strong>: Triggers object detection processing frame by frame.</li>
-<li><strong>Interpolator</strong>: Maintains stable object detection. Even if the output from Detector suddenly becomes unavailable, Interpolator uses the output from the Tracking module to maintain the detection results without missing any objects.</li>
-</ul>
-</li>
-<li><strong>Tracking</strong>: Associates detected results across multiple frames.</li>
-<li><strong>Prediction</strong>: Predicts trajectories of dynamic objects.</li>
-</ul>
-</li>
+<li><strong>Object Recognition</strong>: Recognizes dynamic objects surrounding the ego vehicle in the current frame and predicts their future trajectories.</li>
 <li><strong>Obstacle Segmentation</strong>: Detects not only dynamic objects but also static obstacles that should be avoided, such as stationary obstacles. For example, construction cones are recognized using this module.</li>
 <li><strong>Occupancy Grid Map</strong>: Detects blind spots (areas where no information is available and where dynamic objects may jump out).</li>
 <li><strong>Traffic Light Recognition</strong>: Recognizes the colors of traffic lights and the directions of arrow signals.</li>
@@ -4508,9 +4493,9 @@ In other words, it means the following:</p>
 <h3 id="input-to-the-perception-component">Input to the perception component<a class="headerlink" href="#input-to-the-perception-component" title="Permanent link">#</a></h3>
 <ul>
 <li><strong>From Sensing</strong><ul>
-<li>Camera: Image data obtained from the camera. The Perception component utilizes it for Traffic Light Recognition and Object Recognition.</li>
-<li>Point Cloud: Point Cloud data obtained from LiDAR. The Perception component utilizes it for Object Recognition and blind spot detection.</li>
-<li>RadarTrack: RadarTrack data obtained from radar. The Perception component utilizes it for Object Recognition.</li>
+<li>Camera: Image data obtained from the camera. The Perception component can utilize it for Traffic Light Recognition and Object Recognition.</li>
+<li>Point Cloud: Point Cloud data obtained from LiDAR. The Perception component can utilize it for Object Recognition and blind spot detection.</li>
+<li>RadarTrack: RadarTrack data obtained from radar. The Perception component can utilize it for Object Recognition.</li>
 </ul>
 </li>
 <li><strong>From Localization</strong><ul>
@@ -4518,10 +4503,13 @@ In other words, it means the following:</p>
 </ul>
 </li>
 <li><strong>From Map</strong><ul>
-<li>Vector Map: Contains all static information about the environment, including lane aria information for filtering unkown objects outside lane and the locations of traffic lights.</li>
-<li>Point Cloud Map: The Perception Component uses Point Cloud Map for compare map filter.</li>
+<li>Vector Map: Contains all static information about the environment, including lane aria information.
+<!-- for filtering unkown objects outside lane and the locations of traffic lights. --></li>
 </ul>
 </li>
+</ul>
+<ul>
+<li>Point Cloud Map: The Perception Component can utilize it for compare map filter.</li>
 </ul>
 <h3 id="output-from-the-perception-component">Output from the perception component<a class="headerlink" href="#output-from-the-perception-component" title="Permanent link">#</a></h3>
 <ul>
@@ -4533,61 +4521,67 @@ In other words, it means the following:</p>
 </ul>
 </li>
 </ul>
-<h3 id="internal-interface-in-the-perception-component">Internal interface in the perception component<a class="headerlink" href="#internal-interface-in-the-perception-component" title="Permanent link">#</a></h3>
-<ul>
-<li><strong>Obstacle Segmentation to Object Recognition</strong><ul>
-<li>Point Cloud: A Point Cloud observed in the current frame, where the ground and outliers are removed.</li>
-</ul>
-</li>
-<li><strong>Obstacle Segmentation to Occupancy Grid Map</strong><ul>
-<li>Ground filtered Point Cloud: A Point Cloud observed in the current frame, where the ground is removed.</li>
-</ul>
-</li>
-<li><strong>Occupancy Grid Map to Obstacle Segmentation</strong><ul>
-<li>Occupancy Grid Map: This is used for filtering outlier.</li>
-</ul>
-</li>
-</ul>
 <h2 id="how-to-add-new-modules-wip">How to add new modules (WIP)<a class="headerlink" href="#how-to-add-new-modules-wip" title="Permanent link">#</a></h2>
 <p>As mentioned in the goal session, this perception module is designed to be extensible by third-party components. For specific instructions on how to add new modules and expand its functionality, please refer to the provided documentation or guidelines (WIP).</p>
 <h2 id="supported-functions">Supported Functions<a class="headerlink" href="#supported-functions" title="Permanent link">#</a></h2>
-<h2 id="reference-implementation">Reference Implementation<a class="headerlink" href="#reference-implementation" title="Permanent link">#</a></h2>
-<p>The following diagram describes the reference implementation of the Perception component. By adding new modules or extending the functionalities, various ODDs can be supported.</p>
-<p><em>Note that some implementation does not adhere to the high-level architecture design and require updating.</em></p>
-<p><img alt="reference-implementation" src="image/perception-diagram.png"></p>
-<p>For more details, please refer to the design documents in each package.</p>
-<h3 id="important-parameters">Important Parameters<a class="headerlink" href="#important-parameters" title="Permanent link">#</a></h3>
+<!-- linuxが様々な機能を柔軟に追加できるように、autowareも、様々な機能を柔軟に追加できるようにしている。 -->
+<!-- 逆に言えば、これらの機能は、linuxのように、柔軟に様々なPolicyを達成できるように設計されているとより望ましい。 -->
+
+<ul>
+<li>Perception ComponentのFuncionsは、様々なODDにおける自動運転システム開発を実現できるようにdesignされています。</li>
+<li>TODO: 残りも記載する</li>
+</ul>
 <table>
 <thead>
 <tr>
-<th>Package</th>
-<th>Parameter</th>
-<th>Type</th>
+<th>Feature</th>
 <th>Description</th>
+<th>Requirements</th>
+<th>Packages</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>perception launch</td>
-<td><code>mode</code></td>
-<td>string</td>
-<td>detectionのmode. options: <code>camera_lidar_radar_fusion</code>, <code>camera_lidar_fusion</code>, <code>lidar_radar_fusion</code>, <code>lidar</code> or <code>radar</code> <a href="https://github.com/autowarefoundation/autoware.universe/blob/main/launch/tier4_perception_launch/launch/perception.launch.xml">https://github.com/autowarefoundation/autoware.universe/blob/main/launch/tier4_perception_launch/launch/perception.launch.xml</a></td>
+<td>LiDAR DNN based 3D detector</td>
+<td>This module takes point clouds as input and performs detection of objects such as vehicles, trucks, buses, pedestrians, and bicycles.</td>
+<td>- Point Cloud</td>
+<td>- <a href="https://github.com/autowarefoundation/autoware.universe/blob/main/perception/lidar_centerpoint/README.md">lidar_centerpoint</a></td>
 </tr>
 <tr>
-<td>perception launch</td>
-<td><code>lidar_detection_model</code></td>
-<td>string</td>
-<td>lidar detection modelのmodel. options: <code>centerpoint</code>, <code>apollo</code>, <code>pointpainting</code>, <code>clustering</code></td>
+<td>Camera DNN based 2D detector</td>
+<td>This module takes camera image as input and performs detection of objects such as vehicles, trucks, buses, pedestrians, and bicycles.</td>
+<td>- Camera Image</td>
+<td>- <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/perception/tensorrt_yolox">tensorrt_yolox</a> <br> - <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/perception/tensorrt_yolo">tensorrt_yolo</a></td>
 </tr>
 <tr>
-<td>perception launch</td>
-<td><code>use_object_filter</code></td>
-<td>string</td>
-<td>Whether to use filters for detected objects. They can filter objects bu using either vector maps or relative positions.</td>
+<td>LiDAR Clustering</td>
+<td>LiDAR clustering module performs clustering of point clouds and shape estimation to achieve object detection without labels.</td>
+<td>- Point Cloud</td>
+<td>- <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/perception/euclidean_cluster">euclidean_cluster</a></td>
+</tr>
+<tr>
+<td>Semi-rule based detector</td>
+<td>Semi-rule based detector performs object detection using information from both images and point clouds, and it consists of two components: LiDAR Clustering and Camera DNN based 2D detector.</td>
+<td>- Output from Camera DNN based 2D detector and LiDAR Clustering</td>
+<td>- <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/perception/image_projection_based_fusion">image_projection_based_fusion</a></td>
+</tr>
+<tr>
+<td>Object Merger</td>
+<td>Object Merger integrates results from various detectors.</td>
+<td>- Detected Object</td>
+<td>- <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/perception/object_merger">object_merger</a></td>
+</tr>
+<tr>
+<td>Interpolator</td>
+<td>Interpolator stabilizes the object detection results by maintaining long-term detection results using Tracking results.</td>
+<td>- Detected Object <br> - Tracked Object</td>
+<td>- <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/perception/detection_by_tracker">detection_by_tracker</a></td>
 </tr>
 </tbody>
 </table>
-<h3 id="notation">Notation<a class="headerlink" href="#notation" title="Permanent link">#</a></h3>
+<h2 id="reference-implementation">Reference Implementation<a class="headerlink" href="#reference-implementation" title="Permanent link">#</a></h2>
+<p>autowareを起動すると、default parameterが読み込まれ、Reference Implementationが起動される。詳細については、<a href="reference_implementation/">Reference Implementation</a>を参照。</p>
+<p>See <a href="reference_implementation/">Reference Implementation</a></p>
 <!-- prettier-ignore --></div>
 
 
@@ -4631,13 +4625,13 @@ In other words, it means the following:</p>
         
         
           
-          <a href="../planning/" class="md-footer__link md-footer__link--next" aria-label="Next: Planning component design" rel="next">
+          <a href="reference_implementation/" class="md-footer__link md-footer__link--next" aria-label="Next: Perception component Reference Implementation" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Planning component design
+                Perception component Reference Implementation
               </div>
             </div>
             <div class="md-footer__button md-icon">
