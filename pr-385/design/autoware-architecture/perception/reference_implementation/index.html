@@ -4458,11 +4458,15 @@
 <h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">#</a></h2>
 <p>This diagram describes the architecture of the reference implementation.</p>
 <p><img alt="overall-perception-architecture" src="../image/reference-implementation-perception-diagram.drawio.svg"></p>
-<p>- <strong>Detection</strong>: Detects the pose and velocity of dynamic objects such as vehicles and pedestrians.
-    - <strong>Detector</strong>: Triggers object detection processing frame by frame.
-    - <strong>Interpolator</strong>: Maintains stable object detection. Even if the output from Detector suddenly becomes unavailable, Interpolator uses the output from the Tracking module to maintain the detection results without missing any objects.
-  - <strong>Tracking</strong>: Associates detected results across multiple frames.
-  - <strong>Prediction</strong>: Predicts trajectories of dynamic objects.</p>
+<ul>
+<li><strong>Detection</strong>: Detects the pose and velocity of dynamic objects such as vehicles and pedestrians.<ul>
+<li><strong>Detector</strong>: Triggers object detection processing frame by frame.</li>
+<li><strong>Interpolator</strong>: Maintains stable object detection. Even if the output from Detector suddenly becomes unavailable, Interpolator uses the output from the Tracking module to maintain the detection results without missing any objects.</li>
+</ul>
+</li>
+<li><strong>Tracking</strong>: Associates detected results across multiple frames.</li>
+<li><strong>Prediction</strong>: Predicts trajectories of dynamic objects.</li>
+</ul>
 <p>The following diagram describes the reference implementation of the Perception component. By adding new modules or extending the functionalities, various ODDs can be supported.</p>
 <p><img alt="reference-implementation" src="../image/perception-diagram.png"></p>
 <h3 id="internal-interface-in-the-perception-component">Internal interface in the perception component<a class="headerlink" href="#internal-interface-in-the-perception-component" title="Permanent link">#</a></h3>
