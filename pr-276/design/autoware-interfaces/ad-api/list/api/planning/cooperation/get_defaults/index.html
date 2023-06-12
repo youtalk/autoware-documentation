@@ -8,20 +8,20 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-276/design/autoware-interfaces/ad-api/list/api/planning/cooperation/set_default/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-276/design/autoware-interfaces/ad-api/list/api/planning/cooperation/get_defaults/">
       
       
-        <link rel="prev" href="../set_decisions/">
+        <link rel="prev" href="../../velocity_factors/">
       
       
-        <link rel="next" href="../../../routing/">
+        <link rel="next" href="../set_commands/">
       
       <link rel="icon" href="../../../../../../../../assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
     
     
       
-        <title>/api/planning/cooperation/set_default - Autoware Documentation</title>
+        <title>/api/planning/cooperation/get_defaults - Autoware Documentation</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#apiplanningcooperationset_default" class="md-skip">
+        <a href="#apiplanningcooperationget_defaults" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              /api/planning/cooperation/set_default
+              /api/planning/cooperation/get_defaults
             
           </span>
         </div>
@@ -4364,35 +4364,15 @@
   
 
 
-<div><h1 id="apiplanningcooperationset_default">/api/planning/cooperation/set_default<a class="headerlink" href="#apiplanningcooperationset_default" title="Permanent link">#</a></h1>
+<div><h1 id="apiplanningcooperationget_defaults">/api/planning/cooperation/get_defaults<a class="headerlink" href="#apiplanningcooperationget_defaults" title="Permanent link">#</a></h1>
 <ul>
 <li>Method: function call</li>
-<li>Type: <a href="../../../../../types/autoware_adapi_v1_msgs/srv/SetCooperationDefault">autoware_adapi_v1_msgs/srv/SetCooperationDefault</a></li>
+<li>Type: <a href="../../../../../types/autoware_adapi_v1_msgs/srv/GetCooperationDefaults">autoware_adapi_v1_msgs/srv/GetCooperationDefaults</a></li>
 </ul>
 <h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">#</a></h2>
 <p>Set the default decision for cooperation. For details, see the <a href="../">cooperation</a>.</p>
 <h2 id="request">Request<a class="headerlink" href="#request" title="Permanent link">#</a></h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>defaults.behavior</td>
-<td>string</td>
-<td>The type of the target behavior.</td>
-</tr>
-<tr>
-<td>defaults.cooperator</td>
-<td>autoware_adapi_v1_msgs/msg/CooperationDecision</td>
-<td>The default decision of the target behavior.</td>
-</tr>
-</tbody>
-</table>
+<p>None</p>
 <h2 id="response">Response<a class="headerlink" href="#response" title="Permanent link">#</a></h2>
 <table>
 <thead>
@@ -4407,6 +4387,16 @@
 <td>status</td>
 <td>autoware_adapi_v1_msgs/msg/ResponseStatus</td>
 <td>response status</td>
+</tr>
+<tr>
+<td>defaults.behavior</td>
+<td>string</td>
+<td>The type of the target behavior.</td>
+</tr>
+<tr>
+<td>defaults.cooperator</td>
+<td>autoware_adapi_v1_msgs/msg/CooperationDecision</td>
+<td>The default decision of the target behavior.</td>
 </tr>
 </tbody>
 </table>
@@ -4437,7 +4427,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../set_decisions/" class="md-footer__link md-footer__link--prev" aria-label="Previous: /api/planning/cooperation/set_decisions" rel="prev">
+          <a href="../../velocity_factors/" class="md-footer__link md-footer__link--prev" aria-label="Previous: /api/planning/velocity_factors" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -4446,20 +4436,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                /api/planning/cooperation/set_decisions
+                /api/planning/velocity_factors
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../../routing/" class="md-footer__link md-footer__link--next" aria-label="Next: Route API" rel="next">
+          <a href="../set_commands/" class="md-footer__link md-footer__link--next" aria-label="Next: /api/planning/cooperation/set_commands" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Route API
+                /api/planning/cooperation/set_commands
               </div>
             </div>
             <div class="md-footer__button md-icon">
