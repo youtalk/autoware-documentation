@@ -8,20 +8,20 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/SteeringFactorArray/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/latest/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/VehicleKinematics/">
       
       
-        <link rel="prev" href="../SteeringFactor/">
+        <link rel="prev" href="../VehicleDimensions/">
       
       
-        <link rel="next" href="../TurnIndicators/">
+        <link rel="next" href="../VehicleStatus/">
       
       <link rel="icon" href="../../../../../../../assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
     
     
       
-        <title>autoware_adapi_v1_msgs/msg/SteeringFactorArray - Autoware Documentation</title>
+        <title>autoware_adapi_v1_msgs/msg/VehicleKinematics - Autoware Documentation</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#autoware_adapi_v1_msgsmsgsteeringfactorarray" class="md-skip">
+        <a href="#autoware_adapi_v1_msgsmsgvehiclekinematics" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              autoware_adapi_v1_msgs/msg/SteeringFactorArray
+              autoware_adapi_v1_msgs/msg/VehicleKinematics
             
           </span>
         </div>
@@ -4427,14 +4427,21 @@
   
 
 
-<div><h1 id="autoware_adapi_v1_msgsmsgsteeringfactorarray">autoware_adapi_v1_msgs/msg/SteeringFactorArray<a class="headerlink" href="#autoware_adapi_v1_msgsmsgsteeringfactorarray" title="Permanent link">#</a></h1>
+<div><h1 id="autoware_adapi_v1_msgsmsgvehiclekinematics">autoware_adapi_v1_msgs/msg/VehicleKinematics<a class="headerlink" href="#autoware_adapi_v1_msgsmsgvehiclekinematics" title="Permanent link">#</a></h1>
 <h2 id="definition">Definition<a class="headerlink" href="#definition" title="Permanent link">#</a></h2>
-<div class="highlight"><pre><span></span><code>std_msgs/Header header
-autoware_adapi_v1_msgs/SteeringFactor[] factors
+<div class="highlight"><pre><span></span><code># Geographic point, using the WGS 84 reference ellipsoid.
+# Currently only support conversion from single MGRS Grid code or UTM
+# If the vector map do not contain correct MGRS Grid code or UTM, this data will be not valid
+geographic_msgs/GeoPointStamped geographic_pose
+
+# Local coordinate from the autoware
+geometry_msgs/PoseWithCovarianceStamped pose
+geometry_msgs/TwistWithCovarianceStamped twist
+geometry_msgs/AccelWithCovarianceStamped accel
 </code></pre></div>
 <h2 id="this-type-uses">This type uses<a class="headerlink" href="#this-type-uses" title="Permanent link">#</a></h2>
 <ul>
-<li><a href="../SteeringFactor">autoware_adapi_v1_msgs/msg/SteeringFactor</a></li>
+<li>None</li>
 </ul>
 <h2 id="this-type-is-used-by">This type is used by<a class="headerlink" href="#this-type-is-used-by" title="Permanent link">#</a></h2>
 <ul>
@@ -4467,7 +4474,7 @@ autoware_adapi_v1_msgs/SteeringFactor[] factors
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../SteeringFactor/" class="md-footer__link md-footer__link--prev" aria-label="Previous: autoware_adapi_v1_msgs/msg/SteeringFactor" rel="prev">
+          <a href="../VehicleDimensions/" class="md-footer__link md-footer__link--prev" aria-label="Previous: autoware_adapi_v1_msgs/msg/VehicleDimensions" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -4476,20 +4483,20 @@ autoware_adapi_v1_msgs/SteeringFactor[] factors
                 Previous
               </span>
               <div class="md-ellipsis">
-                autoware_adapi_v1_msgs/msg/SteeringFactor
+                autoware_adapi_v1_msgs/msg/VehicleDimensions
               </div>
             </div>
           </a>
         
         
           
-          <a href="../TurnIndicators/" class="md-footer__link md-footer__link--next" aria-label="Next: autoware_adapi_v1_msgs/msg/TurnIndicators" rel="next">
+          <a href="../VehicleStatus/" class="md-footer__link md-footer__link--next" aria-label="Next: autoware_adapi_v1_msgs/msg/VehicleStatus" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                autoware_adapi_v1_msgs/msg/TurnIndicators
+                autoware_adapi_v1_msgs/msg/VehicleStatus
               </div>
             </div>
             <div class="md-footer__button md-icon">
