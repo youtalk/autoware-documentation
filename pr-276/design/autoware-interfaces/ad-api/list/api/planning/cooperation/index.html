@@ -17,7 +17,7 @@
         <link rel="next" href="../steering_factors/">
       
       <link rel="icon" href="../../../../../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.16">
     
     
       
@@ -4346,6 +4346,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4373,20 +4380,20 @@
 <li><a href="get_defaults">/api/planning/cooperation/get_defaults</a></li>
 </ul>
 <h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">#</a></h2>
-<p>Some planning modules can receive the operator's decision and reflect it in their behavior.
-These modules have their own decisions, but use the the merged decision of theirs and operator's.
-The operator can check the module's decision and override the decision if necessary.
+<p>Some planning modules can receive the operator decision and reflect it in their behavior.
+These modules have their own decisions, but their behavior is based on the operator decisions.
+The operator can check the module decision and change the operator decision if necessary.
 If the module supports this feature, <a href="../../../../types/autoware_adapi_v1_msgs/msg/CooperationStatus/">cooperation status</a> is provided in <a href="../">velocity factors or steering factors</a>.</p>
 <p><img alt="cooperation-architecture" src="../docs/cooperation-architecture.drawio.svg"></p>
 <h2 id="scene-id">Scene ID<a class="headerlink" href="#scene-id" title="Permanent link">#</a></h2>
 <p>The cooperation status contains an ID to distinguish scenes.
 This ID is generated for each scene that requires decision and doesn't change until the scene is completed or canceled.
-To set the operator's decision, it needs to specify the ID by selecting the target scene from the cooperation status.
+To set the operator decision, it needs to specify the ID by selecting the target scene from the cooperation status.
 In practice, the application can hides the specification of the ID and provides an abstracted interface to the operator.</p>
 <h2 id="decisions">Decisions<a class="headerlink" href="#decisions" title="Permanent link">#</a></h2>
-<p>The modules that support cooperation have their own decisions that is either deactivate or activate.
+<p>The module decision is either deactivate or activate. The operator decision is also evaluated in one of these.
 Its meaning depends on the module and is shown in the table below.
-The merged decision will also be either of these, and the module will decide the behavior using it.</p>
+These decisions are designed to assign behavior to activate that is considered high risk.</p>
 <table>
 <thead>
 <tr>
@@ -4397,24 +4404,85 @@ The merged decision will also be either of these, and the module will decide the
 </thead>
 <tbody>
 <tr>
-<td>velocity</td>
+<td>velocity (stop)</td>
 <td>stop</td>
 <td>pass</td>
 </tr>
 <tr>
-<td>steering</td>
+<td>steering (path)</td>
 <td>keep the path</td>
 <td>change the path</td>
 </tr>
 </tbody>
 </table>
-<p>The operator's decision is either deactivate, activate, autonomous, or undecided.
-If the operator selects deactivate or activate, the module's decision is ignored and the operator's is used instead.
-If the operator selects autonomous, the module's decision is used.
-The undecided is the initial state of the operator's decision.
-If the operator's decision is undecided, the default decision is used instead when merging decisions.
-Default decisions are set for each module type, and the operator can also select it.</p>
+<p>The operator decision is actually either deactivate, activate, autonomous, or default.
+If the operator selects deactivate or activate, the module decision is ignored and the operator decision is used instead.
+If the operator selects autonomous, the module decision is used.
+The default is the initial value of the operator decision.
+If the operator decision is default, it is evaluated according to the default policy set for each module type.</p>
+<p>The default policy is either deactivate or autonomous, and is initialized by system settings.
+These meanings are the same as the operator decision.
+The purpose of the default policy is to set whether the operator decision is required.
+The deactivate policy is a defensive setting and not perform risky behavior until instructed by the operator.
+The autonomous policy can perform both behavior without operator instruction.
+Also, the operator can change the default policies.</p>
 <p><img alt="cooperation-state" src="../docs/cooperation-state.drawio.svg"></p>
+<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">#</a></h2>
+<p>This is an example of cooperation for lane change module. The behaviors by the combination of decisions are as follows.</p>
+<table>
+<thead>
+<tr>
+<th>Operator decision</th>
+<th>Default policy</th>
+<th>Module decision</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>deactivate</td>
+<td>-</td>
+<td>-</td>
+<td>The operator instructs to keep lane regardless the module decision. So it keeps lane by operator decision.</td>
+</tr>
+<tr>
+<td>activate</td>
+<td>-</td>
+<td>-</td>
+<td>The operator instructs to change lane regardless the module decision. So it changes lane by operator decision.</td>
+</tr>
+<tr>
+<td>autonomous</td>
+<td>-</td>
+<td>deactivate</td>
+<td>The operator instructs to follow the module decision. So it keeps lane by module decision.</td>
+</tr>
+<tr>
+<td>autonomous</td>
+<td>-</td>
+<td>activate</td>
+<td>The operator instructs to follow the module decision. So it changes lane by module decision.</td>
+</tr>
+<tr>
+<td>default</td>
+<td>deactivate</td>
+<td>-</td>
+<td>The deactivate default policy is used because no operator instruction. So it keeps lane by deactivate policy.</td>
+</tr>
+<tr>
+<td>default</td>
+<td>autonomous</td>
+<td>deactivate</td>
+<td>The autonomous default policy is used because no operator instruction. So it keeps lane by module decision.</td>
+</tr>
+<tr>
+<td>default</td>
+<td>autonomous</td>
+<td>activate</td>
+<td>The autonomous default policy is used because no operator instruction. So it change lane by module decision.</td>
+</tr>
+</tbody>
+</table>
 <!-- prettier-ignore --></div>
 
 
@@ -4503,13 +4571,19 @@ Default decisions are set for each module type, and the operator can also select
     <script id="__config" type="application/json">{"base": "../../../../../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../../../../../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../../../../../assets/javascripts/bundle.b4d07000.min.js"></script>
+      <script src="../../../../../../../assets/javascripts/bundle.a51614de.min.js"></script>
       
-        <script src="../../../../../../../assets/js/mathjax.js"></script>
+        
+          <script src="../../../../../../../assets/js/mathjax.js"></script>
+        
       
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        
+          <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+          <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
       
     
   </body>
