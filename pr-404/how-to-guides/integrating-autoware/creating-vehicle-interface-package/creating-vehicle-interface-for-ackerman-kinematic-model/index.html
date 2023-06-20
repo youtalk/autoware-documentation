@@ -4551,12 +4551,12 @@
 <div><h1 id="creating-vehicle-interface-for-ackermann-kinematic-model">Creating vehicle interface for Ackermann kinematic model<a class="headerlink" href="#creating-vehicle-interface-for-ackermann-kinematic-model" title="Permanent link">#</a></h1>
 <p>This page introduces a module vehicle_interface and explains how to implement it.</p>
 <h2 id="what-is-a-vehicle-interface">What is a vehicle interface<a class="headerlink" href="#what-is-a-vehicle-interface" title="Permanent link">#</a></h2>
-<p><code>vehicle interface</code> is an interface that connects the control commands and your hardware.<br>
+<p><code>vehicle interface</code> is an interface that connects the control commands and your hardward.<br>
 Autoware publishes control commands such as</p>
 <ul>
 <li>Longitudinal control</li>
 <li>Steering control</li>
-<li>Car light commands</li>
+<li>Car light commands </li>
 </ul>
 <p>Then, <code>vehicle interface</code> converts these commands into actuations such like</p>
 <ul>
@@ -4572,40 +4572,36 @@ Autoware publishes control commands such as</p>
     An example of inputs and outputs for vehicle interface
   </figcaption>
 </figure>
-<p>This page shows you a brief explanation how to implement your vehicle interface, but <a href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-interface/">you can see further information of vehicle interface in the "design" page</a>. <strong>Note that there is no package named "vehicle interface" prepared in Autoware. It is a necessary package to actuate your vehicle, but you have to create one by yourself since it is very specific to your hardware.</strong> For example, if you are using a by-wire kit <a href="https://autonomoustuff.com/platform/pacmod">PACMod</a>, a vehicle interface named <a href="https://github.com/tier4/pacmod_interface/tree/main"><code>pacmod_interface</code> published by TIER IV, Inc.</a> is available. However, if you have constructed something original and haven't found an open source vehicle interface applicable, you have to implement your own vehicle interface from scratch.</p>
+<p>This page shows you a brief explanation how to implement your vehicle interface, but <a href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-interface/">you can see further information of vehicle interface in the "design" page</a>. <strong>Note that there is no package named "vehicle interface" prepared in Autoware. It is a necessary package to actuate your vehicle, but you have to create one by yourself since it is very specific to your hardware.</strong> For example, if you are using a by-wire kit <a href="https://autonomoustuff.com/platform/pacmod">PACMod</a>, a vehicle interface named <a href="https://github.com/tier4/pacmod_interface/tree/main"><code>pacmod_interface</code> published by TIER IV, Inc.</a> is available. However, if you have constructed something original and haven't found an open source vehicle interface applicable, you have to implement your own vehilce interface from scratch.</p>
 <hr>
 <h2 id="how-to-implement-a-vehicle-interface">How to implement a vehicle interface<a class="headerlink" href="#how-to-implement-a-vehicle-interface" title="Permanent link">#</a></h2>
 <p>The following instructions describe how to create a vehicle interface.</p>
 <ol>
-<li>It is recommended to create your vehicle interface at <code>&lt;your-autoware-dir&gt;/src/vehicle/external</code></li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>&lt;your-autoware-dir&gt;/src/vehicle/external
+<li>
+<p>It is recommended to create your vehicle interface at <code>&lt;your-autoware-dir&gt;/src/vehicle/external</code>
+</p><div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>&lt;your-autoware-dir&gt;/src/vehicle/external
 </code></pre></div>
-<ol>
-<li>If there is an already complete vehicle interface package (like <a href="https://github.com/tier4/pacmod_interface/tree/main"><code>pacmod_interface</code></a>), you can install it to your environment. If not, you have to implement your own vehicle interface by yourself. Create a new package by <code>ros2 pkg create</code>. The following example is creating a vehicle interface package named <code>my_vehicle_interface</code>. Write your implementation of vehicle interface in <code>my_vehicle_interface/src</code>.</li>
-</ol>
-<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>pkg<span class="w"> </span>create<span class="w"> </span>--build-type<span class="w"> </span>ament_cmake<span class="w"> </span>my_vehicle_interface
+</li>
+<li>
+<p>If there is an already complete vehicle interface package (like <a href="https://github.com/tier4/pacmod_interface/tree/main"><code>pacmod_interface</code></a>), you can install it to your environment. If not, you have to implement your own vehicle interface by yourself. Create a new package by <code>ros2 pkg create</code>. The following example is creating a vehicle interface package named <code>my_vehicle_interface</code>. Write your implementation of vehicle interface in <code>my_vehicle_interface/src</code>.
+</p><div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>pkg<span class="w"> </span>create<span class="w"> </span>--build-type<span class="w"> </span>ament_cmake<span class="w"> </span>my_vehicle_interface
 </code></pre></div>
-<ol>
-<li>After you implement your vehicle interface or you want to debug it by launching it, create a launch file of your vehicle interface, and include it to <code>vehicle_interface.launch.xml</code>.</li>
-</ol>
+</li>
+<li>
+<p>After you implement your vehicle interface or you want to debug it by launching it, create a launch file of your vehicle interface, and include it to <code>vehicle_interface.launch.xml</code>.</p>
 <p>Do not get confused. First, you need to create a launch file for your own vehicle interface module (like <code>my_vehicle_interface.launch.xml</code>) <strong>and then include that to <code>vehicle_interface.launch.xml</code> which exists in another directory.</strong> Here are the details.</p>
 <ol>
 <li>Add a <code>launch</code> directory in the <code>my_vehicle_interface</code> directory, and create a launch file of your own vehicle interface in it. Take a look at <a href="https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Launch-Main.html">Creating a launch file</a> in the <abbr title="Robot Operating System">ROS</abbr> 2 documentation.</li>
-<li>Next, go to <code>&lt;your-autoware-dir&gt;/src/vehicle</code>, copy the directory <code>/sample_vehicle_launch/</code>, and paste it to the same place (which means it should be lined up with <code>external</code> and <code>sample_vehicle_launch</code>).</li>
+<li>Next, go to <code>&lt;your-autoware-dir&gt;/src/vehicle</code>, copy the directory <code>/sample_vehicle_launch/</code>, and paste it to the same place (which means it should be lined up with <code>external</code> and <code>sample_vehicle_launch</code>). </li>
 <li>
-<p>You have to rename each "sample_vehicle" to something else. For example, if you want to rename "sample_vehicle" to "my_vehicle_name", you need to change the following. Note that it is restricted to keep the "_launch" and "_description" part.</p>
+<p>You have to rename each "sample_vehicle" to something else. For example, if you want to rename "sample_vehicle" to "my_vehicle_name", you need to change the following. Note that it is restricted to keep the "_launch" and "_description" part. </p>
 <ul>
-<li>
-<p>Rename the directories</p>
-<ul>
+<li>Rename the directories<ul>
 <li><code>sample_vehicle_launch</code> → <code>my_vehicle_name_launch</code></li>
 <li><code>my_vehicle_name_launch/sample_vehicle_launch</code> → <code>my_vehicle_name_launch/my_vehicle_name_launch</code></li>
 <li><code>my_vehicle_name_launch/sample_vehicle_description</code> → <code>my_vehicle_name_launch/my_vehicle_name_description</code></li>
 </ul>
 </li>
-</ul>
-<ul>
 <li>After you rename your directories, rename each "sample_vehicle" to "my_vehicle_name" in the source code.<ul>
 <li><code>my_vehicle_name_description/CMakeLists.txt</code></li>
 <li><code>my_vehicle_name_description/package.xml</code></li>
@@ -4616,8 +4612,8 @@ Autoware publishes control commands such as</p>
 </ul>
 </li>
 </ul>
-<p>Then, your folder structure should be like this. (Some directories and files are omitted for simplicity)</p>
-<div class="highlight"><pre><span></span><code>/&lt;your-autoware-dir&gt;/
+<p>Then, your folder structure should be like this. (Some directories and files are omitted for simplicity)
+</p><div class="highlight"><pre><span></span><code>/&lt;your-autoware-dir&gt;/
 <span class="w">  </span>/src/
 <span class="w">    </span>/vehicle/
 <span class="w">      </span>/external/
@@ -4642,10 +4638,8 @@ Autoware publishes control commands such as</p>
 </code></pre></div>
 </li>
 <li>
-<p>Include your launch file to <code>my_vehicle_name_launch/my_vehicle_name_launch/launch/vehicle_interface.launch.xml</code> by opening it and add the include terms like below.</p>
-</li>
-</ol>
-<div class="highlight"><span class="filename">vehicle_interface.launch.xml</span><pre><span></span><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<p>Include your launch file to <code>my_vehicle_name_launch/my_vehicle_name_launch/launch/vehicle_interface.launch.xml</code> by opening it and add the include terms like below.
+</p><div class="highlight"><span class="filename">vehicle_interface.launch.xml</span><pre><span></span><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;launch&gt;</span>
 <span class="w">    </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"vehicle_id"</span><span class="w"> </span><span class="na">default=</span><span class="s">"$(env VEHICLE_ID default)"</span><span class="nt">/&gt;</span>
 
@@ -4653,20 +4647,23 @@ Autoware publishes control commands such as</p>
 <span class="w">    </span><span class="nt">&lt;/include&gt;</span>
 <span class="nt">&lt;/launch&gt;</span>
 </code></pre></div>
-<ol>
-<li>Build three packages <code>my_vehicle_interface</code>, <code>my_vehicle_name_launch</code> and <code>my_vehicle_name_description</code> by <code>colcon build</code>, or you can just build the entire Autoware if you have done other things.</li>
+</li>
 </ol>
-<div class="highlight"><pre><span></span><code>colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release --packages-select my_vehicle_interface my_vehicle_name_launch my_vehicle_name_description
+</li>
+<li>
+<p>Build three packages <code>my_vehicle_interface</code>, <code>my_vehicle_name_launch</code> and <code>my_vehicle_name_description</code> by <code>colcon build</code>, or you can just build the entire Autoware if you have done other things.
+</p><div class="highlight"><pre><span></span><code>colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release --packages-select my_vehicle_interface my_vehicle_name_launch my_vehicle_name_description
 </code></pre></div>
-<ol>
-<li>Finally, you are done implementing your vehicle interface module! Be careful that you need to launch Autoware with the proper <code>vehicle_model</code> option like the example below. This example is launching planning simulator.</li>
+</li>
+<li>
+<p>Finally, you are done implementing your vehicle interface module! Be careful that you need to launch Autoware with the proper <code>vehicle_model</code> option like the example below. This example is launching planning simulator.
+</p><div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>planning.launch.xml<span class="w"> </span>map_path:<span class="o">=</span><span class="nv">$HOME</span>/autoware_map/sample-map-planning<span class="w"> </span>vehicle_model:<span class="o">=</span>my_vehicle_name<span class="w"> </span>sensor_model:<span class="o">=</span>sample_sensor_kit
+</code></pre></div>
+</li>
 </ol>
-<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>planning.launch.xml<span class="w"> </span>map_path:<span class="o">=</span><span class="nv">$HOME</span>/autoware_map/sample-map-planning<span class="w"> </span>vehicle_model:<span class="o">=</span>my_vehicle_name<span class="w"> </span>sensor_model:<span class="o">=</span>sample_sensor_kit
-</code></pre></div>
 <h3 id="tips">Tips<a class="headerlink" href="#tips" title="Permanent link">#</a></h3>
 <ul>
-<li>You can subdivide your vehicle interface into smaller packages if you want. Then your directory structure may look like below (not the only way though). Do not forget to launch all packages in <code>my_vehicle_interface.launch.xml</code>.</li>
-</ul>
+<li>You can subdivide your vehicle interface into smaller packages if you want. Then your directory structure may look like below (not the only way though). Do not forget to launch all packages in <code>my_vehicle_interface.launch.xml</code>.
 <div class="highlight"><pre><span></span><code>/&lt;your-autoware-dir&gt;/
 <span class="w">  </span>/src/
 <span class="w">    </span>/vehicle/
@@ -4684,10 +4681,10 @@ Autoware publishes control commands such as</p>
 <span class="w">          </span>CMakeLists.txt
 <span class="w">          </span>README.md
 <span class="w">          </span>package.xml
-</code></pre></div>
-<ul>
-<li>If you are using a vehicle interface and launch package from a open git repository, or created your own as a git repository, it is highly recommended to add those repositories to your <code>autoware.repos</code> file which is located to directly under your autoware folder like the example below. You can specify the branch or commit hash by the version tag.</li>
+</code></pre></div></li>
 </ul>
+<ul>
+<li>If you are using a vehicle interface and launch package from a open git repository, or created your own as a git repository, it is highly recommeded to add those repositories to your <code>autoware.repos</code> file which is located to directly under your autoware folder like the example below. You can specify the branch or commit hash by the version tag.
 <div class="highlight"><span class="filename">autoware.repos</span><pre><span></span><code><span class="c1"># vehicle (this section should be somewhere in autoware.repos and add the below)</span>
 <span class="nt">vehicle/my_vehicle_name_launch</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">git</span>
@@ -4698,7 +4695,8 @@ Autoware publishes control commands such as</p>
 <span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/&lt;repository-name-B&gt;/my_vehicle_interface.git</span>
 <span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span>
 </code></pre></div>
-<p>Then you can import your entire environment easily to another local device by using the <code>vcs import</code> command. (See <a href="/autoware-documentation/installation/autoware/source-installation/#how-to-set-up-a-workspace">the source installation guide</a>)</p>
+  Then you can import your entire environment easily to another local device by using the <code>vcs import</code> command. (See <a href="/autoware-documentation/installation/autoware/source-installation/#how-to-set-up-a-workspace">the source installation guide</a>)</li>
+</ul>
 <hr>
 <h2 id="ackermann-kinematic-model">Ackermann kinematic model<a class="headerlink" href="#ackermann-kinematic-model" title="Permanent link">#</a></h2>
 <p>Autoware now supports control inputs for vehicles based on an Ackermann kinematic model. This section introduces you a brief concept of Ackermann kinematic model and explains how Autoware controls it.</p>
@@ -4706,7 +4704,7 @@ Autoware publishes control commands such as</p>
 <li>If your vehicle does not suit the Ackermann kinematic model, you have to modified the control commands. <a href="https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/integrating-autoware/creating-vehicle-interface-package/customizing-for-differential-drive-model/">Another document gives you an example how to convert your Ackermann kinematic model control inputs into a differential drive model.</a></li>
 </ul>
 <h3 id="geometry">Geometry<a class="headerlink" href="#geometry" title="Permanent link">#</a></h3>
-<p>The basic style of Ackermann kinematic model has four wheels with an Ackermann link on the front, and it is powered by the rear wheels. The key point of Ackermann kinematic model is that the axes of all wheels intersect at a same point, which means all wheels will trace a circular trajectory with a different radii but a common center point. Therefore, this model has a great advantage that it minimizes the slippage of the wheels, and prevent tires to get worn soon.</p>
+<p>The basic style of Ackermann kinematic model has four wheels with an Ackermann link on the front, and it is powered by the rear wheels. The keypoint of Ackermann kinematic model is that the axes of all wheels intersect at a same point, which means all wheels will trace a circular trajectory with a different radii but a common center point. Therefore, this model has a great advantage that it minimizes the slippage of the wheels, and prevent tires to get worn soon.</p>
 <p>In general, Ackermann kinematic model accepts the longitudinal speed <span class="arithmatex">\(v\)</span> and the steering angle <span class="arithmatex">\(\phi\)</span> as inputs. In autoware, <span class="arithmatex">\(\phi\)</span> is positive if it is steered counter clockwise, so the steering angle in the figure below is actually negative.</p>
 <figure>
 <p><img align="center" alt="ackermann_link" src="../images/Ackermann_WB.png">
@@ -4717,12 +4715,12 @@ Autoware publishes control commands such as</p>
 </figure>
 <h3 id="control">Control<a class="headerlink" href="#control" title="Permanent link">#</a></h3>
 <p>Autoware publishes a <abbr title="Robot Operating System">ROS</abbr> 2 topic named <code>control_cmd</code> from several types of publishers.
-A <code>control_cmd</code> topic is a <a href="https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_control_msgs/msg/AckermannControlCommand.idl"><code>AckermannControlCommand</code></a> type message that contains</p>
-<div class="highlight"><span class="filename">AckermannControlCommand</span><pre><span></span><code><span class="w">  </span>builtin_interfaces/Time<span class="w"> </span>stamp
+A <code>control_cmd</code> topic is a <a href="https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_control_msgs/msg/AckermannControlCommand.idl"><code>AckermannControlCommand</code></a> type message that contains
+</p><div class="highlight"><span class="filename">AckermannControlCommand</span><pre><span></span><code><span class="w">  </span>builtin_interfaces/Time<span class="w"> </span>stamp
 <span class="w">  </span>autoware_auto_control_msgs/AckermannLateralCommand<span class="w"> </span>lateral
 <span class="w">  </span>autoware_auto_control_msgs/LongitudinalCommand<span class="w"> </span>longitudinal
 </code></pre></div>
-<p>where,</p>
+where,
 <div class="highlight"><span class="filename">AckermannLateralCommand</span><pre><span></span><code><span class="w">  </span>builtin_interfaces/Time<span class="w"> </span>stamp
 <span class="w">  </span>float32<span class="w"> </span>steering_tire_angle
 <span class="w">  </span>float32<span class="w"> </span>steering_tire_rotation_rate
@@ -4732,8 +4730,8 @@ A <code>control_cmd</code> topic is a <a href="https://gitlab.com/autowarefounda
 <span class="w">  </span>float32<span class="w"> </span>accelaration
 <span class="w">  </span>float32<span class="w"> </span>jerk
 </code></pre></div>
-<p>See the <a href="https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_control_msgs/msg/AckermannLateralCommand.idl">AckermannLateralCommand.idl</a> and <a href="https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_control_msgs/msg/LongitudinalCommand.idl">LongitudinalCommand.idl</a> for details.<br>
-The vehicle interface should realize these control commands by hardware actuation. Moreover, Autoware also provides break commands, light commands, and more (see <a href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-interface/">vehicle interface design</a>), so the vehicle interface should be applicable as long as there is hardware available to handle them.</p>
+See the <a href="https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_control_msgs/msg/AckermannLateralCommand.idl">AckermannLateralCommand.idl</a> and <a href="https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_control_msgs/msg/LongitudinalCommand.idl">LongitudinalCommand.idl</a> for details.<br>
+The vehicle interface should realize these control commands by hardware actuation. Moreover, Autoware also provides break commands, light commands, and more (see <a href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-interface/">vehicle interface design</a>), so the vehicle interface should be applicable as long as there is hardware available to handle them.
 <!-- prettier-ignore --></div>
 
 
