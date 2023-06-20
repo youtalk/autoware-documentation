@@ -2223,6 +2223,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#tools-for-evaluating-the-metrics" class="md-nav__link">
+    Tools for evaluating the metrics
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4458,6 +4465,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#tools-for-evaluating-the-metrics" class="md-nav__link">
+    Tools for evaluating the metrics
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4518,7 +4532,7 @@
 <div><h1 id="important-temporal-performance-metrics-on-components">Important temporal performance metrics on components<a class="headerlink" href="#important-temporal-performance-metrics-on-components" title="Permanent link">#</a></h1>
 <h2 id="motivation-to-list-temporal-performance-metrics">Motivation to list temporal performance metrics<a class="headerlink" href="#motivation-to-list-temporal-performance-metrics" title="Permanent link">#</a></h2>
 <h3 id="objective-of-the-page">Objective of the page<a class="headerlink" href="#objective-of-the-page" title="Permanent link">#</a></h3>
-<p>This page introduces important metrics to evaluate temporal performance on components of Autoware. The term "temporal performance" is often used in the page in order to distinguish between functional performance, which referred to as accuracy as well, and time-related performance.</p>
+<p>This page introduces important metrics to evaluate temporal performance on components of Autoware. The term "temporal performance" is often used throughout the page in order to distinguish between functional performance, which referred to as accuracy as well, and time-related performance.</p>
 <p>It is expected that most algorithms employed for Autoware are executed with high frequency and short response time as possible. In order to achieve safe autonomous driving, one of the desired outcomes is no time gap between perceived and actual situation. The time gap is commonly referred to as delay. If the delay is significant, the system may determine trajectory and maneuver based on outdated situation. Consequently, if the actual situation differs from the perceived one due to the delay, the system may make unexpected decisions.</p>
 <p>As mentioned earlier, this page presents lists of temporal performance metrics that are crucial for the main functionalities of Autoware: Localization, Perception, Planning, and Control.</p>
 <div class="admonition note">
@@ -4529,6 +4543,13 @@
 <p>Temporal performance metrics are important for evaluating Autoware. These metrics are particularly useful for assessing delays caused by new algorithms and logic. They can be employed when comparing the temporal performance of software on a desktop computer with that on a vehicle during the vehicle integration phase.</p>
 <p>In addition, these metrics are useful for designers and evaluators of middleware, operating systems, and computers. They are selected based on user and product requirements. One of these requirements is to provide sufficient temporal performance for executing Autoware. "Sufficient temporal performance" is defined as a temporal performance requirement, but it can be challenging to define the requirement because it varies depending on the product type, operational design domain (<abbr title="Operational Design Domain">ODD</abbr>), and other factors. Then, this page specifically focuses on temporal performance metrics rather than requirements.</p>
 <p>Temporal performance metrics are important for evaluating the reliability of Autoware. However, ensuring the reliability of Autoware requires consideration of not only temporal performance metrics but also other metrics.</p>
+<h3 id="tools-for-evaluating-the-metrics">Tools for evaluating the metrics<a class="headerlink" href="#tools-for-evaluating-the-metrics" title="Permanent link">#</a></h3>
+<p>There are several tools available for evaluating Autoware according to the metrics listed in the page. For example, both <a href="https://github.com/tier4/caret">CARET</a> and <a href="https://github.com/ros2/ros2_tracing">ros2_tracing</a> are recommended options when evaluating Autoware on Linux and <abbr title="Robot Operating System">ROS</abbr> 2. If you want to measure the metrics with either of these tools, refer to the corresponding user guide for instructions. It's important to note that if you import Autoware to a platform other than Linux and <abbr title="Robot Operating System">ROS</abbr> 2, you will need to choose a supported tool for evaluation.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>TIER IV plans to measure Autoware and provide a performance evaluation report periodically. An example of such a report can be found <a href="https://tier4.github.io/CARET_report/">here</a>, although it may not include all of the metrics listed.</p>
+</div>
+<p>The page does not aim to provide instructions on how to use these tools or measure the metrics. its primary focus is on the metrics themselves, as they are more important than the specific tools used. These metrics retain their relevance regardless of the employed platform.</p>
 <h2 id="temporal-performance-metrics-list">Temporal performance metrics list<a class="headerlink" href="#temporal-performance-metrics-list" title="Permanent link">#</a></h2>
 <p>This section is divided into multiple subsections, each containing a model diagram and an accompanying list that explains the important temporal performance metrics. Each model is equipped with checkpoints that serve as indicators for these metrics.</p>
 <p>The first subsection presents the top-level temporal performance metrics, which are depicted in the abstract structure of Autoware as a whole. The detailed metrics are not included in the model as they would add complexity to it. Instead, the subsequent section introduces the detailed metrics. The detailed metrics are subject to more frequent updates compared to the top-level ones, which is another reason for categorizing them separately.</p>
