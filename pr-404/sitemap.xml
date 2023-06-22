@@ -261,7 +261,37 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-404/design/autoware-interfaces/ad-api/features/fail-safe/</loc>
+         <lastmod>2023-06-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-404/design/autoware-interfaces/ad-api/features/interface/</loc>
+         <lastmod>2023-06-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-404/design/autoware-interfaces/ad-api/features/localization/</loc>
+         <lastmod>2023-06-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-404/design/autoware-interfaces/ad-api/features/motion/</loc>
+         <lastmod>2023-06-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-404/design/autoware-interfaces/ad-api/features/operation_mode/</loc>
+         <lastmod>2023-06-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-404/design/autoware-interfaces/ad-api/features/planning-factors/</loc>
+         <lastmod>2023-06-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-404/design/autoware-interfaces/ad-api/features/routing/</loc>
          <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -276,27 +306,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-404/design/autoware-interfaces/ad-api/list/api/fail_safe/</loc>
-         <lastmod>2023-06-22</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-404/design/autoware-interfaces/ad-api/list/api/fail_safe/mrm_state/</loc>
          <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-404/design/autoware-interfaces/ad-api/list/api/interface/</loc>
-         <lastmod>2023-06-22</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-404/design/autoware-interfaces/ad-api/list/api/interface/version/</loc>
-         <lastmod>2023-06-22</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-404/design/autoware-interfaces/ad-api/list/api/localization/</loc>
          <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -311,22 +326,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-404/design/autoware-interfaces/ad-api/list/api/motion/</loc>
-         <lastmod>2023-06-22</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-404/design/autoware-interfaces/ad-api/list/api/motion/accept_start/</loc>
          <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-404/design/autoware-interfaces/ad-api/list/api/motion/state/</loc>
-         <lastmod>2023-06-22</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-404/design/autoware-interfaces/ad-api/list/api/operation_mode/</loc>
          <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -366,22 +371,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-404/design/autoware-interfaces/ad-api/list/api/planning/</loc>
-         <lastmod>2023-06-22</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-404/design/autoware-interfaces/ad-api/list/api/planning/steering_factors/</loc>
          <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-404/design/autoware-interfaces/ad-api/list/api/planning/velocity_factors/</loc>
-         <lastmod>2023-06-22</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-404/design/autoware-interfaces/ad-api/list/api/routing/</loc>
          <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -432,6 +427,21 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-404/design/autoware-interfaces/ad-api/list/api/vehicle/doors/status/</loc>
+         <lastmod>2023-06-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-404/design/autoware-interfaces/ad-api/stories/bus-service/</loc>
+         <lastmod>2023-06-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-404/design/autoware-interfaces/ad-api/stories/taxi-service/</loc>
+         <lastmod>2023-06-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-404/design/autoware-interfaces/ad-api/types/</loc>
          <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -601,16 +611,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-404/design/autoware-interfaces/ad-api/use-cases/</loc>
-         <lastmod>2023-06-22</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-404/design/autoware-interfaces/ad-api/use-cases/bus-service/</loc>
-         <lastmod>2023-06-22</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-404/design/autoware-interfaces/ad-api/use-cases/change-operation-mode/</loc>
          <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
@@ -637,11 +637,6 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-404/design/autoware-interfaces/ad-api/use-cases/request-to-cooperate/</loc>
-         <lastmod>2023-06-22</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-404/design/autoware-interfaces/ad-api/use-cases/taxi-service/</loc>
          <lastmod>2023-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>

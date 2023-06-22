@@ -2958,6 +2958,8 @@
         
           
         
+          
+        
       
       
         
@@ -2998,25 +3000,145 @@
       
         
           
-            
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
           
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../use-cases/">Use cases</a>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_5_4_2_2" id="__nav_5_4_2_2_label" tabindex="0">
+          Features
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_4_2_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_5_4_2_2">
           <span class="md-nav__icon md-icon"></span>
-          Use cases
+          Features
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../features/fail-safe/" class="md-nav__link">
+        Fail-safe
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../features/interface/" class="md-nav__link">
+        Interface
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../features/localization/" class="md-nav__link">
+        Localization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../features/motion/" class="md-nav__link">
+        Motion
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../features/operation_mode/" class="md-nav__link">
+        Operation mode
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../features/planning-factors/" class="md-nav__link">
+        Planning factors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../features/routing/" class="md-nav__link">
+        Routing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../features/vehicle-status/" class="md-nav__link">
+        Vehicle status
+      </a>
+    </li>
+  
+
             
           
         </ul>
@@ -3060,6 +3182,52 @@
         <label class="md-nav__title" for="__nav_5_4_2_3">
           <span class="md-nav__icon md-icon"></span>
           List
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_2_4" checked>
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../">Types</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_4_2_4_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_5_4_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Types
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -4430,8 +4598,7 @@
 <div><h1 id="autoware_adapi_v1_msgsmsgvehiclekinematics">autoware_adapi_v1_msgs/msg/VehicleKinematics<a class="headerlink" href="#autoware_adapi_v1_msgsmsgvehiclekinematics" title="Permanent link">#</a></h1>
 <h2 id="definition">Definition<a class="headerlink" href="#definition" title="Permanent link">#</a></h2>
 <div class="highlight"><pre><span></span><code># Geographic point, using the WGS 84 reference ellipsoid.
-# Currently only support conversion from single MGRS Grid code or UTM
-# If the vector map do not contain correct MGRS Grid code or UTM, this data will be not valid
+# This data will be invalid If Autoware does not provide projection information between geographic coordinates and local coordinates.
 geographic_msgs/GeoPointStamped geographic_pose
 
 # Local coordinate from the autoware
