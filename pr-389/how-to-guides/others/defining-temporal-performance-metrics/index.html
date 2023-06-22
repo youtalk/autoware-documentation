@@ -8,20 +8,20 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-389/how-to-guides/others/important-temporal-performance-metrics/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-389/how-to-guides/others/defining-temporal-performance-metrics/">
       
       
-        <link rel="prev" href="../fixing-dependent-package-versions/">
+        <link rel="prev" href="../debug-autoware/">
       
       
-        <link rel="next" href="../running-autoware-without-cuda/">
+        <link rel="next" href="../determining-component-dependencies/">
       
       <link rel="icon" href="../../../assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.16">
     
     
       
-        <title>Important temporal performance metrics on components - Autoware Documentation</title>
+        <title>Defining temporal performance metrics on components - Autoware Documentation</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#important-temporal-performance-metrics-on-components" class="md-skip">
+        <a href="#defining-temporal-performance-metrics-on-components" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Important temporal performance metrics on components
+              Defining temporal performance metrics on components
             
           </span>
         </div>
@@ -2124,6 +2124,129 @@
               
   
   
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Defining temporal performance metrics on components
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Defining temporal performance metrics on components
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#motivation-to-defining-temporal-performance-metrics" class="md-nav__link">
+    Motivation to defining temporal performance metrics
+  </a>
+  
+    <nav class="md-nav" aria-label="Motivation to defining temporal performance metrics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objective-of-the-page" class="md-nav__link">
+    Objective of the page
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contribution-of-the-temporal-performance-metrics" class="md-nav__link">
+    Contribution of the temporal performance metrics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tools-for-evaluating-the-metrics" class="md-nav__link">
+    Tools for evaluating the metrics
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#policies-to-define-temporal-performance-metrics" class="md-nav__link">
+    Policies to define temporal performance metrics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list-of-sample-metrics" class="md-nav__link">
+    List of sample metrics
+  </a>
+  
+    <nav class="md-nav" aria-label="List of sample metrics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#top-level-temporal-performance-metrics-for-autoware" class="md-nav__link">
+    Top-level temporal performance metrics for Autoware
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detailed-temporal-performance-metrics-for-perception" class="md-nav__link">
+    Detailed temporal performance metrics for Perception
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detailed-temporal-performance-metrics-for-paths-between-obstacle-segmentation-and-planning" class="md-nav__link">
+    Detailed temporal performance metrics for Paths between Obstacle segmentation and Planning
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
   
     <li class="md-nav__item">
       <a href="../determining-component-dependencies/" class="md-nav__link">
@@ -2157,122 +2280,6 @@
       <a href="../fixing-dependent-package-versions/" class="md-nav__link">
         Fixing dependent package versions
       </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Important temporal performance metrics on components
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        Important temporal performance metrics on components
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#motivation-to-list-temporal-performance-metrics" class="md-nav__link">
-    Motivation to list temporal performance metrics
-  </a>
-  
-    <nav class="md-nav" aria-label="Motivation to list temporal performance metrics">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#objective-of-the-page" class="md-nav__link">
-    Objective of the page
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#contribution-of-the-temporal-performance-metrics" class="md-nav__link">
-    Contribution of the temporal performance metrics
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tools-for-evaluating-the-metrics" class="md-nav__link">
-    Tools for evaluating the metrics
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#temporal-performance-metrics-list" class="md-nav__link">
-    Temporal performance metrics list
-  </a>
-  
-    <nav class="md-nav" aria-label="Temporal performance metrics list">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#top-level-temporal-performance-metrics-for-autoware" class="md-nav__link">
-    Top-level temporal performance metrics for Autoware
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#detailed-temporal-performance-metrics-for-perception" class="md-nav__link">
-    Detailed temporal performance metrics for Perception
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#detailed-temporal-performance-metrics-for-paths-between-obstacle-segmentation-and-planning" class="md-nav__link">
-    Detailed temporal performance metrics for Paths between Obstacle segmentation and Planning
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -4444,11 +4451,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#motivation-to-list-temporal-performance-metrics" class="md-nav__link">
-    Motivation to list temporal performance metrics
+  <a href="#motivation-to-defining-temporal-performance-metrics" class="md-nav__link">
+    Motivation to defining temporal performance metrics
   </a>
   
-    <nav class="md-nav" aria-label="Motivation to list temporal performance metrics">
+    <nav class="md-nav" aria-label="Motivation to defining temporal performance metrics">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -4478,11 +4485,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#temporal-performance-metrics-list" class="md-nav__link">
-    Temporal performance metrics list
+  <a href="#policies-to-define-temporal-performance-metrics" class="md-nav__link">
+    Policies to define temporal performance metrics
   </a>
   
-    <nav class="md-nav" aria-label="Temporal performance metrics list">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list-of-sample-metrics" class="md-nav__link">
+    List of sample metrics
+  </a>
+  
+    <nav class="md-nav" aria-label="List of sample metrics">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -4529,29 +4543,41 @@
   
 
 
-<div><h1 id="important-temporal-performance-metrics-on-components">Important temporal performance metrics on components<a class="headerlink" href="#important-temporal-performance-metrics-on-components" title="Permanent link">#</a></h1>
-<h2 id="motivation-to-list-temporal-performance-metrics">Motivation to list temporal performance metrics<a class="headerlink" href="#motivation-to-list-temporal-performance-metrics" title="Permanent link">#</a></h2>
+<div><h1 id="defining-temporal-performance-metrics-on-components">Defining temporal performance metrics on components<a class="headerlink" href="#defining-temporal-performance-metrics-on-components" title="Permanent link">#</a></h1>
+<h2 id="motivation-to-defining-temporal-performance-metrics">Motivation to defining temporal performance metrics<a class="headerlink" href="#motivation-to-defining-temporal-performance-metrics" title="Permanent link">#</a></h2>
 <h3 id="objective-of-the-page">Objective of the page<a class="headerlink" href="#objective-of-the-page" title="Permanent link">#</a></h3>
-<p>This page introduces important metrics to evaluate temporal performance on components of Autoware. The term "temporal performance" is often used throughout the page in order to distinguish between functional performance, which referred to as accuracy as well, and time-related performance.</p>
-<p>It is expected that most algorithms employed for Autoware are executed with high frequency and short response time as possible. In order to achieve safe autonomous driving, one of the desired outcomes is no time gap between perceived and actual situation. The time gap is commonly referred to as delay. If the delay is significant, the system may determine trajectory and maneuver based on outdated situation. Consequently, if the actual situation differs from the perceived one due to the delay, the system may make unexpected decisions.</p>
-<p>As mentioned earlier, this page presents lists of temporal performance metrics that are crucial for the main functionalities of Autoware: Localization, Perception, Planning, and Control.</p>
+<p>This page introduces policies to define metrics to evaluate temporal performance on components of Autoware. The term "temporal performance" is often used throughout the page in order to distinguish between functional performance, which referred to as accuracy as well, and time-related performance.</p>
+<p>It is expected that most algorithms employed for Autoware are executed with as high frequency and short response time as possible. In order to achieve safe autonomous driving, one of the desired outcomes is no time gap between perceived and actual situation. The time gap is commonly referred to as delay. If the delay is significant, the system may determine trajectory and maneuver based on outdated situation. Consequently, if the actual situation differs from the perceived one due to the delay, the system may make unexpected decisions.</p>
+<p>As mentioned above, this page presents the policies to define metrics. Besides, the page contains lists of sample metrics that are crucial for the main functionalities of Autoware: Localization, Perception, Planning, and Control.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Other functionalities, such as system components for diagnosis, are excluded currently. However they will be taken into account in the near future.</p>
 </div>
 <h3 id="contribution-of-the-temporal-performance-metrics">Contribution of the temporal performance metrics<a class="headerlink" href="#contribution-of-the-temporal-performance-metrics" title="Permanent link">#</a></h3>
 <p>Temporal performance metrics are important for evaluating Autoware. These metrics are particularly useful for assessing delays caused by new algorithms and logic. They can be employed when comparing the temporal performance of software on a desktop computer with that on a vehicle during the vehicle integration phase.</p>
-<p>In addition, these metrics are useful for designers and evaluators of middleware, operating systems, and computers. They are selected based on user and product requirements. One of these requirements is to provide sufficient temporal performance for executing Autoware. "Sufficient temporal performance" is defined as a temporal performance requirement, but it can be challenging to define the requirement because it varies depending on the product type, operational design domain (<abbr title="Operational Design Domain">ODD</abbr>), and other factors. Then, this page specifically focuses on temporal performance metrics rather than requirements.</p>
+<p>In addition, these metrics are useful for designers and evaluators of middleware, operating systems, and computers. They are selected based on user and product requirements. One of these requirements is to provide sufficient temporal performance for executing Autoware. "Sufficient temporal performance" is defined as a temporal performance requirement, but it can be challenging to define the requirement because it varies depending on the product type, Operational Design Domain (<abbr title="Operational Design Domain">ODD</abbr>), and other factors. Then, this page specifically focuses on temporal performance metrics rather than requirements.</p>
 <p>Temporal performance metrics are important for evaluating the reliability of Autoware. However, ensuring the reliability of Autoware requires consideration of not only temporal performance metrics but also other metrics.</p>
 <h3 id="tools-for-evaluating-the-metrics">Tools for evaluating the metrics<a class="headerlink" href="#tools-for-evaluating-the-metrics" title="Permanent link">#</a></h3>
 <p>There are several tools available for evaluating Autoware according to the metrics listed in the page. For example, both <a href="https://github.com/tier4/caret">CARET</a> and <a href="https://github.com/ros2/ros2_tracing">ros2_tracing</a> are recommended options when evaluating Autoware on Linux and <abbr title="Robot Operating System">ROS</abbr> 2. If you want to measure the metrics with either of these tools, refer to the corresponding user guide for instructions. It's important to note that if you import Autoware to a platform other than Linux and <abbr title="Robot Operating System">ROS</abbr> 2, you will need to choose a supported tool for evaluation.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>TIER IV plans to measure Autoware and provide a performance evaluation report periodically. An example of such a report can be found <a href="https://tier4.github.io/CARET_report/">here</a>, although it may not include all of the metrics listed.</p>
+<p>TIER IV plans to measure Autoware, which is running according to <a href="../../tutorials/">the tutorial</a>, and provide a performance evaluation report periodically. An example of such a report can be found <a href="https://tier4.github.io/CARET_report/">here</a>, although it may not include all of the metrics listed.</p>
 </div>
-<p>The page does not aim to provide instructions on how to use these tools or measure the metrics. its primary focus is on the metrics themselves, as they are more important than the specific tools used. These metrics retain their relevance regardless of the employed platform.</p>
-<h2 id="temporal-performance-metrics-list">Temporal performance metrics list<a class="headerlink" href="#temporal-performance-metrics-list" title="Permanent link">#</a></h2>
-<p>This section is divided into multiple subsections, each containing a model diagram and an accompanying list that explains the important temporal performance metrics. Each model is equipped with checkpoints that serve as indicators for these metrics.</p>
+<p>The page does not aim to provide instructions on how to use these tools or measure the metrics. Its primary focus is on the metrics themselves, as they are more important than the specific tools used. These metrics retain their relevance regardless of the employed platform.</p>
+<h2 id="policies-to-define-temporal-performance-metrics">Policies to define temporal performance metrics<a class="headerlink" href="#policies-to-define-temporal-performance-metrics" title="Permanent link">#</a></h2>
+<p>As mentioned above, the configuration of Autoware varies according to the product type, <abbr title="Operational Design Domain">ODD</abbr>, and other factors. The variety of configurations makes it difficult to define the uniform metrics for evaluating Autoware.<br>
+However, the policies to define them are basically reused even when the configuration changed. Each of temporal performance metrics is categorized into two types: execution frequency and response time. Although there are many types of metrics, such as communication latency, the only two types are taken into account for ease.<br>
+Execution frequency is observed using rate of message for Inter-Process Communication (IPC). You will find an enormous number of messages in Autoware, but you don't have to take care of all. Some messages might be crucial to functionality and they should be picked up for evaluation.<br>
+Response time is duration elapsed through a series of processing. A series of processing is mentioned as a path. Response time is calculated from timestamps of starting and ending of a path. Thought a lot of paths can be defined in Autoware, you have to choose significant paths.</p>
+<p>As a hint, here are several characteristics of message and path in order to pick up metrics.</p>
+<ol>
+<li>Messages and paths on boundaries where observed values from sensors are consumed</li>
+<li>Messages and paths on boundaries of functions, e.g. a boundary of perception and planning</li>
+<li>Messages and paths on boundaries where two different messages are synchronized and merged</li>
+<li>Messages who must be transmitted at expected frequency for example vehicle command messages</li>
+</ol>
+<h2 id="list-of-sample-metrics">List of sample metrics<a class="headerlink" href="#list-of-sample-metrics" title="Permanent link">#</a></h2>
+<p>This section demonstrates how to metrics according to the policies explained. section is divided into multiple subsections, each containing a model diagram and an accompanying list that explains the important temporal performance metrics. Each model is equipped with checkpoints that serve as indicators for these metrics.</p>
 <p>The first subsection presents the top-level temporal performance metrics, which are depicted in the abstract structure of Autoware as a whole. The detailed metrics are not included in the model as they would add complexity to it. Instead, the subsequent section introduces the detailed metrics. The detailed metrics are subject to more frequent updates compared to the top-level ones, which is another reason for categorizing them separately.</p>
 <p>Each list includes a column for the reference value. The reference value represents the observed value of each metric when Autoware is running according to <a href="../../tutorials/">the tutorial</a>. It is important to note that the reference value is not a required value, meaning that Autoware does not necessarily fail in <a href="../../tutorials/">the tutorial</a> execution if certain metrics do not fulfill the reference value.</p>
 <h3 id="top-level-temporal-performance-metrics-for-autoware">Top-level temporal performance metrics for Autoware<a class="headerlink" href="#top-level-temporal-performance-metrics-for-autoware" title="Permanent link">#</a></h3>
@@ -4999,7 +5025,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../fixing-dependent-package-versions/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Fixing dependent package versions" rel="prev">
+          <a href="../debug-autoware/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Debug Autoware" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -5008,20 +5034,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Fixing dependent package versions
+                Debug Autoware
               </div>
             </div>
           </a>
         
         
           
-          <a href="../running-autoware-without-cuda/" class="md-footer__link md-footer__link--next" aria-label="Next: Running Autoware without CUDA" rel="next">
+          <a href="../determining-component-dependencies/" class="md-footer__link md-footer__link--next" aria-label="Next: Determining component dependencies" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Running Autoware without CUDA
+                Determining component dependencies
               </div>
             </div>
             <div class="md-footer__button md-icon">
