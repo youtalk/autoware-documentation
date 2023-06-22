@@ -4760,6 +4760,8 @@ Autoware publishes control commands such as</p>
 </li>
 <li>
 <p>After you implement your vehicle interface or you want to debug it by launching it, create a launch file of your vehicle interface, and include it to <code>vehicle_interface.launch.xml</code>.</p>
+</li>
+</ol>
 <p>Do not get confused. First, you need to create a launch file for your own vehicle interface module (like <code>my_vehicle_interface.launch.xml</code>) <strong>and then include that to <code>vehicle_interface.launch.xml</code> which exists in another directory.</strong> Here are the details.</p>
 <ol>
 <li>
@@ -4770,23 +4772,17 @@ Autoware publishes control commands such as</p>
 </li>
 <li>
 <p>You have to rename each "sample_vehicle" to something else. For example, if you want to rename "sample_vehicle" to "my_vehicle_name", you need to change the following. Note that it is restricted to keep the "_launch" and "_description" part.</p>
-<ul>
-<li>Rename the directories<ul>
-<li><code>sample_vehicle_launch</code> → <code>my_vehicle_name_launch</code></li>
-<li><code>my_vehicle_name_launch/sample_vehicle_launch</code> → <code>my_vehicle_name_launch/my_vehicle_name_launch</code></li>
-<li><code>my_vehicle_name_launch/sample_vehicle_description</code> → <code>my_vehicle_name_launch/my_vehicle_name_description</code></li>
-</ul>
-</li>
-<li>After you rename your directories, rename each "sample_vehicle" to "my_vehicle_name" in the source code.<ul>
-<li><code>my_vehicle_name_description/CMakeLists.txt</code></li>
-<li><code>my_vehicle_name_description/package.xml</code></li>
-<li><code>my_vehicle_name_description/urdf/vehicle.xacro</code> (there are two parts)</li>
-<li><code>my_vehicle_name_launch/CMakeLists.txt</code></li>
-<li><code>my_vehicle_name_launch/package.xml</code></li>
-<li><code>README.md</code> (not necessary)</li>
-</ul>
-</li>
-</ul>
+<p>- Rename the directories
+    - <code>sample_vehicle_launch</code> → <code>my_vehicle_name_launch</code>
+    - <code>my_vehicle_name_launch/sample_vehicle_launch</code> → <code>my_vehicle_name_launch/my_vehicle_name_launch</code>
+    - <code>my_vehicle_name_launch/sample_vehicle_description</code> → <code>my_vehicle_name_launch/my_vehicle_name_description</code>
+  - After you rename your directories, rename each "sample_vehicle" to "my_vehicle_name" in the source code.
+    - <code>my_vehicle_name_description/CMakeLists.txt</code>
+    - <code>my_vehicle_name_description/package.xml</code>
+    - <code>my_vehicle_name_description/urdf/vehicle.xacro</code> (there are two parts)
+    - <code>my_vehicle_name_launch/CMakeLists.txt</code>
+    - <code>my_vehicle_name_launch/package.xml</code>
+    - <code>README.md</code> (not necessary)</p>
 </li>
 <li>
 <p>Include your launch file to <code>my_vehicle_name_launch/my_vehicle_name_launch/launch/vehicle_interface.launch.xml</code> by opening it and add the include terms like below.</p>
@@ -4798,8 +4794,6 @@ Autoware publishes control commands such as</p>
 <span class="w">    </span><span class="nt">&lt;/include&gt;</span>
 <span class="nt">&lt;/launch&gt;</span>
 </code></pre></div>
-</li>
-</ol>
 </li>
 <li>
 <p>Build three packages <code>my_vehicle_interface</code>, <code>my_vehicle_name_launch</code> and <code>my_vehicle_name_description</code> by <code>colcon build</code>, or you can just build the entire Autoware if you have done other things.</p>
