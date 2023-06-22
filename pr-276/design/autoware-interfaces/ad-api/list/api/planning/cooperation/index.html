@@ -4415,17 +4415,18 @@ These decisions are designed to assign behavior to activate that is considered h
 </tr>
 </tbody>
 </table>
-<p>The operator decision is actually either deactivate, activate, autonomous, or default.
+<p>The operator decision is actually either deactivate, activate, autonomous, or none.
 If the operator selects deactivate or activate, the module decision is ignored and the operator decision is used instead.
 If the operator selects autonomous, the module decision is used.
-The default is the initial value of the operator decision.
-If the operator decision is default, it is evaluated according to the default policy set for each module type.</p>
-<p>The default policy is either deactivate or autonomous, and is initialized by system settings.
-These meanings are the same as the operator decision.
-The purpose of the default policy is to set whether the operator decision is required.
-The deactivate policy is a defensive setting and not perform risky behavior until instructed by the operator.
-The autonomous policy can perform both behavior without operator instruction.
-Also, the operator can change the default policies.</p>
+The none is the initial value of the operator decision and means that the operator has not selected any decision.
+If the operator decision is none, it is evaluated according to the cooperation policies set for each module type.</p>
+<p>The cooperation policy is either required or optional, and is initialized by system settings.
+The required policy evaluates none decision as deactivate to minimize risk.
+Therefore, the operator decision is required to continue driving.
+The optional policy evaluates none decision as autonomous to continue driving.
+This allows the vehicle to drive without the operator decision.
+The cooperation policies can also be changed by the operator.
+Note that this setting is common per module, so changing it will affect all scenes in the same module.</p>
 <p><img alt="cooperation-state" src="../docs/cooperation-state.drawio.svg"></p>
 <h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">#</a></h2>
 <p>This is an example of cooperation for lane change module. The behaviors by the combination of decisions are as follows.</p>
@@ -4433,7 +4434,7 @@ Also, the operator can change the default policies.</p>
 <thead>
 <tr>
 <th>Operator decision</th>
-<th>Default policy</th>
+<th>Policy</th>
 <th>Module decision</th>
 <th>Description</th>
 </tr>
@@ -4464,22 +4465,22 @@ Also, the operator can change the default policies.</p>
 <td>The operator instructs to follow the module decision. So it changes lane by module decision.</td>
 </tr>
 <tr>
-<td>default</td>
-<td>deactivate</td>
+<td>none</td>
+<td>required</td>
 <td>-</td>
-<td>The deactivate default policy is used because no operator instruction. So it keeps lane by deactivate policy.</td>
+<td>The required policy is used because no operator instruction. So it keeps lane the same as deactivate.</td>
 </tr>
 <tr>
-<td>default</td>
-<td>autonomous</td>
+<td>none</td>
+<td>optional</td>
 <td>deactivate</td>
-<td>The autonomous default policy is used because no operator instruction. So it keeps lane by module decision.</td>
+<td>The optional policy is used because no operator instruction. So it keeps lane by module decision.</td>
 </tr>
 <tr>
-<td>default</td>
-<td>autonomous</td>
+<td>none</td>
+<td>optional</td>
 <td>activate</td>
-<td>The autonomous default policy is used because no operator instruction. So it change lane by module decision.</td>
+<td>The optional policy is used because no operator instruction. So it change lane by module decision.</td>
 </tr>
 </tbody>
 </table>
