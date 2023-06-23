@@ -4760,8 +4760,6 @@ Autoware publishes control commands such as</p>
 </li>
 <li>
 <p>After you implement your vehicle interface or you want to debug it by launching it, create a launch file of your vehicle interface, and include it to <code>vehicle_interface.launch.xml</code>.</p>
-</li>
-</ol>
 <p>Do not get confused. First, you need to create a launch file for your own vehicle interface module (like <code>my_vehicle_interface.launch.xml</code>) <strong>and then include that to <code>vehicle_interface.launch.xml</code> which exists in another directory.</strong> Here are the details.</p>
 <ol>
 <li>
@@ -4772,6 +4770,8 @@ Autoware publishes control commands such as</p>
 </li>
 <li>
 <p>You have to rename each "sample_vehicle" to something else. For example, if you want to rename "sample_vehicle" to "my_vehicle_name", you need to change the following. Note that it is restricted to keep the "_launch" and "_description" part.</p>
+</li>
+</ol>
 <ul>
 <li>Rename the directories<ul>
 <li><code>sample_vehicle_launch</code> → <code>my_vehicle_name_launch</code></li>
@@ -4789,9 +4789,9 @@ Autoware publishes control commands such as</p>
 </ul>
 </li>
 </ul>
-</li>
-<li>
-<p>Include your launch file to <code>my_vehicle_name_launch/my_vehicle_name_launch/launch/vehicle_interface.launch.xml</code> by opening it and add the include terms like below.</p>
+<ol>
+<li>Include your launch file to <code>my_vehicle_name_launch/my_vehicle_name_launch/launch/vehicle_interface.launch.xml</code> by opening it and add the include terms like below.</li>
+</ol>
 <div class="highlight"><span class="filename">vehicle_interface.launch.xml</span><pre><span></span><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;launch&gt;</span>
 <span class="w">    </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"vehicle_id"</span><span class="w"> </span><span class="na">default=</span><span class="s">"$(env VEHICLE_ID default)"</span><span class="nt">/&gt;</span>
