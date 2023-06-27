@@ -4946,7 +4946,7 @@ YabLoc enables users localize with vehicles that are not equipped with LiDAR and
 <h3 id="yabloc-packages">YabLoc Packages<a class="headerlink" href="#yabloc-packages" title="Permanent link">#</a></h3>
 <ul>
 <li><a href="https://github.com/autowarefoundation/autoware.universe/tree/main/localization/yabloc/yabloc_common/README.md">yabloc_common</a></li>
-<li><a href="https://github.com/autowarefoundation/autoware.universe/tree/main/localization/yabloc/yabloc_imgproc/README.md">yabloc_imgproc</a></li>
+<li><a href="https://github.com/autowarefoundation/autoware.universe/tree/main/localization/yabloc/yabloc_image_processing/README.md">yabloc_image_processing</a></li>
 <li><a href="https://github.com/autowarefoundation/autoware.universe/tree/main/localization/yabloc/yabloc_particle_filter/README.md">yabloc_particle_filter</a></li>
 <li><a href="https://github.com/autowarefoundation/autoware.universe/tree/main/localization/yabloc/yabloc_pose_initializer/README.md">yabloc_pose_initializer</a></li>
 </ul>
@@ -5011,7 +5011,7 @@ By default, <code>localization_mode</code> is <code>lidar</code>.</p>
 </thead>
 <tbody>
 <tr>
-<td><code>/localicazation/pose_estimator/pose_with_covariance</code></td>
+<td><code>/localization/pose_estimator/pose_with_covariance</code></td>
 <td><code>geometry_msgs/msg/PoseWithCovarianceStamped</code></td>
 </tr>
 </tbody>
@@ -5031,17 +5031,17 @@ By default, <code>localization_mode</code> is <code>lidar</code>.</p>
 <tbody>
 <tr>
 <td>1</td>
-<td><code>/localicazation/yabloc/pf/predicted_particle_marker</code></td>
-<td>particle distribution of particle fitler. Red particles are probable candidate.</td>
+<td><code>/localization/yabloc/pf/predicted_particle_marker</code></td>
+<td>particle distribution of particle filter. Red particles are probable candidate.</td>
 </tr>
 <tr>
 <td>2</td>
-<td><code>/localicazation/yabloc/pf/scored_cloud</code></td>
+<td><code>/localization/yabloc/pf/scored_cloud</code></td>
 <td>3D projected line segments. the color indicates how well they match the map.</td>
 </tr>
 <tr>
 <td>3</td>
-<td><code>/localicazation/yabloc/imgproc/lanelet2_overlay_image</code></td>
+<td><code>/localization/yabloc/image_processing/lanelet2_overlay_image</code></td>
 <td>overlay of lanelet2 (yellow lines) onto image based on estimated pose. If they match well with the actual road markings, it means that the localization performs well.</td>
 </tr>
 </tbody>
@@ -5060,27 +5060,27 @@ By default, <code>localization_mode</code> is <code>lidar</code>.</p>
 <tbody>
 <tr>
 <td>1</td>
-<td><code>/localicazation/yabloc/pf/cost_map_image</code></td>
+<td><code>/localization/yabloc/pf/cost_map_image</code></td>
 <td>cost map made from lanelet2</td>
 </tr>
 <tr>
 <td>2</td>
-<td><code>/localicazation/yabloc/pf/match_image</code></td>
+<td><code>/localization/yabloc/pf/match_image</code></td>
 <td>projected line segments</td>
 </tr>
 <tr>
 <td>3</td>
-<td><code>/localicazation/yabloc/imgproc/image_with_colored_line_segment</code></td>
-<td>classifified line segments. green line segments are used in particle correction</td>
+<td><code>/localization/yabloc/image_processing/image_with_colored_line_segment</code></td>
+<td>classified line segments. green line segments are used in particle correction</td>
 </tr>
 <tr>
 <td>4</td>
-<td><code>/localicazation/yabloc/imgproc/lanelet2_overlay_image</code></td>
+<td><code>/localization/yabloc/image_processing/lanelet2_overlay_image</code></td>
 <td>overlay of lanelet2</td>
 </tr>
 <tr>
 <td>5</td>
-<td><code>/localicazation/yabloc/imgproc/segmented_image</code></td>
+<td><code>/localization/yabloc/image_processing/segmented_image</code></td>
 <td>graph based segmentation result</td>
 </tr>
 </tbody>
@@ -5094,7 +5094,7 @@ By default, <code>localization_mode</code> is <code>lidar</code>.</p>
 </li>
 <li>It does not estimate roll and pitch, therefore some of the perception nodes may not work well.</li>
 <li>It doesn't support multiple cameras now. But it will in the future.</li>
-<li>In places where there are few road surface markings, such as intersections, the estimation heavily relies on <abbr title="Global Navigation Satellite System">GNSS</abbr>, <abbr title="Inertial Measurement Unit">IMU</abbr>, and vhielce twist.</li>
+<li>In places where there are few road surface markings, such as intersections, the estimation heavily relies on <abbr title="Global Navigation Satellite System">GNSS</abbr>, <abbr title="Inertial Measurement Unit">IMU</abbr>, and vehicles twist.</li>
 <li>If the road boundary or road surface markings are not included in the Lanelet2, the estimation fails.</li>
 <li>The sample rosbag provided in the autoware tutorial does not include images, so it is not possible to run YabLoc with it.</li>
 </ul>
