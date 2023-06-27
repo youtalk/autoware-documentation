@@ -4758,7 +4758,7 @@
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>autoware.launch.xml<span class="w"> </span>vehicle_model:<span class="o">=</span>YOUR_VEHICLE<span class="w"> </span>sensor_kit:<span class="o">=</span>YOUR_SENSOR_KIT<span class="w"> </span>map_path:<span class="o">=</span>/PATH/TO/YOUR/MAP
 </code></pre></div>
 <p>It is possible to specify which components to launch using command-line arguments.
-For example, if you don't need to launch perception, planning, and control for localization debuging purposes, you can launch the following:</p>
+For example, if you don't need to launch perception, planning, and control for localization debug, you can launch the following:</p>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>autoware.launch.xml<span class="w"> </span>vehicle_model:<span class="o">=</span>YOUR_VEHICLE<span class="w"> </span>sensor_kit:<span class="o">=</span>YOUR_SENSOR_KIT<span class="w"> </span>map_path:<span class="o">=</span>/PATH/TO/YOUR/MAP<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>launch_perception:<span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>launch_planning:<span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="se">\</span>
