@@ -4711,26 +4711,6 @@
     GNSS/IMU-based localizer
   </a>
   
-    <nav class="md-nav" aria-label="GNSS/IMU-based localizer">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-modifying-autoware-launch-files" class="md-nav__link">
-    1. Modifying Autoware launch files
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-execution-command" class="md-nav__link">
-    2. Execution command
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -4799,8 +4779,7 @@ By specifying this command-line argument, YabLoc nodes will be automatically lau
 When running Eagleye in twist_estimator mode, ndt_scan_matcher is used as the pose_estimator.
 Eagleye will improve scan matching by providing accurate twists using <abbr title="Global Navigation Satellite System">GNSS</abbr> doppler.</p>
 <p>To use Eagleye, it requires both specifying the command-line arguments and modifying the launch file.</p>
-<h3 id="1-modifying-autoware-launch-files">1. Modifying Autoware launch files<a class="headerlink" href="#1-modifying-autoware-launch-files" title="Permanent link">#</a></h3>
-<p>When using Eagleye, comment out <code>tier4_localization_component.launch.xml</code> and start <code>map4_localization_component.launch.xml</code> in <a href="https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/launch/autoware.launch.xml"><code>autoware.launch.xml</code></a>.
+<p>Firstly, please modify the commented-out line and change it to launch <code>map4_localization_component.launch.xml</code> instead of <code>tier4_localization_component.launch.xml</code> in <a href="https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/launch/autoware.launch.xml"><code>autoware.launch.xml</code></a>.
 Please refer to the following snippet for the modification details:</p>
 <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="cm">&lt;!-- Localization --&gt;</span>
 <span class="w">  </span><span class="nt">&lt;group</span><span class="w"> </span><span class="na">if=</span><span class="s">"$(var launch_localization)"</span><span class="nt">&gt;</span>
@@ -4809,30 +4788,7 @@ Please refer to the following snippet for the modification details:</p>
 <span class="w">  </span><span class="nt">&lt;/group&gt;</span>
 </code></pre></div>
 <p>NOTE: Please refer to <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/launch/map4_localization_launch"><code>map4_localization_launch</code></a> in the <code>autoware.universe</code> package and <a href="https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/launch/components/map4_localization_component.launch.xml"><code>map4_localization_component.launch.xml</code></a> in <code>autoware_launch</code> package for information on how to modify the localization launch.</p>
-<h3 id="2-execution-command">2. Execution command<a class="headerlink" href="#2-execution-command" title="Permanent link">#</a></h3>
 <p>Once you have modified the launch file, you can use Eagleye by specifying the <code>pose_estimator_mode</code> through command-line arguments.</p>
-<p>The following table shows the available arguments, along with the corresponding estimation methods.</p>
-<table>
-<thead>
-<tr>
-<th>pose_estimator_mode</th>
-<th>pose estimator method</th>
-<th>twist estimator method</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>lidar</code>(default)</td>
-<td>ndt_scan_matcher (default)</td>
-<td>eagleye as twist_estimator</td>
-</tr>
-<tr>
-<td><code>gnss</code></td>
-<td>eagleye as pose_twist_estimator</td>
-<td>eagleye as pose_twist_estimator</td>
-</tr>
-</tbody>
-</table>
 <p><strong>Example of using Eagleye as the pose twist estimator:</strong></p>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>autoware.launch.xml<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>vehicle_model:<span class="o">=</span>YOUR_VEHICLE<span class="w"> </span><span class="se">\</span>
