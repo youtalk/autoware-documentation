@@ -14,7 +14,7 @@
         <link rel="prev" href="../">
       
       
-        <link rel="next" href="yabloc-guide/">
+        <link rel="next" href="eagleye-guide/">
       
       <link rel="icon" href="../../../../assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
@@ -2008,8 +2008,6 @@
         
           
         
-          
-        
       
       
         
@@ -2030,20 +2028,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="yabloc-guide/" class="md-nav__link">
-        YabLoc
-      </a>
-    </li>
-  
-
             
           
             
@@ -4738,7 +4722,7 @@ The table below shows the supported sensor configurations and their correspondin
 <thead>
 <tr>
 <th>localization mode</th>
-<th>method</th>
+<th>algorithm</th>
 <th>map type</th>
 </tr>
 </thead>
@@ -4763,7 +4747,8 @@ The table below shows the supported sensor configurations and their correspondin
 <h2 id="lidar-based-localizer-default">LiDAR-based localizer (default)<a class="headerlink" href="#lidar-based-localizer-default" title="Permanent link">#</a></h2>
 <p>By default, Autoware launches <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/localization/ndt_scan_matcher">ndt_scan_matcher</a> for localization.</p>
 <h2 id="camera-based-localizer">Camera-based localizer<a class="headerlink" href="#camera-based-localizer" title="Permanent link">#</a></h2>
-<p>You can use YabLoc as a camera-based localization method. For more details on YabLoc, please refer to the <a href="yabloc-guide/">YabLoc Guide</a>.</p>
+<p>You can use YabLoc as a camera-based localization method.
+For more details on YabLoc, please refer to the <a href="https://github.com/autowarefoundation/autoware.universe/blob/main/localization/yabloc/README.md">README of YabLoc</a> in autoware.universe.</p>
 <p>To use YabLoc as a pose_estimator, add <code>localization_mode:=camera</code> when launching Autoware.
 By default, the <code>localization_mode</code> is set to <code>lidar</code>.
 By specifying this command-line argument, YabLoc nodes will be automatically launched while the NDT nodes will not be started.</p>
@@ -4774,7 +4759,7 @@ By specifying this command-line argument, YabLoc nodes will be automatically lau
 <span class="w">  </span>localization_mode:<span class="o">=</span>camera<span class="w"> </span><span class="c1"># Add this argument</span>
 </code></pre></div>
 <h2 id="gnssimu-based-localizer"><abbr title="Global Navigation Satellite System">GNSS</abbr>/<abbr title="Inertial Measurement Unit">IMU</abbr>-based localizer<a class="headerlink" href="#gnssimu-based-localizer" title="Permanent link">#</a></h2>
-<p>You can use Eagleye as a <abbr title="Global Navigation Satellite System">GNSS</abbr>/<abbr title="Inertial Measurement Unit">IMU</abbr>-based localization method. For more details on Eagleye, please refer to the <a href="eagleye-guide/">Eagleye Guide</a>.</p>
+<p>You can use Eagleye as a <abbr title="Global Navigation Satellite System">GNSS</abbr>/<abbr title="Inertial Measurement Unit">IMU</abbr>-based localization method. For more details on Eagleye, please refer to the <a href="eagleye-guide/">Eagleye</a>.</p>
 <p>Eagleye has a function for position estimation and twist estimation, namely <code>pose_estimator</code> and <code>twist_estimator</code>, respectively.
 When running Eagleye in twist_estimator mode, ndt_scan_matcher is used as the pose_estimator.
 Eagleye will improve scan matching by providing accurate twists using <abbr title="Global Navigation Satellite System">GNSS</abbr> doppler.</p>
@@ -4844,13 +4829,13 @@ Please refer to the following snippet for the modification details:</p>
         
         
           
-          <a href="yabloc-guide/" class="md-footer__link md-footer__link--next" aria-label="Next: YabLoc" rel="next">
+          <a href="eagleye-guide/" class="md-footer__link md-footer__link--next" aria-label="Next: Eagleye" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                YabLoc
+                Eagleye
               </div>
             </div>
             <div class="md-footer__button md-icon">
