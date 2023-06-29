@@ -4697,6 +4697,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#comprehensive-options-table" class="md-nav__link">
+    Comprehensive Options Table
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4744,35 +4751,6 @@ The table below shows the supported sensor configurations and their correspondin
 </tr>
 </tbody>
 </table>
-<p>The table below indicates which pose_estimator and twist_estimator are called based on the invoked launch file and provided arguments.</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>localization_mode<br>=lidar</th>
-<th>localization_mode<br>=camera</th>
-<th>pose_estimator_mode<br>=lidar</th>
-<th>pose_estimator_mode<br>=camera</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>tier4_localization_component</td>
-<td>ndt_scan_matcher<br>gyro_odometer</td>
-<td>yabloc<br>gyro_odometer</td>
-<td>-</td>
-<td>-</td>
-</tr>
-<tr>
-<td>map4_localization_component</td>
-<td>-</td>
-<td>-</td>
-<td>ndt_scan_matcher<br>eagleye</td>
-<td>eagleye<br>eagleye</td>
-</tr>
-</tbody>
-</table>
-<p>The top row of cells indicate pose_estimator and the bottom row indicates twist_estimator.</p>
 <h2 id="lidar-based-localizer-default">LiDAR-based localizer (default)<a class="headerlink" href="#lidar-based-localizer-default" title="Permanent link">#</a></h2>
 <p>By default, Autoware launches <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/localization/ndt_scan_matcher">ndt_scan_matcher</a> for localization.</p>
 <h2 id="camera-based-localizer">Camera-based localizer<a class="headerlink" href="#camera-based-localizer" title="Permanent link">#</a></h2>
@@ -4815,6 +4793,69 @@ Please refer to the following snippet for the modification details:</p>
 <span class="w">  </span>sensor_kit:<span class="o">=</span>YOUR_SENSOR_KIT<span class="w"> </span>map_path:<span class="o">=</span>/PATH/TO/YOUR/MAP<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>pose_estimator_mode:<span class="o">=</span>lidar<span class="w"> </span><span class="c1"># Not mandatory, as it is the default.</span>
 </code></pre></div>
+<h2 id="comprehensive-options-table">Comprehensive Options Table<a class="headerlink" href="#comprehensive-options-table" title="Permanent link">#</a></h2>
+<p>The table below indicates which pose_estimator and twist_estimator are called based on the invoked launch file and provided arguments.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>localization_mode<br>=lidar(default)</th>
+<th>localization_mode<br>=camera</th>
+<th>pose_estimator_mode<br>=lidar(default)</th>
+<th>pose_estimator_mode<br>=camera</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tier4_localization_component</td>
+<td>ndt_scan_matcher<br>gyro_odometer</td>
+<td>yabloc<br>gyro_odometer</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>map4_localization_component</td>
+<td>-</td>
+<td>-</td>
+<td>ndt_scan_matcher<br>eagleye</td>
+<td>eagleye<br>eagleye</td>
+</tr>
+</tbody>
+</table>
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <th colspan="2">localization_mode</th>
+            <th colspan="2">pose_estimator_mode</th>
+        </tr>
+        <tr>
+            <th>launch file</th>
+            <th>lidar (default)</th>
+            <th>camera</th>
+            <th>lidar (default)</th>
+            <th>gnss</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan="1">tier4_localization_component</td>
+            <td>ndt_scan_matcher<br>gyro_odometer</td>
+            <td>yabloc<br>gyro_odometer</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td rowspan="1">map4_localization_component</td>
+            <td>-</td>
+            <td>-</td>
+            <td>ndt_scan_matcher<br>eagleye</td>
+            <td>eagleye<br>eagleye</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>The top row of cells indicate pose_estimator and the bottom row indicates twist_estimator.</p>
 <!-- prettier-ignore --></div>
 
 
