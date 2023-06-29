@@ -4796,66 +4796,55 @@ Please refer to the following snippet for the modification details:</p>
 <h2 id="comprehensive-options-table">Comprehensive Options Table<a class="headerlink" href="#comprehensive-options-table" title="Permanent link">#</a></h2>
 <p>The table below indicates which pose_estimator and twist_estimator are called based on the invoked launch file and provided arguments.</p>
 <table>
-<thead>
-<tr>
-<th></th>
-<th>localization_mode<br>=lidar(default)</th>
-<th>localization_mode<br>=camera</th>
-<th>pose_estimator_mode<br>=lidar(default)</th>
-<th>pose_estimator_mode<br>=camera</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>tier4_localization_component</td>
-<td>ndt_scan_matcher<br>gyro_odometer</td>
-<td>yabloc<br>gyro_odometer</td>
-<td>-</td>
-<td>-</td>
-</tr>
-<tr>
-<td>map4_localization_component</td>
-<td>-</td>
-<td>-</td>
-<td>ndt_scan_matcher<br>eagleye</td>
-<td>eagleye<br>eagleye</td>
-</tr>
-</tbody>
-</table>
-<table>
     <thead>
         <tr>
-            <th></th>
-            <th colspan="2">localization_mode</th>
-            <th colspan="2">pose_estimator_mode</th>
+            <th colspan="3">tier4_localization_component.launch.xml</th>
         </tr>
         <tr>
-            <th>launch file</th>
-            <th>lidar (default)</th>
-            <th>camera</th>
-            <th>lidar (default)</th>
-            <th>gnss</th>
+            <th>localization_mode</th>
+            <th>pose_estimator</th>
+            <th>twist_estimator</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td rowspan="1">tier4_localization_component</td>
-            <td>ndt_scan_matcher<br>gyro_odometer</td>
-            <td>yabloc<br>gyro_odometer</td>
-            <td>-</td>
-            <td>-</td>
+            <td>lidar (default)</td>
+            <td>ndt_scan_matcher</td>
+            <td>gyro_odometer</td>
         </tr>
         <tr>
-            <td rowspan="1">map4_localization_component</td>
-            <td>-</td>
-            <td>-</td>
-            <td>ndt_scan_matcher<br>eagleye</td>
-            <td>eagleye<br>eagleye</td>
+            <td>camera</td>
+            <td>yabloc</td>
+            <td>gyro_odometer</td>
         </tr>
     </tbody>
 </table>
 
-<p>The top row of cells indicate pose_estimator and the bottom row indicates twist_estimator.</p>
+<table>
+    <thead>
+        <tr>
+            <th colspan="3">map4_localization_component.launch.xml</th>
+        </tr>
+        <tr>
+            <th>pose_estimator_mode</th>
+            <th>pose_estimator</th>
+            <th>twist_estimator</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>lidar (default)</td>
+            <td>ndt_scan_matcher</td>
+            <td>eagleye</td>
+        </tr>
+        <tr>
+            <td>gnss</td>
+            <td>eagleye</td>
+            <td>eagleye</td>
+        </tr>
+    </tbody>
+</table>
+
 <!-- prettier-ignore --></div>
 
 
