@@ -816,7 +816,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-415/how-to-guides/integrating-autoware/creating-vehicle-interface-package/creating-vehicle-interface-for-ackerman-kinematic-model/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-415/how-to-guides/integrating-autoware/creating-vehicle-interface-package/creating-a-vehicle-interface-for-an-ackermann-kinematic-model/</loc>
          <lastmod>2023-07-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -852,6 +852,11 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-415/how-to-guides/others/debug-autoware/</loc>
+         <lastmod>2023-07-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-415/how-to-guides/others/defining-temporal-performance-metrics/</loc>
          <lastmod>2023-07-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
