@@ -3154,7 +3154,47 @@
 
 
 <h1 id="perception">Perception<a class="headerlink" href="#perception" title="Permanent link">#</a></h1>
-<p><img alt="Node diagram" src="images/Perception-Bus-ODD-Architecture.drawio.svg" /></p>
+<pre class="mermaid"><code>graph TD
+    cmp_drv("Drivers"):::cls_drv
+    cmp_loc("Localization"):::cls_loc
+    cmp_per("Perception"):::cls_per
+    cmp_plan("Planning"):::cls_plan
+
+    msg_img("&lt;font size=2&gt;&lt;b&gt;Camera Image&lt;/b&gt;&lt;/font size&gt;
+    &lt;font size=1&gt;sensor_msgs/Image&lt;/font size&gt;"):::cls_drv
+
+    msg_ldr("&lt;font size=2&gt;&lt;b&gt;Lidar Point Cloud&lt;/b&gt;&lt;/font size&gt;
+    &lt;font size=1&gt;sensor_msgs/PointCloud2&lt;/font size&gt;"):::cls_drv
+
+    msg_lanenet("&lt;font size=2&gt;&lt;b&gt;Lanelet2 Map&lt;/b&gt;&lt;/font size&gt;
+    &lt;font size=1&gt;autoware_auto_mapping_msgs/HADMapBin&lt;/font size&gt;"):::cls_loc
+
+    msg_vks("&lt;font size=2&gt;&lt;b&gt;Vehicle Kinematic State&lt;/b&gt;&lt;/font size&gt;
+    &lt;font size=1&gt;nav_msgs/Odometry&lt;/font size&gt;"):::cls_loc
+
+    msg_obj("&lt;font size=2&gt;&lt;b&gt;3D Object Predictions &lt;/b&gt;&lt;/font size&gt;
+    &lt;font size=1&gt;autoware_auto_mapping_msgs/PredictedObjects&lt;/font size&gt;"):::cls_per
+
+    msg_tl("&lt;font size=2&gt;&lt;b&gt;Traffic Light Response &lt;/b&gt;&lt;/font size&gt;
+    &lt;font size=1&gt;TBD&lt;/font size&gt;"):::cls_per
+
+    msg_tq("&lt;font size=2&gt;&lt;b&gt;Traffic Light Query &lt;/b&gt;&lt;/font size&gt;
+    &lt;font size=1&gt;TBD&lt;/font size&gt;"):::cls_plan
+
+
+    cmp_drv --&gt; msg_img --&gt; cmp_per
+    cmp_drv --&gt; msg_ldr --&gt; cmp_per
+    cmp_per --&gt; msg_obj --&gt; cmp_plan
+    cmp_per --&gt; msg_tl --&gt; cmp_plan
+    cmp_plan --&gt; msg_tq --&gt;cmp_per
+
+    cmp_loc --&gt; msg_vks --&gt; cmp_per
+    cmp_loc --&gt; msg_lanenet --&gt; cmp_per
+
+classDef cls_drv fill:#F8CECC,stroke:#999,stroke-width:1px;
+classDef cls_loc fill:#D5E8D4,stroke:#999,stroke-width:1px;
+classDef cls_per fill:#FFF2CC,stroke:#999,stroke-width:1px;
+classDef cls_plan fill:#5AB8FF,stroke:#999,stroke-width:1px;</code></pre>
 <h2 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">#</a></h2>
 <h3 id="pointcloud">PointCloud<a class="headerlink" href="#pointcloud" title="Permanent link">#</a></h3>
 <p>PointCloud data published by Lidar.</p>
