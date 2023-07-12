@@ -4726,21 +4726,21 @@
 <p>Current localization launcher implemented by TIER IV supports multiple localization methods, both pose estimators and twist estimators.
 <code>tier4_localization_component.launch.xml</code> has two arguments to select which estimators to launch:</p>
 <ul>
-<li><code>pose_source</code> : an argument to select pose_estimator, currently supporting <code>ndt</code> (default), <code>yabloc</code>, and <code>eagleye</code> </li>
-<li><code>twist_source</code> : an argument to select twist_estimator, currently supporting <code>gyro_odom</code> (default), and <code>eagleye</code> </li>
+<li><code>pose_source</code> : an argument to select pose_estimator, currently supporting <code>ndt</code> (default), <code>yabloc</code>, and <code>eagleye</code></li>
+<li><code>twist_source</code> : an argument to select twist_estimator, currently supporting <code>gyro_odom</code> (default), and <code>eagleye</code></li>
 </ul>
 <h2 id="ndt-scan-matcher-a-lidar-and-pointcloud-map-based-pose-estimator-default">NDT scan matcher: a LiDAR and pointcloud map based pose estimator (default)<a class="headerlink" href="#ndt-scan-matcher-a-lidar-and-pointcloud-map-based-pose-estimator-default" title="Permanent link">#</a></h2>
 <p>By default, Autoware launches <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/localization/ndt_scan_matcher">ndt_scan_matcher</a> for pose estimator.
-In order to launch this explicitely, you need to specify as follows:
-</p><div class="highlight"><pre><span></span><code>$<span class="w"> </span>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>autoware.launch.xml<span class="w"> </span>...<span class="w"> </span>pose_source:<span class="o">=</span>ndt<span class="w"> </span>...
+In order to launch this explicitely, you need to specify as follows:</p>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>autoware.launch.xml<span class="w"> </span>...<span class="w"> </span>pose_source:<span class="o">=</span>ndt<span class="w"> </span>...
 </code></pre></div>
-Note that currently <code>pose_source</code> is set to NDT as default, so you can skip this argument.
+<p>Note that currently <code>pose_source</code> is set to NDT as default, so you can skip this argument.</p>
 <h2 id="gyro-odometer-an-imu-wheel-odometry-based-twist-estimator-default">Gyro Odometer: an <abbr title="Inertial Measurement Unit">IMU</abbr> &amp; wheel odometry based twist estimator (default)<a class="headerlink" href="#gyro-odometer-an-imu-wheel-odometry-based-twist-estimator-default" title="Permanent link">#</a></h2>
 <p>By default, Autoware launches <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/localization/gyro_odometer">gyro_odometer</a> for twist estimator.
 In order to launch this explicitely, you need to specify as follows:</p>
-<p></p><div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>autoware.launch.xml<span class="w"> </span>...<span class="w"> </span>twist_source:<span class="o">=</span>gyro_odom<span class="w"> </span>...
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>autoware.launch.xml<span class="w"> </span>...<span class="w"> </span>twist_source:<span class="o">=</span>gyro_odom<span class="w"> </span>...
 </code></pre></div>
-Note that currently <code>twist_source</code> is set to Gyro Odometer as default, so you can skip this argument.
+<p>Note that currently <code>twist_source</code> is set to Gyro Odometer as default, so you can skip this argument.</p>
 <h2 id="yabloc-a-camera-and-vector-map-based-pose-estimator">YabLoc: a camera and vector map based pose estimator<a class="headerlink" href="#yabloc-a-camera-and-vector-map-based-pose-estimator" title="Permanent link">#</a></h2>
 <p>You can use YabLoc as a camera-based localization method.
 For more details on YabLoc, please refer to the <a href="https://github.com/autowarefoundation/autoware.universe/blob/main/localization/yabloc/README.md">README of YabLoc</a> in autoware.universe.</p>
