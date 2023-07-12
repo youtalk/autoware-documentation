@@ -3124,8 +3124,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#traffic-light-response" class="md-nav__link">
-    Traffic Light Response
+  <a href="#traffic-signals" class="md-nav__link">
+    Traffic Signals
   </a>
   
 </li>
@@ -3246,25 +3246,41 @@ classDef cls_plan fill:#5AB8FF,stroke:#999,stroke-width:1px;</code></pre>
 </ul>
 </li>
 </ul>
-<h3 id="traffic-light-response">Traffic Light Response<a class="headerlink" href="#traffic-light-response" title="Permanent link">#</a></h3>
-<p>traffic light signals recognized by object detection model.<strong>The message definition is under discussion.</strong></p>
+<h3 id="traffic-signals">Traffic Signals<a class="headerlink" href="#traffic-signals" title="Permanent link">#</a></h3>
+<p>traffic signals recognized by object detection model.</p>
 <ul>
-<li>TrafficLightResponse<ul>
-<li>uint64 traffic_light_id</li>
-<li>uint8 traffic_light_state</li>
+<li><a href="https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_perception_msgs/msg/TrafficSignalArray.msg">autoware_perception_msgs::msg::TrafficSignalArray</a><ul>
+<li><a href="https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_perception_msgs/msg/TrafficSignal.msg">autoware_perception_msgs::msg::TrafficSignal</a> signals<ul>
+<li><a href="https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_perception_msgs/msg/TrafficSignalElement.msg">autoware_perception_msgs::msg::TrafficSignalElement</a> elements<ul>
+<li>unint8 UNKNOWN = 0</li>
+<li>uint8 Red = 1</li>
+<li>uint8 AMBER = 2</li>
+<li>uint8 WHITE = 4</li>
+<li>uint8 CIRCLE = 1</li>
+<li>uint8 LEFT_ARROW = 2</li>
+<li>uint8 RIGHT_ARROW = 3</li>
+<li>uint8 UP_ARROW = 4</li>
+<li>uint8 UP_LEFT_ARROW=5</li>
+<li>uint8 UP_RIGHT_ARROW=6</li>
+<li>uint8 DOWN_ARROW = 7</li>
+<li>uint8 DOWN_LEFT_ARROW = 8</li>
+<li>uint8 DOWN_RIGHT_ARROW = 9</li>
+<li>uint8 CROSS = 10</li>
+<li>uint8 SOLID_OFF = 1</li>
+<li>uint8 SOLID_ON = 2</li>
+<li>uint8 FLASHING = 3</li>
+<li>uint8 color</li>
+<li>uint8 shape</li>
+<li>uint8 status</li>
+<li>float32 confidence</li>
 </ul>
 </li>
+<li>int64 traffic_signal_id</li>
 </ul>
-<p>With the traffic_light_state being one of the following</p>
-<ul>
-<li>GREEN = 1</li>
-<li>GREEN_BLINKING = 2</li>
-<li>YELLOW = 3</li>
-<li>YELLOW_BLINKING = 4</li>
-<li>RED = 5</li>
-<li>RED_BLINKING = 6</li>
-<li>OFF = 7</li>
-<li>UNKNOWN = 8</li>
+</li>
+<li><a href="https://github.com/ros2/rcl_interfaces/blob/rolling/builtin_interfaces/msg/Time.msg">builtin_interfaces::msg::Time</a> stamp</li>
+</ul>
+</li>
 </ul>
 <!-- prettier-ignore -->
 
