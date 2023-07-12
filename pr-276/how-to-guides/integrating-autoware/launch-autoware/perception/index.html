@@ -8,20 +8,20 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-276/how-to-guides/integrating-autoware/creating-vehicle-interface-package/creating-vehicle-interface-for-ackerman-kinematic-model/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-276/how-to-guides/integrating-autoware/launch-autoware/perception/">
       
       
-        <link rel="prev" href="../../creating-vehicle-and-sensor-description/creating-vehicle-and-sensor-description/">
+        <link rel="prev" href="../localization-mode/eagleye-guide/">
       
       
-        <link rel="next" href="../customizing-for-differential-drive-model/">
+        <link rel="next" href="../../tuning-parameters-and-performance/evaluating-controller-performance/">
       
       <link rel="icon" href="../../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.16">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
     
     
       
-        <title>Creating vehicle interface for ackerman kinematic model - Autoware Documentation</title>
+        <title>Perception mode - Autoware Documentation</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#creating-vehicle-interface-for-ackerman-kinematic-model" class="md-skip">
+        <a href="#perception-mode" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Creating vehicle interface for ackerman kinematic model
+              Perception mode
             
           </span>
         </div>
@@ -1242,16 +1242,16 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_4" checked>
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_4" >
       
       
         
@@ -1266,7 +1266,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_4_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_4_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_2_4">
           <span class="md-nav__icon md-icon"></span>
           3. Creating vehicle interface
@@ -1277,21 +1277,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        Creating vehicle interface for ackerman kinematic model
+    <li class="md-nav__item">
+      <a href="../../creating-vehicle-interface-package/creating-a-vehicle-interface-for-an-ackermann-kinematic-model/" class="md-nav__link">
+        Creating a vehicle interface for an Ackermann kinematic model
       </a>
-      
     </li>
   
 
@@ -1303,7 +1293,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../customizing-for-differential-drive-model/" class="md-nav__link">
+      <a href="../../creating-vehicle-interface-package/customizing-for-differential-drive-model/" class="md-nav__link">
         Customizing for differential drive vehicle
       </a>
     </li>
@@ -1952,11 +1942,200 @@
               
   
   
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_6" checked>
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">5. Launch Autoware</a>
+          
+            <label for="__nav_4_2_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_6_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_4_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          5. Launch Autoware
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_6_2" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../localization-mode/">Localization mode</a>
+          
+            <label for="__nav_4_2_6_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_6_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          Localization mode
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
   
     <li class="md-nav__item">
-      <a href="../../launch-autoware/" class="md-nav__link">
-        5. Launch Autoware
+      <a href="../localization-mode/eagleye-guide/" class="md-nav__link">
+        Eagleye
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Perception mode
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Perception mode
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lidar" class="md-nav__link">
+    LiDAR
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#radar" class="md-nav__link">
+    Radar
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#camera-lidar-fusion" class="md-nav__link">
+    Camera LiDAR fusion
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#camera-lidar-radar-fusion" class="md-nav__link">
+    Camera LiDAR Radar fusion
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lidar-radar-fusion" class="md-nav__link">
+    LiDAR Radar fusion
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -2074,8 +2253,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
@@ -2168,20 +2345,6 @@
     <li class="md-nav__item">
       <a href="../../../others/determining-component-dependencies/" class="md-nav__link">
         Determining component dependencies
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../others/eagleye-integration-guide/" class="md-nav__link">
-        Using Eagleye with Autoware
       </a>
     </li>
   
@@ -4592,6 +4755,49 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lidar" class="md-nav__link">
+    LiDAR
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#radar" class="md-nav__link">
+    Radar
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#camera-lidar-fusion" class="md-nav__link">
+    Camera LiDAR fusion
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#camera-lidar-radar-fusion" class="md-nav__link">
+    Camera LiDAR Radar fusion
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lidar-radar-fusion" class="md-nav__link">
+    LiDAR Radar fusion
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -4608,11 +4814,26 @@
   
 
 
-<div><h1 id="creating-vehicle-interface-for-ackerman-kinematic-model">Creating vehicle interface for ackerman kinematic model<a class="headerlink" href="#creating-vehicle-interface-for-ackerman-kinematic-model" title="Permanent link">#</a></h1>
+<div><h1 id="perception-mode">Perception mode<a class="headerlink" href="#perception-mode" title="Permanent link">#</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Under Construction</p>
 </div>
+<p>By specifying the <code>perception_mode</code>, users can switch between different sensor configurations for perception.
+This allows you to choose the specific sensor setup that you want to use for the perception tasks.</p>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>autoware.launch.xml<span class="w"> </span>vehicle_model:<span class="o">=</span>YOUR_VEHICLE<span class="w"> </span>sensor_kit:<span class="o">=</span>YOUR_SENSOR_KIT<span class="w"> </span>map_path:<span class="o">=</span>/PATH/TO/YOUR/MAP<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>perception_mode:<span class="o">=</span>lidar
+</code></pre></div>
+<h2 id="lidar">LiDAR<a class="headerlink" href="#lidar" title="Permanent link">#</a></h2>
+<p><code>perception_mode:=lidar</code></p>
+<h2 id="radar">Radar<a class="headerlink" href="#radar" title="Permanent link">#</a></h2>
+<p><code>perception_mode:=radar</code></p>
+<h2 id="camera-lidar-fusion">Camera LiDAR fusion<a class="headerlink" href="#camera-lidar-fusion" title="Permanent link">#</a></h2>
+<p><code>perception_mode:=camera_lidar_fusion</code></p>
+<h2 id="camera-lidar-radar-fusion">Camera LiDAR Radar fusion<a class="headerlink" href="#camera-lidar-radar-fusion" title="Permanent link">#</a></h2>
+<p><code>perception_mode:=camera_lidar_radar_fusion</code></p>
+<h2 id="lidar-radar-fusion">LiDAR Radar fusion<a class="headerlink" href="#lidar-radar-fusion" title="Permanent link">#</a></h2>
+<p><code>perception_mode:=lidar_radar_fusion</code></p>
 <!-- prettier-ignore --></div>
 
 
@@ -4640,7 +4861,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../../creating-vehicle-and-sensor-description/creating-vehicle-and-sensor-description/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Creating vehicle and sensor description" rel="prev">
+          <a href="../localization-mode/eagleye-guide/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Eagleye" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -4649,20 +4870,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Creating vehicle and sensor description
+                Eagleye
               </div>
             </div>
           </a>
         
         
           
-          <a href="../customizing-for-differential-drive-model/" class="md-footer__link md-footer__link--next" aria-label="Next: Customizing for differential drive vehicle" rel="next">
+          <a href="../../tuning-parameters-and-performance/evaluating-controller-performance/" class="md-footer__link md-footer__link--next" aria-label="Next: Evaluating the controller performance" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Customizing for differential drive vehicle
+                Evaluating the controller performance
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -4698,10 +4919,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.a51614de.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.220ee61c.min.js"></script>
       
         
           <script src="../../../../assets/js/mathjax.js"></script>
