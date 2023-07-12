@@ -8,20 +8,20 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-321/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/dynamic_object_kinematics/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-321/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/DynamicObject/">
       
       
-        <link rel="prev" href="../dynamic_object_array/">
+        <link rel="prev" href="../DoorStatusArray/">
       
       
-        <link rel="next" href="../dynamic_object_path/">
+        <link rel="next" href="../DynamicObjectArray/">
       
       <link rel="icon" href="../../../../../../../assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
     
     
       
-        <title>Dynamic object kinematics - Autoware Documentation</title>
+        <title>autoware_adapi_v1_msgs/msg/DynamicObject - Autoware Documentation</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#autoware_adapi_v1_msgsmsgdynamicobjectkinematics" class="md-skip">
+        <a href="#autoware_adapi_v1_msgsmsgdynamicobject" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Dynamic object kinematics
+              autoware_adapi_v1_msgs/msg/DynamicObject
             
           </span>
         </div>
@@ -3135,6 +3135,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5_4_2_2" id="__nav_5_4_2_2_label" tabindex="0">
@@ -3213,6 +3215,20 @@
     <li class="md-nav__item">
       <a href="../../../../features/operation_mode/" class="md-nav__link">
         Operation mode
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../features/perception/" class="md-nav__link">
+        Perception API
       </a>
     </li>
   
@@ -4690,6 +4706,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#this-type-is-used-by" class="md-nav__link">
+    This type is used by
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4708,17 +4731,22 @@
   
 
 
-<div><h1 id="autoware_adapi_v1_msgsmsgdynamicobjectkinematics">autoware_adapi_v1_msgs/msg/DynamicObjectKinematics<a class="headerlink" href="#autoware_adapi_v1_msgsmsgdynamicobjectkinematics" title="Permanent link">#</a></h1>
+<div><h1 id="autoware_adapi_v1_msgsmsgdynamicobject">autoware_adapi_v1_msgs/msg/DynamicObject<a class="headerlink" href="#autoware_adapi_v1_msgsmsgdynamicobject" title="Permanent link">#</a></h1>
 <h2 id="definition">Definition<a class="headerlink" href="#definition" title="Permanent link">#</a></h2>
-<div class="highlight"><pre><span></span><code>geometry_msgs/Pose pose
-geometry_msgs/Twist twist
-geometry_msgs/Accel accel
-
-autoware_adapi_v1_msgs/DynamicObjectPath[] predicted_paths
+<div class="highlight"><pre><span></span><code>unique_identifier_msgs/UUID id
+float64 existence_probability
+autoware_adapi_v1_msgs/ObjectClassification[] classification
+autoware_adapi_v1_msgs/DynamicObjectKinematics kinematics
+shape_msgs/SolidPrimitive shape
 </code></pre></div>
 <h2 id="this-type-uses">This type uses<a class="headerlink" href="#this-type-uses" title="Permanent link">#</a></h2>
 <ul>
-<li><a href="../dynamic_object_path/">autoware_adapi_v1_msgs/msg/DynamicObjectPath</a></li>
+<li><a href="../DynamicObjectKinematics">autoware_adapi_v1_msgs/msg/DynamicObjectKinematics</a></li>
+<li><a href="../ObjectClassification">autoware_adapi_v1_msgs/msg/ObjectClassification</a></li>
+</ul>
+<h2 id="this-type-is-used-by">This type is used by<a class="headerlink" href="#this-type-is-used-by" title="Permanent link">#</a></h2>
+<ul>
+<li><a href="../DynamicObjectArray">autoware_adapi_v1_msgs/msg/DynamicObjectArray</a></li>
 </ul>
 <!-- prettier-ignore --></div>
 
@@ -4747,7 +4775,7 @@ autoware_adapi_v1_msgs/DynamicObjectPath[] predicted_paths
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../dynamic_object_array/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Dynamic object array" rel="prev">
+          <a href="../DoorStatusArray/" class="md-footer__link md-footer__link--prev" aria-label="Previous: autoware_adapi_v1_msgs/msg/DoorStatusArray" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -4756,20 +4784,20 @@ autoware_adapi_v1_msgs/DynamicObjectPath[] predicted_paths
                 Previous
               </span>
               <div class="md-ellipsis">
-                Dynamic object array
+                autoware_adapi_v1_msgs/msg/DoorStatusArray
               </div>
             </div>
           </a>
         
         
           
-          <a href="../dynamic_object_path/" class="md-footer__link md-footer__link--next" aria-label="Next: Dynamic object path" rel="next">
+          <a href="../DynamicObjectArray/" class="md-footer__link md-footer__link--next" aria-label="Next: autoware_adapi_v1_msgs/msg/DynamicObjectArray" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Dynamic object path
+                autoware_adapi_v1_msgs/msg/DynamicObjectArray
               </div>
             </div>
             <div class="md-footer__button md-icon">
