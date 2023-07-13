@@ -706,11 +706,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-414/how-to-guides/integrating-autoware/launch-autoware/</loc>
-         <lastmod>2023-07-13</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-414/how-to-guides/integrating-autoware/overview/</loc>
          <lastmod>2023-07-13</lastmod>
          <changefreq>daily</changefreq>
@@ -791,7 +786,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-414/how-to-guides/integrating-autoware/creating-vehicle-interface-package/creating-vehicle-interface-for-ackerman-kinematic-model/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-414/how-to-guides/integrating-autoware/creating-vehicle-interface-package/creating-a-vehicle-interface-for-an-ackermann-kinematic-model/</loc>
          <lastmod>2023-07-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -802,6 +797,26 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-414/how-to-guides/integrating-autoware/creating-your-autoware-meta-repository/creating-autoware-meta-repository/</loc>
+         <lastmod>2023-07-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-414/how-to-guides/integrating-autoware/launch-autoware/</loc>
+         <lastmod>2023-07-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-414/how-to-guides/integrating-autoware/launch-autoware/perception/</loc>
+         <lastmod>2023-07-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-414/how-to-guides/integrating-autoware/launch-autoware/localization-mode/</loc>
+         <lastmod>2023-07-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-414/how-to-guides/integrating-autoware/launch-autoware/localization-mode/eagleye-guide/</loc>
          <lastmod>2023-07-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -836,12 +851,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-414/how-to-guides/others/determining-component-dependencies/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-414/how-to-guides/others/defining-temporal-performance-metrics/</loc>
          <lastmod>2023-07-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-414/how-to-guides/others/eagleye-integration-guide/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-414/how-to-guides/others/determining-component-dependencies/</loc>
          <lastmod>2023-07-13</lastmod>
          <changefreq>daily</changefreq>
     </url>

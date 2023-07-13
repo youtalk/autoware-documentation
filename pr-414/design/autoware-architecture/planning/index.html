@@ -1319,8 +1319,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../how-to-guides/integrating-autoware/creating-vehicle-interface-package/creating-vehicle-interface-for-ackerman-kinematic-model/" class="md-nav__link">
-        Creating vehicle interface for ackerman kinematic model
+      <a href="../../../how-to-guides/integrating-autoware/creating-vehicle-interface-package/creating-a-vehicle-interface-for-an-ackermann-kinematic-model/" class="md-nav__link">
+        Creating a vehicle interface for an Ackermann kinematic model
       </a>
     </li>
   
@@ -1983,10 +1983,130 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_6" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../how-to-guides/integrating-autoware/launch-autoware/">5. Launch Autoware</a>
+          
+            <label for="__nav_4_2_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          5. Launch Autoware
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_6_2" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../how-to-guides/integrating-autoware/launch-autoware/localization-mode/">Localization mode</a>
+          
+            <label for="__nav_4_2_6_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_6_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          Localization mode
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../../how-to-guides/integrating-autoware/launch-autoware/" class="md-nav__link">
-        5. Launch Autoware
+      <a href="../../../how-to-guides/integrating-autoware/launch-autoware/localization-mode/eagleye-guide/" class="md-nav__link">
+        Eagleye
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../how-to-guides/integrating-autoware/launch-autoware/perception/" class="md-nav__link">
+        Perception mode
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -2180,8 +2300,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../how-to-guides/others/determining-component-dependencies/" class="md-nav__link">
-        Determining component dependencies
+      <a href="../../../how-to-guides/others/defining-temporal-performance-metrics/" class="md-nav__link">
+        Defining temporal performance metrics on components
       </a>
     </li>
   
@@ -2194,8 +2314,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../how-to-guides/others/eagleye-integration-guide/" class="md-nav__link">
-        Using Eagleye with Autoware
+      <a href="../../../how-to-guides/others/determining-component-dependencies/" class="md-nav__link">
+        Determining component dependencies
       </a>
     </li>
   
@@ -4850,7 +4970,7 @@
 </tr>
 <tr>
 <td>Obstacle Avoidance</td>
-<td>Plan path to avoid obstacles by steering operation. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_path_planner/docs/behavior_path_planner_avoidance_design/">Avoidance</a>, <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/obstacle_avoidance_planner/">Obstacle Avoidance Planner</a>. Enable flag in parameter: <code>launch obstacle_avoidance_planner true</code></td>
+<td>Plan path to avoid obstacles by steering operation. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_path_planner/docs/behavior_path_planner_avoidance_design/">Avoidance</a>, <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/obstacle_avoidance_planner/">Obstacle Avoidance Planner</a>. Enable flag in parameter: <code>launch obstacle_avoidance_planner true</code> <br> <br> <a href="https://youtu.be/A_V9yvfKZ4E">Demonstration Video</a> <br> <a href="https://www.youtube.com/watch?v=A_V9yvfKZ4E"><img alt="Demonstration Video" src="https://img.youtube.com/vi/A_V9yvfKZ4E/0.jpg"></a></td>
 <td>- objects information</td>
 <td><img alt="obstacle-avoidance" src="image/features-avoidance.drawio.svg"></td>
 </tr>
@@ -4868,19 +4988,19 @@
 </tr>
 <tr>
 <td>Lane Change</td>
-<td>Plan path for lane change to reach the destination. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_path_planner/docs/behavior_path_planner_lane_change_design/">Lane Change</a>. Enable flag in both parameters:</td>
+<td>Plan path for lane change to reach the destination. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_path_planner/docs/behavior_path_planner_lane_change_design/">Lane Change</a>. <br> <br> <a href="https://youtu.be/0jRDGQ84cD4">Demonstration Video</a> <br> <a href="https://www.youtube.com/watch?v=0jRDGQ84cD4"><img alt="Demonstration Video" src="https://img.youtube.com/vi/0jRDGQ84cD4/0.jpg"></a></td>
 <td>- Lanelet map (driving lanelets)</td>
 <td><img alt="lane-change" src="image/features-lane-change.drawio.svg"></td>
 </tr>
 <tr>
 <td>Pull Over</td>
-<td>Plan path for pull over to park at the road shoulder. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_path_planner/docs/behavior_path_planner_goal_planner_design/">Goal Planner</a>.</td>
+<td>Plan path for pull over to park at the road shoulder. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_path_planner/docs/behavior_path_planner_goal_planner_design/">Goal Planner</a>. <br> <br> Demonstration Videos: <br> <a href="https://youtu.be/r3-kAmTb4hc">Simple Pull Over</a> <br> <a href="https://www.youtube.com/watch?v=r3-kAmTb4hc"><img alt="Demonstration Video" src="https://img.youtube.com/vi/r3-kAmTb4hc/0.jpg"></a> <br> <a href="https://youtu.be/ornbzkWxRWU">Arc Forward Pull Over</a> <br> <a href="https://www.youtube.com/watch?v=ornbzkWxRWU"><img alt="Demonstration Video" src="https://img.youtube.com/vi/ornbzkWxRWU/0.jpg"></a> <br> <a href="https://youtu.be/if-0tG3AkLo">Arc Backward Pull Over</a> <br> <a href="https://www.youtube.com/watch?v=if-0tG3AkLo"><img alt="Demonstration Video" src="https://img.youtube.com/vi/if-0tG3AkLo/0.jpg"></a></td>
 <td>- Lanelet map (shoulder lane)</td>
 <td><img alt="pull-over" src="image/features-pull-over.drawio.svg"></td>
 </tr>
 <tr>
 <td>Pull Out</td>
-<td>Plan path for pull over to start from the road shoulder. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_path_planner/docs/behavior_path_planner_pull_out_design/">Pull Out Module</a>.</td>
+<td>Plan path for pull over to start from the road shoulder. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_path_planner/docs/behavior_path_planner_start_planner_design/#:~:text=WIP-,Path%20Generation,-%23">Pull Out Module</a>. <br> <br> Demonstration Video: <br> <a href="https://youtu.be/xOjnPqoHup4">Simple Pull Out</a> <br> <a href="https://www.youtube.com/watch?v=xOjnPqoHup4"><img alt="Demonstration Video" src="https://img.youtube.com/vi/xOjnPqoHup4/0.jpg"></a> <br> <a href="https://youtu.be/iGieijPcPcQ">Backward Pull Out</a> <br> <a href="https://www.youtube.com/watch?v=iGieijPcPcQ"><img alt="Demonstration Video" src="https://img.youtube.com/vi/iGieijPcPcQ/0.jpg"></a></td>
 <td>- Lanelet map (shoulder lane)</td>
 <td><img alt="pull-out" src="image/features-pull-out.drawio.svg"></td>
 </tr>
@@ -4892,13 +5012,13 @@
 </tr>
 <tr>
 <td>Obstacle Stop</td>
-<td>Plan velocity to stop for an obstacle on the path. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/obstacle_stop_planner/">Obstacle Stop Planner</a>, <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/obstacle_cruise_planner/">Obstacle Cruise Planner</a>. <code>launch obstacle_stop_planner</code> and enable flag: <code>TODO</code>, <code>launch obstacle_cruise_planner</code> and enable flag: <code>TODO</code></td>
+<td>Plan velocity to stop for an obstacle on the path. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/obstacle_stop_planner/">Obstacle Stop Planner</a>, <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/obstacle_cruise_planner/">Obstacle Cruise Planner</a>. <code>launch obstacle_stop_planner</code> and enable flag: <code>TODO</code>, <code>launch obstacle_cruise_planner</code> and enable flag: <code>TODO</code> <br> <br> <a href="https://youtu.be/d8IRW_xArcE">Demonstration Video</a> <br> <a href="https://www.youtube.com/watch?v=d8IRW_xArcE"><img alt="Demonstration Video" src="https://img.youtube.com/vi/d8IRW_xArcE/0.jpg"></a></td>
 <td>- objects information</td>
 <td><img alt="obstacle-stop" src="image/features-obstacle-stop.drawio.svg"></td>
 </tr>
 <tr>
 <td>Obstacle Deceleration</td>
-<td>Plan velocity to decelerate for an obstacle located around the path. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/obstacle_stop_planner/">Obstacle Stop Planner</a>, <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/obstacle_cruise_planner/">Obstacle Cruise Planner</a>.</td>
+<td>Plan velocity to decelerate for an obstacle located around the path. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/obstacle_stop_planner/">Obstacle Stop Planner</a>, <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/obstacle_cruise_planner/">Obstacle Cruise Planner</a>. <br> <br> <a href="https://youtu.be/gvN1otgeaaw">Demonstration Video</a> <br> <a href="https://www.youtube.com/watch?v=gvN1otgeaaw"><img alt="Demonstration Video" src="https://img.youtube.com/vi/gvN1otgeaaw/0.jpg"></a></td>
 <td>- objects information</td>
 <td><img alt="obstacle-decel" src="image/features-obstacle-decel.drawio.svg"></td>
 </tr>
@@ -4916,7 +5036,7 @@
 </tr>
 <tr>
 <td>Surround Check at starting</td>
-<td>Plan velocity to prevent moving when an obstacle exists around the vehicle. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/surround_obstacle_checker/">Surround Obstacle Checker</a>. Enable flag in parameter: <code>use_surround_obstacle_check true</code> in <a href="https://github.com/autowarefoundation/autoware_launch/blob/2850d7f4e20b173fde2183d5323debbe0067a990/autoware_launch/launch/components/tier4_planning_component.launch.xml#L8">tier4_planning_component.launch.xml</a></td>
+<td>Plan velocity to prevent moving when an obstacle exists around the vehicle. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/surround_obstacle_checker/">Surround Obstacle Checker</a>. Enable flag in parameter: <code>use_surround_obstacle_check true</code> in <a href="https://github.com/autowarefoundation/autoware_launch/blob/2850d7f4e20b173fde2183d5323debbe0067a990/autoware_launch/launch/components/tier4_planning_component.launch.xml#L8">tier4_planning_component.launch.xml</a> <br> <br> <a href="https://youtu.be/bbGgtXN3lC4">Demonstration Video</a> <br> <a href="https://www.youtube.com/watch?v=bbGgtXN3lC4"><img alt="Demonstration Video" src="https://img.youtube.com/vi/bbGgtXN3lC4/0.jpg"></a></td>
 <td>- objects information</td>
 <td><img alt="surround-check" src="image/features-surround-check.drawio.svg"></td>
 </tr>
@@ -4928,19 +5048,19 @@
 </tr>
 <tr>
 <td>Curve Deceleration for Obstacle</td>
-<td>Plan velocity to decelerate the speed on a curve for a risk of obstacle collision around the path. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/obstacle_velocity_limiter/">Obstacle Velocity Limiter</a>.</td>
+<td>Plan velocity to decelerate the speed on a curve for a risk of obstacle collision around the path. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/obstacle_velocity_limiter/">Obstacle Velocity Limiter</a>. <br> <br> <a href="https://youtu.be/I-oFgG6kIAs">Demonstration Video</a> <br> <a href="https://www.youtube.com/watch?v=I-oFgG6kIAs"><img alt="Demonstration Video" src="https://img.youtube.com/vi/I-oFgG6kIAs/0.jpg"></a></td>
 <td>- objects information <br> - Lanelet map (static obstacle)</td>
 <td><img alt="decel-on-curve-obstacles" src="image/features-decel-on-curve-obstacles.drawio.svg"></td>
 </tr>
 <tr>
 <td>Crosswalk</td>
-<td>Plan velocity to stop or decelerate for pedestrians approaching or walking on a crosswalk. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_crosswalk_module/">Crosswalk Module</a>.</td>
+<td>Plan velocity to stop or decelerate for pedestrians approaching or walking on a crosswalk. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_crosswalk_module/">Crosswalk Module</a>. <br> <br> <a href="https://youtu.be/tUvthyIL2W8">Demonstration Video</a> <br> <a href="https://www.youtube.com/watch?v=tUvthyIL2W8"><img alt="Demonstration Video" src="https://img.youtube.com/vi/tUvthyIL2W8/0.jpg"></a></td>
 <td>- objects information <br> - Lanelet map (pedestrian crossing)</td>
 <td><img alt="crosswalk" src="image/features-crosswalk.drawio.svg"></td>
 </tr>
 <tr>
 <td>Intersection Oncoming Vehicle Check</td>
-<td>Plan velocity for turning right/left at intersection to avoid a risk with oncoming other vehicles. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_intersection_module/">Intersection Module</a>.</td>
+<td>Plan velocity for turning right/left at intersection to avoid a risk with oncoming other vehicles. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_intersection_module/">Intersection Module</a>. <br> <br> <a href="https://youtu.be/SGD07Hqg4Hk">Demonstration Video</a> <br> <a href="https://www.youtube.com/watch?v=SGD07Hqg4Hk"><img alt="Demonstration Video" src="https://img.youtube.com/vi/SGD07Hqg4Hk/0.jpg"></a></td>
 <td>- objects information <br> - Lanelet map (intersection lane and yield lane)</td>
 <td><img alt="intersection" src="image/features-intersection.drawio.svg"></td>
 </tr>
@@ -4964,19 +5084,19 @@
 </tr>
 <tr>
 <td>Traffic Light</td>
-<td>Plan velocity for intersection according to a traffic light signal. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_traffic_light_module/">Traffic Light Module</a>.</td>
+<td>Plan velocity for intersection according to a traffic light signal. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_traffic_light_module/">Traffic Light Module</a>. <br> <br> <a href="https://youtu.be/lGA53KljQrM">Demonstration Video</a> <br> <a href="https://www.youtube.com/watch?v=lGA53KljQrM"><img alt="Demonstration Video" src="https://img.youtube.com/vi/lGA53KljQrM/0.jpg"></a></td>
 <td>- Traffic light color information</td>
 <td><img alt="traffic-light" src="image/features-traffic-light.drawio.svg"></td>
 </tr>
 <tr>
 <td>Run-out Check</td>
-<td>Plan velocity to decelerate for the possibility of nearby objects running out into the path. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_run_out_module/">Run Out Module</a>.</td>
+<td>Plan velocity to decelerate for the possibility of nearby objects running out into the path. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_run_out_module/">Run Out Module</a>. <br> <br> <a href="https://youtu.be/9IDggldT2t0">Demonstration Video</a> <br> <a href="https://www.youtube.com/watch?v=9IDggldT2t0"><img alt="Demonstration Video" src="https://img.youtube.com/vi/9IDggldT2t0/0.jpg"></a></td>
 <td>- objects information</td>
 <td><img alt="run-out" src="image/features-run-out.drawio.svg"></td>
 </tr>
 <tr>
 <td>Stop Line</td>
-<td>Plan velocity to stop at a stop line. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_stop_line_module/">Stop Line Module</a>.</td>
+<td>Plan velocity to stop at a stop line. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_stop_line_module/">Stop Line Module</a>. <br> <br> <a href="https://youtu.be/eej9jYt-GSE">Demonstration Video</a> <br> <a href="https://www.youtube.com/watch?v=eej9jYt-GSE"><img alt="Demonstration Video" src="https://img.youtube.com/vi/eej9jYt-GSE/0.jpg"></a></td>
 <td>- Lanelet map (stop line)</td>
 <td><img alt="stop-line" src="image/features-stop-line.drawio.svg"></td>
 </tr>
@@ -5006,7 +5126,7 @@
 </tr>
 <tr>
 <td>Detection Area</td>
-<td>Plan velocity to stop at the corresponding stop when an object exist in the designated detection area. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_detection_area_module/">Detection Area Module</a>.</td>
+<td>Plan velocity to stop at the corresponding stop when an object exist in the designated detection area. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_detection_area_module/">Detection Area Module</a>. <br> <br> <a href="https://youtu.be/YzXF4U69lJs">Demonstration Video</a> <br> <a href="https://www.youtube.com/watch?v=YzXF4U69lJs"><img alt="Demonstration Video" src="https://img.youtube.com/vi/YzXF4U69lJs/0.jpg"></a></td>
 <td>- Lanelet map (detection area)</td>
 <td><img alt="detection-area" src="image/features-detection-area.drawio.svg"></td>
 </tr>
@@ -5024,7 +5144,7 @@
 </tr>
 <tr>
 <td>Parking</td>
-<td>Plan path and velocity for given goal in parking area. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/freespace_planner/">Free Space Planner</a>.</td>
+<td>Plan path and velocity for given goal in parking area. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/freespace_planner/">Free Space Planner</a>. <br> <br> <a href="https://youtu.be/rAIYmwpNWfA">Demonstration Video</a> <br> <a href="https://www.youtube.com/watch?v=rAIYmwpNWfA"><img alt="Demonstration Video" src="https://img.youtube.com/vi/rAIYmwpNWfA/0.jpg"></a></td>
 <td>- objects information <br> - Lanelet map (parking area)</td>
 <td><img alt="parking" src="image/features-parking.drawio.svg"></td>
 </tr>
