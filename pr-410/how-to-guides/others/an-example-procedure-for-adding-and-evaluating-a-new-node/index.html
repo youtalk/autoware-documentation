@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-410/how-to-guides/others/an-example-procedure-for-adding-a-new-node/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-410/how-to-guides/others/an-example-procedure-for-adding-and-evaluating-a-new-node/">
       
       
         <link rel="prev" href="../advanced-usage-of-colcon/">
@@ -17,11 +17,11 @@
         <link rel="next" href="../applying-clang-tidy-to-ros-packages/">
       
       <link rel="icon" href="../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
     
     
       
-        <title>An example procedure for adding a new node - Case of localization - Autoware Documentation</title>
+        <title>An example procedure for adding and evaluating a new node - Autoware Documentation</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#an-example-procedure-for-adding-a-new-node-case-of-localization" class="md-skip">
+        <a href="#an-example-procedure-for-adding-and-evaluating-a-new-node" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              An example procedure for adding a new node - Case of localization
+              An example procedure for adding and evaluating a new node
             
           </span>
         </div>
@@ -2126,12 +2126,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          An example procedure for adding a new node - Case of localization
+          An example procedure for adding and evaluating a new node
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        An example procedure for adding a new node - Case of localization
+        An example procedure for adding and evaluating a new node
       </a>
       
         
@@ -4738,11 +4738,10 @@
   
 
 
-<div><h1 id="an-example-procedure-for-adding-a-new-node-case-of-localization">An example procedure for adding a new node - Case of localization<a class="headerlink" href="#an-example-procedure-for-adding-a-new-node-case-of-localization" title="Permanent link">#</a></h1>
+<div><h1 id="an-example-procedure-for-adding-and-evaluating-a-new-node">An example procedure for adding and evaluating a new node<a class="headerlink" href="#an-example-procedure-for-adding-and-evaluating-a-new-node" title="Permanent link">#</a></h1>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
 <p>This page provides a guide for evaluating Autoware when a new node is implemented, especially about developing a novel localization node.</p>
-<p>To keep things simple, an example of operation within AWSIM, as opposed to actual hardware, is provided.
-The same procedure could likely apply when operating on real hardware.</p>
+<p>The workflow involves initial testing and rosbag recording using a real vehicle or AWSIM, implementing the new node, subsequent testing using the recorded rosbag, and finally evaluating with a real vehicle or AWSIM.</p>
 <p>It is assumed that the method intended for addition has already been verified well with public datasets and so on.</p>
 <h2 id="1-running-autoware-in-its-standard-configuration">1. Running Autoware in its standard configuration<a class="headerlink" href="#1-running-autoware-in-its-standard-configuration" title="Permanent link">#</a></h2>
 <p>First of all, it is important to be able to run the standard Autoware to establish a basis for performance and behavior comparison.</p>
@@ -4769,22 +4768,17 @@ If you want to replace this with a different approach, implement a node which pr
 <h2 id="4-evaluating-by-a-rosbag-based-simulator">4. Evaluating by a rosbag-based simulator<a class="headerlink" href="#4-evaluating-by-a-rosbag-based-simulator" title="Permanent link">#</a></h2>
 <p>Once the new node is implemented, it is time to evaluate it.
 <a href="https://autowarefoundation.github.io/autoware-documentation/main/tutorials/ad-hoc-simulation/rosbag-replay-simulation/">logging_simulator</a> is a tool of how to evaluate the new node using the rosbag captured in step 2.</p>
-<p>It works by replacing the command to start Autoware with logging_simulator.</p>
-<p>For example, if the AWSIM-compatible execution command is</p>
-<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>e2e_simulator.launch.xml<span class="w"> </span>...
-</code></pre></div>
-<p>then the command to start logging_simulator is</p>
-<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>logging_simulator.launch.xml<span class="w"> </span>...
-</code></pre></div>
+<p>When you run the logging_simulator, you can set <code>planning:=false</code> or <code>control:=false</code> to disable the launch of specific component nodes.</p>
+<p><code>ros2 launch autoware_launch logging_simulator.launch.xml ... planning:=false control:=false</code></p>
 <p>After launching logging_simulator, the rosbag file obtained in step 2 should be replayed using <code>ros2 bag play &lt;rosbag_file&gt;</code>.</p>
-<p>If you remap the topics related to the localization that you want to verify this time, Autoware will use the data it is calculating this time instead of the data it recorded.</p>
+<p>If you remap the topics related to the localization that you want to verify this time, Autoware will use the data it is calculating this time instead of the data it recorded.
+Also, using the <code>--topics</code> option of <code>ros2 bag play</code>, you can publish only specific topics in rosbag.</p>
 <p>There is <a href="https://github.com/tier4/ros2bag_extensions">ros2bag_extensions</a> available to filter the rosbag file and create a new rosbag file that contains only the topics you need.</p>
 <h2 id="5-evaluating-in-a-realtime-environment">5. Evaluating in a realtime environment<a class="headerlink" href="#5-evaluating-in-a-realtime-environment" title="Permanent link">#</a></h2>
-<p>Once you have sufficiently verified the behavior in the logging_simulator, let's run it as Autoware with new nodes added in the realtime environment (AWSIM in this case).</p>
+<p>Once you have sufficiently verified the behavior in the logging_simulator, let's run it as Autoware with new nodes added in the realtime environment.</p>
 <p>To debug Autoware, the method described at <a href="https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/others/debug-autoware/">debug-autoware</a> is useful.</p>
 <p>For reproducibility, you may want to fix the GoalPose.
-In such cases, consider using
-the <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/common/tier4_automatic_goal_rviz_plugin">tier4_automatic_goal_rviz_plugin</a>.</p>
+In such cases, consider using the <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/common/tier4_automatic_goal_rviz_plugin">tier4_automatic_goal_rviz_plugin</a>.</p>
 <h2 id="6-sharing-the-results">6. Sharing the results<a class="headerlink" href="#6-sharing-the-results" title="Permanent link">#</a></h2>
 <p>If your implementation works successfully, please consider a pull request to Autoware.</p>
 <p>It is also a good idea to start by presenting your ideas in Discussion at <a href="https://github.com/orgs/autowarefoundation/discussions/categories/show-and-tell">Show and tell</a>.</p>
@@ -4874,10 +4868,10 @@ the <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/c
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.b425cdc4.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.220ee61c.min.js"></script>
       
         
           <script src="../../../assets/js/mathjax.js"></script>
