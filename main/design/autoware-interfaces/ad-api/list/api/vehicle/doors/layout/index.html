@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/ad-api/list/api/vehicle/doors/layout/">
       
       
-        <link rel="prev" href="../../status/">
+        <link rel="prev" href="../command/">
       
       
         <link rel="next" href="../status/">
@@ -3135,6 +3135,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5_4_2_2" id="__nav_5_4_2_2_label" tabindex="0">
@@ -3241,6 +3243,20 @@
     <li class="md-nav__item">
       <a href="../../../../../features/routing/" class="md-nav__link">
         Routing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../features/vehicle-doors/" class="md-nav__link">
+        Vehicle doors
       </a>
     </li>
   
@@ -4730,7 +4746,7 @@
 <li>Data Type: <a href="../../../../../types/autoware_adapi_v1_msgs/srv/GetDoorLayout">autoware_adapi_v1_msgs/srv/GetDoorLayout</a></li>
 </ul>
 <h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">#</a></h2>
-<p>Get the door layout. It is an array of pose for each door. The array index corresponds to the door status.</p>
+<p>Get the door layout. It is an array of roles and descriptions for each door.</p>
 <h2 id="request">Request<a class="headerlink" href="#request" title="Permanent link">#</a></h2>
 <p>None</p>
 <h2 id="response">Response<a class="headerlink" href="#response" title="Permanent link">#</a></h2>
@@ -4787,7 +4803,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../../status/" class="md-footer__link md-footer__link--prev" aria-label="Previous: /api/vehicle/status" rel="prev">
+          <a href="../command/" class="md-footer__link md-footer__link--prev" aria-label="Previous: /api/vehicle/doors/command" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -4796,7 +4812,7 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                /api/vehicle/status
+                /api/vehicle/doors/command
               </div>
             </div>
           </a>
