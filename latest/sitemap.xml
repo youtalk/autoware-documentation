@@ -931,6 +931,61 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/reference-hw/</loc>
+         <lastmod>2023-07-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/reference-hw/ad-computers/</loc>
+         <lastmod>2023-07-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/reference-hw/cameras/</loc>
+         <lastmod>2023-07-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/reference-hw/full_drivers_list/</loc>
+         <lastmod>2023-07-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/reference-hw/imu_ahrs_gnss_ins/</loc>
+         <lastmod>2023-07-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/reference-hw/lidars/</loc>
+         <lastmod>2023-07-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/reference-hw/radars/</loc>
+         <lastmod>2023-07-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/reference-hw/remote_drive/</loc>
+         <lastmod>2023-07-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/reference-hw/thermal_cameras/</loc>
+         <lastmod>2023-07-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/reference-hw/vehicle_drive_by_wire_suppliers/</loc>
+         <lastmod>2023-07-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/reference-hw/vehicle_platform_suppliers/</loc>
+         <lastmod>2023-07-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/latest/support/</loc>
          <lastmod>2023-07-19</lastmod>
          <changefreq>daily</changefreq>
