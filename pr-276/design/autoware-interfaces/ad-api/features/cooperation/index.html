@@ -3212,6 +3212,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#sequence" class="md-nav__link">
+    Sequence
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#decisions" class="md-nav__link">
     Decisions
   </a>
@@ -4783,6 +4790,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#sequence" class="md-nav__link">
+    Sequence
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#decisions" class="md-nav__link">
     Decisions
   </a>
@@ -4835,12 +4849,13 @@ There are three scenes and each has a decision to change or keep the lane, turn 
 Here Autoware decides not to change lanes a second time due to the obstacle, so the vehicle will stop there.</p>
 <p><img alt="cooperation-scenes" src="scenes.drawio.svg"></p>
 <h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">#</a></h2>
-<p>Modules that support RTC use the merged decisions shown in the following architecture instead of their own module decisions.
-These modules provides <a href="../../types/autoware_adapi_v1_msgs/msg/CooperationStatus/">cooperation status</a> in <a href="../planning-factors/">velocity factors or steering factors</a>,
-and can receive the operator decision and cooperation policy.
-The cooperation policy is used when there is no operator decision and has a default value set by the system settings.</p>
+<p>Modules that support RTC have the operator decision and cooperation policy in addition to the module decision as shown below.
+These modules use the merged decision instead of module decision when planning vehicle behavior.
+The cooperation policy is used when there is no operator decision and has a default value set by the system settings.
+If the module supports RTC, these information are available in <a href="../planning-factors/">velocity factors or steering factors</a> as <a href="../../types/autoware_adapi_v1_msgs/msg/CooperationStatus/">cooperation status</a> .</p>
 <p><img alt="cooperation-architecture" src="architecture.drawio.svg"></p>
-<p>The merged decision is determined from the module decision, operator decision, and cooperation policy.</p>
+<h2 id="sequence">Sequence<a class="headerlink" href="#sequence" title="Permanent link">#</a></h2>
+<p>T.B.D.</p>
 <h2 id="decisions">Decisions<a class="headerlink" href="#decisions" title="Permanent link">#</a></h2>
 <table>
 <thead>
