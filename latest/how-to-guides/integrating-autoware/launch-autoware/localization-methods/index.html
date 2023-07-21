@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/latest/how-to-guides/integrating-autoware/launch-autoware/localization-mode/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/latest/how-to-guides/integrating-autoware/launch-autoware/localization-methods/">
       
       
         <link rel="prev" href="../">
@@ -21,7 +21,7 @@
     
     
       
-        <title>Localization mode - Autoware Documentation</title>
+        <title>Localization methods - Autoware Documentation</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#localization-mode" class="md-skip">
+        <a href="#localization-methods" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Localization mode
+              Localization methods
             
           </span>
         </div>
@@ -2069,7 +2069,7 @@
         
         
         <div class="md-nav__link md-nav__link--index md-nav__link--active">
-          <a href="./">Localization mode</a>
+          <a href="./">Localization methods</a>
           
             <label for="__nav_4_2_6_2">
               <span class="md-nav__icon md-icon"></span>
@@ -2080,7 +2080,7 @@
       <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_6_2_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_4_2_6_2">
           <span class="md-nav__icon md-icon"></span>
-          Localization mode
+          Localization methods
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -4976,29 +4976,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#lidar-based-localizer-default" class="md-nav__link">
-    LiDAR-based localizer (default)
+  <a href="#ndt-scan-matcher-a-lidar-and-pointcloud-map-based-pose-estimator-default" class="md-nav__link">
+    NDT scan matcher: a LiDAR and pointcloud map based pose estimator (default)
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#camera-based-localizer" class="md-nav__link">
-    Camera-based localizer
+  <a href="#gyro-odometer-an-imu-wheel-odometry-based-twist-estimator-default" class="md-nav__link">
+    Gyro Odometer: an IMU &amp; wheel odometry based twist estimator (default)
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#gnssimu-based-localizer" class="md-nav__link">
-    GNSS/IMU-based localizer
+  <a href="#yabloc-a-camera-and-vector-map-based-pose-estimator" class="md-nav__link">
+    YabLoc: a camera and vector map based pose estimator
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#comprehensive-options-table" class="md-nav__link">
-    Comprehensive Options Table
+  <a href="#eagleye-a-gnss-imu-wheel-odometry-based-pose-and-twist-estimator" class="md-nav__link">
+    Eagleye: a GNSS &amp; IMU &amp; wheel odometry based pose and twist estimator
   </a>
   
 </li>
@@ -5021,129 +5021,45 @@
   
 
 
-<div><h1 id="localization-mode">Localization mode<a class="headerlink" href="#localization-mode" title="Permanent link">#</a></h1>
-<p>The Autoware provides multiple localization methods that work with multiple different sensor configurations.
-The table below shows the supported sensor configurations and their corresponding algorithms.</p>
-<table>
-<thead>
-<tr>
-<th>localization mode</th>
-<th>algorithm</th>
-<th>map type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>LiDAR-based</td>
-<td>NDT</td>
-<td>point cloud map</td>
-</tr>
-<tr>
-<td>Camera-based</td>
-<td>YabLoc</td>
-<td>vector map</td>
-</tr>
-<tr>
-<td><abbr title="Global Navigation Satellite System">GNSS</abbr>/<abbr title="Inertial Measurement Unit">IMU</abbr>-based</td>
-<td>Eagleye</td>
-<td>-</td>
-</tr>
-</tbody>
-</table>
-<h2 id="lidar-based-localizer-default">LiDAR-based localizer (default)<a class="headerlink" href="#lidar-based-localizer-default" title="Permanent link">#</a></h2>
-<p>By default, Autoware launches <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/localization/ndt_scan_matcher">ndt_scan_matcher</a> for localization.</p>
-<h2 id="camera-based-localizer">Camera-based localizer<a class="headerlink" href="#camera-based-localizer" title="Permanent link">#</a></h2>
+<div><h1 id="localization-methods">Localization methods<a class="headerlink" href="#localization-methods" title="Permanent link">#</a></h1>
+<p>Current localization launcher implemented by TIER IV supports multiple localization methods, both pose estimators and twist estimators.
+<code>tier4_localization_component.launch.xml</code> has two arguments to select which estimators to launch:</p>
+<ul>
+<li><code>pose_source</code> : an argument to select pose_estimator, currently supporting <code>ndt</code> (default), <code>yabloc</code>, and <code>eagleye</code></li>
+<li><code>twist_source</code> : an argument to select twist_estimator, currently supporting <code>gyro_odom</code> (default), and <code>eagleye</code></li>
+</ul>
+<h2 id="ndt-scan-matcher-a-lidar-and-pointcloud-map-based-pose-estimator-default">NDT scan matcher: a LiDAR and pointcloud map based pose estimator (default)<a class="headerlink" href="#ndt-scan-matcher-a-lidar-and-pointcloud-map-based-pose-estimator-default" title="Permanent link">#</a></h2>
+<p>By default, Autoware launches <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/localization/ndt_scan_matcher">ndt_scan_matcher</a> for pose estimator.
+In order to launch this explicitly, you need to specify as follows:</p>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>autoware.launch.xml<span class="w"> </span>...<span class="w"> </span>pose_source:<span class="o">=</span>ndt<span class="w"> </span>...
+</code></pre></div>
+<p>Note that currently <code>pose_source</code> is set to NDT as default, so you can skip this argument.</p>
+<h2 id="gyro-odometer-an-imu-wheel-odometry-based-twist-estimator-default">Gyro Odometer: an <abbr title="Inertial Measurement Unit">IMU</abbr> &amp; wheel odometry based twist estimator (default)<a class="headerlink" href="#gyro-odometer-an-imu-wheel-odometry-based-twist-estimator-default" title="Permanent link">#</a></h2>
+<p>By default, Autoware launches <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/localization/gyro_odometer">gyro_odometer</a> for twist estimator.
+In order to launch this explicitly, you need to specify as follows:</p>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>autoware.launch.xml<span class="w"> </span>...<span class="w"> </span>twist_source:<span class="o">=</span>gyro_odom<span class="w"> </span>...
+</code></pre></div>
+<p>Note that currently <code>twist_source</code> is set to Gyro Odometer as default, so you can skip this argument.</p>
+<h2 id="yabloc-a-camera-and-vector-map-based-pose-estimator">YabLoc: a camera and vector map based pose estimator<a class="headerlink" href="#yabloc-a-camera-and-vector-map-based-pose-estimator" title="Permanent link">#</a></h2>
 <p>You can use YabLoc as a camera-based localization method.
 For more details on YabLoc, please refer to the <a href="https://github.com/autowarefoundation/autoware.universe/blob/main/localization/yabloc/README.md">README of YabLoc</a> in autoware.universe.</p>
-<p>To use YabLoc as a pose_estimator, add <code>localization_mode:=camera</code> when launching Autoware.
-By default, the <code>localization_mode</code> is set to <code>lidar</code>.
+<p>To use YabLoc as a pose_estimator, add <code>pose_source:=yabloc</code> when launching Autoware.
+By default, the <code>pose_source</code> is set to <code>ndt</code>.
 By specifying this command-line argument, YabLoc nodes will be automatically launched while the NDT nodes will not be started.</p>
 <p>Here is an example of a launch command:</p>
-<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>autoware.launch.xml<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>vehicle_model:<span class="o">=</span>YOUR_VEHICLE<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>sensor_kit:<span class="o">=</span>YOUR_SENSOR_KIT<span class="w"> </span>map_path:<span class="o">=</span>/PATH/TO/YOUR/MAP<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>localization_mode:<span class="o">=</span>camera<span class="w"> </span><span class="c1"># Add this argument</span>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>autoware.launch.xml<span class="w"> </span>...<span class="w"> </span>pose_source:<span class="o">=</span>yabloc<span class="w"> </span>...
 </code></pre></div>
-<h2 id="gnssimu-based-localizer"><abbr title="Global Navigation Satellite System">GNSS</abbr>/<abbr title="Inertial Measurement Unit">IMU</abbr>-based localizer<a class="headerlink" href="#gnssimu-based-localizer" title="Permanent link">#</a></h2>
-<p>You can use Eagleye as a <abbr title="Global Navigation Satellite System">GNSS</abbr>/<abbr title="Inertial Measurement Unit">IMU</abbr>-based localization method. For more details on Eagleye, please refer to the <a href="eagleye-guide/">Eagleye</a>.</p>
+<h2 id="eagleye-a-gnss-imu-wheel-odometry-based-pose-and-twist-estimator">Eagleye: a <abbr title="Global Navigation Satellite System">GNSS</abbr> &amp; <abbr title="Inertial Measurement Unit">IMU</abbr> &amp; wheel odometry based pose and twist estimator<a class="headerlink" href="#eagleye-a-gnss-imu-wheel-odometry-based-pose-and-twist-estimator" title="Permanent link">#</a></h2>
+<p>You can use Eagleye as a <abbr title="Global Navigation Satellite System">GNSS</abbr> &amp; <abbr title="Inertial Measurement Unit">IMU</abbr> &amp; wheel odometry-based localization method. For more details on Eagleye, please refer to the <a href="eagleye-guide/">Eagleye</a>.</p>
 <p>Eagleye has a function for position estimation and twist estimation, namely <code>pose_estimator</code> and <code>twist_estimator</code>, respectively.
-When running Eagleye in twist_estimator mode, ndt_scan_matcher is used as the pose_estimator.
-Eagleye will improve scan matching by providing accurate twists using <abbr title="Global Navigation Satellite System">GNSS</abbr> doppler.</p>
-<p>To use Eagleye, it requires both specifying the command-line arguments and modifying the launch file.</p>
-<p>Firstly, please modify the commented-out line and change it to launch <code>map4_localization_component.launch.xml</code> instead of <code>tier4_localization_component.launch.xml</code> in <a href="https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/launch/autoware.launch.xml"><code>autoware.launch.xml</code></a>.
-Please refer to the following snippet for the modification details:</p>
-<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="cm">&lt;!-- Localization --&gt;</span>
-<span class="w">  </span><span class="nt">&lt;group</span><span class="w"> </span><span class="na">if=</span><span class="s">"$(var launch_localization)"</span><span class="nt">&gt;</span>
-<span class="w">    </span><span class="cm">&lt;!-- &lt;include file="$(find-pkg-share autoware_launch)/launch/components/tier4_localization_component.launch.xml"/&gt; --&gt;</span>
-<span class="w">    </span><span class="nt">&lt;include</span><span class="w"> </span><span class="na">file=</span><span class="s">"$(find-pkg-share autoware_launch)/launch/components/map4_localization_component.launch.xml"</span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;/group&gt;</span>
-</code></pre></div>
-<p>NOTE: Please refer to <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/launch/map4_localization_launch"><code>map4_localization_launch</code></a> in the <code>autoware.universe</code> package and <a href="https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/launch/components/map4_localization_component.launch.xml"><code>map4_localization_component.launch.xml</code></a> in <code>autoware_launch</code> package for information on how to modify the localization launch.</p>
-<p>Once you have modified the launch file, you can use Eagleye by specifying the <code>pose_estimator_mode</code> through command-line arguments.</p>
+When running Eagleye in twist_estimator mode with other pose_estimator such as ndt_scan_matcher, Eagleye is still helpful since it can improve scan matching by providing accurate twists using <abbr title="Global Navigation Satellite System">GNSS</abbr> doppler.</p>
+<p>You can use Eagleye by specifying the <code>pose_source</code> and <code>twist_source</code> accordingly through command-line arguments.</p>
 <p><strong>Example of using Eagleye as the pose twist estimator:</strong></p>
-<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>autoware.launch.xml<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>vehicle_model:<span class="o">=</span>YOUR_VEHICLE<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>sensor_kit:<span class="o">=</span>YOUR_SENSOR_KIT<span class="w"> </span>map_path:<span class="o">=</span>/PATH/TO/YOUR/MAP<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>pose_estimator_mode:<span class="o">=</span>gnss<span class="w"> </span><span class="c1"># Add this argument</span>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>autoware.launch.xml<span class="w"> </span>...<span class="w"> </span>pose_source:<span class="o">=</span>eagleye<span class="w"> </span>twist_source:<span class="o">=</span>eagleye<span class="w"> </span>...
 </code></pre></div>
 <p><strong>Example of using Eagleye as the twist estimator:</strong></p>
-<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>autoware.launch.xml<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>vehicle_model:<span class="o">=</span>YOUR_VEHICLE<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>sensor_kit:<span class="o">=</span>YOUR_SENSOR_KIT<span class="w"> </span>map_path:<span class="o">=</span>/PATH/TO/YOUR/MAP<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>pose_estimator_mode:<span class="o">=</span>lidar<span class="w"> </span><span class="c1"># Not mandatory, as it is the default.</span>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>autoware.launch.xml<span class="w"> </span>...<span class="w"> </span>twist_source:<span class="o">=</span>eagleye<span class="w"> </span>...
 </code></pre></div>
-<h2 id="comprehensive-options-table">Comprehensive Options Table<a class="headerlink" href="#comprehensive-options-table" title="Permanent link">#</a></h2>
-<p>The table below indicates which pose_estimator and twist_estimator are called based on the invoked launch file and provided arguments.</p>
-<table>
-    <thead>
-        <tr>
-            <th colspan="3">tier4_localization_component.launch.xml</th>
-        </tr>
-        <tr>
-            <th>localization_mode</th>
-            <th>pose_estimator</th>
-            <th>twist_estimator</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>lidar (default)</td>
-            <td>ndt_scan_matcher</td>
-            <td>gyro_odometer</td>
-        </tr>
-        <tr>
-            <td>camera</td>
-            <td>yabloc</td>
-            <td>gyro_odometer</td>
-        </tr>
-    </tbody>
-</table>
-
-<table>
-    <thead>
-        <tr>
-            <th colspan="3">map4_localization_component.launch.xml</th>
-        </tr>
-        <tr>
-            <th>pose_estimator_mode</th>
-            <th>pose_estimator</th>
-            <th>twist_estimator</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>lidar (default)</td>
-            <td>ndt_scan_matcher</td>
-            <td>eagleye</td>
-        </tr>
-        <tr>
-            <td>gnss</td>
-            <td>eagleye</td>
-            <td>eagleye</td>
-        </tr>
-    </tbody>
-</table>
-
 <!-- prettier-ignore --></div>
 
 
