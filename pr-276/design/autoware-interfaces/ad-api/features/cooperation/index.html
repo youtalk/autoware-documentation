@@ -4850,13 +4850,28 @@ Here Autoware decides not to change lanes a second time due to the obstacle, so 
 <p><img alt="cooperation-scenes" src="scenes.drawio.svg"></p>
 <h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">#</a></h2>
 <p>Modules that support RTC have the operator decision and cooperation policy in addition to the module decision as shown below.
-These modules use the merged decision instead of module decision when planning vehicle behavior.
+These modules use the merged decision that is determined by these values when planning vehicle behavior.
+See decisions section for details of these values.
 The cooperation policy is used when there is no operator decision and has a default value set by the system settings.
-If the module supports RTC, these information are available in <a href="../planning-factors/">velocity factors or steering factors</a> as <a href="../../types/autoware_adapi_v1_msgs/msg/CooperationStatus/">cooperation status</a> .</p>
+If the module supports RTC, these information are available in <a href="../planning-factors/">velocity factors or steering factors</a> as <a href="../../types/autoware_adapi_v1_msgs/msg/CooperationStatus/">cooperation status</a>.</p>
 <p><img alt="cooperation-architecture" src="architecture.drawio.svg"></p>
 <h2 id="sequence">Sequence<a class="headerlink" href="#sequence" title="Permanent link">#</a></h2>
-<p>T.B.D.</p>
+<p>Here is an example sequence that overrides the scene decision to force a lane change. This assumes the second scene in the example situation given earlier.</p>
+<ol>
+<li>A module creates a scene with generated ID BBBB when approaching a place where a lane change is needed.</li>
+<li>The scene determines the module decision from the current situation.</li>
+<li>The scene determines the merged decision. Since there is no operator decision, so the cooperation policy is used.</li>
+<li>The scene plans the vehicle to keep the lane.</li>
+<li>The scene sends a cooperation status.</li>
+<li>The operator receives the cooperation status.</li>
+<li>The operator sends a cooperation command.</li>
+<li>The scene receives the cooperation command and update the operator decision.</li>
+<li>The scene updates the module decision from the current situation.</li>
+<li>The scene updates the merged decision. The received operator decision is used.</li>
+<li>The scene plans the vehicle to change the lane.</li>
+</ol>
 <h2 id="decisions">Decisions<a class="headerlink" href="#decisions" title="Permanent link">#</a></h2>
+<p>There are four variables used for RTC, each of which takes the value shown in the table.</p>
 <table>
 <thead>
 <tr>
@@ -4883,8 +4898,7 @@ If the module supports RTC, these information are available in <a href="../plann
 </tr>
 </tbody>
 </table>
-<p>The module decision is either deactivate or activate. The operator decision is also evaluated in one of these.
-Its meaning depends on the module and is shown in the table below.
+<p>Its meaning depends on the module and is shown in the table below.
 These decisions are designed to assign behavior to activate that is considered high risk.</p>
 <table>
 <thead>
