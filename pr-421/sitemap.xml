@@ -831,12 +831,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-421/how-to-guides/integrating-autoware/launch-autoware/localization-mode/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-421/how-to-guides/integrating-autoware/launch-autoware/localization-methods/</loc>
          <lastmod>2023-07-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-421/how-to-guides/integrating-autoware/launch-autoware/localization-mode/eagleye-guide/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-421/how-to-guides/integrating-autoware/launch-autoware/localization-methods/eagleye-guide/</loc>
          <lastmod>2023-07-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
