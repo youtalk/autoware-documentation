@@ -286,6 +286,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-421/design/autoware-interfaces/ad-api/features/perception/</loc>
+         <lastmod>2023-07-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-421/design/autoware-interfaces/ad-api/features/planning-factors/</loc>
          <lastmod>2023-07-27</lastmod>
          <changefreq>daily</changefreq>
@@ -372,6 +377,11 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-421/design/autoware-interfaces/ad-api/list/api/operation_mode/state/</loc>
+         <lastmod>2023-07-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-421/design/autoware-interfaces/ad-api/list/api/perception/objects/</loc>
          <lastmod>2023-07-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -476,6 +486,26 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-421/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/DynamicObject/</loc>
+         <lastmod>2023-07-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-421/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/DynamicObjectArray/</loc>
+         <lastmod>2023-07-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-421/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/DynamicObjectKinematics/</loc>
+         <lastmod>2023-07-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-421/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/DynamicObjectPath/</loc>
+         <lastmod>2023-07-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-421/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/Gear/</loc>
          <lastmod>2023-07-27</lastmod>
          <changefreq>daily</changefreq>
@@ -497,6 +527,11 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-421/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/MrmState/</loc>
+         <lastmod>2023-07-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-421/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/ObjectClassification/</loc>
          <lastmod>2023-07-27</lastmod>
          <changefreq>daily</changefreq>
     </url>

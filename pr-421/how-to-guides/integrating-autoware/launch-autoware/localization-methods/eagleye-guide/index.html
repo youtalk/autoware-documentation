@@ -3386,6 +3386,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5_4_2_2" id="__nav_5_4_2_2_label" tabindex="0">
@@ -3464,6 +3466,20 @@
     <li class="md-nav__item">
       <a href="../../../../../design/autoware-interfaces/ad-api/features/operation_mode/" class="md-nav__link">
         Operation mode
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../design/autoware-interfaces/ad-api/features/perception/" class="md-nav__link">
+        Perception
       </a>
     </li>
   
@@ -5350,12 +5366,10 @@ On the other hand, it is not mandatory when using it as the twist estimator.</p>
 Your <abbr title="Global Navigation Satellite System">GNSS</abbr> <abbr title="Robot Operating System">ROS</abbr> driver must publish the following messages:</p>
 <ul>
 <li><code>sensor_msgs/msg/NavSatFix</code>: This message contains latitude, longitude, and height information.</li>
-<li>
-<p><code>geometry_msgs/msg/TwistWithCovarianceStamped</code>: This message contains gnss doppler velocity information.
-  <!-- cspell: ignore ublox --></p>
-<p>Eagleye has been tested with the following example <abbr title="Global Navigation Satellite System">GNSS</abbr> <abbr title="Robot Operating System">ROS</abbr> drivers: ublox_gps and septentrio_gnss_driver. The settings needed for each of these drivers are as follows:</p>
-</li>
+<li><code>geometry_msgs/msg/TwistWithCovarianceStamped</code>: This message contains gnss doppler velocity information.</li>
 </ul>
+<!-- cspell: ignore ublox -->
+<p>Eagleye has been tested with the following example <abbr title="Global Navigation Satellite System">GNSS</abbr> <abbr title="Robot Operating System">ROS</abbr> drivers: ublox_gps and septentrio_gnss_driver. The settings needed for each of these drivers are as follows:</p>
 <table>
 <thead>
 <tr>
