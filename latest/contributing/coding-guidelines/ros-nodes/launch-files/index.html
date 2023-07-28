@@ -17,7 +17,7 @@
         <link rel="next" href="../message-guidelines/">
       
       <link rel="icon" href="../../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.19">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.20">
     
     
       
@@ -3209,6 +3209,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5_4_2_2" id="__nav_5_4_2_2_label" tabindex="0">
@@ -3287,6 +3289,20 @@
     <li class="md-nav__item">
       <a href="../../../../design/autoware-interfaces/ad-api/features/operation_mode/" class="md-nav__link">
         Operation mode
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../design/autoware-interfaces/ad-api/features/perception/" class="md-nav__link">
+        Perception
       </a>
     </li>
   
@@ -5111,7 +5127,7 @@
 
 <div><h1 id="launch-files">Launch files<a class="headerlink" href="#launch-files" title="Permanent link">#</a></h1>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
-<p>Autoware use ROS2 launch system to startup the software. Please see the <a href="https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Launch-Main.html">official documentation</a> to get a basic understanding about <abbr title="Robot Operating System">ROS</abbr> 2 Launch system if you are not familiar with it.</p>
+<p>Autoware use <abbr title="Robot Operating System">ROS</abbr> 2 launch system to startup the software. Please see the <a href="https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Launch-Main.html">official documentation</a> to get a basic understanding about <abbr title="Robot Operating System">ROS</abbr> 2 Launch system if you are not familiar with it.</p>
 <h2 id="guideline">Guideline<a class="headerlink" href="#guideline" title="Permanent link">#</a></h2>
 <h3 id="the-organization-of-launch-files-in-autoware">The organization of launch files in Autoware<a class="headerlink" href="#the-organization-of-launch-files-in-autoware" title="Permanent link">#</a></h3>
 <p>Autoware mainly has two repositories related to launch file organization: the <a href="https://github.com/autowarefoundation/autoware.universe">autoware.universe</a> and the <a href="https://github.com/autowarefoundation/autoware_launch">autoware_launch</a>.</p>
@@ -5159,7 +5175,7 @@ A33--&gt;A43[twist2accel.launch.xml]</code></pre>
 <p>If a newly created package has executable node, we expect sample launch file and configuration within the package, just like the recommended structure shown in previous <a href="https://autowarefoundation.github.io/autoware-documentation/main/contributing/coding-guidelines/ros-nodes/directory-structure/">directory structure</a> page.</p>
 <p>In order to automatically load the newly added package when starting Autoware, you need to make some necessary changes to the corresponding launch file. For example, if using ICP instead of NDT as the pointcloud registration algorithm, you can modify the <code>autoware.universe/launch/tier4_localization_launch/launch/pose_estimator/pose_estimator.launch.xml</code> file to load the newly added ICP package.</p>
 <h2 id="parameter-management">Parameter management<a class="headerlink" href="#parameter-management" title="Permanent link">#</a></h2>
-<p>Another purpose of introducing the <code>autoware_launch</code> repository is to facilitate the parameter management of Autoware. Thinking about this situation: if we want to integrate Autoware to a specific vehicle and modify parameters, we have to fork <code>autoware.universe</code> which also has a lot of code other than parameters and is frequently updated by developers. By intergrating these parameters in <code>autoware_launch</code>, we can customize the Autoware parameters just by forking <code>autoware_launch</code> repository. Taking the localization module as an examples:</p>
+<p>Another purpose of introducing the <code>autoware_launch</code> repository is to facilitate the parameter management of Autoware. Thinking about this situation: if we want to integrate Autoware to a specific vehicle and modify parameters, we have to fork <code>autoware.universe</code> which also has a lot of code other than parameters and is frequently updated by developers. By integrating these parameters in <code>autoware_launch</code>, we can customize the Autoware parameters just by forking <code>autoware_launch</code> repository. Taking the localization module as an examples:</p>
 <ol>
 <li>all the “launch parameters” for localization component is listed in the files under <code>autoware_launch/autoware_launch/config/localization</code>.</li>
 <li>the "launch parameters" file paths are set in the <code>autoware_launch/autoware_launch/launch/components/tier4_localization_component.launch.xml</code> file.</li>

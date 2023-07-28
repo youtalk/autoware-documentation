@@ -17,7 +17,7 @@
         <link rel="next" href="../fast-lio-slam/">
       
       <link rel="icon" href="../../../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.19">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.20">
     
     
       
@@ -3209,6 +3209,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5_4_2_2" id="__nav_5_4_2_2_label" tabindex="0">
@@ -3287,6 +3289,20 @@
     <li class="md-nav__item">
       <a href="../../../../../design/autoware-interfaces/ad-api/features/operation_mode/" class="md-nav__link">
         Operation mode
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../design/autoware-interfaces/ad-api/features/perception/" class="md-nav__link">
+        Perception
       </a>
     </li>
   
@@ -5153,6 +5169,8 @@
 <span class="w">    </span>catkin_make
 </code></pre></div>
 <h3 id="2-set-parameters">2) Set parameters<a class="headerlink" href="#2-set-parameters" title="Permanent link">#</a></h3>
+<!-- cspell: ignore mulran -->
+
 <ul>
 <li>After downloading the repository, change topic and sensor settings on the config file (<code>workspace/src/FAST_LIO_LC/FAST_LIO/config/ouster64_mulran.yaml</code>) with the lidar topic name in your bag file.</li>
 </ul>
@@ -5166,6 +5184,8 @@
 <li>To enable auto-save, <code>pcd_save_enable</code> must be <code>1</code> from the launch file (<code>workspace/src/FAST_LIO_LC/FAST_LIO/launch/mapping_ouster64_mulran.launch</code>).</li>
 </ul>
 <h3 id="3-run">3) Run<a class="headerlink" href="#3-run" title="Permanent link">#</a></h3>
+<!-- cspell: ignore aloam fastlio -->
+
 <ul>
 <li>For Ouster OS1-64<div class="codehilite"><pre><span></span><code># open new terminal: run FAST-LIO
 roslaunch fast_lio mapping_ouster64.launch
@@ -5182,8 +5202,8 @@ rosbag play RECORDED_BAG.bag --clock
 <p> <img src="images/launch.png" width="712" alt="launch"></p>
 
 <h2 id="example-result">Example Result<a class="headerlink" href="#example-result" title="Permanent link">#</a></h2>
-<p> <img src="images/fastlio_lc_example1.png" width="712" alt="example_results1"></p>
-<p> <img src="images/fastlio_lc_example2.png" width="712" alt="example_results2"></p>
+<p> <img src="images/fast-lio-lc-example1.png" width="712" alt="example_results1"></p>
+<p> <img src="images/fast-lio-lc-example2.png" width="712" alt="example_results2"></p>
 
 <h2 id="other-examples">Other Examples<a class="headerlink" href="#other-examples" title="Permanent link">#</a></h2>
 <p> <img src="images/fast-lio-lc-output.png" width="712" alt="example_results"></p>
@@ -5191,6 +5211,8 @@ rosbag play RECORDED_BAG.bag --clock
 <h2 id="example-dataset">Example dataset<a class="headerlink" href="#example-dataset" title="Permanent link">#</a></h2>
 <p>Check original repository link for example dataset.</p>
 <h2 id="contact">Contact<a class="headerlink" href="#contact" title="Permanent link">#</a></h2>
+<!-- cspell: ignore  Yanliang -->
+
 <ul>
 <li>Maintainer: Yanliang Wang (<code>wyl410922@qq.com</code>)</li>
 </ul>
