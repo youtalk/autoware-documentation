@@ -5224,12 +5224,12 @@
 <p>See example: <em>Lidar Apollo Segmentation TVM Nodes</em> <a href="https://github.com/autowarefoundation/autoware.universe/blob/f85c90b56ed4c7d6b52e787570e590cff786b28b/perception/lidar_apollo_segmentation_tvm_nodes/src/lidar_apollo_segmentation_tvm_node.cpp#L38">declare function</a></p>
 <h2 id="parameter-file">Parameter File<a class="headerlink" href="#parameter-file" title="Permanent link">#</a></h2>
 <p>The parameter file is minimal as there is no need to provide the user with additional information, e.g., description or type. This is because the associated schema file provides the additional information. Use the template below as a starting point for a <abbr title="Robot Operating System">ROS</abbr> node.</p>
-<p></p><div class="highlight"><pre><span></span><code><span class="nt">/**</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="nt">/**</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">ros__parameters</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">INSERT_PARAMETER_1_NAME</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">INSERT_PARAMETER_1_VALUE</span>
 <span class="w">    </span><span class="nt">INSERT_PARAMETER_N_NAME</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">INSERT_PARAMETER_N_VALUE</span>
 </code></pre></div>
-Note: <code>/**</code> is used instead of the explicit node namespace, this allows the parameter file to be passed to a <abbr title="Robot Operating System">ROS</abbr> node which has been <a href="https://design.ros2.org/articles/static_remapping.html">remapped</a>.
+<p>Note: <code>/**</code> is used instead of the explicit node namespace, this allows the parameter file to be passed to a <abbr title="Robot Operating System">ROS</abbr> node which has been <a href="https://design.ros2.org/articles/static_remapping.html">remapped</a>.</p>
 <p>To adapt the template to the <abbr title="Robot Operating System">ROS</abbr> node, replace each <code>INSERT_PARAMETER_..._NAME</code> and <code>INSERT_PARAMETER_..._VALUE</code> for all parameters. Each <a href="https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/classrclcpp_1_1Node.html#_CPPv4N6rclcpp4Node17declare_parameterERKNSt6stringERKN6rclcpp14ParameterValueERKN14rcl_interfaces3msg19ParameterDescriptorEb">declare_parameter(...)</a> takes one parameter as input. All the parameter files should have the <code>.param.yaml</code> suffix so that the auto-format can be applied properly.</p>
 <p>Autoware has the following two types of parameter files for <abbr title="Robot Operating System">ROS</abbr> packages:</p>
 <ul>
