@@ -17,7 +17,7 @@
         <link rel="next" href="../../../launch-autoware/">
       
       <link rel="icon" href="../../../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.19">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.20">
     
     
       
@@ -3209,6 +3209,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5_4_2_2" id="__nav_5_4_2_2_label" tabindex="0">
@@ -3287,6 +3289,20 @@
     <li class="md-nav__item">
       <a href="../../../../../design/autoware-interfaces/ad-api/features/operation_mode/" class="md-nav__link">
         Operation mode
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../design/autoware-interfaces/ad-api/features/perception/" class="md-nav__link">
+        Perception
       </a>
     </li>
   
@@ -5131,7 +5147,7 @@
 <ul>
 <li><abbr title="Robot Operating System">ROS</abbr></li>
 <li>PCL</li>
-<li>Gtsam</li>
+<li>GTSAM</li>
 </ul>
 <div class="highlight"><pre><span></span><code>wget<span class="w"> </span>-O<span class="w"> </span>~/Downloads/gtsam.zip<span class="w"> </span>https://github.com/borglab/gtsam/archive/4.0.0-alpha2.zip
 <span class="nb">cd</span><span class="w"> </span>~/Downloads/<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>unzip<span class="w"> </span>gtsam.zip<span class="w"> </span>-d<span class="w"> </span>~/Downloads/
@@ -5148,10 +5164,12 @@ git<span class="w"> </span>clone<span class="w"> </span>https://github.com/irapk
 catkin_make
 </code></pre></div>
 <h3 id="2-set-parameters">2) Set parameters<a class="headerlink" href="#2-set-parameters" title="Permanent link">#</a></h3>
+<!-- cspell: ignore Scancontext -->
+
 <ul>
 <li>Set imu and lidar topic on <code>include/utility.h</code></li>
 <li>Set lidar properties on <code>include/utility.h</code></li>
-<li>Set scancontex settings on <code>include/Scancontext.h</code></li>
+<li>Set scan context settings on <code>include/Scancontext.h</code></li>
 </ul>
 <p>(Do not forget to rebuild after setting parameters.)</p>
 <h3 id="3-run">3) Run<a class="headerlink" href="#3-run" title="Permanent link">#</a></h3>
@@ -5165,11 +5183,14 @@ roslaunch<span class="w"> </span>lego_loam<span class="w"> </span>run.launch
 <ul>
 <li><a href="https://youtu.be/MtQ8-PiBK3E?t=194"> Video 1: DCC (MulRan dataset)</a></li>
 <li><a href="https://youtu.be/p-NsVs8GATA?t=436"> Video 2: Riverside (MulRan dataset) </a></li>
-<li><a href="https://youtu.be/bEqCehMJ_Hk"> Video 3: KAIST (MulRan dataset) </a></li>
-</ul>
-<p><img src="images/mulran_merged.png" width="719"></p>
+<li>
+<p><a href="https://youtu.be/bEqCehMJ_Hk"> Video 3: KAIST (MulRan dataset) </a>
+  <!-- cspell: ignore pangyo --></p>
+<p><img src="images/MulRan_merged.png" width="719"></p>
 <p><img src="images/pangyo_merged.png" width="719"></p>
 
+</li>
+</ul>
 <h2 id="mulran-dataset">MulRan dataset<a class="headerlink" href="#mulran-dataset" title="Permanent link">#</a></h2>
 <ul>
 <li>If you want to reproduce the results as the above video, you can download the <a href="https://sites.google.com/view/mulran-pr/home"> MulRan dataset </a> and use the <a href="https://sites.google.com/view/mulran-pr/tool"> <abbr title="Robot Operating System">ROS</abbr> topic publishing tool </a>.</li>
@@ -5195,6 +5216,8 @@ roslaunch<span class="w"> </span>lego_loam<span class="w"> </span>run.launch
 <span class="o">}</span>
 </code></pre></div>
 <h2 id="contact">Contact<a class="headerlink" href="#contact" title="Permanent link">#</a></h2>
+<!-- cspell: ignore Giseop -->
+
 <ul>
 <li>Maintainer: Giseop Kim (<code>paulgkim@kaist.ac.kr</code>)</li>
 </ul>

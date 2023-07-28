@@ -17,7 +17,7 @@
         <link rel="next" href="../sc-lego-loam/">
       
       <link rel="icon" href="../../../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.19">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.20">
     
     
       
@@ -3209,6 +3209,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5_4_2_2" id="__nav_5_4_2_2_label" tabindex="0">
@@ -3287,6 +3289,20 @@
     <li class="md-nav__item">
       <a href="../../../../../design/autoware-interfaces/ad-api/features/operation_mode/" class="md-nav__link">
         Operation mode
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../design/autoware-interfaces/ad-api/features/perception/" class="md-nav__link">
+        Perception
       </a>
     </li>
   
@@ -5142,7 +5158,8 @@
 </ul>
 <ul>
 <li>
-<p>If GTSAM is not installed, follow the steps below.</p>
+<p>If GTSAM is not installed, follow the steps below.
+  <!-- cspell: ignore DGTSAM --></p>
 <div class="highlight"><pre><span></span><code><span class="w">  </span>wget<span class="w"> </span>-O<span class="w"> </span>~/Downloads/gtsam.zip<span class="w"> </span>https://github.com/borglab/gtsam/archive/4.0.2.zip
 <span class="w">  </span><span class="nb">cd</span><span class="w"> </span>~/Downloads/<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>unzip<span class="w"> </span>gtsam.zip<span class="w"> </span>-d<span class="w"> </span>~/Downloads/
 <span class="w">  </span><span class="nb">cd</span><span class="w"> </span>~/Downloads/gtsam-4.0.2/
@@ -5160,7 +5177,9 @@
 <h3 id="1-build">1) Build<a class="headerlink" href="#1-build" title="Permanent link">#</a></h3>
 <ul>
 <li>
-<p>First, install the abovementioned dependencies and follow below lines.</p>
+<p>First, install the above mentioned dependencies and follow below lines.
+  <!-- cspell: ignore scaloam -->
+</p>
 <div class="highlight"><pre><span></span><code><span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>~/catkin_scaloam_ws/src
 <span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/catkin_scaloam_ws/src
 <span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/gisbi-kim/SC-A-LOAM.git
@@ -5179,7 +5198,7 @@
 <li>If encountering ghosting error or loop is not closed, change the scan context parameters.</li>
 <li>Adjust the scan context settings with the parameters in the marked area.</li>
 </ul>
-<p><img src="images/scancontext.png" width="719"></p>
+<p><img src="images/scan_context.png" width="719"></p>
 
 <h3 id="3-run">3) Run<a class="headerlink" href="#3-run" title="Permanent link">#</a></h3>
 <div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>aloam_velodyne<span class="w"> </span>aloam_mulran.launch
@@ -5192,7 +5211,7 @@
 
 <h3 id="riverside-01-mulran-dataset">Riverside 01, MulRan dataset<a class="headerlink" href="#riverside-01-mulran-dataset" title="Permanent link">#</a></h3>
 <ul>
-<li>The MulRan dataset provides lidar scans (Ouster OS1-64, horizontally mounted, 10Hz) and consumer level gps (U-Blox EVK-7P, 4Hz) data.</li>
+<li>The MulRan dataset provides lidar scans (Ouster OS1-64, horizontally mounted, 10Hz) and consumer level gps (u-blox EVK-7P, 4Hz) data.</li>
 <li>About how to use (publishing data) data: see here <a href="https://github.com/irapkaist/file_player_mulran">https://github.com/irapkaist/file_player_mulran</a></li>
 <li>
 <p>example videos on Riverside 01 sequence.</p>
@@ -5211,7 +5230,9 @@
 <h3 id="kitti-05">KITTI 05<a class="headerlink" href="#kitti-05" title="Permanent link">#</a></h3>
 <ul>
 <li>
-<p>For KITTI (HDL-64 sensor), run using the command</p>
+<p>For KITTI (HDL-64 sensor), run using the command
+  <!-- cspell: ignore aloam -->
+</p>
 <div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>aloam_velodyne<span class="w"> </span>aloam_velodyne_HDL_64.launch<span class="w"> </span><span class="c1"># for KITTI dataset setting</span>
 </code></pre></div>
 </li>

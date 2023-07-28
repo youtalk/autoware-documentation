@@ -17,7 +17,7 @@
         <link rel="next" href="../vehicle/">
       
       <link rel="icon" href="../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.19">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.20">
     
     
       
@@ -3209,6 +3209,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5_4_2_2" id="__nav_5_4_2_2_label" tabindex="0">
@@ -3287,6 +3289,20 @@
     <li class="md-nav__item">
       <a href="../../autoware-interfaces/ad-api/features/operation_mode/" class="md-nav__link">
         Operation mode
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../autoware-interfaces/ad-api/features/perception/" class="md-nav__link">
+        Perception
       </a>
     </li>
   
@@ -5096,7 +5112,7 @@
 <h2 id="vehicle-adaptation-design">Vehicle Adaptation Design<a class="headerlink" href="#vehicle-adaptation-design" title="Permanent link">#</a></h2>
 <h3 id="vehicle-interface-adapter">Vehicle interface adapter<a class="headerlink" href="#vehicle-interface-adapter" title="Permanent link">#</a></h3>
 <p>Autoware is designed to be an autonomous driving platform able to accommodate vehicles with various drivetrain types.</p>
-<p>This is an explanation of how Autoware handles the standardization of systems with different vehicle drivetrains. The interfaces for vehicle drivetrains are diverse, including steering angle, steering angular velocity, steering torque, speed, accel/brake pedals, and brake pressure. To accommodate these differences, Autoware adds an adapter module between the control component and the vehicle interface. This module performs the conversion between the proprietary message types used by the vehicle (such as brake pressure) and the generic types used by Autoware (such as desired acceleration). By providing this conversion information, the differences in vehicle drivetrain can be accommodated.</p>
+<p>This is an explanation of how Autoware handles the standardization of systems with different vehicle drivetrain. The interfaces for vehicle drivetrain are diverse, including steering angle, steering angular velocity, steering torque, speed, accel/brake pedals, and brake pressure. To accommodate these differences, Autoware adds an adapter module between the control component and the vehicle interface. This module performs the conversion between the proprietary message types used by the vehicle (such as brake pressure) and the generic types used by Autoware (such as desired acceleration). By providing this conversion information, the differences in vehicle drivetrain can be accommodated.</p>
 <p>If the information is not known in advance, an automatic calibration tool can be used. Calibration will occur within limited degrees of freedom, generating the information necessary for the drivetrain conversion automatically.</p>
 <p>This configuration is summarized in the following diagram.</p>
 <p><img alt="vehicle-abstraction" src="image/vehicle-interface-hw-abstraction.drawio.svg"></p>
@@ -5137,7 +5153,7 @@
 <td></td>
 </tr>
 <tr>
-<td>Logiees</td>
+<td>Logiee</td>
 <td>yaw rate</td>
 <td>Velocity</td>
 <td></td>
