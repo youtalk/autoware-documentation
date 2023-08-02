@@ -4846,7 +4846,8 @@ The operator can override the decision of the target scene using this ID.
 In practice, the user interface application can hides the specification of the ID and provides an abstracted interface to the operator.</p>
 <p>For example, in the situation in the diagram below, change lanes twice and turn left at the intersection.
 There are three scenes and each has a decision to change or keep the lane, turn left or wait.
-Here Autoware decides not to change lanes a second time due to the obstacle, so the vehicle will stop there.</p>
+Here Autoware decides not to change lanes a second time due to the obstacle, so the vehicle will stop there.
+Using RTC, the operator can override these decisions to continue driving the vehicle to the goal.</p>
 <p><img alt="cooperation-scenes" src="scenes.drawio.svg"></p>
 <h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">#</a></h2>
 <p>Modules that support RTC have the operator decision and cooperation policy in addition to the module decision as shown below.
@@ -4856,19 +4857,20 @@ The cooperation policy is used when there is no operator decision and has a defa
 If the module supports RTC, these information are available in <a href="../planning-factors/">velocity factors or steering factors</a> as <a href="../../types/autoware_adapi_v1_msgs/msg/CooperationStatus/">cooperation status</a>.</p>
 <p><img alt="cooperation-architecture" src="architecture.drawio.svg"></p>
 <h2 id="sequence">Sequence<a class="headerlink" href="#sequence" title="Permanent link">#</a></h2>
-<p>Here is an example sequence that overrides the scene decision to force a lane change. This assumes the second scene in the example situation given earlier.</p>
+<p>This is an example sequence that overrides the scene decision to force a lane change. It is for the second scene in the diagram in the architecture section.
+Here let's assume the cooperation policy is set to optional, see the decisions section described later for details.</p>
 <ol>
-<li>A module creates a scene with generated ID BBBB when approaching a place where a lane change is needed.</li>
-<li>The scene determines the module decision from the current situation.</li>
-<li>The scene determines the merged decision. Since there is no operator decision, so the cooperation policy is used.</li>
-<li>The scene plans the vehicle to keep the lane.</li>
-<li>The scene sends a cooperation status.</li>
+<li>A planning module creates a scene instance with unique ID when approaching a place where a lane change is needed.</li>
+<li>The scene instance generates the module decision from the current situation. In this case, the module decision is not to do a lane change due to the obstacle.</li>
+<li>The scene instance generates the merged decision. At this point, there is no operator decision yet, so it is based on the module decision.</li>
+<li>The scene instance plans the vehicle to keep the lane according to the merged decision.</li>
+<li>The scene instance sends a cooperation status.</li>
 <li>The operator receives the cooperation status.</li>
-<li>The operator sends a cooperation command.</li>
-<li>The scene receives the cooperation command and update the operator decision.</li>
-<li>The scene updates the module decision from the current situation.</li>
-<li>The scene updates the merged decision. The received operator decision is used.</li>
-<li>The scene plans the vehicle to change the lane.</li>
+<li>The operator sends a cooperation command to override the module decision and to do a lane change.</li>
+<li>The scene instance receives the cooperation command and update the operator decision.</li>
+<li>The scene instance updates the module decision from the current situation.</li>
+<li>The scene instance updates the merged decision. It is based on the operator decision received.</li>
+<li>The scene instance plans the vehicle to change the lane according to the merged decision.</li>
 </ol>
 <h2 id="decisions">Decisions<a class="headerlink" href="#decisions" title="Permanent link">#</a></h2>
 <p>The merged decision is determined by the module decision, operator decision, and cooperation policy, each of which takes the value shown in the table below.</p>
