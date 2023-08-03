@@ -5077,6 +5077,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#projection-information" class="md-nav__link">
+    Projection information
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5188,6 +5195,17 @@ In a map with MGRS coordinate system, the X and Y coordinates of each point repr
 <p class="admonition-title">Warning</p>
 <p>Under Construction</p>
 </div>
+<h3 id="projection-information">Projection information<a class="headerlink" href="#projection-information" title="Permanent link">#</a></h3>
+<p>The projection information must be supplied as a file with the following requirements:</p>
+<ul>
+<li>It must be in YAML format, provided into <code>map_projection_loader</code> in current Autoware Universe implementation.</li>
+<li>The file must contain the following information:<ul>
+<li>The name of the projection method used to convert between local and global coordinates</li>
+<li>The parameters of the projection method (depending on the projection method)</li>
+</ul>
+</li>
+</ul>
+<p>For further information, please refer to <a href="https://github.com/autowarefoundation/autoware.universe/blob/main/map/map_loader/README.md">the Readme of <code>map_projection_loader</code> in Autoware Universe</a>.</p>
 <!-- prettier-ignore --></div>
 
 
