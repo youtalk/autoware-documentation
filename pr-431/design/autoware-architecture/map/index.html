@@ -5168,6 +5168,7 @@
 <h3 id="point-cloud-map">Point Cloud Map<a class="headerlink" href="#point-cloud-map" title="Permanent link">#</a></h3>
 <p>The point cloud map must be supplied as a file with the following requirements:</p>
 <ul>
+<li>The pointcloud map should be projected on the same coordinate defined in <code>map_projection_loader</code> in order to be consistent with the lanelet2 map and other packages that converts between local and geodetic coordinates. For more information, please refer to <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/map/map_projection_loader/README.md">the readme of <code>map_projection_loader</code></a>.</li>
 <li>It must be in the <a href="https://pointclouds.org/documentation/tutorials/pcd_file_format.html"><abbr title="Point Cloud Data">PCD</abbr> (Point Cloud Data) file format</a>, but can be a single <abbr title="Point Cloud Data">PCD</abbr> file or divided into multiple <abbr title="Point Cloud Data">PCD</abbr> files.</li>
 <li>Each point in the map must contain X, Y, and Z coordinates.</li>
 <li>An intensity or RGB value for each point may be optionally included.</li>
@@ -5205,7 +5206,7 @@ In a map with MGRS coordinate system, the X and Y coordinates of each point repr
 </ul>
 </li>
 </ul>
-<p>For further information, please refer to <a href="https://github.com/autowarefoundation/autoware.universe/blob/main/map/map_loader/README.md">the Readme of <code>map_projection_loader</code> in Autoware Universe</a>.</p>
+<p>For further information, please refer to <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/map/map_projection_loader/README.md">the Readme of <code>map_projection_loader</code> in Autoware Universe</a>.</p>
 <!-- prettier-ignore --></div>
 
 
