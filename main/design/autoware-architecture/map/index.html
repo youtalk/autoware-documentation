@@ -5029,9 +5029,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-features" class="md-nav__link">
-    4. Features
+  <a href="#4-component-interface" class="md-nav__link">
+    4. Component interface
   </a>
+  
+    <nav class="md-nav" aria-label="4. Component interface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#input-to-the-map-component" class="md-nav__link">
+    Input to the map component
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output-from-the-map-component" class="md-nav__link">
+    Output from the map component
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -5046,6 +5066,20 @@
           <li class="md-nav__item">
   <a href="#point-cloud-map" class="md-nav__link">
     Point Cloud Map
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vector-map" class="md-nav__link">
+    Vector Map
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#projection-information" class="md-nav__link">
+    Projection Information
   </a>
   
 </li>
@@ -5085,20 +5119,56 @@
 </ul>
 <p>A vector map contains highly accurate information about a road network, lane geometry, and traffic lights. It is required for route planning, traffic light detection, and predicting the trajectories of other vehicles and pedestrians.</p>
 <p>A 3D point cloud map is primarily used for LiDAR-based localization and part of perception in Autoware. In order to determine the current position and orientation of the vehicle, a live scan captured from one or more LiDAR units is matched against a pre-generated 3D point cloud map. Therefore, an accurate point cloud map is crucial for good localization results. However, if the vehicle has an alternate localization method with enough accuracy, for example using camera-based localization, point cloud map may not be required to use Autoware.</p>
+<p>In addition to above two types of maps, Autoware also requires a supplemental file for specifying the coordinate system of the map in geodetic system.</p>
 <h2 id="3-architecture">3. Architecture<a class="headerlink" href="#3-architecture" title="Permanent link">#</a></h2>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Under Construction</p>
-</div>
-<h2 id="4-features">4. Features<a class="headerlink" href="#4-features" title="Permanent link">#</a></h2>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Under Construction</p>
-</div>
+<p>This diagram describes the high-level architecture of Map component in Autoware.</p>
+<p><img alt="map component architecture" src="image/high-level-map-diagram.drawio.svg" width="800"></p>
+<p>The Map component consists of the following sub-components:</p>
+<ul>
+<li><strong>Point Cloud Map Loading</strong>: Load and publish point cloud map</li>
+<li><strong>Vector Map Loading</strong>: Load and publish vector map</li>
+<li><strong>Projection Loading</strong>: Load and publish projection information for conversion between local coordinate (x, y, z) and geodetic coordinate (latitude, longitude, altitude)</li>
+</ul>
+<h2 id="4-component-interface">4. Component interface<a class="headerlink" href="#4-component-interface" title="Permanent link">#</a></h2>
+<h3 id="input-to-the-map-component">Input to the map component<a class="headerlink" href="#input-to-the-map-component" title="Permanent link">#</a></h3>
+<ul>
+<li><strong>From file system</strong><ul>
+<li>Point cloud map and its metadata file</li>
+<li>Vector map</li>
+<li>Projection information</li>
+</ul>
+</li>
+</ul>
+<h3 id="output-from-the-map-component">Output from the map component<a class="headerlink" href="#output-from-the-map-component" title="Permanent link">#</a></h3>
+<ul>
+<li><strong>To Sensing</strong><ul>
+<li>Projection information: Used to convert <abbr title="Global Navigation Satellite System">GNSS</abbr> data from geodetic coordinate system to local coordinate system</li>
+</ul>
+</li>
+<li><strong>To Localization</strong><ul>
+<li>Point cloud map: Used for LiDAR-based localization</li>
+<li>Vector map: Used for localization methods based on road markings, etc</li>
+</ul>
+</li>
+<li><strong>To Perception</strong><ul>
+<li>Point cloud map: Used for obstacle segmentation by comparing LiDAR and point cloud map</li>
+<li>Vector map: Used for vehicle trajectory prediction</li>
+</ul>
+</li>
+<li><strong>To Planning</strong><ul>
+<li>Vector map: Used for behavior planning</li>
+</ul>
+</li>
+<li><strong>To API layer</strong><ul>
+<li>Projection information: Used to convert localization results from local coordinate system to geodetic coordinate system</li>
+</ul>
+</li>
+</ul>
 <h2 id="5-map-specification">5. Map Specification<a class="headerlink" href="#5-map-specification" title="Permanent link">#</a></h2>
 <h3 id="point-cloud-map">Point Cloud Map<a class="headerlink" href="#point-cloud-map" title="Permanent link">#</a></h3>
 <p>The point cloud map must be supplied as a file with the following requirements:</p>
 <ul>
+<li>The point cloud map must be projected on the same coordinate defined in <code>map_projection_loader</code> in order to be consistent with the lanelet2 map and other packages that converts between local and geodetic coordinates. For more information, please refer to <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/map/map_projection_loader/README.md">the readme of <code>map_projection_loader</code></a>.</li>
 <li>It must be in the <a href="https://pointclouds.org/documentation/tutorials/pcd_file_format.html"><abbr title="Point Cloud Data">PCD</abbr> (Point Cloud Data) file format</a>, but can be a single <abbr title="Point Cloud Data">PCD</abbr> file or divided into multiple <abbr title="Point Cloud Data">PCD</abbr> files.</li>
 <li>Each point in the map must contain X, Y, and Z coordinates.</li>
 <li>An intensity or RGB value for each point may be optionally included.</li>
@@ -5106,14 +5176,14 @@
 <li>Its resolution should be at least 0.2 m to yield reliable localization results.</li>
 <li>It can be in either local or global coordinates, but must be in global coordinates (georeferenced) to use <abbr title="Global Navigation Satellite System">GNSS</abbr> data for localization.</li>
 </ul>
-<p>For more details on divided map format, please refer to <a href="https://github.com/autowarefoundation/autoware.universe/blob/main/map/map_loader/README.md">the Readme of <code>map_loader</code> in Autoware Universe</a>.</p>
+<p>For more details on divided map format, please refer to <a href="https://github.com/autowarefoundation/autoware.universe/blob/main/map/map_loader/README.md">the readme of <code>map_loader</code> in Autoware Universe</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Three global coordinate systems are currently supported by Autoware, including <a href="https://en.wikipedia.org/wiki/Military_Grid_Reference_System">Military Grid Reference System (MGRS)</a>, <a href="https://en.wikipedia.org/wiki/Universal_Transverse_Mercator_coordinate_system">Universal Transverse Mercator (UTM)</a>, and <a href="https://ja.wikipedia.org/wiki/%E5%B9%B3%E9%9D%A2%E7%9B%B4%E8%A7%92%E5%BA%A7%E6%A8%99%E7%B3%BB">Japan Rectangular Coordinate System</a>.
 However, MGRS is a preferred coordinate system for georeferenced maps.
 In a map with MGRS coordinate system, the X and Y coordinates of each point represent the point's location within the 100,000-meter square, while the Z coordinate represents the point's elevation.</p>
 </div>
-<h4 id="vector-map">Vector Map<a class="headerlink" href="#vector-map" title="Permanent link">#</a></h4>
+<h3 id="vector-map">Vector Map<a class="headerlink" href="#vector-map" title="Permanent link">#</a></h3>
 <p>The vector cloud map must be supplied as a file with the following requirements:</p>
 <ul>
 <li>It must be in <a href="https://github.com/fzi-forschungszentrum-informatik/Lanelet2">Lanelet2</a> format, with <a href="https://github.com/autowarefoundation/autoware_common/blob/main/tmp/lanelet2_extension/docs/lanelet2_format_extension.md">additional modifications required by Autoware</a>.</li>
@@ -5126,6 +5196,17 @@ In a map with MGRS coordinate system, the X and Y coordinates of each point repr
 <p class="admonition-title">Warning</p>
 <p>Under Construction</p>
 </div>
+<h3 id="projection-information">Projection Information<a class="headerlink" href="#projection-information" title="Permanent link">#</a></h3>
+<p>The projection information must be supplied as a file with the following requirements:</p>
+<ul>
+<li>It must be in YAML format, provided into <code>map_projection_loader</code> in current Autoware Universe implementation.</li>
+<li>The file must contain the following information:<ul>
+<li>The name of the projection method used to convert between local and global coordinates</li>
+<li>The parameters of the projection method (depending on the projection method)</li>
+</ul>
+</li>
+</ul>
+<p>For further information, please refer to <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/map/map_projection_loader/README.md">the readme of <code>map_projection_loader</code> in Autoware Universe</a>.</p>
 <!-- prettier-ignore --></div>
 
 
