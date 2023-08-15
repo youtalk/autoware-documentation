@@ -4437,13 +4437,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#launch-parameter-file" class="md-nav__link">
-    Launch parameter file
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#json-schema" class="md-nav__link">
     JSON Schema
   </a>
@@ -5118,13 +5111,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#launch-parameter-file" class="md-nav__link">
-    Launch parameter file
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#json-schema" class="md-nav__link">
     JSON Schema
   </a>
@@ -5259,14 +5245,38 @@
 <span class="w">    </span><span class="nt">INSERT_PARAMETER_1_NAME</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">INSERT_PARAMETER_1_VALUE</span>
 <span class="w">    </span><span class="nt">INSERT_PARAMETER_N_NAME</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">INSERT_PARAMETER_N_VALUE</span>
 </code></pre></div>
-<p>The parameter file path is <code>INSERT_PATH_TO_PACKAGE/config/</code> and parameter file name is <code>INSERT_NODE_NAME.param.yaml</code>. To adapt the template to the <abbr title="Robot Operating System">ROS</abbr> node, replace each <code>INSERT_PARAMETER_..._NAME</code> and <code>INSERT_PARAMETER_..._VALUE</code> for all parameters. Each <a href="https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/classrclcpp_1_1Node.html#_CPPv4N6rclcpp4Node17declare_parameterERKNSt6stringERKN6rclcpp14ParameterValueERKN14rcl_interfaces3msg19ParameterDescriptorEb">declare_parameter(...)</a> takes one parameter as input.</p>
-<p>See example: <em>Lidar Apollo Segmentation TVM Nodes</em> <a href="https://github.com/autowarefoundation/autoware.universe/blob/main/perception/lidar_apollo_segmentation_tvm_nodes/config/lidar_apollo_segmentation_tvm_nodes.param.yaml">parameter file</a></p>
 <p>Note: <code>/**</code> is used instead of the explicit node namespace, this allows the parameter file to be passed to a <abbr title="Robot Operating System">ROS</abbr> node which has been <a href="https://design.ros2.org/articles/static_remapping.html">remapped</a>.</p>
-<h2 id="launch-parameter-file">Launch parameter file<a class="headerlink" href="#launch-parameter-file" title="Permanent link">#</a></h2>
+<p>To adapt the template to the <abbr title="Robot Operating System">ROS</abbr> node, replace each <code>INSERT_PARAMETER_..._NAME</code> and <code>INSERT_PARAMETER_..._VALUE</code> for all parameters. Each <a href="https://docs.ros.org/en/ros2_packages/humble/api/rclcpp/generated/classrclcpp_1_1Node.html#_CPPv4N6rclcpp4Node17declare_parameterERKNSt6stringERKN6rclcpp14ParameterValueERKN14rcl_interfaces3msg19ParameterDescriptorEb">declare_parameter(...)</a> takes one parameter as input. All the parameter files should have the <code>.param.yaml</code> suffix so that the auto-format can be applied properly.</p>
+<p>Autoware has the following two types of parameter files for <abbr title="Robot Operating System">ROS</abbr> packages:</p>
 <ul>
-<li>Launch parameter files store the customized parameters for user's vehicle.<ul>
+<li><strong>Node parameter file</strong><ul>
+<li>Node parameter files store the default parameters provided for each package in Autoware.<ul>
+<li>For example, <a href="https://github.com/autowarefoundation/autoware.universe/tree/245242cee866de2d113e89c562353c5fc17f1f98/planning/behavior_path_planner/config">the parameter of <code>behavior_path_planner</code></a></li>
+</ul>
+</li>
+<li>All nodes in Autoware must have a parameter file if <abbr title="Robot Operating System">ROS</abbr> parameters are declared in the node.</li>
+<li>For <code>FOO_package</code>, the parameter is expected to be stored in <code>FOO_package/config</code>.</li>
+<li>The launch file for individual packages must load node parameter by default:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;launch&gt;</span>
+<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"foo_node_param_path"</span><span class="w"> </span><span class="na">default=</span><span class="s">"$(find-pkg-share FOO_package)/config/foo_node.param.yaml"</span><span class="w"> </span><span class="nt">/&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;node</span><span class="w"> </span><span class="na">pkg=</span><span class="s">"FOO_package"</span><span class="w"> </span><span class="na">exec=</span><span class="s">"foo_node"</span><span class="nt">&gt;</span>
+<span class="w">    </span>...
+<span class="w">    </span><span class="nt">&lt;param</span><span class="w"> </span><span class="na">from=</span><span class="s">"$(var foo_node_param_path)"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/node&gt;</span>
+<span class="nt">&lt;/launch&gt;</span>
+</code></pre></div>
+<ul>
+<li><strong>Launch parameter file</strong><ul>
+<li>When a user creates a launch package for the user's vehicle, the user should copy node parameter files for the nodes that are called in the launch file as "launch parameter files".</li>
+<li>Launch parameter files are then customized specifically for user's vehicle.<ul>
 <li>For example, <a href="https://github.com/autowarefoundation/autoware_launch/tree/5fa613b9d80bf4f0db77efde03a43f7ede6bac86/autoware_launch/config">the customized parameter of <code>behavior_path_planner</code> stored under <code>autoware_launch</code></a></li>
-<li>Launch parameter files are stored under <code>autoware_launch</code>.</li>
+</ul>
+</li>
+<li>The examples for launch parameter files are stored under <code>autoware_launch</code>.</li>
 </ul>
 </li>
 </ul>
