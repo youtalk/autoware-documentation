@@ -3227,6 +3227,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5_4_2_2" id="__nav_5_4_2_2_label" tabindex="0">
@@ -3240,6 +3242,20 @@
           Features
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../features/cooperation/" class="md-nav__link">
+        Cooperation
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -5109,11 +5125,6 @@ For details, see the <a href="../../../../features/planning-factors/">planning f
 <td>The distance from the base link to the above pose.</td>
 </tr>
 <tr>
-<td>factors.type</td>
-<td>uint16</td>
-<td>The type of the steering factor.</td>
-</tr>
-<tr>
 <td>factors.direction</td>
 <td>uint16</td>
 <td>The direction of the steering factor.</td>
@@ -5124,9 +5135,24 @@ For details, see the <a href="../../../../features/planning-factors/">planning f
 <td>The status of the steering factor.</td>
 </tr>
 <tr>
+<td>factors.behavior</td>
+<td>string</td>
+<td>The behavior type of the steering factor.</td>
+</tr>
+<tr>
+<td>factors.sequence</td>
+<td>string</td>
+<td>The sequence type of the steering factor.</td>
+</tr>
+<tr>
 <td>factors.detail</td>
 <td>string</td>
 <td>The additional information of the steering factor.</td>
+</tr>
+<tr>
+<td>factors.cooperation</td>
+<td>autoware_adapi_v1_msgs/msg/CooperationStatus[&lt;=1]</td>
+<td>The cooperation status if the module supports.</td>
 </tr>
 </tbody>
 </table>
