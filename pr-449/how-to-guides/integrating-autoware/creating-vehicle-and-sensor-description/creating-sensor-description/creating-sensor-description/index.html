@@ -5535,8 +5535,10 @@
 
 <div><h1 id="creating-sensor-kit-description">Creating Sensor Kit Description<a class="headerlink" href="#creating-sensor-kit-description" title="Permanent link">#</a></h1>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h2>
-<p>The primary objective behind the development of this package is to delineate the sensor types, frame IDs, calibration parameters of said sensors, and to calling initialization files for all sensors.</p>
-<p>This page introduce following topics;</p>
+<p>The primary objective behind the development of this package is to delineate the sensor types,
+frame IDs, calibration parameters of said sensors,
+and to call initialization files for all sensors.</p>
+<p>This page introduces the following topics;</p>
 <ul>
 <li>&lt; VEHICLE-ID &gt; _sensor_kit_description</li>
 <li>&lt; VEHICLE-ID &gt; _sensor_kit_launch</li>
@@ -5588,9 +5590,13 @@
 <span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">.</span>
 </code></pre></div>
 </details>
-<p>A sensor_kit refers to a subset that includes multiple sensors, and <code>sensor_kit_base_link</code> is the name of sensor_kit frame in <code>sensor_kit_calibration.yaml</code>. In the file above, the frame_ids of the sensors and the calibration results of the sensors according to the parent_frame are given. Calibration results are given in euler format as [x, y, z, roll, pitch, yaw].</p>
+<p>A sensor_kit refers to a subset that includes multiple sensors,
+and <code>sensor_kit_base_link</code> is the name of sensor_kit frame in <code>sensor_kit_calibration.yaml</code>.
+In the file above, the frame_ids of the sensors and the calibration results of the sensors,
+according to the parent_frame, are given.
+Calibration results are given in euler format as [x, y, z, roll, pitch, yaw].</p>
 <p>The tutorial_vehicle file is <a href="https://github.com/leo-drive/tutorial_vehicle_sensor_kit/blob/main/tutorial_vehicle_sensor_kit_description/config/sensor_kit_calibration.yaml">sensor_kit_calibration.yaml</a> included in <a href="https://github.com/leo-drive/tutorial_vehicle_sensor_kit/tree/main">tutorial_vehicle_sensor_kit</a> and given below.
-This sample file was created for 1 camera, 2 lidars and 1 <abbr title="Global Navigation Satellite System">GNSS</abbr>/INS.</p>
+This sample file was created for one camera, two lidars and 1 <abbr title="Global Navigation Satellite System">GNSS</abbr>/INS.</p>
 <details class="note">
 <summary>sensor_kit_calibration.yaml for tutorial_vehicle_sensor_kit_launch</summary>
 <div class="highlight"><pre><span></span><code><span class="nt">sensor_kit_base_link</span><span class="p">:</span>
@@ -5644,7 +5650,10 @@ of the vehicle is parent.</p>
 <span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">.</span>
 </code></pre></div>
 </details>
-<p>The frame given as <code>base_link</code> in the above file can be defined as the 0 point of the vehicle. For this point, the desired sensor frame or any point on the vehicle can be selected, and the most suitable point is the point defined as the "axle", which is the middle of the two rear wheels of the vehicle.</p>
+<p>The frame given as <code>base_link</code> in the above file can be defined as point 0 of the vehicle.
+For this point, the desired sensor frame or any point on the vehicle can be selected,
+and the most suitable point is the point defined as the "axle,"
+which is the middle of the two rear wheels of the vehicle.</p>
 <p>The tutorial_vehicle file is <a href="https://github.com/leo-drive/tutorial_vehicle_sensor_kit/blob/main/tutorial_vehicle_sensor_kit_description/config/sensors_calibration.yaml">sensors_calibration.yaml</a> included in <a href="https://github.com/leo-drive/tutorial_vehicle_sensor_kit/tree/main">tutorial_vehicle_sensor_kit</a> and given below.
 In sensors_calibration.yaml file, parent_frame's position relative to base_link is given in euler format as [x, y, z, roll, pitch, yaw].</p>
 <details class="note">
@@ -5710,7 +5719,8 @@ included in <a href="https://github.com/autowarefoundation/sample_sensor_kit_lau
 </code></pre></div>
 </details>
 <p>The tutorial_vehicle file is <a href="https://github.com/leo-drive/tutorial_vehicle_sensor_kit/blob/main/tutorial_vehicle_sensor_kit_description/urdf/sensor_kit.xacro">sensor_kit.xacro</a> included in <a href="https://github.com/leo-drive/tutorial_vehicle_sensor_kit/tree/main">tutorial_vehicle_sensor_kit</a>.
-The <code>sensor_kit.xacro</code> given below for the tutorial vehicle is prepared for 1 camera, 2 lidars and 1 <abbr title="Global Navigation Satellite System">GNSS</abbr>/INS
+The <code>sensor_kit.xacro</code> given below for the tutorial vehicle is prepared for 1 camera,
+two lidars and 1 <abbr title="Global Navigation Satellite System">GNSS</abbr>/INS, 
 and there are definitions of macro files in xacro format for each different sensor.</p>
 <details class="note">
 <summary>sensor_kit.xacro for tutorial_vehicle_sensor_kit_launch</summary>
