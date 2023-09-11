@@ -5535,11 +5535,12 @@
 
 <div><h1 id="creating-sensor-kit-description">Creating Sensor Kit Description<a class="headerlink" href="#creating-sensor-kit-description" title="Permanent link">#</a></h1>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h2>
-<p>The primary objective behind the development of this package is to delineate the sensor types, frame IDs, calibration parameters of said sensors, and to calling initialization files for all sensors.</p>
-<p>This page introduce following topics;</p>
+<p>The primary objective behind the development of this package is to delineate the sensor types, frame IDs, calibration
+parameters of said sensors, and to calling initialization files for all sensors.</p>
+<p>This page introduce the following topics;</p>
 <ul>
-<li>&lt; VEHICLE-ID &gt; _sensor_kit_description</li>
-<li>&lt; VEHICLE-ID &gt; _sensor_kit_launch</li>
+<li>&lt; VEHICLE-ID &gt;_sensor_kit_description</li>
+<li>&lt; VEHICLE-ID &gt;_sensor_kit_launch</li>
 <li>common_sensor_launch</li>
 </ul>
 <div class="highlight"><pre><span></span><code>sensor_kit/
@@ -5547,10 +5548,12 @@
 <span class="gi">+   └─ VEHICLE-ID_sensor_kit_launch</span>
 </code></pre></div>
 <blockquote>
-<p><a href="https://github.com/leo-drive/tutorial_vehicle_sensor_kit">Here</a> is the sample repository created for the tutorial vehicle.</p>
+<p><a href="https://github.com/leo-drive/tutorial_vehicle_sensor_kit">Here</a> is the sample repository created for 
+the tutorial vehicle.</p>
 </blockquote>
 <h2 id="1-vehicle-id_sensor_kit_description">1. VEHICLE-ID_sensor_kit_description<a class="headerlink" href="#1-vehicle-id_sensor_kit_description" title="Permanent link">#</a></h2>
-<p>The contents of this package encompass xacro-formatted macro files that serve as interpretative tools for defining sensors, sensor calibration outcomes, and description files.</p>
+<p>The contents of this package encompass xacro-formatted macro files that serve as interpretative tools for defining
+sensors, sensor calibration outcomes, and description files.</p>
 <h3 id="folder-structure">Folder Structure<a class="headerlink" href="#folder-structure" title="Permanent link">#</a></h3>
 <details class="note">
 <summary>VEHICLE-ID_sensor_kit_description Folder Structure</summary>
@@ -5572,7 +5575,8 @@
 </ul>
 <h3 id="1-sensor_kit_calibrationyaml">1. sensor_kit_calibration.yaml<a class="headerlink" href="#1-sensor_kit_calibrationyaml" title="Permanent link">#</a></h3>
 <p>A file that defines the mounting positions and orientations of sensors with <code>sensor_kit_base_link</code> as the parent frame.</p>
-<p>The original file is <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/main/sample_sensor_kit_description/config/sensor_kit_calibration.yaml">sensor_kit_calibration.yaml</a> included in <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch/tree/main">sample_sensor_kit_launch</a>.</p>
+<p>The original file is <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/main/sample_sensor_kit_description/config/sensor_kit_calibration.yaml">sensor_kit_calibration.yaml</a>
+included in <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch/tree/main">sample_sensor_kit_launch</a>.</p>
 <details class="note">
 <summary>sensor_kit_calibration.yaml for sample_sensor_kit_launch</summary>
 <div class="highlight"><pre><span></span><code><span class="nt">sensor_kit_base_link</span><span class="p">:</span>
@@ -5588,8 +5592,13 @@
 <span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">.</span>
 </code></pre></div>
 </details>
-<p>A sensor_kit refers to a subset that includes multiple sensors, and <code>sensor_kit_base_link</code> is the name of sensor_kit frame in <code>sensor_kit_calibration.yaml</code>. In the file above, the frame_ids of the sensors and the calibration results of the sensors according to the parent_frame are given. Calibration results are given in euler format as [x, y, z, roll, pitch, yaw].</p>
-<p>The tutorial_vehicle file is <a href="https://github.com/leo-drive/tutorial_vehicle_sensor_kit/blob/main/tutorial_vehicle_sensor_kit_description/config/sensor_kit_calibration.yaml">sensor_kit_calibration.yaml</a> included in <a href="https://github.com/leo-drive/tutorial_vehicle_sensor_kit/tree/main">tutorial_vehicle_sensor_kit</a> and given below.
+<p>A sensor_kit refers to a subset that includes multiple sensors, and <code>sensor_kit_base_link</code> is the name of sensor_kit
+frame in <code>sensor_kit_calibration.yaml</code>. In the file above, the frame_ids of the sensors and the calibration results
+of the sensors according to the parent_frame are given. Calibration results are given in euler format as
+[x, y, z, roll, pitch, yaw].</p>
+<p>The tutorial_vehicle file is <a href="https://github.com/leo-drive/tutorial_vehicle_sensor_kit/blob/main/tutorial_vehicle_sensor_kit_description/config/sensor_kit_calibration.yaml">sensor_kit_calibration.yaml</a>
+included in <a href="https://github.com/leo-drive/tutorial_vehicle_sensor_kit/tree/main">tutorial_vehicle_sensor_kit</a>
+and given below.
 This sample file was created for 1 camera, 2 lidars and 1 <abbr title="Global Navigation Satellite System">GNSS</abbr>/INS.</p>
 <details class="note">
 <summary>sensor_kit_calibration.yaml for tutorial_vehicle_sensor_kit_launch</summary>
@@ -5624,11 +5633,14 @@ This sample file was created for 1 camera, 2 lidars and 1 <abbr title="Global Na
 <span class="w">    </span><span class="nt">yaw</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0</span>
 </code></pre></div>
 </details>
-<p>As seen above, [x, y, z, roll, pitch, yaw] values are set to 0 for all sensors. This is because the relevant values in the created file will be found after the calibration between the sensor and the <code>sensor_kit_base_link</code>. The parent_frame expressed by <code>sensor_kit_base_link</code> can belong to any sensor. However, it is preferred that the frame of the sensor located in the center
-of the vehicle is parent.</p>
+<p>As seen above, [x, y, z, roll, pitch, yaw] values are set to 0 for all sensors. This is because the relevant values in
+the created file will be found after the calibration between the sensor and the <code>sensor_kit_base_link</code>.
+The parent_frame expressed by <code>sensor_kit_base_link</code> can belong to any sensor. However, it is preferred that the
+frame of the sensor located in the center of the vehicle is parent.</p>
 <h3 id="2-sensors_calibrationyaml">2. sensors_calibration.yaml<a class="headerlink" href="#2-sensors_calibrationyaml" title="Permanent link">#</a></h3>
 <p>A file that defines the mounting positions and orientations of sensors with <code>base_link</code> as the parent frame.</p>
-<p>The original file is <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/main/sample_sensor_kit_description/config/sensors_calibration.yaml">sensors_calibration.yaml</a> included in <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch/tree/main">sample_sensor_kit_launch</a>.</p>
+<p>The original file is <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/main/sample_sensor_kit_description/config/sensors_calibration.yaml">sensors_calibration.yaml</a> included in
+<a href="https://github.com/autowarefoundation/sample_sensor_kit_launch/tree/main">sample_sensor_kit_launch</a>.</p>
 <details class="note">
 <summary>sensors_calibration.yaml for sample_sensor_kit_launch</summary>
 <div class="highlight"><pre><span></span><code><span class="nt">base_link</span><span class="p">:</span>
@@ -5644,9 +5656,13 @@ of the vehicle is parent.</p>
 <span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">.</span>
 </code></pre></div>
 </details>
-<p>The frame given as <code>base_link</code> in the above file can be defined as the 0 point of the vehicle. For this point, the desired sensor frame or any point on the vehicle can be selected, and the most suitable point is the point defined as the "axle", which is the middle of the two rear wheels of the vehicle.</p>
-<p>The tutorial_vehicle file is <a href="https://github.com/leo-drive/tutorial_vehicle_sensor_kit/blob/main/tutorial_vehicle_sensor_kit_description/config/sensors_calibration.yaml">sensors_calibration.yaml</a> included in <a href="https://github.com/leo-drive/tutorial_vehicle_sensor_kit/tree/main">tutorial_vehicle_sensor_kit</a> and given below.
-In sensors_calibration.yaml file, parent_frame's position relative to base_link is given in euler format as [x, y, z, roll, pitch, yaw].</p>
+<p>The frame given as <code>base_link</code> in the above file can be defined as the 0 point of the vehicle. For this point, the
+desired sensor frame or any point on the vehicle can be selected, and the most suitable point is the point defined
+as the "axle", which is the middle of the two rear wheels of the vehicle.</p>
+<p>The tutorial_vehicle file is <a href="https://github.com/leo-drive/tutorial_vehicle_sensor_kit/blob/main/tutorial_vehicle_sensor_kit_description/config/sensors_calibration.yaml">sensors_calibration.yaml</a>
+included in <a href="https://github.com/leo-drive/tutorial_vehicle_sensor_kit/tree/main">tutorial_vehicle_sensor_kit</a> and given below.
+In sensors_calibration.yaml file, parent_frame's position relative to base_link is given in euler format
+as [x, y, z, roll, pitch, yaw].</p>
 <details class="note">
 <summary>sensors_calibration.yaml for tutorial_vehicle_sensor_kit_launch</summary>
 <div class="highlight"><pre><span></span><code><span class="nt">base_link</span><span class="p">:</span>
@@ -5659,10 +5675,13 @@ In sensors_calibration.yaml file, parent_frame's position relative to base_link 
 <span class="w">    </span><span class="nt">yaw</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0</span>
 </code></pre></div>
 </details>
-<p>In this example file, the top_lidar in the center of the vehicle is selected as the parent_frame, and it is prepared in such a way that the position of the parent_frame element relative to the axle of the vehicle is entered.
-The [x, y, z, roll, pitch, yaw] values in this file can be entered by base_link - lidar calibration or by measuring from the 3D model.</p>
+<p>In this example file, the top_lidar in the center of the vehicle is selected as the parent_frame, and it is prepared in
+such a way that the position of the parent_frame element relative to the axle of the vehicle is entered.
+The [x, y, z, roll, pitch, yaw] values in this file can be entered by base_link - lidar calibration or by measuring
+from the 3D model.</p>
 <h3 id="3-sensor_kitxacro">3. sensor_kit.xacro<a class="headerlink" href="#3-sensor_kitxacro" title="Permanent link">#</a></h3>
-<p>Resolves the positions of sensors with sensor_kit_base_link as the parent and defines the positions and orientations based on sensor_kit_calibration.yaml in <code>individual_params</code>.</p>
+<p>Resolves the positions of sensors with sensor_kit_base_link as the parent and defines the positions and orientations
+based on sensor_kit_calibration.yaml in <code>individual_params</code>.</p>
 <p>The original file is <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/main/sample_sensor_kit_description/urdf/sensor_kit.xacro">sensor_kit.xacro</a>
 included in <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch/tree/main">sample_sensor_kit_launch</a>.</p>
 <details class="note">
@@ -5710,7 +5729,7 @@ included in <a href="https://github.com/autowarefoundation/sample_sensor_kit_lau
 </code></pre></div>
 </details>
 <p>The tutorial_vehicle file is <a href="https://github.com/leo-drive/tutorial_vehicle_sensor_kit/blob/main/tutorial_vehicle_sensor_kit_description/urdf/sensor_kit.xacro">sensor_kit.xacro</a> included in <a href="https://github.com/leo-drive/tutorial_vehicle_sensor_kit/tree/main">tutorial_vehicle_sensor_kit</a>.
-The <code>sensor_kit.xacro</code> given below for the tutorial vehicle is prepared for 1 camera, 2 lidars and 1 <abbr title="Global Navigation Satellite System">GNSS</abbr>/INS
+The <code>sensor_kit.xacro</code> given below for the tutorial vehicle is prepared for one camera, two lidars and one <abbr title="Global Navigation Satellite System">GNSS</abbr>/INS
 and there are definitions of macro files in xacro format for each different sensor.</p>
 <details class="note">
 <summary>sensor_kit.xacro for tutorial_vehicle_sensor_kit_launch</summary>
@@ -5797,7 +5816,8 @@ and there are definitions of macro files in xacro format for each different sens
 </code></pre></div>
 </details>
 <h3 id="4-sensorsxacro">4. sensors.xacro<a class="headerlink" href="#4-sensorsxacro" title="Permanent link">#</a></h3>
-<p>Resolves the positions of sensors with <code>base_link</code> as the parent frame and defines the positions and orientations based on <code>sensors_calibration.yaml</code> in <code>individual_params</code>.</p>
+<p>Resolves the positions of sensors with <code>base_link</code> as the parent frame and defines the positions and orientations based
+on <code>sensors_calibration.yaml</code> in <code>individual_params</code>.</p>
 <p>The original file is <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/main/sample_sensor_kit_description/urdf/sensors.xacro">sensors.xacro</a>
 included in <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch/tree/main">sample_sensor_kit_launch</a>.</p>
 <details class="note">
@@ -5883,10 +5903,12 @@ included in <a href="https://github.com/autowarefoundation/sample_sensor_kit_lau
 <p>The term "diagnostic aggregator" is a term used within <abbr title="Robot Operating System">ROS</abbr> 2 and is used to monitor and diagnose the health of systems.
 The aggregator_node will load analyzers to store and process the diagnostic data.
 Each analyzer inherits from the base class diagnostic_aggregator::Analyzer.
-Analyzers must be in packages that depend directly on pluginlib and <a href="http://wiki.ros.org/diagnostic_aggregator">diagnostic_aggregator</a>.</p>
+Analyzers must be in packages that depend directly on pluginlib
+and <a href="http://wiki.ros.org/diagnostic_aggregator">diagnostic_aggregator</a>.</p>
 <p>The required parameter file for the diagnostic_aggregator package is <code>sensor_kit.param.yaml</code>. The original file is
 <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/main/sample_sensor_kit_launch/config/diagnostic_aggregator/sensor_kit.param.yaml">sensor_kit.param.yaml</a>
-included in <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch/tree/main">sample_sensor_kit_launch</a> and given below.</p>
+included in <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch/tree/main">sample_sensor_kit_launch</a>
+and given below.</p>
 <details class="note">
 <summary>diagnostic_aggregator/sensor_kit.param.yaml for sample_sensor_kit_launch</summary>
 <div class="highlight"><pre><span></span><code><span class="nt">/**</span><span class="p">:</span>
@@ -6025,7 +6047,8 @@ The tutorial_vehicle file is <a href="https://github.com/leo-drive/tutorial_vehi
 <p>This package outputs a dummy diagnostic data for debugging and developing.</p>
 <p>The required parameter file for the dummy_diag_publisher package is <code>sensor_kit.param.yaml</code>. The original file is
 <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/main/sample_sensor_kit_launch/config/dummy_diag_publisher/sensor_kit.param.yaml">sensor_kit.param.yaml</a>
-included in <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch/tree/main">sample_sensor_kit_launch</a> and given below.</p>
+included in <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch/tree/main">sample_sensor_kit_launch</a>
+and given below.</p>
 <details class="note">
 <summary>dummy_diag_publisher/sensor_kit.param.yaml for sample_sensor_kit_launch</summary>
 <div class="highlight"><pre><span></span><code><span class="c1"># Description:</span>
