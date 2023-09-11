@@ -261,6 +261,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-451/design/autoware-interfaces/ad-api/features/cooperation/</loc>
+         <lastmod>2023-09-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-451/design/autoware-interfaces/ad-api/features/fail-safe/</loc>
          <lastmod>2023-09-11</lastmod>
          <changefreq>daily</changefreq>
@@ -396,6 +401,21 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-451/design/autoware-interfaces/ad-api/list/api/planning/cooperation/get_policies/</loc>
+         <lastmod>2023-09-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-451/design/autoware-interfaces/ad-api/list/api/planning/cooperation/set_commands/</loc>
+         <lastmod>2023-09-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-451/design/autoware-interfaces/ad-api/list/api/planning/cooperation/set_policies/</loc>
+         <lastmod>2023-09-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-451/design/autoware-interfaces/ad-api/list/api/routing/clear_route/</loc>
          <lastmod>2023-09-11</lastmod>
          <changefreq>daily</changefreq>
@@ -462,6 +482,26 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-451/design/autoware-interfaces/ad-api/types/</loc>
+         <lastmod>2023-09-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-451/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/CooperationCommand/</loc>
+         <lastmod>2023-09-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-451/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/CooperationDecision/</loc>
+         <lastmod>2023-09-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-451/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/CooperationPolicy/</loc>
+         <lastmod>2023-09-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-451/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/CooperationStatus/</loc>
          <lastmod>2023-09-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -631,6 +671,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-451/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/srv/GetCooperationPolicies/</loc>
+         <lastmod>2023-09-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-451/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/srv/GetDoorLayout/</loc>
          <lastmod>2023-09-11</lastmod>
          <changefreq>daily</changefreq>
@@ -642,6 +687,16 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-451/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/srv/InitializeLocalization/</loc>
+         <lastmod>2023-09-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-451/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/srv/SetCooperationCommands/</loc>
+         <lastmod>2023-09-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-451/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/srv/SetCooperationPolicies/</loc>
          <lastmod>2023-09-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -691,12 +746,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-451/design/autoware-interfaces/ad-api/use-cases/request-to-cooperate/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-451/design/autoware-interfaces/ad-api/use-cases/vehicle-monitoring/</loc>
          <lastmod>2023-09-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-451/design/autoware-interfaces/ad-api/use-cases/vehicle-monitoring/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-451/design/autoware-interfaces/ad-api/use-cases/vehicle-operation/</loc>
          <lastmod>2023-09-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
