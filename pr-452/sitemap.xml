@@ -1046,6 +1046,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-452/reference-hw/ad_sensor_kit_suppliers/</loc>
+         <lastmod>2023-09-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-452/reference-hw/cameras/</loc>
          <lastmod>2023-09-12</lastmod>
          <changefreq>daily</changefreq>
