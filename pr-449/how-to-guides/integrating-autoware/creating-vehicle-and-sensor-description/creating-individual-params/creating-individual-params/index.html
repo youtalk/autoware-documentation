@@ -5363,7 +5363,7 @@ VEHICLE-ID_sensor_kit_description/config.</p>
 <p>The original file is <a href="https://github.com/autowarefoundation/autoware_individual_params/blob/main/individual_params/config/default/sample_sensor_kit/imu_corrector.param.yaml">imu_corrector_param.yaml</a> included in <a href="https://github.com/autowarefoundation/autoware_individual_params/tree/main/individual_params">individual_params</a>.
 The <code>imu_corrector_param.yaml</code> created for <code>sample_sensor_kit</code> is given below.</p>
 <details class="note">
-<summary>sensor_kit_calibration.yaml for sample_sensor_kit_launch</summary>
+<summary>imu_corrector.param.yaml for sample_sensor_kit</summary>
 <div class="highlight"><pre><span></span><code><span class="nt">/**</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">ros__parameters</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">angular_velocity_stddev_xx</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.00339</span>
@@ -5377,18 +5377,18 @@ The <code>imu_corrector_param.yaml</code> created for <code>sample_sensor_kit</c
 <p><code>imu_corrector_param.yaml</code> is calculated with <a href="https://github.com/tier4/CalibrationTools/blob/tier4/universe/localization/deviation_estimation_tools/ReadMe.md">deviation_estimation_tools</a>.</p>
 <p>The tutorial_vehicle file is <a href="https://github.com/leo-drive/tutorial_vehicle_individual_params/blob/main/individual_params/config/tutorial_vehicle/tutorial_vehicle_sensor_kit/imu_corrector.param.yaml">imu_corrector_param.yaml</a> included in
 <a href="https://github.com/leo-drive/tutorial_vehicle_individual_params">individual_params</a> and given below.</p>
-<div class="codehilite"><pre><span></span><code>```yaml
-/**:
-  ros__parameters:
-    angular_velocity_offset_x: -0.00017
-    angular_velocity_offset_y: 0.00206
-    angular_velocity_offset_z: -0.00006
-    angular_velocity_stddev_xx: 0.05779
-    angular_velocity_stddev_yy: 0.05779
-    angular_velocity_stddev_zz: 0.05779
-```
+<details class="note">
+<summary>imu_corrector.param.yaml for tutorial_vehicle_sensor_kit</summary>
+<div class="highlight"><pre><span></span><code><span class="nt">/**</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">ros__parameters</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">angular_velocity_offset_x</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-0.00017</span>
+<span class="w">    </span><span class="nt">angular_velocity_offset_y</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.00206</span>
+<span class="w">    </span><span class="nt">angular_velocity_offset_z</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-0.00006</span>
+<span class="w">    </span><span class="nt">angular_velocity_stddev_xx</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.05779</span>
+<span class="w">    </span><span class="nt">angular_velocity_stddev_yy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.05779</span>
+<span class="w">    </span><span class="nt">angular_velocity_stddev_zz</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.05779</span>
 </code></pre></div>
-
+</details>
 <h2 id="sensor_kit_calibrationyaml">sensor_kit_calibration.yaml<a class="headerlink" href="#sensor_kit_calibrationyaml" title="Permanent link">#</a></h2>
 <p>How it is created is explained <code>creating_sensor_description.md</code>.</p>
 <h2 id="sensors_calibrationyaml">sensors_calibration.yaml<a class="headerlink" href="#sensors_calibrationyaml" title="Permanent link">#</a></h2>
