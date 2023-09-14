@@ -3259,6 +3259,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5_4_2_2" id="__nav_5_4_2_2_label" tabindex="0">
@@ -3272,6 +3274,20 @@
           Features
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cooperation/" class="md-nav__link">
+        Cooperation
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -5189,142 +5205,130 @@
 <p>This API manages the planned behavior of the vehicle.
 Applications can notify the vehicle behavior to the people around and visualize it for operator and passengers.</p>
 <h2 id="velocity-factors">Velocity factors<a class="headerlink" href="#velocity-factors" title="Permanent link">#</a></h2>
-<p>The velocity factors is an array of information on the behavior that the vehicle stops (or slows down).
-Each factor has a type shown below, pose in the base link, distance, status, and detailed data depending on its type.
-As the vehicle approaches the stop position, this factor appears with a status of APPROACHING.
-And when the vehicle reaches that position and stops, the status will be STOPPED.
-The pose indicates the stop position or the base link if the stop position cannot be calculated.</p>
-<p><img alt="velocity-factors" src="velocity-factors.drawio.svg"></p>
+<p>The velocity factors is an array of information on the behavior that the vehicle stops or slows down.
+Each factor has a behavior type which is described below.
+Some behavior types have sequence and details as additional information.</p>
 <table>
 <thead>
 <tr>
-<th>Factor Type</th>
+<th>Behavior</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>SURROUNDING_OBSTACLE</td>
+<td>surrounding-obstacle</td>
 <td>There are obstacles immediately around the vehicle.</td>
 </tr>
 <tr>
-<td>ROUTE_OBSTACLE</td>
+<td>route-obstacle</td>
 <td>There are obstacles along the route ahead.</td>
 </tr>
 <tr>
-<td>INTERSECTION</td>
+<td>intersection</td>
 <td>There are obstacles in other lanes in the path.</td>
 </tr>
 <tr>
-<td>CROSSWALK</td>
+<td>crosswalk</td>
 <td>There are obstacles on the crosswalk.</td>
 </tr>
 <tr>
-<td>REAR_CHECK</td>
+<td>rear-check</td>
 <td>There are obstacles behind that would be in a human driver's blind spot.</td>
 </tr>
 <tr>
-<td>USER_DEFINED_DETECTION_AREA</td>
-<td>There are obstacles in the predefined detection area.</td>
+<td>user-defined-attention-area</td>
+<td>There are obstacles in the predefined attention area.</td>
 </tr>
 <tr>
-<td>NO_STOPPING_AREA</td>
+<td>no-stopping-area</td>
 <td>There is not enough space beyond the no stopping area.</td>
 </tr>
 <tr>
-<td>STOP_SIGN</td>
+<td>stop-sign</td>
 <td>A stop by a stop sign.</td>
 </tr>
 <tr>
-<td>TRAFFIC_SIGNAL</td>
+<td>traffic-signal</td>
 <td>A stop by a traffic signal.</td>
 </tr>
 <tr>
-<td>V2I_GATE_CONTROL_ENTER</td>
-<td>A stop by a V2I gate entering.</td>
+<td>v2x-gate-area</td>
+<td>A stop by a gate area. It has enter and leave as sequences and v2x type as details.</td>
 </tr>
 <tr>
-<td>V2I_GATE_CONTROL_LEAVE</td>
-<td>A stop by a V2I gate leaving.</td>
-</tr>
-<tr>
-<td>MERGE</td>
+<td>merge</td>
 <td>A stop before merging lanes.</td>
 </tr>
 <tr>
-<td>SIDEWALK</td>
+<td>sidewalk</td>
 <td>A stop before crossing the sidewalk.</td>
 </tr>
 <tr>
-<td>LANE_CHANGE</td>
+<td>lane-change</td>
 <td>A lane change.</td>
 </tr>
 <tr>
-<td>AVOIDANCE</td>
+<td>avoidance</td>
 <td>A path change to avoid an obstacle in the current lane.</td>
 </tr>
 <tr>
-<td>EMERGENCY_OPERATION</td>
+<td>emergency-operation</td>
 <td>A stop by emergency instruction from the operator.</td>
 </tr>
 </tbody>
 </table>
+<p>Each factor also provides status, poses in the base link frame, and distance from that pose.
+As the vehicle approaches the stop position, this factor appears with a status of APPROACHING.
+And when the vehicle reaches that position and stops, the status will be STOPPED.
+The pose indicates the stop position, or the base link if the stop position cannot be calculated.</p>
+<p><img alt="velocity-factors" src="velocity-factors.drawio.svg"></p>
 <h2 id="steering-factors">Steering factors<a class="headerlink" href="#steering-factors" title="Permanent link">#</a></h2>
 <p>The steering factors is an array of information on the maneuver that requires use of turn indicators, such as turning left or right.
-Each factor has a type shown below, pose in the base link, distance, status, and detailed data depending on its type.
-As the vehicle approaches the position to start steering, this factor appears with a status of APPROACHING.
-And when the vehicle reaches that position, the status will be TURNING.
-The pose indicates the start position when APPROACHING and the end position when TURNING.</p>
-<p><img alt="steering-factors-1" src="steering-factors-1.drawio.svg"></p>
-<p>In cases such as lane change and avoidance, the vehicle will start steering at any position in the range depending on the situation.
-As the vehicle approaches the start position of the range, this factor appears with a status of APPROACHING.
-And when the vehicle reaches that position, the status will be TRYING.
-Then, when it is possible, the vehicle will start steering and the status will be TURNING.
-The pose indicates the start of the range (A) when APPROACHING and the end of the range (B) when TRYING.
-The position to end steering (C to D) for TURNING depends on the position to start steering.</p>
-<p><img alt="steering-factors-2" src="steering-factors-2.drawio.svg"></p>
+Each factor has a behavior type which is described below and steering direction.
+Some behavior types have sequence and details as additional information.</p>
 <table>
 <thead>
 <tr>
-<th>Factor Type</th>
+<th>Behavior</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>INTERSECTION</td>
+<td>intersection</td>
 <td>A turning left or right at an intersection.</td>
 </tr>
 <tr>
-<td>LANE_CHANGE</td>
+<td>lane-change</td>
 <td>A lane change.</td>
 </tr>
 <tr>
-<td>AVOIDANCE_PATH_CHANGE</td>
-<td>A path change to avoid an obstacle in the current lane.</td>
+<td>avoidance</td>
+<td>A path change to avoid an obstacle. It has a sequence of change and return.</td>
 </tr>
 <tr>
-<td>AVOIDANCE_PATH_RETURN</td>
-<td>A path change to return to the original lane after avoiding an obstacle.</td>
-</tr>
-<tr>
-<td>STATION</td>
-<td>T.B.D. (bus stop)</td>
-</tr>
-<tr>
-<td>PULL_OUT</td>
+<td>start-planner</td>
 <td>T.B.D.</td>
 </tr>
 <tr>
-<td>PULL_OVER</td>
+<td>goal-planner</td>
 <td>T.B.D.</td>
 </tr>
 <tr>
-<td>EMERGENCY_OPERATION</td>
+<td>emergency-operation</td>
 <td>A path change by emergency instruction from the operator.</td>
 </tr>
 </tbody>
 </table>
+<p>Each factor also provides status, poses in the base link frame, and distances from that poses.
+As the vehicle approaches the position to start steering, this factor appears with a status of APPROACHING.
+And when the vehicle reaches that position, the status will be TURNING.
+The poses indicate the start and end position of the section where the status is TURNING.</p>
+<p><img alt="steering-factors-1" src="steering-factors-1.drawio.svg"></p>
+<p>In cases such as lane change and avoidance, the vehicle will start steering at any position in the range depending on the situation.
+For these types, the section where the status is TURNING will be updated dynamically and the poses will follow that.</p>
+<p><img alt="steering-factors-2" src="steering-factors-2.drawio.svg"></p>
 <!-- prettier-ignore --></div>
 
 

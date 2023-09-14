@@ -14,7 +14,7 @@
         <link rel="prev" href="../steering_factors/">
       
       
-        <link rel="next" href="../../routing/clear_route/">
+        <link rel="next" href="../cooperation/get_policies/">
       
       <link rel="icon" href="../../../../../../../assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.20">
@@ -3259,6 +3259,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5_4_2_2" id="__nav_5_4_2_2_label" tabindex="0">
@@ -3272,6 +3274,20 @@
           Features
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../features/cooperation/" class="md-nav__link">
+        Cooperation
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -5141,19 +5157,29 @@ For details, see the <a href="../../../../features/planning-factors/">planning f
 <td>The distance from the base link to the above pose.</td>
 </tr>
 <tr>
-<td>factors.type</td>
-<td>uint16</td>
-<td>The type of the velocity factor.</td>
-</tr>
-<tr>
 <td>factors.status</td>
 <td>uint16</td>
 <td>The status of the velocity factor.</td>
 </tr>
 <tr>
+<td>factors.behavior</td>
+<td>string</td>
+<td>The behavior type of the velocity factor.</td>
+</tr>
+<tr>
+<td>factors.sequence</td>
+<td>string</td>
+<td>The sequence type of the velocity factor.</td>
+</tr>
+<tr>
 <td>factors.detail</td>
 <td>string</td>
 <td>The additional information of the velocity factor.</td>
+</tr>
+<tr>
+<td>factors.cooperation</td>
+<td>autoware_adapi_v1_msgs/msg/CooperationStatus[&lt;=1]</td>
+<td>The cooperation status if the module supports.</td>
 </tr>
 </tbody>
 </table>
@@ -5200,13 +5226,13 @@ For details, see the <a href="../../../../features/planning-factors/">planning f
         
         
           
-          <a href="../../routing/clear_route/" class="md-footer__link md-footer__link--next" aria-label="Next: /api/routing/clear_route" rel="next">
+          <a href="../cooperation/get_policies/" class="md-footer__link md-footer__link--next" aria-label="Next: /api/planning/cooperation/get_policies" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                /api/routing/clear_route
+                /api/planning/cooperation/get_policies
               </div>
             </div>
             <div class="md-footer__button md-icon">

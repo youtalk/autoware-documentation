@@ -3259,6 +3259,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5_4_2_2" id="__nav_5_4_2_2_label" tabindex="0">
@@ -3272,6 +3274,20 @@
           Features
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../features/cooperation/" class="md-nav__link">
+        Cooperation
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -5115,7 +5131,22 @@
 <div class="highlight"><pre><span></span><code># constants for common use
 uint16 UNKNOWN = 0
 
-# constants for type
+# constants for status
+uint16 APPROACHING = 1
+uint16 STOPPED = 2
+
+# variables
+geometry_msgs/Pose pose
+float32 distance
+uint16 status
+string behavior
+string sequence
+string detail
+autoware_adapi_v1_msgs/CooperationStatus[&lt;=1] cooperation
+
+
+
+# deprecated constants for type
 uint16 SURROUNDING_OBSTACLE = 1
 uint16 ROUTE_OBSTACLE = 2
 uint16 INTERSECTION = 3
@@ -5134,20 +5165,12 @@ uint16 AVOIDANCE = 15
 uint16 EMERGENCY_STOP_OPERATION = 16
 uint16 NO_DRIVABLE_LANE = 17
 
-# constants for status
-uint16 APPROACHING = 1
-uint16 STOPPED = 2
-
-# variables
-geometry_msgs/Pose pose
-float32 distance
+# deprecated variables
 uint16 type
-uint16 status
-string detail
 </code></pre></div>
 <h2 id="this-type-uses">This type uses<a class="headerlink" href="#this-type-uses" title="Permanent link">#</a></h2>
 <ul>
-<li>None</li>
+<li><a href="../CooperationStatus">autoware_adapi_v1_msgs/msg/CooperationStatus</a></li>
 </ul>
 <h2 id="this-type-is-used-by">This type is used by<a class="headerlink" href="#this-type-is-used-by" title="Permanent link">#</a></h2>
 <ul>
