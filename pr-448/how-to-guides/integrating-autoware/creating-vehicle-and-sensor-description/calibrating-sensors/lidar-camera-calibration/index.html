@@ -5556,6 +5556,64 @@ First of all, we need to build extrinsic_calibration_manager package:</p>
 <p>For tutorial vehicle:</p>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>extrinsic_calibration_manager<span class="w"> </span>calibration.launch.xml<span class="w"> </span>mode:<span class="o">=</span>mapping_based<span class="w"> </span>sensor_model:<span class="o">=</span>tutorial_vehicle_sensor_kit<span class="w"> </span>vehicle_model:<span class="o">=</span>tutorial_vehicle<span class="w"> </span>vehicle_id:<span class="o">=</span>tutorial_vehicle
 </code></pre></div>
+<p>Then, we need to play our bag file.</p>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>bag<span class="w"> </span>play<span class="w"> </span>&lt;rosbag_path&gt;<span class="w"> </span>--clock<span class="w"> </span>-l<span class="w"> </span>-r<span class="w"> </span><span class="m">0</span>.2<span class="w"> </span><span class="se">\</span>
+--remap<span class="w"> </span>/tf:<span class="o">=</span>/null/tf<span class="w"> </span>/tf_static:<span class="o">=</span>/null/tf_static<span class="w"> </span><span class="c1"># if tf is recorded</span>
+</code></pre></div>
+<p>You will be shown a manual interactive calibrator rqt window and Rviz2.
+You must add your lidar sensor point cloud to Rviz2, then we can publish points for the calibrator.</p>
+<p><img alt="interactive-calibrator" src="../images/interactive-calibrator.png"></p>
+<p>After that, Let's start by pressing the 'Publish Point'
+button and selecting points on the point cloud that are also included in the projected image.
+Then,
+you need to click on the image point that corresponds to the projected lidar point on the image.
+You will see matched calibration points.</p>
+<p><img alt="interactive-calibration-points.png" src="../images/interactive-calibration-points.png"></p>
+<p>The red points indicate selected lidar points and green ones indicate selected image points.
+You must match the minimum 6 points to perform calibration.
+If you have a wrong match, you can remove this match by just clicking on them.
+After selecting points on image and lidar, you are ready to calibrate.
+If selected point match size is greater than 6, "Calibrate extrinsic" button will be enabled.
+Click this button and change tf source <code>Initial /tf</code> to <code>Calibrator</code> to see calibration results.</p>
+<p><img alt="interactive-calibrator-results.png" src="../images/interactive-calibrator-results.png"></p>
+<p>After the completion of the calibration,
+you need to save your calibration results via "Save calibration" button.
+The saved format is json,
+so you need
+to update calibration params at <code>sensor_kit_calibration.yaml</code> on <code>individual_params</code> and <code>sensor_kit_description</code> packages.</p>
+<details class="note">
+<summary>sample calibration output</summary>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"stamp"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"sec"</span><span class="p">:</span><span class="w"> </span><span class="mi">1694776487</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"nanosec"</span><span class="p">:</span><span class="w"> </span><span class="mi">423288443</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">"frame_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sensor_kit_base_link"</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"child_frame_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"camera0/camera_link"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"transform"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"translation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"x"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.054564283153017916</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.040947512210503106</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"z"</span><span class="p">:</span><span class="w"> </span><span class="mf">-0.071735410952332</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">"rotation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"x"</span><span class="p">:</span><span class="w"> </span><span class="mf">-0.49984112274024817</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4905405357176159</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"z"</span><span class="p">:</span><span class="w"> </span><span class="mf">-0.5086269994990131</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"w"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5008267267391722</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"roll"</span><span class="p">:</span><span class="w"> </span><span class="mf">-1.5517347113946862</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"pitch"</span><span class="p">:</span><span class="w"> </span><span class="mf">-0.01711459479043047</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"yaw"</span><span class="p">:</span><span class="w"> </span><span class="mf">-1.5694590141484235</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+<p>Here is the video
+for demonstrating the lidar-camera calibration process on tutorial_vehicle:
+<div class="video-container"><iframe src="https://youtube.com/embed/1q4nBml9jRA" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></p>
 <!-- prettier-ignore --></div>
 
 
