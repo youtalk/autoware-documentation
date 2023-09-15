@@ -1340,7 +1340,7 @@
   
     <li class="md-nav__item">
       <a href="../vehicle-interface/" class="md-nav__link">
-        Vehicle Interface
+        Vehicle interface
       </a>
     </li>
   
@@ -5265,7 +5265,7 @@ The following example will show you how to create a vehicle interface package na
 </code></pre></div>
 <p>Then, you should write your implementation of vehicle interface in <code>my_vehicle_interface/src</code>.
 Again, since this implementation is so specific to the control device of your vehicle, it is beyond the scope of this document to describe how to implement your vehicle interface in detail.
-Here are some factors that might be considered.</p>
+Here are some factors that might be considered:</p>
 <ul>
 <li>
 <p>Some necessary topic subscription of control commands topics from Autoware to control your vehicle:</p>
@@ -5345,7 +5345,7 @@ with describing sample topics and message types.</p>
 <p>You must create a subscriber and publisher with these topics on your vehicle interface.
 Let's
 explain with the simple demonstration of subscribing <code>/control/command/control_cmd</code> and publishing <code>/vehicle/status/gear_status</code> topics.</p>
-<p>So, your <code>YOUR-OWN-VEHICLE-INTERFACE.hpp</code> header file should include this:</p>
+<p>So, your <code>YOUR-OWN-VEHICLE-INTERFACE.hpp</code> header file should be like this:</p>
 <div class="highlight"><pre><span></span><code><span class="p">...</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;autoware_auto_control_msgs/msg/ackermann_control_command.hpp&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;autoware_auto_vehicle_msgs/msg/gear_report.hpp&gt;</span>
@@ -5377,8 +5377,9 @@ explain with the simple demonstration of subscribing <code>/control/command/cont
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">from_vehicle</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>And your <code>YOUR-OWN-VEHICLE-INTERFACE.cpp</code> .cpp file should include this:</p>
+<p>And your <code>YOUR-OWN-VEHICLE-INTERFACE.cpp</code> .cpp file should be like this:</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;YOUR-OWN-VEHICLE-INTERFACE&gt;</span><span class="c1">/&lt;YOUR-OWN-VEHICLE-INTERFACE&gt;.hpp&gt;</span>
+<span class="p">...</span>
 
 <span class="o">&lt;</span><span class="n">YOUR</span><span class="o">-</span><span class="n">OWN</span><span class="o">-</span><span class="n">VEHICLE</span><span class="o">-</span><span class="n">INTERFACE</span><span class="o">&gt;::&lt;</span><span class="n">YOUR</span><span class="o">-</span><span class="n">OWN</span><span class="o">-</span><span class="n">VEHICLE</span><span class="o">-</span><span class="n">INTERFACE</span><span class="o">&gt;</span><span class="p">()</span>
 <span class="o">:</span><span class="w"> </span><span class="n">Node</span><span class="p">(</span><span class="s">"&lt;YOUR-OWN-VEHICLE-INTERFACE&gt;"</span><span class="p">)</span>
@@ -5424,8 +5425,25 @@ explain with the simple demonstration of subscribing <code>/control/command/cont
 <li>
 <p>Communication between the vehicle interface and your vehicle's control device</p>
 <ul>
+<li>If you are planning to drive by autoware with your vehicle, then your vehicle must satisfy some requirements:<ul>
+<li>For Type A<ul>
+<li>Your vehicle can be controlled in longitudinal direction by the target velocity or acceleration.</li>
+<li>Your vehicle can be controlled in lateral direction by the target steering angle. (Optionally, you can use steering rate as well)</li>
+<li>Your vehicle must provide velocity or acceleration information and steering information which is described at the vehicle status topics above.</li>
+</ul>
+</li>
+<li>For Type B<ul>
+<li>Your vehicle can be controlled in longitudinal direction by the specific target commands. (i.e., brake and gas pedal)</li>
+<li>Your vehicle can be controlled in lateral direction by the specific target commands. (i.e., steering torque)</li>
+<li>Your vehicle must provide velocity or acceleration information and steering information which is described at the vehicle status topics above.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>You can also use mixed Type A and Type B, for example, you want to use lateral controlling with a steering angle and longitudinal controlling with specific targets. In order to do that, you must subscribe <code>/control/command/control_cmd</code> for getting steering information, and you must subscribe <code>/control/command/actuation_cmd</code> for gas and brake pedal actuation commands. Then, you must handle these messages on your own vehicle_interface design.</li>
 <li>You must adopt your vehicle low-level controller to run with autoware.</li>
-<li>If you are using CAN communication on your vehicle, please look at this package: <a href="https://github.com/autowarefoundation/ros2_socketcan">ros2_socketcan</a></li>
+<li>If you are using CAN communication on your vehicle, please refer to <a href="https://github.com/autowarefoundation/ros2_socketcan">ros2_socketcan</a> package by Autoware.</li>
+<li>If you are using Serial communication on your vehicle, you can look at <a href="https://github.com/fedetft/serial-port/tree/master/3_async">serial-port</a>.</li>
 </ul>
 </li>
 </ul>
@@ -5433,7 +5451,8 @@ explain with the simple demonstration of subscribing <code>/control/command/cont
 <li>Modification of control values if needed</li>
 </ul>
 <h3 id="3-prepare-a-launch-file">3. Prepare a launch file<a class="headerlink" href="#3-prepare-a-launch-file" title="Permanent link">#</a></h3>
-<p>After you implement your vehicle interface or you want to debug it by launching it, create a launch file of your vehicle interface, and include it to <code>vehicle_interface.launch.xml</code>.</p>
+<p>After you implement your vehicle interface, or you want to debug it by launching it,
+create a launch file of your vehicle interface, and include it to <code>vehicle_interface.launch.xml</code>.</p>
 <p>Do not get confused. First, you need to create a launch file for your own vehicle interface module (like <code>my_vehicle_interface.launch.xml</code>) <strong>and then include that to <code>vehicle_interface.launch.xml</code> which exists in another directory.</strong> Here are the details.</p>
 <ol>
 <li>
@@ -5572,7 +5591,7 @@ Most of the files are omitted for clarity, but the files shown here needs modifi
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../vehicle-interface/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Vehicle Interface" rel="prev">
+          <a href="../vehicle-interface/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Vehicle interface" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -5581,7 +5600,7 @@ Most of the files are omitted for clarity, but the files shown here needs modifi
                 Previous
               </span>
               <div class="md-ellipsis">
-                Vehicle Interface
+                Vehicle interface
               </div>
             </div>
           </a>
