@@ -5244,14 +5244,14 @@ VEHICLE-ID_sensor_kit_description/config.</p>
 <p><a href="https://github.com/leo-drive/tutorial_vehicle_individual_params/tree/main">Here</a> is the sample repository created for the tutorial vehicle.</p>
 </div>
 <ul>
-<li>You must change the sensor_kit with you forked at creating repository sections.</li>
+<li>You must replace the <code>sample_sensor_kit</code> with the one you forked when creating the Autoware repository page.</li>
 </ul>
-<div class="highlight"><pre><span></span><code>autoware_individual_params/individual_params/config/sensor_kit/
+<div class="highlight"><pre><span></span><code>autoware_individual_params/individual_params/config/&lt;VEHICLE-ID&gt;/
 <span class="gd">-   ├─ sample_sensor_kit/</span>
 <span class="gi">+   └─ VEHICLE-ID_sensor_kit/</span>
 </code></pre></div>
 <h3 id="folder-structure">Folder Structure<a class="headerlink" href="#folder-structure" title="Permanent link">#</a></h3>
-<p>The folder structure of forked <code>individual_params</code> repository should be like this:</p>
+<p>The folder structure of forked <code>individual_params</code> should be like this:</p>
 <div class="highlight"><pre><span></span><code>individual_params/
 <span class="w"> </span> └─ config/
 <span class="w"> </span>      └─ VEHICLE-ID/
@@ -5262,9 +5262,11 @@ VEHICLE-ID_sensor_kit_description/config.</p>
 </code></pre></div>
 <h2 id="imu_correctorparamyaml">imu_corrector.param.yaml<a class="headerlink" href="#imu_correctorparamyaml" title="Permanent link">#</a></h2>
 <p>A file used by imu_corrector.</p>
-<p>The default <a href="https://github.com/autowarefoundation/autoware.universe/blob/main/sensing/imu_corrector/config/imu_corrector.param.yaml">imu_corrector_param.yaml</a> included in <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/imu_corrector">imu_corrector_package</a>,
-but it will be overridden by <a href="https://github.com/autowarefoundation/autoware_individual_params/tree/main/individual_params">autoware_individual_param</a>
+<p>The default <a href="https://github.com/autowarefoundation/autoware.universe/blob/main/sensing/imu_corrector/config/imu_corrector.param.yaml">imu_corrector.param.yaml</a> included in <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/imu_corrector">imu_corrector_package</a>,
+but it will be overridden by <a href="https://github.com/autowarefoundation/autoware_individual_params/tree/main/individual_params">autoware_individual_param</a>.
 The <code>imu_corrector_param.yaml</code> created for <code>sample_sensor_kit</code> is given below.</p>
+<details class="note">
+<summary>imu_corrector_param.yaml for sample_sensor_kit</summary>
 <div class="highlight"><pre><span></span><code><span class="nt">/**</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">ros__parameters</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">angular_velocity_stddev_xx</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.00339</span>
@@ -5274,8 +5276,11 @@ The <code>imu_corrector_param.yaml</code> created for <code>sample_sensor_kit</c
 <span class="w">    </span><span class="nt">angular_velocity_offset_y</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-0.007148</span>
 <span class="w">    </span><span class="nt">angular_velocity_offset_z</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-0.001499</span>
 </code></pre></div>
+</details>
 <p><code>imu_corrector_param.yaml</code> is calculated with <a href="https://github.com/tier4/CalibrationTools/blob/tier4/universe/localization/deviation_estimation_tools/ReadMe.md">deviation_estimation_tools</a>.</p>
-<p>The tutorial_vehicle's <a href="https://github.com/leo-drive/tutorial_vehicle_individual_params/blob/main/individual_params/config/tutorial_vehicle/tutorial_vehicle_sensor_kit/imu_corrector.param.yaml">imu_corrector_param.yaml</a> file is given below.</p>
+<p>The tutorial_vehicle's <a href="https://github.com/leo-drive/tutorial_vehicle_individual_params/blob/main/individual_params/config/tutorial_vehicle/tutorial_vehicle_sensor_kit/imu_corrector.param.yaml">imu_corrector.param.yaml</a> file is given below.</p>
+<details class="note">
+<summary>imu_corrector_param.yaml for tutorial_vehicle_sensor_kit</summary>
 <div class="highlight"><pre><span></span><code><span class="nt">/**</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">ros__parameters</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">angular_velocity_offset_x</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-0.00017</span>
@@ -5285,10 +5290,19 @@ The <code>imu_corrector_param.yaml</code> created for <code>sample_sensor_kit</c
 <span class="w">    </span><span class="nt">angular_velocity_stddev_yy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.05779</span>
 <span class="w">    </span><span class="nt">angular_velocity_stddev_zz</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.05779</span>
 </code></pre></div>
+</details>
 <h2 id="sensor_kit_calibrationyaml">sensor_kit_calibration.yaml<a class="headerlink" href="#sensor_kit_calibrationyaml" title="Permanent link">#</a></h2>
-<p>How it is created is explained <a href="../creating-sensor-description/">creating_sensor_description.md</a>.</p>
+<ul>
+<li>How it is created is explained in <a href="../creating-sensor-description/">Creating sensor kit description page</a>.
+  <code>sensor_kit_calibration.yaml</code> will be same file which included in sensor_kit_description package. After the calibration
+  process, the calibration values will be changed.</li>
+</ul>
 <h2 id="sensors_calibrationyaml">sensors_calibration.yaml<a class="headerlink" href="#sensors_calibrationyaml" title="Permanent link">#</a></h2>
-<p>How it is created is explained <a href="../creating-sensor-description/">creating_sensor_description.md</a>.</p>
+<ul>
+<li>How it is created is explained in <a href="../creating-sensor-description/">Creating sensor kit description page</a>.
+  <code>sensor_kit_calibration.yaml</code> will be same file which included in sensor_kit_description package. After the calibration
+  process, the calibration values will be changed.</li>
+</ul>
 <!-- prettier-ignore --></div>
 
 

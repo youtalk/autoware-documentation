@@ -5316,16 +5316,16 @@
 <p><a href="https://github.com/leo-drive/tutorial_vehicle_launch">Here</a> is the sample repository created for the tutorial vehicle.</p>
 </div>
 <ul>
-<li>You must change the sensor_kit with you forked at creating repository sections.</li>
+<li>You must replace the <code>sample_vehicle_launch</code> with the one you forked when creating the Autoware repository page.</li>
 </ul>
-<div class="highlight"><pre><span></span><code>vehicle/
-<span class="gd">-   ├─ sample_vehicle_launch/</span>
-<span class="gi">+   └─ VEHICLE-ID_vehicle_launch</span>
+<div class="highlight"><pre><span></span><code>YOUR-OWN-AUTOWARE-DIR/src/vehicle/
+<span class="gd">-       ├─ sample_vehicle_launch/</span>
+<span class="gi">+       └─ VEHICLE-ID_vehicle_launch</span>
 </code></pre></div>
 <h2 id="1-vehicle-id_vehicle_description">1. VEHICLE-ID_vehicle_description<a class="headerlink" href="#1-vehicle-id_vehicle_description" title="Permanent link">#</a></h2>
 <p>This package contains the parameters of the vehicle, macro files and fbx files.</p>
 <h3 id="folder-structure">Folder Structure<a class="headerlink" href="#folder-structure" title="Permanent link">#</a></h3>
-<p>The folder structure of forked <code>VEHICLE-ID_vehicle_description</code> repository should be like this:</p>
+<p>The folder structure of forked <code>VEHICLE-ID_vehicle_description</code> should be like this:</p>
 <div class="highlight"><pre><span></span><code>VEHICLE-ID_vehicle_description/
 <span class="w"> </span>  ├─ config/
 <span class="w"> </span>  │     ├─ mirror.param.yaml
@@ -5430,7 +5430,7 @@ included in <a href="https://github.com/leo-drive/tutorial_vehicle_launch/tree/m
 <h3 id="4-vehiclefbx">4. vehicle.fbx<a class="headerlink" href="#4-vehiclefbx" title="Permanent link">#</a></h3>
 <p><code>vehicle.fbx</code> is a 3D model file used for visualization in RVIZ.
 You must add the fbx or dae file of your own vehicle.</p>
-<p>The file <a href="https://github.com/autowarefoundation/sample_vehicle_launch/tree/main/sample_vehicle_description/mesh">lexus.dae</a> lexus vehicle for sample_vehicle_launch is given below.</p>
+<p>The 3D model of Lexus vehicle prepared for sample_vehicle_launch is <a href="https://github.com/autowarefoundation/sample_vehicle_launch/tree/main/sample_vehicle_description/mesh">here</a>.</p>
 <h3 id="5-vehiclexacro">5. vehicle.xacro<a class="headerlink" href="#5-vehiclexacro" title="Permanent link">#</a></h3>
 <p><code>vehicle.xacro</code> is a macro file that defines the vehicle model.</p>
 <p>The original <a href="https://github.com/autowarefoundation/sample_vehicle_launch/blob/main/sample_vehicle_description/urdf/vehicle.xacro">vehicle.xacro</a> file for sample_vehicle_launch is given below.</p>
@@ -5457,7 +5457,7 @@ You must add the fbx or dae file of your own vehicle.</p>
 <p><code>vehicle_interface.launch.xml</code> is the launch file related to the drive system. Please modify it according
 to the configuration of your vehicle's drive system.</p>
 <h3 id="folder-structure_1">Folder Structure<a class="headerlink" href="#folder-structure_1" title="Permanent link">#</a></h3>
-<p>The folder structure of forked <code>VEHICLE-ID_vehicle_launch</code> repository should be like this:</p>
+<p>The folder structure of forked <code>VEHICLE-ID_vehicle_launch</code> should be like this:</p>
 <div class="highlight"><pre><span></span><code>VEHICLE-ID_vehicle_launch/
 <span class="w"> </span>  └─ launch/
 <span class="w"> </span>        └─ vehicle_interface.launch.xml
