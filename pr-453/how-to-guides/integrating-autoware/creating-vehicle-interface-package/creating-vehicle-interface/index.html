@@ -5267,70 +5267,108 @@ The following example will show you how to create a vehicle interface package na
 Again, since this implementation is so specific to the control device of your vehicle, it is beyond the scope of this document to describe how to implement your vehicle interface in detail.
 Here are some factors that might be considered:</p>
 <ul>
-<li>
-<p>Some necessary topic subscription of control commands topics from Autoware to control your vehicle:</p>
+<li>Some necessary topic subscription of control commands topics from Autoware to control your vehicle:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Topic Name</th>
+<th>Topic Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/control/command/control_cmd</td>
+<td>autoware_auto_control_msgs/msg/AckermannControlCommand</td>
+<td>This topic includes main topics for controlling our vehicle like a steering tire angle, speed, acceleration, etc.</td>
+</tr>
+<tr>
+<td>/control/command/gear_cmd</td>
+<td>autoware_auto_vehicle_msgs/msg/GearCommand</td>
+<td>This topic includes gear command for autonomous driving, please check message values to make sense of gears values. Please check <a href="https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_vehicle_msgs/msg/GearCommand.idl">the message definition</a> of this type.</td>
+</tr>
+<tr>
+<td>/control/current_gate_mode</td>
+<td>tier4_control_msgs/msg/GateMode</td>
+<td>This topic describes control on the autoware or not. Please check <a href="https://github.com/tier4/tier4_autoware_msgs/blob/tier4/universe/tier4_control_msgs/msg/GateMode.msg">GateMode</a> message type for detailed information.</td>
+</tr>
+<tr>
+<td>/control/command/emergency_cmd</td>
+<td>tier4_vehicle_msgs/msg/VehicleEmergencyStamped</td>
+<td>This topic sends emergency when autoware is on emergency state. Please check <a href="https://github.com/tier4/tier4_autoware_msgs/blob/tier4/universe/tier4_vehicle_msgs/msg/VehicleEmergencyStamped.msg">VehicleEmergencyStamped</a> message type for detailed information.</td>
+</tr>
+<tr>
+<td>/control/command/turn_indicators_cmd</td>
+<td>autoware_auto_vehicle_msgs/msg/TurnIndicatorsCommand</td>
+<td>This topic indicates a turn signal for your own vehicle. Please check <a href="https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_vehicle_msgs/msg/TurnIndicatorsCommand.idl">TurnIndicatorsCommand</a> message type for detailed information.</td>
+</tr>
+<tr>
+<td>/control/command/hazard_lights_cmd</td>
+<td>autoware_auto_vehicle_msgs/msg/HazardLightsCommand</td>
+<td>This topic sends command for hazard lights. Please check <a href="https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_vehicle_msgs/msg/HazardLightsCommand.idl">HazardLightsCommand</a></td>
+</tr>
+<tr>
+<td>/control/command/actuation_cmd</td>
+<td>tier4_vehicle_msgs/msg/ActuationCommandStamped</td>
+<td>This topic is enabled when you use <code>raw_vehicle_command_converter</code> for control your vehicle with TYPE B which we mentioned at <a href="../vehicle-interface/">Vehicle interface</a> section. In summary, if you are using Type B on your vehicle, this topic appeared and included with gas, brake, steering-wheel actuation commands. Please check <a href="https://github.com/tier4/tier4_autoware_msgs/blob/tier4/universe/tier4_vehicle_msgs/msg/ActuationCommandStamped.msg">ActuationCommandStamped</a> message type for detailed information.</td>
+</tr>
+<tr>
+<td>etc.</td>
+<td>etc.</td>
+<td>etc.</td>
+</tr>
+</tbody>
+</table>
 <ul>
-<li>/control/command/control_cmd (autoware_auto_control_msgs/msg/AckermannControlCommand)<ul>
-<li>This topic includes main topics for controlling our vehicle like a steering tire angle, speed, acceleration, etc.</li>
+<li>Some necessary topic publication of vehicle status topics from vehicle interface to Autoware:</li>
 </ul>
-</li>
-<li>/control/command/gear_cmd (autoware_auto_vehicle_msgs/msg/GearCommand)<ul>
-<li>This topic includes gear command for autonomous driving, please check message values to make sense of gears values. Please check <a href="https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_vehicle_msgs/msg/GearCommand.idl">the message definition</a> of this type.</li>
-</ul>
-</li>
-<li>/control/current_gate_mode (tier4_control_msgs/msg/GateMode)<ul>
-<li>This topic describes control on the autoware or not. Please check <a href="https://github.com/tier4/tier4_autoware_msgs/blob/tier4/universe/tier4_control_msgs/msg/GateMode.msg">GateMode</a> message type for detailed information.</li>
-</ul>
-</li>
-<li>/control/command/emergency_cmd (tier4_vehicle_msgs/msg/VehicleEmergencyStamped)<ul>
-<li>This topic sends emergency when autoware is on emergency state. Please check <a href="https://github.com/tier4/tier4_autoware_msgs/blob/tier4/universe/tier4_vehicle_msgs/msg/VehicleEmergencyStamped.msg">VehicleEmergencyStamped</a> message type for detailed information.</li>
-</ul>
-</li>
-<li>/control/command/turn_indicators_cmd (autoware_auto_vehicle_msgs/msg/TurnIndicatorsCommand)<ul>
-<li>This topic indicates a turn signal for your own vehicle. Please check <a href="https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_vehicle_msgs/msg/TurnIndicatorsCommand.idl">TurnIndicatorsCommand</a> message type for detailed information.</li>
-</ul>
-</li>
-<li>/control/command/hazard_lights_cmd (autoware_auto_vehicle_msgs/msg/HazardLightsCommand)<ul>
-<li>This topic sends command for hazard lights. Please check <a href="https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_vehicle_msgs/msg/HazardLightsCommand.idl">HazardLightsCommand</a></li>
-</ul>
-</li>
-<li>/control/command/actuation_cmd (tier4_vehicle_msgs/msg/ActuationCommandStamped)<ul>
-<li>This topic is enabled when you use <code>raw_vehicle_command_converter</code> for control your vehicle with TYPE B which we mentioned at <a href="../vehicle-interface/">Vehicle interface</a> section. In summary, if you are using Type B on your vehicle, this topic appeared and included with gas, brake, steering-wheel actuation commands. Please check <a href="https://github.com/tier4/tier4_autoware_msgs/blob/tier4/universe/tier4_vehicle_msgs/msg/ActuationCommandStamped.msg">ActuationCommandStamped</a> message type for detailed information.</li>
-</ul>
-</li>
-<li>etc.</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>Some necessary topic publication of vehicle status topics from vehicle interface to Autoware:<ul>
-<li>/vehicle/status/battery_charge (tier4_vehicle_msgs/msg/BatteryStatus)<ul>
-<li>This topic includes battery information. Please check <a href="https://github.com/tier4/tier4_autoware_msgs/blob/tier4/universe/tier4_vehicle_msgs/msg/BatteryStatus.msg">BatteryStatus</a> message type for detailed information. You can use this value as describing fuel level, etc.</li>
-</ul>
-</li>
-<li>/vehicle/status/control_mode (autoware_auto_vehicle_msgs/msg/ControlModeReport)<ul>
-<li>This topic describes the current control mode of vehicle. Please check <a href="https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_vehicle_msgs/msg/ControlModeReport.idl">ControlModeReport</a> message type for detailed information.</li>
-</ul>
-</li>
-<li>/vehicle/status/gear_status (autoware_auto_vehicle_msgs/msg/GearReport)<ul>
-<li>This topic includes the current gear of the vehicle. Please check <a href="https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_vehicle_msgs/msg/GearReport.idl">GearReport</a> message type for detailed information.</li>
-</ul>
-</li>
-<li>/vehicle/status/hazard_lights_status (autoware_auto_vehicle_msgs/msg/HazardLightsReport)<ul>
-<li>This topic describes hazard light status of the vehicle. Please check <a href="https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_vehicle_msgs/msg/HazardLightsReport.idl">HazardLightsReport</a> message type for detailed information.</li>
-</ul>
-</li>
-<li>/vehicle/status/steering_status (autoware_auto_vehicle_msgs/msg/SteeringReport)<ul>
-<li>This topic reports the steering status of the vehicle. Please check <a href="https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_vehicle_msgs/msg/SteeringReport.idl">SteeringReport</a> message type for detailed information.</li>
-</ul>
-</li>
-<li>/vehicle/status/turn_indicators_status (autoware_auto_vehicle_msgs/msg/TurnIndicatorsReport)<ul>
-<li>This topic describes turn signal light status of the vehicle. Please check <a href="https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_vehicle_msgs/msg/TurnIndicatorsReport.idl">TurnIndicatorsReport</a> message type for detailed information.</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Topic Name</th>
+<th>Topic Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/vehicle/status/battery_charge</td>
+<td>tier4_vehicle_msgs/msg/BatteryStatus</td>
+<td>This topic includes battery information. Please check <a href="https://github.com/tier4/tier4_autoware_msgs/blob/tier4/universe/tier4_vehicle_msgs/msg/BatteryStatus.msg">BatteryStatus</a> message type for detailed information. You can use this value as describing fuel level, etc.</td>
+</tr>
+<tr>
+<td>/vehicle/status/control_mode</td>
+<td>autoware_auto_vehicle_msgs/msg/ControlModeReport</td>
+<td>This topic describes the current control mode of vehicle. Please check <a href="https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_vehicle_msgs/msg/ControlModeReport.idl">ControlModeReport</a> message type for detailed information.</td>
+</tr>
+<tr>
+<td>/vehicle/status/gear_status</td>
+<td>autoware_auto_vehicle_msgs/msg/GearReport</td>
+<td>This topic includes the current gear status of the vehicle. Please check <a href="https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_vehicle_msgs/msg/GearReport.idl">GearReport</a> message type for detailed information.</td>
+</tr>
+<tr>
+<td>/vehicle/status/hazard_lights_status</td>
+<td>autoware_auto_vehicle_msgs/msg/HazardLightsReport</td>
+<td>This topic describes hazard light status of the vehicle. Please check <a href="https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_vehicle_msgs/msg/HazardLightsReport.idl">HazardLightsReport</a> message type for detailed information.</td>
+</tr>
+<tr>
+<td>/vehicle/status/turn_indicators_status</td>
+<td>autoware_auto_vehicle_msgs/msg/TurnIndicatorsReport</td>
+<td>This topic reports the steering status of the vehicle. Please check <a href="https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_vehicle_msgs/msg/SteeringReport.idl">SteeringReport</a> message type for detailed information.</td>
+</tr>
+<tr>
+<td>/vehicle/status/steering_status</td>
+<td>autoware_auto_vehicle_msgs/msg/SteeringReport</td>
+<td>This topic reports the steering status of the vehicle. Please check <a href="https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_vehicle_msgs/msg/SteeringReport.idl">SteeringReport</a> message type for detailed information.</td>
+</tr>
+<tr>
+<td>etc.</td>
+<td>etc.</td>
+<td>etc.</td>
+</tr>
+</tbody>
+</table>
 <p>This diagram as an example for communication of vehicle interface and autoware
 with describing sample topics and message types.</p>
 <figure>
@@ -5425,21 +5463,33 @@ explain with the simple demonstration of subscribing <code>/control/command/cont
 <li>
 <p>Communication between the vehicle interface and your vehicle's control device</p>
 <ul>
-<li>If you are planning to drive by autoware with your vehicle, then your vehicle must satisfy some requirements:<ul>
-<li>For Type A<ul>
-<li>Your vehicle can be controlled in longitudinal direction by the target velocity or acceleration.</li>
-<li>Your vehicle can be controlled in lateral direction by the target steering angle. (Optionally, you can use steering rate as well)</li>
-<li>Your vehicle must provide velocity or acceleration information and steering information which is described at the vehicle status topics above.</li>
-</ul>
+<li>
+<p>If you are planning to drive by autoware with your vehicle, then your vehicle must satisfy some requirements:</p>
+<table>
+<thead>
+<tr>
+<th>Type A</th>
+<th>Type B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Your vehicle can be controlled in longitudinal direction by the target velocity or acceleration.</td>
+<td>Your vehicle can be controlled in longitudinal direction by the specific target commands. (i.e., brake and gas pedal)</td>
+</tr>
+<tr>
+<td>Your vehicle can be controlled in lateral direction by the target steering angle. (Optionally, you can use steering rate as well)</td>
+<td>Your vehicle can be controlled in lateral direction by the specific target commands. (i.e., steering torque)</td>
+</tr>
+<tr>
+<td>Your vehicle must provide velocity or acceleration information and steering information which is described at the vehicle status topics above.</td>
+<td>Your vehicle must provide velocity or acceleration information and steering information which is described at the vehicle status topics above.</td>
+</tr>
+</tbody>
+</table>
 </li>
-<li>For Type B<ul>
-<li>Your vehicle can be controlled in longitudinal direction by the specific target commands. (i.e., brake and gas pedal)</li>
-<li>Your vehicle can be controlled in lateral direction by the specific target commands. (i.e., steering torque)</li>
-<li>Your vehicle must provide velocity or acceleration information and steering information which is described at the vehicle status topics above.</li>
 </ul>
-</li>
-</ul>
-</li>
+<ul>
 <li>You can also use mixed Type A and Type B, for example, you want to use lateral controlling with a steering angle and longitudinal controlling with specific targets. In order to do that, you must subscribe <code>/control/command/control_cmd</code> for getting steering information, and you must subscribe <code>/control/command/actuation_cmd</code> for gas and brake pedal actuation commands. Then, you must handle these messages on your own vehicle_interface design.</li>
 <li>You must adopt your vehicle low-level controller to run with autoware.</li>
 <li>If you are using CAN communication on your vehicle, please refer to <a href="https://github.com/autowarefoundation/ros2_socketcan">ros2_socketcan</a> package by Autoware.</li>
