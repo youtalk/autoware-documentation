@@ -911,6 +911,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-448/how-to-guides/integrating-autoware/creating-vehicle-and-sensor-description/calibrating-sensors/intrinsic-camera-calibration/</loc>
+         <lastmod>2023-09-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-448/how-to-guides/integrating-autoware/creating-vehicle-and-sensor-description/calibrating-sensors/lidar-camera-calibration/</loc>
          <lastmod>2023-09-18</lastmod>
          <changefreq>daily</changefreq>
