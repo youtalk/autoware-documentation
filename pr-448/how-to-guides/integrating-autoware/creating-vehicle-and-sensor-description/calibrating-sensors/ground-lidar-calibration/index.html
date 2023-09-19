@@ -5265,7 +5265,7 @@ in a way that aligns the points
 corresponding to the ground within the point cloud with the XY plane of the base_link.
 This means that only the z, roll, and pitch values of the tf undergo calibration,
 while the remaining x, y, and yaw values must be calibrated using other methods,
-such as <a href="./generic-calibration.md">manual adjustment</a> or <a href="../lidar-lidar-calibration/">mapping-based lidar-lidar calibration</a>.</p>
+such as <a href="../manual-calibration/">manual adjustment</a> or <a href="../lidar-lidar-calibration/">mapping-based lidar-lidar calibration</a>.</p>
 <p>You need to apply this calibration method to each lidar separately,
 so our bag should contain all lidars to be calibrated.</p>
 <details class="note">
@@ -5285,7 +5285,7 @@ Topic<span class="w"> </span>information:<span class="w"> </span>Topic:<span cla
 <p>We will start with creating launch file four our own vehicle like the previous sections process:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>&lt;YOUR-OWN-AUTOWARE-DIRECTORY&gt;/src/autoware/calibration_tools/sensor
 <span class="nb">cd</span><span class="w"> </span>extrinsic_calibration_manager/launch
-<span class="nb">cd</span><span class="w"> </span>&lt;YOUR-OWN-SENSOR-KIT-NAME&gt;<span class="w"> </span><span class="c1"># i.e. for our guide, it will ve cd tutorial_vehicle_sensor_kit which is created in generic calibration</span>
+<span class="nb">cd</span><span class="w"> </span>&lt;YOUR-OWN-SENSOR-KIT-NAME&gt;<span class="w"> </span><span class="c1"># i.e. for our guide, it will ve cd tutorial_vehicle_sensor_kit which is created in manual calibration</span>
 touch<span class="w"> </span>ground_plane.launch.xml<span class="w"> </span>ground_plane_sensor_kit.launch.xml
 </code></pre></div>
 <p>The created <code>ground_plane.launch.xml</code> and <code>ground_plane_sensor_kit.launch.xml</code> are version of sample sensor kit

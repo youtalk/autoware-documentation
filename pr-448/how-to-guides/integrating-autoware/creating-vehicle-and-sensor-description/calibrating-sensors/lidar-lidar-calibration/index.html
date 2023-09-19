@@ -5269,7 +5269,7 @@ It's based on local mapping and "GICP" method to derive the relation between mai
 If you want more details about these methods such as usage, troubleshooting etc. please check the links above.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Please get initial calibration results from <a href="./generic-calibration.md">Generic Calibration</a> section, it is important for getting accurate results from this tool.
+<p>Please get initial calibration results from <a href="../manual-calibration/">Manual Calibration</a> section, it is important for getting accurate results from this tool.
 We will use initial calibration parameters that we calculated on previous step on this tutorial.</p>
 </div>
 <details class="note">
@@ -5290,7 +5290,7 @@ Topic<span class="w"> </span>information:<span class="w"> </span>Topic:<span cla
 process:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>&lt;YOUR-OWN-AUTOWARE-DIRECTORY&gt;/src/autoware/calibration_tools/sensor
 <span class="nb">cd</span><span class="w"> </span>extrinsic_calibration_manager/launch
-<span class="nb">cd</span><span class="w"> </span>&lt;YOUR-OWN-SENSOR-KIT-NAME&gt;<span class="w"> </span><span class="c1"># i.e. for our guide, it will ve cd tutorial_vehicle_sensor_kit which is created in generic calibration</span>
+<span class="nb">cd</span><span class="w"> </span>&lt;YOUR-OWN-SENSOR-KIT-NAME&gt;<span class="w"> </span><span class="c1"># i.e. for our guide, it will ve cd tutorial_vehicle_sensor_kit which is created in manual calibration</span>
 touch<span class="w"> </span>mapping_based.launch.xml<span class="w"> </span>mapping_based_sensor_kit.launch.xml
 </code></pre></div>
 <p>The created <code>mapping_based.launch.xml</code> and <code>mapping_based_sensor_kit.launch.xml</code> are version of sample sensor kit
@@ -5658,7 +5658,7 @@ or can be prematurely concluded by invoking this service:</p>
 <p>After the mapping phase of calibration is completed, then the calibration process will start.
 After the calibration is completed, then you should rviz2 screen like the image below:</p>
 <p><img alt="mapping-based-calibration-result" src="../images/mapping-based-calibration-result.png"></p>
-<p>The red points indicate pointcloud that initial calibration results of <a href="./generic-calibration.md">previous section</a>.
+<p>The red points indicate pointcloud that initial calibration results of <a href="../manual-calibration/">previous section</a>.
 The green points indicate aligned point (calibration result).
 The calibration results will be saved automatically on your
 <code>dst_yaml</code> ($HOME/sensor_kit_calibration.yaml) at this tutorial.</p>
