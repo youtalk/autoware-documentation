@@ -1363,6 +1363,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#setting-of-sensor_kit_base_link-position-according-to-the-base_link" class="md-nav__link">
+    Setting of sensor_kit_base_link position according to the base_link
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#installing-tier-ivs-calibrationtools-repositories-on-autoware" class="md-nav__link">
     Installing TIER IV's CalibrationTools repositories on autoware
   </a>
@@ -1373,6 +1380,47 @@
   <a href="#usage-of-calibrationtools" class="md-nav__link">
     Usage of CalibrationTools
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-packages-you-can-check-out" class="md-nav__link">
+    Other packages you can check out
+  </a>
+  
+    <nav class="md-nav" aria-label="Other packages you can check out">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#camera-calibration" class="md-nav__link">
+    Camera calibration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lidar-lidar-calibration" class="md-nav__link">
+    Lidar-lidar calibration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lidar-camera-calibration" class="md-nav__link">
+    Lidar-camera calibration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lidar-imu-calibration" class="md-nav__link">
+    Lidar-IMU calibration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -5238,6 +5286,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#setting-of-sensor_kit_base_link-position-according-to-the-base_link" class="md-nav__link">
+    Setting of sensor_kit_base_link position according to the base_link
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#installing-tier-ivs-calibrationtools-repositories-on-autoware" class="md-nav__link">
     Installing TIER IV's CalibrationTools repositories on autoware
   </a>
@@ -5248,6 +5303,47 @@
   <a href="#usage-of-calibrationtools" class="md-nav__link">
     Usage of CalibrationTools
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-packages-you-can-check-out" class="md-nav__link">
+    Other packages you can check out
+  </a>
+  
+    <nav class="md-nav" aria-label="Other packages you can check out">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#camera-calibration" class="md-nav__link">
+    Camera calibration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lidar-lidar-calibration" class="md-nav__link">
+    Lidar-lidar calibration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lidar-camera-calibration" class="md-nav__link">
+    Lidar-camera calibration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lidar-imu-calibration" class="md-nav__link">
+    Lidar-IMU calibration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -5273,6 +5369,14 @@
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
 <p>Autoware expects to have multiple sensors attached to the vehicle as input to perception, localization, and planning stack. These sensors must be calibrated correctly, and their positions must be defined using either urdf files (as in <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch/tree/main/sample_sensor_kit_description">sample_sensor_kit</a>) or as tf launch files.
 In order to do that, we will use TIER IV' <a href="https://github.com/tier4/CalibrationTools">CalibrationTools</a> repository.</p>
+<h2 id="setting-of-sensor_kit_base_link-position-according-to-the-base_link">Setting of sensor_kit_base_link position according to the base_link<a class="headerlink" href="#setting-of-sensor_kit_base_link-position-according-to-the-base_link" title="Permanent link">#</a></h2>
+<p>In previous section (creating the vehicle and sensor model),
+we mentioned about <code>sensor_calibration.yaml</code>.
+This file stores <code>sensor_kit_base_link</code> (child frame) position and orientation according to the
+<code>base_link</code> (parent frame).
+We need to update this relative position
+(all values were initially set equal to zero when file is created)
+with using CAD data of our vehicle.</p>
 <h2 id="installing-tier-ivs-calibrationtools-repositories-on-autoware">Installing TIER IV's CalibrationTools repositories on autoware<a class="headerlink" href="#installing-tier-ivs-calibrationtools-repositories-on-autoware" title="Permanent link">#</a></h2>
 <p>After completing previous steps (creating your own autoware,
 creating a vehicle and sensor model etc.)
@@ -5301,6 +5405,28 @@ we will modify <code>extrinsic_calibration_package</code> for our sensor kit.</p
 <li><a href="../intrinsic-camera-calibration/">Intrinsic Camera Calibration</a></li>
 <li><a href="../lidar-camera-calibration/">Lidar-Camera Calibration</a></li>
 </ul>
+<h2 id="other-packages-you-can-check-out">Other packages you can check out<a class="headerlink" href="#other-packages-you-can-check-out" title="Permanent link">#</a></h2>
+<h3 id="camera-calibration">Camera calibration<a class="headerlink" href="#camera-calibration" title="Permanent link">#</a></h3>
+<h4 id="intrinsic-calibration">Intrinsic Calibration<a class="headerlink" href="#intrinsic-calibration" title="Permanent link">#</a></h4>
+<ul>
+<li>Navigation2 provides a <a href="https://navigation.ros.org/tutorials/docs/camera_calibration.html">good tutorial for camera internal calibration</a>.</li>
+<li><a href="https://autocore.ai/">AutoCore</a> provides a <a href="https://github.com/autocore-ai/calibration_tools/tree/main/camera_intrinsic_calib">light-weight tool</a>.</li>
+</ul>
+<h3 id="lidar-lidar-calibration">Lidar-lidar calibration<a class="headerlink" href="#lidar-lidar-calibration" title="Permanent link">#</a></h3>
+<h4 id="lidar-lidar-calibration-tool-from-autocore">Lidar-Lidar Calibration tool from Autocore<a class="headerlink" href="#lidar-lidar-calibration-tool-from-autocore" title="Permanent link">#</a></h4>
+<p><a href="https://github.com/autocore-ai/calibration_tools/tree/main/lidar-lidar-calib">LL-Calib on GitHub</a>, provided by <a href="https://autocore.ai/">AutoCore</a>, is a lightweight toolkit for online/offline 3D LiDAR to LiDAR calibration. It's based on local mapping and "GICP" method to derive the relation between main and sub lidar. Information on how to use the tool, troubleshooting tips and example rosbags can be found at the above link.</p>
+<h3 id="lidar-camera-calibration">Lidar-camera calibration<a class="headerlink" href="#lidar-camera-calibration" title="Permanent link">#</a></h3>
+<p>Developed by MathWorks, The Lidar Camera Calibrator app enables you to interactively estimate the rigid transformation between a lidar sensor and a camera.</p>
+<p><a href="https://ww2.mathworks.cn/help/lidar/ug/get-started-lidar-camera-calibrator.html">https://ww2.mathworks.cn/help/lidar/ug/get-started-lidar-camera-calibrator.html</a></p>
+<p>SensorsCalibration toolbox v0.1: One more open source method for Lidar-camera calibration.
+This is a project for LiDAR to camera calibration,including automatic calibration and manual calibration</p>
+<p><a href="https://github.com/PJLab-ADG/SensorsCalibration/blob/master/lidar2camera/README.md">https://github.com/PJLab-ADG/SensorsCalibration/blob/master/lidar2camera/README.md</a></p>
+<p>Developed by <a href="https://autocore.ai/">AutoCore</a>, an easy-to-use lightweight toolkit for Lidar-camera-calibration is proposed. Only in three steps, a fully automatic calibration will be done.</p>
+<p><a href="https://github.com/autocore-ai/calibration_tools/tree/main/lidar-cam-calib-related">https://github.com/autocore-ai/calibration_tools/tree/main/lidar-cam-calib-related</a></p>
+<h3 id="lidar-imu-calibration">Lidar-<abbr title="Inertial Measurement Unit">IMU</abbr> calibration<a class="headerlink" href="#lidar-imu-calibration" title="Permanent link">#</a></h3>
+<p>Developed by <a href="https://github.com/APRIL-ZJU">APRIL Lab</a> at Zhejiang University in China, the LI-Calib calibration tool is a toolkit for calibrating the 6DoF rigid transformation and the time offset between a 3D LiDAR and an <abbr title="Inertial Measurement Unit">IMU</abbr>, based on continuous-time batch optimization.
+<abbr title="Inertial Measurement Unit">IMU</abbr>-based cost and LiDAR point-to-surfel (surfel = surface element) distance are minimized jointly, which renders the calibration problem well-constrained in general scenarios.</p>
+<p><a href="https://autocore.ai/">AutoCore</a> has forked the original LI-Calib tool and overwritten the Lidar input for more general usage. Information on how to use the tool, troubleshooting tips and example rosbags can be found at the <a href="https://github.com/autocore-ai/calibration_tools/tree/main/li_calib">LI-Calib fork on GitHub</a>.</p>
 <!-- prettier-ignore --></div>
 
 
