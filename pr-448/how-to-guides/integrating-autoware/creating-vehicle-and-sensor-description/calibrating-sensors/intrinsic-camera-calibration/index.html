@@ -1418,6 +1418,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#intrinsic-camera-calibration_1" class="md-nav__link">
+    Intrinsic camera calibration
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -5223,6 +5230,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#intrinsic-camera-calibration_1" class="md-nav__link">
+    Intrinsic camera calibration
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -5249,13 +5263,96 @@ These parameters include focal length, optical center, and lens distortion coeff
 In order to perform camera Intrinsic calibration,
 we will use TIER IV's <a href="https://github.com/tier4/CalibrationTools/blob/tier4/universe/sensor/docs/how_to_intrinsic_camera.md">Intrinsic Camera Calibrator</a> tool.
 First of all, we need a calibration board which can be dot, chess or apriltag grid board.
-In this tutorial, we will use a 7x7 chess board consisting of 7 cm squares.</p>
+In this tutorial, we will use this 7x7 chess board consisting of 7 cm squares:</p>
+<figure>
+<p><img alt="chess_board" src="../images/chess-board-7x7.png" width="500">
+  </p>
+<figcaption>
+    Our 7x7 calibration chess board for this tutorial section.
+  </figcaption>
+</figure>
 <p>Here are some calibration board samples from <a href="https://github.com/tier4/CalibrationTools/blob/tier4/universe/sensor/docs/how_to_intrinsic_camera.md">Intrinsic Camera Calibrator</a> page:</p>
 <ul>
 <li>Chess boards (<a href="https://github.com/tier4/CalibrationTools/blob/tier4/universe/sensor/docs/resource/checkerboard_8x6.pdf">6x8 example</a>)</li>
 <li>Circle dot boards (<a href="https://github.com/tier4/CalibrationTools/blob/tier4/universe/sensor/docs/resource/circle_8x6.pdf">6x8 example</a>)</li>
 <li>Apriltag grid board (<a href="https://github.com/tier4/CalibrationTools/blob/tier4/universe/sensor/docs/resource/apriltag_grid_3x4.pdf">3x4 example</a>)</li>
 </ul>
+<p>If you want to use bag file for a calibration process,
+the bag file must include <code>image_raw</code> topic of your camera sensor,
+but you can perform calibration with real time (recommended).</p>
+<details class="note">
+<summary><abbr title="Robot Operating System">ROS</abbr> 2 Bag example for intrinsic camera calibration process</summary>
+<div class="highlight"><pre><span></span><code>Files:<span class="w">             </span>rosbag2_2023_09_18-16_19_08_0.db3
+Bag<span class="w"> </span>size:<span class="w">          </span><span class="m">12</span>.0<span class="w"> </span>GiB
+Storage<span class="w"> </span>id:<span class="w">        </span>sqlite3
+Duration:<span class="w">          </span><span class="m">135</span>.968s
+Start:<span class="w">             </span>Sep<span class="w"> </span><span class="m">18</span><span class="w"> </span><span class="m">2023</span><span class="w"> </span><span class="m">16</span>:19:08.966<span class="w"> </span><span class="o">(</span><span class="m">1695043148</span>.966<span class="o">)</span>
+End:<span class="w">               </span>Sep<span class="w"> </span><span class="m">18</span><span class="w"> </span><span class="m">2023</span><span class="w"> </span><span class="m">16</span>:21:24.934<span class="w"> </span><span class="o">(</span><span class="m">1695043284</span>.934<span class="o">)</span>
+Messages:<span class="w">          </span><span class="m">4122</span>
+Topic<span class="w"> </span>information:<span class="w"> </span>Topic:<span class="w"> </span>/sensing/camera/camera0/image_raw<span class="w"> </span><span class="p">|</span><span class="w"> </span>Type:<span class="w"> </span>sensor_msgs/msg/Image<span class="w"> </span><span class="p">|</span><span class="w"> </span>Count:<span class="w"> </span><span class="m">2061</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>Serialization<span class="w"> </span>Format:<span class="w"> </span>cdr
+</code></pre></div>
+</details>
+<h2 id="intrinsic-camera-calibration_1">Intrinsic camera calibration<a class="headerlink" href="#intrinsic-camera-calibration_1" title="Permanent link">#</a></h2>
+<p>Unlike other calibration packages in our tutorials,
+this package does not need to create an initialization file.
+So we can start with launching intrinsic calibrator package.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>&lt;YOUR-OWN-AUTOWARE-DIRECTORY&gt;
+<span class="nb">source</span><span class="w"> </span>install/setup.bash
+</code></pre></div>
+<p>After that, we will launch intrinsic calibrator:</p>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>intrinsic_camera_calibrator<span class="w"> </span>calibrator.launch.xml
+</code></pre></div>
+<p>Then, initial configuration and camera intrinsic calibration panels will show up.
+We set initial configurations for our calibration.</p>
+<figure>
+<p><img alt="chess_board" src="../images/intrinsic-initial-configuration.png" width="200">
+  </p>
+<figcaption>
+    Initial configuration panel
+  </figcaption>
+</figure>
+<p>We set our image source (it can be "<abbr title="Robot Operating System">ROS</abbr> topic", "<abbr title="Robot Operating System">ROS</abbr> bag" or "Image files")
+from the source options section.
+We will calibrate our camera with "<abbr title="Robot Operating System">ROS</abbr> topic" source.
+After selecting an image source from this panel, we need to configure "Board options" as well.
+The calibration board can be "Chess board", "Dot board" or "Apriltag".
+Also, we need to select board parameters,
+to do that, click the "Board parameters" button and set row, column, and cell size.</p>
+<p>After the setting of image source and board parameters, we are ready for the calibration process.
+Please click the start button, you will see "Topic configuration" panel.
+Please select the appropriate camera raw topic for the calibration process.</p>
+<figure>
+<p><img alt="chess_board" src="../images/intrinsic-topic-information.png" width="200">
+  </p>
+<figcaption>
+    Topic configuration panel
+  </figcaption>
+</figure>
+<p>Then you are ready to calibration.
+Please collect data with different X-Y axis, sizes and skews.
+You can see your collected data statistics with the clicking view data collection statistics.
+For more information,
+please refer to <a href="https://github.com/tier4/CalibrationTools/blob/tier4/universe/sensor/docs/how_to_intrinsic_camera.md">Intrinsic Camera Calibrator</a> page.</p>
+<figure>
+<p><img align="center" alt="chess_board" src="../images/intrinsic-data-collecting.png">
+  </p>
+<figcaption>
+    Intrinsic calibrator interface
+  </figcaption>
+</figure>
+<p>After the data collection is completed,
+you can click the "Calibrate" button to perform the calibration process.
+After the calibration is completed,
+you will see data visualization for the calibration result statistics.
+You can observe your calibration results with changing "Image view type "Source unrectified"
+to "Source rectified".
+If your calibration is successful (there should be no distortion in the rectified image),
+you can save your calibration results with "Save" button.
+The output will be named as <code>&lt;YOUR-CAMERA-NAME&gt;_info.yaml</code>.
+So, you use this file with your camera driver directly.</p>
+<p>Here is the video
+for demonstrating the intrinsic camera calibration process on tutorial_vehicle:
+<div class="video-container"><iframe src="https://youtube.com/embed/jN77AdGFrGU" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></p>
 <!-- prettier-ignore --></div>
 
 
