@@ -1001,6 +1001,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-452/how-to-guides/training-machine-learning-models/training-models/</loc>
+         <lastmod>2023-09-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-452/installation/</loc>
          <lastmod>2023-09-21</lastmod>
          <changefreq>daily</changefreq>
@@ -1032,6 +1037,11 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-452/installation/related-tools/</loc>
+         <lastmod>2023-09-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-452/models/</loc>
          <lastmod>2023-09-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
