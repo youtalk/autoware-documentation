@@ -5250,8 +5250,22 @@
 <div><h1 id="customizing-for-differential-drive-vehicle">Customizing for differential drive vehicle<a class="headerlink" href="#customizing-for-differential-drive-vehicle" title="Permanent link">#</a></h1>
 <h2 id="1-introduction">1. Introduction<a class="headerlink" href="#1-introduction" title="Permanent link">#</a></h2>
 <p>Currently, Autoware assumes that vehicles use an Ackermann kinematic model with Ackermann steering.
-Thus, Autoware adopts the Ackermann command format for the Control module's output (see <a href="http://docs.ros.org/en/api/ackermann_msgs/html/msg/AckermannDrive.html">the AckermannDrive <abbr title="Robot Operating System">ROS</abbr> message definition</a> for an overview of Ackermann commands, and <a href="https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_control_msgs/msg/AckermannControlCommand.idl">the AckermannControlCommands struct</a> used in Autoware for more details).</p>
-<p>However, it is possible to integrate Autoware with a vehicle that follows a differential drive kinematic model, as commonly used by small mobile robots.</p>
+Thus, Autoware adopts the Ackermann command format for the Control module's output
+(see <a href="http://docs.ros.org/en/api/ackermann_msgs/html/msg/AckermannDrive.html">the AckermannDrive <abbr title="Robot Operating System">ROS</abbr> message definition</a> for an overview of Ackermann commands,
+and <a href="https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_control_msgs/msg/AckermannControlCommand.idl">the AckermannControlCommands struct</a>
+used in Autoware for more details).</p>
+<p>However,
+it is possible to integrate Autoware with a vehicle
+that follows a differential drive kinematic model,
+as commonly used by small mobile robots.
+The differential vehicles can be either four-wheel or two-wheel, as described in the figure below.</p>
+<figure>
+<p><img align="center" alt="differential_vehicle" src="../images/differential_vehicle.svg">
+  </p>
+<figcaption>
+    Sample differential vehicles with four-wheel and two-wheel models.
+  </figcaption>
+</figure>
 <h2 id="2-procedure">2. Procedure<a class="headerlink" href="#2-procedure" title="Permanent link">#</a></h2>
 <p>One simple way of using Autoware with a differential drive vehicle is to create a <code>vehicle_interface</code> package that translates Ackermann commands to differential drive commands.
 Here are two points that you need to consider:</p>
@@ -5276,6 +5290,20 @@ v_l = v - \frac{l\omega}{2},
 v_r = v + \frac{l\omega}{2}
 \]</div>
 <p>where <span class="arithmatex">\(l\)</span> denotes wheel tread.</p>
+<p>Here is the example <code>.cpp</code> snippet
+for converting ackermann model kinematics to a differential model:</p>
+<div class="highlight"><pre><span></span><code><span class="p">...</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">convert_ackermann_to_differential</span><span class="p">(</span>
+<span class="w">  </span><span class="n">autoware_auto_control_msgs</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">AckermannControlCommand</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">ackermann_msg</span>
+<span class="w">  </span><span class="n">my_vehicle_msgs</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">DifferentialCommand</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">differential_command</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">differential_command</span><span class="p">.</span><span class="n">left_wheel</span><span class="p">.</span><span class="n">velocity</span><span class="w"> </span><span class="o">=</span>
+<span class="w">      </span><span class="n">ackermann_msg</span><span class="p">.</span><span class="n">longitudinal</span><span class="p">.</span><span class="n">speed</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">ackermann_msg</span><span class="p">.</span><span class="n">lateral</span><span class="p">.</span><span class="n">steering_tire_angle</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">my_wheel_tread</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">    </span><span class="n">differential_command</span><span class="p">.</span><span class="n">right_wheel</span><span class="p">.</span><span class="n">velocity</span><span class="w"> </span><span class="o">=</span>
+<span class="w">      </span><span class="n">ackermann_msg</span><span class="p">.</span><span class="n">longitudinal</span><span class="p">.</span><span class="n">speed</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">ackermann_msg</span><span class="p">.</span><span class="n">lateral</span><span class="p">.</span><span class="n">steering_tire_angle</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">my_wheel_tread</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">...</span>
+</code></pre></div>
 <p>For information about other factors that need to be considered when creating a <code>vehicle_interface</code> package, refer to the <a href="../../../../design/autoware-interfaces/components/vehicle-interface/"><code>vehicle_interface</code> component page</a>.</p>
 <h3 id="22-set-an-appropriate-wheel_base">2.2 Set an appropriate <code>wheel_base</code><a class="headerlink" href="#22-set-an-appropriate-wheel_base" title="Permanent link">#</a></h3>
 <p>A differential drive robot does not necessarily have front and rear wheels, which means that the wheelbase (the horizontal distance between the axles of the front and rear wheels) cannot be defined. However, Autoware expects <code>wheel_base</code> to be set in <code>vehicle_info.param.yaml</code> with some value.

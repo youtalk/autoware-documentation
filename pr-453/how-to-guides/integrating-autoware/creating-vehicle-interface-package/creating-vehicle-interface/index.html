@@ -5363,6 +5363,11 @@ Here are some factors that might be considered:</p>
 <td>This topic reports the steering status of the vehicle. Please check <a href="https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_vehicle_msgs/msg/SteeringReport.idl">SteeringReport</a> message type for detailed information.</td>
 </tr>
 <tr>
+<td>/vehicle/status/velocity_Status</td>
+<td>autoware_auto_vehicle_msgs/msg/VelocityReport</td>
+<td>This topic gives us the velocity status of the vehicle. Please check <a href="https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_vehicle_msgs/msg/VelocityReport.idl">VelocityReport</a> message type for detailed information.</td>
+</tr>
+<tr>
 <td>etc.</td>
 <td>etc.</td>
 <td>etc.</td>
@@ -5372,7 +5377,7 @@ Here are some factors that might be considered:</p>
 <p>This diagram as an example for communication of vehicle interface and autoware
 with describing sample topics and message types.</p>
 <figure>
-<p><img align="center" alt="ackermann_link" src="../images/autoware-vehicle-communication.svg">
+<p><img align="center" alt="vehicle_communication" src="../images/autoware-vehicle-communication.svg">
   </p>
 <figcaption>
     Sample demonstration of vehicle and autoware communication.
@@ -5492,53 +5497,37 @@ explain with the simple demonstration of subscribing <code>/control/command/cont
 <ul>
 <li>You can also use mixed Type A and Type B, for example, you want to use lateral controlling with a steering angle and longitudinal controlling with specific targets. In order to do that, you must subscribe <code>/control/command/control_cmd</code> for getting steering information, and you must subscribe <code>/control/command/actuation_cmd</code> for gas and brake pedal actuation commands. Then, you must handle these messages on your own vehicle_interface design.</li>
 <li>You must adopt your vehicle low-level controller to run with autoware.</li>
+<li>Your vehicle can be controlled by the target shift mode and also needs to provide Autoware with shift information.</li>
 <li>If you are using CAN communication on your vehicle, please refer to <a href="https://github.com/autowarefoundation/ros2_socketcan">ros2_socketcan</a> package by Autoware.</li>
 <li>If you are using Serial communication on your vehicle, you can look at <a href="https://github.com/fedetft/serial-port/tree/master/3_async">serial-port</a>.</li>
 </ul>
 </li>
 </ul>
 <ul>
-<li>Modification of control values if needed</li>
+<li>Modification of control values if needed<ul>
+<li>In some cases, you may need to modify the control commands. For example, Autoware expects vehicle velocity information in m/s units, but if your vehicle publishes it in a different format (i.e., km/h), you must convert it before sending it to Autoware.</li>
+</ul>
+</li>
 </ul>
 <h3 id="3-prepare-a-launch-file">3. Prepare a launch file<a class="headerlink" href="#3-prepare-a-launch-file" title="Permanent link">#</a></h3>
 <p>After you implement your vehicle interface, or you want to debug it by launching it,
-create a launch file of your vehicle interface, and include it to <code>vehicle_interface.launch.xml</code>.</p>
+create a launch file of your vehicle interface,
+and include it to <code>vehicle_interface.launch.xml</code> which included in <code>&lt;VEHICLE_ID&gt;_vehicle_launch</code> package
+that we forked and created
+at <a href="../../creating-vehicle-and-sensor-description/creating-vehicle-and-sensor-description/">creating vehicle and sensor description page</a>.</p>
 <p>Do not get confused. First, you need to create a launch file for your own vehicle interface module (like <code>my_vehicle_interface.launch.xml</code>) <strong>and then include that to <code>vehicle_interface.launch.xml</code> which exists in another directory.</strong> Here are the details.</p>
 <ol>
 <li>
 <p>Add a <code>launch</code> directory in the <code>my_vehicle_interface</code> directory, and create a launch file of your own vehicle interface in it. Take a look at <a href="https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Launch-Main.html">Creating a launch file</a> in the <abbr title="Robot Operating System">ROS</abbr> 2 documentation.</p>
 </li>
 <li>
-<p>Next, go to <code>&lt;your-autoware-dir&gt;/src/vehicle</code>, copy the directory <code>/sample_vehicle_launch/</code>, and paste it to the same place (which means it should be lined up with <code>external</code> and <code>sample_vehicle_launch</code>).</p>
-</li>
-<li>
-<p>You have to rename each "sample_vehicle" to something else. For example, if you want to rename "sample_vehicle" to "my_vehicle_name", you need to change the following. Note that it is restricted to keep the "_launch" and "_description" part.</p>
-<ul>
-<li><strong>Rename the directories</strong><ul>
-<li><code>sample_vehicle_launch</code> → <code>my_vehicle_name_launch</code></li>
-<li><code>my_vehicle_name_launch/sample_vehicle_launch</code> → <code>my_vehicle_name_launch/my_vehicle_name_launch</code></li>
-<li><code>my_vehicle_name_launch/sample_vehicle_description</code> → <code>my_vehicle_name_launch/my_vehicle_name_description</code></li>
-</ul>
-</li>
-<li><strong>After you rename your directories, rename each "sample_vehicle" to "my_vehicle_name" in the source code.</strong><ul>
-<li><code>my_vehicle_name_description/CMakeLists.txt</code></li>
-<li><code>my_vehicle_name_description/package.xml</code></li>
-<li><code>my_vehicle_name_description/urdf/vehicle.xacro</code> (there are two parts)</li>
-<li><code>my_vehicle_name_launch/CMakeLists.txt</code></li>
-<li><code>my_vehicle_name_launch/package.xml</code></li>
-<li><code>README.md</code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>Include your launch file to <code>my_vehicle_name_launch/my_vehicle_name_launch/launch/vehicle_interface.launch.xml</code> by opening it and add the included terms like below.</p>
+<p>Include your launch file which is created for vehicle_interface to <code>&lt;YOUR-VEHICLE-NAME&gt;_launch/&lt;YOUR-VEHICLE-NAME&gt;_launch/launch/vehicle_interface.launch.xml</code> by opening it and add the included terms like below.</p>
 </li>
 </ol>
 <div class="highlight"><span class="filename">vehicle_interface.launch.xml</span><pre><span></span><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;launch&gt;</span>
 <span class="w">    </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"vehicle_id"</span><span class="w"> </span><span class="na">default=</span><span class="s">"$(env VEHICLE_ID default)"</span><span class="nt">/&gt;</span>
-
+<span class="w">    </span><span class="cm">&lt;!-- please add your created vehicle interface launch file --&gt;</span>
 <span class="w">    </span><span class="nt">&lt;include</span><span class="w"> </span><span class="na">file=</span><span class="s">"$(find-pkg-share my_vehicle_interface)/launch/my_vehicle_interface.launch.xml"</span><span class="nt">&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/include&gt;</span>
 <span class="nt">&lt;/launch&gt;</span>
@@ -5549,18 +5538,17 @@ Most of the files are omitted for clarity, but the files shown here needs modifi
 └─ src/
 <span class="w"> </span>   └─ vehicle/
 <span class="w"> </span>       ├─ external/
-<span class="gi">+       │   └─ my_vehicle_interface/</span>
+<span class="gi">+       │   └─ &lt;YOUR-VEHICLE-NAME&gt;_interface/</span>
 <span class="gi">+       │       ├─ src/</span>
 <span class="gi">+       │       └─ launch/</span>
 <span class="gi">+       │            └─ my_vehicle_interface.launch.xml</span>
-<span class="w"> </span>       ├─ sample_vehicle_launch/
-<span class="gi">+       └─ my_vehicle_name_launch/ (COPIED FROM sample_vehicle_launch)</span>
-<span class="gi">+           ├─ my_vehicle_name_launch/</span>
+<span class="gi">+       └─ &lt;YOUR-VEHICLE-NAME&gt;_launch/ (COPIED FROM sample_vehicle_launch)</span>
+<span class="gi">+           ├─ &lt;YOUR-VEHICLE-NAME&gt;_launch/</span>
 <span class="gi">+           │  ├─ launch/</span>
 <span class="gi">+           │  │  └─ vehicle_interface.launch.xml</span>
 <span class="gi">+           │  ├─ CMakeLists.txt</span>
 <span class="gi">+           │  └─ package.xml</span>
-<span class="gi">+           ├─ my_vehicle_name_description/</span>
+<span class="gi">+           ├─ &lt;YOUR-VEHICLE-NAME&gt;_description/</span>
 <span class="gi">+           │  ├─ config/</span>
 <span class="gi">+           │  ├─ mesh/</span>
 <span class="gi">+           │  ├─ urdf/</span>
@@ -5570,12 +5558,14 @@ Most of the files are omitted for clarity, but the files shown here needs modifi
 <span class="gi">+           └─ README.md</span>
 </code></pre></div>
 <h3 id="4-build-the-vehicle-interface-package-and-the-launch-package">4. Build the vehicle interface package and the launch package<a class="headerlink" href="#4-build-the-vehicle-interface-package-and-the-launch-package" title="Permanent link">#</a></h3>
-<p>Build three packages <code>my_vehicle_interface</code>, <code>my_vehicle_name_launch</code> and <code>my_vehicle_name_description</code> by <code>colcon build</code>, or you can just build the entire Autoware if you have done other things.</p>
-<div class="highlight"><pre><span></span><code>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span>--packages-select<span class="w"> </span>my_vehicle_interface<span class="w"> </span>my_vehicle_name_launch<span class="w"> </span>my_vehicle_name_description
+<p>Build three packages <code>my_vehicle_interface</code>, <code>&lt;YOUR-VEHICLE-NAME&gt;_launch</code>
+and <code>&lt;YOUR-VEHICLE-NAME&gt;_description</code> by <code>colcon build</code>,
+or you can just build the entire Autoware if you have done other things.</p>
+<div class="highlight"><pre><span></span><code>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span>--packages-select<span class="w"> </span>my_vehicle_interface<span class="w"> </span>&lt;YOUR-VEHICLE-NAME&gt;_launch<span class="w"> </span>&lt;YOUR-VEHICLE-NAME&gt;_description
 </code></pre></div>
 <h3 id="5-when-you-launch-autoware">5. When you launch Autoware<a class="headerlink" href="#5-when-you-launch-autoware" title="Permanent link">#</a></h3>
 <p>Finally, you are done implementing your vehicle interface module! Be careful that you need to launch Autoware with the proper <code>vehicle_model</code> option like the example below. This example is launching planning simulator.</p>
-<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>planning.launch.xml<span class="w"> </span>map_path:<span class="o">=</span><span class="nv">$HOME</span>/autoware_map/sample-map-planning<span class="w"> </span>vehicle_model:<span class="o">=</span>my_vehicle_name<span class="w"> </span>sensor_model:<span class="o">=</span>sample_sensor_kit
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>planning.launch.xml<span class="w"> </span>map_path:<span class="o">=</span><span class="nv">$HOME</span>/autoware_map/sample-map-planning<span class="w"> </span>vehicle_model:<span class="o">=</span>&lt;YOUR-VEHICLE-NAME&gt;<span class="w"> </span>sensor_model:<span class="o">=</span>&lt;YOUR-VEHICLE-NAME&gt;_sensor_kit
 </code></pre></div>
 <h3 id="tips">Tips<a class="headerlink" href="#tips" title="Permanent link">#</a></h3>
 <p>There are some tips that may help you.</p>
@@ -5602,10 +5592,6 @@ Most of the files are omitted for clarity, but the files shown here needs modifi
 <li>
 <p>If you are using a vehicle interface and launch package from a open git repository, or created your own as a git repository, it is highly recommended to add those repositories to your <code>autoware.repos</code> file which is located to directly under your autoware folder like the example below. You can specify the branch or commit hash by the version tag.</p>
 <div class="highlight"><span class="filename">autoware.repos</span><pre><span></span><code><span class="c1"># vehicle (this section should be somewhere in autoware.repos and add the below)</span>
-<span class="nt">vehicle/my_vehicle_name_launch</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">git</span>
-<span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/&lt;repository-name-A&gt;/my_vehicle_name_launch.git</span>
-<span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span>
 <span class="nt">vehicle/external/my_vehicle_interface</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">git</span>
 <span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/&lt;repository-name-B&gt;/my_vehicle_interface.git</span>
