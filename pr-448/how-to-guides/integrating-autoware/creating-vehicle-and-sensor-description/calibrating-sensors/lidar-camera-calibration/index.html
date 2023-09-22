@@ -5301,7 +5301,7 @@ touch<span class="w"> </span>interactive.launch.xml<span class="w"> </span>inter
 <p>The created <code>interactive.launch.xml</code> and <code>interactive_sensor_kit.launch.xml</code> are version of sample sensor kit
 <a href="https://github.com/tier4/CalibrationTools/tree/tier4/universe/sensor/extrinsic_calibration_manager/launch/aip_xx1">aip_xx1</a> provided from TIER IV.</p>
 <p>Then we will continue with adding vehicle_id and sensor model names to the <code>mapping_based.launch.xml</code>.
-(Optionally, values are not important. These parameters Overrode from launch argument) Then,
+(Optionally, values are not important. These parameters will be overridden by launch arguments) Then,
 we will add camera_name for calibrating camera
 (can be one of the camera0, camera1, camera_front etc. as launch argument)
 and <code>use_concatenated_pointcloud</code> argument.
@@ -5358,7 +5358,7 @@ so we must add these lines on interactive.launch.xml (Also, you can change rviz 
 </details>
 <p>After the completing of interactive.launch.xml file,
 we will be ready to implement interactive_sensor_kit.launch.xml for the own sensor model.</p>
-<p>Optionally, (don't forget, these parameters overrode by <abbr title="Robot Operating System">ROS</abbr> 2 launch arguments.)
+<p>Optionally, (don't forget, these parameters will be overridden by launch arguments.)
 you can modify sensor_kit and vehicle_id as <code>interactive.launch.xml</code>over this xml snippet.
 We will set parent_frame for calibration as `sensor_kit_base_link``:</p>
 <div class="highlight"><pre><span></span><code><span class="gi">+ &lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
