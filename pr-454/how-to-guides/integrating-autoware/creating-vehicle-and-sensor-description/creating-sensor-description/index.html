@@ -21,7 +21,7 @@
     
     
       
-        <title>Creating sensor kit description - Autoware Documentation</title>
+        <title>Creating a sensor model for Autoware - Autoware Documentation</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#creating-sensor-kit-description" class="md-skip">
+        <a href="#creating-a-sensor-model-for-autoware" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Creating sensor kit description
+              Creating a sensor model for Autoware
             
           </span>
         </div>
@@ -1279,12 +1279,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Creating sensor kit description
+          Creating a sensor model for Autoware
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Creating sensor kit description
+        Creating a sensor model for Autoware
       </a>
       
         
@@ -1477,7 +1477,7 @@
   
     <li class="md-nav__item">
       <a href="../creating-vehicle-description/" class="md-nav__link">
-        Creating vehicle description
+        Creating a vehicle model for Autoware
       </a>
     </li>
   
@@ -5429,15 +5429,15 @@
   
 
 
-<div><h1 id="creating-sensor-kit-description">Creating sensor kit description<a class="headerlink" href="#creating-sensor-kit-description" title="Permanent link">#</a></h1>
+<div><h1 id="creating-a-sensor-model-for-autoware">Creating a sensor model for Autoware<a class="headerlink" href="#creating-a-sensor-model-for-autoware" title="Permanent link">#</a></h1>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h2>
 <p>The primary objective behind the development of this package is to delineate the sensor types,
 frame IDs, calibration parameters of all sensors, and to call initialization files for all sensors.</p>
-<p>This page introduces the following topics;</p>
+<p>This page introduces the following packages:</p>
 <ul>
-<li>&lt; VEHICLE-ID &gt; _sensor_kit_description</li>
-<li>&lt; VEHICLE-ID &gt; _sensor_kit_launch</li>
-<li>common_sensor_launch</li>
+<li><code>&lt;VEHICLE-ID&gt;_sensor_kit_description</code></li>
+<li><code>&lt;VEHICLE-ID&gt;_sensor_kit_launch</code></li>
+<li><code>common_sensor_launch</code></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -5446,14 +5446,15 @@ frame IDs, calibration parameters of all sensors, and to call initialization fil
 <ul>
 <li>You must replace the <code>sample_sensor_kit_launch</code> with the one you forked when creating the Autoware repository page.</li>
 </ul>
-<div class="highlight"><pre><span></span><code>sensor_kit/
+<div class="highlight"><pre><span></span><code>YOUR-OWN-AUTOWARE-DIR/src/sensor_kit/
 <span class="gd">-   ├─ sample_sensor_kit_launch/</span>
 <span class="gi">+   └─ VEHICLE-ID_sensor_kit_launch/</span>
 </code></pre></div>
 <h2 id="1-vehicle-id_sensor_kit_description">1. VEHICLE-ID_sensor_kit_description<a class="headerlink" href="#1-vehicle-id_sensor_kit_description" title="Permanent link">#</a></h2>
 <p>The contents of this package encompass xacro-formatted macro files that serve as interpretative tools for defining sensors, sensor calibration outcomes, and description files.</p>
 <h3 id="folder-structure">Folder Structure<a class="headerlink" href="#folder-structure" title="Permanent link">#</a></h3>
-<p>The folder structure of forked <code>VEHICLE-ID_sensor_kit_description</code> should be like this:</p>
+<p>The folder structure of <code>VEHICLE-ID_sensor_kit_description</code> package
+which included in our forked sensor kit repository should be like this:</p>
 <div class="highlight"><pre><span></span><code>VEHICLE-ID_sensor_kit_description/
 <span class="w"> </span>  ├─ config/
 <span class="w"> </span>  │     ├─ sensor_kit_calibration.yaml
@@ -5537,14 +5538,13 @@ of the vehicle is parent.</p>
 <span class="w">    </span><span class="nt">roll</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-0.001</span>
 <span class="w">    </span><span class="nt">pitch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.015</span>
 <span class="w">    </span><span class="nt">yaw</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-0.0364</span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">.</span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">.</span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">...</span>
 </code></pre></div>
 <p>The frame given as <code>base_link</code> in the above file can be defined as point 0 of the vehicle.
-For this point, the desired sensor frame or any point on the vehicle can be selected,
-and the most suitable point is the point defined as the "axle,"
-which is the middle of the two rear wheels of the vehicle.</p>
+The base_link frame is used very frequently throughout the Autoware stack,
+and is a projection of the rear-axle center onto the ground surface.</p>
 <p>The tutorial_vehicle file is <a href="https://github.com/leo-drive/tutorial_vehicle_sensor_kit/blob/main/tutorial_vehicle_sensor_kit_description/config/sensors_calibration.yaml">sensors_calibration.yaml</a> included in <a href="https://github.com/leo-drive/tutorial_vehicle_sensor_kit/tree/main">tutorial_vehicle_sensor_kit</a> and given below:
 In sensors_calibration.yaml file, parent_frame's position relative to base_link is given in euler format as [x, y, z, roll, pitch, yaw].</p>
 <details class="note">
@@ -5560,7 +5560,7 @@ In sensors_calibration.yaml file, parent_frame's position relative to base_link 
 </code></pre></div>
 </details>
 <p>In this example file, the top_lidar in the center of the vehicle is selected as the parent_frame, and it is prepared in such a way that the position of the parent_frame element relative to the axle of the vehicle is entered.
-The [x, y, z, roll, pitch, yaw] values in this file can be entered by base_link - lidar calibration or by measuring from the 3D model.</p>
+The [x, y, z, roll, pitch, yaw] values in this file can be entered by measuring from the 3D model.</p>
 <h3 id="3-sensor_kitxacro">3. sensor_kit.xacro<a class="headerlink" href="#3-sensor_kitxacro" title="Permanent link">#</a></h3>
 <p>Resolves the positions of sensors with sensor_kit_base_link as the parent and defines the positions and orientations based on sensor_kit_calibration.yaml in <code>individual_params</code>.</p>
 <p>The default <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/main/sample_sensor_kit_description/urdf/sensor_kit.xacro">sensor_kit.xacro</a>
@@ -5750,7 +5750,7 @@ included in <a href="https://github.com/autowarefoundation/sample_sensor_kit_lau
 <h2 id="2-vehicle-id_sensor_kit_launch">2. VEHICLE-ID_sensor_kit_launch<a class="headerlink" href="#2-vehicle-id_sensor_kit_launch" title="Permanent link">#</a></h2>
 <p>VEHICLE-ID_sensor_kit_launch is where the launch files related to sensor startup are stored.</p>
 <h3 id="folder-structure_1">Folder Structure<a class="headerlink" href="#folder-structure_1" title="Permanent link">#</a></h3>
-<p>The folder structure of forked <code>VEHICLE-ID_sensor_kit_launch</code> should be like this:</p>
+<p>The folder structure of <code>VEHICLE-ID_sensor_kit_launch</code> package which included in our forked sensor kit repository should be like this:</p>
 <div class="highlight"><pre><span></span><code>VEHICLE-ID_sensor_kit_launch/
 <span class="w"> </span>     ├─ config/
 <span class="w"> </span>     │     ├─ diagnostic_aggregator/
@@ -5973,65 +5973,6 @@ The original <a href="https://github.com/autowarefoundation/sample_sensor_kit_la
 </code></pre></div>
 </details>
 <p>The tutorial_vehicle's <a href="https://github.com/leo-drive/tutorial_vehicle_sensor_kit/blob/main/tutorial_vehicle_sensor_kit_launch/launch/gnss.launch.xml">gnss.launch.xml</a> file is given below:</p>
-<details class="note">
-<summary>gnss.launch.xml for tutorial_vehicle_sensor_kit_launch</summary>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;launch&gt;</span>
-<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"launch_driver"</span><span class="w"> </span><span class="na">default=</span><span class="s">"true"</span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"coordinate_system"</span><span class="w"> </span><span class="na">default=</span><span class="s">"1"</span><span class="w"> </span><span class="na">description=</span><span class="s">"0:UTM, 1:MGRS, 2:PLANE"</span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"vehicle_id"</span><span class="w"> </span><span class="na">default=</span><span class="s">"default"</span><span class="w"> </span><span class="na">description=</span><span class="s">"vehicle specific ID"</span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"height_system"</span><span class="w"> </span><span class="na">default=</span><span class="s">"1"</span><span class="w"> </span><span class="na">description=</span><span class="s">"0:Orthometric Height 1:Ellipsoid Height"</span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"gnss_pose_pub_method"</span><span class="w"> </span><span class="na">default=</span><span class="s">"0"</span><span class="w"> </span><span class="na">description=</span><span class="s">"0: Instant Value 1: Average Value 2: Median Value"</span><span class="nt">/&gt;</span>
-
-<span class="w">  </span><span class="nt">&lt;group&gt;</span>
-<span class="w">    </span><span class="nt">&lt;push-ros-namespace</span><span class="w"> </span><span class="na">namespace=</span><span class="s">"gnss"</span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="cm">&lt;!-- Switch topic name --&gt;</span>
-<span class="w">    </span><span class="nt">&lt;let</span><span class="w"> </span><span class="na">name=</span><span class="s">"navsatfix_topic_name"</span><span class="w"> </span><span class="na">value=</span><span class="s">"clap/ros/gps_nav_sat_fix"</span><span class="w"> </span><span class="nt">/&gt;</span>
-
-<span class="w">    </span><span class="nt">&lt;let</span><span class="w"> </span><span class="na">name=</span><span class="s">"orientation_topic_name"</span><span class="w"> </span><span class="na">value=</span><span class="s">"clap/autoware_orientation"</span><span class="nt">/&gt;</span>
-
-<span class="w">    </span><span class="nt">&lt;group</span><span class="w"> </span><span class="na">if=</span><span class="s">"$(var launch_driver)"</span><span class="nt">&gt;</span>
-<span class="w">      </span><span class="cm">&lt;!-- Clap B7 Driver --&gt;</span>
-<span class="w">      </span><span class="nt">&lt;node</span><span class="w"> </span><span class="na">pkg=</span><span class="s">"clap_b7_driver"</span><span class="w"> </span><span class="na">exec=</span><span class="s">"clap_b7_driver_node"</span><span class="w"> </span><span class="na">name=</span><span class="s">"clap_b7_driver"</span><span class="w"> </span><span class="na">output=</span><span class="s">"screen"</span><span class="nt">&gt;</span>
-<span class="w">        </span><span class="nt">&lt;param</span><span class="w"> </span><span class="na">from=</span><span class="s">"$(find-pkg-share clap_b7_driver)/config/clap_b7_driver.param.yaml"</span><span class="nt">/&gt;</span>
-<span class="w">      </span><span class="nt">&lt;/node&gt;</span>
-<span class="w">      </span><span class="cm">&lt;!-- ntrip Client --&gt;</span>
-<span class="w">      </span><span class="nt">&lt;include</span><span class="w"> </span><span class="na">file=</span><span class="s">"$(find-pkg-share ntrip_client_ros)/launch/ntrip_client_ros.launch.py"</span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;/group&gt;</span>
-
-<span class="w">    </span><span class="cm">&lt;!-- NavSatFix to MGRS Pose --&gt;</span>
-<span class="w">    </span><span class="nt">&lt;include</span><span class="w"> </span><span class="na">file=</span><span class="s">"$(find-pkg-share gnss_poser)/launch/gnss_poser.launch.xml"</span><span class="nt">&gt;</span>
-<span class="w">      </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"input_topic_fix"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(var navsatfix_topic_name)"</span><span class="nt">/&gt;</span>
-<span class="w">      </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"input_topic_orientation"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(var orientation_topic_name)"</span><span class="nt">/&gt;</span>
-
-<span class="w">      </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"output_topic_gnss_pose"</span><span class="w"> </span><span class="na">value=</span><span class="s">"pose"</span><span class="nt">/&gt;</span>
-<span class="w">      </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"output_topic_gnss_pose_cov"</span><span class="w"> </span><span class="na">value=</span><span class="s">"pose_with_covariance"</span><span class="nt">/&gt;</span>
-<span class="w">      </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"output_topic_gnss_fixed"</span><span class="w"> </span><span class="na">value=</span><span class="s">"fixed"</span><span class="nt">/&gt;</span>
-
-<span class="w">      </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"base_frame"</span><span class="w"> </span><span class="na">value=</span><span class="s">"base_link"</span><span class="nt">/&gt;</span>
-<span class="w">      </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"gnss_base_frame"</span><span class="w"> </span><span class="na">value=</span><span class="s">"gnss_ins_base_link"</span><span class="nt">/&gt;</span>
-<span class="w">      </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"gnss_frame"</span><span class="w"> </span><span class="na">value=</span><span class="s">"GNSS_INS/gnss_ins_link"</span><span class="nt">/&gt;</span>
-<span class="w">      </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"map_frame"</span><span class="w"> </span><span class="na">value=</span><span class="s">"map"</span><span class="nt">/&gt;</span>
-
-<span class="w">      </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"coordinate_system"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(var coordinate_system)"</span><span class="nt">/&gt;</span>
-<span class="w">      </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"use_gnss_ins_orientation"</span><span class="w"> </span><span class="na">value=</span><span class="s">"true"</span><span class="nt">/&gt;</span>
-<span class="w">      </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"height_system"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(var height_system)"</span><span class="nt">/&gt;</span>
-
-<span class="w">      </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"buff_epoch"</span><span class="w"> </span><span class="na">value=</span><span class="s">"4"</span><span class="nt">/&gt;</span>
-<span class="w">      </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"gnss_pose_pub_method"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(var gnss_pose_pub_method)"</span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;/include&gt;</span>
-<span class="w">  </span><span class="nt">&lt;/group&gt;</span>
-
-<span class="w">  </span><span class="nt">&lt;group&gt;</span>
-<span class="w">    </span><span class="nt">&lt;push-ros-namespace</span><span class="w"> </span><span class="na">namespace=</span><span class="s">"imu"</span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;include</span><span class="w"> </span><span class="na">file=</span><span class="s">"$(find-pkg-share imu_corrector)/launch/imu_corrector.launch.xml"</span><span class="nt">&gt;</span>
-<span class="w">      </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"input_topic"</span><span class="w"> </span><span class="na">value=</span><span class="s">"/sensing/gnss/clap/ros/imu"</span><span class="nt">/&gt;</span>
-<span class="w">      </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"output_topic"</span><span class="w"> </span><span class="na">value=</span><span class="s">"imu_data"</span><span class="nt">/&gt;</span>
-<span class="w">      </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"param_file"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(find-pkg-share individual_params)/config/$(var vehicle_id)/tutorial_vehicle_sensor_kit/imu_corrector.param.yaml"</span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;/include&gt;</span>
-<span class="w">  </span><span class="nt">&lt;/group&gt;</span>
-<span class="nt">&lt;/launch&gt;</span>
-</code></pre></div>
-</details>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Under Construction</p>
