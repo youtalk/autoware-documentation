@@ -5832,7 +5832,7 @@ thus we will not modify <a href="https://github.com/autowarefoundation/sample_se
 The default <abbr title="Global Navigation Satellite System">GNSS</abbr> sensor options at <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/main/sample_sensor_kit_launch/launch/gnss.launch.xml"><code>sample_sensor_kit_launch</code></a> for <a href="https://www.u-blox.com/en/">u-blox</a>
 and <a href="https://www.septentrio.com/en">septentrio</a> is included in <code>gnss.launch.xml</code>,
 so If we use other sensors as <abbr title="Global Navigation Satellite System">GNSS</abbr>/INS receiver, we need to add it here.
-Moreover, <a href="">gnss_poser</a> package launches here,
+Moreover, <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/gnss_poser">gnss_poser</a> package launches here,
 we will use this package for initial pose of our vehicle but remember,
 your sensor_driver must provide <a href="https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_sensing_msgs/msg/GnssInsOrientationStamped.msg">autoware gnss orientation message</a> for this node.
 If you are ready with your <abbr title="Global Navigation Satellite System">GNSS</abbr>/INS driver,
