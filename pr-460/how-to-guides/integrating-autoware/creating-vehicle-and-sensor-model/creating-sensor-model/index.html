@@ -5338,6 +5338,40 @@
     Sensor launch
   </a>
   
+    <nav class="md-nav" aria-label="Sensor launch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lidar-launching" class="md-nav__link">
+    Lidar Launching
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#camera-launching" class="md-nav__link">
+    Camera Launching
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gnssins-launching" class="md-nav__link">
+    GNSS/INS Launching
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imu-launching" class="md-nav__link">
+    IMU Launching
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -5370,7 +5404,20 @@
 we forked our sensor model
 at <a href="../../creating-your-autoware-meta-repository/creating-autoware-meta-repository/">creating autoware repositories</a> page step.
 For example,
-we created <a href="https://github.com/leo-drive/tutorial_vehicle_sensor_kit_launch">tutorial_vehicle_sensor_kit_launch</a> for our documentation vehicle at this step.</p>
+we created <a href="https://github.com/leo-drive/tutorial_vehicle_sensor_kit_launch">tutorial_vehicle_sensor_kit_launch</a> for our documentation vehicle at this step.
+Please be sure <code>&lt;YOUR-VEHICLE-NAME&gt;_sensor_kit_launch</code> repository is included in the following directory:</p>
+<div class="highlight"><pre><span></span><code>&lt;YOUR-OWN-AUTOWARE-DIR&gt;/
+<span class="w"> </span> └─ src/
+<span class="w"> </span>      └─ sensor_kit/
+<span class="w"> </span>           └─ &lt;YOUR-VEHICLE-NAME&gt;_sensor_kit_launch/
+<span class="w"> </span>                ├─ common_sensor_launch/
+<span class="w"> </span>                ├─ &lt;YOUR-VEHICLE-NAME&gt;_sensor_kit_description/
+<span class="w"> </span>                └─ &lt;YOUR-VEHICLE-NAME&gt;_sensor_kit_launch/
+</code></pre></div>
+<p>If your forked repository doesn't include in the correct structure like above,
+please add your forked sensor_kit repo to autoware.repos file
+and run <code>vcs import src &lt; autoware.repos</code> command on your terminal
+to import new included repositories at autoware.repos file.</p>
 <p>Now, we are ready to modify the following sensor model packages for our vehicle.
 Firstly, we need to rename the description and launch packages:</p>
 <div class="highlight"><pre><span></span><code>&lt;YOUR-VEHICLE-NAME&gt;_sensor_kit_launch/
@@ -5503,7 +5550,8 @@ These files provide linking our sensor frames and adding sensor urdf files</p>
 <p>We will add our sensors and remove unnecessary xacros from this file.
 For example,
 we want
-to add our lidar sensor with <code>velodyne_top</code> frame we will add this xacro to our sensor_kit.xacro file.
+to add our lidar sensor with <code>velodyne_top</code> frame,
+we will add the following xacro to our sensor_kit.xacro file.
 Please add your sensors to this file and remove unnecessary sensor's xacros.</p>
 <div class="highlight"><pre><span></span><code><span class="w">    </span><span class="cm">&lt;!-- lidar --&gt;</span>
 <span class="w">    </span><span class="nt">&lt;xacro:VLS-128</span><span class="w"> </span><span class="na">parent=</span><span class="s">"sensor_kit_base_link"</span><span class="w"> </span><span class="na">name=</span><span class="s">"velodyne_top"</span><span class="w"> </span><span class="na">topic=</span><span class="s">"/points_raw"</span><span class="w"> </span><span class="na">hz=</span><span class="s">"10"</span><span class="w"> </span><span class="na">samples=</span><span class="s">"220"</span><span class="w"> </span><span class="na">gpu=</span><span class="s">"$(arg gpu)"</span><span class="nt">&gt;</span>
@@ -5604,7 +5652,7 @@ Please add your sensors to this file and remove unnecessary sensor's xacros.</p>
 </details>
 <h3 id="sensorsxacro">sensors.xacro<a class="headerlink" href="#sensorsxacro" title="Permanent link">#</a></h3>
 <p>This files links our sensor_kit main frame (<code>sensor_kit_base_link</code>) to base_link.
-Also, you have sensors which will be calibrated directly to base_link, you must add here.</p>
+Also, you have sensors which will be calibrated directly to base_link, you can add it to here.</p>
 <p>Here is the sensors.xacro file for sample_sensor_kit_description package:
 (velodyne_rear transformation is directly used with base_link)</p>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
@@ -5693,7 +5741,67 @@ This image below demonstrates our sensor pipeline, which we will construct in th
 we will modify the launch files
 which located the <code>launch</code> folder for launching and manipulating our sensors.
 The main launch file is <code>sensing.launch.xml</code>.
-This launch file launches other sensing launch files.</p>
+This launch file launches other sensing launch files.
+The current autoware sensing launch files design for <code>sensor_kit_launch</code> package is the diagram below.</p>
+<figure>
+<p><img align="center" alt="sensing_launch_files_design" src="images/sensing_launch_files.svg">
+  </p>
+<figcaption>
+    Launch file flows over sensing.launch.xml launch file.
+  </figcaption>
+</figure>
+<h3 id="lidar-launching">Lidar Launching<a class="headerlink" href="#lidar-launching" title="Permanent link">#</a></h3>
+<p>Let's
+start with modifying <code>lidar.launch.xml</code> file for launching our lidar sensor driver with autoware.
+Please check supported lidar sensors over the nebula driver in the <a href="https://github.com/tier4/nebula">GitHub repository</a>.</p>
+<p>If you are using <a href="https://velodynelidar.com/">Velodyne Lidar</a> sensor,
+you can use the <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/main/sample_sensor_kit_launch/launch/lidar.launch.xml">sample_sensor_kit_launch template</a>,
+but you need to update <code>sensor_id</code>, <code>data_port</code>, <code>sensor_frame</code> and other necessary changes
+(<code>max_range</code>, <code>scan_phase</code>, etc.).</p>
+<div class="highlight"><pre><span></span><code><span class="w"> </span>   &lt;group&gt;
+<span class="gd">-     &lt;push-ros-namespace namespace="left"/&gt;</span>
+<span class="gi">+     &lt;push-ros-namespace namespace="&lt;YOUR-SENSOR-NAMESPACE&gt;"/&gt;</span>
+<span class="w"> </span>     &lt;include file="$(find-pkg-share common_sensor_launch)/launch/velodyne_VLP16.launch.xml"&gt;
+<span class="w"> </span>       &lt;arg name="max_range" value="5.0"/&gt;
+<span class="gd">-       &lt;arg name="sensor_frame" value="velodyne_left"/&gt;</span>
+<span class="gi">+       &lt;arg name="sensor_frame" value="&lt;YOUR-SENSOR-FRAME&gt;"/&gt;</span>
+<span class="gd">-       &lt;arg name="sensor_ip" value="192.168.1.202"/&gt;</span>
+<span class="gi">+       &lt;arg name="sensor_ip" value="&lt;YOUR-SENSOR-IP&gt;"/&gt;</span>
+<span class="w"> </span>       &lt;arg name="host_ip" value="$(var host_ip)"/&gt;
+<span class="gd">-       &lt;arg name="data_port" value="2369"/&gt;</span>
+<span class="gi">+       &lt;arg name="data_port" value=&lt;YOUR-DATA-PORT&gt;/&gt;</span>
+<span class="w"> </span>       &lt;arg name="scan_phase" value="180.0"/&gt;
+<span class="w"> </span>       &lt;arg name="cloud_min_angle" value="300"/&gt;
+<span class="w"> </span>       &lt;arg name="cloud_max_angle" value="60"/&gt;
+<span class="w"> </span>       &lt;arg name="launch_driver" value="$(var launch_driver)"/&gt;
+<span class="w"> </span>       &lt;arg name="vehicle_mirror_param_file" value="$(var vehicle_mirror_param_file)"/&gt;
+<span class="w"> </span>       &lt;arg name="use_pointcloud_container" value="$(var use_pointcloud_container)"/&gt;
+<span class="w"> </span>       &lt;arg name="container_name" value="$(var pointcloud_container_name)"/&gt;
+<span class="w"> </span>     &lt;/include&gt;
+<span class="w"> </span>   &lt;/group&gt;
+</code></pre></div>
+<p>Please add similar launch groups according to your sensor architecture.
+For example, we use Robosense Lidars for our <code>tutorial_vehicle</code>,
+so the lidar group for Robosense Lidar should be like this structure:</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>under construction</p>
+</div>
+<h3 id="camera-launching">Camera Launching<a class="headerlink" href="#camera-launching" title="Permanent link">#</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>under construction</p>
+</div>
+<h3 id="gnssins-launching"><abbr title="Global Navigation Satellite System">GNSS</abbr>/INS Launching<a class="headerlink" href="#gnssins-launching" title="Permanent link">#</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>under construction</p>
+</div>
+<h3 id="imu-launching"><abbr title="Inertial Measurement Unit">IMU</abbr> Launching<a class="headerlink" href="#imu-launching" title="Permanent link">#</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>under construction</p>
+</div>
 <!-- prettier-ignore --></div>
 
 
