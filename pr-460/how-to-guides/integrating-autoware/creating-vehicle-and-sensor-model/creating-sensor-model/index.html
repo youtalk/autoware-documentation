@@ -5402,10 +5402,10 @@
 </ol>
 <p>So,
 we forked our sensor model
-at <a href="../../creating-your-autoware-meta-repository/creating-autoware-meta-repository/">creating autoware repositories</a> page step.
-For example,
-we created <a href="https://github.com/leo-drive/tutorial_vehicle_sensor_kit_launch">tutorial_vehicle_sensor_kit_launch</a> for our documentation vehicle at this step.
-Please be sure <code>&lt;YOUR-VEHICLE-NAME&gt;_sensor_kit_launch</code> repository is included in the following directory:</p>
+at <a href="../../creating-your-autoware-meta-repository/creating-autoware-meta-repository/">creating autoware repositories</a> page step,
+(For example,
+we created <a href="https://github.com/leo-drive/tutorial_vehicle_sensor_kit_launch">tutorial_vehicle_sensor_kit_launch</a> for our documentation vehicle at this step)
+please be sure <code>&lt;YOUR-VEHICLE-NAME&gt;_sensor_kit_launch</code> repository is included in the following directory:</p>
 <div class="highlight"><pre><span></span><code>&lt;YOUR-OWN-AUTOWARE-DIR&gt;/
 <span class="w"> </span> └─ src/
 <span class="w"> </span>      └─ sensor_kit/
@@ -5436,7 +5436,7 @@ So, open <code>package.xml</code> file and <code>CmakeLists.txt</code> file with
 <span class="gd">- &lt;name&gt;sample_sensor_kit_description&lt;/name&gt;</span>
 <span class="gi">+ &lt;name&gt;&lt;YOUR-VEHICLE-NAME&gt;_sensor_kit_description&lt;/name&gt;</span>
 <span class="w"> </span> &lt;version&gt;0.1.0&lt;/version&gt;
-<span class="w"> </span> &lt;description&gt;The individual_params package&lt;/description&gt;
+<span class="w"> </span> &lt;description&gt;The sensor_kit_description package&lt;/description&gt;
 <span class="w"> </span> ...
 <span class="w"> </span> ...
 </code></pre></div>
