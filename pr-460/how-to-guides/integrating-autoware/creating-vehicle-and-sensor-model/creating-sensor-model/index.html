@@ -5496,7 +5496,7 @@ you can add "_base_link" to our calibration .yaml file. W</p>
 </code></pre></div>
 <p>This file for <code>tutorial_vehicle</code> was created for one camera, two lidars and one <abbr title="Global Navigation Satellite System">GNSS</abbr>/INS sensors.</p>
 <details class="note">
-<summary>sensor_kit_calibration.yaml for tutorial_vehicle_sensor_kit_description</summary>
+<summary><code>sensor_kit_calibration.yaml</code> for tutorial_vehicle_sensor_kit_description</summary>
 <div class="highlight"><pre><span></span><code><span class="nt">sensor_kit_base_link</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">camera0/camera_link</span><span class="p">:</span><span class="w"> </span><span class="c1"># Camera</span>
 <span class="w">    </span><span class="nt">x</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0</span>
@@ -5519,7 +5519,7 @@ you can add "_base_link" to our calibration .yaml file. W</p>
 <span class="w">    </span><span class="nt">roll</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0</span>
 <span class="w">    </span><span class="nt">pitch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0</span>
 <span class="w">    </span><span class="nt">yaw</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0</span>
-<span class="w">  </span><span class="nt">gnss_link</span><span class="p">:</span><span class="w"> </span><span class="c1"># GNSS/INS</span>
+<span class="w">  </span><span class="nt">GNSS_INS/gnss_ins_link</span><span class="p">:</span><span class="w"> </span><span class="c1"># GNSS/INS</span>
 <span class="w">    </span><span class="nt">x</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0</span>
 <span class="w">    </span><span class="nt">y</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0</span>
 <span class="w">    </span><span class="nt">z</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0</span>
@@ -5567,7 +5567,7 @@ Please add your sensors to this file and remove unnecessary sensor's xacros.</p>
 </code></pre></div>
 <p>Here is the sample xacro file for tutorial_vehicle with one camera, two lidars and one <abbr title="Global Navigation Satellite System">GNSS</abbr>/INS sensors.</p>
 <details class="note">
-<summary>sensor_kit.xacro for tutorial_vehicle_sensor_kit_description</summary>
+<summary><code>sensor_kit.xacro</code> for tutorial_vehicle_sensor_kit_description</summary>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
 <span class="nt">&lt;robot</span><span class="w"> </span><span class="na">xmlns:xacro=</span><span class="s">"http://ros.org/wiki/xacro"</span><span class="nt">&gt;</span>
 <span class="w">  </span><span class="nt">&lt;xacro:macro</span><span class="w"> </span><span class="na">name=</span><span class="s">"sensor_kit_macro"</span><span class="w"> </span><span class="na">params=</span><span class="s">"parent x y z roll pitch yaw"</span><span class="nt">&gt;</span>
@@ -5690,7 +5690,7 @@ Also, you have sensors which will be calibrated directly to base_link, you can a
 there is no directly sensor transformation for base_link,
 thus our sensors.xacro file includes only <code>base_link</code> and <code>sensor_kit_base_link</code> link.</p>
 <details class="note">
-<summary>sensors.xacro for tutorial_vehicle_sensor_kit_description</summary>
+<summary><code>sensors.xacro</code> for tutorial_vehicle_sensor_kit_description</summary>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
 <span class="nt">&lt;robot</span><span class="w"> </span><span class="na">name=</span><span class="s">"vehicle"</span><span class="w"> </span><span class="na">xmlns:xacro=</span><span class="s">"http://ros.org/wiki/xacro"</span><span class="nt">&gt;</span>
 <span class="w">  </span><span class="nt">&lt;xacro:arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"config_dir"</span><span class="w"> </span><span class="na">default=</span><span class="s">"$(find sample_sensor_kit_description)/config"</span><span class="nt">/&gt;</span>
@@ -5750,6 +5750,20 @@ The current autoware sensing launch files design for <code>sensor_kit_launch</co
     Launch file flows over sensing.launch.xml launch file.
   </figcaption>
 </figure>
+<p>The <code>sensing.launch.xml</code> also launches <code>vehicle_velocity_converter</code> package
+for converting <code>autoware_auto_vehicle_msgs::msg::VelocityReport</code> message to <code>geometry_msgs::msg::TwistWithCovarianceStamped</code> for gyro_odometer node.
+So,
+be sure
+your vehicle_interface publishes <code>/vehicle/status/velocity_status</code> topic with <code>autoware_auto_vehicle_msgs::msg::VelocityReport</code> type,
+or you must update <code>input_vehicle_velocity_topic</code> at <code>sensing.launch.xml</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="w"> </span>   ...
+<span class="w"> </span>   &lt;include file="$(find-pkg-share vehicle_velocity_converter)/launch/vehicle_velocity_converter.launch.xml"&gt;
+<span class="gd">-     &lt;arg name="input_vehicle_velocity_topic" value="/vehicle/status/velocity_status"/&gt;</span>
+<span class="gi">+     &lt;arg name="input_vehicle_velocity_topic" value="&lt;YOUR-VELOCITY-STATUS-TOPIC&gt;"/&gt;</span>
+<span class="w"> </span>     &lt;arg name="output_twist_with_covariance" value="/sensing/vehicle_velocity_converter/twist_with_covariance"/&gt;
+<span class="w"> </span>   &lt;/include&gt;
+<span class="w"> </span>   ...
+</code></pre></div>
 <h3 id="lidar-launching">Lidar Launching<a class="headerlink" href="#lidar-launching" title="Permanent link">#</a></h3>
 <p>Let's
 start with modifying <code>lidar.launch.xml</code> file for launching our lidar sensor driver with autoware.
@@ -5787,21 +5801,154 @@ so the lidar group for Robosense Lidar should be like this structure:</p>
 <p class="admonition-title">Warning</p>
 <p>under construction</p>
 </div>
+<p>The <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/main/common_sensor_launch/launch/nebula_node_container.launch.py">nebula_node_container.py</a> creates Lidar pipeline for autoware.
+The pointcloud preprocessing pipeline is constructed for each lidar please check <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/pointcloud_preprocessor">pointcloud_preprocessor</a> package for filters information.</p>
+<p>For example, If you want to change your <code>outlier_filter</code> method,
+you can modify the pipeline components like this way:</p>
+<div class="highlight"><pre><span></span><code><span class="w"> </span>   nodes.append(
+<span class="w"> </span>       ComposableNode(
+<span class="w"> </span>           package="pointcloud_preprocessor",
+<span class="gd">-           plugin="pointcloud_preprocessor::RingOutlierFilterComponent",</span>
+<span class="gd">-           name="ring_outlier_filter",</span>
+<span class="gi">+           plugin="pointcloud_preprocessor::DualReturnOutlierFilterComponent",</span>
+<span class="gi">+           name="dual_return_outlier_filter",</span>
+<span class="w"> </span>           remappings=[
+<span class="w"> </span>               ("input", "rectified/pointcloud_ex"),
+<span class="w"> </span>               ("output", "outlier_filtered/pointcloud"),
+<span class="w"> </span>           ],
+<span class="w"> </span>           extra_arguments=[{"use_intra_process_comms": LaunchConfiguration("use_intra_process")}],
+<span class="w"> </span>       )
+<span class="w"> </span>   )
+</code></pre></div>
+<p>We will use the default pointcloud_preprocessor pipeline for our tutorial_vehicle,
+thus we will not modify <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/main/common_sensor_launch/launch/nebula_node_container.launch.py">nebula_node_container.py</a>.</p>
 <h3 id="camera-launching">Camera Launching<a class="headerlink" href="#camera-launching" title="Permanent link">#</a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>under construction</p>
 </div>
 <h3 id="gnssins-launching"><abbr title="Global Navigation Satellite System">GNSS</abbr>/INS Launching<a class="headerlink" href="#gnssins-launching" title="Permanent link">#</a></h3>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>under construction</p>
-</div>
+<p>We will set up the <abbr title="Global Navigation Satellite System">GNSS</abbr>/INS sensor launches at <code>gnss.launch.xml</code>.
+The default <abbr title="Global Navigation Satellite System">GNSS</abbr> sensor options at <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/main/sample_sensor_kit_launch/launch/gnss.launch.xml"><code>sample_sensor_kit_launch</code></a> for <a href="https://www.u-blox.com/en/">u-blox</a>
+and <a href="https://www.septentrio.com/en">septentrio</a> is included in <code>gnss.launch.xml</code>,
+so If we use other sensors as <abbr title="Global Navigation Satellite System">GNSS</abbr>/INS receiver, we need to add it here.
+Moreover, <a href="">gnss_poser</a> package launches here,
+we will use this package for initial pose of our vehicle but remember,
+your sensor_driver must provide <a href="https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_sensing_msgs/msg/GnssInsOrientationStamped.msg">autoware gnss orientation message</a> for this node.
+If you are ready with your <abbr title="Global Navigation Satellite System">GNSS</abbr>/INS driver,
+you must set <code>navsatfix_topic_name</code> and <code>orientation_topic_name</code> variables at this launch file.
+For Example, necessary modifications for <your-gnss-sensor> should be like this:</your-gnss-sensor></p>
+<div class="highlight"><pre><span></span><code><span class="w"> </span> ...
+<span class="gd">- &lt;arg name="gnss_receiver" default="ublox" description="ublox(default) or septentrio"/&gt;</span>
+<span class="gi">+ &lt;arg name="gnss_receiver" default="&lt;YOUR-GNSS-SENSOR&gt;" description="ublox(default), septentrio or &lt;YOUR-GNSS-SENSOR&gt;"/&gt;</span>
+
+<span class="w"> </span> &lt;group&gt;
+<span class="w"> </span>   &lt;push-ros-namespace namespace="gnss"/&gt;
+
+<span class="w"> </span>   &lt;!-- Switch topic name --&gt;
+<span class="w"> </span>   &lt;let name="navsatfix_topic_name" value="ublox/nav_sat_fix" if="$(eval &amp;quot;'$(var gnss_receiver)'=='ublox'&amp;quot;)"/&gt;
+<span class="w"> </span>   &lt;let name="navsatfix_topic_name" value="septentrio/nav_sat_fix" if="$(eval &amp;quot;'$(var gnss_receiver)'=='septentrio'&amp;quot;)"/&gt;
+<span class="gi">+   &lt;let name="navsatfix_topic_name" value="&lt;YOUR-SENSOR&gt;/nav_sat_fix" if="$(eval &amp;quot;'$(var gnss_receiver)'=='&lt;YOUR-GNSS-SENSOR&gt;'&amp;quot;)"/&gt;</span>
+<span class="w"> </span>   &lt;let name="orientation_topic_name" value="/autoware_orientation"/&gt;
+
+<span class="w"> </span>   ...
+
+<span class="gi">+   &lt;!-- YOUR GNSS Driver --&gt;</span>
+<span class="gi">+   &lt;group if="$(eval &amp;quot;'$(var launch_driver)' and '$(var gnss_receiver)'=='&lt;YOUR-GNSS-SENSOR&gt;'&amp;quot;)"&gt;</span>
+<span class="gi">+     &lt;include file="$(find-pkg-share &lt;YOUR-GNSS-SENSOR-DRIVER-PKG&gt;)/launch/&lt;YOUR-GNSS-SENSOR&gt;.launch.xml"/&gt;</span>
+<span class="gi">+   &lt;/group&gt;</span>
+<span class="w"> </span>   ...
+<span class="gd">-   &lt;arg name="gnss_frame" value="gnss_link"/&gt;</span>
+<span class="gi">+   &lt;arg name="gnss_frame" value="&lt;YOUR-GNSS-SENSOR-FRAME&gt;"/&gt;</span>
+<span class="w"> </span>   ...
+</code></pre></div>
+<p>Also, you can remove dependencies and unused sensor launch files at <code>gnss.launch.xml</code>.
+For example,
+we will use <a href="https://en.unicorecomm.com/assets/upload/file/CLAP-B7_Product_Brief_En.pdf">Clap B7 sensor</a> as a <abbr title="Global Navigation Satellite System">GNSS</abbr>/INS and <abbr title="Inertial Measurement Unit">IMU</abbr> sensor,
+and we will use <a href="https://github.com/Robeff-Technology/ntrip_client_ros/tree/release/humble">nrtip_client_ros</a> for RTK.
+Also, we will add these packages to <a href="https://github.com/leo-drive/autoware.tutorial_vehicle/blob/main/autoware.repos">autoware.repos</a> file.</p>
+<div class="highlight"><pre><span></span><code><span class="gi">+ sensor_component/external/clap_b7_driver:</span>
+<span class="gi">+   type: git</span>
+<span class="gi">+   url: https://github.com/Robeff-Technology/clap_b7_driver.git</span>
+<span class="gi">+   version: dev/autoware</span>
+<span class="gi">+ sensor_component/external/ntrip_client_ros :</span>
+<span class="gi">+   type: git</span>
+<span class="gi">+   url: https://github.com/Robeff-Technology/ntrip_client_ros.git</span>
+<span class="gi">+   version: release/humble</span>
+</code></pre></div>
+<p>So,
+our <code>gnss.launch.xml</code> for tutorial vehicle should be like this file
+(Clap B7 includes <abbr title="Inertial Measurement Unit">IMU</abbr> also, so we will add imu_corrector at this file):</p>
+<details class="note">
+<summary><code>gnss.launch.xml</code> for tutorial_vehicle</summary>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;launch&gt;</span>
+<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"launch_driver"</span><span class="w"> </span><span class="na">default=</span><span class="s">"true"</span><span class="nt">/&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;group&gt;</span>
+<span class="w">    </span><span class="nt">&lt;push-ros-namespace</span><span class="w"> </span><span class="na">namespace=</span><span class="s">"gnss"</span><span class="nt">/&gt;</span>
+
+<span class="w">    </span><span class="cm">&lt;!-- Switch topic name --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;let</span><span class="w"> </span><span class="na">name=</span><span class="s">"navsatfix_topic_name"</span><span class="w"> </span><span class="na">value=</span><span class="s">"/clap/ros/gps_nav_sat_fix"</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;let</span><span class="w"> </span><span class="na">name=</span><span class="s">"orientation_topic_name"</span><span class="w"> </span><span class="na">value=</span><span class="s">"/clap/autoware_orientation"</span><span class="nt">/&gt;</span>
+
+<span class="w">    </span><span class="cm">&lt;!-- CLAP GNSS Driver --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;group</span><span class="w"> </span><span class="na">if=</span><span class="s">"$(eval &amp;quot;'$(var launch_driver)'"</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;node</span><span class="w"> </span><span class="na">pkg=</span><span class="s">"clap_b7_driver"</span><span class="w"> </span><span class="na">exec=</span><span class="s">"clap_b7_driver_node"</span><span class="w"> </span><span class="na">name=</span><span class="s">"clap_b7_driver"</span><span class="w"> </span><span class="na">output=</span><span class="s">"screen"</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;param</span><span class="w"> </span><span class="na">from=</span><span class="s">"$(find-pkg-share clap_b7_driver)/config/clap_b7_driver.param.yaml"</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/node&gt;</span>
+<span class="w">      </span><span class="cm">&lt;!-- ntrip Client --&gt;</span>
+<span class="w">      </span><span class="nt">&lt;include</span><span class="w"> </span><span class="na">file=</span><span class="s">"$(find-pkg-share ntrip_client_ros)/launch/ntrip_client_ros.launch.py"</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/group&gt;</span>
+
+<span class="w">    </span><span class="cm">&lt;!-- NavSatFix to MGRS Pose --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;include</span><span class="w"> </span><span class="na">file=</span><span class="s">"$(find-pkg-share gnss_poser)/launch/gnss_poser.launch.xml"</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"input_topic_fix"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(var navsatfix_topic_name)"</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"input_topic_orientation"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(var orientation_topic_name)"</span><span class="nt">/&gt;</span>
+
+<span class="w">      </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"output_topic_gnss_pose"</span><span class="w"> </span><span class="na">value=</span><span class="s">"pose"</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"output_topic_gnss_pose_cov"</span><span class="w"> </span><span class="na">value=</span><span class="s">"pose_with_covariance"</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"output_topic_gnss_fixed"</span><span class="w"> </span><span class="na">value=</span><span class="s">"fixed"</span><span class="nt">/&gt;</span>
+
+<span class="w">      </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"use_gnss_ins_orientation"</span><span class="w"> </span><span class="na">value=</span><span class="s">"true"</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="cm">&lt;!-- Please enter your gnss frame here --&gt;</span>
+<span class="w">      </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"gnss_frame"</span><span class="w"> </span><span class="na">value=</span><span class="s">"GNSS_INS/gnss_ins_link"</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/include&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/group&gt;</span>
+
+<span class="w">  </span><span class="cm">&lt;!-- IMU corrector --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;group&gt;</span>
+<span class="w">    </span><span class="nt">&lt;push-ros-namespace</span><span class="w"> </span><span class="na">namespace=</span><span class="s">"imu"</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;include</span><span class="w"> </span><span class="na">file=</span><span class="s">"$(find-pkg-share imu_corrector)/launch/imu_corrector.launch.xml"</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"input_topic"</span><span class="w"> </span><span class="na">value=</span><span class="s">"/sensing/gnss/clap/ros/imu"</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"output_topic"</span><span class="w"> </span><span class="na">value=</span><span class="s">"imu_data"</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"param_file"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(find-pkg-share individual_params)/config/$(var vehicle_id)/robione_sensor_kit/imu_corrector.param.yaml"</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/include&gt;</span>
+<span class="w">    </span><span class="nt">&lt;include</span><span class="w"> </span><span class="na">file=</span><span class="s">"$(find-pkg-share imu_corrector)/launch/gyro_bias_estimator.launch.xml"</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"input_imu_raw"</span><span class="w"> </span><span class="na">value=</span><span class="s">"/sensing/gnss/clap/ros/imu"</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"input_twist"</span><span class="w"> </span><span class="na">value=</span><span class="s">"/sensing/vehicle_velocity_converter/twist_with_covariance"</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"imu_corrector_param_file"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(find-pkg-share individual_params)/config/$(var vehicle_id)/robione_sensor_kit/imu_corrector.param.yaml"</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/include&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/group&gt;</span>
+<span class="nt">&lt;/launch&gt;</span>
+</code></pre></div>
+</details>
 <h3 id="imu-launching"><abbr title="Inertial Measurement Unit">IMU</abbr> Launching<a class="headerlink" href="#imu-launching" title="Permanent link">#</a></h3>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>under construction</p>
-</div>
+<p>You can add your <abbr title="Inertial Measurement Unit">IMU</abbr> sensor launch file at <code>imu.launch.xml</code> file.
+At the <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/main/sample_sensor_kit_launch/launch/imu.launch.xml">sample_sensor_kit</a>,
+there is <a href="https://mems.tamagawa-seiki.com/en/">Tamagawa <abbr title="Inertial Measurement Unit">IMU</abbr> sensor</a> used as a <abbr title="Inertial Measurement Unit">IMU</abbr> sensor.
+You can add your <abbr title="Inertial Measurement Unit">IMU</abbr> driver instead of the Tamagawa <abbr title="Inertial Measurement Unit">IMU</abbr> driver.
+Also,
+we will launch <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/imu_corrector#gyro_bias_estimator">gyro_bias_estimator</a> and
+<a href="https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/imu_corrector#imu_corrector">imu_corrector</a> at <code>imu.launch.xml</code> file.
+Please refer these documentations for more information
+(We added imu_corrector and gyro_bias_estimator at gnss.launch.xml at tutorial_vehicle,
+so we will not create and use <code>imu.launch.xml</code> for tutorial_vehicle).
+Please don't forget changing <code>imu_raw_name</code> argument for describing the raw imu topic.</p>
+<div class="highlight"><pre><span></span><code><span class="w"> </span> ...
+<span class="gd">- &lt;arg name="imu_raw_name" default="tamagawa/imu_raw"/&gt;</span>
+<span class="gi">+ &lt;arg name="imu_raw_name" default="&lt;YOUR-RAW-IMU-TOPIC&gt;"/&gt;</span>
+<span class="w"> </span> ...
+</code></pre></div>
 <!-- prettier-ignore --></div>
 
 
