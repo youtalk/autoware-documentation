@@ -5313,7 +5313,91 @@
 <div><h1 id="creating-individual-params">Creating individual params<a class="headerlink" href="#creating-individual-params" title="Permanent link">#</a></h1>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h2>
 <p>In cases where there is more than one same vehicle, each vehicle has the same sensor kit,
-but they may require different sensor calibrations.</p>
+but they may require different sensor calibrations, so
+<a href="https://github.com/autowarefoundation/autoware_individual_params">individual_params</a> package allows you
+to define customized sensor calibrations for different vehicles while using the same launch
+vehicles or varying calibration requirements.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The "individual_params" package contains the calibration
+results for your sensor kit and overrides the default calibration results found in
+VEHICLE-ID_sensor_kit_description/config/ directory.</p>
+</div>
+<p>We forked our autoware_individual_params repository
+at <a href="../../creating-your-autoware-meta-repository/creating-autoware-meta-repository/">creating autoware repositories</a> page step,
+(For example,
+we created <a href="https://github.com/leo-drive/tutorial_vehicle_individual_params">tutorial_vehicle_individual_params</a> for our documentation vehicle at this step)
+please be sure <code>&lt;YOUR-VEHICLE-NAME&gt;_individual_params</code> repository is included in autoware like the directory below.
+Please create directory under the <code>config</code> directory with your vehicle id of your vehicle.
+(There will be one from the tutorial vehicle,
+so we will think 'tutorial_vehicle' as vehicle_id and vehicle_name)
+You need
+to create or copy <a href="https://github.com/autowarefoundation/autoware.universe/blob/main/sensing/imu_corrector/config/imu_corrector.param.yaml"><code>imu_corrector.param.yaml</code></a>,
+<a href="https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/main/sample_sensor_kit_description/config/sensor_kit_calibration.yaml"><code>sensor_kit_calibration.yaml</code></a> and <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/main/sample_sensor_kit_description/config/sensors_calibration.yaml"><code>sensors_calibration.yaml</code></a> files
+under the <code>config/&lt;YOUR-VEHICLE-ID&gt;/&lt;YOUR-VEHICLE-NAME&gt;_sensor_kit_launch/</code> directory.
+Then, individual params will override these original files.</p>
+<div class="highlight"><pre><span></span><code>&lt;YOUR-OWN-AUTOWARE-DIR&gt;/
+<span class="w"> </span> └─ src/
+<span class="w"> </span>      └─ param/
+<span class="w"> </span>           └─ &lt;YOUR-VEHICLE-NAME&gt;_individual_params/
+<span class="w"> </span>                └─ individual_params/
+<span class="w"> </span>                   └─ config/
+<span class="w"> </span>                       ├─ default/
+<span class="gi">+                       └─ &lt;YOUR-VEHICLE-ID&gt;/</span>
+<span class="gi">+                           └─ &lt;YOUR-VEHICLE-NAME&gt;_sensor_kit_launch/</span>
+<span class="gi">+                               ├─ imu_corrector.param.yaml</span>
+<span class="gi">+                               ├─ sensor_kit_calibration.yaml</span>
+<span class="gi">+                               └─ sensors_calibration.yaml</span>
+</code></pre></div>
+<details class="note">
+<summary>sample folder structure for <a href="https://github.com/leo-drive/tutorial_vehicle_individual_params"><code>tutorial_vehicle_individual_params</code></a></summary>
+<div class="highlight"><pre><span></span><code>&lt;YOUR-OWN-AUTOWARE-DIR&gt;/
+<span class="w"> </span> └─ src/
+<span class="w"> </span>      └─ param/
+<span class="w"> </span>           └─ tutorial_vehicle_individual_params/
+<span class="w"> </span>                └─ individual_params/
+<span class="w"> </span>                   └─ config/
+<span class="w"> </span>                       ├─ default/
+<span class="gi">+                       └─ tutorial_vehicle/</span>
+<span class="gi">+                           └─ tutorial_vehicle_sensor_kit_launch/</span>
+<span class="gi">+                               ├─ imu_corrector.param.yaml</span>
+<span class="gi">+                               ├─ sensor_kit_calibration.yaml</span>
+<span class="gi">+                               └─ sensors_calibration.yaml</span>
+</code></pre></div>
+</details>
+<p>After that, we need to build individual_params package:</p>
+<div class="highlight"><pre><span></span><code>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span>--packages-select<span class="w"> </span>individual_params
+</code></pre></div>
+<p>Now we are ready to use Autoware with vehicle_id as an arguments.
+For example, if our vehicle is more than one,
+the autoware_individual_params structure should be like this:</p>
+<div class="highlight"><pre><span></span><code>individual_params/
+└─ config/
+<span class="w"> </span>    ├─ default/
+<span class="w"> </span>    │   └─ &lt;YOUR_SENSOR_KIT&gt;/                  # example1
+<span class="w"> </span>    │        ├─ imu_corrector.param.yaml
+<span class="w"> </span>    │        ├─ sensor_kit_calibration.yaml
+<span class="w"> </span>    │        └─ sensors_calibration.yaml
+<span class="gi">+    ├─ VEHICLE_1/</span>
+<span class="gi">+    │   └─ &lt;YOUR_SENSOR_KIT&gt;/                  # example2</span>
+<span class="gi">+    │        ├─ imu_corrector.param.yaml</span>
+<span class="gi">+    │        ├─ sensor_kit_calibration.yaml</span>
+<span class="gi">+    │        └─ sensors_calibration.yaml</span>
+<span class="gi">+    └─ VEHICLE_2/</span>
+<span class="gi">+         └─ &lt;YOUR_SENSOR_KIT&gt;/                  # example3</span>
+<span class="gi">+              ├─ imu_corrector.param.yaml</span>
+<span class="gi">+              ├─ sensor_kit_calibration.yaml</span>
+<span class="gi">+              └─ sensors_calibration.yaml</span>
+</code></pre></div>
+<p>Then, you can use autoware with vehicle_id arguments like this:</p>
+<p>Add a <code>&lt;vehicle_id&gt;</code> directory and switch parameters using options at startup.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># example1 (do not set vehicle_id)</span>
+$<span class="w"> </span>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>autoware.launch.xml<span class="w"> </span>sensor_model:<span class="o">=</span>&lt;YOUR-VEHICLE-NAME&gt;_sensor_kit<span class="w"> </span>vehicle_model:<span class="o">=</span>&lt;YOUR-VEHICLE-NAME&gt;_vehicle
+<span class="c1"># example2 (set vehicle_id as VEHICLE_1)</span>
+$<span class="w"> </span>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>autoware.launch.xml<span class="w"> </span>sensor_model:<span class="o">=</span>&lt;YOUR-VEHICLE-NAME&gt;_sensor_kit<span class="w"> </span>vehicle_model:<span class="o">=</span>&lt;YOUR-VEHICLE-NAME&gt;_vehicle<span class="w"> </span>vehicle_id:<span class="o">=</span>VEHICLE_1
+<span class="c1"># example3 (set vehicle_id as VEHICLE_2)</span>
+$<span class="w"> </span>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>autoware.launch.xml<span class="w"> </span>sensor_model:<span class="o">=</span>&lt;YOUR-VEHICLE-NAME&gt;_sensor_kit<span class="w"> </span>vehicle_model:<span class="o">=</span>&lt;YOUR-VEHICLE-NAME&gt;_vehicle<span class="w"> </span>vehicle_id:<span class="o">=</span>VEHICLE_2
+</code></pre></div>
 <!-- prettier-ignore --></div>
 
 
