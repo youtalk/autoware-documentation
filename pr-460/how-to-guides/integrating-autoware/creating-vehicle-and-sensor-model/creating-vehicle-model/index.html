@@ -5279,6 +5279,83 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vehicle-description" class="md-nav__link">
+    Vehicle description
+  </a>
+  
+    <nav class="md-nav" aria-label="Vehicle description">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mirrorparamyaml" class="md-nav__link">
+    mirror.param.yaml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simulator_modelparamyaml" class="md-nav__link">
+    simulator_model.param.yaml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vehicle_infoparamyaml" class="md-nav__link">
+    vehicle_info.param.yaml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3d-model-of-vehicle" class="md-nav__link">
+    3D model of vehicle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vehiclexacro" class="md-nav__link">
+    vehicle.xacro
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#launching-vehicle-interface" class="md-nav__link">
+    Launching vehicle interface
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#launch-planning-simulator-with-own-vehicle" class="md-nav__link">
+    Launch planning simulator with own vehicle
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -5296,6 +5373,210 @@
 
 
 <div><h1 id="creating-a-vehicle-model-for-autoware">Creating a vehicle model for Autoware<a class="headerlink" href="#creating-a-vehicle-model-for-autoware" title="Permanent link">#</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h2>
+<p>This page introduces the following packages for the vehicle model:</p>
+<ol>
+<li><code>&lt;YOUR-VEHICLE-NAME&gt;_vehicle_description</code></li>
+<li><code>&lt;YOUR-VEHICLE-NAME&gt;_vehicle_launch</code></li>
+</ol>
+<p>So,
+we forked our vehicle model
+at <a href="../../creating-your-autoware-meta-repository/creating-autoware-meta-repository/">creating autoware repositories</a> page step,
+(For example,
+we created <a href="https://github.com/leo-drive/tutorial_vehicle_launch">tutorial_vehicle_launch</a> for our documentation vehicle at this step)
+please be sure <code>&lt;YOUR-VEHICLE-NAME&gt;_vehicle_launch</code> repository is included in Autoware like the following directory:</p>
+<div class="highlight"><pre><span></span><code>&lt;YOUR-OWN-AUTOWARE-DIR&gt;/
+<span class="w"> </span> └─ src/
+<span class="w"> </span>      └─ vehicle/
+<span class="w"> </span>           └─ &lt;YOUR-VEHICLE-NAME&gt;_vehicle_launch/
+<span class="w"> </span>                ├─ &lt;YOUR-VEHICLE-NAME&gt;_vehicle_description/
+<span class="w"> </span>                └─ &lt;YOUR-VEHICLE-NAME&gt;_vehicle_launch/
+</code></pre></div>
+<p>If your forked repository doesn't include in the correct structure like above,
+please add your forked sensor_kit repo to autoware.repos file
+and run <code>vcs import src &lt; autoware.repos</code> command on your terminal
+to import new included repositories at autoware.repos file.</p>
+<p>Now, we are ready to modify the following vehicle model packages for our vehicle.
+Firstly, we need to rename the description and launch packages:</p>
+<div class="highlight"><pre><span></span><code>&lt;YOUR-VEHICLE-NAME&gt;_vehicle_launch/
+<span class="gd">- ├─ sample_vehicle_description/</span>
+<span class="gi">+ ├─ &lt;YOUR-VEHICLE-NAME&gt;_vehicle_description/</span>
+<span class="gd">- └─ sample_vehicle_launch/</span>
+<span class="gi">+ └─ &lt;YOUR-VEHICLE-NAME&gt;_vehicle_launch/</span>
+</code></pre></div>
+<p>After that,
+we will change our package names at <code>package.xml</code> file and <code>CmakeLists.txt</code> file at
+<code>sample_vehicle_description</code> and <code>sample_vehicle_launch</code> packages.
+So, open <code>package.xml</code> file and <code>CmakeLists.txt</code> file with any text editor or IDE that you prefer.</p>
+<p>First Step: You need to change <code>&lt;name&gt;</code> attribute at <code>package.xml</code> file.</p>
+<div class="highlight"><pre><span></span><code>&lt;package format="3"&gt;
+<span class="gd">- &lt;name&gt;sample_vehicle_description&lt;/name&gt;</span>
+<span class="gi">+ &lt;name&gt;&lt;YOUR-VEHICLE-NAME&gt;_vehicle_description&lt;/name&gt;</span>
+<span class="w"> </span> &lt;version&gt;0.1.0&lt;/version&gt;
+<span class="w"> </span> &lt;description&gt;The vehicle_description package&lt;/description&gt;
+<span class="w"> </span> ...
+<span class="w"> </span> ...
+</code></pre></div>
+<p>Second Step: You need to change <code>project()</code> method at <code>CmakeList.txt</code> file.</p>
+<div class="highlight"><pre><span></span><code><span class="w"> </span> cmake_minimum_required(VERSION 3.5)
+<span class="gd">- project(sample_vehicle_description)</span>
+<span class="gi">+ project(&lt;YOUR-VEHICLE-NAME&gt;_vehicle_description)</span>
+
+<span class="w"> </span> find_package(ament_cmake_auto REQUIRED)
+...
+...
+</code></pre></div>
+<p>You need
+to apply these two steps for <code>&lt;YOUR-VEHICLE-NAME&gt;_vehicle_description</code>and <code>&lt;YOUR-VEHICLE-NAME&gt;_vehicle_launch</code>
+<abbr title="Robot Operating System">ROS</abbr> 2 packages.
+After the completing of changing package names, we need to build these packages:</p>
+<div class="highlight"><pre><span></span><code>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span>--packages-select<span class="w"> </span>&lt;YOUR-VEHICLE-NAME&gt;_vehicle_description<span class="w"> </span>&lt;YOUR-VEHICLE-NAME&gt;_vehicle_launch
+</code></pre></div>
+<h2 id="vehicle-description">Vehicle description<a class="headerlink" href="#vehicle-description" title="Permanent link">#</a></h2>
+<p>The main purpose of this package is to describe the vehicle dimensions,
+3D model of the vehicle, mirror_dimensions of the vehicle,
+simulator model parameters and <abbr title="Universal Robotic Description Format">URDF</abbr> of the vehicle.</p>
+<p>The folder structure of vehicle_description package is:</p>
+<div class="highlight"><pre><span></span><code>&lt;YOUR-VEHICLE-NAME&gt;_vehicle_description/
+<span class="w"> </span>  ├─ config/
+<span class="w"> </span>  │     ├─ mirror.param.yaml
+<span class="w"> </span>  │     ├─ simulator_model.param.yaml
+<span class="w"> </span>  │     └─ vehicle_info.param.yaml
+<span class="w"> </span>  ├─ mesh/
+<span class="w"> </span>  │     ├─ &lt;YOUR-VEHICLE-MESH-FILE&gt;.dae (or .fbx)
+<span class="w"> </span>  │     ├─ ...
+<span class="w"> </span>  └─ urdf/
+<span class="w"> </span>        └─ vehicle.xacro
+</code></pre></div>
+<p>Now, we will modify these files according to our vehicle design.</p>
+<h3 id="mirrorparamyaml">mirror.param.yaml<a class="headerlink" href="#mirrorparamyaml" title="Permanent link">#</a></h3>
+<p>This file describes your vehicle mirror dimension for <a href="https://autowarefoundation.github.io/autoware.universe/main/sensing/pointcloud_preprocessor/docs/crop-box-filter/">CropBox filter</a> of <a href="../../../../design/autoware-architecture/sensing/data-types/point-cloud/">PointCloudPreprocessor</a>,
+so it is important to crop mirrors from your lidars pointcloud.</p>
+<p>The <code>mirror.param.yaml</code> consist of the following parameters:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">/**</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">ros__parameters</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">min_longitudinal_offset</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0</span>
+<span class="w">    </span><span class="nt">max_longitudinal_offset</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0</span>
+<span class="w">    </span><span class="nt">min_lateral_offset</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0</span>
+<span class="w">    </span><span class="nt">max_lateral_offset</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0</span>
+<span class="w">    </span><span class="nt">min_height_offset</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0</span>
+<span class="w">    </span><span class="nt">max_height_offset</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0</span>
+</code></pre></div>
+<p>The mirror param file should be filled with this dimension information,
+please be careful with <code>min_lateral_offset</code>parameter,
+it could be negative value, according to the mirror dimension figure below.</p>
+<figure>
+<p><img align="center" alt="mirror_dimensions" src="images/mirror_dimensions.svg">
+  </p>
+<figcaption>
+    Dimension demonstration for mirror.param.yaml
+  </figcaption>
+</figure>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Since there is no mirror in <code>tutorial_vehicle</code>, all values set to 0.0.
+If your vehicle does not have mirror, you can set these values 0.0 as well.</p>
+</div>
+<h3 id="simulator_modelparamyaml">simulator_model.param.yaml<a class="headerlink" href="#simulator_modelparamyaml" title="Permanent link">#</a></h3>
+<p>This file is a configuration file for the <a href="https://autowarefoundation.github.io/autoware.universe/main/simulator/simple_planning_simulator/">simulator environment</a>.
+The file consists of these parameters:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">/**</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">ros__parameters</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">simulated_frame_id</span><span class="p">:</span><span class="w"> </span><span class="s">"base_link"</span><span class="w"> </span><span class="c1"># center of the rear axle.</span>
+<span class="w">    </span><span class="nt">origin_frame_id</span><span class="p">:</span><span class="w"> </span><span class="s">"map"</span>
+<span class="w">    </span><span class="nt">vehicle_model_type</span><span class="p">:</span><span class="w"> </span><span class="s">"DELAY_STEER_ACC_GEARED"</span><span class="w"> </span><span class="c1"># options: IDEAL_STEER_VEL / IDEAL_STEER_ACC / IDEAL_STEER_ACC_GEARED / DELAY_STEER_ACC / DELAY_STEER_ACC_GEARED</span>
+<span class="w">    </span><span class="nt">initialize_source</span><span class="p">:</span><span class="w"> </span><span class="s">"INITIAL_POSE_TOPIC"</span><span class="w"> </span><span class="c1">#  options: ORIGIN / INITIAL_POSE_TOPIC</span>
+<span class="w">    </span><span class="nt">timer_sampling_time_ms</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">25</span>
+<span class="w">    </span><span class="nt">add_measurement_noise</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"> </span><span class="c1"># the Gaussian noise is added to the simulated results</span>
+<span class="w">    </span><span class="nt">vel_lim</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">50.0</span><span class="w"> </span><span class="c1"># limit of velocity</span>
+<span class="w">    </span><span class="nt">vel_rate_lim</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">7.0</span><span class="w"> </span><span class="c1"># limit of acceleration</span>
+<span class="w">    </span><span class="nt">steer_lim</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.0</span><span class="w"> </span><span class="c1"># limit of steering angle</span>
+<span class="w">    </span><span class="nt">steer_rate_lim</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5.0</span><span class="w"> </span><span class="c1"># limit of steering angle change rate</span>
+<span class="w">    </span><span class="nt">acc_time_delay</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.1</span><span class="w"> </span><span class="c1"># dead time for the acceleration input</span>
+<span class="w">    </span><span class="nt">acc_time_constant</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.1</span><span class="w"> </span><span class="c1"># time constant of the 1st-order acceleration dynamics</span>
+<span class="w">    </span><span class="nt">steer_time_delay</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.24</span><span class="w"> </span><span class="c1"># dead time for the steering input</span>
+<span class="w">    </span><span class="nt">steer_time_constant</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.27</span><span class="w"> </span><span class="c1"># time constant of the 1st-order steering dynamics</span>
+<span class="w">    </span><span class="nt">x_stddev</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0001</span><span class="w"> </span><span class="c1"># x standard deviation for dummy covariance in map coordinate</span>
+<span class="w">    </span><span class="nt">y_stddev</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0001</span><span class="w"> </span><span class="c1"># y standard deviation for dummy covariance in map coordinate</span>
+</code></pre></div>
+<p>If you want to check detailed information about variables,
+please check <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/simulator/simple_planning_simulator">simple_planning_simulator</a> package.</p>
+<h3 id="vehicle_infoparamyaml">vehicle_info.param.yaml<a class="headerlink" href="#vehicle_infoparamyaml" title="Permanent link">#</a></h3>
+<p>This file stores the vehicle dimension for Autoware modules.
+Please update with your vehicle information.
+You can refer the <a href="../../../../design/autoware-interfaces/components/vehicle-dimensions/">vehicle dimensions</a> page for detailed dimension demonstration.
+Here is the <code>vehicle_info.param.yaml</code> for <a href="https://github.com/autowarefoundation/sample_vehicle_launch/blob/main/sample_vehicle_description/config/vehicle_info.param.yaml">sample_vehicle</a>:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">/**</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">ros__parameters</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">wheel_radius</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.383</span><span class="w"> </span><span class="c1"># The radius of the wheel, primarily used for dead reckoning.</span>
+<span class="w">    </span><span class="nt">wheel_width</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.235</span><span class="w"> </span><span class="c1"># The lateral width of a wheel tire, primarily used for dead reckoning.</span>
+<span class="w">    </span><span class="nt">wheel_base</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2.79</span><span class="w"> </span><span class="c1"># between front wheel center and rear wheel center</span>
+<span class="w">    </span><span class="nt">wheel_tread</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.64</span><span class="w"> </span><span class="c1"># between left wheel center and right wheel center</span>
+<span class="w">    </span><span class="nt">front_overhang</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.0</span><span class="w"> </span><span class="c1"># between front wheel center and vehicle front</span>
+<span class="w">    </span><span class="nt">rear_overhang</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.1</span><span class="w"> </span><span class="c1"># between rear wheel center and vehicle rear</span>
+<span class="w">    </span><span class="nt">left_overhang</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.128</span><span class="w"> </span><span class="c1"># between left wheel center and vehicle left</span>
+<span class="w">    </span><span class="nt">right_overhang</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.128</span><span class="w"> </span><span class="c1"># between right wheel center and vehicle right</span>
+<span class="w">    </span><span class="nt">vehicle_height</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2.5</span>
+<span class="w">    </span><span class="nt">max_steer_angle</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.70</span><span class="w"> </span><span class="c1"># [rad]</span>
+</code></pre></div>
+<p>Please update <code>vehicle_info.param.yaml</code> with your vehicle information.</p>
+<h3 id="3d-model-of-vehicle">3D model of vehicle<a class="headerlink" href="#3d-model-of-vehicle" title="Permanent link">#</a></h3>
+<p>You can use .fbx or .dae format as a 3D model with autoware.
+For tutorial_vehicle we exported our 3D model as a .fbx file at the <a href="https://github.com/leo-drive/tutorial_vehicle_launch/tree/main/tutorial_vehicle_description/mesh">tutorial_vehicle_launch</a> repo.
+We will set the .fbx file path at <code>vehicle.xacro</code> file.</p>
+<h3 id="vehiclexacro">vehicle.xacro<a class="headerlink" href="#vehiclexacro" title="Permanent link">#</a></h3>
+<p>This .xacro file links base_link of vehicle to 3D mesh, so we need some modifications in this file.</p>
+<div class="highlight"><pre><span></span><code>&lt;?xml version="1.0"?&gt;
+&lt;robot xmlns:xacro="http://ros.org/wiki/xacro"&gt;
+<span class="w"> </span> &lt;!-- load parameter --&gt;
+<span class="gd">- &lt;xacro:property name="vehicle_info" value="${xacro.load_yaml('$(find sample_vehicle_description)/config/vehicle_info.param.yaml')}"/&gt;</span>
+<span class="gi">+ &lt;xacro:property name="vehicle_info" value="${xacro.load_yaml('$(find &lt;YOUR-VEHICLE-NAME&gt;_vehicle_description)/config/vehicle_info.param.yaml')}"/&gt;</span>
+
+<span class="w"> </span> &lt;!-- vehicle body --&gt;
+<span class="w"> </span> &lt;link name="base_link"&gt;
+<span class="w"> </span>   &lt;visual&gt;
+<span class="w"> </span>     &lt;origin xyz="${vehicle_info['/**']['ros__parameters']['wheel_base']/2.0} 0 0" rpy="${pi/2.0} 0 ${pi}"/&gt;
+<span class="w"> </span>     &lt;geometry&gt;
+<span class="gd">-       &lt;mesh filename="package://sample_vehicle_description/mesh/lexus.dae" scale="1 1 1"/&gt;</span>
+<span class="gi">+       &lt;mesh filename="package://&lt;YOUR-VEHICLE-NAME&gt;_vehicle_description/mesh/&lt;YOUR-3D-MESH-FILE&gt;" scale="1 1 1"/&gt;</span>
+<span class="w"> </span>     &lt;/geometry&gt;
+<span class="w"> </span>   &lt;/visual&gt;
+<span class="w"> </span> &lt;/link&gt;
+&lt;/robot&gt;
+</code></pre></div>
+<p>You can also modify roll, pitch, yaw, x,
+y, z and scale values for the correct position and orientation of the vehicle.</p>
+<p>Please build vehicle_description package after the completion of your <your-vehicle-name>_vehicle_description package.</your-vehicle-name></p>
+<h3 id="launching-vehicle-interface">Launching vehicle interface<a class="headerlink" href="#launching-vehicle-interface" title="Permanent link">#</a></h3>
+<p>If your vehicle interface is ready,
+then you can add your vehicle_interface launch file in <code>vehicle_interface.launch.xml</code>.
+Please check
+<a href="../../creating-vehicle-interface-package/creating-a-vehicle-interface-for-an-ackermann-kinematic-model/">creating vehicle interface</a> page for more info.</p>
+<div class="highlight"><pre><span></span><code>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span>--packages-select<span class="w"> </span>&lt;YOUR-VEHICLE-NAME&gt;_vehicle_description<span class="w"> </span>&lt;YOUR-VEHICLE-NAME&gt;_vehicle_launch
+</code></pre></div>
+<p>After the completing of <a href="../creating-sensor-model/">sensor_model</a>,
+<a href="../creating-individual-params/">individual_parameters</a>
+and vehicle model of your vehicle,
+you are ready to launch the planning simulator with your own vehicle.
+In order to do that, please be sure you built modified packages at this documentation.</p>
+<h3 id="launch-planning-simulator-with-own-vehicle">Launch planning simulator with own vehicle<a class="headerlink" href="#launch-planning-simulator-with-own-vehicle" title="Permanent link">#</a></h3>
+<p>To launch planning simulator, source the autoware and run this command in your terminal:</p>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>planning_simulator.launch.xml<span class="w"> </span>map_path:<span class="o">=</span><span class="nv">$HOME</span>/Files/autoware_map/sample-map-planning/<span class="w"> </span>vehicle_model:<span class="o">=</span>&lt;YOUR-VEHICLE-MODEL&gt;<span class="w"> </span>sensor_model:<span class="o">=</span>&lt;YOUR-SENSOR-KIT&gt;<span class="w"> </span>vehicle_id:<span class="o">=</span>&lt;YOUR-VEHICLE-ID&gt;
+</code></pre></div>
+<p>For example, if we try planning simulator on the tutorial_vehicle:</p>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>planning_simulator.launch.xml<span class="w"> </span>map_path:<span class="o">=</span><span class="nv">$HOME</span>/Files/autoware_map/sample-map-planning/<span class="w"> </span>vehicle_model:<span class="o">=</span>tutorial_vehicle<span class="w"> </span>sensor_model:<span class="o">=</span>tutorial_vehicle_sensor_kit<span class="w"> </span>vehicle_id:<span class="o">=</span>tutorial_vehicle
+</code></pre></div>
+<p>The planning simulator will open,
+we can give an initial pose to our vehicle
+just using <code>2D Pose Estimate</code> button or pressing <code>P</code> button on your keyboard.
+You can click everywhere for vehicle initialization.</p>
+<figure>
+<p><img align="center" alt="tutorial_vehicle" src="images/tutorial_vehicle.png">
+  </p>
+<figcaption>
+    Our tutorial_vehicle on rviz with TF data
+  </figcaption>
+</figure>
 <!-- prettier-ignore --></div>
 
 

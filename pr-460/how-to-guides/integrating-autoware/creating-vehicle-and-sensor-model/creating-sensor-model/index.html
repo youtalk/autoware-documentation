@@ -5394,7 +5394,7 @@
 
 <div><h1 id="creating-a-sensor-model-for-autoware">Creating a sensor model for Autoware<a class="headerlink" href="#creating-a-sensor-model-for-autoware" title="Permanent link">#</a></h1>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h2>
-<p>This page introduces the following packages for sensor the model:</p>
+<p>This page introduces the following packages for the sensor model:</p>
 <ol>
 <li><code>common_sensor_launch</code></li>
 <li><code>&lt;YOUR-VEHICLE-NAME&gt;_sensor_kit_description</code></li>
@@ -5430,7 +5430,7 @@ Firstly, we need to rename the description and launch packages:</p>
 <p>After that,
 we will change our package names at <code>package.xml</code> file and <code>CmakeLists.txt</code> file at
 <code>sample_sensor_kit_description</code> and <code>sample_sensor_kit_launch</code> packages.
-So, open <code>package.xml</code> file and <code>CmakeLists.txt</code> file with any text editor or ide that you prefer.</p>
+So, open <code>package.xml</code> file and <code>CmakeLists.txt</code> file with any text editor or IDE that you prefer.</p>
 <p>First Step: You need to change <code>&lt;name&gt;</code> attribute at <code>package.xml</code> file.</p>
 <div class="highlight"><pre><span></span><code>&lt;package format="3"&gt;
 <span class="gd">- &lt;name&gt;sample_sensor_kit_description&lt;/name&gt;</span>
@@ -5801,8 +5801,31 @@ so the lidar group for Robosense Lidar should be like this structure:</p>
 <p class="admonition-title">Warning</p>
 <p>under construction</p>
 </div>
-<p>The <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/main/common_sensor_launch/launch/nebula_node_container.launch.py">nebula_node_container.py</a> creates Lidar pipeline for autoware.
-The pointcloud preprocessing pipeline is constructed for each lidar please check <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/pointcloud_preprocessor">pointcloud_preprocessor</a> package for filters information.</p>
+<p>If you are using a Hesai lidar (i.e. PandarQT64,
+please check <a href="https://github.com/tier4/nebula">nebula</a> driver page for supported sensors),
+you can add the group like this structure at <code>lidar.launch.xml</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nt">&lt;group&gt;</span>
+<span class="w">      </span><span class="nt">&lt;push-ros-namespace</span><span class="w"> </span><span class="na">namespace=</span><span class="s">"&lt;YOUR-SENSOR-NAMESPACE&gt;"</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;include</span><span class="w"> </span><span class="na">file=</span><span class="s">"$(find-pkg-share common_sensor_launch)/launch/hesai_PandarQT64.launch.xml"</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"max_range"</span><span class="w"> </span><span class="na">value=</span><span class="s">"100"</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"sensor_frame"</span><span class="w"> </span><span class="na">value=</span><span class="s">"&lt;YOUR-HESAI-SENSOR-FRAME&gt;"</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"sensor_ip"</span><span class="w"> </span><span class="na">value=</span><span class="s">"&lt;YOUR-HESAI-SENSOR-IP&gt;"</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"host_ip"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(var host_ip)"</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"data_port"</span><span class="w"> </span><span class="na">value=</span><span class="s">"&lt;YOUR-HESAI-SENSOR-DATA-PORT&gt;"</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"scan_phase"</span><span class="w"> </span><span class="na">value=</span><span class="s">"0.0"</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"cloud_min_angle"</span><span class="w"> </span><span class="na">value=</span><span class="s">"0"</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"cloud_max_angle"</span><span class="w"> </span><span class="na">value=</span><span class="s">"360"</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"launch_driver"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(var launch_driver)"</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"vehicle_mirror_param_file"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(var vehicle_mirror_param_file)"</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"use_pointcloud_container"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(var use_pointcloud_container)"</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"container_name"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(var pointcloud_container_name)"</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/include&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/group&gt;</span>
+</code></pre></div>
+<p>You can create <your-lidar-model>.launch.xml for common sensor launch,
+please check <a href="https://github.com/leo-drive/tutorial_vehicle_sensor_kit_launch/blob/main/common_sensor_launch/launch/hesai_PandarQT64.launch.xml"><code>hesai_PandarQT64.launch.xml</code></a> as an example.</your-lidar-model></p>
+<p>The <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/main/common_sensor_launch/launch/nebula_node_container.launch.py">nebula_node_container.py</a> creates the Lidar pipeline for autoware,
+the pointcloud preprocessing pipeline is constructed for each lidar please check <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/pointcloud_preprocessor">pointcloud_preprocessor</a> package for filters information as well.</p>
 <p>For example, If you want to change your <code>outlier_filter</code> method,
 you can modify the pipeline components like this way:</p>
 <div class="highlight"><pre><span></span><code><span class="w"> </span>   nodes.append(
