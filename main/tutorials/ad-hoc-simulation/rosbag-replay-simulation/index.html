@@ -5240,6 +5240,22 @@ unzip<span class="w"> </span>-d<span class="w"> </span>~/autoware_map/<span clas
 unzip<span class="w"> </span>-d<span class="w"> </span>~/autoware_map/<span class="w"> </span>~/autoware_map/sample-rosbag.zip
 </code></pre></div>
 </li>
+<li>
+<p>Check if you have <code>~/autoware_data</code> folder and files in it.</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/autoware_data
+$<span class="w"> </span>ls<span class="w"> </span>-C<span class="w"> </span>-w<span class="w"> </span><span class="m">30</span>
+image_projection_based_fusion
+lidar_apollo_instance_segmentation
+lidar_centerpoint
+tensorrt_yolo
+tensorrt_yolox
+traffic_light_classifier
+traffic_light_fine_detector
+traffic_light_ssd_fine_detector
+yabloc_pose_initializer
+</code></pre></div>
+<p>If not, please, follow <a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/artifacts">Manual downloading of artifacts</a>.</p>
+</li>
 </ol>
 <h3 id="note">Note<a class="headerlink" href="#note" title="Permanent link">#</a></h3>
 <ul>
