@@ -5474,7 +5474,7 @@ We must create this file with euler format as [x, y, z, roll, pitch, yaw].
 Also, we will set these values with "0" until the <a href="../calibrating-sensors">calibration steps</a>.</p>
 <p>We will define new frames for this file, and we will connect them <code>.xacro</code> files.
 We recommend naming as if your lidar sensor frame as "velodyne_top",
-you can add "_base_link" to our calibration .yaml file. W</p>
+you can add "_base_link" to our calibration .yaml file.</p>
 <p>So, the sample file must be like:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">sensor_kit_base_link</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">velodyne_top_base_link</span><span class="p">:</span>
@@ -5846,17 +5846,328 @@ you can modify the pipeline components like this way:</p>
 <p>We will use the default pointcloud_preprocessor pipeline for our tutorial_vehicle,
 thus we will not modify <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/main/common_sensor_launch/launch/nebula_node_container.launch.py">nebula_node_container.py</a>.</p>
 <h3 id="camera-launching">Camera Launching<a class="headerlink" href="#camera-launching" title="Permanent link">#</a></h3>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>under construction</p>
-</div>
+<p>In this section,
+we will launch our camera driver and 2D detection pipeline for Autoware for tutorial_vehicle.
+The reason we do this is that there is a one computer for tutorial_vehicle.
+If you are using two or more computers for Autoware,
+you can launch the camera and 2D detection pipeline separately.
+For example,
+you can clone your camera driver
+at <code>src/sensor_component/external</code> folder
+(please don't forget adding this driver to <code>autoware.repos</code> file):</p>
+<div class="highlight"><pre><span></span><code>&lt;YOUR-AUTOWARE-DIR&gt;
+<span class="w"> </span>  └─ src/
+<span class="w"> </span>        └─ sensor_component/
+<span class="w"> </span>           └─ external/
+<span class="w"> </span>               └─ YOUR-CAMERA-DRIVER
+</code></pre></div>
+<p>After that, you can just add your camera driver at <code>camera.launch.xml</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="w"> </span>   ...
+<span class="gi">+   &lt;include file="$(find-pkg-share &lt;YOUR-SENSOR-DRIVER&gt;)/launch/YOUR-CAMERA-LAUNCH-FILE"&gt;</span>
+<span class="w"> </span>   ...
+</code></pre></div>
+<p>Then, you can launch tensorrt_yolo node via adding yolo.launch.xml on your design like that:
+(i.e.,
+it is included in <a href="https://github.com/autowarefoundation/autoware.universe/blob/ad69c2851b7b84e12c9f0c3b177fb6a9032bf284/launch/tier4_perception_launch/launch/object_recognition/detection/camera_lidar_fusion_based_detection.launch.xml#L49-L59">tier4_perception_launch</a> package in autwoare.universe)</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nt">&lt;include</span><span class="w"> </span><span class="na">file=</span><span class="s">"$(find-pkg-share tensorrt_yolo)/launch/yolo.launch.xml"</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"image_raw0"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(var image_raw0)"</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"image_raw1"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(var image_raw1)"</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"image_raw2"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(var image_raw2)"</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"image_raw3"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(var image_raw3)"</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"image_raw4"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(var image_raw4)"</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"image_raw5"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(var image_raw5)"</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"image_raw6"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(var image_raw6)"</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"image_raw7"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(var image_raw7)"</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"image_number"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(var image_number)"</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/include&gt;</span>
+</code></pre></div>
+<p>Since we are using the same computer for 2D detection pipeline and all Autoware nodes,
+we will design our camera and 2D detection pipeline
+using <a href="https://docs.ros.org/en/humble/How-To-Guides/Launching-composable-nodes.html">composable nodes and container</a>
+structure.
+So, it will decrease our network interface usage.
+First of all, let's start with our camera sensor:
+<a href="https://thinklucid.com/product/triton-5-mp-imx490/">Lucid Vision TRIO54S</a>.
+We will use this sensor with <a href="https://github.com/autowarefoundation/lucid_vision_driver">lucid_vision_driver</a> at the <a href="https://github.com/autowarefoundation">autowarefoundation</a> organization.
+We can clone this driver <code>src/sensor_component/external</code> folder as well.
+After the cloning and the building camera driver,
+we will create "camera_node_container.launch.py"
+for launching camera and tensorrt_yolo node in same container.</p>
+<details class="note">
+<summary><a href="https://github.com/leo-drive/tutorial_vehicle_sensor_kit_launch/blob/main/common_sensor_launch/launch/camera_node_container.launch.py"><code>camera_node_container.launch.py</code></a> launch file for tutorial_vehicle</summary>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">launch</span>
+<span class="kn">from</span> <span class="nn">launch.actions</span> <span class="kn">import</span> <span class="n">DeclareLaunchArgument</span>
+<span class="kn">from</span> <span class="nn">launch.actions</span> <span class="kn">import</span> <span class="n">SetLaunchConfiguration</span>
+<span class="kn">from</span> <span class="nn">launch.conditions</span> <span class="kn">import</span> <span class="n">IfCondition</span>
+<span class="kn">from</span> <span class="nn">launch.conditions</span> <span class="kn">import</span> <span class="n">UnlessCondition</span>
+<span class="kn">from</span> <span class="nn">launch.substitutions.launch_configuration</span> <span class="kn">import</span> <span class="n">LaunchConfiguration</span>
+<span class="kn">from</span> <span class="nn">launch_ros.actions</span> <span class="kn">import</span> <span class="n">ComposableNodeContainer</span>
+<span class="kn">from</span> <span class="nn">launch_ros.descriptions</span> <span class="kn">import</span> <span class="n">ComposableNode</span>
+<span class="kn">from</span> <span class="nn">launch_ros.substitutions</span> <span class="kn">import</span> <span class="n">FindPackageShare</span>
+<span class="kn">from</span> <span class="nn">launch.actions</span> <span class="kn">import</span> <span class="n">OpaqueFunction</span>
+<span class="kn">import</span> <span class="nn">yaml</span>
+
+<span class="k">def</span> <span class="nf">launch_setup</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+    <span class="n">output_topic</span><span class="o">=</span> <span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s2">"output_topic"</span><span class="p">)</span><span class="o">.</span><span class="n">perform</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+
+    <span class="n">image_name</span> <span class="o">=</span> <span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s2">"input_image"</span><span class="p">)</span><span class="o">.</span><span class="n">perform</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+    <span class="n">camera_container_name</span> <span class="o">=</span> <span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s2">"camera_container_name"</span><span class="p">)</span><span class="o">.</span><span class="n">perform</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+    <span class="n">camera_namespace</span> <span class="o">=</span> <span class="s2">"/lucid_vision/"</span> <span class="o">+</span> <span class="n">image_name</span>
+
+    <span class="c1"># tensorrt params</span>
+    <span class="n">gpu_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s2">"gpu_id"</span><span class="p">)</span><span class="o">.</span><span class="n">perform</span><span class="p">(</span><span class="n">context</span><span class="p">))</span>
+    <span class="n">mode</span> <span class="o">=</span> <span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s2">"mode"</span><span class="p">)</span><span class="o">.</span><span class="n">perform</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+    <span class="n">calib_image_directory</span> <span class="o">=</span> <span class="n">FindPackageShare</span><span class="p">(</span><span class="s2">"tensorrt_yolo"</span><span class="p">)</span><span class="o">.</span><span class="n">perform</span><span class="p">(</span><span class="n">context</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"/calib_image/"</span>
+    <span class="n">tensorrt_config_path</span> <span class="o">=</span> <span class="n">FindPackageShare</span><span class="p">(</span><span class="s1">'tensorrt_yolo'</span><span class="p">)</span><span class="o">.</span><span class="n">perform</span><span class="p">(</span><span class="n">context</span><span class="p">)</span><span class="o">+</span> <span class="s2">"/config/"</span> <span class="o">+</span> <span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s2">"yolo_type"</span><span class="p">)</span><span class="o">.</span><span class="n">perform</span><span class="p">(</span><span class="n">context</span><span class="p">)</span> <span class="o">+</span> <span class="s2">".param.yaml"</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">tensorrt_config_path</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">tensorrt_yaml_param</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">f</span><span class="p">)[</span><span class="s2">"/**"</span><span class="p">][</span><span class="s2">"ros__parameters"</span><span class="p">]</span>
+
+    <span class="n">camera_param_path</span><span class="o">=</span><span class="n">FindPackageShare</span><span class="p">(</span><span class="s2">"lucid_vision_driver"</span><span class="p">)</span><span class="o">.</span><span class="n">perform</span><span class="p">(</span><span class="n">context</span><span class="p">)</span><span class="o">+</span><span class="s2">"/param/"</span><span class="o">+</span><span class="n">image_name</span><span class="o">+</span><span class="s2">".param.yaml"</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">camera_param_path</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">camera_yaml_param</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">f</span><span class="p">)[</span><span class="s2">"/**"</span><span class="p">][</span><span class="s2">"ros__parameters"</span><span class="p">]</span>
+
+
+    <span class="n">container</span> <span class="o">=</span> <span class="n">ComposableNodeContainer</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="n">camera_container_name</span><span class="p">,</span>
+        <span class="n">package</span><span class="o">=</span><span class="s2">"rclcpp_components"</span><span class="p">,</span>
+        <span class="n">executable</span><span class="o">=</span><span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s2">"container_executable"</span><span class="p">),</span>
+        <span class="n">output</span><span class="o">=</span><span class="s2">"screen"</span><span class="p">,</span>
+        <span class="n">composable_node_descriptions</span><span class="o">=</span><span class="p">[</span>
+            <span class="n">ComposableNode</span><span class="p">(</span>
+                <span class="n">package</span><span class="o">=</span><span class="s2">"lucid_vision_driver"</span><span class="p">,</span>
+                <span class="n">plugin</span><span class="o">=</span><span class="s2">"ArenaCameraNode"</span><span class="p">,</span>
+                <span class="n">name</span><span class="o">=</span><span class="s2">"arena_camera_node"</span><span class="p">,</span>
+                <span class="n">parameters</span><span class="o">=</span><span class="p">[{</span>
+                    <span class="s2">"camera_name"</span><span class="p">:</span> <span class="n">camera_yaml_param</span><span class="p">[</span><span class="s1">'camera_name'</span><span class="p">],</span>
+                    <span class="s2">"frame_id"</span><span class="p">:</span> <span class="n">camera_yaml_param</span><span class="p">[</span><span class="s1">'frame_id'</span><span class="p">],</span>
+                    <span class="s2">"pixel_format"</span><span class="p">:</span> <span class="n">camera_yaml_param</span><span class="p">[</span><span class="s1">'pixel_format'</span><span class="p">],</span>
+                    <span class="s2">"serial_no"</span><span class="p">:</span> <span class="n">camera_yaml_param</span><span class="p">[</span><span class="s1">'serial_no'</span><span class="p">],</span>
+                    <span class="s2">"camera_info_url"</span><span class="p">:</span> <span class="n">camera_yaml_param</span><span class="p">[</span><span class="s1">'camera_info_url'</span><span class="p">],</span>
+                    <span class="s2">"fps"</span><span class="p">:</span> <span class="n">camera_yaml_param</span><span class="p">[</span><span class="s1">'fps'</span><span class="p">],</span>
+                    <span class="s2">"horizontal_binning"</span><span class="p">:</span> <span class="n">camera_yaml_param</span><span class="p">[</span><span class="s1">'horizontal_binning'</span><span class="p">],</span>
+                    <span class="s2">"vertical_binning"</span><span class="p">:</span> <span class="n">camera_yaml_param</span><span class="p">[</span><span class="s1">'vertical_binning'</span><span class="p">],</span>
+                    <span class="s2">"use_default_device_settings"</span><span class="p">:</span> <span class="n">camera_yaml_param</span><span class="p">[</span><span class="s1">'use_default_device_settings'</span><span class="p">],</span>
+                    <span class="s2">"exposure_auto"</span><span class="p">:</span> <span class="n">camera_yaml_param</span><span class="p">[</span><span class="s1">'exposure_auto'</span><span class="p">],</span>
+                    <span class="s2">"exposure_target"</span><span class="p">:</span> <span class="n">camera_yaml_param</span><span class="p">[</span><span class="s1">'exposure_target'</span><span class="p">],</span>
+                    <span class="s2">"gain_auto"</span><span class="p">:</span> <span class="n">camera_yaml_param</span><span class="p">[</span><span class="s1">'gain_auto'</span><span class="p">],</span>
+                    <span class="s2">"gain_target"</span><span class="p">:</span> <span class="n">camera_yaml_param</span><span class="p">[</span><span class="s1">'gain_target'</span><span class="p">],</span>
+                    <span class="s2">"gamma_target"</span><span class="p">:</span> <span class="n">camera_yaml_param</span><span class="p">[</span><span class="s1">'gamma_target'</span><span class="p">],</span>
+                    <span class="s2">"enable_compressing"</span><span class="p">:</span> <span class="n">camera_yaml_param</span><span class="p">[</span><span class="s1">'enable_compressing'</span><span class="p">],</span>
+                    <span class="s2">"enable_rectifying"</span><span class="p">:</span> <span class="n">camera_yaml_param</span><span class="p">[</span><span class="s1">'enable_rectifying'</span><span class="p">],</span>
+                <span class="p">}],</span>
+                <span class="n">remappings</span><span class="o">=</span><span class="p">[</span>
+                <span class="p">],</span>
+                <span class="n">extra_arguments</span><span class="o">=</span><span class="p">[</span>
+                    <span class="p">{</span><span class="s2">"use_intra_process_comms"</span><span class="p">:</span> <span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s2">"use_intra_process"</span><span class="p">)}</span>
+                <span class="p">],</span>
+            <span class="p">),</span>
+
+            <span class="n">ComposableNode</span><span class="p">(</span>
+                <span class="n">namespace</span><span class="o">=</span><span class="s1">'/perception/object_recognition/detection'</span><span class="p">,</span>
+                <span class="n">package</span><span class="o">=</span><span class="s2">"tensorrt_yolo"</span><span class="p">,</span>
+                <span class="n">plugin</span><span class="o">=</span><span class="s2">"object_recognition::TensorrtYoloNodelet"</span><span class="p">,</span>
+                <span class="n">name</span><span class="o">=</span><span class="s2">"tensorrt_yolo"</span><span class="p">,</span>
+                <span class="n">parameters</span><span class="o">=</span><span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="s2">"mode"</span><span class="p">:</span> <span class="n">mode</span><span class="p">,</span>
+                        <span class="s2">"gpu_id"</span><span class="p">:</span> <span class="n">gpu_id</span><span class="p">,</span>
+                        <span class="s2">"onnx_file"</span><span class="p">:</span> <span class="n">FindPackageShare</span><span class="p">(</span><span class="s2">"tensorrt_yolo"</span><span class="p">)</span><span class="o">.</span><span class="n">perform</span><span class="p">(</span><span class="n">context</span><span class="p">)</span> <span class="o">+</span>  <span class="s2">"/data/"</span> <span class="o">+</span> <span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s2">"yolo_type"</span><span class="p">)</span><span class="o">.</span><span class="n">perform</span><span class="p">(</span><span class="n">context</span><span class="p">)</span> <span class="o">+</span> <span class="s2">".onnx"</span><span class="p">,</span>
+                        <span class="s2">"label_file"</span><span class="p">:</span> <span class="n">FindPackageShare</span><span class="p">(</span><span class="s2">"tensorrt_yolo"</span><span class="p">)</span><span class="o">.</span><span class="n">perform</span><span class="p">(</span><span class="n">context</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"/data/"</span> <span class="o">+</span> <span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s2">"label_file"</span><span class="p">)</span><span class="o">.</span><span class="n">perform</span><span class="p">(</span><span class="n">context</span><span class="p">),</span>
+                        <span class="s2">"engine_file"</span><span class="p">:</span> <span class="n">FindPackageShare</span><span class="p">(</span><span class="s2">"tensorrt_yolo"</span><span class="p">)</span><span class="o">.</span><span class="n">perform</span><span class="p">(</span><span class="n">context</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"/data/"</span><span class="o">+</span> <span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s2">"yolo_type"</span><span class="p">)</span><span class="o">.</span><span class="n">perform</span><span class="p">(</span><span class="n">context</span><span class="p">)</span> <span class="o">+</span> <span class="s2">".engine"</span><span class="p">,</span>
+                        <span class="s2">"calib_image_directory"</span><span class="p">:</span> <span class="n">calib_image_directory</span><span class="p">,</span>
+                        <span class="s2">"calib_cache_file"</span><span class="p">:</span> <span class="n">FindPackageShare</span><span class="p">(</span><span class="s2">"tensorrt_yolo"</span><span class="p">)</span><span class="o">.</span><span class="n">perform</span><span class="p">(</span><span class="n">context</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"/data/"</span> <span class="o">+</span> <span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s2">"yolo_type"</span><span class="p">)</span><span class="o">.</span><span class="n">perform</span><span class="p">(</span><span class="n">context</span><span class="p">)</span> <span class="o">+</span> <span class="s2">".cache"</span><span class="p">,</span>
+                        <span class="s2">"num_anchors"</span><span class="p">:</span> <span class="n">tensorrt_yaml_param</span><span class="p">[</span><span class="s1">'num_anchors'</span><span class="p">],</span>
+                        <span class="s2">"anchors"</span><span class="p">:</span> <span class="n">tensorrt_yaml_param</span><span class="p">[</span><span class="s1">'anchors'</span><span class="p">],</span>
+                        <span class="s2">"scale_x_y"</span><span class="p">:</span> <span class="n">tensorrt_yaml_param</span><span class="p">[</span><span class="s1">'scale_x_y'</span><span class="p">],</span>
+                        <span class="s2">"score_threshold"</span><span class="p">:</span> <span class="n">tensorrt_yaml_param</span><span class="p">[</span><span class="s1">'score_threshold'</span><span class="p">],</span>
+                        <span class="s2">"iou_thresh"</span><span class="p">:</span> <span class="n">tensorrt_yaml_param</span><span class="p">[</span><span class="s1">'iou_thresh'</span><span class="p">],</span>
+                        <span class="s2">"detections_per_im"</span><span class="p">:</span> <span class="n">tensorrt_yaml_param</span><span class="p">[</span><span class="s1">'detections_per_im'</span><span class="p">],</span>
+                        <span class="s2">"use_darknet_layer"</span><span class="p">:</span> <span class="n">tensorrt_yaml_param</span><span class="p">[</span><span class="s1">'use_darknet_layer'</span><span class="p">],</span>
+                        <span class="s2">"ignore_thresh"</span><span class="p">:</span> <span class="n">tensorrt_yaml_param</span><span class="p">[</span><span class="s1">'ignore_thresh'</span><span class="p">],</span>
+                    <span class="p">}</span>
+                <span class="p">],</span>
+                <span class="n">remappings</span><span class="o">=</span><span class="p">[</span>
+                    <span class="p">(</span><span class="s2">"in/image"</span><span class="p">,</span> <span class="n">camera_namespace</span> <span class="o">+</span> <span class="s2">"/image_rect"</span><span class="p">),</span>
+                    <span class="p">(</span><span class="s2">"out/objects"</span><span class="p">,</span> <span class="n">output_topic</span><span class="p">),</span>
+                    <span class="p">(</span><span class="s2">"out/image"</span><span class="p">,</span> <span class="n">output_topic</span> <span class="o">+</span> <span class="s2">"/debug/image"</span><span class="p">),</span>
+                <span class="p">],</span>
+                <span class="n">extra_arguments</span><span class="o">=</span><span class="p">[</span>
+                    <span class="p">{</span><span class="s2">"use_intra_process_comms"</span><span class="p">:</span> <span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s2">"use_intra_process"</span><span class="p">)}</span>
+                <span class="p">],</span>
+            <span class="p">),</span>
+        <span class="p">],</span>
+
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">container</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">generate_launch_description</span><span class="p">():</span>
+<span class="n">launch_arguments</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">add_launch_arg</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">default_value</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="c1"># a default_value of None is equivalent to not passing that kwarg at all</span>
+        <span class="n">launch_arguments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="n">DeclareLaunchArgument</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">default_value</span><span class="o">=</span><span class="n">default_value</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="n">description</span><span class="p">)</span>
+        <span class="p">)</span>
+    <span class="n">add_launch_arg</span><span class="p">(</span><span class="s2">"mode"</span><span class="p">,</span><span class="s2">""</span><span class="p">)</span>
+    <span class="n">add_launch_arg</span><span class="p">(</span><span class="s2">"input_image"</span><span class="p">,</span><span class="s2">""</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">"input camera topic"</span><span class="p">)</span>
+    <span class="n">add_launch_arg</span><span class="p">(</span><span class="s2">"camera_container_name"</span><span class="p">,</span><span class="s2">""</span><span class="p">)</span>
+    <span class="n">add_launch_arg</span><span class="p">(</span><span class="s2">"yolo_type"</span><span class="p">,</span><span class="s2">""</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">"yolo model type"</span><span class="p">)</span>
+    <span class="n">add_launch_arg</span><span class="p">(</span><span class="s2">"label_file"</span><span class="p">,</span><span class="s2">""</span> <span class="p">,</span><span class="n">description</span><span class="o">=</span><span class="s2">"tensorrt node label file"</span><span class="p">)</span>
+    <span class="n">add_launch_arg</span><span class="p">(</span><span class="s2">"gpu_id"</span><span class="p">,</span><span class="s2">""</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">"gpu setting"</span><span class="p">)</span>
+    <span class="n">add_launch_arg</span><span class="p">(</span><span class="s2">"use_intra_process"</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="s2">"use intra process"</span><span class="p">)</span>
+    <span class="n">add_launch_arg</span><span class="p">(</span><span class="s2">"use_multithread"</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="s2">"use multithread"</span><span class="p">)</span>
+
+    <span class="n">set_container_executable</span> <span class="o">=</span> <span class="n">SetLaunchConfiguration</span><span class="p">(</span>
+        <span class="s2">"container_executable"</span><span class="p">,</span>
+        <span class="s2">"component_container"</span><span class="p">,</span>
+        <span class="n">condition</span><span class="o">=</span><span class="n">UnlessCondition</span><span class="p">(</span><span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s2">"use_multithread"</span><span class="p">)),</span>
+    <span class="p">)</span>
+
+    <span class="n">set_container_mt_executable</span> <span class="o">=</span> <span class="n">SetLaunchConfiguration</span><span class="p">(</span>
+        <span class="s2">"container_executable"</span><span class="p">,</span>
+        <span class="s2">"component_container_mt"</span><span class="p">,</span>
+        <span class="n">condition</span><span class="o">=</span><span class="n">IfCondition</span><span class="p">(</span><span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s2">"use_multithread"</span><span class="p">)),</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">launch</span><span class="o">.</span><span class="n">LaunchDescription</span><span class="p">(</span>
+        <span class="n">launch_arguments</span>
+        <span class="o">+</span> <span class="p">[</span><span class="n">set_container_executable</span><span class="p">,</span> <span class="n">set_container_mt_executable</span><span class="p">]</span>
+        <span class="o">+</span> <span class="p">[</span><span class="n">OpaqueFunction</span><span class="p">(</span><span class="n">function</span><span class="o">=</span><span class="n">launch_setup</span><span class="p">)]</span>
+    <span class="p">)</span>
+</code></pre></div>
+</details>
+<p>The important points for creating <code>camera_node_container.launch.py</code>
+if you decided to use container for 2D detection pipeline are:</p>
+<ul>
+<li>Please be careful with design, if you are using multiple cameras, the design must be adaptable for this</li>
+<li>The tensorrt_yolo node input expects rectified image as input, so if your sensor_driver doesn't support image rectification, you can use <a href="https://github.com/ros-perception/image_pipeline/tree/humble/image_proc"><code>image_proc</code></a> package.<ul>
+<li>You can add something like this in your pipeline for getting rectifying image:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code>        <span class="o">...</span>
+        <span class="n">ComposableNode</span><span class="p">(</span>
+        <span class="n">namespace</span><span class="o">=</span><span class="n">camera_ns</span><span class="p">,</span>
+        <span class="n">package</span><span class="o">=</span><span class="s1">'image_proc'</span><span class="p">,</span>
+        <span class="n">plugin</span><span class="o">=</span><span class="s1">'image_proc::RectifyNode'</span><span class="p">,</span>
+        <span class="n">name</span><span class="o">=</span><span class="s1">'rectify_camera_image_node'</span><span class="p">,</span>
+        <span class="c1"># Remap subscribers and publishers</span>
+        <span class="n">remappings</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">(</span><span class="s1">'image'</span><span class="p">,</span> <span class="n">camera_ns</span><span class="o">+</span><span class="s2">"/image"</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">'camera_info'</span><span class="p">,</span> <span class="n">input_camera_info</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">'image_rect'</span><span class="p">,</span> <span class="s1">'image_rect'</span><span class="p">)</span>
+        <span class="p">],</span>
+        <span class="n">extra_arguments</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">{</span><span class="s2">"use_intra_process_comms"</span><span class="p">:</span> <span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s2">"use_intra_process"</span><span class="p">)}</span>
+        <span class="p">],</span>
+        <span class="p">),</span>
+        <span class="o">...</span>
+</code></pre></div>
+<ul>
+<li>Since <a href="https://github.com/autowarefoundation/lucid_vision_driver">lucid_vision_driver</a> supports image_rectification, there is no need to add image_proc for tutorial_vehicle.</li>
+<li>Please be careful with namespace,
+  for example, we will use <code>/perception/object_detection</code> as tensorrt_yolo node namespace,
+  it will be explained in autoware usage section.
+  For more information,
+  please check <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/perception/image_projection_based_fusion">image_projection_based_fusion</a> package.</li>
+</ul>
+<p>After the preparing <code>camera_node_container.launch.py</code> to our forked <code>common_sensor_launch</code> package,
+we need to build the package:</p>
+<div class="highlight"><pre><span></span><code>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span>--packages-select<span class="w"> </span>common_sensor_launch
+</code></pre></div>
+<p>Next, we will add camera_node_container.launch.py to <code>camera.launch.xml</code>,
+we must define necessary tensorrt_yolo parameters like this:</p>
+<div class="highlight"><pre><span></span><code><span class="gi">+  &lt;!--    common parameters --&gt;</span>
+<span class="gi">+  &lt;arg name="image_0" default="camera_0" description="image raw topic name"/&gt;</span>
+<span class="gi">+  &lt;arg name="image_1" default="camera_1" description="image raw topic name"/&gt;</span>
+<span class="w"> </span>  ...
+
+<span class="gi">+  &lt;!--    tensorrt params --&gt;</span>
+<span class="gi">+  &lt;arg name="mode" default="FP32"/&gt;</span>
+<span class="gi">+  &lt;arg name="yolo_type" default="yolov3" description="choose image raw number(0-7)"/&gt;</span>
+<span class="gi">+  &lt;arg name="label_file" default="coco.names" description="choose image raw number(0-7)"/&gt;</span>
+<span class="gi">+  &lt;arg name="gpu_id" default="0" description="choose your gpu id for inference"/&gt;</span>
+<span class="gi">+  &lt;arg name="use_intra_process" default="true"/&gt;</span>
+<span class="gi">+  &lt;arg name="use_multithread" default="true"/&gt;</span>
+</code></pre></div>
+<p>Then, launch camera nodes with these arguments,
+if you have two or more cameras, you can include it also like this:</p>
+<div class="highlight"><pre><span></span><code><span class="gi">+  &lt;group&gt;</span>
+<span class="gi">+    &lt;push-ros-namespace namespace="camera"/&gt;</span>
+<span class="gi">+    &lt;include file="$(find-pkg-share common_sensor_launch)/launch/camera_node_container.launch.py"&gt;</span>
+<span class="gi">+      &lt;arg name="mode" value="$(var mode)"/&gt;</span>
+<span class="gi">+      &lt;arg name="input_image" value="$(var image_0)"/&gt;</span>
+<span class="gi">+      &lt;arg name="camera_container_name" value="front_camera_container"/&gt;</span>
+<span class="gi">+      &lt;arg name="yolo_type" value="$(var yolo_type)"/&gt;</span>
+<span class="gi">+      &lt;arg name="label_file" value="$(var label_file)"/&gt;</span>
+<span class="gi">+      &lt;arg name="gpu_id" value="$(var gpu_id)"/&gt;</span>
+<span class="gi">+      &lt;arg name="use_intra_process" value="$(var use_intra_process)"/&gt;</span>
+<span class="gi">+      &lt;arg name="use_multithread" value="$(var use_multithread)"/&gt;</span>
+<span class="gi">+      &lt;arg name="output_topic" value="camera0/rois0"/&gt;</span>
+<span class="gi">+    &lt;/include&gt;</span>
+<span class="gi">+    &lt;include file="$(find-pkg-share common_sensor_launch)/launch/camera_node_container.launch.py"&gt;</span>
+<span class="gi">+      &lt;arg name="mode" value="$(var mode)"/&gt;</span>
+<span class="gi">+      &lt;arg name="input_image" value="$(var image_1)"/&gt;</span>
+<span class="gi">+      &lt;arg name="camera_container_name" value="front_camera_container"/&gt;</span>
+<span class="gi">+      &lt;arg name="yolo_type" value="$(var yolo_type)"/&gt;</span>
+<span class="gi">+      &lt;arg name="label_file" value="$(var label_file)"/&gt;</span>
+<span class="gi">+      &lt;arg name="gpu_id" value="$(var gpu_id)"/&gt;</span>
+<span class="gi">+      &lt;arg name="use_intra_process" value="$(var use_intra_process)"/&gt;</span>
+<span class="gi">+      &lt;arg name="use_multithread" value="$(var use_multithread)"/&gt;</span>
+<span class="gi">+      &lt;arg name="output_topic" value="camera1/rois1"/&gt;</span>
+<span class="gi">+    &lt;/include&gt;</span>
+<span class="gi">+    ...</span>
+<span class="gi">+  &lt;/group&gt;</span>
+</code></pre></div>
+<p>Since there is one camera for tutorial_vehicle, the <code>camera.launch.xml</code> should be like this:</p>
+<details class="note">
+<summary><a href="https://github.com/leo-drive/tutorial_vehicle_sensor_kit_launch/blob/main/tutorial_vehicle_sensor_kit_launch/launch/camera.launch.xml"><code>camera.launch.xml</code></a> for tutorial_vehicle</summary>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;launch&gt;</span>
+<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"launch_driver"</span><span class="w"> </span><span class="na">default=</span><span class="s">"true"</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="cm">&lt;!--    common parameters --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"image_0"</span><span class="w"> </span><span class="na">default=</span><span class="s">"camera_0"</span><span class="w"> </span><span class="na">description=</span><span class="s">"image raw topic name"</span><span class="nt">/&gt;</span>
+
+<span class="w">  </span><span class="cm">&lt;!--    tensorrt params --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"mode"</span><span class="w"> </span><span class="na">default=</span><span class="s">"FP32"</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"yolo_type"</span><span class="w"> </span><span class="na">default=</span><span class="s">"yolov3"</span><span class="w"> </span><span class="na">description=</span><span class="s">"choose image raw number(0-7)"</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"label_file"</span><span class="w"> </span><span class="na">default=</span><span class="s">"coco.names"</span><span class="w"> </span><span class="na">description=</span><span class="s">"choose image raw number(0-7)"</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"gpu_id"</span><span class="w"> </span><span class="na">default=</span><span class="s">"0"</span><span class="w"> </span><span class="na">description=</span><span class="s">"choose your gpu id for inference"</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"use_intra_process"</span><span class="w"> </span><span class="na">default=</span><span class="s">"true"</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"use_multithread"</span><span class="w"> </span><span class="na">default=</span><span class="s">"true"</span><span class="nt">/&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;group&gt;</span>
+<span class="w">    </span><span class="nt">&lt;push-ros-namespace</span><span class="w"> </span><span class="na">namespace=</span><span class="s">"camera"</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;include</span><span class="w"> </span><span class="na">if=</span><span class="s">"$(eval &amp;quot;'$(var image_number)'&gt;='1'&amp;quot;)"</span><span class="w"> </span><span class="na">file=</span><span class="s">"$(find-pkg-share common_sensor_launch)/launch/camera_node_container.launch.py"</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"mode"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(var mode)"</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"input_image"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(var image_0)"</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"camera_container_name"</span><span class="w"> </span><span class="na">value=</span><span class="s">"front_camera_container"</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"yolo_type"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(var yolo_type)"</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"label_file"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(var label_file)"</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"gpu_id"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(var gpu_id)"</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"use_intra_process"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(var use_intra_process)"</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"use_multithread"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(var use_multithread)"</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"output_topic"</span><span class="w"> </span><span class="na">value=</span><span class="s">"camera0/rois0"</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/include&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/group&gt;</span>
+<span class="nt">&lt;/launch&gt;</span>
+</code></pre></div>
+</details>
+<p>You can check 2D detection pipeline with launching camera.launch.xml:</p>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>&lt;YOUR-SENSOR-KIT-LAUNCH&gt;<span class="w"> </span>camera.launch.xml
+<span class="c1"># example for tutorial_vehicle: ros2 launch tutorial_vehicle_sensor_kit_launch camera.launch.xml</span>
+</code></pre></div>
+<p>Then the rois topics will appear,
+you can check debug image with rviz2 or <a href="http://wiki.ros.org/rqt">rqt</a>.</p>
 <h3 id="gnssins-launching"><abbr title="Global Navigation Satellite System">GNSS</abbr>/INS Launching<a class="headerlink" href="#gnssins-launching" title="Permanent link">#</a></h3>
 <p>We will set up the <abbr title="Global Navigation Satellite System">GNSS</abbr>/INS sensor launches at <code>gnss.launch.xml</code>.
 The default <abbr title="Global Navigation Satellite System">GNSS</abbr> sensor options at <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/main/sample_sensor_kit_launch/launch/gnss.launch.xml"><code>sample_sensor_kit_launch</code></a> for <a href="https://www.u-blox.com/en/">u-blox</a>
 and <a href="https://www.septentrio.com/en">septentrio</a> is included in <code>gnss.launch.xml</code>,
 so If we use other sensors as <abbr title="Global Navigation Satellite System">GNSS</abbr>/INS receiver, we need to add it here.
 Moreover, <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/gnss_poser">gnss_poser</a> package launches here,
-we will use this package for initial pose of our vehicle but remember,
+we will use this package for the pose source of our vehicle at localization initialization but remember,
 your sensor_driver must provide <a href="https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_sensing_msgs/msg/GnssInsOrientationStamped.msg">autoware gnss orientation message</a> for this node.
 If you are ready with your <abbr title="Global Navigation Satellite System">GNSS</abbr>/INS driver,
 you must set <code>navsatfix_topic_name</code> and <code>orientation_topic_name</code> variables at this launch file for <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/gnss_poser">gnss_poser</a> arguments.
@@ -5967,11 +6278,47 @@ Please refer these documentations for more information
 (We added imu_corrector and gyro_bias_estimator at gnss.launch.xml at tutorial_vehicle,
 so we will not create and use <code>imu.launch.xml</code> for tutorial_vehicle).
 Please don't forget changing <code>imu_raw_name</code> argument for describing the raw imu topic.</p>
-<div class="highlight"><pre><span></span><code><span class="w"> </span> ...
-<span class="gd">- &lt;arg name="imu_raw_name" default="tamagawa/imu_raw"/&gt;</span>
-<span class="gi">+ &lt;arg name="imu_raw_name" default="&lt;YOUR-RAW-IMU-TOPIC&gt;"/&gt;</span>
-<span class="w"> </span> ...
+<p>Here is a sample <code>imu.launch.xml</code> launch file for autoware:</p>
+<div class="highlight"><pre><span></span><code>&lt;launch&gt;
+<span class="w"> </span> &lt;arg name="launch_driver" default="true"/&gt;
+
+<span class="w"> </span> &lt;group&gt;
+<span class="w"> </span>   &lt;push-ros-namespace namespace="imu"/&gt;
+
+<span class="gd">-     &lt;group&gt;</span>
+<span class="gd">-       &lt;push-ros-namespace namespace="tamagawa"/&gt;</span>
+<span class="gd">-       &lt;node pkg="tamagawa_imu_driver" name="tag_serial_driver" exec="tag_serial_driver" if="$(var launch_driver)"&gt;</span>
+<span class="gd">-         &lt;remap from="imu/data_raw" to="imu_raw"/&gt;</span>
+<span class="gd">-         &lt;param name="port" value="/dev/imu"/&gt;</span>
+<span class="gd">-         &lt;param name="imu_frame_id" value="tamagawa/imu_link"/&gt;</span>
+<span class="gd">-       &lt;/node&gt;</span>
+<span class="gd">-     &lt;/group&gt;</span>
+
+<span class="gi">+     &lt;group&gt;</span>
+<span class="gi">+       &lt;push-ros-namespace namespace="&lt;YOUR-IMU_MODEL&gt;"/&gt;</span>
+<span class="gi">+       &lt;node pkg="&lt;YOUR-IMU-DRIVER-PACKAGE&gt;" name="&lt;YOUR-IMU-DRIVER&gt;" exec="&lt;YOUR-IMU-DRIVER-EXECUTIBLE&gt;" if="$(var launch_driver)"&gt;</span>
+<span class="gi">+       &lt;!-- Add necessary params here --&gt;</span>
+<span class="gi">+       &lt;/node&gt;</span>
+<span class="gi">+     &lt;/group&gt;</span>
+
+<span class="gd">-   &lt;arg name="imu_raw_name" default="tamagawa/imu_raw"/&gt;</span>
+<span class="gi">+   &lt;arg name="imu_raw_name" default="&lt;YOUR-IMU_MODEL/YOUR-RAW-IMU-TOPIC&gt;"/&gt;</span>
+<span class="w"> </span>   &lt;arg name="imu_corrector_param_file" default="$(find-pkg-share individual_params)/config/$(var vehicle_id)/sample_sensor_kit/imu_corrector.param.yaml"/&gt;
+<span class="w"> </span>   &lt;include file="$(find-pkg-share imu_corrector)/launch/imu_corrector.launch.xml"&gt;
+<span class="w"> </span>     &lt;arg name="input_topic" value="$(var imu_raw_name)"/&gt;
+<span class="w"> </span>     &lt;arg name="output_topic" value="imu_data"/&gt;
+<span class="w"> </span>     &lt;arg name="param_file" value="$(var imu_corrector_param_file)"/&gt;
+<span class="w"> </span>   &lt;/include&gt;
+
+<span class="w"> </span>   &lt;include file="$(find-pkg-share imu_corrector)/launch/gyro_bias_estimator.launch.xml"&gt;
+<span class="w"> </span>     &lt;arg name="input_imu_raw" value="$(var imu_raw_name)"/&gt;
+<span class="w"> </span>     &lt;arg name="input_twist" value="/sensing/vehicle_velocity_converter/twist_with_covariance"/&gt;
+<span class="w"> </span>     &lt;arg name="imu_corrector_param_file" value="$(var imu_corrector_param_file)"/&gt;
+<span class="w"> </span>   &lt;/include&gt;
+<span class="w"> </span> &lt;/group&gt;
+&lt;/launch&gt;
 </code></pre></div>
+<p>Please make, necessary modifications on this file according to your <abbr title="Inertial Measurement Unit">IMU</abbr> driver.</p>
 <!-- prettier-ignore --></div>
 
 
