@@ -5291,7 +5291,7 @@ so we will use these sensors for running LIO-SAM.</p>
 </code></pre></div>
 <h2 id="build-run">Build &amp; Run<a class="headerlink" href="#build-run" title="Permanent link">#</a></h2>
 <h3 id="1-installation">1) Installation<a class="headerlink" href="#1-installation" title="Permanent link">#</a></h3>
-<p>In order to use and build LIO-SAM, we will create worksapce for LIO-SAM:</p>
+<p>In order to use and build LIO-SAM, we will create workspace for LIO-SAM:</p>
 <div class="highlight"><pre><span></span><code><span class="w">    </span>mkdir<span class="w"> </span>-p<span class="w"> </span>~/lio-sam-ws/src
 <span class="w">    </span><span class="nb">cd</span><span class="w"> </span>~/lio-sam-ws/src
 <span class="w">    </span>git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>ros2<span class="w"> </span>https://github.com/TixiaoShan/LIO-SAM.git
@@ -5317,7 +5317,7 @@ Topic:<span class="w"> </span>/sensing/lidar/top/pointcloud_raw<span class="w"> 
 </code></pre></div>
 </details>
 <p><strong>Note:</strong>
-We use <code>use_odometry</code> as true at <a href="https://github.com/Robeff-Technology/clap_b7_driver/tree/dev/autoware">clap_b7_driver</a> for publishing GPS odometry topic from navsat.</p>
+We use <code>use_odometry</code> as true at <a href="https://github.com/Robeff-Technology/clap_b7_driver/tree/dev/autoware">clap_b7_driver</a> for publishing GPS odometry topic from navsatfix.</p>
 <p>Please set topics and sensor settings on <code>lio_sam/config/params.yaml</code>.
 Here are some example modifications for out tutorial_vehicle.</p>
 <ul>
