@@ -14,7 +14,7 @@
         <link rel="prev" href="../open-source-slam/sc-lego-loam/">
       
       
-        <link rel="next" href="../../launch-autoware/">
+        <link rel="next" href="../pointcloud-map-downsampling/">
       
       <link rel="icon" href="../../../../assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.20">
@@ -1391,6 +1391,8 @@
         
           
         
+          
+        
       
       
         
@@ -2025,6 +2027,52 @@
         <label class="md-nav__title" for="__nav_4_2_5_3">
           <span class="md-nav__icon md-icon"></span>
           Converting UTM map to MGRS map
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_5_4" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../pointcloud-map-downsampling/">Pointcloud map downsampling</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_5_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          Pointcloud map downsampling
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -5276,7 +5324,37 @@ position_covariance_type:<span class="w"> </span><span class="m">2</span>
 </details>
 <p>After that, you need to convert latitude and longitude values to northing and easting values.
 You can use any converter on the internet for converting latitude longitude values to UTM.
-(i.e., <a href="https://www.latlong.net/lat-long-utm.html">UTM converter</a>)</p>
+(i.e., <a href="https://www.latlong.net/lat-long-utm.html">UTMconverter</a>)</p>
+<p>Now, we are ready to update <code>pc_utm_to_mgrs_converter.param.yaml</code>,
+example for our navsatfix message:</p>
+<div class="highlight"><pre><span></span><code>/**:
+<span class="w"> </span> ros__parameters:
+<span class="w"> </span>     # Northing of local origin
+<span class="gd">-     Northing: 4520550.0</span>
+<span class="gi">+     Northing: 4542871.33</span>
+
+<span class="w"> </span>     # Easting of local origin
+<span class="gd">-     Easting: 698891.0</span>
+<span class="gi">+     Easting: 658659.84</span>
+
+<span class="w"> </span>     # Elipsoid Height of local origin
+<span class="gd">-     ElipsoidHeight: 47.62</span>
+<span class="gi">+     ElipsoidHeight: 74.28</span>
+</code></pre></div>
+<p>Lastly, we will update input and pointcloud the map path in <code>pc_utm_to_mgrs_converter.launch.xml</code>:</p>
+<div class="highlight"><pre><span></span><code>...
+<span class="gd">- &lt;arg name="input_file_path" default="/home/melike/projects/autoware_data/gebze_pospac_map/pointcloud_map.pcd"/&gt;</span>
+<span class="gi">+ &lt;arg name="input_file_path" default="&lt;PATH-TO-YOUR-INPUT-PCD-MAP&gt;"/&gt;</span>
+<span class="gd">- &lt;arg name="output_file_path" default="/home/melike/projects/autoware_data/gebze_pospac_map/pointcloud_map_mgrs_orto.pcd"/&gt;</span>
+<span class="gi">+ &lt;arg name="output_file_path" default="&lt;PATH-TO-YOUR-OUTPUT-PCD-MAP&gt;"/&gt;</span>
+...
+</code></pre></div>
+<p>After the setting of the package, we will launch pc_utm_to_mgrs_converter:</p>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>pc_utm_to_mgrs_converter<span class="w"> </span>pc_utm_to_mgrs_converter.launch.xml
+</code></pre></div>
+<p>The conversion process will be started,
+you should see <code>Saved &lt;YOUR-MAP-POINTS-SIZE&gt; data points saved to &lt;YOUR-OUTPUT-MAP-PATH&gt;</code> message on your terminal.
+So, MGRS format pointcloud map saved on your output map directory.</p>
 <!-- prettier-ignore --></div>
 
 
@@ -5320,13 +5398,13 @@ You can use any converter on the internet for converting latitude longitude valu
         
         
           
-          <a href="../../launch-autoware/" class="md-footer__link md-footer__link--next" aria-label="Next: Launch Autoware" rel="next">
+          <a href="../pointcloud-map-downsampling/" class="md-footer__link md-footer__link--next" aria-label="Next: Pointcloud map downsampling" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Launch Autoware
+                Pointcloud map downsampling
               </div>
             </div>
             <div class="md-footer__button md-icon">
