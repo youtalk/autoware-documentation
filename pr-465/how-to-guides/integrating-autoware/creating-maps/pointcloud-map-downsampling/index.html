@@ -5217,8 +5217,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#installing-cloud-compare" class="md-nav__link">
-    Installing Cloud Compare
+  <a href="#installing-cloudcompare" class="md-nav__link">
+    Installing CloudCompare
   </a>
   
 </li>
@@ -5256,18 +5256,16 @@ you may want to downsample it for improved computational and memory efficiency.
 Also, you can consider using dynamic map loading with partial loading,
 please check <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/map/map_loader">map_loader package</a> for more information.</p>
 <p>At tutorial_vehicle implementation we will use the whole map,
-so we will downsample it with using <a href="https://www.cloudcompare.org/main.html">Cloud Compare</a>.</p>
-<h2 id="installing-cloud-compare">Installing Cloud Compare<a class="headerlink" href="#installing-cloud-compare" title="Permanent link">#</a></h2>
+so we will downsample it with using <a href="https://www.cloudcompare.org/main.html">CloudCompare</a>.</p>
+<h2 id="installing-cloudcompare">Installing CloudCompare<a class="headerlink" href="#installing-cloudcompare" title="Permanent link">#</a></h2>
 <p>You can install it by snap:</p>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>snap<span class="w"> </span>install<span class="w"> </span>cloudcompare
 </code></pre></div>
-<p>If you want to use flatpak for installation,
-please check the <a href="https://www.cloudcompare.org/release/index.html#CloudCompare">official page</a>
+<p>Please check the <a href="https://www.cloudcompare.org/release/index.html#CloudCompare">official page</a>
 for installing options.</p>
 <h2 id="downsampling-a-pointcloud-map">Downsampling a pointcloud map<a class="headerlink" href="#downsampling-a-pointcloud-map" title="Permanent link">#</a></h2>
-<p>There are three <a href="https://www.cloudcompare.org/doc/wiki/index.php/Edit%5CSubsample">subsampling methods on CloudCompare</a>:
-Random, Space and Octree.
-We are using <code>Space</code> method for subsampling, but you can use other methods if you want.</p>
+<p>There are three <a href="https://www.cloudcompare.org/doc/wiki/index.php/Edit%5CSubsample">subsampling methods on CloudCompare</a>,
+we are using <code>Space</code> method for subsampling, but you can use other methods if you want.</p>
 <ol>
 <li>Please open CloudCompare and drag your pointcloud to here, then you can select your pointcloud map by just clicking on the map at the DB tree panel.</li>
 <li>Then you can click <code>subsample</code> button on the top panel.</li>
@@ -5276,7 +5274,7 @@ We are using <code>Space</code> method for subsampling, but you can use other me
 <p><img align="center" alt="db-tree-panel" src="images/select-map.png">
   </p>
 <figcaption>
-    Cloud Compare 
+    CloudCompare 
   </figcaption>
 </figure>
 <!-- prettier-ignore --></div>
