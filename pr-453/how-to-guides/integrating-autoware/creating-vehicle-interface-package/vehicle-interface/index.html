@@ -21,7 +21,7 @@
     
     
       
-        <title>Vehicle interface - Autoware Documentation</title>
+        <title>Vehicle interface overview - Autoware Documentation</title>
       
     
     
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Vehicle interface
+              Vehicle interface overview
             
           </span>
         </div>
@@ -1349,12 +1349,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Vehicle interface
+          Vehicle interface overview
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Vehicle interface
+        Vehicle interface overview
       </a>
       
         
@@ -1376,6 +1376,19 @@
   <a href="#what-is-the-vehicle-interface" class="md-nav__link">
     What is the vehicle interface?
   </a>
+  
+    <nav class="md-nav" aria-label="What is the vehicle interface?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#communication-between-the-vehicle-interface-and-your-vehicles-control-device" class="md-nav__link">
+    Communication between the vehicle interface and your vehicle's control device
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -5133,6 +5146,19 @@
     What is the vehicle interface?
   </a>
   
+    <nav class="md-nav" aria-label="What is the vehicle interface?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#communication-between-the-vehicle-interface-and-your-vehicles-control-device" class="md-nav__link">
+    Communication between the vehicle interface and your vehicle's control device
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -5158,8 +5184,16 @@
 <p>The purpose of the vehicle interface package is to convert the control messages calculated from the autoware into a form that the vehicle can understand and transmit them to the vehicle (CAN, Serial message, etc.) and to decode the data coming from the vehicle and publish it through the <abbr title="Robot Operating System">ROS</abbr> 2 topics that the autoware expects.
 So, we can say that the purposes of the vehicle_interface are:</p>
 <ol>
-<li>Converting Autoware control commands to a vehicle-specific format. Example control commands of autoware:</li>
-<li>Converting vehicle status information in a vehicle-specific format to Autoware messages.</li>
+<li>
+<p>Converting Autoware control commands to a vehicle-specific format. Example control commands of autoware:</p>
+<ul>
+<li>lateral controls: steering tire angle, steering tire rotation rate</li>
+<li>longitudinal controls: speed, acceleration, jerk</li>
+</ul>
+</li>
+<li>
+<p>Converting vehicle status information in a vehicle-specific format to Autoware messages.</p>
+</li>
 </ol>
 <p>Autoware publishes control commands such as:</p>
 <ul>
@@ -5183,7 +5217,11 @@ So, we can say that the purposes of the vehicle_interface are:</p>
     An example of inputs and outputs for vehicle interface
   </figcaption>
 </figure>
-<p>There are two types of controlling your own vehicle:</p>
+<p>There are two types of interfaces for controlling your own vehicle:</p>
+<ol>
+<li>Target steering and target velocity/acceleration interface. (It will be named as Type A for this document)</li>
+<li>Generalized target command interface (i.e., accel/brake pedal, steering torque). (It will be named as Type B for this document)</li>
+</ol>
 <p>For Type A,
 where the control interface encompasses target steering and target velocity/acceleration.</p>
 <ul>
@@ -5210,6 +5248,39 @@ If you are planning to use Type A,
 then you will control velocity or acceleration over drive by-wire systems.
 If type B is more suitable for your implementation,
 then you will need to control your vehicle's brake and gas pedal.</p>
+<h3 id="communication-between-the-vehicle-interface-and-your-vehicles-control-device">Communication between the vehicle interface and your vehicle's control device<a class="headerlink" href="#communication-between-the-vehicle-interface-and-your-vehicles-control-device" title="Permanent link">#</a></h3>
+<ul>
+<li>If you are planning to drive by autoware with your vehicle, then your vehicle must satisfy some requirements:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Type A</th>
+<th>Type B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Your vehicle can be controlled in longitudinal direction by the target velocity or acceleration.</td>
+<td>Your vehicle can be controlled in longitudinal direction by the specific target commands. (i.e., brake and gas pedal)</td>
+</tr>
+<tr>
+<td>Your vehicle can be controlled in lateral direction by the target steering angle. (Optionally, you can use steering rate as well)</td>
+<td>Your vehicle can be controlled in lateral direction by the specific target commands. (i.e., steering torque)</td>
+</tr>
+<tr>
+<td>Your vehicle must provide velocity or acceleration information and steering information which is described at the vehicle status topics above.</td>
+<td>Your vehicle must provide velocity or acceleration information and steering information which is described at the vehicle status topics above.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>You can also use mixed Type A and Type B, for example, you want to use lateral controlling with a steering angle and longitudinal controlling with specific targets. In order to do that, you must subscribe <code>/control/command/control_cmd</code> for getting steering information, and you must subscribe <code>/control/command/actuation_cmd</code> for gas and brake pedal actuation commands. Then, you must handle these messages on your own vehicle_interface design.</li>
+<li>You must adopt your vehicle low-level controller to run with autoware.</li>
+<li>Your vehicle can be controlled by the target shift mode and also needs to provide Autoware with shift information.</li>
+<li>If you are using CAN communication on your vehicle, please refer to <a href="https://github.com/autowarefoundation/ros2_socketcan">ros2_socketcan</a> package by Autoware.</li>
+<li>If you are using Serial communication on your vehicle, you can look at <a href="https://github.com/fedetft/serial-port/tree/master/3_async">serial-port</a>.</li>
+</ul>
 <!-- prettier-ignore --></div>
 
 
