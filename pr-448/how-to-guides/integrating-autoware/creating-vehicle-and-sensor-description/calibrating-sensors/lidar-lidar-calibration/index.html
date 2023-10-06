@@ -5391,6 +5391,26 @@
     Mapping-based lidar-lidar calibration
   </a>
   
+    <nav class="md-nav" aria-label="Mapping-based lidar-lidar calibration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-launch-files" class="md-nav__link">
+    Creating launch files
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lidar-lidar-calibration-process-with-interactive-mapping-based-calibrator" class="md-nav__link">
+    Lidar-Lidar calibration process with interactive mapping-based calibrator
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -5435,6 +5455,7 @@ Topic<span class="w"> </span>information:<span class="w"> </span>Topic:<span cla
 </code></pre></div>
 </details>
 <h2 id="mapping-based-lidar-lidar-calibration">Mapping-based lidar-lidar calibration<a class="headerlink" href="#mapping-based-lidar-lidar-calibration" title="Permanent link">#</a></h2>
+<h3 id="creating-launch-files">Creating launch files<a class="headerlink" href="#creating-launch-files" title="Permanent link">#</a></h3>
 <p>We start with creating launch file four our vehicle like "Extrinsic Manual Calibration"
 process:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>&lt;YOUR-OWN-AUTOWARE-DIRECTORY&gt;/src/autoware/calibration_tools/sensor
@@ -5442,36 +5463,21 @@ process:</p>
 <span class="nb">cd</span><span class="w"> </span>&lt;YOUR-OWN-SENSOR-KIT-NAME&gt;<span class="w"> </span><span class="c1"># i.e. for our guide, it will ve cd tutorial_vehicle_sensor_kit which is created in manual calibration</span>
 touch<span class="w"> </span>mapping_based.launch.xml<span class="w"> </span>mapping_based_sensor_kit.launch.xml
 </code></pre></div>
-<p>The created <code>mapping_based.launch.xml</code> and <code>mapping_based_sensor_kit.launch.xml</code> are version of sample sensor kit
-<a href="https://github.com/tier4/CalibrationTools/tree/tier4/universe/sensor/extrinsic_calibration_manager/launch/aip_x1">aip_x1</a>
-provided from TIER IV.</p>
+<p>We will be modifying these <code>mapping_based.launch.xml</code> and <code>mapping_based_sensor_kit.launch.xml</code> by using TIER IV's sample sensor kit aip_xx1.
+So,
+you should copy the contents of these two files from <a href="https://github.com/tier4/CalibrationTools/tree/tier4/universe/sensor/extrinsic_calibration_manager/launch/aip_xx1">aip_x1</a> to your created files.</p>
 <p>Then we will continue with adding vehicle_id and sensor model names to the <code>mapping_based.launch.xml</code>.
 (Optionally, values are not important. These parameters will be overridden by launch arguments)</p>
-<div class="highlight"><pre><span></span><code><span class="gi">+ &lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="w"> </span> &lt;arg name="vehicle_id" default="default"/&gt;
+
+<span class="w"> </span> &lt;let name="sensor_model" value="aip_x1"/&gt;
+<span class="gi">+ &lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="gi">+ &lt;launch&gt;</span>
+<span class="gd">-   &lt;arg name="vehicle_id" default="default"/&gt;</span>
 <span class="gi">+   &lt;arg name="vehicle_id" default="&lt;YOUR_VEHICLE_ID&gt;"/&gt;</span>
 <span class="gi">+</span>
+<span class="gd">-   &lt;arg name="sensor_model" default="aip_x1"/&gt;</span>
 <span class="gi">+   &lt;let name="sensor_model" value="&lt;YOUR_SENSOR_KIT_NAME&gt;"/&gt;</span>
-</code></pre></div>
-<details class="note">
-<summary>i.e. vehicle_id and sensor_model definition on tutorial_vehicle (mapping_based.launch.xml)</summary>
-<div class="highlight"><pre><span></span><code>+<span class="w"> </span><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
-+<span class="w"> </span><span class="nt">&lt;launch&gt;</span>
-+<span class="w">   </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"vehicle_id"</span><span class="w"> </span><span class="na">default=</span><span class="s">"tutorial_vehicle"</span><span class="nt">/&gt;</span>
-+
-+<span class="w">   </span><span class="nt">&lt;let</span><span class="w"> </span><span class="na">name=</span><span class="s">"sensor_model"</span><span class="w"> </span><span class="na">value=</span><span class="s">"tutorial_vehicle_sensor_kit"</span><span class="nt">/&gt;</span>
-</code></pre></div>
-</details>
-<p>After that, we will launch our sensor_kit for mapping-based lidar-lidar calibration,
-so we must add these lines on mapping_based.launch.xml:</p>
-<div class="highlight"><pre><span></span><code><span class="gi">+   &lt;group&gt;</span>
-<span class="gi">+     &lt;push-ros-namespace namespace="sensor_kit"/&gt;</span>
-<span class="gi">+     &lt;include file="$(find-pkg-share extrinsic_calibration_manager)/launch/$(var sensor_model)/mapping_based_sensor_kit.launch.xml"&gt;</span>
-<span class="gi">+       &lt;arg name="vehicle_id" value="$(var vehicle_id)"/&gt;</span>
-<span class="gi">+     &lt;/include&gt;</span>
-<span class="gi">+   &lt;/group&gt;</span>
-<span class="gi">+</span>
-<span class="gi">+ &lt;/launch&gt;</span>
 </code></pre></div>
 <p>The final version of the file (mapping_based.launch.xml) for tutorial_vehicle should be like this:</p>
 <details class="note">
@@ -5498,28 +5504,6 @@ we will be ready to implement mapping_based_sensor_kit.launch.xml for the own se
 you can modify sensor_kit and vehicle_id as <code>mapping_based.launch.xml</code>over this xml snippet:
 (You can change rviz_profile path after the saving rviz config as video
 which included at the end of the page)</p>
-<div class="highlight"><pre><span></span><code><span class="gi">+ &lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
-<span class="gi">+ &lt;launch&gt;</span>
-<span class="gi">+   &lt;arg name="vehicle_id" default="&lt;YOUR_VEHICLE_ID&gt;"/&gt;</span>
-<span class="gi">+   &lt;let name="sensor_model" value="&lt;YOUR_SENSOR_KIT_NAME&gt;"/&gt;</span>
-<span class="gi">+</span>
-<span class="gi">+   &lt;arg name="rviz"/&gt;</span>
-<span class="gi">+   &lt;let name="rviz_profile" value="$(find-pkg-share extrinsic_mapping_based_calibrator)/rviz/x1.rviz"/&gt;</span>
-<span class="gi">+</span>
-<span class="gi">+   &lt;!-- You can change after the saving of rviz config like this --&gt;</span>
-<span class="gi">+   &lt;!-- &lt;let name="rviz_profile" value="$(find-pkg-share extrinsic_mapping_based_calibrator)/rviz/tutorial_vehicle.rviz"/&gt; --&gt;</span>
-<span class="gi">+</span>
-<span class="gi">+   &lt;arg name="src_yaml" default="$(find-pkg-share individual_params)/config/$(var vehicle_id)/$(var sensor_model)/sensor_kit_calibration.yaml"/&gt;</span>
-<span class="gi">+   &lt;arg name="dst_yaml" default="$(env HOME)/sensor_kit_calibration.yaml"/&gt;</span>
-</code></pre></div>
-<p>We will not fill anything on camera parameters for calibrator
-because we will pair lidar-lidar for the calibration process:</p>
-<div class="highlight"><pre><span></span><code><span class="gi">+   &lt;let name="camera_calibration_sensor_kit_frames" value="['']"/&gt;</span>
-<span class="gi">+   &lt;let name="calibration_camera_frames" value="['']"/&gt;</span>
-<span class="gi">+   &lt;let name="calibration_camera_optical_link_frames" value="['']"/&gt;</span>
-<span class="gi">+   &lt;let name="calibration_camera_info_topics" value="['']"/&gt;</span>
-<span class="gi">+   &lt;let name="calibration_image_topics" value="['']"/&gt;</span>
-</code></pre></div>
 <p>We will add sensor kit frames for each lidar (except mapping lidar),
 we have one lidar for pairing to the main lidar sensor for tutorial vehicle, so it should be like:</p>
 <div class="highlight"><pre><span></span><code><span class="w"> </span>   +  &lt;let name="lidar_calibration_sensor_kit_frames" value="[
@@ -5543,7 +5527,22 @@ we have one lidar for pairing to the main lidar sensor for tutorial vehicle, so 
 </details>
 <p>We will add lidar_calibration_service_names,
 calibration_lidar_base_frames and calibration_lidar_frames for calibrator.</p>
-<div class="highlight"><pre><span></span><code><span class="gi">+   &lt;let</span>
+<div class="highlight"><pre><span></span><code><span class="gd">-   &lt;let</span>
+<span class="gd">-       name="lidar_calibration_service_names"</span>
+<span class="gd">-       value="[</span>
+<span class="gd">-       /sensor_kit/sensor_kit_base_link/livox_front_left_base_link,</span>
+<span class="gd">-       /sensor_kit/sensor_kit_base_link/livox_front_center_base_link,</span>
+<span class="gd">-       /sensor_kit/sensor_kit_base_link/livox_front_right_base_link]"</span>
+<span class="gd">-     /&gt;</span>
+<span class="gd">-   &lt;let name="calibration_lidar_base_frames" value="[</span>
+<span class="gd">-       livox_front_left_base_link,</span>
+<span class="gd">-       livox_front_center_base_link,</span>
+<span class="gd">-       livox_front_right_base_link]"/&gt;</span>
+<span class="gd">-   &lt;let name="calibration_lidar_frames" value="[</span>
+<span class="gd">-       livox_front_left,</span>
+<span class="gd">-       livox_front_center,</span>
+<span class="gd">-       livox_front_right]"/&gt;</span>
+<span class="gi">+   &lt;let</span>
 <span class="gi">+           name="lidar_calibration_service_names"</span>
 <span class="gi">+           value="[/sensor_kit/sensor_kit_base_link/&lt;YOUR_SENSOR_BASE_LINK&gt;,</span>
 <span class="gi">+                   /sensor_kit/sensor_kit_base_link/&lt;YOUR_SENSOR_BASE_LINK</span>
@@ -5558,23 +5557,6 @@ calibration_lidar_base_frames and calibration_lidar_frames for calibrator.</p>
 <span class="gi">+                                                ...]"/&gt;</span>
 </code></pre></div>
 <details class="note">
-<summary>i.e., If you have three lidars (one main for mapping, two others) for <a href="https://github.com/tier4/CalibrationTools/blob/tier4/universe/sensor/extrinsic_calibration_manager/launch/aip_x1/mapping_based_sensor_kit.launch.xml">aip_x1</a></summary>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;let</span>
-<span class="na">name=</span><span class="s">"lidar_calibration_service_names"</span>
-<span class="na">value=</span><span class="s">"[</span>
-<span class="s">/sensor_kit/sensor_kit_base_link/livox_front_left_base_link,</span>
-<span class="s">/sensor_kit/sensor_kit_base_link/livox_front_right_base_link]"</span>
-<span class="nt">/&gt;</span>
-<span class="nt">&lt;let</span><span class="w"> </span><span class="na">name=</span><span class="s">"calibration_lidar_base_frames"</span><span class="w"> </span><span class="na">value=</span><span class="s">"[</span>
-<span class="s">livox_front_left_base_link,</span>
-<span class="s">livox_front_right_base_link]"</span><span class="nt">/&gt;</span>
-
-<span class="nt">&lt;let</span><span class="w"> </span><span class="na">name=</span><span class="s">"calibration_lidar_frames"</span><span class="w"> </span><span class="na">value=</span><span class="s">"[</span>
-<span class="s">livox_front_left,</span>
-<span class="s">livox_front_right]"</span><span class="nt">/&gt;</span>
-</code></pre></div>
-</details>
-<details class="note">
 <summary>i.e., At the tutorial_vehicle it should be like this snippet</summary>
 <div class="highlight"><pre><span></span><code>+<span class="w">   </span><span class="nt">&lt;let</span>
 <span class="err">+</span><span class="w">           </span><span class="na">name=</span><span class="s">"lidar_calibration_service_names"</span>
@@ -5587,44 +5569,21 @@ calibration_lidar_base_frames and calibration_lidar_frames for calibrator.</p>
 </details>
 <p>After that, we will add the sensor topics and sensor frames in order to do that,
 we will continue filling the <code>mapping_based_sensor_kit.launch.xml</code> with:</p>
-<div class="highlight"><pre><span></span><code><span class="gi">+   &lt;let name="calibration_lidar_base_frames" value="[&lt;YOUR_SENSOR_BASE_LINK&gt;,</span>
-<span class="gi">+                                                     &lt;YOUR_SENSOR_BASE_LINK&gt;</span>
-<span class="gi">+                                                     ...]"/&gt;</span>
-<span class="gi">+     &lt;let name="calibration_lidar_frames" value="[&lt;YOUR_SENSOR_LINK&gt;,</span>
-<span class="gi">+                                                  &lt;YOUR_SENSOR_LINK&gt;</span>
-<span class="gi">+                                                  ...]"/&gt;</span>
-<span class="gi">+</span>
+<div class="highlight"><pre><span></span><code><span class="gd">-     &lt;let name="mapping_lidar_frame" value="velodyne_top"/&gt;</span>
+<span class="gd">-     &lt;let name="mapping_pointcloud" value="/sensing/lidar/top/outlier_filtered/pointcloud"/&gt;</span>
 <span class="gi">+     &lt;let name="mapping_lidar_frame" value="&lt;MAPPING_LIDAR_SENSOR_LINK&gt;"/&gt;</span>
 <span class="gi">+     &lt;let name="mapping_pointcloud" value="&lt;MAPPING_LIDAR_POINTCLOUD_TOPIC_NAME&gt;"/&gt;</span>
-<span class="gi">+     &lt;let name="detected_objects" value="/perception/object_recognition/detection/objects"/&gt;</span>
-<span class="gi">+</span>
+
+
+<span class="gd">-     &lt;let name="calibration_pointcloud_topics" value="[</span>
+<span class="gd">-       /sensing/lidar/front_left/livox/lidar,</span>
+<span class="gd">-       /sensing/lidar/front_center/livox/lidar,</span>
+<span class="gd">-       /sensing/lidar/front_right/livox/lidar]"/&gt;</span>
 <span class="gi">+     &lt;let name="calibration_pointcloud_topics" value="[</span>
 <span class="gi">+       &lt;YOUR_LIDAR_TOPIC_FOR_CALIBRATION&gt;,</span>
 <span class="gi">+       &lt;YOUR_LIDAR_TOPIC_FOR_CALIBRATION&gt;,</span>
 <span class="gi">+       ...]"/&gt;</span>
 </code></pre></div>
-<details class="note">
-<summary>i.e., If you have three lidars (one main for mapping, two others) for <a href="https://github.com/tier4/CalibrationTools/blob/tier4/universe/sensor/extrinsic_calibration_manager/launch/aip_x1/mapping_based_sensor_kit.launch.xml">aip_x1</a></summary>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;let</span><span class="w"> </span><span class="na">name=</span><span class="s">"calibration_lidar_base_frames"</span><span class="w"> </span><span class="na">value=</span><span class="s">"[</span>
-<span class="s">livox_front_left_base_link,</span>
-<span class="s">livox_front_center_base_link,</span>
-<span class="s">livox_front_right_base_link]"</span><span class="nt">/&gt;</span>
-
-<span class="nt">&lt;let</span><span class="w"> </span><span class="na">name=</span><span class="s">"calibration_lidar_frames"</span><span class="w"> </span><span class="na">value=</span><span class="s">"[</span>
-<span class="s">livox_front_left,</span>
-<span class="s">livox_front_center,</span>
-<span class="s">livox_front_right]"</span><span class="nt">/&gt;</span>
-
-<span class="nt">&lt;let</span><span class="w"> </span><span class="na">name=</span><span class="s">"mapping_lidar_frame"</span><span class="w"> </span><span class="na">value=</span><span class="s">"velodyne_top"</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;let</span><span class="w"> </span><span class="na">name=</span><span class="s">"mapping_pointcloud"</span><span class="w"> </span><span class="na">value=</span><span class="s">"/sensing/lidar/top/outlier_filtered/pointcloud"</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;let</span><span class="w"> </span><span class="na">name=</span><span class="s">"detected_objects"</span><span class="w"> </span><span class="na">value=</span><span class="s">"/perception/object_recognition/detection/objects"</span><span class="nt">/&gt;</span>
-
-<span class="nt">&lt;let</span><span class="w"> </span><span class="na">name=</span><span class="s">"calibration_pointcloud_topics"</span><span class="w"> </span><span class="na">value=</span><span class="s">"[</span>
-<span class="s">/sensing/lidar/front_left/livox/lidar,</span>
-<span class="s">/sensing/lidar/front_center/livox/lidar,</span>
-<span class="s">/sensing/lidar/front_right/livox/lidar]"</span><span class="nt">/&gt;</span>
-</code></pre></div>
-</details>
 <details class="note">
 <summary>At the tutorial_vehicle it should be like this snippet.</summary>
 <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nt">&lt;let</span><span class="w"> </span><span class="na">name=</span><span class="s">"calibration_lidar_base_frames"</span><span class="w"> </span><span class="na">value=</span><span class="s">"[rs_bpearl_front_base_link]"</span><span class="nt">/&gt;</span>
@@ -5636,45 +5595,6 @@ we will continue filling the <code>mapping_based_sensor_kit.launch.xml</code> wi
 
 <span class="nt">&lt;let</span><span class="w"> </span><span class="na">name=</span><span class="s">"calibration_pointcloud_topics"</span><span class="w"> </span><span class="na">value=</span><span class="s">"[</span>
 <span class="s">/sensing/lidar/right/pointcloud_raw]"</span><span class="nt">/&gt;</span>
-</code></pre></div>
-</details>
-<p>Then we will add the extrinsic_mapping_based_calibrator launch file with these arguments to mapping_based_sensor_kit.launch.xml:</p>
-<details class="note">
-<summary>extrinsic_mapping_based_calibrator launch example</summary>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;include</span><span class="w"> </span><span class="na">file=</span><span class="s">"$(find-pkg-share extrinsic_mapping_based_calibrator)/launch/calibrator.launch.xml"</span><span class="nt">&gt;</span>
-<span class="w">    </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"ns"</span><span class="w"> </span><span class="na">value=</span><span class="s">""</span><span class="nt">/&gt;</span>
-
-<span class="w">    </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"camera_calibration_service_names"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(var camera_calibration_service_names)"</span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"lidar_calibration_service_names"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(var lidar_calibration_service_names)"</span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"camera_calibration_sensor_kit_frames"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(var camera_calibration_sensor_kit_frames)"</span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"lidar_calibration_sensor_kit_frames"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(var lidar_calibration_sensor_kit_frames)"</span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"calibration_camera_frames"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(var calibration_camera_frames)"</span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"calibration_camera_optical_link_frames"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(var calibration_camera_optical_link_frames)"</span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"calibration_lidar_base_frames"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(var calibration_lidar_base_frames)"</span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"calibration_lidar_frames"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(var calibration_lidar_frames)"</span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"mapping_lidar_frame"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(var mapping_lidar_frame)"</span><span class="nt">/&gt;</span>
-
-<span class="w">    </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"mapping_pointcloud"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(var mapping_pointcloud)"</span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"detected_objects"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(var detected_objects)"</span><span class="nt">/&gt;</span>
-
-<span class="w">    </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"calibration_camera_info_topics"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(var calibration_camera_info_topics)"</span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"calibration_image_topics"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(var calibration_image_topics)"</span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"calibration_pointcloud_topics"</span><span class="w"> </span><span class="na">value=</span><span class="s">"$(var calibration_pointcloud_topics)"</span><span class="nt">/&gt;</span>
-
-<span class="w">    </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"mapping_max_range"</span><span class="w"> </span><span class="na">value=</span><span class="s">"150.0"</span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"local_map_num_keyframes"</span><span class="w"> </span><span class="na">value=</span><span class="s">"30"</span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"dense_pointcloud_num_keyframes"</span><span class="w"> </span><span class="na">value=</span><span class="s">"20"</span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"ndt_resolution"</span><span class="w"> </span><span class="na">value=</span><span class="s">"0.5"</span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"ndt_max_iterations"</span><span class="w"> </span><span class="na">value=</span><span class="s">"100"</span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"ndt_epsilon"</span><span class="w"> </span><span class="na">value=</span><span class="s">"0.005"</span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"lost_frame_max_acceleration"</span><span class="w"> </span><span class="na">value=</span><span class="s">"15.0"</span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"lidar_calibration_max_frames"</span><span class="w"> </span><span class="na">value=</span><span class="s">"10"</span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"calibration_eval_max_corr_distance"</span><span class="w"> </span><span class="na">value=</span><span class="s">"0.2"</span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"solver_iterations"</span><span class="w"> </span><span class="na">value=</span><span class="s">"100"</span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"calibration_skip_keyframes"</span><span class="w"> </span><span class="na">value=</span><span class="s">"15"</span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;/include&gt;</span>
-
-<span class="w">  </span><span class="nt">&lt;node</span><span class="w"> </span><span class="na">pkg=</span><span class="s">"rviz2"</span><span class="w"> </span><span class="na">exec=</span><span class="s">"rviz2"</span><span class="w"> </span><span class="na">name=</span><span class="s">"rviz2"</span><span class="w"> </span><span class="na">output=</span><span class="s">"screen"</span><span class="w"> </span><span class="na">args=</span><span class="s">"-d $(var rviz_profile)"</span><span class="w"> </span><span class="na">if=</span><span class="s">"$(var rviz)"</span><span class="nt">/&gt;</span>
 </code></pre></div>
 </details>
 <p>The mapping_based_sensor_kit.launch.xml launch file for tutorial_vehicle should be this:</p>
@@ -5769,6 +5689,7 @@ we will continue filling the <code>mapping_based_sensor_kit.launch.xml</code> wi
 <span class="nt">&lt;/launch&gt;</span>
 </code></pre></div>
 </details>
+<h3 id="lidar-lidar-calibration-process-with-interactive-mapping-based-calibrator">Lidar-Lidar calibration process with interactive mapping-based calibrator<a class="headerlink" href="#lidar-lidar-calibration-process-with-interactive-mapping-based-calibrator" title="Permanent link">#</a></h3>
 <p>After completing mapping_based.launch.xml and mapping_based_sensor_kit.launch.xml launch files for own sensor kit;
 now we are ready to calibrate our lidars.
 First of all, we need to build extrinsic_calibration_manager package:</p>

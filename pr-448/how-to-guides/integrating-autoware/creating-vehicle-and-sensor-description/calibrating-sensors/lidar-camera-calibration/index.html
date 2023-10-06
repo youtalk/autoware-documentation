@@ -5391,6 +5391,26 @@
     Lidar-Camera calibration
   </a>
   
+    <nav class="md-nav" aria-label="Lidar-Camera calibration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-launch-files" class="md-nav__link">
+    Creating launch files
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lidar-camera-calibration-process-with-interactive-camera-lidar-calibrator" class="md-nav__link">
+    Lidar-camera calibration process with interactive camera-lidar calibrator
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -5447,6 +5467,7 @@ Topic:<span class="w"> </span>/sensing/camera/camera0/camera_info<span class="w"
 </code></pre></div>
 </details>
 <h2 id="lidar-camera-calibration_1">Lidar-Camera calibration<a class="headerlink" href="#lidar-camera-calibration_1" title="Permanent link">#</a></h2>
+<h3 id="creating-launch-files">Creating launch files<a class="headerlink" href="#creating-launch-files" title="Permanent link">#</a></h3>
 <p>We start with creating launch file four our vehicle like "Extrinsic Manual Calibration"
 process:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>&lt;YOUR-OWN-AUTOWARE-DIRECTORY&gt;/src/autoware/calibration_tools/sensor
@@ -5454,38 +5475,28 @@ process:</p>
 <span class="nb">cd</span><span class="w"> </span>&lt;YOUR-OWN-SENSOR-KIT-NAME&gt;<span class="w"> </span><span class="c1"># i.e. for our guide, it will ve cd tutorial_vehicle_sensor_kit which is created in manual calibration</span>
 touch<span class="w"> </span>interactive.launch.xml<span class="w"> </span>interactive_sensor_kit.launch.xml
 </code></pre></div>
-<p>The created <code>interactive.launch.xml</code> and <code>interactive_sensor_kit.launch.xml</code> are version of sample sensor kit
-<a href="https://github.com/tier4/CalibrationTools/tree/tier4/universe/sensor/extrinsic_calibration_manager/launch/aip_xx1">aip_xx1</a> provided from TIER IV.</p>
-<p>Then we will continue with adding vehicle_id and sensor model names to the <code>mapping_based.launch.xml</code>.
-(Optionally, values are not important. These parameters will be overridden by launch arguments) Then,
-we will add camera_name for calibrating camera
-(can be one of the camera0, camera1, camera_front etc. as launch argument)
-and <code>use_concatenated_pointcloud</code> argument.
-If you want to use concatenated pointcloud as an input cloud
+<p>We will be modifying these <code>interactive.launch.xml</code> and <code>interactive_sensor_kit.launch.xml</code> by using TIER IV's sample sensor kit aip_xx1.
+So,
+you should copy the contents of these two files from <a href="https://github.com/tier4/CalibrationTools/tree/tier4/universe/sensor/extrinsic_calibration_manager/launch/aip_xx1">aip_x1</a> to your created files.</p>
+<p>Then we will continue with adding vehicle_id and sensor model names to the <code>interactive.launch.xml</code>.
+(Optionally, values are not important. These parameters will be overridden by launch arguments)</p>
+<div class="highlight"><pre><span></span><code><span class="w"> </span> &lt;arg name="vehicle_id" default="default"/&gt;
+
+<span class="w"> </span> &lt;let name="sensor_model" value="aip_x1"/&gt;
+<span class="gi">+ &lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="gi">+ &lt;launch&gt;</span>
+<span class="gd">-   &lt;arg name="vehicle_id" default="default"/&gt;</span>
+<span class="gi">+   &lt;arg name="vehicle_id" default="&lt;YOUR_VEHICLE_ID&gt;"/&gt;</span>
+<span class="gi">+</span>
+<span class="gd">-   &lt;arg name="sensor_model" default="aip_x1"/&gt;</span>
+<span class="gi">+   &lt;let name="sensor_model" value="&lt;YOUR_SENSOR_KIT_NAME&gt;"/&gt;</span>
+</code></pre></div>
+<p>If you want to use concatenated pointcloud as an input cloud
 (the calibration process will initiate the logging simulator,
 resulting in the construction of the lidar pipeline and the appearance of the concatenated point cloud),
 you must set <code>use_concatenated_pointcloud</code> value as <code>true</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="gi">+ &lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
-<span class="gi">+ &lt;launch&gt;</span>
-<span class="gi">+   &lt;arg name="vehicle_id" default="&lt;YOUR_VEHICLE_ID&gt;"/&gt;</span>
-<span class="gi">+   &lt;let name="sensor_model" value="&lt;YOUR_SENSOR_KIT_NAME&gt;"/&gt;</span>
-<span class="gi">+   &lt;arg name="rviz" default="false"/&gt;</span>
-<span class="gi">+   &lt;arg name="camera_name"/&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="gd">-   &lt;arg name="use_concatenated_pointcloud" default="false"/&gt;</span>
 <span class="gi">+   &lt;arg name="use_concatenated_pointcloud" default="true"/&gt;</span>
-</code></pre></div>
-<p>After that, we will launch our sensor_kit for lidar-camera calibration,
-so we must add these lines on interactive.launch.xml (Also, you can change rviz path (args) after the saving rviz config):</p>
-<div class="highlight"><pre><span></span><code><span class="gi">+  &lt;group&gt;</span>
-<span class="gi">+    &lt;push-ros-namespace namespace="sensor_kit"/&gt;</span>
-<span class="gi">+    &lt;include file="$(find-pkg-share extrinsic_calibration_manager)/launch/$(var sensor_model)/interactive_sensor_kit.launch.xml" if="$(var rviz)"&gt;</span>
-<span class="gi">+      &lt;arg name="vehicle_id" value="$(var vehicle_id)"/&gt;</span>
-<span class="gi">+      &lt;arg name="camera_name" value="$(var camera_name)"/&gt;</span>
-<span class="gi">+    &lt;/include&gt;</span>
-<span class="gi">+  &lt;/group&gt;</span>
-<span class="gi">+</span>
-<span class="gi">+  &lt;!-- You can change the config file path --&gt;</span>
-<span class="gi">+  &lt;node pkg="rviz2" exec="rviz2" name="rviz2" output="screen" args="</span>
-<span class="gi">+        -d $(find-pkg-share extrinsic_calibration_manager)/config/x2/extrinsic_interactive_calibrator.rviz" if="$(var rviz)"/&gt;</span>
 </code></pre></div>
 <p>The final version of the file (interactive.launch.xml) for tutorial_vehicle should be like this:</p>
 <details class="note">
@@ -5517,120 +5528,27 @@ we will be ready to implement interactive_sensor_kit.launch.xml for the own sens
 <p>Optionally, (don't forget, these parameters will be overridden by launch arguments.)
 you can modify sensor_kit and vehicle_id as <code>interactive.launch.xml</code>over this xml snippet.
 We will set parent_frame for calibration as `sensor_kit_base_link``:</p>
-<div class="highlight"><pre><span></span><code><span class="gi">+ &lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
-<span class="gi">+ &lt;launch&gt;</span>
-<span class="gi">+   &lt;arg name="vehicle_id" default="&lt;YOUR_VEHICLE_ID&gt;"/&gt;</span>
-<span class="gi">+   &lt;let name="sensor_model" value="&lt;YOUR_SENSOR_KIT_NAME&gt;"/&gt;</span>
-<span class="gi">+   &lt;let name="parent_frame" value="sensor_kit_base_link"/&gt;</span>
-<span class="gi">+</span>
-<span class="gi">+   &lt;!-- extrinsic_calibration_client --&gt;</span>
-<span class="gi">+   &lt;arg name="src_yaml" default="$(find-pkg-share individual_params)/config/$(var vehicle_id)/$(var sensor_model)/sensor_kit_calibration.yaml"/&gt;</span>
-<span class="gi">+   &lt;arg name="dst_yaml" default="$(env HOME)/sensor_kit_calibration.yaml"/&gt;</span>
-<span class="gi">+</span>
-</code></pre></div>
-<p>Next, we will define <code>camera_name</code> argument.
-This parameter describes which camera will be calibrated.
-For example,
-your bag file can contain six camera topics
-(camera0, camera1, etc.) but you can calibrate one camera at a time.
-After that, we will define image_topic rule.
-For example at this snippet, it controlled over <code>camera_name</code> variable.
-Also, if you want to use compressed image for calibration,
+<p>(Optionally) If you want to use compressed image for calibration,
 you need update <code>image_topic</code> and <code>use_compressed</code> value with compressed topic information.</p>
-<div class="highlight"><pre><span></span><code><span class="gi">+   &lt;arg name="camera_name"/&gt;</span>
-<span class="gi">+</span>
-<span class="gi">+   &lt;let name="image_topic" value="/sensing/camera/$(var camera_name)/image_raw"/&gt;</span>
-<span class="gi">+   &lt;let name="camera_info_topic" value="/sensing/camera/$(var camera_name)/camera_info"/&gt;</span>
-<span class="gi">+</span>
-<span class="gi">+   &lt;!-- if your image topic is compressed, please enable it --&gt;</span>
-<span class="gi">+   &lt;let name="use_compressed" value="false"/&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="w"> </span>   ...
+<span class="gd">-   &lt;let name="image_topic" value="/sensing/camera/$(var camera_name)/image_raw"/&gt;</span>
+<span class="gi">+   &lt;let name="image_topic" value="/sensing/camera/$(var camera_name)/image_compressed"/&gt;</span>
+<span class="w"> </span>   ...
+<span class="w"> </span>   &lt;!-- if your image topic is compressed, please enable it --&gt;
+<span class="gd">-   &lt;let name="use_compressed" value="false"/&gt;</span>
+<span class="gi">+   &lt;let name="use_compressed" value="true"/&gt;</span>
 </code></pre></div>
-<p>Then you can customize pointcloud topic for each camera,
-for example,
-we can add this evaluation mechanism to determining pointcloud_topic name
-(in this case, all camera parent lidars are "top" lidar):</p>
-<div class="highlight"><pre><span></span><code><span class="gi">+   &lt;let name="pointcloud_topic" value="/sensing/lidar/top/pointcloud_raw" if="$(eval &amp;quot;'$(var camera_name)' == 'camera0' &amp;quot;)"/&gt;</span>
-<span class="gi">+   &lt;let name="pointcloud_topic" value="/sensing/lidar/top/pointcloud_raw" if="$(eval &amp;quot;'$(var camera_name)' == 'camera1' &amp;quot;)"/&gt;</span>
-<span class="gi">+   &lt;let name="pointcloud_topic" value="/sensing/lidar/top/pointcloud_raw" if="$(eval &amp;quot;'$(var camera_name)' == 'camera2' &amp;quot;)"/&gt;</span>
-<span class="gi">+   &lt;let name="pointcloud_topic" value="/sensing/lidar/top/pointcloud_raw" if="$(eval &amp;quot;'$(var camera_name)' == 'camera3' &amp;quot;)"/&gt;</span>
-<span class="gi">+   &lt;let name="pointcloud_topic" value="/sensing/lidar/top/pointcloud_raw" if="$(eval &amp;quot;'$(var camera_name)' == 'camera4' &amp;quot;)"/&gt;</span>
-<span class="gi">+   &lt;let name="pointcloud_topic" value="/sensing/lidar/top/pointcloud_raw" if="$(eval &amp;quot;'$(var camera_name)' == 'camera5' &amp;quot;)"/&gt;</span>
-<span class="gi">+   ...</span>
-</code></pre></div>
-<details class="note">
-<summary>Since there is one camera on tutorial_vehicle which is named as camera0, so pointcloud topic should be like this</summary>
-<div class="highlight"><pre><span></span><code>+<span class="w">   </span><span class="nt">&lt;let</span><span class="w"> </span><span class="na">name=</span><span class="s">"pointcloud_topic"</span><span class="w"> </span><span class="na">value=</span><span class="s">"/sensing/lidar/top/pointcloud_raw"</span><span class="w"> </span><span class="na">if=</span><span class="s">"$(eval &amp;quot;'$(var camera_name)' == 'camera0' &amp;quot;)"</span><span class="nt">/&gt;</span>
-</code></pre></div>
-</details>
-<p>We will add a calibration checking mechanism
-to be sure that the right camera_name parameter is set.
-For example, if camera_name is set launch argument as <code>camera10</code>,
-the calibration process doesn't occur.</p>
-<div class="highlight"><pre><span></span><code><span class="gi">+   &lt;let name="calibrate_sensor" value="false"/&gt;</span>
-<span class="gi">+   &lt;let name="calibrate_sensor" value="true" if="$(eval &amp;quot;'$(var camera_name)' == 'camera0' &amp;quot;)"/&gt;</span>
-<span class="gi">+   &lt;let name="calibrate_sensor" value="true" if="$(eval &amp;quot;'$(var camera_name)' == 'camera1' &amp;quot;)"/&gt;</span>
-<span class="gi">+   &lt;let name="calibrate_sensor" value="true" if="$(eval &amp;quot;'$(var camera_name)' == 'camera2' &amp;quot;)"/&gt;</span>
-<span class="gi">+   &lt;let name="calibrate_sensor" value="true" if="$(eval &amp;quot;'$(var camera_name)' == 'camera3' &amp;quot;)"/&gt;</span>
-<span class="gi">+   &lt;let name="calibrate_sensor" value="true" if="$(eval &amp;quot;'$(var camera_name)' == 'camera4' &amp;quot;)"/&gt;</span>
-<span class="gi">+   &lt;let name="calibrate_sensor" value="true" if="$(eval &amp;quot;'$(var camera_name)' == 'camera5' &amp;quot;)"/&gt;</span>
-<span class="gi">+   ...</span>
-</code></pre></div>
-<details class="note">
-<summary>Since there is one camera on tutorial_vehicle which is named as camera0, calibrate_sensor argument structure should be like this</summary>
-<div class="highlight"><pre><span></span><code>+<span class="w">   </span><span class="nt">&lt;let</span><span class="w"> </span><span class="na">name=</span><span class="s">"calibrate_sensor"</span><span class="w"> </span><span class="na">value=</span><span class="s">"false"</span><span class="nt">/&gt;</span>
-+<span class="w">   </span><span class="nt">&lt;let</span><span class="w"> </span><span class="na">name=</span><span class="s">"calibrate_sensor"</span><span class="w"> </span><span class="na">value=</span><span class="s">"true"</span><span class="w"> </span><span class="na">if=</span><span class="s">"$(eval &amp;quot;'$(var camera_name)' == 'camera0' &amp;quot;)"</span><span class="nt">/&gt;</span>
-</code></pre></div>
-</details>
-<p>After that, we will define camera_links for each camera,
-This structure checks
-which camera will be calibrated and sets <code>camera_frame</code> according to the <code>camera_name</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="gi">+   &lt;let name="camera_frame" value=""/&gt;</span>
-<span class="gi">+   &lt;let name="camera_frame" value="camera0/camera_link" if="$(eval &amp;quot;'$(var camera_name)' == 'camera0' &amp;quot;)"/&gt;</span>
-<span class="gi">+   &lt;let name="camera_frame" value="camera1/camera_link" if="$(eval &amp;quot;'$(var camera_name)' == 'camera1' &amp;quot;)"/&gt;</span>
-<span class="gi">+   &lt;let name="camera_frame" value="camera2/camera_link" if="$(eval &amp;quot;'$(var camera_name)' == 'camera2' &amp;quot;)"/&gt;</span>
-<span class="gi">+   &lt;let name="camera_frame" value="camera3/camera_link" if="$(eval &amp;quot;'$(var camera_name)' == 'camera3' &amp;quot;)"/&gt;</span>
-<span class="gi">+   &lt;let name="camera_frame" value="camera4/camera_link" if="$(eval &amp;quot;'$(var camera_name)' == 'camera4' &amp;quot;)"/&gt;</span>
-<span class="gi">+   &lt;let name="camera_frame" value="camera5/camera_link" if="$(eval &amp;quot;'$(var camera_name)' == 'camera5' &amp;quot;)"/&gt;</span>
-</code></pre></div>
-<details class="note">
-<summary>Since there is one camera on tutorial_vehicle which is named as camera0, camera_frame argument should be defined like this</summary>
-<div class="highlight"><pre><span></span><code>+<span class="w">   </span><span class="nt">&lt;let</span><span class="w"> </span><span class="na">name=</span><span class="s">"camera_frame"</span><span class="w"> </span><span class="na">value=</span><span class="s">""</span><span class="nt">/&gt;</span>
-+<span class="w">   </span><span class="nt">&lt;let</span><span class="w"> </span><span class="na">name=</span><span class="s">"camera_frame"</span><span class="w"> </span><span class="na">value=</span><span class="s">"camera0/camera_link"</span><span class="w"> </span><span class="na">if=</span><span class="s">"$(eval &amp;quot;'$(var camera_name)' == 'camera0' &amp;quot;)"</span><span class="nt">/&gt;</span>
-</code></pre></div>
-</details>
-<p>Now,
-we will launch the extrinsic_calibration_manager,
-extrinsic_calibration_client and interactive calibrator according to the arguments
-we defined before.</p>
-<div class="highlight"><pre><span></span><code><span class="gi">+   &lt;node pkg="extrinsic_calibration_client" exec="extrinsic_calibration_client" name="extrinsic_calibration_client" output="screen" if="$(var calibrate_sensor)"&gt;</span>
-<span class="gi">+     &lt;param name="src_path" value="$(var src_yaml)"/&gt;</span>
-<span class="gi">+     &lt;param name="dst_path" value="$(var dst_yaml)"/&gt;</span>
-<span class="gi">+   &lt;/node&gt;</span>
-<span class="gi">+   &lt;!-- extrinsic_calibration_manager --&gt;</span>
-<span class="gi">+   &lt;node pkg="extrinsic_calibration_manager" exec="extrinsic_calibration_manager" name="extrinsic_calibration_manager" output="screen" if="$(var calibrate_sensor)"&gt;</span>
-<span class="gi">+     &lt;param name="parent_frame" value="$(var parent_frame)"/&gt;</span>
-<span class="gi">+     &lt;param name="child_frames" value="</span>
-<span class="gi">+     [$(var camera_frame)]"/&gt;</span>
-<span class="gi">+   &lt;/node&gt;</span>
-<span class="gi">+</span>
-<span class="gi">+   &lt;!-- interactive calibrator --&gt;</span>
-<span class="gi">+   &lt;group if="$(var calibrate_sensor)"&gt;</span>
-<span class="gi">+     &lt;push-ros-namespace namespace="$(var parent_frame)/$(var camera_frame)"/&gt;</span>
-<span class="gi">+</span>
-<span class="gi">+     &lt;node pkg="extrinsic_interactive_calibrator" exec="interactive_calibrator" name="interactive_calibrator" output="screen"&gt;</span>
-<span class="gi">+       &lt;remap from="pointcloud" to="$(var pointcloud_topic)"/&gt;</span>
-<span class="gi">+       &lt;remap from="image" to="$(var image_topic)"/&gt;</span>
-<span class="gi">+       &lt;remap from="camera_info" to="$(var camera_info_topic)"/&gt;</span>
-<span class="gi">+       &lt;remap from="calibration_points_input" to="calibration_points"/&gt;</span>
-<span class="gi">+</span>
-<span class="gi">+       &lt;param name="camera_parent_frame" value="$(var parent_frame)"/&gt;</span>
-<span class="gi">+       &lt;param name="camera_frame" value="$(var camera_frame)"/&gt;</span>
-<span class="gi">+       &lt;param name="use_compressed" value="$(var use_compressed)"/&gt;</span>
-<span class="gi">+     &lt;/node&gt;</span>
-<span class="gi">+</span>
-<span class="gi">+     &lt;include file="$(find-pkg-share intrinsic_camera_calibration)/launch/optimizer.launch.xml"/&gt;</span>
-<span class="gi">+   &lt;/group&gt;</span>
-&lt;/launch&gt;
+<p>Then you can customize pointcloud topic for each camera.
+For example, if you want to calibrate camera_1 with left lidar,
+then you should change launch file like this:</p>
+<div class="highlight"><pre><span></span><code><span class="w"> </span>   &lt;let name="pointcloud_topic" value="/sensing/lidar/top/pointcloud_raw" if="$(eval &amp;quot;'$(var camera_name)' == 'camera0' &amp;quot;)"/&gt;
+<span class="gd">-   &lt;let name="pointcloud_topic" value="/sensing/lidar/top/pointcloud_raw" if="$(eval &amp;quot;'$(var camera_name)' == 'camera1' &amp;quot;)"/&gt;</span>
+<span class="gi">+   &lt;let name="pointcloud_topic" value="/sensing/lidar/left/pointcloud_raw" if="$(eval &amp;quot;'$(var camera_name)' == 'camera1' &amp;quot;)"/&gt;</span>
+<span class="w"> </span>   &lt;let name="pointcloud_topic" value="/sensing/lidar/top/pointcloud_raw" if="$(eval &amp;quot;'$(var camera_name)' == 'camera2' &amp;quot;)"/&gt;
+<span class="w"> </span>   &lt;let name="pointcloud_topic" value="/sensing/lidar/top/pointcloud_raw" if="$(eval &amp;quot;'$(var camera_name)' == 'camera3' &amp;quot;)"/&gt;
+<span class="w"> </span>   &lt;let name="pointcloud_topic" value="/sensing/lidar/top/pointcloud_raw" if="$(eval &amp;quot;'$(var camera_name)' == 'camera4' &amp;quot;)"/&gt;
+<span class="w"> </span>   &lt;let name="pointcloud_topic" value="/sensing/lidar/top/pointcloud_raw" if="$(eval &amp;quot;'$(var camera_name)' == 'camera5' &amp;quot;)"/&gt;
+<span class="w"> </span>   ...
 </code></pre></div>
 <p>The interactive_sensor_kit.launch.xml launch file for tutorial_vehicle should be this:</p>
 <details class="note">
@@ -5717,6 +5635,7 @@ we defined before.</p>
 <span class="nt">&lt;/launch&gt;</span>
 </code></pre></div>
 </details>
+<h3 id="lidar-camera-calibration-process-with-interactive-camera-lidar-calibrator">Lidar-camera calibration process with interactive camera-lidar calibrator<a class="headerlink" href="#lidar-camera-calibration-process-with-interactive-camera-lidar-calibrator" title="Permanent link">#</a></h3>
 <p>After completing interactive.launch.xml and interactive_sensor_kit.launch.xml launch files for own sensor kit;
 now we are ready to calibrate our lidars.
 First of all, we need to build extrinsic_calibration_manager package:</p>
