@@ -5258,14 +5258,14 @@
 <div><h1 id="manual-calibration-for-all-sensors">Manual calibration for all sensors<a class="headerlink" href="#manual-calibration-for-all-sensors" title="Permanent link">#</a></h1>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
 <p>In this section, we will use <a href="https://github.com/tier4/CalibrationTools/blob/tier4/universe/sensor/docs/how_to_extrinsic_manual.md">Extrinsic Manual Calibration</a>
-for extrinsic calibrating our sensors.
-At this point, we can't completely accurate calibrations results for usage,
+for extrinsic calibration of our sensors.
+After this process, we won't get accurate calibration results for final use,
 but we will have an initial calibration for other tools.
 For example, in the lidar-lidar or camera-lidar calibration phase,
 we will need initial calibration for getting accurate and successful calibration results.</p>
 <p>We need a sample bag file for the calibration process
 which includes raw lidar topics and camera topics.
-So our tutorial_vehicle's recorded topics should like this:</p>
+The following shows an example of a bag file used for calibration:</p>
 <details class="note">
 <summary><abbr title="Robot Operating System">ROS</abbr> 2 Bag example of our calibration process</summary>
 <div class="highlight"><pre><span></span><code>Files:<span class="w">             </span>rosbag2_2023_09_06-13_43_54_0.db3
@@ -5289,9 +5289,7 @@ mkdir<span class="w"> </span>&lt;YOUR-OWN-SENSOR-KIT-NAME&gt;<span class="w"> </
 <span class="nb">cd</span><span class="w"> </span>&lt;YOUR-OWN-SENSOR-KIT-NAME&gt;<span class="w"> </span><span class="c1"># i.e. for our guide, it will ve cd tutorial_vehicle_sensor_kit</span>
 touch<span class="w"> </span>manual.launch.xml<span class="w"> </span>manual_sensor_kit.launch.xml
 </code></pre></div>
-<p>The created <code>manual.launch.xml</code> and <code>manual_sensor_kit.launch.xml</code> are version of sample sensor kit
-<a href="https://github.com/tier4/CalibrationTools/tree/tier4/universe/sensor/extrinsic_calibration_manager/launch/aip_x1">aip_x1</a>
-provided from TIER IV.</p>
+<p>We will be modifying these <code>manual.launch.xml</code> and <code>manual_sensor_kit.launch.xml</code> by using TIER IV's sample sensor kit <a href="https://github.com/tier4/CalibrationTools/tree/tier4/universe/sensor/extrinsic_calibration_manager/launch/aip_x1">aip_x1</a></p>
 <p>So, we can start modifying <code>manual.launch.xml</code>,
 please open this file on a text editor which will you prefer (code, gedit etc.).
 Example for out tutorial vehicle should be like these steps:</p>
