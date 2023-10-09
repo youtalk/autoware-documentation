@@ -5627,11 +5627,13 @@ If LiDAR sensor is backwards, according to the direction you are moving,
 then you need to change the extrinsicRot too.
 Unless the <abbr title="Inertial Measurement Unit">IMU</abbr> tries to go in the wrong direction, and it may occur problems.</p>
 </div>
-<p>For example, in our Applanix POS LVX and Hesai Pandar XT32 setup, <abbr title="Inertial Measurement Unit">IMU</abbr> direction was towards to the going direction and 
+<p>For example, in our Applanix POS LVX and Hesai Pandar XT32 setup, <abbr title="Inertial Measurement Unit">IMU</abbr> direction was towards to the going direction and
 LiDAR direction has 180 degree difference in Z-axis according to the <abbr title="Inertial Measurement Unit">IMU</abbr> direction. In other words, they were facing back
-to each other. The tool may need a transformation for <abbr title="Inertial Measurement Unit">IMU</abbr> for that.
-- In that situation, the calibration parameters changed as this:
-</p><div class="highlight"><pre><span></span><code><span class="gd">-   extrinsicRot:    [-1.0,  0.0,  0.0,</span>
+to each other. The tool may need a transformation for <abbr title="Inertial Measurement Unit">IMU</abbr> for that.</p>
+<ul>
+<li>In that situation, the calibration parameters changed as this:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="gd">-   extrinsicRot:    [-1.0,  0.0,  0.0,</span>
 <span class="gd">-                      0.0,  1.0,  0.0,</span>
 <span class="gd">-                      0.0,  0.0, -1.0 ]</span>
 <span class="gi">+   extrinsicRot:    [-1.0,  0.0,  0.0,</span>
@@ -5651,7 +5653,7 @@ to each other. The tool may need a transformation for <abbr title="Inertial Meas
 <p><img align="center" alt="lio-sam-imu-direciton" src="images/LIO-SAM-imu-direction.png" width="512">
   </p>
 <figcaption>
-    Transform Visualization of Applanix POS LVX and Hesai Pandar XT32 in RViz 
+    Transform Visualization of Applanix POS LVX and Hesai Pandar XT32 in RViz
   </figcaption>
 </figure>
 <p>Now, we are ready to create a map for Autoware.</p>
