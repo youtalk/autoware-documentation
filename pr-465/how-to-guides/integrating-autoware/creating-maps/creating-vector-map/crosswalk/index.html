@@ -21,7 +21,7 @@
     
     
       
-        <title>Creating a crosswalk attribute - Autoware Documentation</title>
+        <title>Crosswalk attribute - Autoware Documentation</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#creating-a-crosswalk-attribute" class="md-skip">
+        <a href="#crosswalk-attribute" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Creating a crosswalk attribute
+              Crosswalk attribute
             
           </span>
         </div>
@@ -5351,6 +5351,34 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-crosswalk-attribute" class="md-nav__link">
+    Creating a crosswalk attribute
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating a crosswalk attribute">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#test-crosswalk-with-planning-simulator" class="md-nav__link">
+    Test crosswalk with planning simulator
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -5367,7 +5395,52 @@
   
 
 
-<div><h1 id="creating-a-crosswalk-attribute">Creating a crosswalk attribute<a class="headerlink" href="#creating-a-crosswalk-attribute" title="Permanent link">#</a></h1>
+<div><h1 id="crosswalk-attribute">Crosswalk attribute<a class="headerlink" href="#crosswalk-attribute" title="Permanent link">#</a></h1>
+<p>Behavior velocity planner's <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_crosswalk_module/">crosswalk module</a> plans velocity
+to stop or decelerate for pedestrians approaching or walking on a crosswalk.
+In order to operate that, we will add crosswalk attribute to our lanelet2 map.</p>
+<h2 id="creating-a-crosswalk-attribute">Creating a crosswalk attribute<a class="headerlink" href="#creating-a-crosswalk-attribute" title="Permanent link">#</a></h2>
+<p>In order to create a crosswalk on your map, please follow these steps:</p>
+<ol>
+<li>Click <code>Abstraction</code> button on top panel.</li>
+<li>Select <code>Crosswalk</code> from the panel.</li>
+<li>Click and draw crosswalk on your pointcloud map.</li>
+</ol>
+<p>Video Demonstration:</p>
+<p><div class="video-container"><iframe src="https://youtube.com/embed/J6WrL8dkFhI" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></p>
+<h3 id="test-crosswalk-with-planning-simulator">Test crosswalk with planning simulator<a class="headerlink" href="#test-crosswalk-with-planning-simulator" title="Permanent link">#</a></h3>
+<p>After the completing of creating map, we need to save it.
+To that please click <code>File</code> --&gt; <code>Export Lanelet2Maps</code> then download.</p>
+<p>After the download is finished,
+we need to put lanelet2 map and pointcloud map on the same location.
+The directory structure should be like this:</p>
+<div class="highlight"><pre><span></span><code><span class="gi">+ &lt;YOUR-MAP-DIRECTORY&gt;/</span>
+<span class="gi">+  ├─ pointcloud_map.pcd</span>
+<span class="gi">+  └─ lanelet2_map.osm</span>
+</code></pre></div>
+<p>If your .osm or .pcd map file's name is different from these names,
+you need to update autoware.launch.xml:</p>
+<div class="highlight"><pre><span></span><code><span class="w"> </span> &lt;!-- Map --&gt;
+<span class="gd">-  &lt;arg name="lanelet2_map_file" default="lanelet2_map.osm" description="lanelet2 map file name"/&gt;</span>
+<span class="gi">+  &lt;arg name="lanelet2_map_file" default="&lt;YOUR-LANELET-MAP-NAME&gt;.osm" description="lanelet2 map file name"/&gt;</span>
+<span class="gd">-  &lt;arg name="pointcloud_map_file" default="pointcloud_map.pcd" description="pointcloud map file name"/&gt;</span>
+<span class="gi">+  &lt;arg name="pointcloud_map_file" default="&lt;YOUR-POINTCLOUD-MAP-NAME&gt;.pcd" description="pointcloud map file name"/&gt;</span>
+</code></pre></div>
+<p>Now we are ready to launch the planning simulator:</p>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>planning_simulator.launch.xml<span class="w"> </span>map_path:<span class="o">=</span>&lt;YOUR-MAP-FOLDER-DIR&gt;<span class="w"> </span>vehicle_model:<span class="o">=</span>&lt;YOUR-VEHICLE-MODEL&gt;<span class="w"> </span>sensor_model:<span class="o">=</span>&lt;YOUR-SENSOR-KIT&gt;
+</code></pre></div>
+<p>Example for tutorial_vehicle:</p>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>planning_simulator.launch.xml<span class="w"> </span>map_path:<span class="o">=</span><span class="nv">$HOME</span>/Files/autoware_map/tutorial_map/<span class="w"> </span>vehicle_model:<span class="o">=</span>tutorial_vehicle<span class="w"> </span>sensor_model:<span class="o">=</span>tutorial_vehicle_sensor_kit<span class="w"> </span>vehicle_id:<span class="o">=</span>tutorial_vehicle
+</code></pre></div>
+<ol>
+<li>Click <code>2D Pose Estimate</code> button on rviz or press <code>P</code> and give a pose for initialization.</li>
+<li>Click <code>2D Goal Pose</code> button on rviz or press <code>G</code> and give a pose for goal point.</li>
+<li>We need to add pedestrians to crosswalk, so activate interactive pedestrians from <code>Tool Properties</code> panel on rviz.</li>
+<li>After that, please press <code>Shift</code>, then click right click button for inserting pedestrians.</li>
+<li>You can control inserted pedestrian with dragging right click. </li>
+</ol>
+<p>Video Demonstration:</p>
+<p><div class="video-container"><iframe src="https://youtube.com/embed/hhwBku_1qmA" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></p>
 <!-- prettier-ignore --></div>
 
 
