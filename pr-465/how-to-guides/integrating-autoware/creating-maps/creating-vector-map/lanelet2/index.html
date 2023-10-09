@@ -5362,6 +5362,47 @@
     Creating a Lanelet2
   </a>
   
+    <nav class="md-nav" aria-label="Creating a Lanelet2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-simple-lanelet" class="md-nav__link">
+    Creating a simple lanelet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#join-two-lanelets" class="md-nav__link">
+    Join two lanelets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#join-multiple-lanelets" class="md-nav__link">
+    Join Multiple lanelets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-speed-limit-of-lanelet" class="md-nav__link">
+    Change Speed Limit Of Lanelet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-lanelets-with-planning-simulator" class="md-nav__link">
+    Test lanelets with planning simulator
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -5407,6 +5448,79 @@
 <li>Please fill your MGRS zone. (At tutorial_vehicle, MGRS grid zone: 35T - MGRS 100,000-meter square: PF)</li>
 <li>Click <code>Create</code>.</li>
 </ol>
+<h3 id="creating-a-simple-lanelet">Creating a simple lanelet<a class="headerlink" href="#creating-a-simple-lanelet" title="Permanent link">#</a></h3>
+<p>In order to create a simple lanelet on your map, please follow these steps:</p>
+<ol>
+<li>CLick <code>Lanelet2Maps</code> on the bar</li>
+<li>Enable Lanelet mode via selecting <code>Lanelet</code>.</li>
+<li>Then, you can click the pointcloud map to create lanelet.</li>
+<li>If your lanelet is finished, you can disable <code>Lanelet</code>.</li>
+<li>If you want to change your lanelet width, click <code>lanelet</code> --&gt; <code>Change Lanelet Width</code>, then you can enter the lanelet width.</li>
+</ol>
+<p>Video Demonstration:</p>
+<p><div class="video-container"><iframe src="https://youtube.com/embed/183PHi84AeU" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></p>
+<h3 id="join-two-lanelets">Join two lanelets<a class="headerlink" href="#join-two-lanelets" title="Permanent link">#</a></h3>
+<p>In order to join two lanelets, please follow these steps:</p>
+<ol>
+<li>Please create two distinct lanelet.</li>
+<li>Select a Lanelet, then press <code>Shift</code> and select other lanelet.</li>
+<li>Now, you can see <code>Join Lanelets</code> button, just press it.</li>
+<li>These lanelets will be joined.</li>
+</ol>
+<p>Video Demonstration:</p>
+<p><div class="video-container"><iframe src="https://youtube.com/embed/_tHilFUKDQc" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></p>
+<h3 id="join-multiple-lanelets">Join Multiple lanelets<a class="headerlink" href="#join-multiple-lanelets" title="Permanent link">#</a></h3>
+<p>In order to add (join) two or more lanelets to another lanelet, please follow these steps:</p>
+<ol>
+<li>Create multiple lanelets.</li>
+<li>You can join the first two lanelets like the steps before.</li>
+<li>Please check end points ids of first lanelet.</li>
+<li>Then you need to change these ids with third lanelet's start point. (Please change with selecting linestring of lanelet)</li>
+<li>You will see two next lanes of the first lanelet will be appeared.</li>
+</ol>
+<p>Video Demonstration:</p>
+<p><div class="video-container"><iframe src="https://youtube.com/embed/l5ZnL0Cjmnk" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></p>
+<h3 id="change-speed-limit-of-lanelet">Change Speed Limit Of Lanelet<a class="headerlink" href="#change-speed-limit-of-lanelet" title="Permanent link">#</a></h3>
+<p>In order to change the speed limit of lanelet, please follow these steps:</p>
+<ol>
+<li>Select the lanelet where the speed limit will be changed</li>
+<li>Set <code>speedlimit</code> on the right panel.</li>
+</ol>
+<h3 id="test-lanelets-with-planning-simulator">Test lanelets with planning simulator<a class="headerlink" href="#test-lanelets-with-planning-simulator" title="Permanent link">#</a></h3>
+<p>After the completing of creating lanelets, we need to save it.
+To that please click <code>File</code> --&gt; <code>Export Lanelet2Maps</code> then download.</p>
+<p>After the download is finished,
+we need to put lanelet2 map and pointcloud map on the same location.
+The directory structure should be like this:</p>
+<div class="highlight"><pre><span></span><code><span class="gi">+ &lt;YOUR-MAP-DIRECTORY&gt;/</span>
+<span class="gi">+  ├─ pointcloud_map.pcd</span>
+<span class="gi">+  └─ lanelet2_map.osm</span>
+</code></pre></div>
+<p>If your .osm or .pcd map file's name is different from these names,
+you need to update autoware.launch.xml:</p>
+<div class="highlight"><pre><span></span><code><span class="w"> </span> &lt;!-- Map --&gt;
+<span class="gd">-  &lt;arg name="lanelet2_map_file" default="lanelet2_map.osm" description="lanelet2 map file name"/&gt;</span>
+<span class="gi">+  &lt;arg name="lanelet2_map_file" default="&lt;YOUR-LANELET-MAP-NAME&gt;.osm" description="lanelet2 map file name"/&gt;</span>
+<span class="gd">-  &lt;arg name="pointcloud_map_file" default="pointcloud_map.pcd" description="pointcloud map file name"/&gt;</span>
+<span class="gi">+  &lt;arg name="pointcloud_map_file" default="&lt;YOUR-POINTCLOUD-MAP-NAME&gt;.pcd" description="pointcloud map file name"/&gt;</span>
+</code></pre></div>
+<p>Now we are ready to launch the planning simulator:</p>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>planning_simulator.launch.xml<span class="w"> </span>map_path:<span class="o">=</span>&lt;YOUR-MAP-FOLDER-DIR&gt;<span class="w"> </span>vehicle_model:<span class="o">=</span>&lt;YOUR-VEHICLE-MODEL&gt;<span class="w"> </span>sensor_model:<span class="o">=</span>&lt;YOUR-SENSOR-KIT&gt;
+</code></pre></div>
+<p>Example for tutorial_vehicle:</p>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>planning_simulator.launch.xml<span class="w"> </span>map_path:<span class="o">=</span><span class="nv">$HOME</span>/Files/autoware_map/tutorial_map/<span class="w"> </span>vehicle_model:<span class="o">=</span>tutorial_vehicle<span class="w"> </span>sensor_model:<span class="o">=</span>tutorial_vehicle_sensor_kit<span class="w"> </span>vehicle_id:<span class="o">=</span>tutorial_vehicle
+</code></pre></div>
+<ol>
+<li>Click <code>2D Pose Estimate</code> button on rviz or press <code>P</code> and give a pose for initialization.</li>
+<li>Click <code>2D Goal Pose</code> button on rviz or press <code>G</code> and give a pose for goal point.</li>
+</ol>
+<figure>
+<p><img align="center" alt="planning-simulator-test" src="images/planning-simulator-map-test.png">
+  </p>
+<figcaption>
+    Testing our created vector map with planning simulator
+  </figcaption>
+</figure>
 <!-- prettier-ignore --></div>
 
 
