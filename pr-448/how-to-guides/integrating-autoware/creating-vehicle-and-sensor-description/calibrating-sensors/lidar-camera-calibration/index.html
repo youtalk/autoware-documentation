@@ -5402,6 +5402,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#modifying-launch-files-according-to-your-sensor-kit" class="md-nav__link">
+    Modifying launch files according to your sensor kit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#lidar-camera-calibration-process-with-interactive-camera-lidar-calibrator" class="md-nav__link">
     Lidar-camera calibration process with interactive camera-lidar calibrator
   </a>
@@ -5475,9 +5482,10 @@ process:</p>
 <span class="nb">cd</span><span class="w"> </span>&lt;YOUR-OWN-SENSOR-KIT-NAME&gt;<span class="w"> </span><span class="c1"># i.e. for our guide, it will ve cd tutorial_vehicle_sensor_kit which is created in manual calibration</span>
 touch<span class="w"> </span>interactive.launch.xml<span class="w"> </span>interactive_sensor_kit.launch.xml
 </code></pre></div>
+<h3 id="modifying-launch-files-according-to-your-sensor-kit">Modifying launch files according to your sensor kit<a class="headerlink" href="#modifying-launch-files-according-to-your-sensor-kit" title="Permanent link">#</a></h3>
 <p>We will be modifying these <code>interactive.launch.xml</code> and <code>interactive_sensor_kit.launch.xml</code> by using TIER IV's sample sensor kit aip_xx1.
 So,
-you should copy the contents of these two files from <a href="https://github.com/tier4/CalibrationTools/tree/tier4/universe/sensor/extrinsic_calibration_manager/launch/aip_xx1">aip_x1</a> to your created files.</p>
+you should copy the contents of these two files from <a href="https://github.com/tier4/CalibrationTools/tree/tier4/universe/sensor/extrinsic_calibration_manager/launch/aip_xx1">aip_xx1</a> to your created files.</p>
 <p>Then we will continue with adding vehicle_id and sensor model names to the <code>interactive.launch.xml</code>.
 (Optionally, values are not important. These parameters will be overridden by launch arguments)</p>
 <div class="highlight"><pre><span></span><code><span class="w"> </span> &lt;arg name="vehicle_id" default="default"/&gt;
@@ -5552,7 +5560,7 @@ then you should change launch file like this:</p>
 </code></pre></div>
 <p>The interactive_sensor_kit.launch.xml launch file for tutorial_vehicle should be this:</p>
 <details class="note">
-<summary>i.e. interactive_sensor_kit.launch.xml for tutorial_vehicle</summary>
+<summary>i.e. <a href="https://github.com/leo-drive/tutorial_vehicle_calibration_tools/blob/tier4/universe/sensor/extrinsic_calibration_manager/launch/tutorial_vehicle_sensor_kit/interactive_sensor_kit.launch.xml"><code>interactive_sensor_kit.launch.xml</code></a> for tutorial_vehicle</summary>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;launch&gt;</span>
 <span class="w">    </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"vehicle_id"</span><span class="w"> </span><span class="na">default=</span><span class="s">"tutorial_vehicle"</span><span class="nt">/&gt;</span>
@@ -5654,18 +5662,22 @@ First of all, we need to build extrinsic_calibration_manager package:</p>
 <p>You will be shown a manual interactive calibrator rqt window and Rviz2.
 You must add your lidar sensor point cloud to Rviz2, then we can publish points for the calibrator.</p>
 <p><img alt="interactive-calibrator" src="images/interactive-calibrator.png"></p>
-<p>After that, Let's start by pressing the 'Publish Point'
-button and selecting points on the point cloud that are also included in the projected image.
-Then,
-you need to click on the image point that corresponds to the projected lidar point on the image.
-You will see matched calibration points.</p>
+<ul>
+<li>After that, Let's start by pressing the <code>Publish Point</code>
+  button and selecting points on the point cloud that are also included in the projected image.
+  Then,
+  you need to click on the image point that corresponds to the projected lidar point on the image.
+  You will see matched calibration points.</li>
+</ul>
 <p><img alt="interactive-calibration-points.png" src="images/interactive-calibration-points.png"></p>
-<p>The red points indicate selected lidar points and green ones indicate selected image points.
-You must match the minimum 6 points to perform calibration.
-If you have a wrong match, you can remove this match by just clicking on them.
-After selecting points on image and lidar, you are ready to calibrate.
-If selected point match size is greater than 6, "Calibrate extrinsic" button will be enabled.
-Click this button and change tf source <code>Initial /tf</code> to <code>Calibrator</code> to see calibration results.</p>
+<ul>
+<li>The red points indicate selected lidar points and green ones indicate selected image points.
+  You must match the minimum 6 points to perform calibration.
+  If you have a wrong match, you can remove this match by just clicking on them.
+  After selecting points on image and lidar, you are ready to calibrate.
+  If selected point match size is greater than 6, "Calibrate extrinsic" button will be enabled.
+  Click this button and change tf source <code>Initial /tf</code> to <code>Calibrator</code> to see calibration results.</li>
+</ul>
 <p><img alt="interactive-calibrator-results.png" src="images/interactive-calibrator-results.png"></p>
 <p>After the completion of the calibration,
 you need to save your calibration results via "Save calibration" button.
@@ -5673,7 +5685,7 @@ The saved format is json,
 so you need
 to update calibration params at <code>sensor_kit_calibration.yaml</code> on <code>individual_params</code> and <code>sensor_kit_description</code> packages.</p>
 <details class="note">
-<summary>sample calibration output</summary>
+<summary>Sample calibration output</summary>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">    </span><span class="nt">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nt">"stamp"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>

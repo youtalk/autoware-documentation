@@ -5451,6 +5451,8 @@ while the remaining x, y, and yaw values must be calibrated using other methods,
 such as <a href="../extrinsic-manual-calibration">manual adjustment</a> or <a href="../lidar-camera-calibration">mapping-based lidar-lidar calibration</a>.</p>
 <p>You need to apply this calibration method to each lidar separately,
 so our bag should contain all lidars to be calibrated.</p>
+<p>We need a sample bag file for the ground-lidar calibration process
+which includes raw lidar topics.</p>
 <details class="note">
 <summary><abbr title="Robot Operating System">ROS</abbr> 2 Bag example of our ground-based calibration process for tutorial_vehicle</summary>
 <div class="highlight"><pre><span></span><code>Files:<span class="w">             </span>rosbag2_2023_09_05-11_23_50_0.db3
@@ -5476,7 +5478,7 @@ touch<span class="w"> </span>ground_plane.launch.xml<span class="w"> </span>grou
 So,
 you should copy the contents of these two files from <a href="https://github.com/tier4/CalibrationTools/tree/tier4/universe/sensor/extrinsic_calibration_manager/launch/aip_x1">aip_x1</a> to your created files.</p>
 <h3 id="modifying-launch-files-according-to-your-sensor-kit">Modifying launch files according to your sensor kit<a class="headerlink" href="#modifying-launch-files-according-to-your-sensor-kit" title="Permanent link">#</a></h3>
-<p>(Optionally) Let's start with adding vehicle_id and sensor model names.
+<p>(Optionally) Let's start with adding vehicle_id and sensor model names:
 (Values are not important. These parameters will be overridden by launch arguments)</p>
 <div class="highlight"><pre><span></span><code><span class="w"> </span> &lt;arg name="vehicle_id" default="default"/&gt;
 
@@ -5520,7 +5522,11 @@ which included at the end of the page)</p>
 <span class="w"> </span>   &lt;let name="base_frame" value="base_link"/&gt;
 <span class="w"> </span>   &lt;let name="parent_frame" value="sensor_kit_base_link"/&gt;
 </code></pre></div>
-<p>Then, we will add all our sensor frames on extrinsic_calibration_manager as child frames.</p>
+<p>If you save rviz config file before for the ground-lidar calibration process:</p>
+<div class="highlight"><pre><span></span><code><span class="gd">- &lt;let name="rviz_profile" value="$(find-pkg-share extrinsic_ground_plane_calibrator)/rviz/velodyne_top.rviz"/&gt;</span>
+<span class="gi">+ &lt;let name="rviz_profile" value="$(find-pkg-share extrinsic_ground_plane_calibrator)/rviz/&lt;YOUR-RVIZ-CONFIG&gt;.rviz"/&gt;</span>
+</code></pre></div>
+<p>Then, we will add all our sensor frames on extrinsic_calibration_manager as child frames:</p>
 <div class="highlight"><pre><span></span><code><span class="w"> </span>   &lt;!-- extrinsic_calibration_manager --&gt;
 <span class="gd">-   &lt;node pkg="extrinsic_calibration_manager" exec="extrinsic_calibration_manager" name="extrinsic_calibration_manager" output="screen"&gt;</span>
 <span class="gd">-     &lt;param name="parent_frame" value="$(var parent_frame)"/&gt;</span>
@@ -5556,7 +5562,7 @@ so it will be like this:</p>
 </code></pre></div>
 </details>
 <p>After that we will add our lidar sensor configurations on ground-based calibrator,
-to do that we will add these lines our <code>ground_plane_sensor_kit.launch.xml</code> file.</p>
+to do that we will add these lines our <code>ground_plane_sensor_kit.launch.xml</code> file:</p>
 <div class="highlight"><pre><span></span><code><span class="gd">-  &lt;group&gt;</span>
 <span class="gd">-    &lt;include file="$(find-pkg-share extrinsic_ground_plane_calibrator)/launch/calibrator.launch.xml"&gt;</span>
 <span class="gd">-      &lt;arg name="ns" value="$(var parent_frame)/velodyne_top_base_link"/&gt;</span>
@@ -5612,7 +5618,7 @@ to do that we will add these lines our <code>ground_plane_sensor_kit.launch.xml<
 </details>
 <p>The ground_plane_sensor_kit.launch.xml launch file for tutorial_vehicle should be this:</p>
 <details class="note">
-<summary>Sample ground_plane_sensor_kit.launch.xml for tutorial_vehicle</summary>
+<summary>Sample <a href="https://github.com/leo-drive/tutorial_vehicle_calibration_tools/blob/tier4/universe/sensor/extrinsic_calibration_manager/launch/tutorial_vehicle_sensor_kit/ground_plane_sensor_kit.launch.xml"><code>ground_plane_sensor_kit.launch.xml</code></a> for tutorial_vehicle</summary>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;launch&gt;</span>
 <span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"vehicle_id"</span><span class="w"> </span><span class="na">default=</span><span class="s">"tutorial_vehicle"</span><span class="nt">/&gt;</span>

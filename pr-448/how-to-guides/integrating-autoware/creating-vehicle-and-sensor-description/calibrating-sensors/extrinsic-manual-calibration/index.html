@@ -5478,9 +5478,8 @@ So,
 you should copy the contents of these three files from <a href="https://github.com/tier4/CalibrationTools/tree/tier4/universe/sensor/extrinsic_calibration_manager/launch/aip_x1">aip_x1</a> to your created files.</p>
 <h3 id="modifying-launch-files-according-to-your-sensor-kit">Modifying launch files according to your sensor kit<a class="headerlink" href="#modifying-launch-files-according-to-your-sensor-kit" title="Permanent link">#</a></h3>
 <p>So, we can start modifying <code>manual.launch.xml</code>,
-please open this file on a text editor which will you prefer (code, gedit etc.).
-Example for out tutorial vehicle should be like these steps:</p>
-<p>(Optionally) Let's start with adding vehicle_id and sensor model names.
+please open this file on a text editor which will you prefer (code, gedit etc.).</p>
+<p>(Optionally) Let's start with adding vehicle_id and sensor model names:
 (Values are not important. These parameters will be overridden by launch arguments)</p>
 <div class="highlight"><pre><span></span><code><span class="w"> </span> &lt;arg name="vehicle_id" default="default"/&gt;
 
@@ -5535,7 +5534,7 @@ we will be ready to implement manual_sensor_kit.launch.xml for the own sensor mo
 <span class="gi">+   &lt;let name="sensor_model" value="&lt;YOUR_SENSOR_KIT_NAME&gt;"/&gt;</span>
 ...
 </code></pre></div>
-<p>Then, we will add all our sensor frames on extrinsic_calibration_manager as child frames.</p>
+<p>Then, we will add all our sensor frames on extrinsic_calibration_manager as child frames:</p>
 <div class="highlight"><pre><span></span><code><span class="w"> </span>  &lt;!-- extrinsic_calibration_manager --&gt;
 <span class="gd">-  &lt;node pkg="extrinsic_calibration_manager" exec="extrinsic_calibration_manager" name="extrinsic_calibration_manager" output="screen"&gt;</span>
 <span class="gd">-    &lt;param name="parent_frame" value="$(var parent_frame)"/&gt;</span>
@@ -5623,7 +5622,7 @@ please update namespace (ns) and child_frame argument on calibrator.launch.xml l
 </details>
 <p>The final version of the manual_sensor_kit.launch.xml for tutorial_vehicle should be like this:</p>
 <details class="note">
-<summary>Sample manual_sensor_kit.launch.xml for tutorial_vehicle</summary>
+<summary>Sample <a href="https://github.com/leo-drive/tutorial_vehicle_calibration_tools/blob/tier4/universe/sensor/extrinsic_calibration_manager/launch/tutorial_vehicle_sensor_kit/manual_sensor_kit.launch.xml"><code>manual_sensor_kit.launch.xml</code></a> for tutorial_vehicle</summary>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;launch&gt;</span>
 <span class="w">    </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"vehicle_id"</span><span class="w"> </span><span class="na">default=</span><span class="s">"tutorial_vehicle"</span><span class="nt">/&gt;</span><span class="w"> </span><span class="cm">&lt;!-- You can update with your own vehicle_id --&gt;</span>
@@ -5687,7 +5686,7 @@ we will not change this file.</p>
 we need to build package:</p>
 <div class="highlight"><pre><span></span><code>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span>--packages-select<span class="w"> </span>extrinsic_calibration_manager
 </code></pre></div>
-<p>So, we are ready to launch and use manual calibrator.</p>
+<p>So, we are ready to launch and use manual calibrator:</p>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>extrinsic_calibration_manager<span class="w"> </span>calibration.launch.xml<span class="w"> </span>mode:<span class="o">=</span>manual<span class="w"> </span>sensor_model:<span class="o">=</span>&lt;OWN-SENSOR-KIT&gt;<span class="w"> </span>vehicle_model:<span class="o">=</span>&lt;OWN-VEHICLE-MODEL&gt;<span class="w"> </span>vehicle_id:<span class="o">=</span>&lt;VEHICLE-ID&gt;
 </code></pre></div>
 <p>For tutorial vehicle:</p>
@@ -5703,6 +5702,15 @@ we will update calibrations by hand according to the rviz2 results of sensors.</
 <li>Press <code>Refresh</code> button then press <code>Expand All</code> button. The frames on tutorial_vehicle should like this:</li>
 </ul>
 <p><img alt="forking-autoware_repository.png" src="images/manual-calibration.png"></p>
+<ul>
+<li>Please write the target frame name in Filter area (i.e., front, helios etc.) and select tunable_static_tf_broadcaster_node, then you can adjust <code>tf_x, tf_y, tf_z, tf_roll, tf_pitch and tf_yaw</code> values over RQT panel.</li>
+<li>If manual adjusting is finished, you can save your calibration results via this command:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>/done<span class="w"> </span>std_msgs/Bool<span class="w"> </span><span class="s2">"data: true"</span>
+</code></pre></div>
+<ul>
+<li>Then you can check the output file in $HOME/*.yaml.</li>
+</ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The initial calibration process can be important before the using other calibrations. We will look into the lidar-lidar calibration

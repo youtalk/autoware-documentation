@@ -5441,6 +5441,9 @@ CalibrationTools.</p>
 <p>Please get initial calibration results from <a href="../extrinsic-manual-calibration">Manual Calibration</a> section, it is important for getting accurate results from this tool.
 We will use initial calibration parameters that we calculated on previous step on this tutorial.</p>
 </div>
+<p>We need a sample bag file for the lidar-lidar calibration process
+which includes raw lidar topics.
+The following shows an example of a bag file used for this calibration:</p>
 <details class="note">
 <summary><abbr title="Robot Operating System">ROS</abbr> 2 Bag example of our calibration process for tutorial_vehicle</summary>
 <div class="highlight"><pre><span></span><code>Files:<span class="w">             </span>rosbag2_2023_09_05-11_23_50_0.db3
@@ -5456,7 +5459,7 @@ Topic<span class="w"> </span>information:<span class="w"> </span>Topic:<span cla
 </details>
 <h2 id="mapping-based-lidar-lidar-calibration">Mapping-based lidar-lidar calibration<a class="headerlink" href="#mapping-based-lidar-lidar-calibration" title="Permanent link">#</a></h2>
 <h3 id="creating-launch-files">Creating launch files<a class="headerlink" href="#creating-launch-files" title="Permanent link">#</a></h3>
-<p>We start with creating launch file four our vehicle like "Extrinsic Manual Calibration"
+<p>We start with creating launch file four our vehicle like <code>Extrinsic Manual Calibration</code>
 process:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>&lt;YOUR-OWN-AUTOWARE-DIRECTORY&gt;/src/autoware/calibration_tools/sensor
 <span class="nb">cd</span><span class="w"> </span>extrinsic_calibration_manager/launch
@@ -5465,8 +5468,8 @@ touch<span class="w"> </span>mapping_based.launch.xml<span class="w"> </span>map
 </code></pre></div>
 <p>We will be modifying these <code>mapping_based.launch.xml</code> and <code>mapping_based_sensor_kit.launch.xml</code> by using TIER IV's sample sensor kit aip_xx1.
 So,
-you should copy the contents of these two files from <a href="https://github.com/tier4/CalibrationTools/tree/tier4/universe/sensor/extrinsic_calibration_manager/launch/aip_xx1">aip_x1</a> to your created files.</p>
-<p>Then we will continue with adding vehicle_id and sensor model names to the <code>mapping_based.launch.xml</code>.
+you should copy the contents of these two files from <a href="https://github.com/tier4/CalibrationTools/tree/tier4/universe/sensor/extrinsic_calibration_manager/launch/aip_xx1">aip_xx1</a> to your created files.</p>
+<p>Then we will continue with adding vehicle_id and sensor model names to the <code>mapping_based.launch.xml</code>:
 (Optionally, values are not important. These parameters will be overridden by launch arguments)</p>
 <div class="highlight"><pre><span></span><code><span class="w"> </span> &lt;arg name="vehicle_id" default="default"/&gt;
 
@@ -5506,14 +5509,18 @@ you can modify sensor_kit and vehicle_id as <code>mapping_based.launch.xml</code
 which included at the end of the page)</p>
 <p>We will add sensor kit frames for each lidar (except mapping lidar),
 we have one lidar for pairing to the main lidar sensor for tutorial vehicle, so it should be like:</p>
-<div class="highlight"><pre><span></span><code><span class="w"> </span>   +  &lt;let name="lidar_calibration_sensor_kit_frames" value="[
-<span class="w"> </span>   +  sensor_kit_base_link,
-<span class="w"> </span>   +  sensor_kit_base_link,
-<span class="w"> </span>   +  sensor_kit_base_link
-<span class="w"> </span>   +  ...]"/&gt;
+<div class="highlight"><pre><span></span><code><span class="gi">+  &lt;let name="lidar_calibration_sensor_kit_frames" value="[</span>
+<span class="gi">+  sensor_kit_base_link,</span>
+<span class="gi">+  sensor_kit_base_link,</span>
+<span class="gi">+  sensor_kit_base_link</span>
+<span class="gi">+  ...]"/&gt;</span>
+</code></pre></div>
+<p>If you save rviz config file before for the lidar-lidar calibration process:</p>
+<div class="highlight"><pre><span></span><code><span class="gd">- &lt;let name="rviz_profile" value="$(find-pkg-share extrinsic_mapping_based_calibrator)/rviz/x1.rviz"/&gt;</span>
+<span class="gi">+ &lt;let name="rviz_profile" value="$(find-pkg-share extrinsic_mapping_based_calibrator)/rviz/&lt;YOUR-RVIZ-CONFIG&gt;.rviz"/&gt;</span>
 </code></pre></div>
 <details class="note">
-<summary>i.e., If you have one lidar main for mapping, three lidar for calibration</summary>
+<summary>i.e., If you have one main lidar for mapping, three lidar for calibration</summary>
 <div class="highlight"><pre><span></span><code>+<span class="w">  </span><span class="nt">&lt;let</span><span class="w"> </span><span class="na">name=</span><span class="s">"lidar_calibration_sensor_kit_frames"</span><span class="w"> </span><span class="na">value=</span><span class="s">"[</span>
 <span class="s">+  sensor_kit_base_link,</span>
 <span class="s">+  sensor_kit_base_link,</span>
@@ -5526,7 +5533,7 @@ we have one lidar for pairing to the main lidar sensor for tutorial vehicle, so 
 </code></pre></div>
 </details>
 <p>We will add lidar_calibration_service_names,
-calibration_lidar_base_frames and calibration_lidar_frames for calibrator.</p>
+calibration_lidar_base_frames and calibration_lidar_frames for calibrator:</p>
 <div class="highlight"><pre><span></span><code><span class="gd">-   &lt;let</span>
 <span class="gd">-       name="lidar_calibration_service_names"</span>
 <span class="gd">-       value="[</span>
@@ -5599,7 +5606,7 @@ we will continue filling the <code>mapping_based_sensor_kit.launch.xml</code> wi
 </details>
 <p>The mapping_based_sensor_kit.launch.xml launch file for tutorial_vehicle should be this:</p>
 <details class="note">
-<summary>i.e. mapping_based_sensor_kit.launch.xml for tutorial_vehicle</summary>
+<summary>i.e. <a href="https://github.com/leo-drive/tutorial_vehicle_calibration_tools/blob/tier4/universe/sensor/extrinsic_calibration_manager/launch/tutorial_vehicle_sensor_kit/mapping_based_sensor_kit.launch.xml"><code>mapping_based_sensor_kit.launch.xml</code></a> for tutorial_vehicle</summary>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;launch&gt;</span>
 <span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"vehicle_id"</span><span class="w"> </span><span class="na">default=</span><span class="s">"tutorial_vehicle"</span><span class="nt">/&gt;</span>
@@ -5695,7 +5702,7 @@ now we are ready to calibrate our lidars.
 First of all, we need to build extrinsic_calibration_manager package:</p>
 <div class="highlight"><pre><span></span><code>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span>--packages-select<span class="w"> </span>extrinsic_calibration_manager
 </code></pre></div>
-<p>So, we are ready to launch and use mapping-based lidar-lidar calibrator.</p>
+<p>So, we are ready to launch and use mapping-based lidar-lidar calibrator:</p>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>extrinsic_calibration_manager<span class="w"> </span>calibration.launch.xml<span class="w"> </span>mode:<span class="o">=</span>mapping_based<span class="w"> </span>sensor_model:<span class="o">=</span>&lt;OWN-SENSOR-KIT&gt;<span class="w"> </span>vehicle_model:<span class="o">=</span>&lt;OWN-VEHICLE-MODEL&gt;<span class="w"> </span>vehicle_id:<span class="o">=</span>&lt;VEHICLE-ID&gt;
 </code></pre></div>
 <p>For tutorial vehicle:</p>
