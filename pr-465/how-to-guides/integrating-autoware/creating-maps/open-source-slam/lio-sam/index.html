@@ -5504,6 +5504,8 @@ please look at the official repository for getting more information.</p>
 </figure>
 <p>We are using <a href="https://www.robosense.ai/en/rslidar/RS-Helios">Robosense Helios 5515</a> and <a href="https://en.unicorecomm.com/assets/upload/file/CLAP-B7_Product_Brief_En.pdf">CLAP B7</a> sensor on tutorial_vehicle,
 so we will use these sensors for running LIO-SAM.</p>
+<p>Additionally, LIO-SAM tested with <a href="https://www.applanix.com/downloads/products/specs/POS_LVX-Datasheet.pdf">Applanix POS LVX</a> and <a href="https://www.hesaitech.com/product/xt32/">Hesai Pandar XT32</a> sensor setup. Some additional information
+according to the sensors will be provided in this page.</p>
 <h3 id="ros-compatibility"><abbr title="Robot Operating System">ROS</abbr> Compatibility<a class="headerlink" href="#ros-compatibility" title="Permanent link">#</a></h3>
 <p>Since Autoware uses <abbr title="Robot Operating System">ROS</abbr> 2 Humble currently, we will continue with <abbr title="Robot Operating System">ROS</abbr> 2 version of LIO-SAM.</p>
 <ul>
@@ -5618,6 +5620,40 @@ we will update extrinsic transformations between Robosense Lidar and CLAP B7 <ab
 <span class="gi">+                   0.0,  1.0,  0.0,</span>
 <span class="gi">+                   0.0,  0.0,  1.0 ]</span>
 </code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The mapping direction is towards to the going direction in the real world.
+If LiDAR sensor is backwards, according to the direction you are moving,
+then you need to change the extrinsicRot too.
+Unless the <abbr title="Inertial Measurement Unit">IMU</abbr> tries to go in the wrong direction, and it may occur problems.</p>
+</div>
+<p>For example, in our Applanix POS LVX and Hesai Pandar XT32 setup, <abbr title="Inertial Measurement Unit">IMU</abbr> direction was towards to the going direction and 
+LiDAR direction has 180 degree difference in Z-axis according to the <abbr title="Inertial Measurement Unit">IMU</abbr> direction. In other words, they were facing back
+to each other. The tool may need a transformation for <abbr title="Inertial Measurement Unit">IMU</abbr> for that.
+- In that situation, the calibration parameters changed as this:
+</p><div class="highlight"><pre><span></span><code><span class="gd">-   extrinsicRot:    [-1.0,  0.0,  0.0,</span>
+<span class="gd">-                      0.0,  1.0,  0.0,</span>
+<span class="gd">-                      0.0,  0.0, -1.0 ]</span>
+<span class="gi">+   extrinsicRot:    [-1.0,  0.0,  0.0,</span>
+<span class="gi">+                     0.0,  -1.0,  0.0,</span>
+<span class="gi">+                     0.0,   0.0,  1.0 ]</span>
+<span class="gd">-   extrinsicRPY: [ 0.0,  1.0,  0.0,</span>
+<span class="gd">-                  -1.0,  0.0,  0.0,</span>
+<span class="gd">-                   0.0,  0.0,  1.0 ]</span>
+<span class="gi">+   extrinsicRPY: [ -1.0,  0.0,  0.0,</span>
+<span class="gi">+                    0.0, -1.0,  0.0,</span>
+<span class="gi">+                    0.0,  0.0,  1.0 ]</span>
+</code></pre></div>
+<ul>
+<li>In the end, we got this transform visualization in RViz:</li>
+</ul>
+<figure>
+<p><img align="center" alt="lio-sam-imu-direciton" src="images/LIO-SAM-imu-direction.png" width="512">
+  </p>
+<figcaption>
+    Transform Visualization of Applanix POS LVX and Hesai Pandar XT32 in RViz 
+  </figcaption>
+</figure>
 <p>Now, we are ready to create a map for Autoware.</p>
 <h3 id="3-usage">3) Usage<a class="headerlink" href="#3-usage" title="Permanent link">#</a></h3>
 <p>If you are set configurations and create bag file for LIO-SAM, you can launch LIO-SAM with:</p>
