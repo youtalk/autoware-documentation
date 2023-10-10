@@ -2116,6 +2116,8 @@
         
           
         
+          
+        
       
       
         
@@ -2310,6 +2312,52 @@
         <label class="md-nav__title" for="__nav_4_2_5_5_5">
           <span class="md-nav__icon md-icon"></span>
           Traffic light
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_5_5_6" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../speed-bump/">Speed bump</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_2_5_5_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2_5_5_6">
+          <span class="md-nav__icon md-icon"></span>
+          Speed bump
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -5492,7 +5540,7 @@
 
 
 <div><h1 id="stop-line">Stop Line<a class="headerlink" href="#stop-line" title="Permanent link">#</a></h1>
-<p>Behavior velocity planner's <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_crosswalk_module/">stop line module</a> plans velocity
+<p>Behavior velocity planner's <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_stop_line_module/">stop line module</a> plans velocity
 to stop right before stop lines and restart driving after stopped.
 In order to operate that, we will add stop line attribute to our lanelet2 map.</p>
 <h2 id="creating-a-stop-line-regulatory-element">Creating a stop line regulatory element<a class="headerlink" href="#creating-a-stop-line-regulatory-element" title="Permanent link">#</a></h2>
@@ -5503,7 +5551,7 @@ In order to operate that, we will add stop line attribute to our lanelet2 map.</
 <li>Select <code>Stop Line</code> from the panel.</li>
 <li>Click on the desired area for inserting stop line.</li>
 </ol>
-<p>Video Demonstration:</p>
+<p>You can see these steps in the stop line creating demonstration video:</p>
 <p><div class="video-container"><iframe src="https://youtube.com/embed/cgTSA50Yfyo" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></p>
 <h3 id="testing-created-the-stop-line-element-with-planning-simulator">Testing created the stop line element with planning simulator<a class="headerlink" href="#testing-created-the-stop-line-element-with-planning-simulator" title="Permanent link">#</a></h3>
 <p>After the completing of creating the map, we need to save it.
@@ -5542,7 +5590,7 @@ you need to update autoware.launch.xml:</p>
     Stop line test on the created map.
   </figcaption>
 </figure>
-<p>Video Demonstration:</p>
+<p>You can check your stop line elements in the planning simulator as this demonstration video:</p>
 <p><div class="video-container"><iframe src="https://youtube.com/embed/cAQ_ulo7LHo" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></p>
 <!-- prettier-ignore --></div>
 
