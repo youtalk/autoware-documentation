@@ -14,7 +14,7 @@
         <link rel="prev" href="../crosswalk/">
       
       
-        <link rel="next" href="../../../launch-autoware/">
+        <link rel="next" href="../traffic-light/">
       
       <link rel="icon" href="../../../../../assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.20">
@@ -2114,6 +2114,8 @@
         
           
         
+          
+        
       
       
         
@@ -2262,6 +2264,52 @@
         <label class="md-nav__title" for="__nav_4_2_5_5_4">
           <span class="md-nav__icon md-icon"></span>
           Stop Line
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_5_5_5" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../traffic-light/">Traffic light</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_2_5_5_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2_5_5_5">
+          <span class="md-nav__icon md-icon"></span>
+          Traffic light
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -5450,7 +5498,7 @@ In order to operate that, we will add stop line attribute to our lanelet2 map.</
 <h2 id="creating-a-stop-line-regulatory-element">Creating a stop line regulatory element<a class="headerlink" href="#creating-a-stop-line-regulatory-element" title="Permanent link">#</a></h2>
 <p>In order to create a stop line on your pointcloud map, please follow these steps:</p>
 <ol>
-<li>Please select lanelet to add stop line.</li>
+<li>Please select lanelet which stop line to be added.</li>
 <li>Click <code>Abstraction</code> button on top panel.</li>
 <li>Select <code>Stop Line</code> from the panel.</li>
 <li>Click on the desired area for inserting stop line.</li>
@@ -5486,6 +5534,14 @@ you need to update autoware.launch.xml:</p>
 <li>Click <code>2D Goal Pose</code> button on rviz or press <code>G</code> and give a pose for goal point.</li>
 <li>You can see the stop line marker on the rviz screen.</li>
 </ol>
+<p>Stop line markers on rviz:</p>
+<figure>
+<p><img align="center" alt="stop-line-test" src="images/stop-line-test.png">
+  </p>
+<figcaption>
+    Stop line test on the created map.
+  </figcaption>
+</figure>
 <p>Video Demonstration:</p>
 <p><div class="video-container"><iframe src="https://youtube.com/embed/cAQ_ulo7LHo" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></p>
 <!-- prettier-ignore --></div>
@@ -5531,13 +5587,13 @@ you need to update autoware.launch.xml:</p>
         
         
           
-          <a href="../../../launch-autoware/" class="md-footer__link md-footer__link--next" aria-label="Next: Launch Autoware" rel="next">
+          <a href="../traffic-light/" class="md-footer__link md-footer__link--next" aria-label="Next: Traffic light" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Launch Autoware
+                Traffic light
               </div>
             </div>
             <div class="md-footer__button md-icon">
