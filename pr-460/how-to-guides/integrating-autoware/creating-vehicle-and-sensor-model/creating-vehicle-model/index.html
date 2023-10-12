@@ -5479,6 +5479,9 @@ If your vehicle does not have mirror, you can set these values 0.0 as well.</p>
 </div>
 <h3 id="simulator_modelparamyaml">simulator_model.param.yaml<a class="headerlink" href="#simulator_modelparamyaml" title="Permanent link">#</a></h3>
 <p>This file is a configuration file for the <a href="https://autowarefoundation.github.io/autoware.universe/main/simulator/simple_planning_simulator/">simulator environment</a>.
+Please update these parameters according to your vehicle specs.
+If you want to check detailed information about variables,
+please check <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/simulator/simple_planning_simulator">simple_planning_simulator</a> package.
 The file consists of these parameters:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">/**</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">ros__parameters</span><span class="p">:</span>
@@ -5499,8 +5502,6 @@ The file consists of these parameters:</p>
 <span class="w">    </span><span class="nt">x_stddev</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0001</span><span class="w"> </span><span class="c1"># x standard deviation for dummy covariance in map coordinate</span>
 <span class="w">    </span><span class="nt">y_stddev</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0001</span><span class="w"> </span><span class="c1"># y standard deviation for dummy covariance in map coordinate</span>
 </code></pre></div>
-<p>If you want to check detailed information about variables,
-please check <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/simulator/simple_planning_simulator">simple_planning_simulator</a> package.</p>
 <h3 id="vehicle_infoparamyaml">vehicle_info.param.yaml<a class="headerlink" href="#vehicle_infoparamyaml" title="Permanent link">#</a></h3>
 <p>This file stores the vehicle dimension for Autoware modules.
 Please update with your vehicle information.
@@ -5547,13 +5548,14 @@ We will set the .fbx file path at <code>vehicle.xacro</code> file.</p>
 <p>You can also modify roll, pitch, yaw, x,
 y, z and scale values for the correct position and orientation of the vehicle.</p>
 <p>Please build vehicle_description package after the completion of your <your-vehicle-name>_vehicle_description package.</your-vehicle-name></p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>&lt;YOUR-AUTOWARE-DIR&gt;
+colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span>--packages-select<span class="w"> </span>&lt;YOUR-VEHICLE-NAME&gt;_vehicle_description<span class="w"> </span>&lt;YOUR-VEHICLE-NAME&gt;_vehicle_launch
+</code></pre></div>
 <h3 id="launching-vehicle-interface">Launching vehicle interface<a class="headerlink" href="#launching-vehicle-interface" title="Permanent link">#</a></h3>
 <p>If your vehicle interface is ready,
 then you can add your vehicle_interface launch file in <code>vehicle_interface.launch.xml</code>.
 Please check
 <a href="../../creating-vehicle-interface-package/creating-a-vehicle-interface-for-an-ackermann-kinematic-model/">creating vehicle interface</a> page for more info.</p>
-<div class="highlight"><pre><span></span><code>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span>--packages-select<span class="w"> </span>&lt;YOUR-VEHICLE-NAME&gt;_vehicle_description<span class="w"> </span>&lt;YOUR-VEHICLE-NAME&gt;_vehicle_launch
-</code></pre></div>
 <p>After the completing of <a href="../creating-sensor-model/">sensor_model</a>,
 <a href="../creating-individual-params/">individual_parameters</a>
 and vehicle model of your vehicle,
