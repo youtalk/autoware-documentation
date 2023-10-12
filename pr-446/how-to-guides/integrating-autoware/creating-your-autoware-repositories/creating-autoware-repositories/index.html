@@ -5178,12 +5178,14 @@
 <div><h1 id="creating-autoware-repositories">Creating Autoware repositories<a class="headerlink" href="#creating-autoware-repositories" title="Permanent link">#</a></h1>
 <h2 id="what-is-meta-repository">What is Meta-repository?<a class="headerlink" href="#what-is-meta-repository" title="Permanent link">#</a></h2>
 <p>A meta-repository is a repository that manages multiple repositories, and <a href="https://github.com/autowarefoundation/autoware">Autoware</a> is one of them.
-It serves as a centralized control point for referencing, configuring, and versioning other repositories.</p>
-<p>By using Ansible and VCS, you can automatically set up your Autoware.
-<code>autoware.repos</code> file manages the configuration of multiple repositories.</p>
-<p>Note:
-<a href="https://github.com/dirk-thomas/vcstool">VCS</a> stands for Version Control System,
-such as Git or Subversion.</p>
+It serves as a centralized control point for referencing, configuring,
+and versioning other repositories.
+In order to do that,
+Autoware meta-repository includes <a href="https://github.com/autowarefoundation/autoware/blob/main/autoware.repos"><code>autoware.repos</code></a> file for managing multiple repositories.
+We will use <a href="https://github.com/dirk-thomas/vcstool">VCS</a> tool (Version Control System) for handling .repos file.
+VCS provides us with the capability to import, export, and pull from multiple repositories.</p>
+<p>We will use VCS for importing all necessary repositories in our workspace.
+Please follow the documentation for VCS and .repos file usage.</p>
 <h2 id="how-to-create-and-customize-your-autoware-meta-repository">How to create and customize your autoware meta-repository<a class="headerlink" href="#how-to-create-and-customize-your-autoware-meta-repository" title="Permanent link">#</a></h2>
 <h3 id="1-create-autoware-meta-repository">1. Create autoware meta-repository<a class="headerlink" href="#1-create-autoware-meta-repository" title="Permanent link">#</a></h3>
 <p>If you want to integrate Autoware into your vehicle, the first step is to create an Autoware meta-repository.</p>
@@ -5201,7 +5203,7 @@ such as Git or Subversion.</p>
 </ul>
 <p><img alt="forking-autoware_repository.png" src="../images/forking-autoware_repository.png"></p>
 <p>Then click "Create fork" button to continue. After that, we can clone our fork repository on our local system.</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/YOUR_NAME/autoware.git
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/YOUR_NAME/autoware.&lt;YOUR-VEHICLE&gt;.git
 </code></pre></div>
 <p>For example, it should be for our documentation:</p>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/leo-drive/autoware.tutorial_vehicle.git
@@ -5219,12 +5221,11 @@ such as Git or Subversion.</p>
   and rename this repository as previous forked repositories, our forked repository name will be <code>autoware_launch.tutorial_vehicle</code>.</li>
 </ul>
 <h3 id="2-customize-your-autowarerepos-for-your-environment">2. Customize your autoware.repos for your environment<a class="headerlink" href="#2-customize-your-autowarerepos-for-your-environment" title="Permanent link">#</a></h3>
-<p>You need to customize <code>autoware.repos</code> for your own vehicle's Autoware.
-The all autoware repos (except calibration and simulator repos)
+<p>You need to customize <code>autoware.repos</code> for your own vehicle's Autoware
+(It is included under the forked Autoware meta-repository directory).
+The all necessary autoware repos (except calibration and simulator repos)
 information is included in this file.</p>
-<p>Now we can add forked individual repositories to <code>autoware.repos</code> file.
-So, if we use vcs with importing (vcs import &lt; autoware.repos) or pulling (vcs pull src),
-then these operations occur on forked repos.</p>
+<p>Now we can add forked individual repositories to <code>autoware.repos</code> before the importing operation.</p>
 <h4 id="21-adding-individual-repos-to-autowarerepos">2.1 Adding individual repos to autoware.repos<a class="headerlink" href="#21-adding-individual-repos-to-autowarerepos" title="Permanent link">#</a></h4>
 <p>After the forking of all repositories, we can start adding these repos to autoware.repos file.
 In order to do that, you should open autoware.repos via any text editor.
@@ -5289,8 +5290,23 @@ the necessary changes for our forked <code>tutorial_vehicle</code> repos should 
 </code></pre></div>
 </li>
 </ul>
-<p>After that, we are ready to use <code>vcs import &lt; autoware.repos</code>.
-This commands imports our prepared repositories right now.</p>
+<p>Please do same similar changes on your own autoware.repos file.
+After the changing these repositories,
+we will be ready to use VCS for importing all necessary repositories to our autoware workspace.</p>
+<p>Firstly, we will create src directory under the own autoware meta-repository directory:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>&lt;YOUR-AUTOWARE-DIR&gt;
+mkdir<span class="w"> </span>src
+</code></pre></div>
+<p>Then, we will import all necessary repositories via:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>&lt;YOUR-AUTOWARE-DIR&gt;
+vcs<span class="w"> </span>import<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>autoware.repos
+</code></pre></div>
+<p>After the running <code>vcs import</code> command,
+all autoware repositories will be cloned in <code>src</code> folder under the Autoware directory.</p>
+<p>So, we can build our own repository with colcon build:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>&lt;YOUR-AUTOWARE-DIR&gt;
+colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release
+</code></pre></div>
 <p>Please refer to the following documentation link for instructions on how to create and customize each <code>vehicle_interface</code>:</p>
 <ul>
 <li><a href="https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/integrating-autoware/creating-vehicle-and-sensor-description/creating-vehicle-and-sensor-description">creating-vehicle-and-sensor-description</a></li>
