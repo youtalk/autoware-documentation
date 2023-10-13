@@ -5468,7 +5468,7 @@ touch<span class="w"> </span>mapping_based.launch.xml<span class="w"> </span>map
 </code></pre></div>
 <p>We will be modifying these <code>mapping_based.launch.xml</code> and <code>mapping_based_sensor_kit.launch.xml</code> by using TIER IV's sample sensor kit aip_xx1.
 So,
-you should copy the contents of these two files from <a href="https://github.com/tier4/CalibrationTools/tree/tier4/universe/sensor/extrinsic_calibration_manager/launch/aip_xx1">aip_xx1</a> to your created files.</p>
+you should copy the contents of these two files from <a href="https://github.com/tier4/CalibrationTools/tree/tier4/universe/sensor/extrinsic_calibration_manager/launch/aip_x1">aip_x1</a> to your created files.</p>
 <p>Then we will continue with adding vehicle_id and sensor model names to the <code>mapping_based.launch.xml</code>:
 (Optionally, values are not important. These parameters will be overridden by launch arguments)</p>
 <div class="highlight"><pre><span></span><code><span class="w"> </span> &lt;arg name="vehicle_id" default="default"/&gt;
@@ -5509,6 +5509,9 @@ you can modify sensor_kit and vehicle_id as <code>mapping_based.launch.xml</code
 which included at the end of the page)</p>
 <p>We will add sensor kit frames for each lidar (except mapping lidar),
 we have one lidar for pairing to the main lidar sensor for tutorial vehicle, so it should be like:</p>
+<p><strong>Note</strong>: The mapping lidar will be used for mapping purposes, but it will not be calibrated.
+We can consider this lidar as the main sensor for our hardware architecture.
+Therefore, other lidars will be calibrated with respect to the mapping lidar (main sensor).</p>
 <div class="highlight"><pre><span></span><code><span class="gi">+  &lt;let name="lidar_calibration_sensor_kit_frames" value="[</span>
 <span class="gi">+  sensor_kit_base_link,</span>
 <span class="gi">+  sensor_kit_base_link,</span>
