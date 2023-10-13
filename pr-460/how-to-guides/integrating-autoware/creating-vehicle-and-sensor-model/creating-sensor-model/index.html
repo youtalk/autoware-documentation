@@ -6072,7 +6072,7 @@ if you decided to use container for 2D detection pipeline are:</p>
 </ul>
 <p>After the preparing <code>camera_node_container.launch.py</code> to our forked <code>common_sensor_launch</code> package,
 we need to build the package:</p>
-<div class="highlight"><pre><span></span><code>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span>--packages-select<span class="w"> </span>common_sensor_launch
+<div class="highlight"><pre><span></span><code>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span>--packages-up-to<span class="w"> </span>common_sensor_launch
 </code></pre></div>
 <p>Next, we will add camera_node_container.launch.py to <code>camera.launch.xml</code>,
 we must define necessary tensorrt_yolo parameters like this:</p>

@@ -5366,7 +5366,7 @@ Then, individual params will override these original files.</p>
 </code></pre></div>
 </details>
 <p>After that, we need to build individual_params package:</p>
-<div class="highlight"><pre><span></span><code>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span>--packages-select<span class="w"> </span>individual_params
+<div class="highlight"><pre><span></span><code>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span>--packages-up-to<span class="w"> </span>individual_params
 </code></pre></div>
 <p>Now we are ready to use Autoware with vehicle_id as an arguments.
 For example, if our vehicle is more than one,
@@ -5390,7 +5390,7 @@ the autoware_individual_params structure should be like this:</p>
 <span class="gi">+              └─ sensors_calibration.yaml</span>
 </code></pre></div>
 <p>Then, you can use autoware with vehicle_id arguments like this:</p>
-<p>Add a <code>&lt;vehicle_id&gt;</code> directory and switch parameters using options at startup.</p>
+<p>Add a <code>&lt;vehicle_id&gt;</code> as an argument and switch parameters using options at startup.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># example1 (do not set vehicle_id)</span>
 $<span class="w"> </span>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>autoware.launch.xml<span class="w"> </span>sensor_model:<span class="o">=</span>&lt;YOUR-VEHICLE-NAME&gt;_sensor_kit<span class="w"> </span>vehicle_model:<span class="o">=</span>&lt;YOUR-VEHICLE-NAME&gt;_vehicle
 <span class="c1"># example2 (set vehicle_id as VEHICLE_1)</span>

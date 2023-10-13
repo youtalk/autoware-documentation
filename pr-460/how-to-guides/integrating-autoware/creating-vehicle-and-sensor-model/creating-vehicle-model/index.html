@@ -5430,7 +5430,7 @@ So, open <code>package.xml</code> file and <code>CmakeLists.txt</code> file with
 to apply these two steps for <code>&lt;YOUR-VEHICLE-NAME&gt;_vehicle_description</code>and <code>&lt;YOUR-VEHICLE-NAME&gt;_vehicle_launch</code>
 <abbr title="Robot Operating System">ROS</abbr> 2 packages.
 After the completing of changing package names, we need to build these packages:</p>
-<div class="highlight"><pre><span></span><code>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span>--packages-select<span class="w"> </span>&lt;YOUR-VEHICLE-NAME&gt;_vehicle_description<span class="w"> </span>&lt;YOUR-VEHICLE-NAME&gt;_vehicle_launch
+<div class="highlight"><pre><span></span><code>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span>--packages-up-to<span class="w"> </span>&lt;YOUR-VEHICLE-NAME&gt;_vehicle_description<span class="w"> </span>&lt;YOUR-VEHICLE-NAME&gt;_vehicle_launch
 </code></pre></div>
 <h2 id="vehicle-description">Vehicle description<a class="headerlink" href="#vehicle-description" title="Permanent link">#</a></h2>
 <p>The main purpose of this package is to describe the vehicle dimensions,
@@ -5549,19 +5549,23 @@ We will set the .fbx file path at <code>vehicle.xacro</code> file.</p>
 y, z and scale values for the correct position and orientation of the vehicle.</p>
 <p>Please build vehicle_description package after the completion of your <your-vehicle-name>_vehicle_description package.</your-vehicle-name></p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>&lt;YOUR-AUTOWARE-DIR&gt;
-colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span>--packages-select<span class="w"> </span>&lt;YOUR-VEHICLE-NAME&gt;_vehicle_description<span class="w"> </span>&lt;YOUR-VEHICLE-NAME&gt;_vehicle_launch
+colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span>--packages-up-to<span class="w"> </span>&lt;YOUR-VEHICLE-NAME&gt;_vehicle_description<span class="w"> </span>&lt;YOUR-VEHICLE-NAME&gt;_vehicle_launch
 </code></pre></div>
 <h3 id="launching-vehicle-interface">Launching vehicle interface<a class="headerlink" href="#launching-vehicle-interface" title="Permanent link">#</a></h3>
 <p>If your vehicle interface is ready,
 then you can add your vehicle_interface launch file in <code>vehicle_interface.launch.xml</code>.
 Please check
 <a href="../../creating-vehicle-interface-package/creating-a-vehicle-interface-for-an-ackermann-kinematic-model/">creating vehicle interface</a> page for more info.</p>
+<h3 id="launch-planning-simulator-with-own-vehicle">Launch planning simulator with own vehicle<a class="headerlink" href="#launch-planning-simulator-with-own-vehicle" title="Permanent link">#</a></h3>
 <p>After the completing of <a href="../creating-sensor-model/">sensor_model</a>,
 <a href="../creating-individual-params/">individual_parameters</a>
 and vehicle model of your vehicle,
 you are ready to launch the planning simulator with your own vehicle.
 In order to do that, please be sure you built modified packages at this documentation.</p>
-<h3 id="launch-planning-simulator-with-own-vehicle">Launch planning simulator with own vehicle<a class="headerlink" href="#launch-planning-simulator-with-own-vehicle" title="Permanent link">#</a></h3>
+<p>If you are not sure everything about Autoware is built, please build all packages:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>&lt;YOUR-AUTOWARE-DIR&gt;
+colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release
+</code></pre></div>
 <p>To launch planning simulator, source the autoware and run this command in your terminal:</p>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>planning_simulator.launch.xml<span class="w"> </span>map_path:<span class="o">=</span><span class="nv">$HOME</span>/Files/autoware_map/sample-map-planning/<span class="w"> </span>vehicle_model:<span class="o">=</span>&lt;YOUR-VEHICLE-MODEL&gt;<span class="w"> </span>sensor_model:<span class="o">=</span>&lt;YOUR-SENSOR-KIT&gt;<span class="w"> </span>vehicle_id:<span class="o">=</span>&lt;YOUR-VEHICLE-ID&gt;
 </code></pre></div>
