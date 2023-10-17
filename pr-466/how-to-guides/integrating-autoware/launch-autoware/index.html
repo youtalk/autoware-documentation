@@ -2135,14 +2135,14 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="perception/">Perception Launch</a>
+          <a href="perception/">Launch perception</a>
           
         </div>
       
       <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_6_3_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_2_6_3">
           <span class="md-nav__icon md-icon"></span>
-          Perception Launch
+          Launch perception
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -5254,7 +5254,7 @@ We will explain how to run and launch autoware with these modules:</p>
 <li>Map</li>
 <li>Sensing</li>
 <li>Localization</li>
-<li>Perception</li>
+<li><a href="./perception">Perception</a></li>
 <li>Planning</li>
 <li>Control</li>
 </ul>
@@ -5377,6 +5377,7 @@ If you don't want to use traffic light classifier, then you can disable it:</p>
 <div class="highlight"><pre><span></span><code><span class="gd">- &lt;arg name="traffic_light_recognition/enable_fine_detection" default="true" description="enable traffic light fine detection"/&gt;</span>
 <span class="gi">+ &lt;arg name="traffic_light_recognition/enable_fine_detection" default="false" description="enable traffic light fine detection"/&gt;</span>
 </code></pre></div>
+<p>Please look at <a href="./perception">Launch perception</a> page for detailed information.</p>
 <h2 id="launch-autoware_1">Launch Autoware<a class="headerlink" href="#launch-autoware_1" title="Permanent link">#</a></h2>
 <p>Launch Autoware with the following command:</p>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>autoware_launch.launch.xml<span class="w"> </span>map_path:<span class="o">=</span>&lt;YOUR-MAP-PATH&gt;<span class="w"> </span>vehicle_model:<span class="o">=</span>&lt;YOUR-VEHICLE-MODEL&gt;<span class="w"> </span>sensor_model:<span class="o">=</span>&lt;YOUR-SENSOR-MODEL&gt;<span class="w"> </span>vehicle_id:<span class="o">=</span>&lt;YOUR-VEHICLE-ID&gt;

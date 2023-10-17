@@ -2135,14 +2135,14 @@
         
         
         <div class="md-nav__link md-nav__link--index md-nav__link--active">
-          <a href="./">Perception Launch</a>
+          <a href="./">Launch perception</a>
           
         </div>
       
       <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_6_3_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_4_2_6_3">
           <span class="md-nav__icon md-icon"></span>
-          Perception Launch
+          Launch perception
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -5272,8 +5272,7 @@ we will apply these changes <code>tier4_perception_component.launch.xml</code> i
   If you want to change it to the <code>false</code>,
   you can add this argument to <code>tier4_perception_component.launch.xml</code>,
   so it will override the <code>perception.launch.xml</code>'s <code>argument</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="gd">- &lt;arg name="detected_objects_filter_method" default="lanelet_filter" description="options: lanelet_filter, position_filter"/&gt;</span>
-<span class="gi">+ &lt;arg name="detected_objects_filter_method" default="position_filter" description="options: lanelet_filter, position_filter"/&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="gi">+ &lt;arg name="remove_unknown" default="false"/&gt;</span>
 </code></pre></div>
 </li>
 </ul>
