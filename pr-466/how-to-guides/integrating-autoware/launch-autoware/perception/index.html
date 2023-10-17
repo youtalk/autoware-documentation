@@ -5278,14 +5278,16 @@ we will apply these changes <code>tier4_perception_component.launch.xml</code> i
 </li>
 </ul>
 <ul>
-<li><strong>camera topics:</strong> If you are using camera-lidar fusion or camera-lidar-radar fusion as a perception_mode,
+<li>
+<p><strong>camera topics:</strong> If you are using camera-lidar fusion or camera-lidar-radar fusion as a perception_mode,
   you can add your camera and info topics on <code>tier4_perception_component.launch.xml</code> as well,
-  it will override the <code>perception.launch.xml</code> launch file arguments:
-  <div class="highlight"><pre><span></span><code><span class="gi">+ &lt;arg name="image_raw0" default="/sensing/camera/camera0/image_rect_color" description="image raw topic name"/&gt;</span>
+  it will override the <code>perception.launch.xml</code> launch file arguments:</p>
+<div class="highlight"><pre><span></span><code><span class="gi">+ &lt;arg name="image_raw0" default="/sensing/camera/camera0/image_rect_color" description="image raw topic name"/&gt;</span>
 <span class="gi">+ &lt;arg name="camera_info0" default="/sensing/camera/camera0/camera_info" description="camera info topic name"/&gt;</span>
 <span class="gi">+ &lt;arg name="detection_rois0" default="/perception/object_recognition/detection/rois0" description="detection rois output topic name"/&gt;</span>
 ...
-</code></pre></div></li>
+</code></pre></div>
+</li>
 </ul>
 <p>You can add every necessary argument
 to <code>tier4_perception_component.launch.xml</code> launch file like these examples.</p>
