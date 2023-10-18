@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-466/how-to-guides/integrating-autoware/launch-autoware/perception/">
       
       
-        <link rel="prev" href="../localization-methods/eagleye-guide/">
+        <link rel="prev" href="../localization/eagleye/">
       
       
         <link rel="next" href="../../tuning-parameters-and-performance/evaluating-controller-performance/">
@@ -2071,7 +2071,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../localization-methods/">Localization methods</a>
+          <a href="../localization/">Launch localization</a>
           
             <label for="__nav_4_2_6_2">
               <span class="md-nav__icon md-icon"></span>
@@ -2082,7 +2082,7 @@
       <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_6_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_2_6_2">
           <span class="md-nav__icon md-icon"></span>
-          Localization methods
+          Launch localization
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -2093,10 +2093,42 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../localization-methods/eagleye-guide/" class="md-nav__link">
-        Eagleye
-      </a>
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_6_2_2" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../localization/eagleye/">Eagleye</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_2_6_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2_6_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Eagleye
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -5198,10 +5230,14 @@ This diagram describes some of the Autoware perception launch files flow at <cod
     Autoware perception launch flow diagram
   </figcaption>
 </figure>
-<p>The Autoware project is large. Therefore, as we manage the Autoware project, we utilize specific
-arguments in the launch files. <abbr title="Robot Operating System">ROS</abbr> 2 offers an argument-overriding feature for these launch files.
-Please refer to <a href="https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Using-ROS2-Launch-For-Large-Projects.html#parameter-overrides">the official <abbr title="Robot Operating System">ROS</abbr> 2 launch documentation</a> for further information. For instance,
-if we define an argument at the top-level launch, it will override the value on lower-level launches.</p>
+<p>The Autoware project is a large project.
+Therefore, as we manage the Autoware project, we utilize specific
+arguments in the launch files.
+<abbr title="Robot Operating System">ROS</abbr> 2 offers an argument-overriding feature for these launch files.
+Please refer to <a href="https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Using-ROS2-Launch-For-Large-Projects.html#parameter-overrides">the official <abbr title="Robot Operating System">ROS</abbr> 2 launch documentation</a> for further information.
+For instance,
+if we define an argument at the top-level launch,
+it will override the value on lower-level launches.</p>
 <h2 id="tier4_perception_componentlaunchxml">tier4_perception_component.launch.xml<a class="headerlink" href="#tier4_perception_componentlaunchxml" title="Permanent link">#</a></h2>
 <p>The <code>tier4_perception_component.launch.xml</code> launch file is the main perception component launch at the <code>autoware_launch</code> package.
 This launch file calls <code>perception.launch.xml</code> at <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/launch/tier4_perception_launch">tier4_perception_launch</a> package from <code>autoware.universe</code> repository.
@@ -5213,7 +5249,7 @@ to change it since <code>tier4_perception_component.launch.xml</code> is the top
 Here are some predefined perception launch arguments:</p>
 <ul>
 <li>
-<p><strong>occupancy_grid_map_method:</strong> This parameter determines the occupancy grid map method for perception stack. Please check <a href="https://autowarefoundation.github.io/autoware.universe/main/perception/probabilistic_occupancy_grid_map/">probabilistic_occupancy_grid_map</a> package for detailed information.
+<p><strong><code>occupancy_grid_map_method:</code></strong> This parameter determines the occupancy grid map method for perception stack. Please check <a href="https://autowarefoundation.github.io/autoware.universe/main/perception/probabilistic_occupancy_grid_map/">probabilistic_occupancy_grid_map</a> package for detailed information.
   The default probabilistic occupancy grid map method is <code>pointcloud_based_occupancy_grid_map</code>.
   If you want to change it to the <code>laserscan_based_occupancy_grid_map</code>, you can change it here:</p>
 <div class="highlight"><pre><span></span><code><span class="gd">- &lt;arg name="occupancy_grid_map_method" default="pointcloud_based_occupancy_grid_map" description="options: pointcloud_based_occupancy_grid_map, laserscan_based_occupancy_grid_map"/&gt;</span>
@@ -5223,7 +5259,7 @@ Here are some predefined perception launch arguments:</p>
 </ul>
 <ul>
 <li>
-<p><strong>detected_objects_filter_method:</strong> This parameter determines the filter method for detected objects.
+<p><strong><code>detected_objects_filter_method:</code></strong> This parameter determines the filter method for detected objects.
   Please check <a href="https://autowarefoundation.github.io/autoware.universe/main/perception/detected_object_validation/">detected_object_validation</a> package for detailed information about lanelet and position filter.
   The default detected object filter method is <code>lanelet_filter</code>.
   If you want to change it to the <code>position_filter</code>, you can change it here:</p>
@@ -5234,7 +5270,7 @@ Here are some predefined perception launch arguments:</p>
 </ul>
 <ul>
 <li>
-<p><strong>detected_objects_validation_method:</strong> This parameter determines the validation method for detected objects.
+<p><strong><code>detected_objects_validation_method:</code></strong> This parameter determines the validation method for detected objects.
   Please check <a href="https://autowarefoundation.github.io/autoware.universe/main/perception/detected_object_validation/">detected_object_validation</a> package for detailed information about validation methods.
   The default detected object filter method is <code>obstacle_pointcloud</code>.
   If you want to change it to the <code>occupancy_grid</code>, you can change it here,
@@ -5266,7 +5302,7 @@ we will apply these changes <code>tier4_perception_component.launch.xml</code> i
 <p>Here are some example changes for the perception pipeline:</p>
 <ul>
 <li>
-<p><strong>remove_unknown:</strong> This parameter determines the remove unknown objects at camera-lidar fusion.
+<p><strong><code>remove_unknown:</code></strong> This parameter determines the remove unknown objects at camera-lidar fusion.
   Please check <a href="https://github.com/autowarefoundation/autoware.universe/blob/main/perception/image_projection_based_fusion/docs/roi-cluster-fusion.md">roi_cluster_fusion</a> node for detailed information.
   The default value is <code>true</code>.
   If you want to change it to the <code>false</code>,
@@ -5278,7 +5314,7 @@ we will apply these changes <code>tier4_perception_component.launch.xml</code> i
 </ul>
 <ul>
 <li>
-<p><strong>camera topics:</strong> If you are using camera-lidar fusion or camera-lidar-radar fusion as a perception_mode,
+<p><strong><code>camera topics:</code></strong> If you are using camera-lidar fusion or camera-lidar-radar fusion as a perception_mode,
   you can add your camera and info topics on <code>tier4_perception_component.launch.xml</code> as well,
   it will override the <code>perception.launch.xml</code> launch file arguments:</p>
 <div class="highlight"><pre><span></span><code><span class="gi">+ &lt;arg name="image_raw0" default="/sensing/camera/camera0/image_rect_color" description="image raw topic name"/&gt;</span>
@@ -5317,7 +5353,7 @@ to <code>tier4_perception_component.launch.xml</code> launch file like these exa
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../localization-methods/eagleye-guide/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Eagleye" rel="prev">
+          <a href="../localization/eagleye/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Using Eagleye with Autoware" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -5326,7 +5362,7 @@ to <code>tier4_perception_component.launch.xml</code> launch file like these exa
                 Previous
               </span>
               <div class="md-ellipsis">
-                Eagleye
+                Using Eagleye with Autoware
               </div>
             </div>
           </a>
