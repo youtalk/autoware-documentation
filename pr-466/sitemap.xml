@@ -946,6 +946,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-466/how-to-guides/integrating-autoware/launch-autoware/vehicle/</loc>
+         <lastmod>2023-10-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-466/how-to-guides/integrating-autoware/tuning-parameters-and-performance/evaluating-controller-performance/</loc>
          <lastmod>2023-10-18</lastmod>
          <changefreq>daily</changefreq>
