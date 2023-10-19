@@ -14,7 +14,7 @@
         <link rel="prev" href="../">
       
       
-        <link rel="next" href="../sensing/">
+        <link rel="next" href="../system/">
       
       <link rel="icon" href="../../../../assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.20">
@@ -2025,6 +2025,8 @@
         
           
         
+          
+        
       
       
         
@@ -2119,14 +2121,14 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../sensing/">Launch sensing</a>
+          <a href="../system/">Launch system</a>
           
         </div>
       
       <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_6_3_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_2_6_3">
           <span class="md-nav__icon md-icon"></span>
-          Launch sensing
+          Launch system
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -2160,6 +2162,52 @@
             
           
         
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../sensing/">Launch sensing</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_6_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2_6_4">
+          <span class="md-nav__icon md-icon"></span>
+          Launch sensing
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_6_5" >
+      
+      
+        
+          
+            
+          
+        
           
         
       
@@ -2169,14 +2217,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../localization/">Launch localization</a>
           
-            <label for="__nav_4_2_6_4">
+            <label for="__nav_4_2_6_5">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_6_4_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_4_2_6_4">
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_6_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2_6_5">
           <span class="md-nav__icon md-icon"></span>
           Launch localization
         </label>
@@ -2197,7 +2245,7 @@
       
         
       
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_6_4_2" >
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_6_5_2" >
       
       
         
@@ -2214,8 +2262,8 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_2_6_4_2_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_4_2_6_4_2">
+      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_2_6_5_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2_6_5_2">
           <span class="md-nav__icon md-icon"></span>
           Eagleye
         </label>
@@ -2250,7 +2298,7 @@
       
         
       
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_6_5" >
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_6_6" >
       
       
         
@@ -2267,8 +2315,8 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_6_5_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_4_2_6_5">
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_6_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2_6_6">
           <span class="md-nav__icon md-icon"></span>
           Launch perception
         </label>
@@ -5322,15 +5370,15 @@ For instance,
 if we define an argument at the top-level launch,
 it will override the value on lower-level launches.</p>
 </div>
-<p>We don't have many modification options here, you can disable vehicle_interface launching.
+<p>We don't have many modification options here, but you can disable vehicle_interface launching.
 For example,
 if you want
 to run robot_state_publisher but not <code>vehicle_interface</code> you can run autoware with the following command line arguments:</p>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>autoware.launch.xml<span class="w"> </span>...<span class="w"> </span>launch_vehicle_interface:<span class="o">=</span><span class="nb">false</span><span class="w"> </span>...
 </code></pre></div>
 <p>Or you can change it on your <code>autoware.launch.xml</code> launch file:</p>
-<div class="highlight"><pre><span></span><code><span class="gd">- &lt;arg name="launch_vehicle_interface" default="true" description="launch sensing driver"/&gt;</span>
-<span class="gi">+ &lt;arg name="launch_vehicle_interface" default="false" description="launch sensing driver"/&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="gd">- &lt;arg name="launch_vehicle_interface" default="true" description="launch vehicle interface"/&gt;</span>
+<span class="gi">+ &lt;arg name="launch_vehicle_interface" default="false" description="launch vehicle interface"/&gt;</span>
 </code></pre></div>
 <!-- prettier-ignore --></div>
 
@@ -5375,13 +5423,13 @@ to run robot_state_publisher but not <code>vehicle_interface</code> you can run 
         
         
           
-          <a href="../sensing/" class="md-footer__link md-footer__link--next" aria-label="Next: Sensing Launch Files" rel="next">
+          <a href="../system/" class="md-footer__link md-footer__link--next" aria-label="Next: System Launch Files" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Sensing Launch Files
+                System Launch Files
               </div>
             </div>
             <div class="md-footer__button md-icon">
