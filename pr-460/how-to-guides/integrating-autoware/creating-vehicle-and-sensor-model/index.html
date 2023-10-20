@@ -5334,21 +5334,33 @@
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
 <h3 id="sensor-model">Sensor Model<a class="headerlink" href="#sensor-model" title="Permanent link">#</a></h3>
 <ul>
-<li><strong>Purpose:</strong> The sensor model includes the calibration (transformation) and launch files of the sensors used in the autonomous vehicle. This includes various sensors like LiDARs, cameras, radars, IMUs (Inertial Measurement Units), GPS units, etc.</li>
-<li><strong>Importance:</strong> Accurate sensor modeling is essential for perception tasks. True calibration values helps in understanding the environment by processing sensor data, such as detecting objects, estimating distances, and creating a 3D representation of the surroundings.</li>
-<li><strong>Usage:</strong> The sensor model is used in Autoware for launching sensors, their pipeline and describing calibration values.</li>
+<li><strong>Purpose:</strong> The sensor model includes the calibration (transformation) and launch files of the
+  sensors used in the autonomous vehicle.
+  This includes various sensors like LiDARs, cameras,
+  radars, IMUs (Inertial Measurement Units), GPS units, etc.</li>
 </ul>
 <ul>
-<li>The sensor model (sensor kit) consists of three following packages:<ul>
+<li><strong>Importance:</strong> Accurate sensor modeling is essential for perception tasks.
+  Precise calibration values help understand the environment by processing sensor data,
+  such as detecting objects, estimating distances,
+  and creating a 3D representation of the surroundings.</li>
+</ul>
+<ul>
+<li><strong>Usage:</strong> The sensor model is utilized in Autoware for launching sensors,
+  configuring their pipeline, and describing calibration values.</li>
+</ul>
+<ul>
+<li>The sensor model (sensor kit) consists of the following three packages:<ul>
 <li><code>common_sensor_launch</code></li>
-<li><code>&lt;YOUR-VEHICLE-NAME&gt;_sensor_kit_description</code></li>
-<li><code>&lt;YOUR-VEHICLE-NAME&gt;_sensor_kit_launch</code></li>
+<li><code>&lt;YOUR_VEHICLE_NAME&gt;_sensor_kit_description</code></li>
+<li><code>&lt;YOUR_VEHICLE_NAME&gt;_sensor_kit_launch</code></li>
 </ul>
 </li>
 </ul>
-<p>Please follow the <a href="./creating-sensor-model">creating sensor model</a> page
-for creating your own individual sensor model.</p>
-<p>Here is the <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch">sample_sensor_kit_launch</a> package folder structure for autoware:</p>
+<p>Please refer to the <a href="./creating-sensor-model">creating sensor model</a> page
+for creating your individual sensor model.</p>
+<p>For reference,
+here is the folder structure for the <a href="https://github.com/autowarefoundation/sample_sensor_kit_launch">sample_sensor_kit_launch</a> package in Autoware:</p>
 <div class="highlight"><pre><span></span><code>sample_sensor_kit_launch/
 ├─ common_sensor_launch/
 ├─ sample_sensor_kit_description/
@@ -5356,20 +5368,27 @@ for creating your own individual sensor model.</p>
 </code></pre></div>
 <h3 id="vehicle-model">Vehicle Model<a class="headerlink" href="#vehicle-model" title="Permanent link">#</a></h3>
 <ul>
-<li><strong>Purpose:</strong> The vehicle model includes individual vehicle specifications with dimensions, 3D model of vehicle (.fbx or .dae format), etc.</li>
-<li><strong>Importance:</strong> An accurate vehicle model is crucial for motion planning and control.</li>
-<li><strong>Usage:</strong> The vehicle model is used in autoware for providing vehicle information for autoware, 3D model of vehicle, etc.</li>
+<li><strong>Purpose:</strong> The vehicle model includes individual vehicle specifications with dimensions,
+  a 3D model of the vehicle (in .fbx or .dae format), etc.</li>
 </ul>
 <ul>
-<li>The sensor model (sensor kit) consists of three following packages:<ul>
-<li><code>&lt;YOUR-VEHICLE-NAME&gt;_vehicle_description</code></li>
-<li><code>&lt;YOUR-VEHICLE-NAME&gt;_vehicle_launch</code></li>
+<li><strong>Importance:</strong> An accurate vehicle model is crucial for motion planning and control.</li>
+</ul>
+<ul>
+<li><strong>Usage:</strong> The vehicle model is employed in Autoware to provide vehicle information for Autoware,
+  including the 3D model of the vehicle.</li>
+</ul>
+<ul>
+<li>The vehicle model comprises the following two packages:<ul>
+<li><code>&lt;YOUR_VEHICLE_NAME&gt;_vehicle_description</code></li>
+<li><code>&lt;YOUR_VEHICLE_NAME&gt;_vehicle_launch</code></li>
 </ul>
 </li>
 </ul>
-<p>Please follow the <a href="./creating-vehicle-model">creating vehicle model</a> page
-for creating your own individual vehicle model.</p>
-<p>Here is the <a href="https://github.com/autowarefoundation/sample_vehicle_launch">sample_vehicle_launch</a> package folder structure for autoware:</p>
+<p>Please consult the <a href="./creating-vehicle-model">creating vehicle model</a> page
+for creating your individual vehicle model.</p>
+<p>As a reference,
+here is the folder structure for the <a href="https://github.com/autowarefoundation/sample_vehicle_launch">sample_vehicle_launch</a> package in Autoware:</p>
 <div class="highlight"><pre><span></span><code>sample_vehicle_launch/
 ├─ sample_vehicle_description/
 └─ sample_vehicle_launch/
