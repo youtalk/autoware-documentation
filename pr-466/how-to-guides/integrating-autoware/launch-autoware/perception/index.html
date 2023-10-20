@@ -14,7 +14,7 @@
         <link rel="prev" href="../localization/eagleye/">
       
       
-        <link rel="next" href="../../tuning-parameters-and-performance/evaluating-controller-performance/">
+        <link rel="next" href="../planning/">
       
       <link rel="icon" href="../../../../assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.20">
@@ -2029,6 +2029,8 @@
         
           
         
+          
+        
       
       
         
@@ -2367,6 +2369,52 @@
         <label class="md-nav__title" for="__nav_4_2_6_7">
           <span class="md-nav__icon md-icon"></span>
           Launch perception
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_6_8" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../planning/">Launch planning</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_6_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2_6_8">
+          <span class="md-nav__icon md-icon"></span>
+          Launch planning
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -5444,7 +5492,7 @@ to change it since <code>tier4_perception_component.launch.xml</code> is the top
 Here are some predefined perception launch arguments:</p>
 <ul>
 <li>
-<p><strong><code>occupancy_grid_map_method:</code></strong> This parameter determines the occupancy grid map method for perception stack. Please check <a href="https://autowarefoundation.github.io/autoware.universe/main/perception/probabilistic_occupancy_grid_map/">probabilistic_occupancy_grid_map</a> package for detailed information.
+<p><strong><code>occupancy_grid_map_method:</code></strong> This argument determines the occupancy grid map method for perception stack. Please check <a href="https://autowarefoundation.github.io/autoware.universe/main/perception/probabilistic_occupancy_grid_map/">probabilistic_occupancy_grid_map</a> package for detailed information.
   The default probabilistic occupancy grid map method is <code>pointcloud_based_occupancy_grid_map</code>.
   If you want to change it to the <code>laserscan_based_occupancy_grid_map</code>, you can change it here:</p>
 <div class="highlight"><pre><span></span><code><span class="gd">- &lt;arg name="occupancy_grid_map_method" default="pointcloud_based_occupancy_grid_map" description="options: pointcloud_based_occupancy_grid_map, laserscan_based_occupancy_grid_map"/&gt;</span>
@@ -5454,7 +5502,7 @@ Here are some predefined perception launch arguments:</p>
 </ul>
 <ul>
 <li>
-<p><strong><code>detected_objects_filter_method:</code></strong> This parameter determines the filter method for detected objects.
+<p><strong><code>detected_objects_filter_method:</code></strong> This argument determines the filter method for detected objects.
   Please check <a href="https://autowarefoundation.github.io/autoware.universe/main/perception/detected_object_validation/">detected_object_validation</a> package for detailed information about lanelet and position filter.
   The default detected object filter method is <code>lanelet_filter</code>.
   If you want to change it to the <code>position_filter</code>, you can change it here:</p>
@@ -5465,7 +5513,7 @@ Here are some predefined perception launch arguments:</p>
 </ul>
 <ul>
 <li>
-<p><strong><code>detected_objects_validation_method:</code></strong> This parameter determines the validation method for detected objects.
+<p><strong><code>detected_objects_validation_method:</code></strong> This argument determines the validation method for detected objects.
   Please check <a href="https://autowarefoundation.github.io/autoware.universe/main/perception/detected_object_validation/">detected_object_validation</a> package for detailed information about validation methods.
   The default detected object filter method is <code>obstacle_pointcloud</code>.
   If you want to change it to the <code>occupancy_grid</code>, you can change it here,
@@ -5481,9 +5529,15 @@ Here are some predefined perception launch arguments:</p>
 </code></pre></div>
 </li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can also use this arguments as command line arguments:
+</p><div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>autoware.launch.xml<span class="w"> </span>...<span class="w"> </span>detected_objects_filter_method:<span class="o">=</span>lanelet_filter<span class="w"> </span>occupancy_grid_map_method:<span class="o">=</span>laserscan_based_occupancy_grid_map<span class="w"> </span>...
+</code></pre></div>
+</div>
 <p>The predefined <code>tier4_perception_component.launch.xml</code> arguments explained above,
 but there is the lot of perception arguments
-included in <code>perception.launch.xml</code> at <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/launch/tier4_perception_launch">tier4_perception_launch</a>.
+included in <code>perception.launch.xml</code> launch file at <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/launch/tier4_perception_launch">tier4_perception_launch</a>.
 Since we didn't fork <code>autoware.universe</code> repository,
 we can add the necessary launch argument to tier4_perception_component.launch.xml file.
 Please follow the guidelines for some examples.</p>
@@ -5564,13 +5618,13 @@ to <code>tier4_perception_component.launch.xml</code> launch file like these exa
         
         
           
-          <a href="../../tuning-parameters-and-performance/evaluating-controller-performance/" class="md-footer__link md-footer__link--next" aria-label="Next: Evaluating the controller performance" rel="next">
+          <a href="../planning/" class="md-footer__link md-footer__link--next" aria-label="Next: Planning Launch Files" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Evaluating the controller performance
+                Planning Launch Files
               </div>
             </div>
             <div class="md-footer__button md-icon">

@@ -946,6 +946,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-466/how-to-guides/integrating-autoware/launch-autoware/planning/</loc>
+         <lastmod>2023-10-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-466/how-to-guides/integrating-autoware/launch-autoware/sensing/</loc>
          <lastmod>2023-10-20</lastmod>
          <changefreq>daily</changefreq>

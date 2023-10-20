@@ -2029,6 +2029,8 @@
         
           
         
+          
+        
       
       
         
@@ -2367,6 +2369,52 @@
         <label class="md-nav__title" for="__nav_4_2_6_7">
           <span class="md-nav__icon md-icon"></span>
           Launch perception
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_6_8" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../planning/">Launch planning</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_6_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2_6_8">
+          <span class="md-nav__icon md-icon"></span>
+          Launch planning
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -5409,6 +5457,17 @@ and <code>autoware.universe</code> packages.</p>
     Autoware map launch flow diagram
   </figcaption>
 </figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Autoware project is a large project.
+Therefore, as we manage the Autoware project, we utilize specific
+arguments in the launch files.
+<abbr title="Robot Operating System">ROS</abbr> 2 offers an argument-overriding feature for these launch files.
+Please refer to <a href="https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Using-ROS2-Launch-For-Large-Projects.html#parameter-overrides">the official <abbr title="Robot Operating System">ROS</abbr> 2 launch documentation</a> for further information.
+For instance,
+if we define an argument at the top-level launch,
+it will override the value on lower-level launches.</p>
+</div>
 <p>The map.launch.py launch file from the tier4_map_launch package directly includes
 the necessary node definitions for mapping. In the current design of Autoware, the <code>lanelet2_map_loader</code>,
 <code>lanelet2_map_visualization</code>, <code>pointcloud_map_loader</code>, and <code>vector_map_tf_generator</code> composable
