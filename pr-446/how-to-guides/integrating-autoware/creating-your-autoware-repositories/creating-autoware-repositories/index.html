@@ -1243,8 +1243,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-is-meta-repository" class="md-nav__link">
-    What is Meta-repository?
+  <a href="#what-is-a-meta-repository" class="md-nav__link">
+    What is a Meta-repository?
   </a>
   
 </li>
@@ -1265,8 +1265,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-customize-your-autowarerepos-for-your-environment" class="md-nav__link">
-    2. Customize your autoware.repos for your environment
+  <a href="#2-customize-autowarerepos-for-your-environment" class="md-nav__link">
+    2. Customize autoware.repos for your environment
   </a>
   
 </li>
@@ -5124,8 +5124,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-is-meta-repository" class="md-nav__link">
-    What is Meta-repository?
+  <a href="#what-is-a-meta-repository" class="md-nav__link">
+    What is a Meta-repository?
   </a>
   
 </li>
@@ -5146,8 +5146,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-customize-your-autowarerepos-for-your-environment" class="md-nav__link">
-    2. Customize your autoware.repos for your environment
+  <a href="#2-customize-autowarerepos-for-your-environment" class="md-nav__link">
+    2. Customize autoware.repos for your environment
   </a>
   
 </li>
@@ -5176,32 +5176,41 @@
 
 
 <div><h1 id="creating-autoware-repositories">Creating Autoware repositories<a class="headerlink" href="#creating-autoware-repositories" title="Permanent link">#</a></h1>
-<h2 id="what-is-meta-repository">What is Meta-repository?<a class="headerlink" href="#what-is-meta-repository" title="Permanent link">#</a></h2>
-<p>A meta-repository is a repository that manages multiple repositories, and <a href="https://github.com/autowarefoundation/autoware">Autoware</a> is one of them.
+<h2 id="what-is-a-meta-repository">What is a Meta-repository?<a class="headerlink" href="#what-is-a-meta-repository" title="Permanent link">#</a></h2>
+<p>A meta-repository is a repository that manages multiple repositories,
+and <a href="https://github.com/autowarefoundation/autoware">Autoware</a> is one of them.
 It serves as a centralized control point for referencing, configuring,
 and versioning other repositories.
-In order to do that,
-Autoware meta-repository includes <a href="https://github.com/autowarefoundation/autoware/blob/main/autoware.repos"><code>autoware.repos</code></a> file for managing multiple repositories.
-We will use <a href="https://github.com/dirk-thomas/vcstool">VCS</a> tool (Version Control System) for handling .repos file.
-VCS provides us with the capability to import, export, and pull from multiple repositories.</p>
-<p>We will use VCS for importing all necessary repositories in our workspace.
-Please follow the documentation for VCS and .repos file usage.</p>
+To accomplish this,
+the Autoware meta-repository includes the <a href="https://github.com/autowarefoundation/autoware/blob/main/autoware.repos"><code>autoware.repos</code></a> file
+for managing multiple repositories.
+We will use the <a href="https://github.com/dirk-thomas/vcstool">VCS</a> tool
+(Version Control System) to handle the .repos file.
+VCS provides us with the capability to import, export, and pull from multiple repositories.
+VCS will be used to import all the necessary repositories to build Autoware into our workspace.
+Please refer to the documentation for VCS and .repos file usage.</p>
 <h2 id="how-to-create-and-customize-your-autoware-meta-repository">How to create and customize your autoware meta-repository<a class="headerlink" href="#how-to-create-and-customize-your-autoware-meta-repository" title="Permanent link">#</a></h2>
 <h3 id="1-create-autoware-meta-repository">1. Create autoware meta-repository<a class="headerlink" href="#1-create-autoware-meta-repository" title="Permanent link">#</a></h3>
 <p>If you want to integrate Autoware into your vehicle, the first step is to create an Autoware meta-repository.</p>
-<p>One easy way is to fork autoware repository and clone it.
-(For how to fork a repository, refer to <a href="https://docs.github.com/en/get-started/quickstart/fork-a-repo">GitHub Docs</a>)</p>
+<p>One easy way is to fork the Autoware repository and clone it.
+(For instructions on how to fork a repository,
+refer to <a href="https://docs.github.com/en/get-started/quickstart/fork-a-repo">GitHub Docs</a>)</p>
 <ul>
-<li>In order to do that,
-  please go to the <a href="https://github.com/autowarefoundation/autoware">autoware</a> repository
+<li>In this guide, Autoware will be integrated into a <code>tutorial_vehicle</code>
+  (Note: when setting up multiple types of vehicles,
+  adding a suffix like <code>autoware.vehicle_A</code> or <code>autoware.vehicle_B</code> is recommended).
+  For the first step,
+  please visit the <a href="https://github.com/autowarefoundation/autoware">autoware</a> repository
   and click the fork button.
-  For example,
-  we will integrate <code>tutorial_vehicle</code> for these guidelines
-  (If you set up multiple types of vehicles,
-  adding a suffix like <code>autoware.vehicle_A</code> or <code>autoware.vehicle_B</code> is recommended),
-  so our forking should be like this:</li>
+  The fork process should look like this:</li>
 </ul>
-<p><img alt="forking-autoware_repository.png" src="../images/forking-autoware_repository.png"></p>
+<figure>
+<p><img align="center" alt="forking-autoware_repository" src="../images/forking-autoware_repository.png">
+  </p>
+<figcaption>
+    Sample forking demonstration for tutorial_vehicle
+  </figcaption>
+</figure>
 <p>Then click "Create fork" button to continue. After that, we can clone our fork repository on our local system.</p>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/YOUR_NAME/autoware.&lt;YOUR-VEHICLE&gt;.git
 </code></pre></div>
@@ -5209,31 +5218,34 @@ Please follow the documentation for VCS and .repos file usage.</p>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/leo-drive/autoware.tutorial_vehicle.git
 </code></pre></div>
 <h4 id="11-create-vehicle-individual-repositories">1.1 Create vehicle individual repositories<a class="headerlink" href="#11-create-vehicle-individual-repositories" title="Permanent link">#</a></h4>
-<p>For integrating autoware on your own individual vehicles, you need fork and modify the following repositories as well:</p>
+<p>To integrate Autoware into your individual vehicles,
+you need to fork and modify the following repositories as well:</p>
 <ul>
 <li><a href="https://github.com/autowarefoundation/sample_sensor_kit_launch">sample_sensor_kit</a>: This repository will be used for sensing launch files, their pipelines-organizations and sensor descriptions.
   Please fork and rename as autoware meta-repository. At this point, our forked repository name will be <code>tutorial_vehicle_sensor_kit_launch</code>.</li>
 <li><a href="https://github.com/autowarefoundation/sample_vehicle_launch">sample_vehicle_launch</a>: This repository will be used for vehicle launch files, vehicle_descriptions and vehicle_model.
   Please fork and rename this repository as well. At this point, our forked repository name will be <code>tutorial_vehicle_launch</code>.</li>
 <li><a href="https://github.com/autowarefoundation/autoware_individual_params">autoware_individual_params</a>: This repository stores parameters that change depending on each vehicle (i.e. sensor calibrations). Please fork
-  and rename this repository as well, our forked repository name will be <code>tutorial_vehicle_individual_params</code>.</li>
-<li><a href="https://github.com/autowarefoundation/autoware_launch">autoware_launch</a>: This contains node configurations and their parameters for Autoware. Please fork
-  and rename this repository as previous forked repositories, our forked repository name will be <code>autoware_launch.tutorial_vehicle</code>.</li>
+  and rename this repository as well; our forked repository name will be <code>tutorial_vehicle_individual_params</code>.</li>
+<li><a href="https://github.com/autowarefoundation/autoware_launch">autoware_launch</a>:
+  This repository contains node configurations and their parameters for Autoware.
+  Please fork and rename it as the previously forked repositories;
+  our forked repository name will be <code>autoware_launch.tutorial_vehicle</code>.</li>
 </ul>
-<h3 id="2-customize-your-autowarerepos-for-your-environment">2. Customize your autoware.repos for your environment<a class="headerlink" href="#2-customize-your-autowarerepos-for-your-environment" title="Permanent link">#</a></h3>
-<p>You need to customize <code>autoware.repos</code> for your own vehicle's Autoware
-(It is included under the forked Autoware meta-repository directory).
-The all necessary autoware repos (except calibration and simulator repos)
-information is included in this file.</p>
-<p>Now we can add forked individual repositories to <code>autoware.repos</code> before the importing operation.</p>
+<h3 id="2-customize-autowarerepos-for-your-environment">2. Customize autoware.repos for your environment<a class="headerlink" href="#2-customize-autowarerepos-for-your-environment" title="Permanent link">#</a></h3>
+<p>You need to customize your <code>autoware.repos</code> to import your forked repositories.
+The <code>autoware.repos</code> file usually includes information for all necessary Autoware repositories
+(except calibration and simulator repositories).
+Therefore, your forked repositories should also be added to this file.</p>
 <h4 id="21-adding-individual-repos-to-autowarerepos">2.1 Adding individual repos to autoware.repos<a class="headerlink" href="#21-adding-individual-repos-to-autowarerepos" title="Permanent link">#</a></h4>
-<p>After the forking of all repositories, we can start adding these repos to autoware.repos file.
-In order to do that, you should open autoware.repos via any text editor.
-You need to update <code>sample_sensor_kit_launch</code>,
-<code>sample_vehicle_launch</code>,
-<code>autoware_individual_params</code> and <code>autoware launch</code> with your own individual repos.
-In example at this tutorial,
-the necessary changes for our forked <code>tutorial_vehicle</code> repos should be like this:</p>
+<p>After forking all repositories,
+you can start
+adding them to your Autoware meta-repository
+by opening the <code>autoware.repos</code> file using any text editor and updating <code>sample_sensor_kit_launch</code>,
+<code>sample_vehicle_launch</code>, <code>autoware_individual_params</code>
+and <code>autoware launch</code> with your own individual repos.
+For example, in this tutorial,
+the necessary changes for our forked <code>tutorial_vehicle</code> repositories should be as follows:</p>
 <ul>
 <li>
 <p>Sensor Kit:</p>
@@ -5290,24 +5302,25 @@ the necessary changes for our forked <code>tutorial_vehicle</code> repos should 
 </code></pre></div>
 </li>
 </ul>
-<p>Please do same similar changes on your own autoware.repos file.
-After the changing these repositories,
-we will be ready to use VCS for importing all necessary repositories to our autoware workspace.</p>
-<p>Firstly, we will create src directory under the own autoware meta-repository directory:</p>
+<p>Please make similar changes to your own autoware.repos file.
+After making these changes,
+you will be ready to use VCS to import all the necessary repositories into your Autoware workspace.</p>
+<p>First, create a src directory under your own Autoware meta-repository directory:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>&lt;YOUR-AUTOWARE-DIR&gt;
 mkdir<span class="w"> </span>src
 </code></pre></div>
-<p>Then, we will import all necessary repositories via:</p>
+<p>Then, import all necessary repositories with vcs:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>&lt;YOUR-AUTOWARE-DIR&gt;
 vcs<span class="w"> </span>import<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>autoware.repos
 </code></pre></div>
 <p>After the running <code>vcs import</code> command,
-all autoware repositories will be cloned in <code>src</code> folder under the Autoware directory.</p>
-<p>So, we can build our own repository with colcon build:</p>
+all autoware repositories will be cloned in the <code>src</code> folder under the Autoware directory.</p>
+<p>Now, you can build your own repository with colcon build command:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>&lt;YOUR-AUTOWARE-DIR&gt;
 colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release
 </code></pre></div>
-<p>Please refer to the following documentation link for instructions on how to create and customize each <code>vehicle_interface</code>:</p>
+<p>Please refer to the following documentation links for instructions
+on how to create and customize each of your vehicle's packages:</p>
 <ul>
 <li><a href="https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/integrating-autoware/creating-vehicle-and-sensor-description/creating-vehicle-and-sensor-description">creating-vehicle-and-sensor-description</a></li>
 <li><a href="https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/integrating-autoware/creating-vehicle-interface-package/creating-a-vehicle-interface-for-an-ackermann-kinematic-model/">creating-vehicle-interface-package</a></li>
