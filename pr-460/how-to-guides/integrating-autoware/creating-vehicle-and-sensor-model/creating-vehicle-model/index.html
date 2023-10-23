@@ -5343,8 +5343,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#launch-planning-simulator-with-own-vehicle" class="md-nav__link">
-    Launch planning simulator with own vehicle
+  <a href="#launch-planning-simulator-with-your-own-vehicle" class="md-nav__link">
+    Launch planning simulator with your own vehicle
   </a>
   
 </li>
@@ -5379,12 +5379,13 @@
 <li><code>&lt;YOUR-VEHICLE-NAME&gt;_vehicle_description</code></li>
 <li><code>&lt;YOUR-VEHICLE-NAME&gt;_vehicle_launch</code></li>
 </ol>
-<p>So,
-we forked our vehicle model
-at <a href="../../creating-your-autoware-meta-repository/creating-autoware-meta-repository/">creating autoware repositories</a> page step,
-(For example,
-we created <a href="https://github.com/leo-drive/tutorial_vehicle_launch">tutorial_vehicle_launch</a> for our documentation vehicle at this step)
-please be sure <code>&lt;YOUR-VEHICLE-NAME&gt;_vehicle_launch</code> repository is included in Autoware like the following directory:</p>
+<p>Previously,
+we forked our vehicle model at the <a href="../../creating-your-autoware-meta-repository/creating-autoware-meta-repository/">creating autoware repositories</a> page step.
+For instance,
+we created <a href="https://github.com/leo-drive/tutorial_vehicle_launch">tutorial_vehicle_launch</a>
+as an implementation example for the said step.
+Please ensure that the <your-vehicle-name>_vehicle_launch repository is included in Autoware,
+following the directory structure below:</your-vehicle-name></p>
 <div class="highlight"><pre><span></span><code>&lt;YOUR-OWN-AUTOWARE-DIR&gt;/
 <span class="w"> </span> └─ src/
 <span class="w"> </span>      └─ vehicle/
@@ -5392,10 +5393,11 @@ please be sure <code>&lt;YOUR-VEHICLE-NAME&gt;_vehicle_launch</code> repository 
 <span class="w"> </span>                ├─ &lt;YOUR-VEHICLE-NAME&gt;_vehicle_description/
 <span class="w"> </span>                └─ &lt;YOUR-VEHICLE-NAME&gt;_vehicle_launch/
 </code></pre></div>
-<p>If your forked repository doesn't include in the correct structure like above,
-please add your forked sensor_kit repo to autoware.repos file
-and run <code>vcs import src &lt; autoware.repos</code> command on your terminal
-to import new included repositories at autoware.repos file.</p>
+<p>If your forked Autoware meta-repository doesn't include <code>&lt;YOUR-VEHICLE-NAME&gt;_vehicle_launch</code> with the correct folder structure
+as shown above,
+please add your forked <code>&lt;YOUR-VEHICLE-NAME&gt;_vehicle_launch</code> repository to the autoware.repos file
+and run the vcs import src &lt; autoware.repos command in your terminal
+to import the newly included repositories at autoware.repos file.</p>
 <p>Now, we are ready to modify the following vehicle model packages for our vehicle.
 Firstly, we need to rename the description and launch packages:</p>
 <div class="highlight"><pre><span></span><code>&lt;YOUR-VEHICLE-NAME&gt;_vehicle_launch/
@@ -5405,10 +5407,11 @@ Firstly, we need to rename the description and launch packages:</p>
 <span class="gi">+ └─ &lt;YOUR-VEHICLE-NAME&gt;_vehicle_launch/</span>
 </code></pre></div>
 <p>After that,
-we will change our package names at <code>package.xml</code> file and <code>CmakeLists.txt</code> file at
-<code>sample_vehicle_description</code> and <code>sample_vehicle_launch</code> packages.
-So, open <code>package.xml</code> file and <code>CmakeLists.txt</code> file with any text editor or IDE that you prefer.</p>
-<p>First Step: You need to change <code>&lt;name&gt;</code> attribute at <code>package.xml</code> file.</p>
+we will change our package names in the package.xml file and CMakeLists.txt file of the sample_vehicle_description and sample_vehicle_launch packages.
+So,
+open the package.xml file and CMakeLists.txt file with any text editor or IDE of your preference
+and perform the following changes:</p>
+<p>Change the <code>&lt;name&gt;</code> attribute at <code>package.xml</code> file:</p>
 <div class="highlight"><pre><span></span><code>&lt;package format="3"&gt;
 <span class="gd">- &lt;name&gt;sample_vehicle_description&lt;/name&gt;</span>
 <span class="gi">+ &lt;name&gt;&lt;YOUR-VEHICLE-NAME&gt;_vehicle_description&lt;/name&gt;</span>
@@ -5417,7 +5420,7 @@ So, open <code>package.xml</code> file and <code>CmakeLists.txt</code> file with
 <span class="w"> </span> ...
 <span class="w"> </span> ...
 </code></pre></div>
-<p>Second Step: You need to change <code>project()</code> method at <code>CmakeList.txt</code> file.</p>
+<p>Change the <code>project()</code> method at <code>CmakeList.txt</code> file.</p>
 <div class="highlight"><pre><span></span><code><span class="w"> </span> cmake_minimum_required(VERSION 3.5)
 <span class="gd">- project(sample_vehicle_description)</span>
 <span class="gi">+ project(&lt;YOUR-VEHICLE-NAME&gt;_vehicle_description)</span>
@@ -5426,10 +5429,9 @@ So, open <code>package.xml</code> file and <code>CmakeLists.txt</code> file with
 ...
 ...
 </code></pre></div>
-<p>You need
-to apply these two steps for <code>&lt;YOUR-VEHICLE-NAME&gt;_vehicle_description</code>and <code>&lt;YOUR-VEHICLE-NAME&gt;_vehicle_launch</code>
-<abbr title="Robot Operating System">ROS</abbr> 2 packages.
-After the completing of changing package names, we need to build these packages:</p>
+<p>Remember to apply the name changes and project method for <strong>BOTH</strong>
+<code>&lt;YOUR-VEHICLE-NAME&gt;_vehicle_description</code>and <code>&lt;YOUR-VEHICLE-NAME&gt;_vehicle_launch</code> <abbr title="Robot Operating System">ROS</abbr> 2 packages.
+Once finished, we can proceed to build said packages:</p>
 <div class="highlight"><pre><span></span><code>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span>--packages-up-to<span class="w"> </span>&lt;YOUR-VEHICLE-NAME&gt;_vehicle_description<span class="w"> </span>&lt;YOUR-VEHICLE-NAME&gt;_vehicle_launch
 </code></pre></div>
 <h2 id="vehicle-description">Vehicle description<a class="headerlink" href="#vehicle-description" title="Permanent link">#</a></h2>
@@ -5450,8 +5452,9 @@ simulator model parameters and <abbr title="Universal Robotic Description Format
 </code></pre></div>
 <p>Now, we will modify these files according to our vehicle design.</p>
 <h3 id="mirrorparamyaml">mirror.param.yaml<a class="headerlink" href="#mirrorparamyaml" title="Permanent link">#</a></h3>
-<p>This file describes your vehicle mirror dimension for <a href="https://autowarefoundation.github.io/autoware.universe/main/sensing/pointcloud_preprocessor/docs/crop-box-filter/">CropBox filter</a> of <a href="../../../../design/autoware-architecture/sensing/data-types/point-cloud/">PointCloudPreprocessor</a>,
-so it is important to crop mirrors from your lidars pointcloud.</p>
+<p>This file describes your vehicle mirror dimension for
+<a href="https://autowarefoundation.github.io/autoware.universe/main/sensing/pointcloud_preprocessor/docs/crop-box-filter/">CropBox filter</a> of <a href="../../../../design/autoware-architecture/sensing/data-types/point-cloud/">PointCloudPreprocessor</a>.
+This is important for cropping mirrors from your lidar's point cloud.</p>
 <p>The <code>mirror.param.yaml</code> consist of the following parameters:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">/**</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">ros__parameters</span><span class="p">:</span>
@@ -5479,9 +5482,9 @@ If your vehicle does not have mirror, you can set these values 0.0 as well.</p>
 </div>
 <h3 id="simulator_modelparamyaml">simulator_model.param.yaml<a class="headerlink" href="#simulator_modelparamyaml" title="Permanent link">#</a></h3>
 <p>This file is a configuration file for the <a href="https://autowarefoundation.github.io/autoware.universe/main/simulator/simple_planning_simulator/">simulator environment</a>.
-Please update these parameters according to your vehicle specs.
-If you want to check detailed information about variables,
-please check <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/simulator/simple_planning_simulator">simple_planning_simulator</a> package.
+Please update these parameters according to your vehicle specifications.
+For detailed information about variables,
+please check the <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/simulator/simple_planning_simulator">simple_planning_simulator</a> package.
 The file consists of these parameters:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">/**</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">ros__parameters</span><span class="p">:</span>
@@ -5503,9 +5506,9 @@ The file consists of these parameters:</p>
 <span class="w">    </span><span class="nt">y_stddev</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0001</span><span class="w"> </span><span class="c1"># y standard deviation for dummy covariance in map coordinate</span>
 </code></pre></div>
 <h3 id="vehicle_infoparamyaml">vehicle_info.param.yaml<a class="headerlink" href="#vehicle_infoparamyaml" title="Permanent link">#</a></h3>
-<p>This file stores the vehicle dimension for Autoware modules.
-Please update with your vehicle information.
-You can refer the <a href="../../../../design/autoware-interfaces/components/vehicle-dimensions/">vehicle dimensions</a> page for detailed dimension demonstration.
+<p>This file stores the vehicle dimensions for Autoware modules.
+Please update it with your vehicle information.
+You can refer to the <a href="../../../../design/autoware-interfaces/components/vehicle-dimensions/">vehicle dimensions</a> page for detailed dimension demonstration.
 Here is the <code>vehicle_info.param.yaml</code> for <a href="https://github.com/autowarefoundation/sample_vehicle_launch/blob/main/sample_vehicle_description/config/vehicle_info.param.yaml">sample_vehicle</a>:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">/**</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">ros__parameters</span><span class="p">:</span>
@@ -5523,10 +5526,11 @@ Here is the <code>vehicle_info.param.yaml</code> for <a href="https://github.com
 <p>Please update <code>vehicle_info.param.yaml</code> with your vehicle information.</p>
 <h3 id="3d-model-of-vehicle">3D model of vehicle<a class="headerlink" href="#3d-model-of-vehicle" title="Permanent link">#</a></h3>
 <p>You can use .fbx or .dae format as a 3D model with autoware.
-For tutorial_vehicle we exported our 3D model as a .fbx file at the <a href="https://github.com/leo-drive/tutorial_vehicle_launch/tree/main/tutorial_vehicle_description/mesh">tutorial_vehicle_launch</a> repo.
+For the tutorial_vehicle,
+we exported our 3D model as a .fbx file in the <a href="https://github.com/leo-drive/tutorial_vehicle_launch/tree/main/tutorial_vehicle_description/mesh">tutorial_vehicle_launch</a> repository.
 We will set the .fbx file path at <code>vehicle.xacro</code> file.</p>
 <h3 id="vehiclexacro">vehicle.xacro<a class="headerlink" href="#vehiclexacro" title="Permanent link">#</a></h3>
-<p>This .xacro file links base_link of vehicle to 3D mesh, so we need some modifications in this file.</p>
+<p>This .xacro file links the base_link of the vehicle to the 3D mesh. Therefore, we need to make some modifications in this file.</p>
 <div class="highlight"><pre><span></span><code>&lt;?xml version="1.0"?&gt;
 &lt;robot xmlns:xacro="http://ros.org/wiki/xacro"&gt;
 <span class="w"> </span> &lt;!-- load parameter --&gt;
@@ -5554,27 +5558,25 @@ colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<spa
 <h3 id="launching-vehicle-interface">Launching vehicle interface<a class="headerlink" href="#launching-vehicle-interface" title="Permanent link">#</a></h3>
 <p>If your vehicle interface is ready,
 then you can add your vehicle_interface launch file in <code>vehicle_interface.launch.xml</code>.
-Please check
-<a href="../../creating-vehicle-interface-package/creating-a-vehicle-interface-for-an-ackermann-kinematic-model/">creating vehicle interface</a> page for more info.</p>
-<h3 id="launch-planning-simulator-with-own-vehicle">Launch planning simulator with own vehicle<a class="headerlink" href="#launch-planning-simulator-with-own-vehicle" title="Permanent link">#</a></h3>
-<p>After the completing of <a href="../creating-sensor-model/">sensor_model</a>,
+Please check the <a href="../../creating-vehicle-interface-package/creating-a-vehicle-interface-for-an-ackermann-kinematic-model/">creating vehicle interface</a> page for more info.</p>
+<h3 id="launch-planning-simulator-with-your-own-vehicle">Launch planning simulator with your own vehicle<a class="headerlink" href="#launch-planning-simulator-with-your-own-vehicle" title="Permanent link">#</a></h3>
+<p>After completing the <a href="../creating-sensor-model/">sensor_model</a>,
 <a href="../creating-individual-params/">individual_parameters</a>
 and vehicle model of your vehicle,
 you are ready to launch the planning simulator with your own vehicle.
-In order to do that, please be sure you built modified packages at this documentation.</p>
-<p>If you are not sure everything about Autoware is built, please build all packages:</p>
+If you are not sure if every custom package in your Autoware project folder is built,
+please build all packages:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>&lt;YOUR-AUTOWARE-DIR&gt;
 colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release
 </code></pre></div>
 <p>To launch planning simulator, source the autoware and run this command in your terminal:</p>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>planning_simulator.launch.xml<span class="w"> </span>map_path:<span class="o">=</span><span class="nv">$HOME</span>/Files/autoware_map/sample-map-planning/<span class="w"> </span>vehicle_model:<span class="o">=</span>&lt;YOUR-VEHICLE-MODEL&gt;<span class="w"> </span>sensor_model:<span class="o">=</span>&lt;YOUR-SENSOR-KIT&gt;<span class="w"> </span>vehicle_id:<span class="o">=</span>&lt;YOUR-VEHICLE-ID&gt;
 </code></pre></div>
-<p>For example, if we try planning simulator on the tutorial_vehicle:</p>
+<p>For example, if we try planning simulator with the tutorial_vehicle:</p>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>planning_simulator.launch.xml<span class="w"> </span>map_path:<span class="o">=</span><span class="nv">$HOME</span>/Files/autoware_map/sample-map-planning/<span class="w"> </span>vehicle_model:<span class="o">=</span>tutorial_vehicle<span class="w"> </span>sensor_model:<span class="o">=</span>tutorial_vehicle_sensor_kit<span class="w"> </span>vehicle_id:<span class="o">=</span>tutorial_vehicle
 </code></pre></div>
-<p>The planning simulator will open,
-we can give an initial pose to our vehicle
-just using <code>2D Pose Estimate</code> button or pressing <code>P</code> button on your keyboard.
+<p>The planning simulator will open, and you can give an initial pose to your vehicle
+using <code>2D Pose Estimate</code> button or by pressing the <code>P</code> key on your keyboard.
 You can click everywhere for vehicle initialization.</p>
 <figure>
 <p><img align="center" alt="tutorial_vehicle" src="images/tutorial_vehicle.png">
