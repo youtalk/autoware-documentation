@@ -5569,7 +5569,9 @@ please build all packages:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>&lt;YOUR-AUTOWARE-DIR&gt;
 colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release
 </code></pre></div>
-<p>To launch planning simulator, source the autoware and run this command in your terminal:</p>
+<p>To launch the planning simulator,
+source the install/setup.bash file in your Autoware project folder
+and run this command in your terminal:</p>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>planning_simulator.launch.xml<span class="w"> </span>map_path:<span class="o">=</span><span class="nv">$HOME</span>/Files/autoware_map/sample-map-planning/<span class="w"> </span>vehicle_model:<span class="o">=</span>&lt;YOUR-VEHICLE-MODEL&gt;<span class="w"> </span>sensor_model:<span class="o">=</span>&lt;YOUR-SENSOR-KIT&gt;<span class="w"> </span>vehicle_id:<span class="o">=</span>&lt;YOUR-VEHICLE-ID&gt;
 </code></pre></div>
 <p>For example, if we try planning simulator with the tutorial_vehicle:</p>
