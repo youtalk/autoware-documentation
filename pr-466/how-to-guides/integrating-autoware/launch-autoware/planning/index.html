@@ -5500,10 +5500,10 @@
 <div><h1 id="planning-launch-files">Planning Launch Files<a class="headerlink" href="#planning-launch-files" title="Permanent link">#</a></h1>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
 <p>The Autoware planning stacks start
-launching at <code>autoware_launch.xml</code> as we mentioned at <a href="../">Launch Autoware</a> page.
+launching at <code>autoware_launch.xml</code> as mentioned on the <a href="../">Launch Autoware</a> page.
 The <code>autoware_launch</code> package includes <code>tier4_planning_component.launch.xml</code>
-for starting planning launch files invocation from <code>autoware_launch.xml</code>.
-This diagram describes some of the Autoware planning launch files flow at <code>autoware_launch</code> and <code>autoware.universe</code> packages.</p>
+for initiating planning launch files invocation from <code>autoware_launch.xml</code>.
+The diagram below illustrates the flow of Autoware planning launch files within the autoware_launch and autoware.universe packages.</p>
 <figure>
 <p><img align="center" alt="planning-launch-flow" src="images/planning_launch_flow.svg">
   </p>
@@ -5538,8 +5538,7 @@ Here are some predefined planning launch arguments:</p>
   and <code>use_all_predicted_path</code> options for Autoware for experimental lane changing
   (for more information, please refer to <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_path_planner/docs/behavior_path_planner_lane_change_design/">lane_change documentation</a>).
   The default value is True.
-  If you want to set it to False, you can make the change in the
-  tier4_planning_component.launch.xml file:</p>
+  To set it to False, make the following change in the <code>tier4_planning_component.launch.xml</code> file:</p>
 <div class="highlight"><pre><span></span><code><span class="gd">- &lt;arg name="use_experimental_lane_change_function" default="true"/&gt;</span>
 <span class="gi">+ &lt;arg name="use_experimental_lane_change_function" default="false"/&gt;</span>
 </code></pre></div>
@@ -5550,8 +5549,7 @@ Here are some predefined planning launch arguments:</p>
 <p><strong><code>cruise_planner_type:</code></strong> There are two types of cruise planners in Autoware: <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/obstacle_stop_planner/">obstacle_stop_planner</a>
   and <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/obstacle_cruise_planner/">obstacle_cruise_planner</a>. For specifications on these cruise planner types,
   please refer to the package documentation. The default cruise planner is <code>obstacle_stop_planner</code>.
-  If you wish to change it to <code>obstacle_cruise_planner</code>, you can do
-  in the <code>tier4_planning_component</code>.launch.xml file:</p>
+  To change it to obstacle_cruise_planner, update the argument value in the <code>tier4_planning_component.launch.xml</code> file:</p>
 <div class="highlight"><pre><span></span><code><span class="gd">- &lt;arg name="cruise_planner_type" default="obstacle_stop_planner" description="options: obstacle_stop_planner, obstacle_cruise_planner, none"/&gt;</span>
 <span class="gi">+ &lt;arg name="cruise_planner_type" default="obstacle_cruise_planner" description="options: obstacle_stop_planner, obstacle_cruise_planner, none"/&gt;</span>
 </code></pre></div>
@@ -5585,9 +5583,8 @@ Here are some predefined planning launch arguments:</p>
 </p><div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>autoware.launch.xml<span class="w"> </span>...<span class="w"> </span>use_surround_obstacle_check:<span class="o">=</span><span class="nb">false</span><span class="w"> </span>velocity_smoother_type:<span class="o">=</span>L2<span class="w"> </span>...
 </code></pre></div>
 </div>
-<p>The predefined arguments in <code>tier4_planning_component.launch.xml</code>
-have been explained above, but there are numerous planning arguments
-included in the <code>autoware_launch</code> planning config parameters.</p>
+<p>The predefined arguments in tier4_planning_component.launch.xml have been explained above.
+However, numerous planning arguments are included in the autoware_launch planning config parameters.</p>
 <!-- prettier-ignore --></div>
 
 
