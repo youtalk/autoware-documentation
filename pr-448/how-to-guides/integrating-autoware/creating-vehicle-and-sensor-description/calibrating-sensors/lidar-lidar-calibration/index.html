@@ -5438,8 +5438,12 @@ we will explain lidar-lidar calibration over <a href="https://github.com/tier4/C
 CalibrationTools.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Please get initial calibration results from <a href="../extrinsic-manual-calibration">Manual Calibration</a> section, it is important for getting accurate results from this tool.
-We will use initial calibration parameters that we calculated on previous step on this tutorial.</p>
+<p>Please obtain the initial calibration results from the <a href="../extrinsic-manual-calibration">Manual Calibration</a> section.
+This is crucial for obtaining accurate results from this tool.
+We will utilize the initial calibration parameters that were calculated
+in the previous step of this tutorial.
+To apply these initial values in the calibration tools,
+please update your sensor calibration files within the individual parameter package.</p>
 </div>
 <p>We need a sample bag file for the lidar-lidar calibration process
 which includes raw lidar topics.
@@ -5466,7 +5470,7 @@ process:</p>
 <span class="nb">cd</span><span class="w"> </span>&lt;YOUR-OWN-SENSOR-KIT-NAME&gt;<span class="w"> </span><span class="c1"># i.e. for our guide, it will ve cd tutorial_vehicle_sensor_kit which is created in manual calibration</span>
 touch<span class="w"> </span>mapping_based.launch.xml<span class="w"> </span>mapping_based_sensor_kit.launch.xml
 </code></pre></div>
-<p>We will be modifying these <code>mapping_based.launch.xml</code> and <code>mapping_based_sensor_kit.launch.xml</code> by using TIER IV's sample sensor kit aip_xx1.
+<p>We will be modifying these <code>mapping_based.launch.xml</code> and <code>mapping_based_sensor_kit.launch.xml</code> by using TIER IV's sample sensor kit aip_x1.
 So,
 you should copy the contents of these two files from <a href="https://github.com/tier4/CalibrationTools/tree/tier4/universe/sensor/extrinsic_calibration_manager/launch/aip_x1">aip_x1</a> to your created files.</p>
 <p>Then we will continue with adding vehicle_id and sensor model names to the <code>mapping_based.launch.xml</code>:
@@ -5578,7 +5582,10 @@ calibration_lidar_base_frames and calibration_lidar_frames for calibrator:</p>
 </code></pre></div>
 </details>
 <p>After that, we will add the sensor topics and sensor frames in order to do that,
-we will continue filling the <code>mapping_based_sensor_kit.launch.xml</code> with:</p>
+we will continue filling the <code>mapping_based_sensor_kit.launch.xml</code> with
+(we recommend
+using the /sensing/lidar/top/outlier_filtered/pointcloud topic as the mapping pointcloud
+because the vehicle cloud is cropped at this topic by pointcloud preprocessing):</p>
 <div class="highlight"><pre><span></span><code><span class="gd">-     &lt;let name="mapping_lidar_frame" value="velodyne_top"/&gt;</span>
 <span class="gd">-     &lt;let name="mapping_pointcloud" value="/sensing/lidar/top/outlier_filtered/pointcloud"/&gt;</span>
 <span class="gi">+     &lt;let name="mapping_lidar_frame" value="&lt;MAPPING_LIDAR_SENSOR_LINK&gt;"/&gt;</span>

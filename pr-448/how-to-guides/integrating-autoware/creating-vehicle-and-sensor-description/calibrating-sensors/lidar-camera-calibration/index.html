@@ -5452,15 +5452,20 @@ Also, If you have aruco marker boards for calibration,
 another <a href="https://github.com/leo-drive/CalibrationTools/blob/golf_test/sensor/docs/how_to_extrinsic_tag_based.md">Lidar-Camera calibration method</a> is included in TIER IV's CalibrationTools repository.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>You need to apply <a href="../intrinsic-camera-calibration">intrinsic calibration</a> before starting lidar-camera extrinsic calibration process. Also, get initial extrinsic calibration results from <a href="../extrinsic-manual-calibration">Manual Calibration</a> section, it is important for getting accurate results from this tool.
-We will use initial calibration parameters that we calculated on previous step on this tutorial for lidar-camera extrinsic calibration.</p>
+<p>You need to apply <a href="../intrinsic-camera-calibration">intrinsic calibration</a> before starting lidar-camera extrinsic calibration process. Also,
+please obtain the initial calibration results from the <a href="../extrinsic-manual-calibration">Manual Calibration</a> section.
+This is crucial for obtaining accurate results from this tool.
+We will utilize the initial calibration parameters that were calculated
+in the previous step of this tutorial.
+To apply these initial values in the calibration tools,
+please update your sensor calibration files within the individual parameter package.</p>
 </div>
 <p>Your bag file must include calibration lidar topic and camera topics.
 Camera topics can be compressed or raw topics,
 but remember
 we will update interactive calibrator launch argument <code>use_compressed</code> according to the topic type.</p>
 <details class="note">
-<summary><abbr title="Robot Operating System">ROS</abbr> 2 Bag example of our calibration process for tutorial_vehicle (there is only one camera mounted.) If you have multiple cameras, please add camera_info and image topics as well</summary>
+<summary><abbr title="Robot Operating System">ROS</abbr> 2 Bag example of our calibration process (there is only one camera mounted) If you have multiple cameras, please add camera_info and image topics as well.</summary>
 <div class="highlight"><pre><span></span><code>Files:<span class="w">             </span>rosbag2_2023_09_12-13_57_03_0.db3
 Bag<span class="w"> </span>size:<span class="w">          </span><span class="m">5</span>.8<span class="w"> </span>GiB
 Storage<span class="w"> </span>id:<span class="w">        </span>sqlite3
@@ -5491,8 +5496,8 @@ you should copy the contents of these two files from <a href="https://github.com
 <div class="highlight"><pre><span></span><code><span class="w"> </span> &lt;arg name="vehicle_id" default="default"/&gt;
 
 <span class="w"> </span> &lt;let name="sensor_model" value="aip_x1"/&gt;
-<span class="gi">+ &lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
-<span class="gi">+ &lt;launch&gt;</span>
+<span class="w"> </span> &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+<span class="w"> </span> &lt;launch&gt;
 <span class="gd">-   &lt;arg name="vehicle_id" default="default"/&gt;</span>
 <span class="gi">+   &lt;arg name="vehicle_id" default="&lt;YOUR_VEHICLE_ID&gt;"/&gt;</span>
 <span class="gi">+</span>
@@ -5533,18 +5538,28 @@ you must set <code>use_concatenated_pointcloud</code> value as <code>true</code>
 </details>
 <p>After the completing of interactive.launch.xml file,
 we will be ready to implement interactive_sensor_kit.launch.xml for the own sensor model.</p>
-<p>Optionally, (don't forget, these parameters will be overridden by launch arguments.)
+<p>Optionally, (don't forget, these parameters will be overridden by launch arguments)
 you can modify sensor_kit and vehicle_id as <code>interactive.launch.xml</code>over this xml snippet.
 We will set parent_frame for calibration as `sensor_kit_base_link``:</p>
-<p>(Optionally) If you want to use compressed image for calibration,
-you need update <code>image_topic</code> and <code>use_compressed</code> value with compressed topic information.</p>
+<p>The default camera input topic of interactive calibrator is compressed image.
+If you want to use raw image instead of compressed image,
+you need to update image_topic variable for your camera sensor topic.</p>
 <div class="highlight"><pre><span></span><code><span class="w"> </span>   ...
 <span class="gd">-   &lt;let name="image_topic" value="/sensing/camera/$(var camera_name)/image_raw"/&gt;</span>
 <span class="gi">+   &lt;let name="image_topic" value="/sensing/camera/$(var camera_name)/image_compressed"/&gt;</span>
 <span class="w"> </span>   ...
-<span class="w"> </span>   &lt;!-- if your image topic is compressed, please enable it --&gt;
-<span class="gd">-   &lt;let name="use_compressed" value="false"/&gt;</span>
-<span class="gi">+   &lt;let name="use_compressed" value="true"/&gt;</span>
+</code></pre></div>
+<p>After updating your topic name,
+you need to add the use_compressed parameter (default value is <code>true</code>)
+to the interactive_calibrator node with a value of <code>false</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="w"> </span>  ...
+<span class="w"> </span>  &lt;node pkg="extrinsic_interactive_calibrator" exec="interactive_calibrator" name="interactive_calibrator" output="screen"&gt;
+<span class="w"> </span>    &lt;remap from="pointcloud" to="$(var pointcloud_topic)"/&gt;
+<span class="w"> </span>    &lt;remap from="image" to="$(var image_compressed_topic)"/&gt;
+<span class="w"> </span>    &lt;remap from="camera_info" to="$(var camera_info_topic)"/&gt;
+<span class="w"> </span>    &lt;remap from="calibration_points_input" to="calibration_points"/&gt;
+<span class="gi">+    &lt;param name="use_compressed" value="false"/&gt;</span>
+<span class="w"> </span>  ...
 </code></pre></div>
 <p>Then you can customize pointcloud topic for each camera.
 For example, if you want to calibrate camera_1 with left lidar,
@@ -5653,7 +5668,7 @@ First of all, we need to build extrinsic_calibration_manager package:</p>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>extrinsic_calibration_manager<span class="w"> </span>calibration.launch.xml<span class="w"> </span>mode:<span class="o">=</span>interactive<span class="w"> </span>sensor_model:<span class="o">=</span>&lt;OWN-SENSOR-KIT&gt;<span class="w"> </span>vehicle_model:<span class="o">=</span>&lt;OWN-VEHICLE-MODEL&gt;<span class="w"> </span>vehicle_id:<span class="o">=</span>&lt;VEHICLE-ID&gt;<span class="w"> </span>camera_name:<span class="o">=</span>&lt;CALIBRATION-CAMERA&gt;
 </code></pre></div>
 <p>For tutorial vehicle:</p>
-<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>extrinsic_calibration_manager<span class="w"> </span>calibration.launch.xml<span class="w"> </span>mode:<span class="o">=</span>mapping_based<span class="w"> </span>sensor_model:<span class="o">=</span>tutorial_vehicle_sensor_kit<span class="w"> </span>vehicle_model:<span class="o">=</span>tutorial_vehicle<span class="w"> </span>vehicle_id:<span class="o">=</span>tutorial_vehicle
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>extrinsic_calibration_manager<span class="w"> </span>calibration.launch.xml<span class="w"> </span>mode:<span class="o">=</span>interactive<span class="w"> </span>sensor_model:<span class="o">=</span>tutorial_vehicle_sensor_kit<span class="w"> </span>vehicle_model:<span class="o">=</span>tutorial_vehicle<span class="w"> </span>vehicle_id:<span class="o">=</span>tutorial_vehicle
 </code></pre></div>
 <p>Then, we need to play our bag file.</p>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>bag<span class="w"> </span>play<span class="w"> </span>&lt;rosbag_path&gt;<span class="w"> </span>--clock<span class="w"> </span>-l<span class="w"> </span>-r<span class="w"> </span><span class="m">0</span>.2<span class="w"> </span><span class="se">\</span>
