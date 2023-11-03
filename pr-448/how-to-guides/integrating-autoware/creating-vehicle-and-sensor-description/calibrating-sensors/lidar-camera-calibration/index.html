@@ -6020,9 +6020,9 @@ to accurately align the data from these different sensors
 in order to create a comprehensive and coherent representation of the environment
 by projecting lidar point onto camera image.
 At this tutorial,
-we will explain <a href="https://github.com/leo-drive/CalibrationTools/blob/golf_test/sensor/docs/how_to_extrinsic_interactive.md">TIER IV's interactive camera calibrator</a>.
+we will explain [TIER IV's interactive camera calibrator](https://github.com/tier4/CalibrationTools/blob/tier4/universe/sensor/docs/how_to_extrinsic_interactive.md.
 Also, If you have aruco marker boards for calibration,
-another <a href="https://github.com/leo-drive/CalibrationTools/blob/golf_test/sensor/docs/how_to_extrinsic_tag_based.md">Lidar-Camera calibration method</a> is included in TIER IV's CalibrationTools repository.</p>
+another <a href="https://github.com/tier4/CalibrationTools/blob/tier4/universe/sensor/docs/how_to_extrinsic_tag_based.md">Lidar-Camera calibration method</a> is included in TIER IV's CalibrationTools repository.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>You need to apply <a href="../intrinsic-camera-calibration">intrinsic calibration</a> before starting lidar-camera extrinsic calibration process. Also,
@@ -6148,7 +6148,7 @@ then you should change launch file like this:</p>
 </code></pre></div>
 <p>The interactive_sensor_kit.launch.xml launch file for tutorial_vehicle should be this:</p>
 <details class="note">
-<summary>i.e. <a href="https://github.com/leo-drive/tutorial_vehicle_calibration_tools/blob/tier4/universe/sensor/extrinsic_calibration_manager/launch/tutorial_vehicle_sensor_kit/interactive_sensor_kit.launch.xml"><code>interactive_sensor_kit.launch.xml</code></a> for tutorial_vehicle</summary>
+<summary>i.e. <a href="https://github.com/leo-drive/tutorial_vehicle_calibration_tools/blob/tutorial_vehicle/sensor/extrinsic_calibration_manager/launch/tutorial_vehicle_sensor_kit/interactive_sensor_kit.launch.xml"><code>interactive_sensor_kit.launch.xml</code></a> for tutorial_vehicle</summary>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;launch&gt;</span>
 <span class="w">    </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"vehicle_id"</span><span class="w"> </span><span class="na">default=</span><span class="s">"tutorial_vehicle"</span><span class="nt">/&gt;</span>
