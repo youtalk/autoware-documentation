@@ -2956,6 +2956,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#related-links" class="md-nav__link">
+    Related links
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -5692,6 +5699,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#related-links" class="md-nav__link">
+    Related links
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -5711,7 +5725,7 @@
 
 
 <div><h1 id="using-divided-pointcloud-map">Using divided pointcloud map<a class="headerlink" href="#using-divided-pointcloud-map" title="Permanent link">#</a></h1>
-<p>Divided pointcloud map is necessary when handling large pointcloud map, in which case Autoware may not be capable of sending the whole map via <abbr title="Robot Operating System">ROS</abbr> 2 topic or loading the whole map into memory. By using the pre-divided map, Autoware will dynamically load the pointcloud map according to the vehicle's position. For specific format definition of the divided map, please refer to <a href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-architecture/map/">Map component design page</a>.</p>
+<p>Divided pointcloud map is necessary when handling large pointcloud map, in which case Autoware may not be capable of sending the whole map via <abbr title="Robot Operating System">ROS</abbr> 2 topic or loading the whole map into memory. By using the pre-divided map, Autoware will dynamically load the pointcloud map according to the vehicle's position. </p>
 <h2 id="tutorial">Tutorial<a class="headerlink" href="#tutorial" title="Permanent link">#</a></h2>
 <p>Download the <a href="TODO">sample-map-rosbag_split</a> and locate the map under <code>$HOME/autoware_map/</code>.</p>
 <div class="highlight"><pre><span></span><code>gdown<span class="w"> </span>-O<span class="w"> </span>~/autoware_map/<span class="w"> </span><span class="s1">'https://docs.google.com/uc?export=download&amp;id=11tLC9T4MS8fnZ9Wo0D8-Ext7hEDl2YJ4'</span>
@@ -5724,6 +5738,12 @@ ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span c
 <span class="w">  </span>map_path:<span class="o">=</span><span class="nv">$HOME</span>/autoware_map/sample-map-rosbag<span class="w"> </span>pointcloud_map_file:<span class="o">=</span>pointcloud_map<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>vehicle_model:<span class="o">=</span>sample_vehicle_split<span class="w"> </span>sensor_model:<span class="o">=</span>sample_sensor_kit
 </code></pre></div>
+<h2 id="related-links">Related links<a class="headerlink" href="#related-links" title="Permanent link">#</a></h2>
+<ul>
+<li>For specific format definition of the divided map, please refer to <a href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-architecture/map/">Map component design page</a></li>
+<li><a href="https://github.com/autowarefoundation/autoware.universe/tree/main/map/map_loader">The Readme of map_loader</a> may be useful specific instructions for dividing maps</li>
+<li>When dividing your own pointcloud map, you may use <a href="https://github.com/MapIV/pointcloud_divider">pointcloud_divider</a>, which can divide the map as well as generating the compatible metadata</li>
+</ul>
 <!-- prettier-ignore --></div>
 
 
