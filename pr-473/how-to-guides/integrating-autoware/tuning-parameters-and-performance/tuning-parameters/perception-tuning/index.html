@@ -5525,11 +5525,88 @@ file:</p>
 ...
 </code></pre></div>
 </div>
+<p>Also, you need to update the roi_sync.param.yaml parameter file according to your camera number.
+Firstly,
+please refer to the roi_cluster_fusion documentation for more information about this package.
+Then, you will update your camera offsets.
+For example,
+if you have four cameras for the perception detection pipeline,
+and you haven't measured their timestamps,
+you can set these camera offsets to "0" as the initial value.
+Please be careful with the offset array size; it must be equal to your camera count.</p>
+<div class="highlight"><pre><span></span><code><span class="gd">- input_offset_ms: [61.67, 111.67, 45.0, 28.33, 78.33, 95.0] # 6 cameras</span>
+<span class="gi">+ input_offset_ms: [0.0, 0.0, 0.0, 0.0] # 4 cameras</span>
+</code></pre></div>
+<p>If you have used different namespaces for your camera and ROI topics,
+you will need to add the input topics for camera_info,
+image_raw,
+and rois messages in the <a href="https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/launch/components/tier4_perception_component.launch.xml"><code>tier4_perception_component.launch.xml</code></a> file.</p>
+<div class="highlight"><pre><span></span><code><span class="gd">- &lt;arg name="image_raw0" default="/sensing/camera/camera0/image_rect_color" description="image raw topic name"/&gt;</span>
+<span class="gi">+ &lt;arg name="image_raw0" default="&lt;YOUR-CAMERA-TOPIC-NAME&gt;" description="image raw topic name"/&gt;</span>
+<span class="gd">- &lt;arg name="camera_info0" default="/sensing/camera/camera0/camera_info" description="camera info topic name"/&gt;</span>
+<span class="gi">+ &lt;arg name="camera_info0" default="&lt;YOUR-CAMERA-INFO-TOPIC-NAME&gt;" description="camera info topic name"/&gt;</span>
+<span class="gd">- &lt;arg name="detection_rois0" default="/perception/object_recognition/detection/rois0" description="detection rois output topic name"/&gt;</span>
+<span class="gi">+ &lt;arg name="detection_rois0" default="&lt;YOUR-ROIS-TOPIC-NAME&gt;" description="detection rois output topic name"/&gt;</span>
+</code></pre></div>
 <h3 id="tuning-ground-segmentation">Tuning ground segmentation<a class="headerlink" href="#tuning-ground-segmentation" title="Permanent link">#</a></h3>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>under construction</p>
-</div>
+<p>The ground segmentation package removes the ground points from the input point cloud for the perception pipeline.
+In our campus environment, there are a lot of high slopes and rough roads.
+Therefore, this condition makes it difficult to accurately segment ground and non-ground points.</p>
+<p>For example, when we pass over speed bumps,
+there are a lot of false positives (ghost points) that appear as non-ground points,
+as shown in the image below.</p>
+<figure>
+<p><img align="center" alt="default-ground-segmentation" src="images/ground-remover-ghost-points.png">
+  </p>
+<figcaption>
+    There are some false positive (ghost)
+points on the high-slope roads with default configurations.
+  </figcaption>
+</figure>
+<p>These ghost points affect the motion planner of Autoware,
+causing the vehicle to stop even though there is no obstacle on the road during autonomous driving.
+We will reduce the number of false positive non-ground points
+by fine-tuning the ground segmentation in Autoware.</p>
+<p>There are three different ground segmentation algorithms included in Autoware:
+<code>ray_ground_filter</code>, <code>scan_ground_filter</code>, and <code>ransac_ground_filter</code>.
+The default method is the <code>scan_ground_filter</code>.
+Please refer to the <a href="https://autowarefoundation.github.io/autoware.universe/main/perception/ground_segmentation/"><code>ground_segmentation</code> package documentation</a>
+for more information about these methods and their parameter definitions.</p>
+<p>Firstly,
+we will change the <code>global_slope_max_angle_deg</code> value from 10 to 30 degrees at <a href="https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/perception/obstacle_segmentation/ground_segmentation/ground_segmentation.param.yaml"><code>ground_segmentation.param.yaml</code></a> parameter file.
+This change will reduce our false positive non-ground points.
+However, be cautious when increasing the threshold,
+as it may lead to an increase in the number of false negatives.</p>
+<div class="highlight"><pre><span></span><code><span class="gd">- global_slope_max_angle_deg: 10.0</span>
+<span class="gi">+ global_slope_max_angle_deg: 30.0</span>
+</code></pre></div>
+<p>Then we will update the split_height_distance parameter from 0.2 to 0.35 meters.
+This adjustment will help in reducing false positive non-ground points,
+especially on step-like road surfaces or in cases of misaligned multiple lidar configurations.</p>
+<div class="highlight"><pre><span></span><code><span class="gd">- split_height_distance: 0.2</span>
+<span class="gi">+ split_height_distance: 0.35</span>
+</code></pre></div>
+<p>Now, we will change the non_ground_height_threshold value from 0.2 to 0.3 meters.
+This will help us in reducing false positive non-ground points,
+but it may also decrease the number of true positive non-ground points
+that are below this threshold value.</p>
+<div class="highlight"><pre><span></span><code><span class="gd">- non_ground_height_threshold: 0.2</span>
+<span class="gi">+ non_ground_height_threshold: 0.3</span>
+</code></pre></div>
+<p>The following image illustrates the results after these fine-tunings with the ground remover package.</p>
+<figure>
+<p><img align="center" alt="after-ground-segmentation" src="images/after-tuning-ground-segmentation.png">
+  </p>
+<figcaption>
+    After tuning the ground segmentation,
+the false positive points will disappear from the same location.
+  </figcaption>
+</figure>
+<p>You need to update the ground segmenation according to your environment.
+These examples are provided for high slopes and rough road conditions.
+If you have better conditions,
+you can adjust your parameters
+by referring to the <a href="https://autowarefoundation.github.io/autoware.universe/main/perception/ground_segmentation/"><code>ground_segmentation</code> package documentation page</a>.</p>
 <h3 id="tuning-euclidean-clustering">Tuning euclidean clustering<a class="headerlink" href="#tuning-euclidean-clustering" title="Permanent link">#</a></h3>
 <p>The <code>euclidean_clustering</code> package applies Euclidean clustering methods
 to cluster points into smaller parts for classifying objects.
