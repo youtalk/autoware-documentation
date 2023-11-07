@@ -5951,11 +5951,13 @@ parameters, we aim to advance the capabilities of our systems and further optimi
 in this specific environment.</p>
 <h2 id="perception-parameter-tuning">Perception parameter tuning<a class="headerlink" href="#perception-parameter-tuning" title="Permanent link">#</a></h2>
 <h3 id="enabling-camera-lidar-fusion">Enabling camera-lidar fusion<a class="headerlink" href="#enabling-camera-lidar-fusion" title="Permanent link">#</a></h3>
-<p>To enable camera-lidar fusion, you need to first calibrate both your camera and lidar.
+<ul>
+<li>To enable camera-lidar fusion, you need to first calibrate both your camera and lidar.
 Following that, you will need to utilize the <code>image_info</code>
 and <code>rectified_image</code> topics in order to employ the <code>tensorrt_yolo</code> node.
 Once these <abbr title="Robot Operating System">ROS</abbr> 2 topics are prepared,
-we can proceed with enabling camera-lidar fusion as our chosen perception method:</p>
+we can proceed with enabling camera-lidar fusion as our chosen perception method:</li>
+</ul>
 <div class="admonition note">
 <p class="admonition-title">Enabling camera lidar fusion on <a href="https://github.com/autowarefoundation/autoware_launch/blob/2255356e0164430ed5bc7dd325e3b61e983567a3/autoware_launch/launch/autoware.launch.xml#L42"><code>autoware.launch.xml</code></a></p>
 <div class="highlight"><pre><span></span><code><span class="gd">-  &lt;arg name="perception_mode" default="lidar" description="select perception mode. camera_lidar_radar_fusion, camera_lidar_fusion, lidar_radar_fusion, lidar, radar"/&gt;</span>
@@ -5977,7 +5979,8 @@ file:</p>
 ...
 </code></pre></div>
 </div>
-<p>Also, you need to update the roi_sync.param.yaml parameter file according to your camera number.
+<ul>
+<li>Also, you need to update the roi_sync.param.yaml parameter file according to your camera number.
 Firstly,
 please refer to the roi_cluster_fusion documentation for more information about this package.
 Then, you will update your camera offsets.
@@ -5985,14 +5988,17 @@ For example,
 if you have four cameras for the perception detection pipeline,
 and you haven't measured their timestamps,
 you can set these camera offsets to "0" as the initial value.
-Please be careful with the offset array size; it must be equal to your camera count.</p>
+Please be careful with the offset array size; it must be equal to your camera count.</li>
+</ul>
 <div class="highlight"><pre><span></span><code><span class="gd">- input_offset_ms: [61.67, 111.67, 45.0, 28.33, 78.33, 95.0] # 6 cameras</span>
 <span class="gi">+ input_offset_ms: [0.0, 0.0, 0.0, 0.0] # 4 cameras</span>
 </code></pre></div>
-<p>If you have used different namespaces for your camera and ROI topics,
+<ul>
+<li>If you have used different namespaces for your camera and ROI topics,
 you will need to add the input topics for camera_info,
 image_raw,
-and rois messages in the <a href="https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/launch/components/tier4_perception_component.launch.xml"><code>tier4_perception_component.launch.xml</code></a> file.</p>
+and rois messages in the <a href="https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/launch/components/tier4_perception_component.launch.xml"><code>tier4_perception_component.launch.xml</code></a> file.</li>
+</ul>
 <div class="highlight"><pre><span></span><code><span class="gd">- &lt;arg name="image_raw0" default="/sensing/camera/camera0/image_rect_color" description="image raw topic name"/&gt;</span>
 <span class="gi">+ &lt;arg name="image_raw0" default="&lt;YOUR-CAMERA-TOPIC-NAME&gt;" description="image raw topic name"/&gt;</span>
 <span class="gd">- &lt;arg name="camera_info0" default="/sensing/camera/camera0/camera_info" description="camera info topic name"/&gt;</span>
@@ -6001,12 +6007,16 @@ and rois messages in the <a href="https://github.com/autowarefoundation/autoware
 <span class="gi">+ &lt;arg name="detection_rois0" default="&lt;YOUR-ROIS-TOPIC-NAME&gt;" description="detection rois output topic name"/&gt;</span>
 </code></pre></div>
 <h3 id="tuning-ground-segmentation">Tuning ground segmentation<a class="headerlink" href="#tuning-ground-segmentation" title="Permanent link">#</a></h3>
-<p>The ground segmentation package removes the ground points from the input point cloud for the perception pipeline.
+<ul>
+<li>The ground segmentation package removes the ground points from the input point cloud for the perception pipeline.
 In our campus environment, there are a lot of high slopes and rough roads.
-Therefore, this condition makes it difficult to accurately segment ground and non-ground points.</p>
-<p>For example, when we pass over speed bumps,
+Therefore, this condition makes it difficult to accurately segment ground and non-ground points.</li>
+</ul>
+<ul>
+<li>For example, when we pass over speed bumps,
 there are a lot of false positives (ghost points) that appear as non-ground points,
-as shown in the image below.</p>
+as shown in the image below.</li>
+</ul>
 <figure>
 <p><img align="center" alt="default-ground-segmentation" src="images/ground-remover-ghost-points.png">
   </p>
@@ -6015,37 +6025,49 @@ as shown in the image below.</p>
 points on the high-slope roads with default configurations.
   </figcaption>
 </figure>
-<p>These ghost points affect the motion planner of Autoware,
+<ul>
+<li>These ghost points affect the motion planner of Autoware,
 causing the vehicle to stop even though there is no obstacle on the road during autonomous driving.
 We will reduce the number of false positive non-ground points
-by fine-tuning the ground segmentation in Autoware.</p>
-<p>There are three different ground segmentation algorithms included in Autoware:
+by fine-tuning the ground segmentation in Autoware.</li>
+</ul>
+<ul>
+<li>There are three different ground segmentation algorithms included in Autoware:
 <code>ray_ground_filter</code>, <code>scan_ground_filter</code>, and <code>ransac_ground_filter</code>.
 The default method is the <code>scan_ground_filter</code>.
 Please refer to the <a href="https://autowarefoundation.github.io/autoware.universe/main/perception/ground_segmentation/"><code>ground_segmentation</code> package documentation</a>
-for more information about these methods and their parameter definitions.</p>
-<p>Firstly,
+for more information about these methods and their parameter definitions.</li>
+</ul>
+<ul>
+<li>Firstly,
 we will change the <code>global_slope_max_angle_deg</code> value from 10 to 30 degrees at <a href="https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/perception/obstacle_segmentation/ground_segmentation/ground_segmentation.param.yaml"><code>ground_segmentation.param.yaml</code></a> parameter file.
 This change will reduce our false positive non-ground points.
 However, be cautious when increasing the threshold,
-as it may lead to an increase in the number of false negatives.</p>
+as it may lead to an increase in the number of false negatives.</li>
+</ul>
 <div class="highlight"><pre><span></span><code><span class="gd">- global_slope_max_angle_deg: 10.0</span>
 <span class="gi">+ global_slope_max_angle_deg: 30.0</span>
 </code></pre></div>
-<p>Then we will update the split_height_distance parameter from 0.2 to 0.35 meters.
+<ul>
+<li>Then we will update the split_height_distance parameter from 0.2 to 0.35 meters.
 This adjustment will help in reducing false positive non-ground points,
-especially on step-like road surfaces or in cases of misaligned multiple lidar configurations.</p>
+especially on step-like road surfaces or in cases of misaligned multiple lidar configurations.</li>
+</ul>
 <div class="highlight"><pre><span></span><code><span class="gd">- split_height_distance: 0.2</span>
 <span class="gi">+ split_height_distance: 0.35</span>
 </code></pre></div>
-<p>Now, we will change the non_ground_height_threshold value from 0.2 to 0.3 meters.
+<ul>
+<li>Now, we will change the non_ground_height_threshold value from 0.2 to 0.3 meters.
 This will help us in reducing false positive non-ground points,
 but it may also decrease the number of true positive non-ground points
-that are below this threshold value.</p>
+that are below this threshold value.</li>
+</ul>
 <div class="highlight"><pre><span></span><code><span class="gd">- non_ground_height_threshold: 0.2</span>
 <span class="gi">+ non_ground_height_threshold: 0.3</span>
 </code></pre></div>
-<p>The following image illustrates the results after these fine-tunings with the ground remover package.</p>
+<ul>
+<li>The following image illustrates the results after these fine-tunings with the ground remover package.</li>
+</ul>
 <figure>
 <p><img align="center" alt="after-ground-segmentation" src="images/after-tuning-ground-segmentation.png">
   </p>
@@ -6054,30 +6076,40 @@ that are below this threshold value.</p>
 the false positive points will disappear from the same location.
   </figcaption>
 </figure>
-<p>You need to update the ground segmenation according to your environment.
+<ul>
+<li>You need to update the ground segmenation according to your environment.
 These examples are provided for high slopes and rough road conditions.
 If you have better conditions,
 you can adjust your parameters
-by referring to the <a href="https://autowarefoundation.github.io/autoware.universe/main/perception/ground_segmentation/"><code>ground_segmentation</code> package documentation page</a>.</p>
+by referring to the <a href="https://autowarefoundation.github.io/autoware.universe/main/perception/ground_segmentation/"><code>ground_segmentation</code> package documentation page</a>.</li>
+</ul>
 <h3 id="tuning-euclidean-clustering">Tuning euclidean clustering<a class="headerlink" href="#tuning-euclidean-clustering" title="Permanent link">#</a></h3>
-<p>The <code>euclidean_clustering</code> package applies Euclidean clustering methods
+<ul>
+<li>The <code>euclidean_clustering</code> package applies Euclidean clustering methods
 to cluster points into smaller parts for classifying objects.
 Please refer to <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/perception/euclidean_cluster"><code>euclidean_clustering</code> package documentation</a> for more information.
 This package is used in the detection pipeline of Autoware architecture.
 There are two different euclidean clustering methods included in this package:
 <code>euclidean_cluster</code> and <code>voxel_grid_based_euclidean_cluster</code>.
 In the default design of Autoware,
-the <code>voxel_grid_based_euclidean_cluster</code> method serves as the default Euclidean clustering method.</p>
-<p>In the YTU campus environment, there are many small objects like birds,
+the <code>voxel_grid_based_euclidean_cluster</code> method serves as the default Euclidean clustering method.</li>
+</ul>
+<ul>
+<li>In the YTU campus environment, there are many small objects like birds,
 dogs, cats, balls, cones, etc. To detect, track,
-and predict these small objects, we aim to assign clusters to them as small as possible.</p>
-<p>Firstly, we will change our object filter method from lanelet_filter to position_filter
-to detect objects that are outside the lanelet boundaries at the <a href="https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/launch/components/tier4_perception_component.launch.xml"><code>tier4_perception_component.launch.xml</code></a>.</p>
+and predict these small objects, we aim to assign clusters to them as small as possible.</li>
+</ul>
+<ul>
+<li>Firstly, we will change our object filter method from lanelet_filter to position_filter
+to detect objects that are outside the lanelet boundaries at the <a href="https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/launch/components/tier4_perception_component.launch.xml"><code>tier4_perception_component.launch.xml</code></a>.</li>
+</ul>
 <div class="highlight"><pre><span></span><code><span class="gd">- &lt;arg name="detected_objects_filter_method" default="lanelet_filter" description="options: lanelet_filter, position_filter"/&gt;</span>
 <span class="gi">+ &lt;arg name="detected_objects_filter_method" default="position_filter" description="options: lanelet_filter, position_filter"/&gt;</span>
 </code></pre></div>
-<p>After changing the filter method for objects,
-the output of our perception pipeline looks like the image below:</p>
+<ul>
+<li>After changing the filter method for objects,
+the output of our perception pipeline looks like the image below:</li>
+</ul>
 <figure>
 <p><img align="center" alt="default-clustering" src="images/initial-clusters.png">
   </p>
@@ -6085,9 +6117,11 @@ the output of our perception pipeline looks like the image below:</p>
     The default clustering parameters with the object position filter default parameters.
   </figcaption>
 </figure>
-<p>Now, we can detect unknown objects that are outside the lanelet map,
+<ul>
+<li>Now, we can detect unknown objects that are outside the lanelet map,
 but we still need to update the filter range
-or disable the filter for unknown objects in the <a href="https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/perception/object_recognition/detection/object_filter/object_position_filter.param.yaml"><code>object_position_filter.param.yaml</code></a> file.</p>
+or disable the filter for unknown objects in the <a href="https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/perception/object_recognition/detection/object_filter/object_position_filter.param.yaml"><code>object_position_filter.param.yaml</code></a> file.</li>
+</ul>
 <div class="highlight"><pre><span></span><code><span class="w"> </span>   upper_bound_x: 100.0
 <span class="gd">-   lower_bound_x: 0.0</span>
 <span class="gi">+   lower_bound_x: -100.0</span>
@@ -6096,20 +6130,26 @@ or disable the filter for unknown objects in the <a href="https://github.com/aut
 <span class="gd">-   lower_bound_y: -10.0</span>
 <span class="gi">+   lower_bound_y: -100.0</span>
 </code></pre></div>
-<p>Also, you can simply disable the filter for unknown labeled objects.</p>
+<ul>
+<li>Also, you can simply disable the filter for unknown labeled objects.</li>
+</ul>
 <div class="highlight"><pre><span></span><code><span class="gd">- UNKNOWN : true</span>
 <span class="gi">+ UNKNOWN : false</span>
 </code></pre></div>
-<p>After that,
+<ul>
+<li>After that,
 we can update our clustering parameters
 since we can detect all objects regardless of filtering objects with the lanelet2 map.
 As we mentioned earlier, we want to detect small objects.
 Therefore,
-we will decrease the minimum cluster size to 1 in the <a href="https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/perception/object_recognition/detection/clustering/voxel_grid_based_euclidean_cluster.param.yaml"><code>voxel_grid_based_euclidean_cluster.param.yaml</code> file</a>.</p>
+we will decrease the minimum cluster size to 1 in the <a href="https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/perception/object_recognition/detection/clustering/voxel_grid_based_euclidean_cluster.param.yaml"><code>voxel_grid_based_euclidean_cluster.param.yaml</code> file</a>.</li>
+</ul>
 <div class="highlight"><pre><span></span><code><span class="gd">- min_cluster_size: 10</span>
 <span class="gi">+ min_cluster_size: 1</span>
 </code></pre></div>
-<p>After making these changes, our perception output is shown in the following image:</p>
+<ul>
+<li>After making these changes, our perception output is shown in the following image:</li>
+</ul>
 <figure>
 <p><img align="center" alt="update-clustering" src="images/after-tuning-clustering.png">
   </p>
