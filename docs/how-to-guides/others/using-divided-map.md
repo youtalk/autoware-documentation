@@ -4,11 +4,11 @@ Divided pointcloud map is necessary when handling large pointcloud map, in which
 
 ## Tutorial
 
-Download the [sample-map-rosbag_split](TODO) and locate the map under `$HOME/autoware_map/`.
+Download the [sample-map-rosbag-split](https://docs.google.com/uc?export=download&id=1VnwJx9tI3kI_cTLzP61ktuAJ1ChgygpG) and locate the map under `$HOME/autoware_map/`.
 
 ```bash
 gdown -O ~/autoware_map/ 'https://docs.google.com/uc?export=download&id=1VnwJx9tI3kI_cTLzP61ktuAJ1ChgygpG' # TODO
-unzip -d ~/autoware_map/ ~/autoware_map/sample-rosbag_split.zip
+unzip -d ~/autoware_map/ ~/autoware_map/sample-rosbag-split.zip
 ```
 
 Then, you may launch logging_simulator with the following command to load the divided map.
