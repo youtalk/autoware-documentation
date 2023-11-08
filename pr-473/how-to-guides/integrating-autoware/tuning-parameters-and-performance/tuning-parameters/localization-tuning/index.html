@@ -2642,6 +2642,8 @@
         
           
         
+          
+        
       
       
         
@@ -2744,6 +2746,52 @@
         <label class="md-nav__title" for="__nav_4_2_7_1_3">
           <span class="md-nav__icon md-icon"></span>
           Tuning perception
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_7_1_4" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../planning-tuning/">Tuning planning</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_2_7_1_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2_7_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          Tuning planning
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -5989,30 +6037,31 @@ ensuring optimal performance in the specific conditions of the YTU campus.</p>
   </figcaption>
 </figure>
 <ul>
-<li>
-<p>If we wish to increase our NDT input point cloud range,
+<li>If we wish to increase our NDT input point cloud range,
   we can make the following changes in the <code>crop_box_filter_measurement_range.param.yaml</code> file.
   However,
   please bear in mind that since this alteration enlarges the size of the NDT input point cloud,
-  it will require additional resources on your processor.</p>
-<div class="highlight"><pre><span></span><code>/**:
-<span class="w"> </span> ros__parameters:
-<span class="w"> </span>   input_frame: "base_link"
-<span class="w"> </span>   output_frame: "base_link"
-<span class="gd">-   min_x: -60.0</span>
-<span class="gi">+   min_x: -150.0</span>
-<span class="gd">-   max_x: 60.0</span>
-<span class="gi">+   max_x: 150.0</span>
-<span class="gd">-   min_y: -60.0</span>
-<span class="gi">+   min_y: -150.0</span>
-<span class="gd">-   max_y: 60.0</span>
-<span class="gi">+   max_y: 150.0</span>
-<span class="w"> </span>   min_z: -30.0
-<span class="w"> </span>   max_z: 50.0
-<span class="w"> </span>   negative: False
-</code></pre></div>
-</li>
+  it will require additional resources on your processor.</li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title"><a href="https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/localization/crop_box_filter_measurement_range.param.yaml"><code>crop_box_filter_measurement_range.param.yaml</code></a> parameter file:</p>
+<p><code>diff
+  /**:
+    ros__parameters:
+      input_frame: "base_link"
+      output_frame: "base_link"
+  -   min_x: -60.0
+  +   min_x: -150.0
+  -   max_x: 60.0
+  +   max_x: 150.0
+  -   min_y: -60.0
+  +   min_y: -150.0
+  -   max_y: 60.0
+  +   max_y: 150.0
+      min_z: -30.0
+      max_z: 50.0
+      negative: False</code></p>
+</div>
 <figure>
 <p><img align="center" alt="ytu-campus-pcd-range" src="images/ndt-range-150m.png">
   </p>
@@ -6053,10 +6102,12 @@ ensuring optimal performance in the specific conditions of the YTU campus.</p>
   </figcaption>
 </figure>
 <ul>
-<li>
-<p>We have sufficient computational power available on our tutorial vehicle,
+<li>We have sufficient computational power available on our tutorial vehicle,
   so we will reduce the voxel size to improve localization accuracy.
-  Feel free to experiment with tuning the voxel size for your own computer setup.</p>
+  Feel free to experiment with tuning the voxel size for your own computer setup.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title"><a href="https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/localization/voxel_grid_filter.param.yaml">voxel_grid_filter.param.yaml</a> parameter file:</p>
 <div class="highlight"><pre><span></span><code>/**:
 <span class="w"> </span> ros__parameters:
 <span class="gd">- voxel_size_x: 3.0</span>
@@ -6066,8 +6117,7 @@ ensuring optimal performance in the specific conditions of the YTU campus.</p>
 <span class="gd">- voxel_size_z: 3.0</span>
 <span class="gi">+ voxel_size_z: 1.0</span>
 </code></pre></div>
-</li>
-</ul>
+</div>
 <figure>
 <p><img align="center" alt="voxel-size-1.0" src="images/voxel-size-1.0.png">
   </p>

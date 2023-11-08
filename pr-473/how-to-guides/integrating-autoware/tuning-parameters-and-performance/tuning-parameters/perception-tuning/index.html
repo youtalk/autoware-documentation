@@ -14,7 +14,7 @@
         <link rel="prev" href="../localization-tuning/">
       
       
-        <link rel="next" href="../../evaluation/evaluating-controller-performance/">
+        <link rel="next" href="../planning-tuning/">
       
       <link rel="icon" href="../../../../../assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.20">
@@ -2642,6 +2642,8 @@
         
           
         
+          
+        
       
       
         
@@ -2744,6 +2746,52 @@
         <label class="md-nav__title" for="__nav_4_2_7_1_3">
           <span class="md-nav__icon md-icon"></span>
           Tuning perception
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_7_1_4" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../planning-tuning/">Tuning planning</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_2_7_1_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2_7_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          Tuning planning
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -5990,15 +6038,20 @@ file:</p>
   you can set these camera offsets to "0" as the initial value.
   Please be careful with the offset array size; it must be equal to your camera count.</li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title"><a href="https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/perception/object_recognition/detection/image_projection_based_fusion/roi_sync.param.yaml">roi_sync.param.yaml</a> parameter file:</p>
 <div class="highlight"><pre><span></span><code><span class="gd">- input_offset_ms: [61.67, 111.67, 45.0, 28.33, 78.33, 95.0] # 6 cameras</span>
 <span class="gi">+ input_offset_ms: [0.0, 0.0, 0.0, 0.0] # 4 cameras</span>
 </code></pre></div>
+</div>
 <ul>
 <li>If you have used different namespaces for your camera and ROI topics,
   you will need to add the input topics for camera_info,
   image_raw,
-  and rois messages in the <a href="https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/launch/components/tier4_perception_component.launch.xml"><code>tier4_perception_component.launch.xml</code></a> file.</li>
+  and rois messages in the <code>tier4_perception_component.launch.xml</code> launch file.</li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title"><a href="https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/launch/components/tier4_perception_component.launch.xml"><code>tier4_perception_component.launch.xml</code></a> launch file:</p>
 <div class="highlight"><pre><span></span><code><span class="gd">- &lt;arg name="image_raw0" default="/sensing/camera/camera0/image_rect_color" description="image raw topic name"/&gt;</span>
 <span class="gi">+ &lt;arg name="image_raw0" default="&lt;YOUR-CAMERA-TOPIC-NAME&gt;" description="image raw topic name"/&gt;</span>
 <span class="gd">- &lt;arg name="camera_info0" default="/sensing/camera/camera0/camera_info" description="camera info topic name"/&gt;</span>
@@ -6006,6 +6059,7 @@ file:</p>
 <span class="gd">- &lt;arg name="detection_rois0" default="/perception/object_recognition/detection/rois0" description="detection rois output topic name"/&gt;</span>
 <span class="gi">+ &lt;arg name="detection_rois0" default="&lt;YOUR-ROIS-TOPIC-NAME&gt;" description="detection rois output topic name"/&gt;</span>
 </code></pre></div>
+</div>
 <h3 id="tuning-ground-segmentation">Tuning ground segmentation<a class="headerlink" href="#tuning-ground-segmentation" title="Permanent link">#</a></h3>
 <ul>
 <li>The ground segmentation package removes the ground points from the input point cloud for the perception pipeline.
@@ -6045,26 +6099,35 @@ points on the high-slope roads with default configurations.
   However, be cautious when increasing the threshold,
   as it may lead to an increase in the number of false negatives.</li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title"><a href="https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/perception/obstacle_segmentation/ground_segmentation/ground_segmentation.param.yaml"><code>ground_segmentation.param.yaml</code></a> parameter file:</p>
 <div class="highlight"><pre><span></span><code><span class="gd">- global_slope_max_angle_deg: 10.0</span>
 <span class="gi">+ global_slope_max_angle_deg: 30.0</span>
 </code></pre></div>
+</div>
 <ul>
 <li>Then we will update the split_height_distance parameter from 0.2 to 0.35 meters.
   This adjustment will help in reducing false positive non-ground points,
   especially on step-like road surfaces or in cases of misaligned multiple lidar configurations.</li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title"><a href="https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/perception/obstacle_segmentation/ground_segmentation/ground_segmentation.param.yaml"><code>ground_segmentation.param.yaml</code></a> parameter file:</p>
 <div class="highlight"><pre><span></span><code><span class="gd">- split_height_distance: 0.2</span>
 <span class="gi">+ split_height_distance: 0.35</span>
 </code></pre></div>
+</div>
 <ul>
 <li>Now, we will change the non_ground_height_threshold value from 0.2 to 0.3 meters.
   This will help us in reducing false positive non-ground points,
   but it may also decrease the number of true positive non-ground points
   that are below this threshold value.</li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title"><a href="https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/perception/obstacle_segmentation/ground_segmentation/ground_segmentation.param.yaml"><code>ground_segmentation.param.yaml</code></a> parameter file:</p>
 <div class="highlight"><pre><span></span><code><span class="gd">- non_ground_height_threshold: 0.2</span>
 <span class="gi">+ non_ground_height_threshold: 0.3</span>
 </code></pre></div>
+</div>
 <ul>
 <li>The following image illustrates the results after these fine-tunings with the ground remover package.</li>
 </ul>
@@ -6103,9 +6166,12 @@ the false positive points will disappear from the same location.
 <li>Firstly, we will change our object filter method from lanelet_filter to position_filter
   to detect objects that are outside the lanelet boundaries at the <a href="https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/launch/components/tier4_perception_component.launch.xml"><code>tier4_perception_component.launch.xml</code></a>.</li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title"><a href="https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/launch/components/tier4_perception_component.launch.xml"><code>tier4_perception_component.launch.xml</code></a> launch file:</p>
 <div class="highlight"><pre><span></span><code><span class="gd">- &lt;arg name="detected_objects_filter_method" default="lanelet_filter" description="options: lanelet_filter, position_filter"/&gt;</span>
 <span class="gi">+ &lt;arg name="detected_objects_filter_method" default="position_filter" description="options: lanelet_filter, position_filter"/&gt;</span>
 </code></pre></div>
+</div>
 <ul>
 <li>After changing the filter method for objects,
   the output of our perception pipeline looks like the image below:</li>
@@ -6122,6 +6188,8 @@ the false positive points will disappear from the same location.
   but we still need to update the filter range
   or disable the filter for unknown objects in the <a href="https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/perception/object_recognition/detection/object_filter/object_position_filter.param.yaml"><code>object_position_filter.param.yaml</code></a> file.</li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title"><a href="https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/perception/object_recognition/detection/object_filter/object_position_filter.param.yaml"><code>object_position_filter.param.yaml</code></a> parameter file:</p>
 <div class="highlight"><pre><span></span><code><span class="w"> </span>   upper_bound_x: 100.0
 <span class="gd">-   lower_bound_x: 0.0</span>
 <span class="gi">+   lower_bound_x: -100.0</span>
@@ -6130,23 +6198,30 @@ the false positive points will disappear from the same location.
 <span class="gd">-   lower_bound_y: -10.0</span>
 <span class="gi">+   lower_bound_y: -100.0</span>
 </code></pre></div>
+</div>
 <ul>
 <li>Also, you can simply disable the filter for unknown labeled objects.</li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title"><a href="https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/perception/object_recognition/detection/object_filter/object_position_filter.param.yaml"><code>object_position_filter.param.yaml</code></a> parameter file:</p>
 <div class="highlight"><pre><span></span><code><span class="gd">- UNKNOWN : true</span>
 <span class="gi">+ UNKNOWN : false</span>
 </code></pre></div>
+</div>
 <ul>
 <li>After that,
   we can update our clustering parameters
   since we can detect all objects regardless of filtering objects with the lanelet2 map.
   As we mentioned earlier, we want to detect small objects.
   Therefore,
-  we will decrease the minimum cluster size to 1 in the <a href="https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/perception/object_recognition/detection/clustering/voxel_grid_based_euclidean_cluster.param.yaml"><code>voxel_grid_based_euclidean_cluster.param.yaml</code> file</a>.</li>
+  we will decrease the minimum cluster size to 1 in the <code>voxel_grid_based_euclidean_cluster.param.yaml</code> file.</li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title"><a href="https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/perception/object_recognition/detection/clustering/voxel_grid_based_euclidean_cluster.param.yaml"><code>voxel_grid_based_euclidean_cluster.param.yaml</code></a> parameter file:</p>
 <div class="highlight"><pre><span></span><code><span class="gd">- min_cluster_size: 10</span>
 <span class="gi">+ min_cluster_size: 1</span>
 </code></pre></div>
+</div>
 <ul>
 <li>After making these changes, our perception output is shown in the following image:</li>
 </ul>
@@ -6203,13 +6278,13 @@ Please refer to the documentation of the <a href="https://autowarefoundation.git
         
         
           
-          <a href="../../evaluation/evaluating-controller-performance/" class="md-footer__link md-footer__link--next" aria-label="Next: Evaluating the controller performance" rel="next">
+          <a href="../planning-tuning/" class="md-footer__link md-footer__link--next" aria-label="Next: Tuning planning" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Evaluating the controller performance
+                Tuning planning
               </div>
             </div>
             <div class="md-footer__button md-icon">
