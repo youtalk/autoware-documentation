@@ -3307,8 +3307,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#time" class="md-nav__link">
-    Time
+  <a href="#time-stamp" class="md-nav__link">
+    Time stamp
   </a>
   
 </li>
@@ -5775,8 +5775,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#time" class="md-nav__link">
-    Time
+  <a href="#time-stamp" class="md-nav__link">
+    Time stamp
   </a>
   
 </li>
@@ -5859,7 +5859,7 @@
 </tr>
 <tr>
 <td><code>I</code> (intensity)</td>
-<td><code>UINT8</code></td>
+<td><code>FLOAT32</code></td>
 <td><code>false</code></td>
 <td>Measured reflectivity, intensity of the point</td>
 </tr>
@@ -5888,10 +5888,10 @@
 <td><code>hypot(X, Y, Z)</code>, Euclidean distance of the point to lidar</td>
 </tr>
 <tr>
-<td><code>T</code> (time)</td>
-<td><code>UINT32</code></td>
+<td><code>T</code> (time stamp)</td>
+<td><code>FLOAT64</code></td>
 <td><code>false</code></td>
-<td>Nanoseconds passed since the time of the header when this point was measured</td>
+<td>Seconds passed since the time of the header when this point was measured</td>
 </tr>
 </tbody>
 </table>
@@ -6009,7 +6009,7 @@ In various lidar manuals or literature, it can also be called <em>laser id</em>,
 </div>
 <p>For solid state lidars that have lines, assign row number as the channel id.</p>
 <p>For petal pattern lidars, you can keep channel 0.</p>
-<h3 id="time">Time<a class="headerlink" href="#time" title="Permanent link">#</a></h3>
+<h3 id="time-stamp">Time stamp<a class="headerlink" href="#time-stamp" title="Permanent link">#</a></h3>
 <p>In lidar point clouds, each point measurement can have its individual time stamp.
 This information can be used to eliminate the motion blur that is caused by the movement of the lidar during the scan.</p>
 <h4 id="point-cloud-header-time">Point cloud header time<a class="headerlink" href="#point-cloud-header-time" title="Permanent link">#</a></h4>
@@ -6043,14 +6043,9 @@ The time field has 2 components:</p>
 year 2038 problems. We will wait for actions on <abbr title="Robot Operating System">ROS</abbr> 2 community side.</p>
 <p><strong>More info at:</strong> https://github.com/ros2/rcl_interfaces/issues/85</p>
 </div>
-<h4 id="individual-point-time">Individual point time<a class="headerlink" href="#individual-point-time" title="Permanent link">#</a></h4>
-<p>Each <code>PointXYZIRCT</code> point type has the <code>T</code> field for representing the nanoseconds passed since the first-shot point of the point cloud.</p>
-<p>To calculate exact time each point was shot, the <code>T</code> nanoseconds are added to the header time.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The <code>T</code> field is <code>uint32</code> type. The largest value it can represent is 2^32 nanoseconds, which equates to roughly
-4.29 seconds. Usual point clouds don't last more than 100ms for full cycle. So this field should be enough.</p>
-</div>
+<h4 id="individual-point-time-stamp">Individual point time stamp<a class="headerlink" href="#individual-point-time-stamp" title="Permanent link">#</a></h4>
+<p>Each <code>PointXYZIRCT</code> point type has the <code>T</code> field for representing the seconds passed since the first-shot point of the point cloud.</p>
+<p>To calculate exact time each point was shot, the <code>T</code> seconds are added to the header time.</p>
 <!-- prettier-ignore --></div>
 
 
