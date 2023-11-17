@@ -6204,8 +6204,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#conveting-ros2-bag-to-ros1-bag" class="md-nav__link">
-    Conveting ROS2 Bag to ROS1 Bag
+  <a href="#converting-ros-2-bag-to-ros-1-bag" class="md-nav__link">
+    Converting ROS 2 Bag to ROS 1 Bag
   </a>
   
 </li>
@@ -6253,8 +6253,8 @@ the time offset between sensors and the spatial-temporal extrinsic between senso
 are calibrated comprehensively without explicit hand-crafted targets.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>This calibration tool is developed with ROS1, and it is not compatible with ROS2.
-So, we are providing a docker image which has ROS1 and all necessary packages.
+<p>So, we are providing a docker image which has <abbr title="Robot Operating System">ROS</abbr> 1 and all necessary packages.
+This calibration tool is developed with <abbr title="Robot Operating System">ROS</abbr> 1, and it is not compatible with <abbr title="Robot Operating System">ROS</abbr> 2.
 In the calibration instructions, we will ask you to install docker on your
 system.</p>
 </div>
@@ -6272,7 +6272,7 @@ Topic<span class="w"> </span>information:<span class="w"> </span>Topic:<span cla
 </code></pre></div>
 </details>
 <h2 id="data-collection-and-preparation">Data Collection and Preparation<a class="headerlink" href="#data-collection-and-preparation" title="Permanent link">#</a></h2>
-<p>For Lidar-Imu calibration, there is a need for a ROS1 bag file which contains
+<p>For Lidar-Imu calibration, there is a need for a <abbr title="Robot Operating System">ROS</abbr> 1 bag file which contains
 <code>sensor_msgs/PointCloud2</code> and <code>sensor_msgs/Imu</code> messages.
 To obtain good results as a result of the calibration process,
 you need to move the sensors in all 6 axes (x, y, z, roll, pitch, yaw) while collecting data.
@@ -6292,23 +6292,23 @@ and indoor spaces are the best locations under these conditions.
 However, you can also achieve good results outdoors.
 When collecting data, make sure to draw figures of eights and grids,
 capturing data from every angle.</p>
-<h3 id="conveting-ros2-bag-to-ros1-bag">Conveting ROS2 Bag to ROS1 Bag<a class="headerlink" href="#conveting-ros2-bag-to-ros1-bag" title="Permanent link">#</a></h3>
-<p>If you collected your calibration data in ROS2,
-you can convert it to ROS1 bag file with the following instructions:</p>
+<h3 id="converting-ros-2-bag-to-ros-1-bag">Converting <abbr title="Robot Operating System">ROS</abbr> 2 Bag to <abbr title="Robot Operating System">ROS</abbr> 1 Bag<a class="headerlink" href="#converting-ros-2-bag-to-ros-1-bag" title="Permanent link">#</a></h3>
+<p>If you collected your calibration data in <abbr title="Robot Operating System">ROS</abbr> 2,
+you can convert it to <abbr title="Robot Operating System">ROS</abbr> 1 bag file with the following instructions:</p>
 <ul>
-<li>Split your ROS2 bag file if it contains non-standard message topics
+<li>Split your <abbr title="Robot Operating System">ROS</abbr> 2 bag file if it contains non-standard message topics
   (you can only select <code>sensor_msgs/PointCloud2</code> and <code>sensor_msgs/Imu</code> messages),
-  and convert your splitted ROS2 bag file to ROS1 bag.</li>
+  and convert your split <abbr title="Robot Operating System">ROS</abbr> 2 bag file to <abbr title="Robot Operating System">ROS</abbr> 1 bag.</li>
 </ul>
 <p>Create a yaml file with name <code>out.yaml</code> which contains your lidar and imu topics:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">output_bags</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">splitted_bag</span>
 <span class="w">    </span><span class="nt">topics</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">/your/imu/topic</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">/your/pointcloud/topic</span><span class="p p-Indicator">]</span>
 </code></pre></div>
-<p>Split your ROS2 bag file:</p>
+<p>Split your <abbr title="Robot Operating System">ROS</abbr> 2 bag file:</p>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>bag<span class="w"> </span>convert<span class="w"> </span>-i<span class="w"> </span>&lt;YOUR-ROS2-BAG-FOLDER&gt;<span class="w"> </span>-o<span class="w"> </span>out.yaml
 </code></pre></div>
-<p>Convert your splitted ROS2 bag file to ROS1 bag file:</p>
+<p>Convert your split ROS2 bag file to ROS1 bag file:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># install bag converter tool (https://gitlab.com/ternaris/rosbags)</span>
 pip3<span class="w"> </span>install<span class="w"> </span>rosbags
 
@@ -6417,7 +6417,7 @@ To see your container name, you can run <code>docker ps</code> command. This com
 output should be something like this and you can find your container name
 in the last column:
 <div class="highlight"><pre><span></span><code>CONTAINER ID   IMAGE      COMMAND                  CREATED         STATUS         PORTS     NAMES
-adb8b559c06e   calib:v1   "/ros_entrypoint.sh …"   6 seconds ago   Up 5 seconds             flamboyant_wescoff
+adb8b559c06e   calib:v1   "/ros_entrypoint.sh …"   6 seconds ago   Up 5 seconds             your_awsome_container_name
 </code></pre></div></container_name></p>
 </div>
 <p>After connecting to the container, you can see the calibration process
@@ -6453,11 +6453,11 @@ in the <code>OA-LICalib/config/simu.yaml</code> file.</p>
 </tr>
 <tr>
 <td>ndt_key_frame_downsample</td>
-<td>Resolutation parameter for voxel grid downsample function</td>
+<td>Resolution parameter for voxel grid downsample function</td>
 </tr>
 <tr>
 <td>map_downsample_size</td>
-<td>Resolutation parameter for voxel grid downsample function</td>
+<td>Resolution parameter for voxel grid downsample function</td>
 </tr>
 <tr>
 <td>knot_distance</td>
