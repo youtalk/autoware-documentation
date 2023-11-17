@@ -941,47 +941,42 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-448/how-to-guides/integrating-autoware/creating-vehicle-and-sensor-description/calibrating-sensors/</loc>
-         <lastmod>2023-11-17</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-448/how-to-guides/integrating-autoware/creating-vehicle-and-sensor-description/calibrating-sensors/calibration-tools/</loc>
-         <lastmod>2023-11-17</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-448/how-to-guides/integrating-autoware/creating-vehicle-and-sensor-description/calibrating-sensors/extrinsic-manual-calibration/</loc>
-         <lastmod>2023-11-17</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-448/how-to-guides/integrating-autoware/creating-vehicle-and-sensor-description/calibrating-sensors/ground-lidar-calibration/</loc>
-         <lastmod>2023-11-17</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-448/how-to-guides/integrating-autoware/creating-vehicle-and-sensor-description/calibrating-sensors/intrinsic-camera-calibration/</loc>
-         <lastmod>2023-11-17</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-448/how-to-guides/integrating-autoware/creating-vehicle-and-sensor-description/calibrating-sensors/lidar-camera-calibration/</loc>
-         <lastmod>2023-11-17</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-448/how-to-guides/integrating-autoware/creating-vehicle-and-sensor-description/calibrating-sensors/lidar-lidar-calibration/</loc>
-         <lastmod>2023-11-17</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-448/how-to-guides/integrating-autoware/creating-vehicle-and-sensor-model/</loc>
          <lastmod>2023-11-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-448/how-to-guides/integrating-autoware/creating-vehicle-and-sensor-model/calibrating-sensors/</loc>
+         <lastmod>2023-11-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-448/how-to-guides/integrating-autoware/creating-vehicle-and-sensor-model/calibrating-sensors/calibration-tools/</loc>
+         <lastmod>2023-11-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-448/how-to-guides/integrating-autoware/creating-vehicle-and-sensor-model/calibrating-sensors/extrinsic-manual-calibration/</loc>
+         <lastmod>2023-11-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-448/how-to-guides/integrating-autoware/creating-vehicle-and-sensor-model/calibrating-sensors/ground-lidar-calibration/</loc>
+         <lastmod>2023-11-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-448/how-to-guides/integrating-autoware/creating-vehicle-and-sensor-model/calibrating-sensors/intrinsic-camera-calibration/</loc>
+         <lastmod>2023-11-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-448/how-to-guides/integrating-autoware/creating-vehicle-and-sensor-model/calibrating-sensors/lidar-camera-calibration/</loc>
+         <lastmod>2023-11-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-448/how-to-guides/integrating-autoware/creating-vehicle-and-sensor-model/calibrating-sensors/lidar-lidar-calibration/</loc>
          <lastmod>2023-11-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
