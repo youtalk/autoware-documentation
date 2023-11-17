@@ -6308,7 +6308,7 @@ you can convert it to <abbr title="Robot Operating System">ROS</abbr> 1 bag file
 <p>Split your <abbr title="Robot Operating System">ROS</abbr> 2 bag file:</p>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>bag<span class="w"> </span>convert<span class="w"> </span>-i<span class="w"> </span>&lt;YOUR-ROS2-BAG-FOLDER&gt;<span class="w"> </span>-o<span class="w"> </span>out.yaml
 </code></pre></div>
-<p>Convert your split ROS2 bag file to ROS1 bag file:</p>
+<p>Convert your split <abbr title="Robot Operating System">ROS</abbr> 2 bag file to <abbr title="Robot Operating System">ROS</abbr> 1 bag file:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># install bag converter tool (https://gitlab.com/ternaris/rosbags)</span>
 pip3<span class="w"> </span>install<span class="w"> </span>rosbags
 
@@ -6417,7 +6417,7 @@ To see your container name, you can run <code>docker ps</code> command. This com
 output should be something like this and you can find your container name
 in the last column:
 <div class="highlight"><pre><span></span><code>CONTAINER ID   IMAGE      COMMAND                  CREATED         STATUS         PORTS     NAMES
-adb8b559c06e   calib:v1   "/ros_entrypoint.sh …"   6 seconds ago   Up 5 seconds             your_awsome_container_name
+adb8b559c06e   calib:v1   "/ros_entrypoint.sh …"   6 seconds ago   Up 5 seconds             your_awesome_container_name
 </code></pre></div></container_name></p>
 </div>
 <p>After connecting to the container, you can see the calibration process
