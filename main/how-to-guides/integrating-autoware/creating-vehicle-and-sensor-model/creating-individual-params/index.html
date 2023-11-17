@@ -8,20 +8,20 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/integrating-autoware/creating-vehicle-and-sensor-description/creating-vehicle-and-sensor-description/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/integrating-autoware/creating-vehicle-and-sensor-model/creating-individual-params/">
       
       
-        <link rel="prev" href="../calibrating-sensors/">
+        <link rel="prev" href="../creating-sensor-model/">
       
       
-        <link rel="next" href="../../creating-vehicle-interface-package/creating-a-vehicle-interface-for-an-ackermann-kinematic-model/">
+        <link rel="next" href="../creating-vehicle-model/">
       
       <link rel="icon" href="../../../../assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.20">
     
     
       
-        <title>Creating vehicle and sensor description - Autoware Documentation</title>
+        <title>Creating individual params - Autoware Documentation</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#creating-vehicle-and-sensor-description" class="md-skip">
+        <a href="#creating-individual-params" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Creating vehicle and sensor description
+              Creating individual params
             
           </span>
         </div>
@@ -1260,32 +1260,80 @@
       
         
           
+            
+          
+        
+          
+        
+          
+        
+          
         
           
         
       
       
-        <label class="md-nav__link" for="__nav_4_2_3" id="__nav_4_2_3_label" tabindex="0">
-          2. Creating vehicle and sensor description
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">2. Creating vehicle and sensor model</a>
+          
+            <label for="__nav_4_2_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
       
       <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_3_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_4_2_3">
           <span class="md-nav__icon md-icon"></span>
-          2. Creating vehicle and sensor description
+          2. Creating vehicle and sensor model
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
           
             
               
   
   
   
-    <li class="md-nav__item">
-      <a href="../calibrating-sensors/" class="md-nav__link">
-        Calibrating your sensors
-      </a>
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_3_2" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../creating-sensor-model/">Creating sensor model</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_3_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Creating sensor model
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1298,247 +1346,132 @@
     
   
   
-    <li class="md-nav__item md-nav__item--active">
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_3_3" checked>
       
       
         
+          
+            
+          
+        
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Creating vehicle and sensor description
+        
+        
+        <div class="md-nav__link md-nav__link--index md-nav__link--active">
+          <a href="./">Creating individual params</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_3_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_4_2_3_3">
           <span class="md-nav__icon md-icon"></span>
+          Creating individual params
         </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        Creating vehicle and sensor description
-      </a>
-      
-        
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+            
+          
+            
+              
   
   
   
     
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+    <li class="md-nav__item md-nav__item--nested">
       
-        <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    Introduction
-  </a>
-  
-</li>
       
-        <li class="md-nav__item">
-  <a href="#1-your_vehicle_description" class="md-nav__link">
-    1. YOUR_VEHICLE_description
-  </a>
-  
-    <nav class="md-nav" aria-label="1. YOUR_VEHICLE_description">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-vehicle_infoparamyaml" class="md-nav__link">
-    1. vehicle_info.param.yaml
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-mesh-file" class="md-nav__link">
-    2. mesh file
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-mirrorparamyaml" class="md-nav__link">
-    3. mirror.param.yaml
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-simulator_modelparamyaml" class="md-nav__link">
-    4. simulator_model.param.yaml
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-vehiclexacro" class="md-nav__link">
-    5. vehicle.xacro
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
-        <li class="md-nav__item">
-  <a href="#2-your_sensor_kit_description" class="md-nav__link">
-    2. YOUR_SENSOR_KIT_description
-  </a>
-  
-    <nav class="md-nav" aria-label="2. YOUR_SENSOR_KIT_description">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-sensorsxacro" class="md-nav__link">
-    1. sensors.xacro
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-sensor_kitxacro" class="md-nav__link">
-    2. sensor_kit.xacro
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
-        <li class="md-nav__item">
-  <a href="#3-individual_parameter" class="md-nav__link">
-    3. individual_parameter
-  </a>
-  
-    <nav class="md-nav" aria-label="3. individual_parameter">
-      <ul class="md-nav__list">
         
-          <li class="md-nav__item">
-  <a href="#introduction-to-various-parameters" class="md-nav__link">
-    Introduction to Various Parameters
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#1-sensors_calibrationyaml" class="md-nav__link">
-    1. sensors_calibration.yaml
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-sensor_kit_calibrationyaml" class="md-nav__link">
-    2. sensor_kit_calibration.yaml
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-imu_correctorparamyaml" class="md-nav__link">
-    3. imu_corrector.param.yaml
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-folder-structure" class="md-nav__link">
-    4. Folder Structure
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
-        <li class="md-nav__item">
-  <a href="#4your_vehicle_launch" class="md-nav__link">
-    4.YOUR_VEHICLE_launch
-  </a>
-  
-    <nav class="md-nav" aria-label="4.YOUR_VEHICLE_launch">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-vehicle_interfacelaunchxml" class="md-nav__link">
-    1. vehicle_interface.launch.xml
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_3_4" >
       
-        <li class="md-nav__item">
-  <a href="#5-your_sensor_kit_launch" class="md-nav__link">
-    5. YOUR_SENSOR_KIT_launch
-  </a>
-  
-    <nav class="md-nav" aria-label="5. YOUR_SENSOR_KIT_launch">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-sensinglaunchxml" class="md-nav__link">
-    1. sensing.launch.xml
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-lidarlaunchxml" class="md-nav__link">
-    2. lidar.launch.xml
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-cameralaunchxml" class="md-nav__link">
-    3. camera.launch.xml
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-imulaunchxml" class="md-nav__link">
-    4. imu.launch.xml
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-gnsslaunchxml" class="md-nav__link">
-    5. gnss.launch.xml
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-pointcloud_preprocessorlaunchpy" class="md-nav__link">
-    6. pointcloud_preprocessor.launch.py
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
-    </ul>
-  
-</nav>
+        
+          
+            
+          
+        
       
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../creating-vehicle-model/">Creating vehicle model</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_3_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Creating vehicle model
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_3_5" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../calibrating-sensors/">Calibrating sensors</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_3_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          Calibrating sensors
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -5891,200 +5824,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-your_vehicle_description" class="md-nav__link">
-    1. YOUR_VEHICLE_description
+  <a href="#placing-your-individual_parameters-repository-inside-autoware" class="md-nav__link">
+    Placing your individual_parameters repository inside Autoware
   </a>
-  
-    <nav class="md-nav" aria-label="1. YOUR_VEHICLE_description">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-vehicle_infoparamyaml" class="md-nav__link">
-    1. vehicle_info.param.yaml
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-mesh-file" class="md-nav__link">
-    2. mesh file
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-mirrorparamyaml" class="md-nav__link">
-    3. mirror.param.yaml
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-simulator_modelparamyaml" class="md-nav__link">
-    4. simulator_model.param.yaml
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-vehiclexacro" class="md-nav__link">
-    5. vehicle.xacro
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-your_sensor_kit_description" class="md-nav__link">
-    2. YOUR_SENSOR_KIT_description
-  </a>
-  
-    <nav class="md-nav" aria-label="2. YOUR_SENSOR_KIT_description">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-sensorsxacro" class="md-nav__link">
-    1. sensors.xacro
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-sensor_kitxacro" class="md-nav__link">
-    2. sensor_kit.xacro
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-individual_parameter" class="md-nav__link">
-    3. individual_parameter
-  </a>
-  
-    <nav class="md-nav" aria-label="3. individual_parameter">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#introduction-to-various-parameters" class="md-nav__link">
-    Introduction to Various Parameters
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#1-sensors_calibrationyaml" class="md-nav__link">
-    1. sensors_calibration.yaml
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-sensor_kit_calibrationyaml" class="md-nav__link">
-    2. sensor_kit_calibration.yaml
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-imu_correctorparamyaml" class="md-nav__link">
-    3. imu_corrector.param.yaml
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-folder-structure" class="md-nav__link">
-    4. Folder Structure
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4your_vehicle_launch" class="md-nav__link">
-    4.YOUR_VEHICLE_launch
-  </a>
-  
-    <nav class="md-nav" aria-label="4.YOUR_VEHICLE_launch">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-vehicle_interfacelaunchxml" class="md-nav__link">
-    1. vehicle_interface.launch.xml
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-your_sensor_kit_launch" class="md-nav__link">
-    5. YOUR_SENSOR_KIT_launch
-  </a>
-  
-    <nav class="md-nav" aria-label="5. YOUR_SENSOR_KIT_launch">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-sensinglaunchxml" class="md-nav__link">
-    1. sensing.launch.xml
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-lidarlaunchxml" class="md-nav__link">
-    2. lidar.launch.xml
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-cameralaunchxml" class="md-nav__link">
-    3. camera.launch.xml
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-imulaunchxml" class="md-nav__link">
-    4. imu.launch.xml
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-gnsslaunchxml" class="md-nav__link">
-    5. gnss.launch.xml
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-pointcloud_preprocessorlaunchpy" class="md-nav__link">
-    6. pointcloud_preprocessor.launch.py
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -6106,99 +5848,47 @@
   
 
 
-<div><h1 id="creating-vehicle-and-sensor-description">Creating vehicle and sensor description<a class="headerlink" href="#creating-vehicle-and-sensor-description" title="Permanent link">#</a></h1>
+<div><h1 id="creating-individual-params">Creating individual params<a class="headerlink" href="#creating-individual-params" title="Permanent link">#</a></h1>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h2>
-<p>This page introduce following topics.</p>
-<ol>
-<li>YOUR_VEHICLE_description</li>
-<li>YOUR_SENSOR_KIT_description</li>
-<li>individual_parameter</li>
-<li>YOUR_VEHICLE_launch</li>
-<li>YOUR_SENSOR_KIT_launch</li>
-</ol>
-<h2 id="1-your_vehicle_description">1. YOUR_VEHICLE_description<a class="headerlink" href="#1-your_vehicle_description" title="Permanent link">#</a></h2>
-<p>In <code>YOUR_VEHICLE_description</code>, the following configurations are set:</p>
-<ol>
-<li>vehicle_info.param.yaml (must be changed)</li>
-<li>mesh file (*.dae)</li>
-<li>mirror.param.yaml(must be changed)</li>
-<li>simulator_model.param.yaml</li>
-<li>vehicle.xacro</li>
-</ol>
-<h3 id="1-vehicle_infoparamyaml">1. vehicle_info.param.yaml<a class="headerlink" href="#1-vehicle_infoparamyaml" title="Permanent link">#</a></h3>
-<p>Defines the vehicle dimensions. For more details on each parameter, please click <a href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-dimensions">here</a>.</p>
-<h3 id="2-mesh-file">2. mesh file<a class="headerlink" href="#2-mesh-file" title="Permanent link">#</a></h3>
-<p>A 3D model file used for visualization in rviz.</p>
-<h3 id="3-mirrorparamyaml">3. mirror.param.yaml<a class="headerlink" href="#3-mirrorparamyaml" title="Permanent link">#</a></h3>
-<p>Set according to the vehicle dimensions. Used in the <a href="https://autowarefoundation.github.io/autoware.universe/main/sensing/pointcloud_preprocessor/docs/crop-box-filter">crop-box-filter</a> of <a href="../../../../design/autoware-architecture/sensing/data-types/point-cloud/">PointCloudPreprocessor</a>.</p>
-<h3 id="4-simulator_modelparamyaml">4. simulator_model.param.yaml<a class="headerlink" href="#4-simulator_modelparamyaml" title="Permanent link">#</a></h3>
-<p>Configuration file for the <a href="https://autowarefoundation.github.io/autoware.universe/main/simulator/simple_planning_simulator/design/simple_planning_simulator-design/">simulator environment</a>.</p>
-<h3 id="5-vehiclexacro">5. vehicle.xacro<a class="headerlink" href="#5-vehiclexacro" title="Permanent link">#</a></h3>
-<p>The entry point file that defines the entire <abbr title="Universal Robotic Description Format">URDF</abbr> of the vehicle. It refers to <code>sensors.xacro</code>, which specifies the sensor mounting positions.</p>
-<h2 id="2-your_sensor_kit_description">2. YOUR_SENSOR_KIT_description<a class="headerlink" href="#2-your_sensor_kit_description" title="Permanent link">#</a></h2>
-<p>In sensor_kit_description, the following files are configured:</p>
-<ol>
-<li>sensors.xacro (must be changed)</li>
-<li>sensor_kit.xacro (must be changed)</li>
-</ol>
-<h3 id="1-sensorsxacro">1. sensors.xacro<a class="headerlink" href="#1-sensorsxacro" title="Permanent link">#</a></h3>
-<p>Resolves the positions of sensors with <code>base_link</code> as the parent frame and defines the positions and orientations based on <code>sensors_calibration.yaml</code> in individual_params.</p>
-<blockquote>
-<p>In Autoware, <code>&lt;YOUR_SENSOR_KIT_description&gt;/config/sensors_calibration.yaml</code> is not used.</p>
-</blockquote>
-<h4 id="about-sensor_kit_base_link">About sensor_kit_base_link<a class="headerlink" href="#about-sensor_kit_base_link" title="Permanent link">#</a></h4>
-<p>A <code>sensor_kit</code> refers to a subset that includes multiple sensors, and <code>sensor_kit_base_link</code> is the name of its frame.
-The positions and orientations within the kit are defined in <code>sensor_kit.xacro</code>.</p>
-<h3 id="2-sensor_kitxacro">2. sensor_kit.xacro<a class="headerlink" href="#2-sensor_kitxacro" title="Permanent link">#</a></h3>
-<p>Resolves the positions of sensors with <code>sensor_kit_base_link</code> as the parent and defines the positions and orientations based on <code>sensor_kit_calibration.yaml</code> in individual_params.</p>
-<blockquote>
-<p>In Autoware, <code>&lt;YOUR_SENSOR_KIT_description&gt;/config/sensor_kit_calibration.yaml</code> is not used.</p>
-</blockquote>
-<h2 id="3-individual_parameter">3. individual_parameter<a class="headerlink" href="#3-individual_parameter" title="Permanent link">#</a></h2>
-<p>The <code>individual_parameter</code> is where parameters referenced by <code>sensors.xacro</code> and <code>sensor_kit.xacro</code> are stored. As the name imply, it is intended to manage parameters for multiple individual instances.</p>
-<h3 id="introduction-to-various-parameters">Introduction to Various Parameters<a class="headerlink" href="#introduction-to-various-parameters" title="Permanent link">#</a></h3>
-<ol>
-<li>sensors_calibration.yaml (must be changed)</li>
-<li>sensor_kit_calibration.yaml (must be changed)</li>
-<li>imu_corrector.param.yaml</li>
-</ol>
-<h3 id="1-sensors_calibrationyaml">1. sensors_calibration.yaml<a class="headerlink" href="#1-sensors_calibrationyaml" title="Permanent link">#</a></h3>
-<p>A file that defines the mounting positions and orientations of sensors with <code>base_link</code> as the parent frame.</p>
-<h3 id="2-sensor_kit_calibrationyaml">2. sensor_kit_calibration.yaml<a class="headerlink" href="#2-sensor_kit_calibrationyaml" title="Permanent link">#</a></h3>
-<p>A file that defines the mounting positions and orientations of sensors with <code>sensor_kit_base_link</code> as the parent frame.</p>
-<h3 id="3-imu_correctorparamyaml">3. imu_corrector.param.yaml<a class="headerlink" href="#3-imu_correctorparamyaml" title="Permanent link">#</a></h3>
-<p>A file used by <code>imu_corrector</code>.</p>
-<h3 id="4-folder-structure">4. Folder Structure<a class="headerlink" href="#4-folder-structure" title="Permanent link">#</a></h3>
-<p>Below is the default directory structure.</p>
-<div class="highlight"><pre><span></span><code>individual_params/
-└─ config/
-<span class="w"> </span>    └─ default/
-<span class="w"> </span>         └─ sample_sensor_kit/
-<span class="w"> </span>              ├─ imu_corrector.param.yaml
-<span class="w"> </span>              ├─ sensor_kit_calibration.yaml
-<span class="w"> </span>              └─ sensors_calibration.yaml
+<p>The <a href="https://github.com/autowarefoundation/autoware_individual_params">individual_params</a> package is used
+to define customized sensor calibrations for different vehicles.
+It lets
+you define customized sensor calibrations for different vehicles
+while using the same launch files with the same sensor model.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The "individual_params" package contains the calibration
+results for your sensor kit and overrides the default calibration results found in
+VEHICLE-ID_sensor_kit_description/config/ directory.</p>
+</div>
+<h2 id="placing-your-individual_parameters-repository-inside-autoware">Placing your <code>individual_parameters</code> repository inside Autoware<a class="headerlink" href="#placing-your-individual_parameters-repository-inside-autoware" title="Permanent link">#</a></h2>
+<p><a href="../../creating-your-autoware-repositories/creating-autoware-repositories/">Previously on this guide</a>,
+we forked the <code>autoware_individual_params</code> repository
+to create a <a href="https://github.com/leo-drive/tutorial_vehicle_individual_params">tutorial_vehicle_individual_params</a> repository
+which will be used as an example for this section of the guide.
+Your individual_parameters repository should be placed inside your Autoware folder following the same folder structure as the one shown below:</p>
+<details class="note">
+<summary>sample folder structure for <a href="https://github.com/leo-drive/tutorial_vehicle_individual_params"><code>tutorial_vehicle_individual_params</code></a></summary>
+<div class="highlight"><pre><span></span><code><span class="w"> </span> &lt;YOUR-OWN-AUTOWARE-DIR&gt;/
+<span class="w"> </span> └─ src/
+<span class="w"> </span> └─ param/
+<span class="w"> </span> └─ tutorial_vehicle_individual_params/
+<span class="w"> </span> └─ individual_params/
+<span class="w"> </span> └─ config/
+<span class="w"> </span> ├─ default/
+<span class="gi">+ └─ tutorial_vehicle/</span>
+<span class="gi">+     └─ tutorial_vehicle_sensor_kit_launch/</span>
+<span class="gi">+         ├─ imu_corrector.param.yaml</span>
+<span class="gi">+         ├─ sensor_kit_calibration.yaml</span>
+<span class="gi">+         └─ sensors_calibration.yaml</span>
 </code></pre></div>
-<p>Copy and create a folder based on your <code>YOUR_SENSOR_KIT</code> name.</p>
-<div class="highlight"><pre><span></span><code>individual_params/
-└─ config/
-<span class="w"> </span>    └─ default/
-<span class="gd">-         └─ sample_sensor_kit/</span>
-<span class="gi">+         └─ &lt;YOUR_SENSOR_KIT&gt;/</span>
-<span class="w"> </span>              ├─ imu_corrector.param.yaml
-<span class="w"> </span>              ├─ sensor_kit_calibration.yaml
-<span class="w"> </span>              └─ sensors_calibration.yaml
+</details>
+<p>After that, we need to build our <code>individual_params</code> package:</p>
+<div class="highlight"><pre><span></span><code>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span>--packages-up-to<span class="w"> </span>individual_params
 </code></pre></div>
-<h4 id="41-sample-usage">4.1 Sample Usage<a class="headerlink" href="#41-sample-usage" title="Permanent link">#</a></h4>
-<p>Here is an example of managing parameters for multiple instances.
-Add a <code>&lt;vehicle_id&gt;</code> directory and switch parameters using options at startup.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># example1 (do not set vehicle_id)</span>
-$<span class="w"> </span>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>autoware.launch.xml<span class="w"> </span>sensor_model:<span class="o">=</span>&lt;YOUR_SENSOR_KIT&gt;<span class="w"> </span>vehicle_mode:<span class="o">=</span>&lt;your_vehicle_model&gt;
-<span class="c1"># example2 (set vehicle_id as VEHICLE_1)</span>
-$<span class="w"> </span>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>autoware.launch.xml<span class="w"> </span>sensor_model:<span class="o">=</span>&lt;YOUR_SENSOR_KIT&gt;<span class="w"> </span>vehicle_mode:<span class="o">=</span>&lt;your_vehicle_model&gt;<span class="w"> </span>vehicle_id:<span class="o">=</span>VEHICLE_1
-<span class="c1"># example3 (set vehicle_id as VEHICLE_2)</span>
-$<span class="w"> </span>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>autoware.launch.xml<span class="w"> </span>sensor_model:<span class="o">=</span>&lt;YOUR_SENSOR_KIT&gt;<span class="w"> </span>vehicle_mode:<span class="o">=</span>&lt;your_vehicle_model&gt;<span class="w"> </span>vehicle_id:<span class="o">=</span>VEHICLE_2
-</code></pre></div>
-<h5 id="sample-directory-structure">Sample Directory Structure<a class="headerlink" href="#sample-directory-structure" title="Permanent link">#</a></h5>
+<p>Now you are ready to use Autoware with a vehicle_id as an argument.
+For example, if you are several, similar vehicles with different sensor calibration requirements,
+your autoware_individual_params structure should look like this:</p>
 <div class="highlight"><pre><span></span><code>individual_params/
 └─ config/
 <span class="w"> </span>    ├─ default/
@@ -6217,44 +5907,15 @@ $<span class="w"> </span>ros2<span class="w"> </span>launch<span class="w"> </sp
 <span class="gi">+              ├─ sensor_kit_calibration.yaml</span>
 <span class="gi">+              └─ sensors_calibration.yaml</span>
 </code></pre></div>
-<h2 id="4your_vehicle_launch">4.YOUR_VEHICLE_launch<a class="headerlink" href="#4your_vehicle_launch" title="Permanent link">#</a></h2>
-<p><code>YOUR_VEHICLE_launch</code> is where the launch file for starting the drive system devices is stored.</p>
-<ol>
-<li>vehicle_interface.launch.xml (must be changed)</li>
-</ol>
-<h3 id="1-vehicle_interfacelaunchxml">1. vehicle_interface.launch.xml<a class="headerlink" href="#1-vehicle_interfacelaunchxml" title="Permanent link">#</a></h3>
-<p><code>vehicle_interface.launch.xml</code> is the launch file related to the drive system. Please modify it according to the configuration of your vehicle's drive system.</p>
-<p>If you are operating multiple vehicles, use the <code>vehicle_id</code> to switch to the corresponding configuration for each vehicle.</p>
-<h2 id="5-your_sensor_kit_launch">5. YOUR_SENSOR_KIT_launch<a class="headerlink" href="#5-your_sensor_kit_launch" title="Permanent link">#</a></h2>
-<p><code>YOUR_SENSOR_KIT_launch</code> is where the launch files related to sensor startup are stored.</p>
-<ol>
-<li>sensing.launch.xml (must be changed)</li>
-<li>lidar.launch.xml (must be changed)</li>
-<li>camera.launch.xml</li>
-<li>imu.launch.xml (must be changed)</li>
-<li>gnss.launch.xml</li>
-<li>pointcloud_preprocessor.launch.py (must be changed)</li>
-</ol>
-<h3 id="1-sensinglaunchxml">1. sensing.launch.xml<a class="headerlink" href="#1-sensinglaunchxml" title="Permanent link">#</a></h3>
-<p><code>sensing.launch.xml</code> is the entry point that calls the launch files for all sensors. Modify it according to your sensor configuration.</p>
-<h3 id="2-lidarlaunchxml">2. lidar.launch.xml<a class="headerlink" href="#2-lidarlaunchxml" title="Permanent link">#</a></h3>
-<p><code>lidar.launch.xml</code> is the launch file related to starting the LiDAR driver. Modify it according to your LiDAR configuration.</p>
-<blockquote>
-<p>In Autoware's initial configuration, it assumes converting the acquired data using <code>pointcloud_preprocessor.launch.py</code>.</p>
-</blockquote>
-<h4 id="example-configuration-items">Example Configuration Items<a class="headerlink" href="#example-configuration-items" title="Permanent link">#</a></h4>
-<ul>
-<li>Setting the frame_id defined in <code>YOUR_SENSOR_KIT_description</code>.</li>
-<li>Connection information for each device.</li>
-</ul>
-<h3 id="3-cameralaunchxml">3. camera.launch.xml<a class="headerlink" href="#3-cameralaunchxml" title="Permanent link">#</a></h3>
-<p><code>camera.launch.xml</code> is the launch file related to starting the camera driver.</p>
-<h3 id="4-imulaunchxml">4. imu.launch.xml<a class="headerlink" href="#4-imulaunchxml" title="Permanent link">#</a></h3>
-<p><code>imu.launch.xml</code> is the launch file related to starting the <abbr title="Inertial Measurement Unit">IMU</abbr> driver.</p>
-<h3 id="5-gnsslaunchxml">5. gnss.launch.xml<a class="headerlink" href="#5-gnsslaunchxml" title="Permanent link">#</a></h3>
-<p><code>gnss.launch.xml</code> is the launch file related to starting the <abbr title="Global Navigation Satellite System">GNSS</abbr> driver.</p>
-<h3 id="6-pointcloud_preprocessorlaunchpy">6. pointcloud_preprocessor.launch.py<a class="headerlink" href="#6-pointcloud_preprocessorlaunchpy" title="Permanent link">#</a></h3>
-<p><code>pointcloud_preprocessor.launch.py</code> is the launch file to convert the raw sensor data. For more information, please click <a href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-architecture/sensing/data-types/point-cloud/">here</a>.</p>
+<p>Then, you can use autoware with vehicle_id arguments like this:</p>
+<p>Add a <code>&lt;vehicle_id&gt;</code> as an argument and switch parameters using options at startup.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># example1 (do not set vehicle_id)</span>
+$<span class="w"> </span>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>autoware.launch.xml<span class="w"> </span>sensor_model:<span class="o">=</span>&lt;YOUR-VEHICLE-NAME&gt;_sensor_kit<span class="w"> </span>vehicle_model:<span class="o">=</span>&lt;YOUR-VEHICLE-NAME&gt;_vehicle
+<span class="c1"># example2 (set vehicle_id as VEHICLE_1)</span>
+$<span class="w"> </span>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>autoware.launch.xml<span class="w"> </span>sensor_model:<span class="o">=</span>&lt;YOUR-VEHICLE-NAME&gt;_sensor_kit<span class="w"> </span>vehicle_model:<span class="o">=</span>&lt;YOUR-VEHICLE-NAME&gt;_vehicle<span class="w"> </span>vehicle_id:<span class="o">=</span>VEHICLE_1
+<span class="c1"># example3 (set vehicle_id as VEHICLE_2)</span>
+$<span class="w"> </span>ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span class="w"> </span>autoware.launch.xml<span class="w"> </span>sensor_model:<span class="o">=</span>&lt;YOUR-VEHICLE-NAME&gt;_sensor_kit<span class="w"> </span>vehicle_model:<span class="o">=</span>&lt;YOUR-VEHICLE-NAME&gt;_vehicle<span class="w"> </span>vehicle_id:<span class="o">=</span>VEHICLE_2
+</code></pre></div>
 <!-- prettier-ignore --></div>
 
 
@@ -6282,7 +5943,7 @@ $<span class="w"> </span>ros2<span class="w"> </span>launch<span class="w"> </sp
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../calibrating-sensors/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Calibrating your sensors" rel="prev">
+          <a href="../creating-sensor-model/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Creating a sensor model for Autoware" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -6291,20 +5952,20 @@ $<span class="w"> </span>ros2<span class="w"> </span>launch<span class="w"> </sp
                 Previous
               </span>
               <div class="md-ellipsis">
-                Calibrating your sensors
+                Creating a sensor model for Autoware
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../creating-vehicle-interface-package/creating-a-vehicle-interface-for-an-ackermann-kinematic-model/" class="md-footer__link md-footer__link--next" aria-label="Next: Creating a vehicle interface for an Ackermann kinematic model" rel="next">
+          <a href="../creating-vehicle-model/" class="md-footer__link md-footer__link--next" aria-label="Next: Creating a vehicle model for Autoware" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Creating a vehicle interface for an Ackermann kinematic model
+                Creating a vehicle model for Autoware
               </div>
             </div>
             <div class="md-footer__button md-icon">
