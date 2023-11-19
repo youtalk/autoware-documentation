@@ -8,27 +8,27 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-401/design/autoware-interfaces/ad-api/list/api/operation_mode/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-401/design/autoware-architecture/planning/index-update/">
       
       
-        <link rel="prev" href="../motion/state/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="change_to_autonomous/">
+        <link rel="next" href="../../control/">
       
-      <link rel="icon" href="../../../../../../assets/images/autoware-foundation.png">
+      <link rel="icon" href="../../../../assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.20">
     
     
       
-        <title>Operation Mode API - Autoware Documentation</title>
+        <title>Planning component design - Autoware Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../../../../../assets/stylesheets/main.eebd395e.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.eebd395e.min.css">
       
         
-        <link rel="stylesheet" href="../../../../../../assets/stylesheets/palette.ecc896b0.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ecc896b0.min.css">
       
       
 
@@ -44,11 +44,11 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../../assets/css/extra.css">
+      <link rel="stylesheet" href="../../../../assets/css/extra.css">
     
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     
-    <script>__md_scope=new URL("../../../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#operation-mode-api" class="md-skip">
+        <a href="#planning-component-design" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../../../.." title="Autoware Documentation" class="md-header__button md-logo" aria-label="Autoware Documentation" data-md-component="logo">
+    <a href="../../../.." title="Autoware Documentation" class="md-header__button md-logo" aria-label="Autoware Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M135.2 117.4 109.1 192h293.8l-26.1-74.6c-4.5-12.8-16.6-21.4-30.2-21.4H165.4c-13.6 0-25.7 8.6-30.2 21.4zm-95.6 79.4L74.8 96.3C88.3 57.8 124.6 32 165.4 32h181.2c40.8 0 77.1 25.8 90.6 64.3l35.2 100.5c23.2 9.6 39.6 32.5 39.6 59.2v192c0 17.7-14.3 32-32 32h-32c-17.7 0-32-14.3-32-32v-48H96v48c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V256c0-26.7 16.4-49.6 39.6-59.2zM128 288a32 32 0 1 0-64 0 32 32 0 1 0 64 0zm288 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/></svg>
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Operation Mode API
+              Planning component design
             
           </span>
         </div>
@@ -211,7 +211,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="../../../../../.." class="md-tabs__link">
+    <a href="../../../.." class="md-tabs__link">
       Introduction
     </a>
   </li>
@@ -226,7 +226,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../../../installation/" class="md-tabs__link">
+      <a href="../../../../installation/" class="md-tabs__link">
         Installation
       </a>
     </li>
@@ -242,7 +242,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../../../tutorials/" class="md-tabs__link">
+      <a href="../../../../tutorials/" class="md-tabs__link">
         Tutorials
       </a>
     </li>
@@ -258,7 +258,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../../../how-to-guides/" class="md-tabs__link">
+      <a href="../../../../how-to-guides/" class="md-tabs__link">
         How to guides
       </a>
     </li>
@@ -276,7 +276,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../../" class="md-tabs__link md-tabs__link--active">
+      <a href="../../../" class="md-tabs__link md-tabs__link--active">
         Design
       </a>
     </li>
@@ -292,7 +292,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../../../contributing/" class="md-tabs__link">
+      <a href="../../../../contributing/" class="md-tabs__link">
         Contributing
       </a>
     </li>
@@ -308,7 +308,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../../../datasets/" class="md-tabs__link">
+      <a href="../../../../datasets/" class="md-tabs__link">
         Datasets
       </a>
     </li>
@@ -324,7 +324,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../../../support/" class="md-tabs__link">
+      <a href="../../../../support/" class="md-tabs__link">
         Support
       </a>
     </li>
@@ -358,7 +358,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../../../.." title="Autoware Documentation" class="md-nav__button md-logo" aria-label="Autoware Documentation" data-md-component="logo">
+    <a href="../../../.." title="Autoware Documentation" class="md-nav__button md-logo" aria-label="Autoware Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M135.2 117.4 109.1 192h293.8l-26.1-74.6c-4.5-12.8-16.6-21.4-30.2-21.4H165.4c-13.6 0-25.7 8.6-30.2 21.4zm-95.6 79.4L74.8 96.3C88.3 57.8 124.6 32 165.4 32h181.2c40.8 0 77.1 25.8 90.6 64.3l35.2 100.5c23.2 9.6 39.6 32.5 39.6 59.2v192c0 17.7-14.3 32-32 32h-32c-17.7 0-32-14.3-32-32v-48H96v48c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V256c0-26.7 16.4-49.6 39.6-59.2zM128 288a32 32 0 1 0-64 0 32 32 0 1 0 64 0zm288 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/></svg>
@@ -389,7 +389,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../.." class="md-nav__link">
+      <a href="../../../.." class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -430,7 +430,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../../installation/">Installation</a>
+          <a href="../../../../installation/">Installation</a>
           
             <label for="__nav_2">
               <span class="md-nav__icon md-icon"></span>
@@ -490,7 +490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../installation/autoware/docker-installation/" class="md-nav__link">
+      <a href="../../../../installation/autoware/docker-installation/" class="md-nav__link">
         Docker installation
       </a>
     </li>
@@ -504,7 +504,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../installation/autoware/source-installation/" class="md-nav__link">
+      <a href="../../../../installation/autoware/source-installation/" class="md-nav__link">
         Source installation
       </a>
     </li>
@@ -547,7 +547,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../../installation/related-tools/">Related tools</a>
+          <a href="../../../../installation/related-tools/">Related tools</a>
           
         </div>
       
@@ -595,7 +595,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../../installation/additional-settings-for-developers/">Additional settings for developers</a>
+          <a href="../../../../installation/additional-settings-for-developers/">Additional settings for developers</a>
           
         </div>
       
@@ -653,7 +653,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../../tutorials/">Tutorials</a>
+          <a href="../../../../tutorials/">Tutorials</a>
           
             <label for="__nav_3">
               <span class="md-nav__icon md-icon"></span>
@@ -704,7 +704,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../../tutorials/ad-hoc-simulation/">Ad hoc simulation</a>
+          <a href="../../../../tutorials/ad-hoc-simulation/">Ad hoc simulation</a>
           
             <label for="__nav_3_2">
               <span class="md-nav__icon md-icon"></span>
@@ -727,7 +727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../tutorials/ad-hoc-simulation/planning-simulation/" class="md-nav__link">
+      <a href="../../../../tutorials/ad-hoc-simulation/planning-simulation/" class="md-nav__link">
         Planning simulation
       </a>
     </li>
@@ -741,7 +741,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../tutorials/ad-hoc-simulation/rosbag-replay-simulation/" class="md-nav__link">
+      <a href="../../../../tutorials/ad-hoc-simulation/rosbag-replay-simulation/" class="md-nav__link">
         Rosbag replay simulation
       </a>
     </li>
@@ -790,7 +790,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../tutorials/ad-hoc-simulation/digital-twin-simulation/awsim-tutorial/" class="md-nav__link">
+      <a href="../../../../tutorials/ad-hoc-simulation/digital-twin-simulation/awsim-tutorial/" class="md-nav__link">
         AWSIM simulator
       </a>
     </li>
@@ -804,7 +804,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../tutorials/ad-hoc-simulation/digital-twin-simulation/MORAI_Sim-tutorial/" class="md-nav__link">
+      <a href="../../../../tutorials/ad-hoc-simulation/digital-twin-simulation/MORAI_Sim-tutorial/" class="md-nav__link">
         MORAI Sim: Drive
       </a>
     </li>
@@ -858,7 +858,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../../tutorials/scenario-simulation/">Scenario simulation</a>
+          <a href="../../../../tutorials/scenario-simulation/">Scenario simulation</a>
           
             <label for="__nav_3_3">
               <span class="md-nav__icon md-icon"></span>
@@ -918,7 +918,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../tutorials/scenario-simulation/planning-simulation/installation/" class="md-nav__link">
+      <a href="../../../../tutorials/scenario-simulation/planning-simulation/installation/" class="md-nav__link">
         Installation
       </a>
     </li>
@@ -932,7 +932,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../tutorials/scenario-simulation/planning-simulation/scenario-test-simulation/" class="md-nav__link">
+      <a href="../../../../tutorials/scenario-simulation/planning-simulation/scenario-test-simulation/" class="md-nav__link">
         Scenario test simulation
       </a>
     </li>
@@ -946,7 +946,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../tutorials/scenario-simulation/planning-simulation/random-test-simulation/" class="md-nav__link">
+      <a href="../../../../tutorials/scenario-simulation/planning-simulation/random-test-simulation/" class="md-nav__link">
         Random test simulation
       </a>
     </li>
@@ -1000,7 +1000,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../tutorials/scenario-simulation/rosbag-replay-simulation/driving-log-replayer/" class="md-nav__link">
+      <a href="../../../../tutorials/scenario-simulation/rosbag-replay-simulation/driving-log-replayer/" class="md-nav__link">
         Driving Log Replayer
       </a>
     </li>
@@ -1060,7 +1060,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../../how-to-guides/">How to guides</a>
+          <a href="../../../../how-to-guides/">How to guides</a>
           
             <label for="__nav_4">
               <span class="md-nav__icon md-icon"></span>
@@ -1130,7 +1130,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../how-to-guides/integrating-autoware/overview/" class="md-nav__link">
+      <a href="../../../../how-to-guides/integrating-autoware/overview/" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -1144,7 +1144,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../how-to-guides/integrating-autoware/creating-your-autoware-meta-repository/" class="md-nav__link">
+      <a href="../../../../how-to-guides/integrating-autoware/creating-your-autoware-meta-repository/" class="md-nav__link">
         1. Creating your Autoware meta repository
       </a>
     </li>
@@ -1193,7 +1193,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../how-to-guides/integrating-autoware/creating-vehicle-and-sensor-description/calibrating-sensors/" class="md-nav__link">
+      <a href="../../../../how-to-guides/integrating-autoware/creating-vehicle-and-sensor-description/calibrating-sensors/" class="md-nav__link">
         Calibrating your sensors
       </a>
     </li>
@@ -1207,7 +1207,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../how-to-guides/integrating-autoware/creating-vehicle-and-sensor-description/creating-vehicle-and-sensor-description/" class="md-nav__link">
+      <a href="../../../../how-to-guides/integrating-autoware/creating-vehicle-and-sensor-description/creating-vehicle-and-sensor-description/" class="md-nav__link">
         Creating vehicle and sensor description
       </a>
     </li>
@@ -1263,7 +1263,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../how-to-guides/integrating-autoware/creating-vehicle-interface-package/creating-vehicle-interface-for-ackerman-kinematic-model/" class="md-nav__link">
+      <a href="../../../../how-to-guides/integrating-autoware/creating-vehicle-interface-package/creating-vehicle-interface-for-ackerman-kinematic-model/" class="md-nav__link">
         Creating vehicle interface for ackerman kinematic model
       </a>
     </li>
@@ -1277,7 +1277,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../how-to-guides/integrating-autoware/creating-vehicle-interface-package/customizing-for-differential-drive-model/" class="md-nav__link">
+      <a href="../../../../how-to-guides/integrating-autoware/creating-vehicle-interface-package/customizing-for-differential-drive-model/" class="md-nav__link">
         Customizing for differential drive vehicle
       </a>
     </li>
@@ -1320,7 +1320,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../../how-to-guides/integrating-autoware/creating-maps/">4. Creating maps</a>
+          <a href="../../../../how-to-guides/integrating-autoware/creating-maps/">4. Creating maps</a>
           
             <label for="__nav_4_2_5">
               <span class="md-nav__icon md-icon"></span>
@@ -1385,7 +1385,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../../how-to-guides/integrating-autoware/creating-maps/open-source-slam/">Open-source SLAM algorithms</a>
+          <a href="../../../../how-to-guides/integrating-autoware/creating-maps/open-source-slam/">Open-source SLAM algorithms</a>
           
             <label for="__nav_4_2_5_2">
               <span class="md-nav__icon md-icon"></span>
@@ -1428,7 +1428,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../../how-to-guides/integrating-autoware/creating-maps/open-source-slam/fast-lio-lc/">FAST-LIO-LC</a>
+          <a href="../../../../how-to-guides/integrating-autoware/creating-maps/open-source-slam/fast-lio-lc/">FAST-LIO-LC</a>
           
         </div>
       
@@ -1474,7 +1474,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../../how-to-guides/integrating-autoware/creating-maps/open-source-slam/fast-lio-slam/">FAST_LIO_SLAM</a>
+          <a href="../../../../how-to-guides/integrating-autoware/creating-maps/open-source-slam/fast-lio-slam/">FAST_LIO_SLAM</a>
           
         </div>
       
@@ -1520,7 +1520,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../../how-to-guides/integrating-autoware/creating-maps/open-source-slam/fd-slam/">FD-SLAM</a>
+          <a href="../../../../how-to-guides/integrating-autoware/creating-maps/open-source-slam/fd-slam/">FD-SLAM</a>
           
         </div>
       
@@ -1566,7 +1566,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../../how-to-guides/integrating-autoware/creating-maps/open-source-slam/hdl-graph-slam/">hdl_graph_slam</a>
+          <a href="../../../../how-to-guides/integrating-autoware/creating-maps/open-source-slam/hdl-graph-slam/">hdl_graph_slam</a>
           
         </div>
       
@@ -1612,7 +1612,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../../how-to-guides/integrating-autoware/creating-maps/open-source-slam/ia-lio-slam/">IA_LIO_SAM</a>
+          <a href="../../../../how-to-guides/integrating-autoware/creating-maps/open-source-slam/ia-lio-slam/">IA_LIO_SAM</a>
           
         </div>
       
@@ -1658,7 +1658,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../../how-to-guides/integrating-autoware/creating-maps/open-source-slam/iscloam/">iscloam</a>
+          <a href="../../../../how-to-guides/integrating-autoware/creating-maps/open-source-slam/iscloam/">iscloam</a>
           
         </div>
       
@@ -1704,7 +1704,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../../how-to-guides/integrating-autoware/creating-maps/open-source-slam/lego-loam-bor/">LeGO-LOAM-BOR</a>
+          <a href="../../../../how-to-guides/integrating-autoware/creating-maps/open-source-slam/lego-loam-bor/">LeGO-LOAM-BOR</a>
           
         </div>
       
@@ -1750,7 +1750,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../../how-to-guides/integrating-autoware/creating-maps/open-source-slam/lio-sam/">LIO-SAM</a>
+          <a href="../../../../how-to-guides/integrating-autoware/creating-maps/open-source-slam/lio-sam/">LIO-SAM</a>
           
         </div>
       
@@ -1796,7 +1796,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../../how-to-guides/integrating-autoware/creating-maps/open-source-slam/optimized-sc-f-loam/">Optimized-SC-F-LOAM</a>
+          <a href="../../../../how-to-guides/integrating-autoware/creating-maps/open-source-slam/optimized-sc-f-loam/">Optimized-SC-F-LOAM</a>
           
         </div>
       
@@ -1842,7 +1842,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../../how-to-guides/integrating-autoware/creating-maps/open-source-slam/sc-a-loam/">SC-A-LOAM</a>
+          <a href="../../../../how-to-guides/integrating-autoware/creating-maps/open-source-slam/sc-a-loam/">SC-A-LOAM</a>
           
         </div>
       
@@ -1888,7 +1888,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../../how-to-guides/integrating-autoware/creating-maps/open-source-slam/sc-lego-loam/">SC-LeGO-LOAM</a>
+          <a href="../../../../how-to-guides/integrating-autoware/creating-maps/open-source-slam/sc-lego-loam/">SC-LeGO-LOAM</a>
           
         </div>
       
@@ -1928,7 +1928,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../how-to-guides/integrating-autoware/launch-autoware/" class="md-nav__link">
+      <a href="../../../../how-to-guides/integrating-autoware/launch-autoware/" class="md-nav__link">
         5. Launch Autoware
       </a>
     </li>
@@ -1977,7 +1977,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../how-to-guides/integrating-autoware/tuning-parameters-and-performance/evaluating-controller-performance/" class="md-nav__link">
+      <a href="../../../../how-to-guides/integrating-autoware/tuning-parameters-and-performance/evaluating-controller-performance/" class="md-nav__link">
         Evaluating the controller performance
       </a>
     </li>
@@ -1991,7 +1991,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../how-to-guides/integrating-autoware/tuning-parameters-and-performance/evaluating-real-time-performance/" class="md-nav__link">
+      <a href="../../../../how-to-guides/integrating-autoware/tuning-parameters-and-performance/evaluating-real-time-performance/" class="md-nav__link">
         Evaluating real-time performance
       </a>
     </li>
@@ -2068,7 +2068,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../how-to-guides/others/add-a-custom-ros-message/" class="md-nav__link">
+      <a href="../../../../how-to-guides/others/add-a-custom-ros-message/" class="md-nav__link">
         Add a custom ROS message
       </a>
     </li>
@@ -2082,7 +2082,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../how-to-guides/others/advanced-usage-of-colcon/" class="md-nav__link">
+      <a href="../../../../how-to-guides/others/advanced-usage-of-colcon/" class="md-nav__link">
         Advanced usage of colcon
       </a>
     </li>
@@ -2096,7 +2096,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../how-to-guides/others/applying-clang-tidy-to-ros-packages/" class="md-nav__link">
+      <a href="../../../../how-to-guides/others/applying-clang-tidy-to-ros-packages/" class="md-nav__link">
         Applying Clang-Tidy to ROS packages
       </a>
     </li>
@@ -2110,7 +2110,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../how-to-guides/others/debug-autoware/" class="md-nav__link">
+      <a href="../../../../how-to-guides/others/debug-autoware/" class="md-nav__link">
         Debug Autoware
       </a>
     </li>
@@ -2124,7 +2124,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../how-to-guides/others/determining-component-dependencies/" class="md-nav__link">
+      <a href="../../../../how-to-guides/others/determining-component-dependencies/" class="md-nav__link">
         Determining component dependencies
       </a>
     </li>
@@ -2138,7 +2138,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../how-to-guides/others/eagleye-integration-guide/" class="md-nav__link">
+      <a href="../../../../how-to-guides/others/eagleye-integration-guide/" class="md-nav__link">
         Using Eagleye with Autoware
       </a>
     </li>
@@ -2152,7 +2152,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../how-to-guides/others/fixing-dependent-package-versions/" class="md-nav__link">
+      <a href="../../../../how-to-guides/others/fixing-dependent-package-versions/" class="md-nav__link">
         Fixing dependent package versions
       </a>
     </li>
@@ -2166,7 +2166,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../how-to-guides/others/running-autoware-without-cuda/" class="md-nav__link">
+      <a href="../../../../how-to-guides/others/running-autoware-without-cuda/" class="md-nav__link">
         Running Autoware without CUDA
       </a>
     </li>
@@ -2223,7 +2223,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../">Design</a>
+          <a href="../../../">Design</a>
           
             <label for="__nav_5">
               <span class="md-nav__icon md-icon"></span>
@@ -2270,7 +2270,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../autoware-concepts/">Autoware concepts</a>
+          <a href="../../../autoware-concepts/">Autoware concepts</a>
           
             <label for="__nav_5_2">
               <span class="md-nav__icon md-icon"></span>
@@ -2293,7 +2293,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../autoware-concepts/difference-from-ai-and-auto/" class="md-nav__link">
+      <a href="../../../autoware-concepts/difference-from-ai-and-auto/" class="md-nav__link">
         How is Autoware Core/Universe different from Autoware.AI and Autoware.Auto?
       </a>
     </li>
@@ -2312,18 +2312,18 @@
               
   
   
+    
+  
   
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" checked>
       
       
         
@@ -2352,7 +2352,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../autoware-architecture/">Autoware architecture</a>
+          <a href="../../">Autoware architecture</a>
           
             <label for="__nav_5_3">
               <span class="md-nav__icon md-icon"></span>
@@ -2360,7 +2360,7 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_5_3">
           <span class="md-nav__icon md-icon"></span>
           Autoware architecture
@@ -2397,7 +2397,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../autoware-architecture/sensing/">Sensing</a>
+          <a href="../../sensing/">Sensing</a>
           
             <label for="__nav_5_3_2">
               <span class="md-nav__icon md-icon"></span>
@@ -2461,7 +2461,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../autoware-architecture/sensing/data-types/gnss-ins-data/" class="md-nav__link">
+      <a href="../../sensing/data-types/gnss-ins-data/" class="md-nav__link">
         GNSS/INS data pre-processing design
       </a>
     </li>
@@ -2475,7 +2475,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../autoware-architecture/sensing/data-types/image/" class="md-nav__link">
+      <a href="../../sensing/data-types/image/" class="md-nav__link">
         Image pre-processing design
       </a>
     </li>
@@ -2489,7 +2489,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../autoware-architecture/sensing/data-types/point-cloud/" class="md-nav__link">
+      <a href="../../sensing/data-types/point-cloud/" class="md-nav__link">
         Point cloud pre-processing design
       </a>
     </li>
@@ -2503,7 +2503,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../autoware-architecture/sensing/data-types/radar-data/" class="md-nav__link">
+      <a href="../../sensing/data-types/radar-data/" class="md-nav__link">
         Radar data pre-processing design
       </a>
     </li>
@@ -2517,7 +2517,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../autoware-architecture/sensing/data-types/ultrasonics-data/" class="md-nav__link">
+      <a href="../../sensing/data-types/ultrasonics-data/" class="md-nav__link">
         Ultrasonics data pre-processing design
       </a>
     </li>
@@ -2565,7 +2565,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../autoware-architecture/map/">Map</a>
+          <a href="../../map/">Map</a>
           
         </div>
       
@@ -2611,7 +2611,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../autoware-architecture/localization/">Localization</a>
+          <a href="../../localization/">Localization</a>
           
         </div>
       
@@ -2657,7 +2657,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../autoware-architecture/perception/">Perception</a>
+          <a href="../../perception/">Perception</a>
           
         </div>
       
@@ -2681,16 +2681,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_3_6" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_6" checked>
       
       
         
@@ -2705,7 +2705,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../autoware-architecture/planning/">Planning</a>
+          <a href="../">Planning</a>
           
             <label for="__nav_5_3_6">
               <span class="md-nav__icon md-icon"></span>
@@ -2713,7 +2713,7 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_3_6_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_3_6_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_5_3_6">
           <span class="md-nav__icon md-icon"></span>
           Planning
@@ -2726,11 +2726,202 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../../../../autoware-architecture/planning/index-update/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Planning component design
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Planning component design
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#context-and-scope" class="md-nav__link">
+    Context and scope
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goals-and-non-goals" class="md-nav__link">
+    Goals and non-goals
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#high-level-design" class="md-nav__link">
+    High level design
+  </a>
+  
+    <nav class="md-nav" aria-label="High level design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#remarkable-points" class="md-nav__link">
+    Remarkable points
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-extendcorporate-with-new-features-wip" class="md-nav__link">
+    How to extend/corporate with new features (WIP)
+  </a>
+  
+    <nav class="md-nav" aria-label="How to extend/corporate with new features (WIP)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#planning-component" class="md-nav__link">
+    Planning Componentに新たなモジュールを追加する
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#planning" class="md-nav__link">
+    Planningのサブコンポーネントを置き換える
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#planning-component_1" class="md-nav__link">
+    Planning Component全体を置き換える
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#component-interface" class="md-nav__link">
+    Component interface
+  </a>
+  
+    <nav class="md-nav" aria-label="Component interface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#input-to-the-planning-component" class="md-nav__link">
+    Input to the planning component
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output-from-the-planning-component" class="md-nav__link">
+    Output from the planning component
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internal-interface-in-the-planning-component" class="md-nav__link">
+    Internal interface in the planning component
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-design" class="md-nav__link">
+    Detailed design
+  </a>
+  
+    <nav class="md-nav" aria-label="Detailed design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#supported-features" class="md-nav__link">
+    Supported features
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reference-implementation" class="md-nav__link">
+    Reference Implementation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#important-information-in-the-current-implementation" class="md-nav__link">
+    Important information in the current implementation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-add-new-modules-in-the-current-implementation" class="md-nav__link">
+    How to add new modules in the current implementation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#important-parameters" class="md-nav__link">
+    Important Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notation" class="md-nav__link">
+    Notation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2769,7 +2960,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../autoware-architecture/control/">Control</a>
+          <a href="../../control/">Control</a>
           
         </div>
       
@@ -2815,7 +3006,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../autoware-architecture/vehicle/">Vehicle</a>
+          <a href="../../vehicle/">Vehicle</a>
           
         </div>
       
@@ -2861,7 +3052,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../autoware-architecture/node-diagram/">Node diagram</a>
+          <a href="../../node-diagram/">Node diagram</a>
           
         </div>
       
@@ -2892,18 +3083,18 @@
               
   
   
-    
-  
   
     
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" checked>
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_4" >
       
       
         
@@ -2920,7 +3111,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../">Autoware interfaces</a>
+          <a href="../../../autoware-interfaces/">Autoware interfaces</a>
           
             <label for="__nav_5_4">
               <span class="md-nav__icon md-icon"></span>
@@ -2928,7 +3119,7 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_5_4">
           <span class="md-nav__icon md-icon"></span>
           Autoware interfaces
@@ -2941,16 +3132,16 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_2" checked>
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_4_2" >
       
       
         
@@ -2967,7 +3158,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../">AD API</a>
+          <a href="../../../autoware-interfaces/ad-api/">AD API</a>
           
             <label for="__nav_5_4_2">
               <span class="md-nav__icon md-icon"></span>
@@ -2975,7 +3166,7 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_4_2_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_4_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_5_4_2">
           <span class="md-nav__icon md-icon"></span>
           AD API
@@ -3010,7 +3201,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../use-cases/">Use cases</a>
+          <a href="../../../autoware-interfaces/ad-api/use-cases/">Use cases</a>
           
         </div>
       
@@ -3034,16 +3225,16 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_2_3" checked>
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_4_2_3" >
       
       
         
@@ -3056,11 +3247,11 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../">List</a>
+          <a href="../../../autoware-interfaces/ad-api/list/">List</a>
           
         </div>
       
-      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_4_2_3_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_4_2_3_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_5_4_2_3">
           <span class="md-nav__icon md-icon"></span>
           List
@@ -3121,7 +3312,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../components/">Components</a>
+          <a href="../../../autoware-interfaces/components/">Components</a>
           
             <label for="__nav_5_4_3">
               <span class="md-nav__icon md-icon"></span>
@@ -3144,7 +3335,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../components/planning/" class="md-nav__link">
+      <a href="../../../autoware-interfaces/components/planning/" class="md-nav__link">
         Planning
       </a>
     </li>
@@ -3158,7 +3349,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../components/control/" class="md-nav__link">
+      <a href="../../../autoware-interfaces/components/control/" class="md-nav__link">
         Control
       </a>
     </li>
@@ -3172,7 +3363,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../components/localization/" class="md-nav__link">
+      <a href="../../../autoware-interfaces/components/localization/" class="md-nav__link">
         Localization
       </a>
     </li>
@@ -3186,7 +3377,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../components/map/" class="md-nav__link">
+      <a href="../../../autoware-interfaces/components/map/" class="md-nav__link">
         Map
       </a>
     </li>
@@ -3200,7 +3391,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../components/vehicle-interface/" class="md-nav__link">
+      <a href="../../../autoware-interfaces/components/vehicle-interface/" class="md-nav__link">
         Vehicle Interface
       </a>
     </li>
@@ -3214,7 +3405,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../components/vehicle-dimensions/" class="md-nav__link">
+      <a href="../../../autoware-interfaces/components/vehicle-dimensions/" class="md-nav__link">
         Vehicle dimensions
       </a>
     </li>
@@ -3270,7 +3461,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../configuration-management/">Configuration management</a>
+          <a href="../../../configuration-management/">Configuration management</a>
           
             <label for="__nav_5_5">
               <span class="md-nav__icon md-icon"></span>
@@ -3293,7 +3484,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../configuration-management/development-process/" class="md-nav__link">
+      <a href="../../../configuration-management/development-process/" class="md-nav__link">
         Development process
       </a>
     </li>
@@ -3307,7 +3498,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../configuration-management/repository-structure/" class="md-nav__link">
+      <a href="../../../configuration-management/repository-structure/" class="md-nav__link">
         Repository structure
       </a>
     </li>
@@ -3321,7 +3512,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../configuration-management/release-process/" class="md-nav__link">
+      <a href="../../../configuration-management/release-process/" class="md-nav__link">
         Release process
       </a>
     </li>
@@ -3382,7 +3573,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../../contributing/">Contributing</a>
+          <a href="../../../../contributing/">Contributing</a>
           
             <label for="__nav_6">
               <span class="md-nav__icon md-icon"></span>
@@ -3405,7 +3596,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../contributing/license/" class="md-nav__link">
+      <a href="../../../../contributing/license/" class="md-nav__link">
         License
       </a>
     </li>
@@ -3445,7 +3636,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../../contributing/coding-guidelines/">Coding guidelines</a>
+          <a href="../../../../contributing/coding-guidelines/">Coding guidelines</a>
           
             <label for="__nav_6_3">
               <span class="md-nav__icon md-icon"></span>
@@ -3515,7 +3706,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../contributing/coding-guidelines/languages/cpp/" class="md-nav__link">
+      <a href="../../../../contributing/coding-guidelines/languages/cpp/" class="md-nav__link">
         C++
       </a>
     </li>
@@ -3529,7 +3720,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../contributing/coding-guidelines/languages/python/" class="md-nav__link">
+      <a href="../../../../contributing/coding-guidelines/languages/python/" class="md-nav__link">
         Python
       </a>
     </li>
@@ -3543,7 +3734,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../contributing/coding-guidelines/languages/shell-scripts/" class="md-nav__link">
+      <a href="../../../../contributing/coding-guidelines/languages/shell-scripts/" class="md-nav__link">
         Shell scripts
       </a>
     </li>
@@ -3557,7 +3748,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../contributing/coding-guidelines/languages/markdown/" class="md-nav__link">
+      <a href="../../../../contributing/coding-guidelines/languages/markdown/" class="md-nav__link">
         Markdown
       </a>
     </li>
@@ -3571,7 +3762,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../contributing/coding-guidelines/languages/cmake/" class="md-nav__link">
+      <a href="../../../../contributing/coding-guidelines/languages/cmake/" class="md-nav__link">
         CMake
       </a>
     </li>
@@ -3585,7 +3776,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../contributing/coding-guidelines/languages/package-xml/" class="md-nav__link">
+      <a href="../../../../contributing/coding-guidelines/languages/package-xml/" class="md-nav__link">
         package.xml
       </a>
     </li>
@@ -3599,7 +3790,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../contributing/coding-guidelines/languages/docker/" class="md-nav__link">
+      <a href="../../../../contributing/coding-guidelines/languages/docker/" class="md-nav__link">
         Docker
       </a>
     </li>
@@ -3613,7 +3804,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../contributing/coding-guidelines/languages/github-actions/" class="md-nav__link">
+      <a href="../../../../contributing/coding-guidelines/languages/github-actions/" class="md-nav__link">
         GitHub Actions
       </a>
     </li>
@@ -3683,7 +3874,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../contributing/coding-guidelines/ros-nodes/class-design/" class="md-nav__link">
+      <a href="../../../../contributing/coding-guidelines/ros-nodes/class-design/" class="md-nav__link">
         Class design
       </a>
     </li>
@@ -3697,7 +3888,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../contributing/coding-guidelines/ros-nodes/console-logging/" class="md-nav__link">
+      <a href="../../../../contributing/coding-guidelines/ros-nodes/console-logging/" class="md-nav__link">
         Console logging
       </a>
     </li>
@@ -3711,7 +3902,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../contributing/coding-guidelines/ros-nodes/coordinate-system/" class="md-nav__link">
+      <a href="../../../../contributing/coding-guidelines/ros-nodes/coordinate-system/" class="md-nav__link">
         Coordinate system
       </a>
     </li>
@@ -3725,7 +3916,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../contributing/coding-guidelines/ros-nodes/directory-structure/" class="md-nav__link">
+      <a href="../../../../contributing/coding-guidelines/ros-nodes/directory-structure/" class="md-nav__link">
         Directory structure
       </a>
     </li>
@@ -3739,7 +3930,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../contributing/coding-guidelines/ros-nodes/launch-files/" class="md-nav__link">
+      <a href="../../../../contributing/coding-guidelines/ros-nodes/launch-files/" class="md-nav__link">
         Launch files
       </a>
     </li>
@@ -3753,7 +3944,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../contributing/coding-guidelines/ros-nodes/message-guidelines/" class="md-nav__link">
+      <a href="../../../../contributing/coding-guidelines/ros-nodes/message-guidelines/" class="md-nav__link">
         Message guidelines
       </a>
     </li>
@@ -3767,7 +3958,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../contributing/coding-guidelines/ros-nodes/parameters/" class="md-nav__link">
+      <a href="../../../../contributing/coding-guidelines/ros-nodes/parameters/" class="md-nav__link">
         Parameters
       </a>
     </li>
@@ -3781,7 +3972,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../contributing/coding-guidelines/ros-nodes/task-scheduling/" class="md-nav__link">
+      <a href="../../../../contributing/coding-guidelines/ros-nodes/task-scheduling/" class="md-nav__link">
         Task scheduling
       </a>
     </li>
@@ -3795,7 +3986,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../contributing/coding-guidelines/ros-nodes/topic-namespaces/" class="md-nav__link">
+      <a href="../../../../contributing/coding-guidelines/ros-nodes/topic-namespaces/" class="md-nav__link">
         Topic namespaces
       </a>
     </li>
@@ -3849,7 +4040,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../../contributing/testing-guidelines/">Testing guidelines</a>
+          <a href="../../../../contributing/testing-guidelines/">Testing guidelines</a>
           
             <label for="__nav_6_4">
               <span class="md-nav__icon md-icon"></span>
@@ -3872,7 +4063,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../contributing/testing-guidelines/unit-testing/" class="md-nav__link">
+      <a href="../../../../contributing/testing-guidelines/unit-testing/" class="md-nav__link">
         Unit testing
       </a>
     </li>
@@ -3886,7 +4077,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../contributing/testing-guidelines/integration-testing/" class="md-nav__link">
+      <a href="../../../../contributing/testing-guidelines/integration-testing/" class="md-nav__link">
         Integration testing
       </a>
     </li>
@@ -3929,7 +4120,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../../contributing/documentation-guidelines/">Documentation guidelines</a>
+          <a href="../../../../contributing/documentation-guidelines/">Documentation guidelines</a>
           
         </div>
       
@@ -3985,7 +4176,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../../contributing/pull-request-guidelines/">Pull request guidelines</a>
+          <a href="../../../../contributing/pull-request-guidelines/">Pull request guidelines</a>
           
             <label for="__nav_6_6">
               <span class="md-nav__icon md-icon"></span>
@@ -4008,7 +4199,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../contributing/pull-request-guidelines/ci-checks/" class="md-nav__link">
+      <a href="../../../../contributing/pull-request-guidelines/ci-checks/" class="md-nav__link">
         CI checks
       </a>
     </li>
@@ -4022,7 +4213,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../contributing/pull-request-guidelines/commit-guidelines/" class="md-nav__link">
+      <a href="../../../../contributing/pull-request-guidelines/commit-guidelines/" class="md-nav__link">
         Commit guidelines
       </a>
     </li>
@@ -4036,7 +4227,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../contributing/pull-request-guidelines/review-guidelines/" class="md-nav__link">
+      <a href="../../../../contributing/pull-request-guidelines/review-guidelines/" class="md-nav__link">
         Review guidelines
       </a>
     </li>
@@ -4050,7 +4241,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../contributing/pull-request-guidelines/review-tips/" class="md-nav__link">
+      <a href="../../../../contributing/pull-request-guidelines/review-tips/" class="md-nav__link">
         Review tips
       </a>
     </li>
@@ -4093,7 +4284,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../../contributing/discussion-guidelines/">Discussion guidelines</a>
+          <a href="../../../../contributing/discussion-guidelines/">Discussion guidelines</a>
           
         </div>
       
@@ -4147,7 +4338,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../../datasets/">Datasets</a>
+          <a href="../../../../datasets/">Datasets</a>
           
         </div>
       
@@ -4200,7 +4391,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../../support/">Support</a>
+          <a href="../../../../support/">Support</a>
           
             <label for="__nav_8">
               <span class="md-nav__icon md-icon"></span>
@@ -4223,7 +4414,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../support/support-guidelines/" class="md-nav__link">
+      <a href="../../../../support/support-guidelines/" class="md-nav__link">
         Support guidelines
       </a>
     </li>
@@ -4261,7 +4452,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../../support/troubleshooting/">Troubleshooting</a>
+          <a href="../../../../support/troubleshooting/">Troubleshooting</a>
           
             <label for="__nav_8_3">
               <span class="md-nav__icon md-icon"></span>
@@ -4284,7 +4475,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../support/troubleshooting/performance-troubleshooting/" class="md-nav__link">
+      <a href="../../../../support/troubleshooting/performance-troubleshooting/" class="md-nav__link">
         Performance Troubleshooting
       </a>
     </li>
@@ -4305,7 +4496,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../support/docs-guide/" class="md-nav__link">
+      <a href="../../../../support/docs-guide/" class="md-nav__link">
         Docs guide
       </a>
     </li>
@@ -4346,37 +4537,153 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#description" class="md-nav__link">
-    Description
+  <a href="#context-and-scope" class="md-nav__link">
+    Context and scope
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#states" class="md-nav__link">
-    States
+  <a href="#goals-and-non-goals" class="md-nav__link">
+    Goals and non-goals
   </a>
   
-    <nav class="md-nav" aria-label="States">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#high-level-design" class="md-nav__link">
+    High level design
+  </a>
+  
+    <nav class="md-nav" aria-label="High level design">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#autoware-control-flag" class="md-nav__link">
-    Autoware control flag
+  <a href="#remarkable-points" class="md-nav__link">
+    Remarkable points
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-extendcorporate-with-new-features-wip" class="md-nav__link">
+    How to extend/corporate with new features (WIP)
+  </a>
+  
+    <nav class="md-nav" aria-label="How to extend/corporate with new features (WIP)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#planning-component" class="md-nav__link">
+    Planning Componentに新たなモジュールを追加する
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#operation-mode-and-change-flags" class="md-nav__link">
-    Operation mode and change flags
+  <a href="#planning" class="md-nav__link">
+    Planningのサブコンポーネントを置き換える
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#transition-flag" class="md-nav__link">
-    Transition flag
+  <a href="#planning-component_1" class="md-nav__link">
+    Planning Component全体を置き換える
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#component-interface" class="md-nav__link">
+    Component interface
+  </a>
+  
+    <nav class="md-nav" aria-label="Component interface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#input-to-the-planning-component" class="md-nav__link">
+    Input to the planning component
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output-from-the-planning-component" class="md-nav__link">
+    Output from the planning component
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internal-interface-in-the-planning-component" class="md-nav__link">
+    Internal interface in the planning component
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-design" class="md-nav__link">
+    Detailed design
+  </a>
+  
+    <nav class="md-nav" aria-label="Detailed design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#supported-features" class="md-nav__link">
+    Supported features
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reference-implementation" class="md-nav__link">
+    Reference Implementation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#important-information-in-the-current-implementation" class="md-nav__link">
+    Important information in the current implementation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-add-new-modules-in-the-current-implementation" class="md-nav__link">
+    How to add new modules in the current implementation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#important-parameters" class="md-nav__link">
+    Important Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notation" class="md-nav__link">
+    Notation
   </a>
   
 </li>
@@ -4404,60 +4711,529 @@
   
 
 
-<div><h1 id="operation-mode-api">Operation Mode API<a class="headerlink" href="#operation-mode-api" title="Permanent link">#</a></h1>
+<div><h1 id="planning-component-design">Planning component design<a class="headerlink" href="#planning-component-design" title="Permanent link">#</a></h1>
+<!-- 
+- discussionsはトレードオフ選定とかにしたい
+- サードパーティによって拡張というよりは、誰でも拡張できるって言い回しのほうが良いはず
+- mission plannerの使われ方を重点的に考えよう。FMSとして機能が外だしされることがあるから、これは別れてるのよ。
+- ハイレベルなデザインと詳細なデザインではなく、アーキテクチャのためのデザイン（要求ベース、これがやりたい）と、アーキテクチャ（詳細なフロー）ができるはず。
+- デザインの部分に、ポリシーによる変更がわかるような書き方があると良い。ポリシーA（右側走行）になったときに、いくつかのモジュールが特定の設定で起動する。どう図にするか。。。
+- このポリシーに対して、何がどうかわるかという例があるといい。自動運転レベルが変わったときに、HMIとの連携がこう変わって、軌道モジュールがこう変わる、とか。
+- ハイレベルに対するユースケースを上げる
+- 車両の振る舞いのユースケース
+  - 話ゴールやチェくポイント、NGポイントを与えてplanning内部でルートを計算して進む / 渋滞情報を加味したルートを外部から与えて走行する
+開発者のユースケース
+  - 中の作りの話（実装や設計レベル）：機能の差し替えができていてほしいので（レーンチェンジAとレーンチェンジBとか）、柔軟に変更できる必要があり、各機能はモジュールとして実装される。
+ -->
+
+<h2 id="context-and-scope">Context and scope<a class="headerlink" href="#context-and-scope" title="Permanent link">#</a></h2>
+<p>自動運転システムにおける Planning コンポーネントの役割は、与えられたミッションを満たすために、安全で交通ルールに基づいた自動運転車両の目標軌道（経路と速度）を生成することである。</p>
+<p>このドキュメントではAutowareにおけるplanningの要求やデザインをまとめる。これによって、開発者はplanning Componentがどのような考えで設計されているのか、およびそれらをどう拡張させていくのかを理解することができます。</p>
+<p>ドキュメントの前半ではハイレベルな要求やデザインを、後半は実際の実装や提供機能について述べる。</p>
+<h2 id="goals-and-non-goals">Goals and non-goals<a class="headerlink" href="#goals-and-non-goals" title="Permanent link">#</a></h2>
+<p>我々の目標は、純粋な自動運転システムの開発ではなく、自動運転"プラットフォーム"の開発である。このプラットフォームでは、誰もが自動運転の機能を自由に拡張できる。</p>
+<p>Autowareではこのプラットフォーム観点から <a href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-concepts">microautonomy architecture</a> の概念を提唱しています。Microautonomyとは、適切な機能のモジュール化やインターフェースの明確な定義に基づき、高い拡張性を焦点を当てた自動運転システムの設計コンセプトです。</p>
+<p>これを踏まえ、Planning component の設計方針は、世の中のすべての複雑な自動運転のユースケースを解決することではなく（なぜならそれは非常に難しい問題なので）、<strong>ユーザーのニーズに合わせてカスタマイズでき、誰でも容易に機能拡張が可能なPlanning開発プラットフォームを提供すること</strong> に設定されています。我々が提供するプラットフォームが様々なニーズに対する拡張性を獲得した結果、最終的に多くの複雑なユースケースが解決できるようになると信じています。</p>
+<p>この方針を明確にするため、以下に Goal と Non-Goal をリスト化します。</p>
+<p><strong>Goals:</strong></p>
 <ul>
-<li><a href="state">/api/operation_mode/state</a></li>
-<li><a href="change_to_autonomous">/api/operation_mode/change_to_autonomous</a></li>
-<li><a href="change_to_stop">/api/operation_mode/change_to_stop</a></li>
-<li><a href="change_to_local">/api/operation_mode/change_to_local</a></li>
-<li><a href="change_to_remote">/api/operation_mode/change_to_remote</a></li>
-<li><a href="enable_autoware_control">/api/operation_mode/enable_autoware_control</a></li>
-<li><a href="disable_autoware_control">/api/operation_mode/disable_autoware_control</a></li>
+<li><strong>自動運転の走行に必要な最低限の基本機能を持つこと</strong><ul>
+<li>Planning Componentは機能拡張以前に、自動運転のために必須な機能を提供する必要があります。これは走る、止まる、曲がるといった基本計画に加え、比較的安全な状況での車線変更や信号停止などの機能が含まれます。</li>
 </ul>
-<h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">#</a></h2>
-<p>As shown below, Autoware assumes that the vehicle interface has two modes, Autoware control and direct control.
-In direct control mode, the vehicle is operated using devices such as steering and pedals.
-If the vehicle does not support direct control mode, it is always treated as Autoware control mode.
-Autoware control mode has four operation modes.</p>
+</li>
+<li><strong>提供機能はモジュール化されており、誰でも機能の再利用や拡張が可能であること</strong> <ul>
+<li>これはユーザーが期待するODDに対し、拡張機能によって対応できることを意味します。プラグインのような形で誰でも機能拡張ができれば、それぞれのニーズ（Lv4/Lv2自動運転、公道/私道走行、大型車両、小型ロボットなど）にあったシステムが提供できます。</li>
+<li>ユーザーのニーズには、純粋な自動運転としての性能ではなく、限定されたODD（例えば障害物のない管理された私道）において可能な限り消費電力を下げることなども含まれます。この場合はモジュールをdisableさせることによって、この場合はODDを限定させる代わりに、処理負荷を下げられるようにする必要があります。</li>
+</ul>
+</li>
+<li><strong>人間のオペレータによって能力が拡張できること</strong> <ul>
+<li>オペレータによる補助も機能拡張の一つです。これにより、非常に複雑で困難なユースケースにおいても、人間の補助という機能拡張で対応できることを意味します。ここで具体的なオペレータの種類は定義しません。研究フェーズにおいては車に同乗している人かもしれませんし、自動運転サービス提供者にとっては非常時にのみ繋がる遠隔オペレータかもしれません。</li>
+</ul>
+</li>
+</ul>
+<p><strong>Non-goals:</strong></p>
+<p>Planning Componentは third-partyのモジュールによって機能拡張されることを想定しています。したがって、以下はAutowareのPlanning Component単体の目標から除外されます。</p>
+<ul>
+<li>ユーザーが必要とする機能の全てをAutoware単独で提供すること </li>
+<li>自動運転としての完全な機能と性能</li>
+<li>人間の性能を常に上回る性能</li>
+<li>「絶対に衝突しない」という機能</li>
+</ul>
+<p>なお、「絶対に衝突しない」といった性能は現在の目標ではありませんが、外部モジュールとの連携や将来の強化によってそのような状態を達成できるようなアーキテクチャを作成することは我々の目標です。そしてこれらの要求は自動運転プラットフォームの視点から来ているものであり、一般的な自動運転システムにおけるPlanning Componentへの要求としては一般的では無いかもしれません。</p>
+<!-- ## Requirements
+
+WIP
+
+## Assumptions
+
+WIP -->
+
+<h2 id="high-level-design">High level design<a class="headerlink" href="#high-level-design" title="Permanent link">#</a></h2>
+<p>このダイアグラムはPlanning Componentのハイレベルなアーキテクチャを示している。なお、これは理想的なハイレベルデザインであり、現時点での実装がこれに従っていないこともあることに注意する。実際の詳細な実装は後半を参照のこと。</p>
+<!-- ![overall-planning-architecture](image/high-level-planning-diagram.drawio.svg) -->
+<p><img alt="overall-planning-architecture" src="../image/high-level-planning-diagram-miyake-reviewed.drawio.svg"></p>
+<p>Planning コンポーネントはいくつかのサブコンポーネントからなります。</p>
+<ul>
+<li><strong>Mission Planning</strong>: 地図情報をもとに、自動運転ミッションの設定や現在位置からゴールまでのルートを計算を行います。</li>
+<li><strong>Planning Modules</strong>: 定められたミッションに対し、目標軌道やウインカーなどの自車の振る舞いの計画を行います。このサブコンポーネントは機能を担当するいくつかのモジュールから成ります。これらのモジュールは便宜上、BehaviorとMotionの2つに分けられています。<ul>
+<li><strong>Behavior Planner</strong>: 交通ルールや安全を考慮して適切な経路を計算します。</li>
+<li><strong>Motion Planner</strong>: Behavior Plannerと連携し、車両運動や乗り心地を考慮した目標軌道を計算します。</li>
+</ul>
+</li>
+<li><strong>Validation</strong>: 計算された目標軌道を検証し、安全性の担保や緊急時の振る舞いを担います。</li>
+</ul>
+<p>ここでは microautonomy アーキテクチャに従い、モジュール型のシステムフレームワークを採用しています。planningの機能はモジュールとして実装され、これらのモジュールは与えられたユースケースに応じて動的/静的にload/unloadされます。これらには例えば、レーンチェンジ、交差点、横断歩道モジュールなどのモジュールが含まれています。</p>
+<h3 id="remarkable-points">Remarkable points<a class="headerlink" href="#remarkable-points" title="Permanent link">#</a></h3>
+<p>このハイレベルデザインにおいて、Goalsに対する重要な設計として、以下を挙げます。</p>
+<h4 id="modulation-of-each-function">Modulation of each function<a class="headerlink" href="#modulation-of-each-function" title="Permanent link">#</a></h4>
+<p>ルート生成や車線変更や交差点、横断歩道などPlanningに必要な機能はモジュールとして管理されます。これらのモジュールに対してはある程度共通化されたインターフェースが提供され、それに従うことによって誰でもモジュールの追加や拡張を行うことができます。詳細なインターフェースは後述。</p>
+<h4 id="separation-of-mission-planning-sub-component">Separation of Mission Planning sub-component<a class="headerlink" href="#separation-of-mission-planning-sub-component" title="Permanent link">#</a></h4>
+<p>Mission Planningの役割は、<abbr title="Fleet Management System">FMS</abbr>（Fleet Management System）などの既存サービスの代替になるものです。ハイレベルで定義されたMission Planningのインターフェースに従うことにより、これらthird-party機能との連携を容易に行うことができます。</p>
+<h4 id="separation-of-validation-sub-component">Separation of Validation sub-component<a class="headerlink" href="#separation-of-validation-sub-component" title="Permanent link">#</a></h4>
+<p>誰でも容易に拡張できるというPlanning Componentの性質の背反として、全ての機能それぞれにおいて期待されるレベルの安全性を担保することは困難です。PlanningのValidation機能は実際に経路計画などを行うモジュールからは分離して管理され、モジュールに任意の変更があった場合にも一定のレベルの安全を担保できるように設計されています。</p>
+<h4 id="interface-for-hmi-human-machine-interface">Interface for <abbr title="Human Machine Interface">HMI</abbr> (Human Machine Interface)<a class="headerlink" href="#interface-for-hmi-human-machine-interface" title="Permanent link">#</a></h4>
+<p>Human Machine Interfaceとの連携は、人間オペレータとの連携を円滑に行うために必要不可欠なものです。このComponent間のインターフェースを介して、同乗オペレータや遠隔監視システムとの連携を可能にします。</p>
+<h4 id="trade-offs-for-the-separation-of-planning-and-other-components">Trade-offs for the separation of planning and other components<a class="headerlink" href="#trade-offs-for-the-separation-of-planning-and-other-components" title="Permanent link">#</a></h4>
+<p>Autowareの全体設計の話ではあるが、Planningを孤立したComponentとして設計することにおいても注意するべきトレードオフが存在します。planning、perception、localization、controlなどのコンポーネントを分離して開発することで、サードパーティ製のコンポーネントとの連携が容易になります。しかし、ここではパフォーマンスと拡張性の間にトレードオフがあります。例えば、perception コンポーネントは理想的には planning コンポーネントが必要とするオブジェクトだけを認識すれば十分ですが、コンポーネントを分離することでそのような密接なコミュニケーションが難しくなり、不要なオブジェクトに対しても処理を実行する必要があります。また、計画と制御を分離すると、計画時に車両の運動性能を考慮することが難しくなるという性能面の欠点があります。これを補うためには、インターフェースの情報量を増やすか、計算負荷を増やすなど対応が必要になります。</p>
+<h2 id="how-to-extendcorporate-with-new-features-wip">How to extend/corporate with new features (WIP)<a class="headerlink" href="#how-to-extendcorporate-with-new-features-wip" title="Permanent link">#</a></h2>
+<p>Planning Componentのデザインの最も重要な機能の一つが、外部モジュールとの連携です。以下の図に示すように外部の機能を組み込む際にはいくつかの方法があります。</p>
+<p><img alt="how-to-add-new-modules" src="../image/how-to-add-new-modules.drawio.svg"></p>
+<h3 id="planning-component">Planning Componentに新たなモジュールを追加する<a class="headerlink" href="#planning-component" title="Permanent link">#</a></h3>
+<p>ユーザーはモジュールとして作成されたPlanningの機能を置き換えたり、機能追加をすることができます。これは最も一般的な機能の拡張方法です。これによって、求めるODDにおいて不足している機能を追加したり、逆に既存の機能をよりシンプルなものに変更したりすることができます。</p>
+<p>ただし、この機能追加を行うためには、各モジュールのインターフェースが適切に整理されている必要があります。2023.11現在ではこのような理想的なモジュールの仕組みは提供されておらず、いくつかの制限を含んでいます。詳細は Reference Implementationの <a href="#how-to-add-new-modules-in-the-current-implementation">How to add new modules in the current implementation</a> を確認してください。</p>
+<h3 id="planning">Planningのサブコンポーネントを置き換える<a class="headerlink" href="#planning" title="Permanent link">#</a></h3>
+<p>いくつかのユーザーは、サブコンポーネントレベルでの連携・拡張を行うことに興味があるでしょう。これは例えば、Mission Planningを既存のFMSサービスと置き換えたり、既存のValidation機能は使いつつ経路生成の機能を third-party製のもの置き換えるといった要求に該当します。</p>
+<p>後に説明される <a href="#internal-interface-in-the-planning-component">Internal interface in the planning component</a> に従えば、サブコンポーネントレベルでの連携・拡張を行うことが可能です。既存のplanningの機能との複雑な連携はできませんが、一部のplanning componentの機能と外部モジュールとの連携が可能に成ります。</p>
+<h3 id="planning-component_1">Planning Component全体を置き換える<a class="headerlink" href="#planning-component_1" title="Permanent link">#</a></h3>
+<p>自動運転のPlanningシステムを開発している企業や研究室などは、自社のPlanning製品をAutowareのPerceptionやControlモジュールと連携させ、自動運転システム全体の評価を行うことに関心があるでしょう。これはPlanning全体を置き換えることによって可能となります。Component間で定義される、おそらく最も堅牢で安定したインターフェースに従えば簡単に置き換えが可能です。ただし、既存のplanningモジュールとの連携はできません。</p>
+<h2 id="component-interface">Component interface<a class="headerlink" href="#component-interface" title="Permanent link">#</a></h2>
+<p>This section describes the inputs and outputs of the Planning Component and of its internal modules. See the <a href="../../../autoware-interfaces/components/planning/">Planning Component Interface</a> page for the current implementation.</p>
+<h3 id="input-to-the-planning-component">Input to the planning component<a class="headerlink" href="#input-to-the-planning-component" title="Permanent link">#</a></h3>
+<ul>
+<li><strong>From Map</strong><ul>
+<li>Vector map: Contains all static information about the environment, including lane connection information for route planning, lane geometry for generating a reference path, and traffic rule-related information.</li>
+</ul>
+</li>
+<li><strong>From Perception</strong><ul>
+<li>Detected object information: Provides real-time information about objects that cannot be known in advance, such as pedestrians and other vehicles. The Planning Component plans maneuvers to avoid collisions with these objects.</li>
+<li>Detected obstacle information: Supplies real-time information about the location of obstacles, which is more primitive than Detected Object and used for emergency stops and other safety measures.</li>
+<li>Occupancy map information: Offers real-time information about the presence of pedestrians and other vehicles and occluded area information.</li>
+<li>Traffic light recognition result: Provides the current state of each traffic light in real time. The Planning Component extracts relevant information for the planned path and determines whether to stop at intersections.</li>
+</ul>
+</li>
+<li><strong>From Localization</strong><ul>
+<li>Vehicle motion information: Includes the ego vehicle's position, velocity, acceleration, and other motion-related data.</li>
+</ul>
+</li>
+<li><strong>From System</strong><ul>
+<li>Operation mode: Indicates whether the vehicle is operating in Autonomous mode.</li>
+</ul>
+</li>
+<li><strong>From Human Machine Interface (<abbr title="Human Machine Interface">HMI</abbr>)</strong><ul>
+<li>Feature execution: Allows for executing/authorizing autonomous driving operations, such as lane changes or entering intersections, by human operators.</li>
+</ul>
+</li>
+<li><strong>From API Layer</strong><ul>
+<li>Goal: Represents the final position that the Planning Component aims to reach.</li>
+<li>Checkpoint: Represents a midpoint along the route to the destination. This is used during route calculation.</li>
+<li>Velocity limit: Sets the maximum speed limit for the vehicle.</li>
+</ul>
+</li>
+</ul>
+<h3 id="output-from-the-planning-component">Output from the planning component<a class="headerlink" href="#output-from-the-planning-component" title="Permanent link">#</a></h3>
+<ul>
+<li><strong>To Control</strong><ul>
+<li>Trajectory: Provides a smooth sequence of pose, twist, and acceleration that the Control Component must follow. The trajectory is typically 10 seconds long with a 0.1-second resolution.</li>
+<li>Turn Signals: Controls the vehicle's turn indicators, such as right, left, hazard, etc. based on the planned maneuvers.</li>
+</ul>
+</li>
+<li><strong>To System</strong><ul>
+<li>Diagnostics: Reports the state of the Planning Component, indicating whether the processing is running correctly and whether a safe plan is being generated.</li>
+</ul>
+</li>
+<li><strong>To Human Machine Interface (<abbr title="Human Machine Interface">HMI</abbr>)</strong><ul>
+<li>Feature execution availability: Indicates the status of operations that can be executed or are required, such as lane changes or entering intersections.</li>
+<li>Trajectory candidate: Shows the potential trajectory that will be executed after the user's execution.</li>
+</ul>
+</li>
+<li><strong>To API Layer</strong><ul>
+<li>Planning factors: Provides information about the reasoning behind the current planning behavior. This may include the position of target objects to avoid, obstacles that led to the decision to stop, and other relevant information.</li>
+</ul>
+</li>
+</ul>
+<h3 id="internal-interface-in-the-planning-component">Internal interface in the planning component<a class="headerlink" href="#internal-interface-in-the-planning-component" title="Permanent link">#</a></h3>
+<ul>
+<li><strong>Mission Planning to Scenario Planning</strong><ul>
+<li>Route: Offers guidance for the path that needs to be followed from the starting point to the destination. This path is determined based on information such as lane IDs defined on the map. At the route level, it doesn't explicitly indicate which specific lanes to take, and the route can contain multiple lanes.</li>
+</ul>
+</li>
+<li><strong>Behavior Planning to Motion Planning</strong><ul>
+<li>Path: Provides a rough position and velocity to be followed by the vehicle. These path points are usually defined with an interval of about 1 meter. Although other interval distances are possible, it may impact the precision or performance of the planning component.</li>
+<li>Drivable area: Defines regions where the vehicle can drive, such as within lanes or physically drivable areas. It assumes that the motion planner will calculate the final trajectory within this defined area.</li>
+</ul>
+</li>
+<li><strong>Scenario Planning to Validation</strong><ul>
+<li>Trajectory: Defines the desired positions, velocities, and accelerations which the Control Component will try to follow. Trajectory points are defined at intervals of approximately 0.1 seconds based on the trajectory velocities.</li>
+</ul>
+</li>
+<li><strong>Validation to Control Component</strong><ul>
+<li>Trajectory: Same as above but with some additional safety considerations.</li>
+</ul>
+</li>
+</ul>
+<h2 id="detailed-design">Detailed design<a class="headerlink" href="#detailed-design" title="Permanent link">#</a></h2>
+<h3 id="supported-features">Supported features<a class="headerlink" href="#supported-features" title="Permanent link">#</a></h3>
 <table>
 <thead>
 <tr>
-<th>Mode</th>
+<th>Feature</th>
+<th>Description</th>
+<th>Requirements</th>
+<th>Figure</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Route Planning</td>
+<td>Plan route from the ego vehicle position to the destination.<br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/mission_planner/">Mission Planner</a>, enabled by launching the <code>mission_planner</code> node.</td>
+<td>- Lanelet map (driving lanelets)</td>
+<td><img alt="route-planning" src="../image/features-route-planning.drawio.svg"></td>
+</tr>
+<tr>
+<td>Path Planning from Route</td>
+<td>Plan path to be followed from the given route. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_path_planner/">Behavior Path Planner</a>.</td>
+<td>- Lanelet map (driving lanelets)</td>
+<td><img alt="lane-follow" src="../image/features-lane-follow.drawio.svg"></td>
+</tr>
+<tr>
+<td>Obstacle Avoidance</td>
+<td>Plan path to avoid obstacles by steering operation. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_path_planner/docs/behavior_path_planner_avoidance_design/">Avoidance</a>, <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/obstacle_avoidance_planner/">Obstacle Avoidance Planner</a>. Enable flag in parameter: <code>launch obstacle_avoidance_planner true</code></td>
+<td>- objects information</td>
+<td><img alt="obstacle-avoidance" src="../image/features-avoidance.drawio.svg"></td>
+</tr>
+<tr>
+<td>Path Smoothing</td>
+<td>Plan path to achieve smooth steering. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/obstacle_avoidance_planner/">Obstacle Avoidance Planner</a>.</td>
+<td>- Lanelet map (driving lanelet)</td>
+<td><img alt="path-smoothing" src="../image/features-path-smoothing.drawio.svg"></td>
+</tr>
+<tr>
+<td>Narrow Space Driving</td>
+<td>Plan path to drive within the drivable area. Furthermore, when it is not possible to drive within the drivable area, stop the vehicle to avoid exiting the drivable area. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/obstacle_avoidance_planner/">Obstacle Avoidance Planner</a>.</td>
+<td>- Lanelet map (high-precision lane boundaries)</td>
+<td><img alt="narrow-space-driving" src="../image/features-narrow-space-driving.drawio.svg"></td>
+</tr>
+<tr>
+<td>Lane Change</td>
+<td>Plan path for lane change to reach the destination. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_path_planner/docs/behavior_path_planner_lane_change_design/">Lane Change</a>.. Enable flag in both parameters:</td>
+<td>- Lanelet map (driving lanelets)</td>
+<td><img alt="lane-change" src="../image/features-lane-change.drawio.svg"></td>
+</tr>
+<tr>
+<td>Pull Over</td>
+<td>Plan path for pull over to park at the road shoulder. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_path_planner/docs/behavior_path_planner_goal_planner_design/">Goal Planner</a>.</td>
+<td>- Lanelet map (shoulder lane)</td>
+<td><img alt="pull-over" src="../image/features-pull-over.drawio.svg"></td>
+</tr>
+<tr>
+<td>Pull Out</td>
+<td>Plan path for pull over to start from the road shoulder. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_path_planner/docs/behavior_path_planner_pull_out_design/">Pull Out Module</a>.</td>
+<td>- Lanelet map (shoulder lane)</td>
+<td><img alt="pull-out" src="../image/features-pull-out.drawio.svg"></td>
+</tr>
+<tr>
+<td>Path Shift</td>
+<td>Plan path in lateral direction in response to external instructions. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_path_planner/docs/behavior_path_planner_side_shift_design/">Side Shift Module</a>.</td>
+<td>- None</td>
+<td><img alt="side-shift" src="../image/features-side-shift.drawio.svg"></td>
+</tr>
+<tr>
+<td>Obstacle Stop</td>
+<td>Plan velocity to stop for an obstacle on the path. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/obstacle_stop_planner/">Obstacle Stop Planner</a>, <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/obstacle_cruise_planner/">Obstacle Cruise Planner</a>. <code>launch obstacle_stop_planner</code> and enable flag: <code>TODO</code>, <code>launch obstacle_cruise_planner</code> and enable flag: <code>TODO</code></td>
+<td>- objects information</td>
+<td><img alt="obstacle-stop" src="../image/features-obstacle-stop.drawio.svg"></td>
+</tr>
+<tr>
+<td>Obstacle Deceleration</td>
+<td>Plan velocity to decelerate for an obstacle located around the path. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/obstacle_stop_planner/">Obstacle Stop Planner</a>, <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/obstacle_cruise_planner/">Obstacle Cruise Planner</a>.</td>
+<td>- objects information</td>
+<td><img alt="obstacle-decel" src="../image/features-obstacle-decel.drawio.svg"></td>
+</tr>
+<tr>
+<td>Adaptive Cruise Control</td>
+<td>Plan velocity to follow the vehicle driving in front of the ego vehicle. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/obstacle_stop_planner/">Obstacle Stop Planner</a>, <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/obstacle_cruise_planner/">Obstacle Cruise Planner</a>.</td>
+<td>- objects information</td>
+<td><img alt="adaptive-cruise" src="../image/features-adaptive-cruise.drawio.svg"></td>
+</tr>
+<tr>
+<td>Decelerate for cut-in vehicles</td>
+<td>Plan velocity to avoid a risk for cutting-in vehicle to ego lane. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/obstacle_cruise_planner/">Obstacle Cruise Planner</a>.</td>
+<td>- objects information</td>
+<td><img alt="cut-in" src="../image/features-cut-in.drawio.svg"></td>
+</tr>
+<tr>
+<td>Surround Check at starting</td>
+<td>Plan velocity to prevent moving when an obstacle exists around the vehicle. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/surround_obstacle_checker/">Surround Obstacle Checker</a>. Enable flag in parameter: <code>use_surround_obstacle_check true</code> in <a href="https://github.com/autowarefoundation/autoware_launch/blob/2850d7f4e20b173fde2183d5323debbe0067a990/autoware_launch/launch/components/tier4_planning_component.launch.xml#L8">tier4_planning_component.launch.xml</a></td>
+<td>- objects information</td>
+<td><img alt="surround-check" src="../image/features-surround-check.drawio.svg"></td>
+</tr>
+<tr>
+<td>Curve Deceleration</td>
+<td>Plan velocity to decelerate the speed on a curve. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/motion_velocity_smoother/">Motion Velocity Smoother</a>.</td>
+<td>- None</td>
+<td><img alt="decel-on-curve" src="../image/features-decel-on-curve.drawio.svg"></td>
+</tr>
+<tr>
+<td>Curve Deceleration for Obstacle</td>
+<td>Plan velocity to decelerate the speed on a curve for a risk of obstacle collision around the path. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/obstacle_velocity_limiter/">Obstacle Velocity Limiter</a>.</td>
+<td>- objects information <br> - Lanelet map (static obstacle)</td>
+<td><img alt="decel-on-curve-obstacles" src="../image/features-decel-on-curve-obstacles.drawio.svg"></td>
+</tr>
+<tr>
+<td>Crosswalk</td>
+<td>Plan velocity to stop or decelerate for pedestrians approaching or walking on a crosswalk. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_crosswalk_module/docs/crosswalk-design/">Crosswalk Module</a>.</td>
+<td>- objects information <br> - Lanelet map (pedestrian crossing)</td>
+<td><img alt="crosswalk" src="../image/features-crosswalk.drawio.svg"></td>
+</tr>
+<tr>
+<td>Intersection Oncoming Vehicle Check</td>
+<td>Plan velocity for turning right/left at intersection to avoid a risk with oncoming other vehicles. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_intersection_module/docs/intersection-design/">Intersection Module</a>.</td>
+<td>- objects information <br> - Lanelet map (intersection lane and yield lane)</td>
+<td><img alt="intersection" src="../image/features-intersection.drawio.svg"></td>
+</tr>
+<tr>
+<td>Intersection Blind Spot Check</td>
+<td>Plan velocity for turning right/left at intersection to avoid a risk with other vehicles or motorcycles coming from behind blind spot. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_intersection_module/docs/intersection-design/">Intersection Module</a>.</td>
+<td>- objects information <br> - Lanelet map (intersection lane)</td>
+<td><img alt="blind-spot" src="../image/features-blind-spot.drawio.svg"></td>
+</tr>
+<tr>
+<td>Intersection Occlusion Check</td>
+<td>Plan velocity for turning right/left at intersection to avoid a risk with the possibility of coming vehicles from occlusion area. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_intersection_module/docs/intersection-design/">Intersection Module</a>.</td>
+<td>- objects information <br> - Lanelet map (intersection lane)</td>
+<td><img alt="intersection-occlusion" src="../image/features-intersection-occlusion.drawio.svg"></td>
+</tr>
+<tr>
+<td>Intersection Traffic Jam Detection</td>
+<td>Plan velocity for intersection not to enter the intersection when a vehicle is stopped ahead for a traffic jam. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_intersection_module/docs/intersection-design/">Intersection Module</a>.</td>
+<td>- objects information <br> - Lanelet map (intersection lane)</td>
+<td><img alt="intersection-traffic-jam" src="../image/features-intersection-traffic-jam.drawio.svg"></td>
+</tr>
+<tr>
+<td>Traffic Light</td>
+<td>Plan velocity for intersection according to a traffic light signal. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_traffic_light_module/docs/traffic-light-design/">Traffic Light Module</a>.</td>
+<td>- Traffic light color information</td>
+<td><img alt="traffic-light" src="../image/features-traffic-light.drawio.svg"></td>
+</tr>
+<tr>
+<td>Run-out Check</td>
+<td>Plan velocity to decelerate for the possibility of nearby objects running out into the path. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_run_out_module/docs/run-out-design/">Run Out Module</a>.</td>
+<td>- objects information</td>
+<td><img alt="run-out" src="../image/features-run-out.drawio.svg"></td>
+</tr>
+<tr>
+<td>Stop Line</td>
+<td>Plan velocity to stop at a stop line. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_stop_line_module/docs/stop-line-design/">Stop Line Module</a>.</td>
+<td>- Lanelet map (stop line)</td>
+<td><img alt="stop-line" src="../image/features-stop-line.drawio.svg"></td>
+</tr>
+<tr>
+<td>Occlusion Spot Check</td>
+<td>Plan velocity to decelerate for objects running out from occlusion area, for example, from behind a large vehicle. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_occlusion_spot_module/docs/occlusion-spot-design/">Occlusion Spot Module</a>.</td>
+<td>- objects information <br> - Lanelet map (private/public lane)</td>
+<td><img alt="occlusion-spot" src="../image/features-occlusion-spot.drawio.svg"></td>
+</tr>
+<tr>
+<td>No Stop Area</td>
+<td>Plan velocity not to stop in areas where stopping is prohibited, such as in front of the fire station entrance. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_no_stopping_area_module/docs/no-stopping-area-design/">No Stopping Area Module</a>.</td>
+<td>- Lanelet map (no stopping area)</td>
+<td><img alt="no-stopping-area" src="../image/features-no-stopping-area.drawio.svg"></td>
+</tr>
+<tr>
+<td>Merge from Private Area to Public Road</td>
+<td>Plan velocity for entering the public road from a private driveway to avoid a risk of collision with pedestrians or other vehicles. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_intersection_module/docs/merge-from-private-design/">Merge from Private Area Module</a>.</td>
+<td>- objects information <br> - Lanelet map (private/public lane)</td>
+<td>WIP</td>
+</tr>
+<tr>
+<td>Speed Bump</td>
+<td>Plan velocity to decelerate for speed bumps. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_speed_bump_module/docs/speed-bump-design/">Speed Bump Module</a>.</td>
+<td>- Lanelet map (speed bump)</td>
+<td><img alt="speed-bump" src="../image/features-speed-bump.drawio.svg"></td>
+</tr>
+<tr>
+<td>Detection Area</td>
+<td>Plan velocity to stop at the corresponding stop when an object exist in the designated detection area. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_detection_area_module/docs/detection-area-design/">Detection Area Module</a>.</td>
+<td>- Lanelet map (detection area)</td>
+<td><img alt="detection-area" src="../image/features-detection-area.drawio.svg"></td>
+</tr>
+<tr>
+<td>Out of <abbr title="Operational Design Domain">ODD</abbr> area</td>
+<td>Plan velocity to stop before exiting the area designated by <abbr title="Operational Design Domain">ODD</abbr> (Operational Design Domain). <br> <br> Reference implementation is in (WIP).</td>
+<td>- Lanelet map (invalid lanelet)</td>
+<td>WIP</td>
+</tr>
+<tr>
+<td>Collision Detection when deviating from lane</td>
+<td>Plan velocity to avoid conflict with other vehicles driving in the another lane when the ego vehicle is deviating from own lane. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_out_of_lane_module/docs/out-of-lane-design/">Out of Lane Module</a>.</td>
+<td>- objects information <br> - Lanelet map (driving lane)</td>
+<td>WIP</td>
+</tr>
+<tr>
+<td>Parking</td>
+<td>Plan path and velocity for given goal in parking area. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/freespace_planner/">Free Space Planner</a>.</td>
+<td>- objects information <br> - Lanelet map (parking area)</td>
+<td><img alt="parking" src="../image/features-parking.drawio.svg"></td>
+</tr>
+<tr>
+<td>Autonomous Emergency Braking (AEB)</td>
+<td>Perform an emergency stop if a collision with an object ahead is anticipated. It is noted that this function is expected as a final safety layer, and this should work even in the event of failures in the Localization or Perception system. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_out_of_lane_module/docs/out-of-lane-design/">Out of Lane Module</a>.</td>
+<td>- Primitive objects</td>
+<td><img alt="aeb" src="../image/features-aeb.drawio.svg"></td>
+</tr>
+<tr>
+<td>Minimum Risk Maneuver (MRM)</td>
+<td>Provide appropriate MRM (Minimum Risk Maneuver) instructions when a hazardous event occurs. For example, when a sensor trouble found, send an instruction for emergency braking, moderate stop, or pulling over to the shoulder, depending on the severity of the situation. <br> <br> Reference implementation is in TODO</td>
+<td>- TODO</td>
+<td>WIP</td>
+</tr>
+<tr>
+<td>Trajectory Validation</td>
+<td>Check the planned trajectory is safe. If it is unsafe, take appropriate action, such as modify the trajectory, stop sending the trajectory or report to the autonomous driving system. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/planning_validator/">Planning Validator</a>.</td>
+<td>- None</td>
+<td><img alt="trajectory-validation" src="../image/features-trajectory-validation.drawio.svg"></td>
+</tr>
+<tr>
+<td>Running Lane Map Generation</td>
+<td>Generate lane map from localization data recorded in manual driving. <br> <br> Reference implementation is in WIP</td>
+<td>- None</td>
+<td>WIP</td>
+</tr>
+<tr>
+<td>Running Lane Optimization</td>
+<td>Optimize the centerline (reference path) of the map to make it smooth considering the vehicle kinematics. <br> <br> Reference implementation is in <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/static_centerline_optimizer/">Static Centerline Optimizer</a>.</td>
+<td>- Lanelet map (driving lanes)</td>
+<td>WIP</td>
+</tr>
+</tbody>
+</table>
+<!-- ![supported-functions](image/planning-functions.drawio.svg) -->
+
+<h3 id="reference-implementation">Reference Implementation<a class="headerlink" href="#reference-implementation" title="Permanent link">#</a></h3>
+<p>The following diagram describes the reference implementation of the Planning component. By adding new modules or extending the functionalities, various ODDs can be supported.</p>
+<p><em>Note that some implementation does not adhere to the high-level architecture design due to the difficulties of the implementation and require updating.</em></p>
+<p>ハイレベルなデザインと比較したときの重要な違いは、「シナリオレイヤーの導入」と「behavior/motionの明確な分離」です。これらは現時点での性能や実装的な課題から導入されています。これらをハイレベルなデザインとして定義するか、それとも実装の一部として改良していくかは議論の必要があります。</p>
+<p><img alt="reference-implementation" src="../image/planning-diagram.drawio.svg"></p>
+<p>For more details, please refer to the design documents in each package.</p>
+<ul>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/mission_planner/"><em>mission_planner</em></a>: calculate route from start to goal based on the map information.</li>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_path_planner/"><em>behavior_path_planner</em></a>: calculates path and drivable area based on the traffic rules.<ul>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_path_planner/#lane-following"><em>lane_following</em></a></li>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_path_planner/#lane-change"><em>lane_change</em></a></li>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_path_planner/#avoidance"><em>avoidance</em></a></li>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_path_planner/#pull-over"><em>pull_over</em></a></li>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_path_planner/#pull-out"><em>pull_out</em></a></li>
+<li><em>side_shift</em></li>
+</ul>
+</li>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_planner/"><em>behavior_velocity_planner</em></a>: calculates max speed based on the traffic rules.<ul>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_detection_area_module/docs/detection-area-design/"><em>detection_area</em></a></li>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_blind_spot_module/docs/blind-spot-design/"><em>blind_spot</em></a></li>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_crosswalk_module/docs/crosswalk-design/"><em>cross_walk</em></a></li>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_stop_line_module/docs/stop-line-design/"><em>stop_line</em></a></li>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_traffic_light_module/docs/traffic-light-design/"><em>traffic_light</em></a></li>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_intersection_module/docs/intersection-design/"><em>intersection</em></a></li>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_no_stopping_area_module/docs/no-stopping-area-design/"><em>no_stopping_area</em></a></li>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_virtual_traffic_light_module/docs/virtual-traffic-light-design/"><em>virtual_traffic_light</em></a></li>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_occlusion_spot_module/docs/occlusion-spot-design/"><em>occlusion_spot</em></a></li>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_run_out_module/docs/run-out-design/"><em>run_out</em></a></li>
+</ul>
+</li>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/obstacle_avoidance_planner/"><em>obstacle_avoidance_planner</em></a>: calculate path shape under obstacle and drivable area constraints</li>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/surround_obstacle_checker/"><em>surround_obstacle_checker</em></a>: keeps the vehicle being stopped when there are obstacles around the ego-vehicle. It works only when the vehicle is stopped.</li>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/obstacle_stop_planner/"><em>obstacle_stop_planner</em></a>: When there are obstacles on or near the trajectory, it calculates the maximum velocity of the trajectory points depending on the situation: stopping, slowing down, or adaptive cruise (following the car).<ul>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/obstacle_stop_planner/#obstacle-stop-planner_1"><em>stop</em></a></li>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/obstacle_stop_planner/#slow-down-planner"><em>slow_down</em></a></li>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/obstacle_stop_planner/#adaptive-cruise-controller"><em>adaptive_cruise</em></a></li>
+</ul>
+</li>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/costmap_generator/"><em>costmap_generator</em></a>: generates a costmap for path generation from dynamic objects and lane information.</li>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/freespace_planner/"><em>freespace_planner</em></a>: calculates trajectory considering the feasibility (e.g. curvature) for the freespace scene. Algorithms are described <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/freespace_planning_algorithms/">here</a>.</li>
+<li><em>scenario_selector</em> : chooses a trajectory according to the current scenario.</li>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/external_velocity_limit_selector/"><em>external_velocity_limit_selector</em></a>: takes an appropriate velocity limit from multiple candidates.</li>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/motion_velocity_smoother/"><em>motion_velocity_smoother</em></a>: calculates final velocity considering velocity, acceleration, and jerk constraints.</li>
+</ul>
+<h3 id="important-information-in-the-current-implementation">Important information in the current implementation<a class="headerlink" href="#important-information-in-the-current-implementation" title="Permanent link">#</a></h3>
+<h4 id="introducing-the-scenario-planning-layer">Introducing the Scenario Planning layer<a class="headerlink" href="#introducing-the-scenario-planning-layer" title="Permanent link">#</a></h4>
+<p>There are different requirements for interfaces between driving in well-structured lanes and driving in a free-space area like a parking lot. For example, while Lane Driving can handle routes with map IDs, this is not appropriate for planning in free space. The mechanism that switches planning sub-components at the scenario level (Lane Driving, Parking, etc) enables a flexible design of the interface, however, it has a drawbacks of the reuse of modules across different scenarios.</p>
+<h4 id="separation-of-behavior-and-motion">Separation of Behavior and Motion<a class="headerlink" href="#separation-of-behavior-and-motion" title="Permanent link">#</a></h4>
+<p>One of the classic approach to Planning involves dividing it into "Behavior", which decides the action, and "Motion", which determines the final movement. However, this separation implies a trade-off with performance, as performance tends to degrade with increasing separation of functions. For example, Behavior needs to make decisions without prior knowledge of the computations that Motion will eventually perform, which generally results in conservative decision-making. On the other hand, if behavior and motion are integrated, motion performance and decision-making become interdependent, creating challenges in terms of expandability, such as when you wish to extend only the decision-making function to follow a regional traffic rules.</p>
+<p>To understand this background, this <a href="https://github.com/tier4/AutowareArchitectureProposal.proj/blob/main/docs/design/software_architecture/Planning/DesignRationale.md">previously discussed document</a> may be useful.</p>
+<h3 id="how-to-add-new-modules-in-the-current-implementation">How to add new modules in the current implementation<a class="headerlink" href="#how-to-add-new-modules-in-the-current-implementation" title="Permanent link">#</a></h3>
+<p>現時点の実装でもモジュールレベルの機能の追加は可能ですが、全ての機能に対して統一的なインターフェースは提供されていません。</p>
+<ul>
+<li>Replace with scenario layer.</li>
+<li>Add new modules in behavior_velocity_planner or behavior_path_palnner</li>
+<li>Add a new ros node in the motion planning</li>
+</ul>
+<h3 id="important-parameters">Important Parameters<a class="headerlink" href="#important-parameters" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Parameter</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Stop</td>
-<td>Keep the vehicle stopped.</td>
+<td><code>obstacle_stop_planner</code></td>
+<td><code>stop_planner.stop_position.max_longitudinal_margin</code></td>
+<td>double</td>
+<td>distance between the ego and the front vehicle when stopping (when <code>cruise_planner_type:=obstacle_stop_planner</code>)</td>
 </tr>
 <tr>
-<td>Autonomous</td>
-<td>Autonomously control the vehicle.</td>
+<td><code>obstacle_cruise_planner</code></td>
+<td><code>common.safe_distance_margin</code></td>
+<td>double</td>
+<td>distance between the ego and the front vehicle when stopping (when <code>cruise_planner_type:=obstacle_cruise_planner</code>)</td>
 </tr>
 <tr>
-<td>Local</td>
-<td>Manually control the vehicle from nearby with some device such as a joystick.</td>
+<td><code>behavior_path_planner</code></td>
+<td><code>avoidance.avoidance.lateral.lateral_collision_margin</code></td>
+<td>double</td>
+<td>minimum lateral margin to obstacle on avoidance</td>
 </tr>
 <tr>
-<td>Remote</td>
-<td>Manually control the vehicle from a web application on the cloud.</td>
+<td><code>behavior_path_planner</code></td>
+<td><code>avoidance.avoidance.lateral.lateral_collision_safety_buffer</code></td>
+<td>double</td>
+<td>additional lateral margin to obstacle if possible on avoidance</td>
+</tr>
+<tr>
+<td><code>obstacle_avoidance_planner</code></td>
+<td><code>option.enable_outside_drivable_area_stop</code></td>
+<td>bool</td>
+<td>If set true, a stop point will be inserted before the path footprint is outside the drivable area.</td>
 </tr>
 </tbody>
 </table>
-<p><img alt="operation-mode-architecture" src="architecture.drawio.svg"></p>
-<h2 id="states">States<a class="headerlink" href="#states" title="Permanent link">#</a></h2>
-<h3 id="autoware-control-flag">Autoware control flag<a class="headerlink" href="#autoware-control-flag" title="Permanent link">#</a></h3>
-<p>The flag <code>is_autoware_control_enabled</code> indicates if the vehicle is controlled by Autoware.
-The enable and disable APIs can be used if the control can be switched by software.
-These APIs will always fail if the vehicle does not support mode switching or is switched by hardware.</p>
-<h3 id="operation-mode-and-change-flags">Operation mode and change flags<a class="headerlink" href="#operation-mode-and-change-flags" title="Permanent link">#</a></h3>
-<p>The state <code>operation_mode</code> indicates what command is used when Autoware control is enabled.
-The flags <code>change_to_*</code> can be used to check if it is possible to transition to each mode.</p>
-<h3 id="transition-flag">Transition flag<a class="headerlink" href="#transition-flag" title="Permanent link">#</a></h3>
-<p>Since Autoware may not be able to guarantee safety, such as switching to autonomous mode during overspeed.
-There is the flag <code>is_in_transition</code> for this situation and it will be true when changing modes.
-The operator who changed the mode should ensure safety while this flag is true. The flag will be false when the mode change is complete.</p>
+<h3 id="notation">Notation<a class="headerlink" href="#notation" title="Permanent link">#</a></h3>
+<h4 id="1-self-crossing-road-and-overlapped">[1] self-crossing road and overlapped<a class="headerlink" href="#1-self-crossing-road-and-overlapped" title="Permanent link">#</a></h4>
+<p>To support the self-crossing road and overlapped road in the opposite direction, each planning module has to meet the <a href="https://autowarefoundation.github.io/autoware.universe/main/common/motion_utils/">specifications</a></p>
+<p>Currently, the supported modules are as follows.</p>
+<ul>
+<li>lane_following (in behavior_path_planner)</li>
+<li>detection_area (in behavior_velocity_planner)</li>
+<li>stop_line (in behavior_velocity_planner)</li>
+<li>virtual_traffic_light (in behavior_velocity_planner)</li>
+<li>obstacle_avoidance_planner</li>
+<li>obstacle_stop_planner</li>
+<li>motion_velocity_smoother</li>
+</ul>
+<h4 id="2-size-of-path-points">[2] Size of Path Points<a class="headerlink" href="#2-size-of-path-points" title="Permanent link">#</a></h4>
+<p>Some functions do not support paths with only one point. Therefore, each modules should generate the path with more than two path points.</p>
 <!-- prettier-ignore --></div>
 
 
@@ -4485,7 +5261,7 @@ The operator who changed the mode should ensure safety while this flag is true. 
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../motion/state/" class="md-footer__link md-footer__link--prev" aria-label="Previous: /api/motion/state" rel="prev">
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Planning component design" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -4494,20 +5270,20 @@ The operator who changed the mode should ensure safety while this flag is true. 
                 Previous
               </span>
               <div class="md-ellipsis">
-                /api/motion/state
+                Planning component design
               </div>
             </div>
           </a>
         
         
           
-          <a href="change_to_autonomous/" class="md-footer__link md-footer__link--next" aria-label="Next: /api/operation_mode/change_to_autonomous" rel="next">
+          <a href="../../control/" class="md-footer__link md-footer__link--next" aria-label="Next: Control component design" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                /api/operation_mode/change_to_autonomous
+                Control component design
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -4543,13 +5319,13 @@ The operator who changed the mode should ensure safety while this flag is true. 
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../../../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../../../../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../../../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.220ee61c.min.js"></script>
       
         
-          <script src="../../../../../../assets/js/mathjax.js"></script>
+          <script src="../../../../assets/js/mathjax.js"></script>
         
       
         
