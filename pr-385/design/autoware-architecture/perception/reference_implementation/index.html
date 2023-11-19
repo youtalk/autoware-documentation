@@ -21,7 +21,7 @@
     
     
       
-        <title>Perception component Reference Implementation Design Doc - Autoware Documentation</title>
+        <title>Perception component Reference Implementation Design - Autoware Documentation</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#perception-component-reference-implementation-design-doc" class="md-skip">
+        <a href="#perception-component-reference-implementation-design" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Perception component Reference Implementation Design Doc
+              Perception component Reference Implementation Design
             
           </span>
         </div>
@@ -2692,12 +2692,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Perception component Reference Implementation Design Doc
+          Perception component Reference Implementation Design
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Perception component Reference Implementation Design Doc
+        Perception component Reference Implementation Design
       </a>
       
         
@@ -2716,6 +2716,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#purpose-of-this-document" class="md-nav__link">
+    Purpose of this document
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#architecture" class="md-nav__link">
     Architecture
   </a>
@@ -2724,15 +2731,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#internal-interface-in-the-perception-component" class="md-nav__link">
-    Internal interface in the perception component
+  <a href="#remarkable-points" class="md-nav__link">
+    Remarkable points
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#important-parameters" class="md-nav__link">
-    Important Parameters
+  <a href="#internal-interface-in-the-perception-component" class="md-nav__link">
+    Internal interface in the perception component
   </a>
   
 </li>
@@ -4407,6 +4414,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#purpose-of-this-document" class="md-nav__link">
+    Purpose of this document
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#architecture" class="md-nav__link">
     Architecture
   </a>
@@ -4415,15 +4429,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#internal-interface-in-the-perception-component" class="md-nav__link">
-    Internal interface in the perception component
+  <a href="#remarkable-points" class="md-nav__link">
+    Remarkable points
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#important-parameters" class="md-nav__link">
-    Important Parameters
+  <a href="#internal-interface-in-the-perception-component" class="md-nav__link">
+    Internal interface in the perception component
   </a>
   
 </li>
@@ -4451,14 +4465,17 @@
   
 
 
-<div><h1 id="perception-component-reference-implementation-design-doc">Perception component Reference Implementation Design Doc<a class="headerlink" href="#perception-component-reference-implementation-design-doc" title="Permanent link">#</a></h1>
-<p>autowareを起動すると、default parameterが読み込まれ、Reference Implementationが起動される。ここでは、defaultで起動するReference Implementationがどのようにdesignされているか記述する。</p>
-<p><em>Note that some implementation does not adhere to the high-level architecture design and require updating.</em></p>
-<p>For more details, please refer to the design documents in each package.</p>
+<div><h1 id="perception-component-reference-implementation-design">Perception component Reference Implementation Design<a class="headerlink" href="#perception-component-reference-implementation-design" title="Permanent link">#</a></h1>
+<h2 id="purpose-of-this-document">Purpose of this document<a class="headerlink" href="#purpose-of-this-document" title="Permanent link">#</a></h2>
+<p>This document outlines detailed design of the reference imprementations. This allows developers and users to understand what is currently available with the Perception Component, how to utilize, expand, or add to its features.</p>
 <h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">#</a></h2>
 <p>This diagram describes the architecture of the reference implementation.</p>
-<p><img alt="overall-perception-architecture" src="../image/reference-implementation-perception-diagram.drawio.svg"></p>
+<p><img alt="overall-perception-architecture" src="../image/reference-implementaion-perception-diagram.drawio.svg"></p>
+<p>The Perception component consists of the following sub-components:</p>
 <ul>
+<li><strong>Obstacle Segmentation</strong>: Identifies point clouds originating from obstacles(not only dynamic objects but also static obstacles that should be avoided, such as stationary obstacles) that the ego vehicle should avoid. For example, construction cones are recognized using this module.</li>
+<li><strong>Occupancy Grid Map</strong>: Detects blind spots (areas where no information is available and where dynamic objects may jump out).</li>
+<li><strong>Object Recognition</strong>: Recognizes dynamic objects surrounding the ego vehicle in the current frame and predicts their future trajectories.<ul>
 <li><strong>Detection</strong>: Detects the pose and velocity of dynamic objects such as vehicles and pedestrians.<ul>
 <li><strong>Detector</strong>: Triggers object detection processing frame by frame.</li>
 <li><strong>Interpolator</strong>: Maintains stable object detection. Even if the output from Detector suddenly becomes unavailable, Interpolator uses the output from the Tracking module to maintain the detection results without missing any objects.</li>
@@ -4467,8 +4484,65 @@
 <li><strong>Tracking</strong>: Associates detected results across multiple frames.</li>
 <li><strong>Prediction</strong>: Predicts trajectories of dynamic objects.</li>
 </ul>
+</li>
+<li><strong>Traffic Light Recognition</strong>: Recognizes the colors of traffic lights and the directions of arrow signals.</li>
+</ul>
 <p>The following diagram describes the reference implementation of the Perception component. By adding new modules or extending the functionalities, various ODDs can be supported.</p>
-<p><img alt="reference-implementation" src="../image/perception-diagram.png"></p>
+<h3 id="remarkable-points">Remarkable points<a class="headerlink" href="#remarkable-points" title="Permanent link">#</a></h3>
+<h4 id="obstacle-segmentation">Obstacle Segmentation<a class="headerlink" href="#obstacle-segmentation" title="Permanent link">#</a></h4>
+<ul>
+<li>Ground removal employs a simple method.<ul>
+<li>Assuming dense point clouds with 64 or 128 lines of LiDAR, this approach yields sufficient performance.</li>
+<li>However, when using sparse LiDAR with 16 lines, False Positives may occur. In such cases, a more sophisticated ground removal method is needed, but this comes with an increased computational load.</li>
+</ul>
+</li>
+</ul>
+<h4 id="object-recognition">Object Recognition<a class="headerlink" href="#object-recognition" title="Permanent link">#</a></h4>
+<ul>
+<li>Detects Unknown Objects by LiDAR clustering<ul>
+<li>This minimizes False Negatives to avoid contact with obstacles like tree branches and objects on the road.</li>
+<li>However, as False Negatives decrease, there is a trade-off with an increase in False Positives due to the misidentification of vegetation, leading to a decrease in system availability.</li>
+</ul>
+</li>
+<li>In lidar clustering, an upper limit is imposed on the number of points within each cluster.<ul>
+<li>Not setting an upper limit can lead to the formation of enormous clusters, resulting in False Positives.</li>
+<li>While reducing False Positives, there is a trade-off: the failure to recognize large nearby objects increases, leading to more instances of False Negatives.</li>
+</ul>
+</li>
+<li>In the DNN-based 3D Detector, an upper limit is imposed on the number of points within a unit region of the input point cloud.<ul>
+<li>Without such an upper limit, there is a potential for increased processing time and memory usage, leading to the destabilization and delays of the entire autonomous driving system.</li>
+<li>The trade-off involved in setting the upper limit is that, while it reduces computational load, recognition becomes impossible if the number of points within the unit region exceeds the limit. This trade-off can be addressed by incorporating a downsample filter in the preprocessing stage, but it comes at the cost of increased computational load.</li>
+</ul>
+</li>
+<li>A map-dependent detection validator is being utilized.<ul>
+<li>This allows the removal of instances where buildings are falsely detected as dynamic objects.</li>
+<li>Since it relies on the map, if the map is incorrect, objects may disappear. There is a trade-off where reducing False Positives may increase the likelihood of False Negatives.</li>
+</ul>
+</li>
+<li>A Projection-based method is used in the Camera-LiDAR pipeline.<ul>
+<li>Even if the sensor configuration changes, fusion is possible with calibration information, reducing the need for retraining.</li>
+<li>On the flip side, there is a trade-off where objects detected by the camera may be incorrectly assigned to the wrong clusters. While it adapts well to various sensor configuration differences, it comes with the trade-off of potentially having more False Positives.</li>
+</ul>
+</li>
+<li>In the Radar Pipeline, only objects at a distant range and with significant speed are detected.<ul>
+<li>Considering the current standard performance of radar systems, not limiting detection to distant and fast-moving objects could result in numerous False Positives that could interfere with vehicle movement. Instead, this approach may lead to False Negatives for distant stationary objects.</li>
+<li>With advancements in radar performance and a reduction in false detections expected, it is anticipated that the system will become capable of detecting both close-range and stationary objects.</li>
+</ul>
+</li>
+<li>Interpolator<ul>
+<li>The use of an interpolator allows for the detection of unknown objects in clustering and, if successfully tracked, helps prevent False Negatives.</li>
+<li>While reducing , there is a trade-off where issues such as inducing vehicle rotation or persistently holding falsely detected objects at a distant range may occur.</li>
+</ul>
+</li>
+</ul>
+<h4 id="traffic-light-recognition">Traffic Light Recognition<a class="headerlink" href="#traffic-light-recognition" title="Permanent link">#</a></h4>
+<ul>
+<li>Rough detection of signal locations is conducted using a map.<ul>
+<li>This reduces the computational load for signal recognition detections.</li>
+<li>However, there is a trade-off, as there is a potential for false detections when the map is inaccurate or when pitch estimation is misaligned.</li>
+</ul>
+</li>
+</ul>
 <h3 id="internal-interface-in-the-perception-component">Internal interface in the perception component<a class="headerlink" href="#internal-interface-in-the-perception-component" title="Permanent link">#</a></h3>
 <ul>
 <li><strong>Obstacle Segmentation to Object Recognition</strong><ul>
@@ -4484,37 +4558,6 @@
 </ul>
 </li>
 </ul>
-<h3 id="important-parameters">Important Parameters<a class="headerlink" href="#important-parameters" title="Permanent link">#</a></h3>
-<table>
-<thead>
-<tr>
-<th>Package</th>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>perception launch</td>
-<td><code>mode</code></td>
-<td>string</td>
-<td>detectionのmode. options: <code>camera_lidar_radar_fusion</code>, <code>camera_lidar_fusion</code>, <code>lidar_radar_fusion</code>, <code>lidar</code> or <code>radar</code> <a href="https://github.com/autowarefoundation/autoware.universe/blob/main/launch/tier4_perception_launch/launch/perception.launch.xml">https://github.com/autowarefoundation/autoware.universe/blob/main/launch/tier4_perception_launch/launch/perception.launch.xml</a></td>
-</tr>
-<tr>
-<td>perception launch</td>
-<td><code>lidar_detection_model</code></td>
-<td>string</td>
-<td>lidar detection modelのmodel. options: <code>centerpoint</code>, <code>apollo</code>, <code>pointpainting</code>, <code>clustering</code></td>
-</tr>
-<tr>
-<td>perception launch</td>
-<td><code>use_object_filter</code></td>
-<td>string</td>
-<td>Whether to use filters for detected objects. They can filter objects bu using either vector maps or relative positions.</td>
-</tr>
-</tbody>
-</table>
 <!-- prettier-ignore --></div>
 
 
