@@ -17,7 +17,7 @@
         <link rel="next" href="reference_implementation/">
       
       <link rel="icon" href="../../../assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.16">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.20">
     
     
       
@@ -25,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.eebd395e.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.ecc896b0.min.css">
@@ -4445,31 +4445,32 @@
 <p>Under Construction</p>
 </div>
 <h2 id="purpose-of-this-document">Purpose of this document<a class="headerlink" href="#purpose-of-this-document" title="Permanent link">#</a></h2>
-<p>TODO: 背景と目的の認識合意、誰にどのように使われるかを明確に記載する。</p>
-<p>この文書は、Perception Componentの開発における目標やハイレベルな設計戦略、およびそれに関連する意思決定とその理由を説明します。このドキュメントを通じて、すべてのOSS開発者は、Perception Componentがどのような設計思想や制約のもとで設計され、どのような目標を達成するために開発が行われているのかを理解することができます。これにより、円滑な開発参加が可能となります。</p>
-<p>さらに、（これらの情報は将来的に分離して管理されるかもしれませんが、）具体的なリファレンス実装や提供される機能の一覧も後半に記載されています。これにより、開発者やユーザーは、Perception Componentを使用することで現在何が可能なのか、機能をどのように活用したり、拡張したり、追加したりすることができるのかを理解することができます。</p>
+<p>This document outlines the high-level design strategies, goals and related rationales in the development of the Perception Component. Through this document, it is expected that all OSS developers will comprehend the design philosophy, goals and constraints under which the Perception Component is designed, and participate seamlessly in the development.</p>
+<!-- この文書は、Perception Componentの開発における目標やハイレベルな設計戦略、およびそれに関連する意思決定とその理由を説明します。このドキュメントを通じて、すべてのOSS開発者は、Perception Componentがどのような設計思想や制約のもとで設計され、どのような目標を達成するために開発が行われているのかを理解することができます。これにより、円滑な開発参加が可能となります。 -->
+
+<p>Furthermore, detailed design of the reference imprementations and provided featres are are included in the latter part of this document, while this information might be managed separately in the future. This allows developers and users to understand what is currently available with the Perception Component, how to utilize, expand, or add to its features.</p>
+<!-- さらに、（これらの情報は将来的に分離して管理されるかもしれませんが、）具体的なリファレンス実装や提供される機能の一覧も後半に記載されています。これにより、開発者やユーザーは、Perception Componentを使用することで現在何が可能なのか、機能をどのように活用したり、拡張したり、追加したりすることができるのかを理解することができます。 -->
+
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
 <p>The Perception Component receives inputs from Sensing, Localization, and Map components, and adds semantic information (e.g., Object Recognition, Obstacle Segmentation, Traffic Light Recognition, Occupancy Grid Map), which is then passed on to Planning Component. This component design follows the overarching philosophy of Autoware, defined as the <a href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-concepts/">microautonomy concept</a>.</p>
-<!-- ## Requirements -->
-
 <h2 id="goals-and-non-goals">Goals and non-goals<a class="headerlink" href="#goals-and-non-goals" title="Permanent link">#</a></h2>
-<!-- 最強のPerception Systemをdesignしたいわけではない。最強のPerception Systemでさえ実現可能な、platformをdesignしたい。 -->
-<!-- ある一つの尖ったODDに特化しているようなdesignは望ましくない。一方、ある一つの尖ったODDであっても実現可能であるようにはdesignしたい。 -->
+<p>The role of the Perception component is to recognize the surrounding environment based on the data obtained through Sensing and acquire sufficient information (such as the presence of dynamic objects, stationary obstacles, blind spots, and traffic signal information) to enable autonomous driving.</p>
+<!-- Perception コンポーネントの役割は、Sensingで得られたデータを基に、周囲の環境を認識し、自動走行を実現するために充分な情報（たとえば、周囲の動物体や、静止障害物、死角、信号機の情報）を得ることです。 -->
 
-<p>The goal of the Perception Component is to provide functionality and APIs that enable the development of various Autonomous Driving Vehicles, such as trucks driving on freeways, robotaxis navigating urban areas, Autonomous Mobile Robots traversing inside buildings, self-driving vehicles conducting transport within factories, or rovers exploring the lunar surface. This aims to offer flexibility in creating such vehicles.</p>
-<p>In other words, it means the following:</p>
-<ul>
-<li>Should not only consider how to achieve the best possible Perception functionality for autonomous driving. Should consider how to design a system that can enable a platform capable of achieving even the best possible Perception functionality for autonomous driving.</li>
-<li>In order to be able to develop any type of autonomous vehicle, we must design the Perception Component in a way that allows its implementation. For example, while it is possible to add features for a rover to traverse the lunar surface, it is not acceptable to design the Perception Component to work exclusively for the lunar rover, limiting its functionality to that specific purpose.</li>
-</ul>
+<p>In our overall design, we emphasize the concept of <a href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-concepts">microautonomy architecture</a>. This term refers to a design approach that focuses on the proper modularization of functions, clear definition of interfaces between these modules, and as a result, high expandability of the system. Given this context, the goal of the Perception component is set not to solve every conceivable complex use case (although we do aim to support basic ones), but rather to provide a platform that can be customized to the user's needs and can facilitate the development of additional features.</p>
+<!-- Perceptionの全体設計において、我々は [microautonomy architecture](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-concepts) の概念を重視しています。microautonomy とは、適切な機能のモジュール化やインターフェースの明確な定義に基づき、システムの高い拡張性を焦点を当てた設計コンセプトです。そのため Planning component の目標は、すべての考えられる複雑なユースケースを解決することではなく（基本的なものはサポートすることを目指していますが）、ユーザーのニーズに合わせてカスタマイズでき、第三者によって機能が容易に追加可能なプラットフォームを提供することに設定されています。 -->
+
+<p>To clarify the design concepts, the following points are listed as goals and non-goals.</p>
+<!-- この設計コンセプトを明確にするため、以下に Goal と Non-Goal をリスト化します。 -->
+
 <p><strong>Goals:</strong></p>
 <ul>
+<li>The basic functions are provided so that a simple <abbr title="Operational Design Domain">ODD</abbr> can be defined.</li>
 <li>To achieve a design that can provide Perception functionality to every autonomous vehicle.</li>
 <li>The capability is extensible with the third-party components.</li>
 <li>The Perception component is designed to provide a platform that enables autoware users to develop the complete functionality and capability.</li>
 <li>The Perception component is designed to provide a platform that enables autoware users to develop the autonomous driving system which always outperforms human drivers.</li>
 <li>The Perception component is designed to provide a platform that enables autoware users to develop the autonomous driving system achieving "zero overlooks" or "error-free recognition".</li>
-<li>The basic functions are provided so that a simple <abbr title="Operational Design Domain">ODD</abbr> can be defined.</li>
 </ul>
 <p><strong>Non-goals:</strong></p>
 <ul>
@@ -4479,38 +4480,44 @@
 <li>The Perception component is not designed to always outperform human drivers.</li>
 <li>The Perception component is not capable of achieving "zero overlooks" or "error-free recognition".</li>
 </ul>
+<!-- - Perceptionコンポーネントは自己完結している必要はない。ただし、サードパーティと共に拡張・強化することができることは必要。
+- Perceptionコンポーネントは自動運転としての完全な機能を目指しているわけではない。
+- Perceptionコンポーネントは常に人間のドライバーを上回るように設計されているわけではない。
+- Perceptionコンポーネントは「未検知ゼロ」「誤認識ゼロ」を実現できるわけではない。 -->
+
 <h2 id="high-level-architecture">High-level architecture<a class="headerlink" href="#high-level-architecture" title="Permanent link">#</a></h2>
 <p>This diagram describes the high-level architecture of the Perception Component.</p>
 <p><img alt="overall-perception-architecture" src="image/high-level-perception-diagram.drawio.svg"></p>
 <p>The Perception component consists of the following sub-components:</p>
 <ul>
 <li><strong>Object Recognition</strong>: Recognizes dynamic objects surrounding the ego vehicle in the current frame and predicts their future trajectories.</li>
-<li><strong>Obstacle Segmentation</strong>: Detects not only dynamic objects but also static obstacles that should be avoided, such as stationary obstacles. For example, construction cones are recognized using this module.</li>
+<li><strong>Obstacle Segmentation</strong>: Identifies point clouds originating from obstacles(not only dynamic objects but also static obstacles that should be avoided, such as stationary obstacles) that the ego vehicle should avoid. For example, construction cones are recognized using this module.</li>
 <li><strong>Occupancy Grid Map</strong>: Detects blind spots (areas where no information is available and where dynamic objects may jump out).</li>
 <li><strong>Traffic Light Recognition</strong>: Recognizes the colors of traffic lights and the directions of arrow signals.</li>
 </ul>
 <h2 id="component-interface">Component interface<a class="headerlink" href="#component-interface" title="Permanent link">#</a></h2>
-<p>The following describes the input/output concept between Perception Component and other components. See the <a href="../../autoware-interfaces/components/perception.md">Perception Component Interface (WIP)</a> page for the current implementation.</p>
+<p>The following describes the input/output concept between Perception Component and other components. See <a href="../../autoware-interfaces/components/perception.md">the Perception Component Interface (WIP)</a> page for the current implementation.</p>
 <h3 id="input-to-the-perception-component">Input to the perception component<a class="headerlink" href="#input-to-the-perception-component" title="Permanent link">#</a></h3>
 <ul>
-<li><strong>From Sensing</strong><ul>
-<li>Camera: Image data obtained from the camera. The Perception component can utilize it for Traffic Light Recognition and Object Recognition.</li>
-<li>Point Cloud: Point Cloud data obtained from LiDAR. The Perception component can utilize it for Object Recognition and blind spot detection.</li>
-<li>RadarTrack: RadarTrack data obtained from radar. The Perception component can utilize it for Object Recognition.</li>
+<li><strong>From Sensing</strong>: This input should provide real-time information about the environment.<ul>
+<li>Camera: Image data obtained from the camera.</li>
+<li>Point Cloud: Point Cloud data obtained from LiDAR.</li>
+<li>RadarTrack: RadarTrack data obtained from radar.</li>
 </ul>
 </li>
-<li><strong>From Localization</strong><ul>
+<li><strong>From Localization</strong>: This input should provide real-time information about the ego vehicle.<ul>
 <li>Vehicle motion information: Includes the ego vehicle's position.</li>
 </ul>
 </li>
-<li><strong>From Map</strong><ul>
-<li>Vector Map: Contains all static information about the environment, including lane aria information.
-<!-- for filtering unknown objects outside lane and the locations of traffic lights. --></li>
+<li><strong>From Map</strong>: This input should provide real-time information about the static information about the environment.<ul>
+<li>Vector Map: Contains all static information about the environment, including lane aria information.</li>
+<li>Point Cloud Map: Contains static point cloud maps, which shoud not include information about the dynamic objects.</li>
 </ul>
 </li>
+<li><strong>From API</strong>:<ul>
+<li>V2X information: The information from V2X modules. For example, the information from traffic signals.</li>
 </ul>
-<ul>
-<li>Point Cloud Map: The Perception Component can utilize it for compare map filter.</li>
+</li>
 </ul>
 <h3 id="output-from-the-perception-component">Output from the perception component<a class="headerlink" href="#output-from-the-perception-component" title="Permanent link">#</a></h3>
 <ul>
@@ -4525,64 +4532,74 @@
 <h2 id="how-to-add-new-modules-wip">How to add new modules (WIP)<a class="headerlink" href="#how-to-add-new-modules-wip" title="Permanent link">#</a></h2>
 <p>As mentioned in the goal session, this perception module is designed to be extensible by third-party components. For specific instructions on how to add new modules and expand its functionality, please refer to the provided documentation or guidelines (WIP).</p>
 <h2 id="supported-functions">Supported Functions<a class="headerlink" href="#supported-functions" title="Permanent link">#</a></h2>
-<!-- linuxが様々な機能を柔軟に追加できるように、autowareも、様々な機能を柔軟に追加できるようにしている。 -->
-<!-- 逆に言えば、これらの機能は、linuxのように、柔軟に様々なPolicyを達成できるように設計されているとより望ましい。 -->
-
-<ul>
-<li>Perception ComponentのFunctionsは、様々なODDにおける自動運転システム開発を実現できるようにdesignされています。</li>
-<li>TODO: 残りも記載する</li>
-</ul>
 <table>
 <thead>
 <tr>
 <th>Feature</th>
 <th>Description</th>
 <th>Requirements</th>
-<th>Packages</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>LiDAR DNN based 3D detector</td>
 <td>This module takes point clouds as input and performs detection of objects such as vehicles, trucks, buses, pedestrians, and bicycles.</td>
-<td>- Point Cloud</td>
-<td>- <a href="https://github.com/autowarefoundation/autoware.universe/blob/main/perception/lidar_centerpoint/README.md">lidar_centerpoint</a></td>
+<td>- Point Clouds</td>
 </tr>
 <tr>
 <td>Camera DNN based 2D detector</td>
 <td>This module takes camera image as input and performs detection of objects such as vehicles, trucks, buses, pedestrians, and bicycles.</td>
-<td>- Camera Image</td>
-<td>- <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/perception/tensorrt_yolox">tensorrt_yolox</a> <br> - <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/perception/tensorrt_yolo">tensorrt_yolo</a></td>
+<td>- Camera Images</td>
 </tr>
 <tr>
 <td>LiDAR Clustering</td>
-<td>LiDAR clustering module performs clustering of point clouds and shape estimation to achieve object detection without labels.</td>
-<td>- Point Cloud</td>
-<td>- <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/perception/euclidean_cluster">euclidean_cluster</a></td>
+<td>This module performs clustering of point clouds and shape estimation to achieve object detection without labels.</td>
+<td>- Point Clouds</td>
 </tr>
 <tr>
 <td>Semi-rule based detector</td>
-<td>Semi-rule based detector performs object detection using information from both images and point clouds, and it consists of two components: LiDAR Clustering and Camera DNN based 2D detector.</td>
+<td>This module performs object detection using information from both images and point clouds, and it consists of two components: LiDAR Clustering and Camera DNN based 2D detector.</td>
 <td>- Output from Camera DNN based 2D detector and LiDAR Clustering</td>
-<td>- <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/perception/image_projection_based_fusion">image_projection_based_fusion</a></td>
 </tr>
 <tr>
 <td>Object Merger</td>
-<td>Object Merger integrates results from various detectors.</td>
-<td>- Detected Object</td>
-<td>- <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/perception/object_merger">object_merger</a></td>
+<td>This module integrates results from various detectors.</td>
+<td>- Detected Objects</td>
 </tr>
 <tr>
 <td>Interpolator</td>
-<td>Interpolator stabilizes the object detection results by maintaining long-term detection results using Tracking results.</td>
-<td>- Detected Object <br> - Tracked Object</td>
-<td>- <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/perception/detection_by_tracker">detection_by_tracker</a></td>
+<td>This module stabilizes the object detection results by maintaining long-term detection results using Tracking results.</td>
+<td>- Detected Objects <br> - Tracked Objects</td>
+</tr>
+<tr>
+<td>Tracking</td>
+<td>This module gives ID and estimate velocity to the detection results.</td>
+<td>- Detected Objects</td>
+</tr>
+<tr>
+<td>Prediction</td>
+<td>This module predicts the future paths (and their probabilities) of dynamic objects according to the shape of the map and the surrounding environment.</td>
+<td>- Tracked Objects <br> - Vector Map</td>
+</tr>
+<tr>
+<td>Obstacle Segmentation</td>
+<td>This module identifies point clouds originating from obstacles that the ego vehicle should avoid.</td>
+<td>- Point Clouds <br> - Point Cloud Map</td>
+</tr>
+<tr>
+<td>Occupancy Grid Map</td>
+<td>This module detects blind spots (areas where no information is available and where dynamic objects may jump out).</td>
+<td>- Point Clouds <br> - Point Cloud Map</td>
+</tr>
+<tr>
+<td>Traffic Light Recognition</td>
+<td>This module detects the position and state of traffic signals.</td>
+<td>- Camera Images <br> - Vector Map</td>
 </tr>
 </tbody>
 </table>
 <h2 id="reference-implementation">Reference Implementation<a class="headerlink" href="#reference-implementation" title="Permanent link">#</a></h2>
-<p>autowareを起動すると、default parameterが読み込まれ、Reference Implementationが起動される。詳細については、<a href="reference_implementation/">Reference Implementation</a>を参照。</p>
-<p>See <a href="reference_implementation/">Reference Implementation</a></p>
+<p>When Autoware is launched, the default parameters are loaded, and the Reference Implementation is started. For more details, please refer to <a href="reference_implementation/">the Reference Implementation</a>.</p>
 <!-- prettier-ignore --></div>
 
 
@@ -4668,10 +4685,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.a51614de.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.220ee61c.min.js"></script>
       
         
           <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
