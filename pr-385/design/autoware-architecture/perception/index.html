@@ -21,7 +21,7 @@
     
     
       
-        <title>Perception component design - Autoware Documentation</title>
+        <title>Perception Component design - Autoware Documentation</title>
       
     
     
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Perception component design
+              Perception Component design
             
           </span>
         </div>
@@ -4383,14 +4383,14 @@
         
           <li class="md-nav__item">
   <a href="#input-to-the-perception-component" class="md-nav__link">
-    Input to the perception component
+    Input to the Perception Component
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#output-from-the-perception-component" class="md-nav__link">
-    Output from the perception component
+    Output from the Perception Component
   </a>
   
 </li>
@@ -4439,45 +4439,45 @@
   
 
 
-<div><h1 id="perception-component-design">Perception component design<a class="headerlink" href="#perception-component-design" title="Permanent link">#</a></h1>
+<div><h1 id="perception-component-design">Perception Component design<a class="headerlink" href="#perception-component-design" title="Permanent link">#</a></h1>
 <h2 id="purpose-of-this-document">Purpose of this document<a class="headerlink" href="#purpose-of-this-document" title="Permanent link">#</a></h2>
 <p>This document outlines the high-level design strategies, goals and related rationales in the development of the Perception Component. Through this document, it is expected that all OSS developers will comprehend the design philosophy, goals and constraints under which the Perception Component is designed, and participate seamlessly in the development.</p>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
 <p>The Perception Component receives inputs from Sensing, Localization, and Map components, and adds semantic information (e.g., Object Recognition, Obstacle Segmentation, Traffic Light Recognition, Occupancy Grid Map), which is then passed on to Planning Component. This component design follows the overarching philosophy of Autoware, defined as the <a href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-concepts/">microautonomy concept</a>.</p>
 <h2 id="goals-and-non-goals">Goals and non-goals<a class="headerlink" href="#goals-and-non-goals" title="Permanent link">#</a></h2>
-<p>The role of the Perception component is to recognize the surrounding environment based on the data obtained through Sensing and acquire sufficient information (such as the presence of dynamic objects, stationary obstacles, blind spots, and traffic signal information) to enable autonomous driving.</p>
-<p>In our overall design, we emphasize the concept of <a href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-concepts">microautonomy architecture</a>. This term refers to a design approach that focuses on the proper modularization of functions, clear definition of interfaces between these modules, and as a result, high expandability of the system. Given this context, the goal of the Perception component is set not to solve every conceivable complex use case (although we do aim to support basic ones), but rather to provide a platform that can be customized to the user's needs and can facilitate the development of additional features.</p>
+<p>The role of the Perception Component is to recognize the surrounding environment based on the data obtained through Sensing and acquire sufficient information (such as the presence of dynamic objects, stationary obstacles, blind spots, and traffic signal information) to enable autonomous driving.</p>
+<p>In our overall design, we emphasize the concept of <a href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-concepts">microautonomy architecture</a>. This term refers to a design approach that focuses on the proper modularization of functions, clear definition of interfaces between these modules, and as a result, high expandability of the system. Given this context, the goal of the Perception Component is set not to solve every conceivable complex use case (although we do aim to support basic ones), but rather to provide a platform that can be customized to the user's needs and can facilitate the development of additional features.</p>
 <p>To clarify the design concepts, the following points are listed as goals and non-goals.</p>
 <p><strong>Goals:</strong></p>
 <ul>
 <li>The basic functions are provided so that a simple <abbr title="Operational Design Domain">ODD</abbr> can be defined.</li>
 <li>To achieve a design that can provide Perception functionality to every autonomous vehicle.</li>
 <li>The capability is extensible with the third-party components.</li>
-<li>The Perception component is designed to provide a platform that enables autoware users to develop the complete functionality and capability.</li>
-<li>The Perception component is designed to provide a platform that enables autoware users to develop the autonomous driving system which always outperforms human drivers.</li>
-<li>The Perception component is designed to provide a platform that enables autoware users to develop the autonomous driving system achieving "zero overlooks" or "error-free recognition".</li>
+<li>The Perception Component is designed to provide a platform that enables Autoware users to develop the complete functionality and capability.</li>
+<li>The Perception Component is designed to provide a platform that enables Autoware users to develop the autonomous driving system which always outperforms human drivers.</li>
+<li>The Perception Component is designed to provide a platform that enables Autoware users to develop the autonomous driving system achieving "zero overlooks" or "error-free recognition".</li>
 </ul>
 <p><strong>Non-goals:</strong></p>
 <ul>
 <li>The Perception Component should not operate perfectly only in specific environments and be completely useless in other environments.</li>
-<li>The Perception component is not self-contained but can be extended with third parties.</li>
-<li>The Perception component is not aimed at the complete functionality and capability.</li>
-<li>The Perception component is not designed to always outperform human drivers.</li>
-<li>The Perception component is not capable of achieving "zero overlooks" or "error-free recognition".</li>
+<li>The Perception Component is not self-contained but can be extended with third parties.</li>
+<li>The Perception Component is not aimed at the complete functionality and capability.</li>
+<li>The Perception Component is not designed to always outperform human drivers.</li>
+<li>The Perception Component is not capable of achieving "zero overlooks" or "error-free recognition".</li>
 </ul>
 <h2 id="high-level-architecture">High-level architecture<a class="headerlink" href="#high-level-architecture" title="Permanent link">#</a></h2>
 <p>This diagram describes the high-level architecture of the Perception Component.</p>
 <p><img alt="overall-perception-architecture" src="image/high-level-perception-diagram.drawio.svg"></p>
-<p>The Perception component consists of the following sub-components:</p>
+<p>The Perception Component consists of the following sub-components:</p>
 <ul>
 <li><strong>Object Recognition</strong>: Recognizes dynamic objects surrounding the ego vehicle in the current frame and predicts their future trajectories.</li>
-<li><strong>Obstacle Segmentation</strong>: Identifies point clouds originating from obstacles(not only dynamic objects but also static obstacles that should be avoided, such as stationary obstacles) that the ego vehicle should avoid. For example, construction cones are recognized using this module.</li>
+<li><strong>Obstacle Segmentation</strong>: Identifies point clouds originating from obstacles(not only dynamic objects but also static obstacles that should be avoided, such as stationary obstacles) that the ego vehicle should avoid.</li>
 <li><strong>Occupancy Grid Map</strong>: Detects blind spots (areas where no information is available and where dynamic objects may jump out).</li>
 <li><strong>Traffic Light Recognition</strong>: Recognizes the colors of traffic lights and the directions of arrow signals.</li>
 </ul>
 <h2 id="component-interface">Component interface<a class="headerlink" href="#component-interface" title="Permanent link">#</a></h2>
 <p>The following describes the input/output concept between Perception Component and other components. See <a href="../../autoware-interfaces/components/perception/">the Perception Component Interface (WIP)</a> page for the current implementation.</p>
-<h3 id="input-to-the-perception-component">Input to the perception component<a class="headerlink" href="#input-to-the-perception-component" title="Permanent link">#</a></h3>
+<h3 id="input-to-the-perception-component">Input to the Perception Component<a class="headerlink" href="#input-to-the-perception-component" title="Permanent link">#</a></h3>
 <ul>
 <li><strong>From Sensing</strong>: This input should provide real-time information about the environment.<ul>
 <li>Camera Image: Image data obtained from the camera.</li>
@@ -4499,7 +4499,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="output-from-the-perception-component">Output from the perception component<a class="headerlink" href="#output-from-the-perception-component" title="Permanent link">#</a></h3>
+<h3 id="output-from-the-perception-component">Output from the Perception Component<a class="headerlink" href="#output-from-the-perception-component" title="Permanent link">#</a></h3>
 <ul>
 <li><strong>To Planning</strong><ul>
 <li>Dynamic Objects: Provides real-time information about objects that cannot be known in advance, such as pedestrians and other vehicles.</li>
