@@ -6195,10 +6195,14 @@
 
 <div><h1 id="pointcloud-map-preprocessing">Pointcloud map preprocessing<a class="headerlink" href="#pointcloud-map-preprocessing" title="Permanent link">#</a></h1>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
-<p>When your created point cloud map is either too dense or too large (i.e., exceeding 300 MB),
-you may want to downsample it for improved computational and memory efficiency.
-Also, you can consider using dynamic map loading with partial loading,
-please check <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/map/map_loader">map_loader package</a> for more information.</p>
+<p>Pointcloud map used in Autoware should be downsampled with a voxel size of around 0.1 to 0.2 meters
+to minimize the computational costs and memory bandwidth load.
+Also,
+you may consider
+using dynamic map loading with partial loading
+if your map is still too large to handle as a single file
+(~2 GB in <abbr title="Point Cloud Data">PCD</abbr> size).
+Please check <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/map/map_loader">map_loader package</a> for more information.</p>
 <p>At tutorial_vehicle implementation we will use the whole map,
 so we will downsample it with using <a href="https://www.cloudcompare.org/main.html">CloudCompare</a>.</p>
 <h2 id="installing-cloudcompare">Installing CloudCompare<a class="headerlink" href="#installing-cloudcompare" title="Permanent link">#</a></h2>
