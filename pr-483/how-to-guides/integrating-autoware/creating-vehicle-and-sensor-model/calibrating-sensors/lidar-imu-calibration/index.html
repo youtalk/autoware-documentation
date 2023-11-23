@@ -6253,8 +6253,8 @@ the time offset between sensors and the spatial-temporal extrinsic between senso
 are calibrated comprehensively without explicit hand-crafted targets.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>So, we are providing a docker image which has <abbr title="Robot Operating System">ROS</abbr> 1 and all necessary packages.
-This calibration tool is developed with <abbr title="Robot Operating System">ROS</abbr> 1, and it is not compatible with <abbr title="Robot Operating System">ROS</abbr> 2.
+<p>This calibration tool is developed with <abbr title="Robot Operating System">ROS</abbr> 1, and it is not compatible with <abbr title="Robot Operating System">ROS</abbr> 2.
+So, we are providing a docker image which has <abbr title="Robot Operating System">ROS</abbr> 1 and all necessary packages.
 In the calibration instructions, we will ask you to install docker on your
 system.</p>
 </div>
@@ -6365,7 +6365,7 @@ sudo<span class="w"> </span>docker<span class="w"> </span>build<span class="w"> 
 on your system.</p>
 </div>
 <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">REPO_PATH</span><span class="o">=</span><span class="s2">"/path/to/OA-LICalib"</span>
-docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--env<span class="o">=</span><span class="s2">"DISPLAY"</span><span class="w"> </span>--volume<span class="o">=</span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/.Xauthority:/root/.Xauthority:rw"</span><span class="w"> </span>--volume<span class="o">=</span><span class="s2">"/tmp/.X11-unix:/tmp/.X11-unix:rw"</span><span class="w"> </span>--volume<span class="o">=</span><span class="s2">"</span><span class="nv">$REPO_PATH</span><span class="s2">:/root/calib_ws/src/OA-LICalib"</span><span class="w"> </span>calib:v1<span class="w"> </span>bash
+docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--env<span class="o">=</span><span class="s2">"DISPLAY"</span><span class="w"> </span>--volume<span class="o">=</span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/.Xauthority:/root/.Xauthority:rw"</span><span class="w"> </span>--volume<span class="o">=</span><span class="s2">"/tmp/.X11-unix:/tmp/.X11-unix:rw"</span><span class="w"> </span>--volume<span class="o">=</span><span class="s2">"</span><span class="nv">$REPO_PATH</span><span class="s2">:/root/catkin_oa_calib/src/OA-LICalib"</span><span class="w"> </span>oalicalib<span class="w"> </span>bash
 </code></pre></div>
 <p>Before running the calibration tool, you should change some parameters from the
 configuration file. You can find the configuration file in the <code>OA-LICalib/config</code></p>
@@ -6408,7 +6408,8 @@ roslaunch<span class="w"> </span>oalicalib<span class="w"> </span>li_calib.launc
 <p>After running the calibration tool, you can track the calibration process
 with connecting to the container on other terminal. To connect to the container,
 you can run the following command:</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>&lt;container_name&gt;<span class="w"> </span>bash
+<div class="highlight"><pre><span></span><code>xhost<span class="w"> </span>+local:docker
+docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>&lt;container_name&gt;<span class="w"> </span>bash
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
