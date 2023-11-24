@@ -4042,11 +4042,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to-extendcorporate-with-new-features-wip" class="md-nav__link">
-    How to extend/corporate with new features (WIP)
+  <a href="#customize-features" class="md-nav__link">
+    Customize features
   </a>
   
-    <nav class="md-nav" aria-label="How to extend/corporate with new features (WIP)">
+    <nav class="md-nav" aria-label="Customize features">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -4139,8 +4139,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#how-to-add-new-modules-in-the-current-implementation" class="md-nav__link">
-    How to add new modules in the current implementation
+  <a href="#customize-features-in-the-current-implementation" class="md-nav__link">
+    Customize features in the current implementation
   </a>
   
 </li>
@@ -6372,11 +6372,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to-extendcorporate-with-new-features-wip" class="md-nav__link">
-    How to extend/corporate with new features (WIP)
+  <a href="#customize-features" class="md-nav__link">
+    Customize features
   </a>
   
-    <nav class="md-nav" aria-label="How to extend/corporate with new features (WIP)">
+    <nav class="md-nav" aria-label="Customize features">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -6469,8 +6469,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#how-to-add-new-modules-in-the-current-implementation" class="md-nav__link">
-    How to add new modules in the current implementation
+  <a href="#customize-features-in-the-current-implementation" class="md-nav__link">
+    Customize features in the current implementation
   </a>
   
 </li>
@@ -6533,8 +6533,8 @@
 <li>ユーザーのニーズには、純粋な自動運転としての性能ではなく、限定されたODD（例えば障害物のない管理された私道）において可能な限り消費電力を下げることなども含まれます。この場合、モジュールをdisableさせることによって、ODDを限定する代わりに、処理負荷を下げることが可能です。</li>
 </ul>
 </li>
-<li><strong>人間のオペレータによって能力が拡張できること</strong><ul>
-<li>オペレータによる補助も機能拡張の一つです。これにより、非常に複雑で困難なユースケースにおいても、人間の補助という機能拡張で対応できることを意味します。ここで具体的なオペレータの種類は定義しません。研究フェーズにおいては車に同乗している人かもしれませんし、自動運転サービス提供者にとっては非常時にのみ繋がる遠隔オペレータかもしれません。</li>
+<li><strong>オペレータとの連携によって能力が拡張できること</strong><ul>
+<li>オペレータによる補助も機能拡張の一つです。これにより、非常に複雑で困難なユースケースにおいても、人間の補助という機能拡張で対応できることを意味します。ここでは具体的なオペレータの種類は定義されません。研究フェーズにおいては車に同乗している人かもしれませんし、自動運転サービスにおいては非常時に繋がる遠隔オペレータかもしれません。</li>
 </ul>
 </li>
 </ul>
@@ -6544,9 +6544,9 @@
 <li>ユーザーが必要とする機能の全てをAutoware単独で提供すること</li>
 <li>自動運転としての完全な機能と性能</li>
 <li>人間の性能を常に上回る性能</li>
-<li>「絶対に衝突しない」という機能</li>
+<li>完全な安全性</li>
 </ul>
-<p>なお、「絶対に衝突しない」といった性能は現在の目標ではありませんが、外部モジュールとの連携や将来の強化によってそのような状態を達成できるようなアーキテクチャを作成することは我々の目標です。そしてこれらの要求は自動運転プラットフォームの視点から来ているものであり、一般的な自動運転システムにおけるPlanning Componentへの要求としては一般的ではないかもしれません。</p>
+<p>注意として、これらの要求は自動運転プラットフォームの視点から来ているものであり、一般的な自動運転システムにおけるPlanning Componentへの要求として一般的なものではないありません。</p>
 <!-- ## Requirements
 
 WIP
@@ -6560,17 +6560,17 @@ WIP -->
 <!-- ![overall-planning-architecture](image/high-level-planning-diagram.drawio.svg) -->
 
 <p><img alt="overall-planning-architecture" src="../image/high-level-planning-diagram-miyake-reviewed.drawio.svg"></p>
+<p>ここではmicroautonomyアーキテクチャに従い、モジュール型のシステムフレームワークを採用しています。Planningの機能はモジュールとして実装され、これらのモジュールは与えられたユースケースに応じて動的/静的にload/unloadされます。これには例えば、レーンチェンジ、交差点、横断歩道モジュールなどが含まれます。</p>
 <p>Planning コンポーネントは以下のようないくつかのサブコンポーネントから構成されます。</p>
 <ul>
-<li><strong>Mission Planning</strong>: 地図情報を基に、自動運転ミッションの設定や現在位置からゴールまでのルート計算を行います。</li>
+<li><strong>Mission Planning</strong>: 地図情報を基に、自動運転ミッションの設定や現在位置からゴールまでのルート計算を行います。既存のサービスと比較すると、<abbr title="Fleet Management System">FMS</abbr>（Fleet Management System）のミッション管理やカーナビのルート探索機能などを担当するモジュールです。</li>
 <li><strong>Planning Modules</strong>: 定められたミッションに対して、目標軌道やウインカーなどの自車の振る舞いの計画を行います。このサブコンポーネントは、機能を担当するいくつかのモジュールから成り立っています。これらのモジュールは便宜上、BehaviorとMotionの2つに分類されます。<ul>
-<li><strong>Behavior Planner</strong>: 交通ルールや安全を考慮して適切な経路を計算します。</li>
-<li><strong>Motion Planner</strong>: Behavior Plannerと連携し、車両運動や乗り心地を考慮した目標軌道を計算します。</li>
+<li><strong>Behavior</strong>: 交通ルールや安全を考慮して適切な経路を計算します。レーンチェンジや交差点進入、信号停止などの安全確認および実行判断を行います。</li>
+<li><strong>Motion</strong>: Behaviorと連携し、車両運動や乗り心地を考慮した目標軌道を計算します。具体的には、経路形状を計算する横方向計画と、速度を計算する縦方向計画の機能からなります。</li>
 </ul>
 </li>
-<li><strong>Validation</strong>: 計算された目標軌道を検証し、安全性の確保や緊急時の対応を担います。</li>
+<li><strong>Validation</strong>: 計算された目標軌道を検証し、安全性の確保や緊急時の対応を担います。Planningの計算した軌道が不適切な場合は、SystemにEmergencyを通知したり、暫定的な軌道生成を行います。</li>
 </ul>
-<p>ここではmicroautonomyアーキテクチャに従い、モジュール型のシステムフレームワークを採用しています。Planningの機能はモジュールとして実装され、これらのモジュールは与えられたユースケースに応じて動的/静的にload/unloadされます。これには例えば、レーンチェンジ、交差点、横断歩道モジュールなどが含まれます。</p>
 <h3 id="remarkable-points">Remarkable points<a class="headerlink" href="#remarkable-points" title="Permanent link">#</a></h3>
 <p>このハイレベルデザインにおいて、Goalsに対する重要な設計として、以下を挙げます。</p>
 <h4 id="modulation-of-each-function">Modulation of each function<a class="headerlink" href="#modulation-of-each-function" title="Permanent link">#</a></h4>
@@ -6583,12 +6583,12 @@ WIP -->
 <p>Human Machine Interfaceとの連携は、人間オペレータとの連携を円滑に行うために必要不可欠です。このComponent間のインターフェースを介して、同乗オペレータや遠隔監視システムとの連携を可能にします。</p>
 <h4 id="trade-offs-for-the-separation-of-planning-and-other-components">Trade-offs for the separation of planning and other components<a class="headerlink" href="#trade-offs-for-the-separation-of-planning-and-other-components" title="Permanent link">#</a></h4>
 <p>Autowareの全体設計において、Planningを孤立したComponentとして設計する際のトレードオフに注意が必要です。Planning、Perception、Localization、Controlなどのコンポーネントを分離して開発することで、サードパーティ製のコンポーネントとの連携が容易になります。しかし、パフォーマンスと拡張性の間にはトレードオフが存在します。例えば、Perceptionコンポーネントは理想的にはPlanningコンポーネントが必要とするオブジェクトだけを認識すれば十分ですが、コンポーネントを分離することでそのような密接なコミュニケーションが難しくなり、不要なオブジェクトに対しても処理を実行する必要があります。また、計画と制御を分離すると、計画時に車両の運動性能を考慮することが難しくなるという性能面の欠点があります。これを補うためには、インターフェースの情報量を増やすか、計算負荷を増やすなどの対応が必要になります。</p>
-<h2 id="how-to-extendcorporate-with-new-features-wip">How to extend/corporate with new features (WIP)<a class="headerlink" href="#how-to-extendcorporate-with-new-features-wip" title="Permanent link">#</a></h2>
+<h2 id="customize-features">Customize features<a class="headerlink" href="#customize-features" title="Permanent link">#</a></h2>
 <p>Planning Componentのデザインの最も重要な機能の一つが、外部モジュールとの連携です。以下の図に示すように外部の機能を組み込む際にはいくつかの方法があります。</p>
 <p><img alt="how-to-add-new-modules" src="../image/how-to-add-new-modules.drawio.svg"></p>
 <h3 id="planning-component">Planning Componentに新たなモジュールを追加する<a class="headerlink" href="#planning-component" title="Permanent link">#</a></h3>
 <p>ユーザーはモジュールとして作成されたPlanningの機能を置き換えたり、機能追加をすることができます。これは最も一般的な機能の拡張方法です。これによって、求めるODDにおいて不足している機能を追加したり、逆に既存の機能をよりシンプルなものに変更したりすることができます。</p>
-<p>ただし、この機能追加を行うためには、各モジュールのインターフェースが適切に整理されている必要があります。2023年11月現在では、このような理想的なモジュールの仕組みは提供されておらず、いくつかの制限があります。詳細はReference Implementationの <a href="#how-to-add-new-modules-in-the-current-implementation">How to add new modules in the current implementation</a> を確認してください。</p>
+<p>ただし、この機能追加を行うためには、各モジュールのインターフェースが適切に整理されている必要があります。2023年11月現在では、このような理想的なモジュールの仕組みは提供されておらず、いくつかの制限があります。詳細はReference Implementationの <a href="#customize-features-in-the-current-implementation">Customize features in the current implementation</a> を確認してください。</p>
 <h3 id="planning">Planningのサブコンポーネントを置き換える<a class="headerlink" href="#planning" title="Permanent link">#</a></h3>
 <p>いくつかのユーザーは、サブコンポーネントレベルでの連携・拡張に興味があるかもしれません。これは例えば、Mission Planningを既存のFMSサービスと置き換えたり、既存のValidation機能を使用しつつ経路生成の機能をthird-party製のものに置き換えるといった要求に該当します。</p>
 <p>後に説明される <a href="#internal-interface-in-the-planning-component">Internal interface in the planning component</a> に従えば、サブコンポーネントレベルでの連携・拡張を行うことが可能です。既存のPlanningの機能との複雑な連携はできませんが、一部のPlanning Componentの機能と外部モジュールとの連携が可能になります。</p>
@@ -6622,7 +6622,7 @@ WIP -->
 </ul>
 </li>
 <li><strong>From API Layer</strong><ul>
-<li>Goal: Represents the final position that the Planning Component aims to reach.</li>
+<li>Destination (Goal): Represents the final position that the Planning Component aims to reach.</li>
 <li>Checkpoint: Represents a midpoint along the route to the destination. This is used during route calculation.</li>
 <li>Velocity limit: Sets the maximum speed limit for the vehicle.</li>
 </ul>
@@ -6957,7 +6957,7 @@ WIP -->
 <h4 id="separation-of-behavior-and-motion">Separation of Behavior and Motion<a class="headerlink" href="#separation-of-behavior-and-motion" title="Permanent link">#</a></h4>
 <p>One of the classic approach to Planning involves dividing it into "Behavior", which decides the action, and "Motion", which determines the final movement. However, this separation implies a trade-off with performance, as performance tends to degrade with increasing separation of functions. For example, Behavior needs to make decisions without prior knowledge of the computations that Motion will eventually perform, which generally results in conservative decision-making. On the other hand, if behavior and motion are integrated, motion performance and decision-making become interdependent, creating challenges in terms of expandability, such as when you wish to extend only the decision-making function to follow a regional traffic rules.</p>
 <p>To understand this background, this <a href="https://github.com/tier4/AutowareArchitectureProposal.proj/blob/main/docs/design/software_architecture/Planning/DesignRationale.md">previously discussed document</a> may be useful.</p>
-<h3 id="how-to-add-new-modules-in-the-current-implementation">How to add new modules in the current implementation<a class="headerlink" href="#how-to-add-new-modules-in-the-current-implementation" title="Permanent link">#</a></h3>
+<h3 id="customize-features-in-the-current-implementation">Customize features in the current implementation<a class="headerlink" href="#customize-features-in-the-current-implementation" title="Permanent link">#</a></h3>
 <p>現時点の実装でもモジュールレベルの機能の追加は可能ですが、全ての機能に対して統一的なインターフェースは提供されていません。モジュールレベルでの拡張を行うための、現時点での実装方法について簡単に説明します。</p>
 <p><img alt="reference-implementation-add-new-modules" src="../image/reference-implementation-add-new-modules.drawio.svg"></p>
 <h4 id="add-new-modules-in-behavior_velocity_planner-or-behavior_path_plnner">Add new modules in behavior_velocity_planner or behavior_path_plnner<a class="headerlink" href="#add-new-modules-in-behavior_velocity_planner-or-behavior_path_plnner" title="Permanent link">#</a></h4>
