@@ -841,6 +841,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/integrating-autoware/awsim-integration/</loc>
+         <lastmod>2023-12-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/main/how-to-guides/integrating-autoware/creating-maps/</loc>
          <lastmod>2023-12-01</lastmod>
          <changefreq>daily</changefreq>
