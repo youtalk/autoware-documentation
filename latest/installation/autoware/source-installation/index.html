@@ -613,6 +613,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#using-autoware-build-gui" class="md-nav__link">
+    Using Autoware Build GUI
+  </a>
+  
+    <nav class="md-nav" aria-label="Using Autoware Build GUI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#integration-with-autoware-source-installation" class="md-nav__link">
+    Integration with Autoware Source Installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-started-with-autoware-build-gui" class="md-nav__link">
+    Getting Started with Autoware Build GUI
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -6250,6 +6277,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#using-autoware-build-gui" class="md-nav__link">
+    Using Autoware Build GUI
+  </a>
+  
+    <nav class="md-nav" aria-label="Using Autoware Build GUI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#integration-with-autoware-source-installation" class="md-nav__link">
+    Integration with Autoware Source Installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-started-with-autoware-build-gui" class="md-nav__link">
+    Getting Started with Autoware Build GUI
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -6340,6 +6394,10 @@ sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </
 <p>If you didn't use ansible script you will need to download some package artifacts as explained in <a href="https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/artifacts">Manual loading of artifacts</a>. Otherwise some packages (mostly from perception) will not be able to run as they need these artifacts for the inference.</p>
 </div>
 <h2 id="how-to-set-up-a-workspace">How to set up a workspace<a class="headerlink" href="#how-to-set-up-a-workspace" title="Permanent link">#</a></h2>
+<p>!!! info <a href="#using-autoware-build-gui">Using Autoware Build GUI</a></p>
+<div class="codehilite"><pre><span></span><code>If you prefer a graphical user interface (GUI) over the command line for launching and managing your simulations, refer to the `Using Autoware Build GUI` section at the end of this document for a step-by-step guide.
+</code></pre></div>
+
 <ol>
 <li>
 <p>Create the <code>src</code> directory and clone repositories into it.</p>
@@ -6405,6 +6463,37 @@ rosdep<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> 
 <div class="highlight"><pre><span></span><code>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release
 </code></pre></div>
 </li>
+</ol>
+<h2 id="using-autoware-build-gui">Using Autoware Build GUI<a class="headerlink" href="#using-autoware-build-gui" title="Permanent link">#</a></h2>
+<p>In addition to the traditional command-line methods of building Autoware packages, developers and users can leverage the Autoware Build GUI for a more streamlined and user-friendly experience. This GUI application simplifies the process of building and managing Autoware packages.</p>
+<h3 id="integration-with-autoware-source-installation">Integration with Autoware Source Installation<a class="headerlink" href="#integration-with-autoware-source-installation" title="Permanent link">#</a></h3>
+<p>When using the Autoware Build GUI in conjunction with the traditional source installation process:</p>
+<ul>
+<li><strong>Initial Setup</strong>: Follow the standard Autoware source installation guide to set up your environment and workspace.</li>
+<li><strong>Using the GUI</strong>: Once the initial setup is complete, you can use the Autoware Build GUI to manage subsequent builds and package updates.</li>
+</ul>
+<p>This integration offers a more accessible approach to building and managing Autoware packages, catering to both new users and experienced developers.</p>
+<h3 id="getting-started-with-autoware-build-gui">Getting Started with Autoware Build GUI<a class="headerlink" href="#getting-started-with-autoware-build-gui" title="Permanent link">#</a></h3>
+<ol>
+<li><strong>Installation:</strong> Ensure you have installed the Autoware Build GUI. <a href="https://github.com/autowarefoundation/autoware-build-gui#installation">Installation instructions</a>.</li>
+<li><strong>Launching the App</strong>: Once installed, launch the Autoware Build GUI.
+   <img alt="Build_GUI_Main" src="../images/build-gui/build_gui_main.png"></li>
+<li><strong>Setting Up</strong>: Set the path to your Autoware folder within the GUI.
+   <img alt="Build_GUI_Setup" src="../images/build-gui/build_gui_setup.png"></li>
+<li>
+<p><strong>Building Packages</strong>: Select the Autoware packages you wish to build and manage the build process through the GUI.
+   <img alt="Build_GUI_Build" src="../images/build-gui/build_gui_build.png"></p>
+<p>4.1. <strong>Build Configuration</strong>: Choose from a list of default build configurations, or select the packages you wish to build manually.
+ <img alt="Build_GUI_Build_Configuration" src="../images/build-gui/build_gui_build_configuration.png"></p>
+<p>4.2. <strong>Build Options</strong>: Choose which build type you wish to use, with ability to specify additional build options.
+ <img alt="Build_GUI_Build_Options" src="../images/build-gui/build_gui_build_options.png"></p>
+</li>
+<li>
+<p><strong>Save and Load</strong>: Save your build configurations for future use, or load a previously saved configuration if you don't wish to build all packages or use one of the default configurations provided.
+   <img alt="Build_GUI_Save" src="../images/build-gui/build_gui_save.png"></p>
+</li>
+<li><strong>Updating Workspace</strong>: Update your Autoware workspace's packages to the latest version using the GUI or adding Calibration tools to the workspace.
+   <img alt="Build_GUI_Update" src="../images/build-gui/build_gui_update.png"></li>
 </ol>
 <!-- prettier-ignore --></div>
 
