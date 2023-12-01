@@ -1036,17 +1036,47 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/how-to-guides/integrating-autoware/launch-autoware/control/</loc>
+         <lastmod>2023-12-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/how-to-guides/integrating-autoware/launch-autoware/localization/</loc>
+         <lastmod>2023-12-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/how-to-guides/integrating-autoware/launch-autoware/localization/eagleye/</loc>
+         <lastmod>2023-12-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/how-to-guides/integrating-autoware/launch-autoware/map/</loc>
+         <lastmod>2023-12-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/latest/how-to-guides/integrating-autoware/launch-autoware/perception/</loc>
          <lastmod>2023-12-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/how-to-guides/integrating-autoware/launch-autoware/localization-methods/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/how-to-guides/integrating-autoware/launch-autoware/planning/</loc>
          <lastmod>2023-12-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/how-to-guides/integrating-autoware/launch-autoware/localization-methods/eagleye-guide/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/how-to-guides/integrating-autoware/launch-autoware/sensing/</loc>
+         <lastmod>2023-12-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/how-to-guides/integrating-autoware/launch-autoware/system/</loc>
+         <lastmod>2023-12-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/latest/how-to-guides/integrating-autoware/launch-autoware/vehicle/</loc>
          <lastmod>2023-12-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
