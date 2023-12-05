@@ -6353,7 +6353,7 @@ classDef cls_sen fill:#FFE6CC,stroke:#999,stroke-width:1px;</code></pre>
 </tr>
 <tr>
 <td>Lidar Point Cloud</td>
-<td></td>
+<td><code>/sensing/lidar/&lt;lidar name&gt;/pointcloud_raw</code></td>
 <td><a href="https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/PointCloud2.msg">sensor_msgs/PointCloud2</a></td>
 <td>Pointcloud from lidar driver.</td>
 </tr>
@@ -6420,9 +6420,9 @@ classDef cls_sen fill:#FFE6CC,stroke:#999,stroke-width:1px;</code></pre>
 </tr>
 <tr>
 <td>Lidar Point Cloud</td>
-<td></td>
+<td><code>/sensing/lidar/&lt;lidar group&gt;/pointcloud</code></td>
 <td><a href="https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/PointCloud2.msg">sensor_msgs/PointCloud2</a></td>
-<td>Lidar pointcloud after preprocessing. Used by the Perception and Localization.</td>
+<td>Lidar pointcloud after preprocessing. Used by the Perception and Localization. <code>&lt;lidar group&gt;</code> is a unique name for identifying each LiDAR or the group name when multiple LiDARs are combined. Specifically, the concatenated point cloud of all LiDARs is assigned the <code>&lt;lidar group&gt;</code> name <code>concatenated</code>.</td>
 </tr>
 <tr>
 <td><abbr title="Global Navigation Satellite System">GNSS</abbr>-INS pose</td>
