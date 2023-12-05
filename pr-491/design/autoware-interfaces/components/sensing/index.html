@@ -6272,8 +6272,6 @@
     &lt;font size=1&gt;radar_msgs/RadarTracks&lt;/font size&gt;"):::cls_sen
     msg_pc_rdr("&lt;font size=2&gt;&lt;b&gt;Radar Pointcloud&lt;/b&gt;&lt;/font size&gt;
     &lt;font size=1&gt;radar_msgs/RadarScan&lt;/font size&gt;"):::cls_sen
-    msg_pc_combined_ldr("&lt;font size=2&gt;&lt;b&gt;Combined Lidar Point Cloud&lt;/b&gt;&lt;/font size&gt;
-    &lt;font size=1&gt;sensor_msgs/PointCloud2&lt;/font size&gt;"):::cls_sen
     msg_pc_ldr("&lt;font size=2&gt;&lt;b&gt;Lidar Point Cloud&lt;/b&gt;&lt;/font size&gt;
     &lt;font size=1&gt;sensor_msgs/PointCloud2&lt;/font size&gt;"):::cls_sen
     msg_pose_gnss("&lt;font size=2&gt;&lt;b&gt;GNSS-INS Pose&lt;/b&gt;&lt;/font size&gt;
@@ -6301,7 +6299,6 @@
     cmp_sen --&gt; msg_gnssvel_sen
     cmp_sen --&gt; msg_pc_combined_rdr
     cmp_sen --&gt; msg_pc_rdr
-    cmp_sen --&gt; msg_pc_combined_ldr
     cmp_sen --&gt; msg_pc_ldr
     cmp_sen --&gt; msg_pose_gnss
     cmp_sen --&gt; msg_gnssacc_sen
@@ -6309,8 +6306,7 @@
     msg_img_sen --&gt; cmp_per
     msg_pc_combined_rdr --&gt; cmp_per
     msg_pc_rdr --&gt; cmp_per
-    msg_pc_combined_ldr --&gt; cmp_per
-    msg_pc_combined_ldr --&gt; cmp_loc
+    msg_pc_ldr --&gt; cmp_per
     msg_pc_ldr --&gt; cmp_loc
     msg_pose_gnss --&gt; cmp_loc
     msg_gnssori_sen --&gt; cmp_loc
@@ -6423,16 +6419,10 @@ classDef cls_sen fill:#FFE6CC,stroke:#999,stroke-width:1px;</code></pre>
 <td>Pointcloud from radar. Used by the Perception.</td>
 </tr>
 <tr>
-<td>Combined Lidar Point Cloud</td>
-<td></td>
-<td><a href="https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/PointCloud2.msg">sensor_msgs/PointCloud2</a></td>
-<td>Lidar pointcloud after preprocessing. Used by the Perception and Localization.</td>
-</tr>
-<tr>
 <td>Lidar Point Cloud</td>
 <td></td>
 <td><a href="https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/PointCloud2.msg">sensor_msgs/PointCloud2</a></td>
-<td>Lidar pointcloud after preprocessing. Used by the Localization.</td>
+<td>Lidar pointcloud after preprocessing. Used by the Perception and Localization.</td>
 </tr>
 <tr>
 <td><abbr title="Global Navigation Satellite System">GNSS</abbr>-INS pose</td>
