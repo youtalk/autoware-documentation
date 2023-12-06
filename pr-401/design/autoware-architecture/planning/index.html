@@ -14,7 +14,7 @@
         <link rel="prev" href="../perception/">
       
       
-        <link rel="next" href="index-update/">
+        <link rel="next" href="index-japanese/">
       
       <link rel="icon" href="../../../assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.20">
@@ -3974,7 +3974,7 @@
   
   
     <li class="md-nav__item">
-      <a href="index-update/" class="md-nav__link">
+      <a href="index-japanese/" class="md-nav__link">
         Planning component design
       </a>
     </li>
@@ -6161,8 +6161,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#purpose-of-this-document" class="md-nav__link">
-    Purpose of this document
+  <a href="#purpose" class="md-nav__link">
+    Purpose
   </a>
   
 </li>
@@ -6170,20 +6170,6 @@
         <li class="md-nav__item">
   <a href="#goals-and-non-goals" class="md-nav__link">
     Goals and non-goals
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
-    Requirements
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#assumptions" class="md-nav__link">
-    Assumptions
   </a>
   
 </li>
@@ -6197,15 +6183,42 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#discussions-trade-off" class="md-nav__link">
-    Discussions -&gt; わからん。trade-off選定とかにしよう
+  <a href="#highlights" class="md-nav__link">
+    Highlights
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customize-features" class="md-nav__link">
+    Customize features
+  </a>
+  
+    <nav class="md-nav" aria-label="Customize features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-adding-new-modules-to-the-planning-component" class="md-nav__link">
+    1. Adding New Modules to the Planning Component
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#mechanism-and-policy" class="md-nav__link">
-    Mechanism and policy
+  <a href="#2-replacing-sub-components-of-planning" class="md-nav__link">
+    2. Replacing Sub-components of Planning
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-replacing-the-entire-planning-component" class="md-nav__link">
+    3. Replacing the Entire Planning Component
   </a>
   
 </li>
@@ -6250,13 +6263,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to-add-new-features-wip" class="md-nav__link">
-    How to add new features (WIP)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#detailed-design" class="md-nav__link">
     Detailed design
   </a>
@@ -6279,15 +6285,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#important-parameters" class="md-nav__link">
-    Important Parameters
+  <a href="#important-information-in-the-current-implementation" class="md-nav__link">
+    Important information in the current implementation
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#notation" class="md-nav__link">
-    Notation
+  <a href="#customize-features-in-the-current-implementation" class="md-nav__link">
+    Customize features in the current implementation
   </a>
   
 </li>
@@ -6316,141 +6322,78 @@
 
 
 <div><h1 id="planning-component-design">Planning component design<a class="headerlink" href="#planning-component-design" title="Permanent link">#</a></h1>
-<ul>
-<li>discussionsはトレードオフ選定とかにしたい</li>
-<li>サードパーティによって拡張というよりは、誰でも拡張できるって言い回しのほうが良いはず</li>
-<li>mission plannerの使われ方を重点的に考えよう。FMSとして機能が外だしされることがあるから、これは別れてるのよ。</li>
-<li>ハイレベルなデザインと詳細なデザインではなく、アーキテクチャのためのデザイン（要求ベース、これがやりたい）と、アーキテクチャ（詳細なフロー）ができるはず。</li>
-<li>デザインの部分に、ポリシーによる変更がわかるような書き方があると良い。ポリシーA（右側走行）になったときに、いくつかのモジュールが特定の設定で起動する。どう図にするか。。。</li>
-<li>このポリシーに対して、何がどうかわるかという例があるといい。自動運転レベルが変わったときに、HMIとの連携がこう変わって、軌道モジュールがこう変わる、とか。</li>
-<li>ハイレベルに対するユースケースを上げる</li>
-<li>車両の振る舞いのユースケース<ul>
-<li>話ゴールやチェくポイント、NGポイントを与えてplanning内部でルートを計算して進む / 渋滞情報を加味したルートを外部から与えて走行する
-  開発者のユースケース</li>
-<li>中の作りの話（実装や設計レベル）：機能の差し替えができていてほしいので（レーンチェンジAとレーンチェンジBとか）、柔軟に変更できる必要があり、各機能はモジュールとして実装される。</li>
-</ul>
-</li>
-</ul>
-<h2 id="purpose-of-this-document">Purpose of this document<a class="headerlink" href="#purpose-of-this-document" title="Permanent link">#</a></h2>
-<p>This document outlines the high-level design strategies, goals and related rationales in the development of the Planning Component. Through this document, it is expected that all OSS developers will comprehend the design philosophy, goals and constraints under which the Planning Component is designed, and participate seamlessly in the development.</p>
-<p>このドキュメントは Planning コンポーネントの開発における目標、ハイレベルな設計方針、およびそれらの議論ポイントをまとめています。このドキュメントを通じて、すべてのOSS開発者はPlanning コンポーネントがどのような設計思想、目標、制約の下で設計されているかを理解することができ、それによってスムーズに開発に参加することができます。</p>
-<p>Furthermore, detailed design of the reference imprementations and provided featres are are included in the latter part of this document, while this information might be managed separately in the future. This allows developers and users to understand what is currently available with the Planning Component, how to utilize, expand, or add to its features.</p>
-<p>ドキュメントの後半では、詳細設計としてリファレンス実装や提供機能の一覧も記載しています（この情報は将来的に別のドキュメントで管理されるかもしれません）。これにより、開発者やユーザーは Planning コンポーネントの現在の実装、およびそれらをどのように活用、拡張するかを理解することができます。</p>
+<h2 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">#</a></h2>
+<p>The role of the Planning Component in autonomous driving systems is to generate a target trajectory (path and speed) for autonomous vehicles that is safe and following traffic rules, in order to fulfill a given mission.</p>
+<p>This document summarizes the requirements and design of planning in Autoware. This will enable developers to understand how the Planning Component is designed and how to extend its capabilities.</p>
+<p>The first half of the document discusses high-level requirements and design, while the latter half covers actual implementations and provided functionalities.</p>
 <h2 id="goals-and-non-goals">Goals and non-goals<a class="headerlink" href="#goals-and-non-goals" title="Permanent link">#</a></h2>
-<p>The role of the Planning component is to generate a trajectory (path and velocity) of the self-driving vehicle that is safe and well-regulated while satisfying the given mission.</p>
-<p>Planning コンポーネントの役割は、与えられたミッションを満たしつつ、安全で交通ルールに基づいた自動運転車両の目標軌道（経路と速度）を生成することです。</p>
-<p>In our overall design, we emphasize the concept of <a href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-concepts">microautonomy architecture</a>. This term refers to a design approach that focuses on the proper modularization of functions, clear definition of interfaces between these modules, and as a result, high expandability of the system. Given this context, the goal of the Planning component is set not to solve every conceivable complex use case (although we do aim to support basic ones), but rather to provide a platform that can be customized to the user's needs and can facilitate the development of additional features.</p>
-<p>Planningの全体設計において、我々は <a href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-concepts">microautonomy architecture</a> の概念を重視しています。microautonomy とは、適切な機能のモジュール化やインターフェースの明確な定義に基づき、システムの高い拡張性を焦点を当てた設計コンセプトです。そのため Planning component の目標は、すべての考えられる複雑なユースケースを解決することではなく（基本的なものはサポートすることを目指していますが）、ユーザーのニーズに合わせてカスタマイズでき、第三者によって機能が容易に追加可能なプラットフォームを提供することに設定されています。</p>
-<p>To clarify the design concepts, the following points are listed as goals and non-goals.</p>
-<p>この設計コンセプトを明確にするため、以下に Goal と Non-Goal をリスト化します。</p>
+<p>Our goal is not the development of just an autonomous driving system, but the provision of an autonomous driving "platform." On this platform, anyone can extend the functionalities of autonomous driving based on their needs.</p>
+<p>In Autoware, we employ the concept of a <a href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-concepts">microautonomy architecture</a>. Microautonomy is a design concept for autonomous driving systems focused on high extensibility, based on appropriate functional modularity and clear interface definitions.</p>
+<p>With this in mind, the design policy for the Planning component is not to solve all the complex use cases of autonomous driving (as that is a very challenging problem), but <strong>to provide a Planning development platform that can be customized according to user needs and easily extended by anyone</strong>. We believe that as our platform gains extensibility to various needs, many complex use cases will ultimately be resolved.</p>
+<p>To clarify this policy, Goals and Non-Goals are listed below.</p>
 <p><strong>Goals:</strong></p>
 <ul>
-<li>The basic functions are provided so that a simple Operational Design Domain (<abbr title="Operational Design Domain">ODD</abbr>) can be defined.<ul>
-<li><strong>TODO</strong>: need more information for the "simple <abbr title="Operational Design Domain">ODD</abbr>"</li>
+<li><strong>To have the minimum basic functions necessary for autonomous driving</strong><ul>
+<li>Prior to extension of functionalities, the Planning Component must offer essential functionalities for autonomous driving. This includes basic planning like moving forward and backward, stopping, and turning, as well as lane changes and obstacle avoidance in relatively safe and simple situations.</li>
 </ul>
 </li>
-<li>The functionality is modularized to accommodate the third-party components. That is, a complicated or realistic <abbr title="Operational Design Domain">ODD</abbr> needs not be defined by the basic functions provided by default.<ul>
-<li><strong>TODO</strong>: need to clarify the meaning of the "realistic <abbr title="Operational Design Domain">ODD</abbr>"</li>
+<li><strong>Provided functionalities are modularized, and anyone can extend them</strong><ul>
+<li>This means being able to respond to the expected <abbr title="Operational Design Domain">ODD</abbr> with extended functionalities. If anyone can extend functionalities like a plugin, systems tailored to various needs can be provided (e.g., Lv4/Lv2 autonomous driving, public/private road driving, large vehicles, small robots).</li>
+<li>Additionally, the ability to reduce functionalities for limited ODDs (e.g., obstacle-free managed private roads) is important from the platform point of view. Disabling modularized functions can reduce power consumption or requirement for sensing systems, which can fits to someone's needs.</li>
 </ul>
 </li>
-<li>The capability is extensible with the third-party components or the decision of human operators.</li>
-</ul>
-<!-- Not sure what the following says. -->
-<!-- - The mechanism and policy are separated to allow the system or operators to change the behavior of the ego vehicle. Ultimately speaking, the policy can be set to crash an obstacle and the mechanism always follows. Otherwise, the system is not safe from the design point of view. -->
-
-<ul>
-<li>シンプルな運用設計領域（<abbr title="Operational Design Domain">ODD</abbr>）を定義できるレベルの基本的なplanning機能を提供する<ul>
-<li><strong>TODO</strong>: シンプルの定義はもう少し詳しく書いたほうが良いかも</li>
+<li><strong>Capability enhancement through cooperation with operators</strong><ul>
+<li>Assistance by operators is also a form of functional extension. This means that even in very complex and difficult use cases, the system can cope through functional extension by human assistance. The specific type of operator is not defined here. It might be a person accompanying in the vehicle during the prototype development phase or a remote operator connected in emergencies during autonomous driving services.</li>
 </ul>
 </li>
-<li>サードパーティによる機能の追加が容易なように、planningの機能はモジュール化されている。</li>
-<li>人間の操作者の決定やサードパーティのコンポーネントによって機能を拡張できる。</li>
 </ul>
 <p><strong>Non-goals:</strong></p>
+<p>The Planning Component is intended to be extended by third-party modules. Therefore, the following are excluded from the goals of Autoware's Planning Component alone:</p>
 <ul>
-<li>The Planning component is not self-contained but can be extended and enhanced with third parties.</li>
-<li>The Planning component is not aimed at the complete functionality and capability.</li>
-<li>The Planning component is not designed to always outperform human drivers.</li>
-<li>The Planning component is not capable of “never crashes”.</li>
+<li>Providing all the functionalities needed by users solely with Autoware</li>
+<li>Complete functionality and performance as an autonomous driving system</li>
+<li>Performance consistently exceeding human capabilities or providing complete safety.</li>
 </ul>
-<ul>
-<li>Planningコンポーネントは自己完結している必要はない。ただし、サードパーティと共に拡張・強化することができることは必要。</li>
-<li>Planningコンポーネントは自動運転としての完全な機能を目指しているわけではない。</li>
-<li>Planningコンポーネントは常に人間のドライバーを上回るように設計されているわけではない。</li>
-<li>Planningコンポーネントは「絶対に衝突しない」という性能を持っているわけではない。</li>
-</ul>
-<p>While performance such as "never crashes" is not a present goals, we need to create an architecture that can potentially achieve such a state with third-party components or decision of human operators or future enhancement.</p>
-<p>「絶対に衝突しない」といった性能は現在の目標ではありませんが、サードパーティのコンポーネントや人間の操作者の決定、または将来の強化によってそのような状態を達成できるようなアーキテクチャを作成することは我々の目標です。</p>
-<h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">#</a></h2>
-<p>WIP</p>
-<h2 id="assumptions">Assumptions<a class="headerlink" href="#assumptions" title="Permanent link">#</a></h2>
-<p>WIP</p>
+<p>Note that these requirements come from the perspective of an autonomous driving "platform" and are not generally applicable to the Planning Component of a typical autonomous driving system.</p>
 <h2 id="high-level-design">High level design<a class="headerlink" href="#high-level-design" title="Permanent link">#</a></h2>
-<p>This diagram describes the high-level architecture of the Planning Component.</p>
-<p><img alt="overall-planning-architecture" src="image/high-level-planning-diagram.drawio.svg">
-<img alt="overall-planning-architecture" src="image/high-level-planning-diagram-miyake-reviewed.drawio.svg"></p>
-<p>The Planning component consists of the following sub-components:</p>
-<p>Planning コンポーネントはいくつかのサブコンポーネントからなります。</p>
+<p>This diagram shows the high-level architecture of the Planning Component. Note that this is an ideal high-level design and the current implementation does not fully comply with it. Please refer to the latter part for detailed implementations.</p>
+<!-- ![overall-planning-architecture](image/high-level-planning-diagram.drawio.svg) -->
+
+<p><img alt="overall-planning-architecture" src="image/high-level-planning-diagram-miyake-reviewed.drawio.svg"></p>
+<p>Here, we adopt a modular system framework following the microautonomy architecture. The functions of Planning are implemented as modules, which are dynamically/statically loaded/unloaded according to the given use cases. This includes, for example, lane change, intersection, and pedestrian crossing modules.</p>
+<p>The Planning Component consists of several sub-components such as:</p>
 <ul>
-<li><strong>Mission Planning</strong>: Calculates the route from a starting position and a given goal based on map information.</li>
-<li><strong>Scenario Planning</strong>: Determines the trajectory based on the current scenario, such as Lane Driving or Parking.<ul>
-<li><strong>Lane Driving</strong>: Calculates the trajectory for driving within constructed lanes.<ul>
-<li><strong>Behavior Planner</strong>: Calculates suitable path based on safety considerations and traffic rules.</li>
-<li><strong>Motion Planner</strong>: Calculates suitable trajectory for the vehicle by taking into account safety factors, vehicle motion considerations, and instructions from the behavior planner.</li>
+<li><strong>Mission Planning</strong>: Calculates routes from the current location to the goal for autonomous driving missions based on map information. Comparing to existing services, this module takes on functions like <abbr title="Fleet Management System">FMS</abbr> (Fleet Management System) mission management or car navigation route searching.</li>
+<li><strong>Planning Modules</strong>: Plans the behavior of the vehicle, such as target trajectory and turn signals, for the defined mission. This sub-component consists of several modules responsible for functionalities. These modules are conveniently categorized into Behavior and Motion.<ul>
+<li><strong>Behavior</strong>: Calculates appropriate routes considering traffic rules and safety. It handles safe confirmations and execution decisions for lane changes, entering intersections, and stopping at signals.</li>
+<li><strong>Motion</strong>: Calculates target trajectories considering vehicle motion and ride comfort in collaboration with Behavior modules. Specifically, it consists of lateral planning that calculates route shapes and longitudinal planning that calculates speeds.</li>
 </ul>
 </li>
-<li><strong>Parking</strong>: Calculates the trajectory for parking in unstructured areas.</li>
+<li><strong>Validation</strong>: Validates the calculated target trajectories, ensuring safety and responding in emergencies. If the trajectory calculated by Planning is inappropriate, it notifies the System of an Emergency or generates a provisional trajectory.</li>
 </ul>
-</li>
-<li><strong>Validation</strong>: Verifies the safety of the trajectory.</li>
-</ul>
-<ul>
-<li><strong>Mission Planning</strong>: 地図情報をもとに、初期位置からゴールまでのルートを計算します。</li>
-<li><strong>Scenario Planning</strong>: Lane Driving や Parkingなどのシナリオに基づいて、適切な目標軌道を計算します。<ul>
-<li><strong>Lane Driving</strong>: レーン構造が存在する場所において、適切な目標軌道を計算します。<ul>
-<li><strong>Behavior Planner</strong>: 交通ルールや安全を考慮して適切な経路を計算します。</li>
-<li><strong>Motion Planner</strong>: Behavior Plannerの出力を元に、車両運動や乗り心地を考慮した目標軌道を計算します。</li>
-</ul>
-</li>
-<li><strong>Parking</strong>: 駐車場などのフリースペース環境において、適切な目標軌道を計算します。</li>
-</ul>
-</li>
-<li><strong>Validation</strong>: 計算された目標軌道の安全性を検証します。</li>
-</ul>
-<p>Following the microautonomy architecture, we adopt a modular system framework where the tasks are implemented as modules that can be dynamically loaded and unloaded to achieve different features depending on the given use cases. For instance, the Behavior Planning component includes modules such as lane change, intersection, and crosswalk modules.</p>
-<p>ここでは microautonomy アーキテクチャに従い、モジュール型のシステムフレームワークを採用しています。planningの機能はモジュールとして実装され、これらのモジュールは与えられたユースケースに応じて動的にロードおよびアンロードされます。例えば、behavior planning のサブコンポーネントには、レーンチェンジ、交差点、横断歩道モジュールなどのモジュールが含まれています。</p>
-<h3 id="discussions-trade-off">Discussions -&gt; わからん。trade-off選定とかにしよう<a class="headerlink" href="#discussions-trade-off" title="Permanent link">#</a></h3>
-<p>The following provides discussion points on trade-offs in the architecture. From this information, you can see the current design limitation, challenges, and potential improvement.</p>
-<p>以下では、アーキテクチャのトレードオフについての議論のポイントを提供します。この情報から、現在の設計の限界、課題、そして潜在的な改善点が見えてきます。</p>
-<p><strong>Separation of planning and other components</strong>
-By developing the planning, perception, localization, and control components separately, it becomes easy to collaborate with third-party components in the component level. However, there's a trade-off between performance and extensibility here. For instance, a perception component would ideally perform recognition and motion prediction only for the objects that the planning component needs, but separating the components hinders such close communication. Additionally, separating planning and control makes it harder to consider vehicle motion performance when planning. To compensate for this, it's necessary to either increase the information exchanged via the interface or increase the computation load.</p>
-<p><strong>planningと他のコンポーネントの分離</strong>
-planning、perception、localization、controlなどのコンポーネントを分離して開発することで、サードパーティ製のコンポーネントとの連携が容易になります。しかし、ここではパフォーマンスと拡張性の間にトレードオフがあります。例えば、perception コンポーネントは理想的には planning コンポーネントが必要とするオブジェクトだけを認識すれば十分ですが、コンポーネントを分離することでそのような密接なコミュニケーションが難しくなり、不要なオブジェクトに対しても処理を実行する必要があります。また、計画と制御を分離すると、計画時に車両の運動性能を考慮することが難しくなるという性能面の欠点があります。これを補うためには、インターフェースの情報量を増やすか、計算負荷を増やすなど対応が必要になります。</p>
-<p><strong>Introducing the Scenario Planning layer</strong>
-There are different requirements for interfaces between driving in well-structured lanes and driving in a free-space area like a parking lot. For example, while Lane Driving can handle routes with map IDs, this is not appropriate for planning in free space. The mechanism that switches planning sub-components at the scenario level (Lane Driving, Parking, etc) enables a flexible design of the interface, however, it has a drawbacks of the reuse of modules across different scenarios.</p>
-<p><strong>Scenario Planning の導入</strong>
-整備されたレーンを走行する場合と、駐車場のような自由空間での走行では、インターフェースに対する情報要求が異なります。例えば、レーン走行中は地図のレーン情報を処理できますが、これは自由空間での計画には適していません。シナリオレベル（Lane Driving / Parking）で Planning サブコンポーネントを切り替えるメカニズムは、インターフェースの柔軟な設計を可能にしますが、異なるシナリオ間でモジュールを再利用できなくなるという欠点もあります。</p>
-<p><strong>Separation of Behavior and Motion</strong>
-One of the classic approach to Planning involves dividing it into "Behavior", which decides the action, and "Motion", which determines the final movement. However, this separation implies a trade-off with performance, as performance tends to degrade with increasing separation of functions. For example, Behavior needs to make decisions without prior knowledge of the computations that Motion will eventually perform, which generally results in conservative decision-making. On the other hand, if behavior and motion are integrated, motion performance and decision-making become interdependent, creating challenges in terms of expandability, such as when you wish to extend only the decision-making function to follow a regional traffic rules.</p>
-<p><strong>Behavior と Motion の分離</strong>
-Planningコンポーネントを行動を決定する "Behavior" と、最終的な動きを決定する ”Motion” に分けることは古典的なアプローチの一つです。しかし、この方針にはパフォーマンスとのトレードオフが存在します。機能の分離が進むとパフォーマンスは一般的に低下する傾向があります。例えば、Behavior は、最終的に Motion が行う計算結果を知るより前に意思決定を行わなければならないため、一般的に保守的な意思決定が行われます。一方、BehaviorとMotionが一体化している場合、運動性能と意思決定が依存するため、例えば国ごとに異なる交通ルールに従うために意思決定機能を拡張する場合において運動性能を考慮する必要があるといった拡張性の課題が生じます。</p>
-<p>To understand this background, this <a href="https://github.com/tier4/AutowareArchitectureProposal.proj/blob/main/docs/design/software_architecture/Planning/DesignRationale.md">previously discussed document</a> may be useful.</p>
-<h3 id="mechanism-and-policy">Mechanism and policy<a class="headerlink" href="#mechanism-and-policy" title="Permanent link">#</a></h3>
-<p>In planning, several policies are defined to achieve various user's needs and ODDs. For example, in terms of the level of autonomous driving, Planning provides the following policies.</p>
-<ul>
-<li><strong>Fully-autonomous</strong> that delegates all decision makings to the system, thus the system is responsible for the safety.</li>
-<li><strong>Semi-autonomous</strong> that delegates most of decision makings to the system but the rest of decision makings strictly defined remain with the human operator, thus both the system and the human operator are responsible for the safety.</li>
-<li><strong>Motion-autonomous</strong> that delegates only the low-level motion plan to the system, while high-level mission and behavior plannings remain with the human operator, thus the human operator is responsible for the safety.</li>
-</ul>
-<p>Planningでは、様々なODDやユーザーのニーズを達成するために、いくつかのポリシーが定義されます。例えば、自動運転のレベルにおいて、Planningは以下のポリシーを提供します。</p>
-<ul>
-<li><strong>Fully-autonomous</strong> ：すべての意思決定をシステムに委ね、システムが安全性を担保します。</li>
-<li><strong>Semi-autonomous</strong>：ほとんどの意思決定をシステムに委ねますが、一部の意思決定は人間のオペレーターに委ねられ、システムと人間のオペレーターの両方が安全性を担保します。</li>
-<li><strong>Motion-autonomous</strong>：低レベルの運動計画のみをシステムに委ね、高レベルのミッションと行動計画は人間のオペレーターが行い、人間のオペレーターが安全性を担保します。</li>
-</ul>
-<p>This policy can vary depending on the desired use cases and ODDs. It might be determined before driving begins, or it may switch dynamically during operation. The activated modules and their configuration change according to the policy to achieve the expected behaviors. Note that our goal is not necessarily to achieve only fully-autonomous. Depending on the expected <abbr title="Operational Design Domain">ODD</abbr>, sensor configuration, and sensor costs, we may also design the system on the premise of semi-autonomy. Our goal as an OSS platform is to design an architecture that allows for flexible changes to these policies. <a href="https://en.wikipedia.org/wiki/Separation_of_mechanism_and_policy">Separation the mechanism and policy</a> allows us to modularize the planning components not only from the software point of view but also from the actual logic point of view.</p>
-<p>このポリシーは、求められるユースケースやODDにより変わります。これは走行前に決定されるかもしれませんし、走行中に動的に切り替わる可能性もあります。起動するモジュールやその設定はポリシーに従って変更され、期待される行動が実現されます。ここで注意すべきは、我々の目標が必ずしも Fully-autonomous だけであるわけではないということです。期待するODD、センサーの構成、センサーコストにより、Semi-autonomous を前提としたシステム設計を行うこともあります。OSSプラットフォームとしての我々の目標は、これらのポリシーを柔軟に変更できるアーキテクチャを設計することです。メカニズムとポリシーを分離することで、ソフトウェアの観点だけでなく、実際のロジックの観点からも計画コンポーネントをモジュラ化することが可能になります。</p>
-<p><strong>TODO:</strong> How to handle the policy of the autonomous level has not yet been finalized and needs further discussion. While it is believed that these can be implemented in collaboration with the Human-Machine Interface, further investigation and discussion is needed.</p>
+<h3 id="highlights">Highlights<a class="headerlink" href="#highlights" title="Permanent link">#</a></h3>
+<p>Important points in this high-level design are listed below.</p>
+<h4 id="modulation-of-each-function">Modulation of each function<a class="headerlink" href="#modulation-of-each-function" title="Permanent link">#</a></h4>
+<p>Functions necessary for Planning, such as route generation, lane changes, intersections, and pedestrian crossings, are managed as modules. These modules are provided with standardized interfaces, following which anyone can add or extend modules. Details of the interfaces will be discussed later.</p>
+<h4 id="separation-of-mission-planning-sub-component">Separation of Mission Planning sub-component<a class="headerlink" href="#separation-of-mission-planning-sub-component" title="Permanent link">#</a></h4>
+<p>The role of Mission Planning is to substitute for existing services like <abbr title="Fleet Management System">FMS</abbr> (Fleet Management System). By complying with the high-level defined interfaces of Mission Planning, easy integration with these third-party functions can be achieved.</p>
+<h4 id="separation-of-validation-sub-component">Separation of Validation sub-component<a class="headerlink" href="#separation-of-validation-sub-component" title="Permanent link">#</a></h4>
+<p>Given the nature of the Planning Component, which can be easily extended by anyone, it is difficult to ensure the expected level of safety in each function. The Validation function of Planning is managed separately from modules that actually perform planning, ensuring a certain level of safety even if arbitrary changes are made to the modules.</p>
+<h4 id="interface-for-hmi-human-machine-interface">Interface for <abbr title="Human Machine Interface">HMI</abbr> (Human Machine Interface)<a class="headerlink" href="#interface-for-hmi-human-machine-interface" title="Permanent link">#</a></h4>
+<p>The integration with Human Machine Interface is essential for smooth cooperation with human operators. Through the interfaces between these components, coordination with accompanying operators or remote monitoring systems is enabled.</p>
+<h4 id="trade-offs-for-the-separation-of-planning-and-other-components">Trade-offs for the separation of planning and other components<a class="headerlink" href="#trade-offs-for-the-separation-of-planning-and-other-components" title="Permanent link">#</a></h4>
+<p>In the overall design of Autoware, attention is needed for the trade-offs when designing Planning as an isolated Component. By developing components such as Planning, Perception, Localization, and Control separately, cooperation with third-party components becomes easier. However, there are trade-offs between performance and extensibility. For example, ideally, the Perception component should only recognize objects needed by the Planning component, but separating components makes such close communication difficult, necessitating processing even unnecessary objects. Also, separating planning and control has performance drawbacks, such as difficulty in considering vehicle dynamics during planning. To compensate for this, increasing the amount of information in interfaces or increasing computational load is necessary.</p>
+<h2 id="customize-features">Customize features<a class="headerlink" href="#customize-features" title="Permanent link">#</a></h2>
+<p>One of the most important features of the Planning Component design is its integration with external modules. As shown in the diagram below, there are several ways to incorporate external functionalities.</p>
+<p><img alt="how-to-add-new-modules" src="image/how-to-add-new-modules.drawio.svg"></p>
+<h3 id="1-adding-new-modules-to-the-planning-component">1. Adding New Modules to the Planning Component<a class="headerlink" href="#1-adding-new-modules-to-the-planning-component" title="Permanent link">#</a></h3>
+<p>Users can replace or add functionalities to Planning as modules. This is the most common method of extending functionalities. This allows for the addition of missing functionalities in the desired <abbr title="Operational Design Domain">ODD</abbr> or, conversely, the simplification of existing functionalities.</p>
+<p>However, to add these functionalities, it is necessary that the interfaces of each module are properly organized. As of November 2023, such an ideal module system is not provided, and there are some limitations. For details, check the Reference Implementation section <a href="#customize-features-in-the-current-implementation">Customize features in the current implementation</a>.</p>
+<h3 id="2-replacing-sub-components-of-planning">2. Replacing Sub-components of Planning<a class="headerlink" href="#2-replacing-sub-components-of-planning" title="Permanent link">#</a></h3>
+<p>Some users may be interested in collaboration and extension at the sub-component level. This could include, for example, replacing Mission Planning with an existing <abbr title="Fleet Management System">FMS</abbr> service, or replacing the route generation functionality with a third-party product while using the existing Validation functionality.</p>
+<p>Following the <a href="#internal-interface-in-the-planning-component">Internal interface in the planning component</a> described later, it is possible to collaborate and extend at the sub-component level. While complex coordination with existing Planning functionalities is not feasible, it enables collaboration between some functionalities of the Planning Component and external modules.</p>
+<h3 id="3-replacing-the-entire-planning-component">3. Replacing the Entire Planning Component<a class="headerlink" href="#3-replacing-the-entire-planning-component" title="Permanent link">#</a></h3>
+<p>Companies or research labs developing autonomous driving Planning systems may be interested in evaluating the entire autonomous driving system by integrating their own Planning products with Autoware's Perception or Control modules. This is possible by replacing the entire Planning system. It is easy to replace by following the most robust and stable interfaces defined between components. However, coordination with existing planning modules is not possible.</p>
 <h2 id="component-interface">Component interface<a class="headerlink" href="#component-interface" title="Permanent link">#</a></h2>
 <p>This section describes the inputs and outputs of the Planning Component and of its internal modules. See the <a href="../../autoware-interfaces/components/planning/">Planning Component Interface</a> page for the current implementation.</p>
 <h3 id="input-to-the-planning-component">Input to the planning component<a class="headerlink" href="#input-to-the-planning-component" title="Permanent link">#</a></h3>
@@ -6479,7 +6422,7 @@ Planningコンポーネントを行動を決定する "Behavior" と、最終的
 </ul>
 </li>
 <li><strong>From API Layer</strong><ul>
-<li>Goal: Represents the final position that the Planning Component aims to reach.</li>
+<li>Destination (Goal): Represents the final position that the Planning Component aims to reach.</li>
 <li>Checkpoint: Represents a midpoint along the route to the destination. This is used during route calculation.</li>
 <li>Velocity limit: Sets the maximum speed limit for the vehicle.</li>
 </ul>
@@ -6526,12 +6469,6 @@ Planningコンポーネントを行動を決定する "Behavior" と、最終的
 </ul>
 </li>
 </ul>
-<h2 id="how-to-add-new-features-wip">How to add new features (WIP)<a class="headerlink" href="#how-to-add-new-features-wip" title="Permanent link">#</a></h2>
-<p>As mentioned in the goal session, this planning module is designed to be extensible by third-party components. When incorporating third-party components, there are several approaches.</p>
-<p>ゴールのセッションで述べたように、このPlanningコンポーネントはサードパーティのコンポーネントによる拡張を可能にするように設計されています。サードパーティのコンポーネントを組み込む際にはいくつかの方法があります。</p>
-<p>As stated in the figure, you can completely replace the entire planning function, replace or add to the planning sub-components, or add new modules into the existing planning component. The latter part offers advantages as it allows for cooperation with the existing Planning functions, but it does require adherence to the detailed interfaces defined within the Planning Component. Conversely, while replacing the entire planning function enables you to utilize other components of Autoware, it does not allow for integration with the existing planning functions. For specific instructions on how to add new modules and expand its functionality, please refer to the forthcoming documentation or guidelines (WIP).</p>
-<p>図に示した通り、機能の追加には「Planning Componentを完全に置き換える」、「Planningのサブコンポーネントを置き換えるまたは追加する」、「既存のPlanningコンポーネントに新たなモジュールを追加する」方法があります。後者の方法ほど、既存のPlanning機能との連携が可能であるという利点がありますが、Planningコンポーネント内で定義されている詳細なインターフェースに従う必要があります。一方、Planning機能全体を置き換えることにより、大枠のinterfaceを揃えるだけでAutowareの他のコンポーネントを利用することができますが、既存のPlanning機能との統合はできません。新しいモジュールを追加し、その機能を拡張する具体的な指示については、近日公開予定のドキュメンテーションまたはガイドライン（作業中）をご参照ください。</p>
-<p><img alt="how-to-add-new-modules" src="image/how-to-add-new-modules.drawio.svg"></p>
 <h2 id="detailed-design">Detailed design<a class="headerlink" href="#detailed-design" title="Permanent link">#</a></h2>
 <h3 id="supported-features">Supported features<a class="headerlink" href="#supported-features" title="Permanent link">#</a></h3>
 <table>
@@ -6772,8 +6709,8 @@ Planningコンポーネントを行動を決定する "Behavior" と、最終的
 
 <h3 id="reference-implementation">Reference Implementation<a class="headerlink" href="#reference-implementation" title="Permanent link">#</a></h3>
 <p>The following diagram describes the reference implementation of the Planning component. By adding new modules or extending the functionalities, various ODDs can be supported.</p>
-<p><em>Note that some implementation does not adhere to the high-level architecture design and require updating.</em></p>
-<p><img alt="reference-implementation" src="image/planning-diagram.drawio.svg"></p>
+<p><em>Note that some implementation does not adhere to the high-level architecture design due to the difficulties of the implementation and require updating.</em></p>
+<p><img alt="reference-implementation" src="image/planning-diagram-tmp.drawio.svg"></p>
 <p>For more details, please refer to the design documents in each package.</p>
 <ul>
 <li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/mission_planner/"><em>mission_planner</em></a>: calculate route from start to goal based on the map information.</li>
@@ -6787,17 +6724,16 @@ Planningコンポーネントを行動を決定する "Behavior" と、最終的
 </ul>
 </li>
 <li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_planner/"><em>behavior_velocity_planner</em></a>: calculates max speed based on the traffic rules.<ul>
-<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_detection_area_module/"><em>detection_area</em></a></li>
-<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_blind_spot_module/"><em>blind_spot</em></a></li>
-<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_crosswalk_module/"><em>cross_walk</em></a></li>
-<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_stop_line_module/"><em>stop_line</em></a></li>
-<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_traffic_light_module/"><em>traffic_light</em></a></li>
-<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_intersection_module/"><em>intersection</em></a></li>
-<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_no_stopping_area_module/"><em>no_stopping_area</em></a></li>
-<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_virtual_traffic_light_module/"><em>virtual_traffic_light</em></a></li>
-<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_occlusion_spot_module/"><em>occlusion_spot</em></a></li>
-<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_run_out_module/"><em>run_out</em></a></li>
-<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_no_drivable_lane_module"><em>no_drivable_lane</em></a></li>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_detection_area_module/docs/detection-area-design/"><em>detection_area</em></a></li>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_blind_spot_module/docs/blind-spot-design/"><em>blind_spot</em></a></li>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_crosswalk_module/docs/crosswalk-design/"><em>cross_walk</em></a></li>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_stop_line_module/docs/stop-line-design/"><em>stop_line</em></a></li>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_traffic_light_module/docs/traffic-light-design/"><em>traffic_light</em></a></li>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_intersection_module/docs/intersection-design/"><em>intersection</em></a></li>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_no_stopping_area_module/docs/no-stopping-area-design/"><em>no_stopping_area</em></a></li>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_virtual_traffic_light_module/docs/virtual-traffic-light-design/"><em>virtual_traffic_light</em></a></li>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_occlusion_spot_module/docs/occlusion-spot-design/"><em>occlusion_spot</em></a></li>
+<li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_run_out_module/docs/run-out-design/"><em>run_out</em></a></li>
 </ul>
 </li>
 <li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/obstacle_avoidance_planner/"><em>obstacle_avoidance_planner</em></a>: calculate path shape under obstacle and drivable area constraints</li>
@@ -6814,64 +6750,54 @@ Planningコンポーネントを行動を決定する "Behavior" と、最終的
 <li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/external_velocity_limit_selector/"><em>external_velocity_limit_selector</em></a>: takes an appropriate velocity limit from multiple candidates.</li>
 <li><a href="https://autowarefoundation.github.io/autoware.universe/main/planning/motion_velocity_smoother/"><em>motion_velocity_smoother</em></a>: calculates final velocity considering velocity, acceleration, and jerk constraints.</li>
 </ul>
-<h3 id="important-parameters">Important Parameters<a class="headerlink" href="#important-parameters" title="Permanent link">#</a></h3>
-<table>
-<thead>
-<tr>
-<th>Package</th>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>obstacle_stop_planner</code></td>
-<td><code>stop_planner.stop_position.max_longitudinal_margin</code></td>
-<td>double</td>
-<td>distance between the ego and the front vehicle when stopping (when <code>cruise_planner_type:=obstacle_stop_planner</code>)</td>
-</tr>
-<tr>
-<td><code>obstacle_cruise_planner</code></td>
-<td><code>common.safe_distance_margin</code></td>
-<td>double</td>
-<td>distance between the ego and the front vehicle when stopping (when <code>cruise_planner_type:=obstacle_cruise_planner</code>)</td>
-</tr>
-<tr>
-<td><code>behavior_path_planner</code></td>
-<td><code>avoidance.avoidance.lateral.lateral_collision_margin</code></td>
-<td>double</td>
-<td>minimum lateral margin to obstacle on avoidance</td>
-</tr>
-<tr>
-<td><code>behavior_path_planner</code></td>
-<td><code>avoidance.avoidance.lateral.lateral_collision_safety_buffer</code></td>
-<td>double</td>
-<td>additional lateral margin to obstacle if possible on avoidance</td>
-</tr>
-<tr>
-<td><code>obstacle_avoidance_planner</code></td>
-<td><code>option.enable_outside_drivable_area_stop</code></td>
-<td>bool</td>
-<td>If set true, a stop point will be inserted before the path footprint is outside the drivable area.</td>
-</tr>
-</tbody>
-</table>
-<h3 id="notation">Notation<a class="headerlink" href="#notation" title="Permanent link">#</a></h3>
-<h4 id="1-self-crossing-road-and-overlapped">[1] self-crossing road and overlapped<a class="headerlink" href="#1-self-crossing-road-and-overlapped" title="Permanent link">#</a></h4>
-<p>To support the self-crossing road and overlapped road in the opposite direction, each planning module has to meet the <a href="https://autowarefoundation.github.io/autoware.universe/main/common/motion_utils/">specifications</a></p>
-<p>Currently, the supported modules are as follows.</p>
-<ul>
-<li>lane_following (in behavior_path_planner)</li>
-<li>detection_area (in behavior_velocity_planner)</li>
-<li>stop_line (in behavior_velocity_planner)</li>
-<li>virtual_traffic_light (in behavior_velocity_planner)</li>
-<li>obstacle_avoidance_planner</li>
-<li>obstacle_stop_planner</li>
-<li>motion_velocity_smoother</li>
-</ul>
-<h4 id="2-size-of-path-points">[2] Size of Path Points<a class="headerlink" href="#2-size-of-path-points" title="Permanent link">#</a></h4>
-<p>Some functions do not support paths with only one point. Therefore, each modules should generate the path with more than two path points.</p>
+<h3 id="important-information-in-the-current-implementation">Important information in the current implementation<a class="headerlink" href="#important-information-in-the-current-implementation" title="Permanent link">#</a></h3>
+<p>An important difference compared to the high-level design is the "introduction of the scenario layer" and the "clear separation of behavior and motion." These are introduced due to current performance and implementation challenges. Whether to define these as part of the high-level design or to improve them as part of the implementation is a matter of discussion.</p>
+<h4 id="introducing-the-scenario-planning-layer">Introducing the Scenario Planning layer<a class="headerlink" href="#introducing-the-scenario-planning-layer" title="Permanent link">#</a></h4>
+<p>There are different requirements for interfaces between driving in well-structured lanes and driving in a free-space area like a parking lot. For example, while Lane Driving can handle routes with map IDs, this is not appropriate for planning in free space. The mechanism that switches planning sub-components at the scenario level (Lane Driving, Parking, etc) enables a flexible design of the interface, however, it has a drawbacks of the reuse of modules across different scenarios.</p>
+<h4 id="separation-of-behavior-and-motion">Separation of Behavior and Motion<a class="headerlink" href="#separation-of-behavior-and-motion" title="Permanent link">#</a></h4>
+<p>One of the classic approach to Planning involves dividing it into "Behavior", which decides the action, and "Motion", which determines the final movement. However, this separation implies a trade-off with performance, as performance tends to degrade with increasing separation of functions. For example, Behavior needs to make decisions without prior knowledge of the computations that Motion will eventually perform, which generally results in conservative decision-making. On the other hand, if behavior and motion are integrated, motion performance and decision-making become interdependent, creating challenges in terms of expandability, such as when you wish to extend only the decision-making function to follow a regional traffic rules.</p>
+<p>To understand this background, this <a href="https://github.com/tier4/AutowareArchitectureProposal.proj/blob/main/docs/design/software_architecture/Planning/DesignRationale.md">previously discussed document</a> may be useful.</p>
+<h3 id="customize-features-in-the-current-implementation">Customize features in the current implementation<a class="headerlink" href="#customize-features-in-the-current-implementation" title="Permanent link">#</a></h3>
+<p>While it is possible to add module-level functionalities in the current implementation, a unified interface for all functionalities is not provided. Here's a brief explanation of the methods of extending at the module level in the current implementation.</p>
+<p><img alt="reference-implementation-add-new-modules" src="image/reference-implementation-add-new-modules.drawio.svg"></p>
+<h4 id="add-new-modules-in-behavior_velocity_planner-or-behavior_path_plnner">Add new modules in behavior_velocity_planner or behavior_path_plnner<a class="headerlink" href="#add-new-modules-in-behavior_velocity_planner-or-behavior_path_plnner" title="Permanent link">#</a></h4>
+<p><abbr title="Robot Operating System">ROS</abbr> nodes such as <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_path_planner/">behavior_path_planner</a> and <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_planner/">behavior_velocity_planner</a> have a module interface available through plugins. By adding modules in accordance with the module interfaces defined in these <abbr title="Robot Operating System">ROS</abbr> nodes, dynamic loading/unloading of modules becomes possible. For specific methods of adding modules, please refer to the documentation of each package.</p>
+<h4 id="add-a-new-ros-node-in-the-planning-component">Add a new ros node in the planning component<a class="headerlink" href="#add-a-new-ros-node-in-the-planning-component" title="Permanent link">#</a></h4>
+<p>When adding modules in Motion Planning, it is necessary to create the module as a <abbr title="Robot Operating System">ROS</abbr> Node and integrate it into the planning component. The current configuration involves adding information to the target trajectory calculated upstream, and the introduction of a <abbr title="Robot Operating System">ROS</abbr> Node in this process allows for the expansion of functionality.</p>
+<h4 id="add-or-replace-with-scenarios">Add or replace with scenarios<a class="headerlink" href="#add-or-replace-with-scenarios" title="Permanent link">#</a></h4>
+<p>The current implementation has introduced a scenario-level switching logic as a method for collectively switching multiple modules. This allows for the addition of new scenarios (e.g., highway driving).</p>
+<p>By creating a scenario as a ros node and aligning the scenario_selector ros node with it, the integration is complete. The benefit of this is that you can introduce significant new functionalities without affecting the implementation of other scenarios (like Lane Driving). However, it only allows for scenario-level coordination through scenario switching and does not enable coordination at the existing planning module level.</p>
+<!--
+### Important Parameters
+
+| Package                      | Parameter                                                     | Type   | Description                                                                                                        |
+| ---------------------------- | ------------------------------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------ |
+| `obstacle_stop_planner`      | `stop_planner.stop_position.max_longitudinal_margin`          | double | distance between the ego and the front vehicle when stopping (when `cruise_planner_type:=obstacle_stop_planner`)   |
+| `obstacle_cruise_planner`    | `common.safe_distance_margin`                                 | double | distance between the ego and the front vehicle when stopping (when `cruise_planner_type:=obstacle_cruise_planner`) |
+| `behavior_path_planner`      | `avoidance.avoidance.lateral.lateral_collision_margin`        | double | minimum lateral margin to obstacle on avoidance                                                                    |
+| `behavior_path_planner`      | `avoidance.avoidance.lateral.lateral_collision_safety_buffer` | double | additional lateral margin to obstacle if possible on avoidance                                                     |
+| `obstacle_avoidance_planner` | `option.enable_outside_drivable_area_stop`                    | bool   | If set true, a stop point will be inserted before the path footprint is outside the drivable area.                 |
+
+### Notation
+
+#### [1] self-crossing road and overlapped
+
+To support the self-crossing road and overlapped road in the opposite direction, each planning module has to meet the [specifications](https://autowarefoundation.github.io/autoware.universe/main/common/motion_utils/)
+
+Currently, the supported modules are as follows.
+
+- lane_following (in behavior_path_planner)
+- detection_area (in behavior_velocity_planner)
+- stop_line (in behavior_velocity_planner)
+- virtual_traffic_light (in behavior_velocity_planner)
+- obstacle_avoidance_planner
+- obstacle_stop_planner
+- motion_velocity_smoother
+
+#### [2] Size of Path Points
+
+Some functions do not support paths with only one point. Therefore, each modules should generate the path with more than two path points. -->
+
 <!-- prettier-ignore --></div>
 
 
@@ -6915,7 +6841,7 @@ Planningコンポーネントを行動を決定する "Behavior" と、最終的
         
         
           
-          <a href="index-update/" class="md-footer__link md-footer__link--next" aria-label="Next: Planning component design" rel="next">
+          <a href="index-japanese/" class="md-footer__link md-footer__link--next" aria-label="Next: Planning component design" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next

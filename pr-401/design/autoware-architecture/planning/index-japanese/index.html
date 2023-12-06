@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-401/design/autoware-architecture/planning/index-update/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware-documentation/pr-401/design/autoware-architecture/planning/index-japanese/">
       
       
         <link rel="prev" href="../">
@@ -4008,8 +4008,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#context-and-scope" class="md-nav__link">
-    Context and scope
+  <a href="#purpose" class="md-nav__link">
+    Purpose
   </a>
   
 </li>
@@ -6338,8 +6338,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#context-and-scope" class="md-nav__link">
-    Context and scope
+  <a href="#purpose" class="md-nav__link">
+    Purpose
   </a>
   
 </li>
@@ -6499,21 +6499,7 @@
 
 
 <div><h1 id="planning-component-design">Planning component design<a class="headerlink" href="#planning-component-design" title="Permanent link">#</a></h1>
-<!--
-- discussionsはトレードオフ選定とかにしたい
-- サードパーティによって拡張というよりは、誰でも拡張できるって言い回しのほうが良いはず
-- mission plannerの使われ方を重点的に考えよう。FMSとして機能が外だしされることがあるから、これは別れてるのよ。
-- ハイレベルなデザインと詳細なデザインではなく、アーキテクチャのためのデザイン（要求ベース、これがやりたい）と、アーキテクチャ（詳細なフロー）ができるはず。
-- デザインの部分に、ポリシーによる変更がわかるような書き方があると良い。ポリシーA（右側走行）になったときに、いくつかのモジュールが特定の設定で起動する。どう図にするか。。。
-- このポリシーに対して、何がどうかわるかという例があるといい。自動運転レベルが変わったときに、HMIとの連携がこう変わって、軌道モジュールがこう変わる、とか。
-- ハイレベルに対するユースケースを上げる
-- 車両の振る舞いのユースケース
-  - 話ゴールやチェくポイント、NGポイントを与えてplanning内部でルートを計算して進む / 渋滞情報を加味したルートを外部から与えて走行する
-開発者のユースケース
-  - 中の作りの話（実装や設計レベル）：機能の差し替えができていてほしいので（レーンチェンジAとレーンチェンジBとか）、柔軟に変更できる必要があり、各機能はモジュールとして実装される。
- -->
-
-<h2 id="context-and-scope">Context and scope<a class="headerlink" href="#context-and-scope" title="Permanent link">#</a></h2>
+<h2 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">#</a></h2>
 <p>自動運転システムにおける Planning コンポーネントの役割は、与えられたミッションを満たすために、安全で交通ルールに基づいた自動運転車両の目標軌道（経路と速度）を生成することです。</p>
 <p>このドキュメントでは、Autowareにおけるplanningの要求やデザインをまとめます。これによって、開発者はPlanning Componentがどのような考えで設計されているのか、およびそれらをどう拡張させていくのかを理解することができます。</p>
 <p>ドキュメントの前半ではハイレベルな要求やデザインについて、後半では実際の実装や提供機能について述べます。</p>
@@ -6547,14 +6533,6 @@
 <li>完全な安全性</li>
 </ul>
 <p>注意として、これらの要求は自動運転プラットフォームの視点から来ているものであり、一般的な自動運転システムにおけるPlanning Componentへの要求として一般的なものではないありません。</p>
-<!-- ## Requirements
-
-WIP
-
-## Assumptions
-
-WIP -->
-
 <h2 id="high-level-design">High level design<a class="headerlink" href="#high-level-design" title="Permanent link">#</a></h2>
 <p>このダイアグラムはPlanning Componentのハイレベルなアーキテクチャを示しています。なお、これは理想的なハイレベルデザインであり、現時点での実装がこれに完全に従っているわけではないことに注意してください。実際の詳細な実装については後半を参照してください。</p>
 <!-- ![overall-planning-architecture](image/high-level-planning-diagram.drawio.svg) -->
