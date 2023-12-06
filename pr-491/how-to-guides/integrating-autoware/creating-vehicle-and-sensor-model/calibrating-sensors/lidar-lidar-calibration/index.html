@@ -6245,7 +6245,7 @@ Start:<span class="w">             </span>Sep<span class="w">  </span><span clas
 End:<span class="w">               </span>Sep<span class="w">  </span><span class="m">5</span><span class="w"> </span><span class="m">2023</span><span class="w"> </span><span class="m">11</span>:25:43.808<span class="w"> </span><span class="o">(</span><span class="m">1693902343</span>.808<span class="o">)</span>
 Messages:<span class="w">          </span><span class="m">2256</span>
 Topic<span class="w"> </span>information:<span class="w"> </span>Topic:<span class="w"> </span>/sensing/lidar/front/pointcloud_raw<span class="w"> </span><span class="p">|</span><span class="w"> </span>Type:<span class="w"> </span>sensor_msgs/msg/PointCloud2<span class="w"> </span><span class="p">|</span><span class="w"> </span>Count:<span class="w"> </span><span class="m">1128</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>Serialization<span class="w"> </span>Format:<span class="w"> </span>cdr
-<span class="w">                   </span>Topic:<span class="w"> </span>/sensing/lidar/top/outlier_filtered/pointcloud<span class="w"> </span><span class="p">|</span><span class="w"> </span>Type:<span class="w"> </span>sensor_msgs/msg/PointCloud2<span class="w"> </span><span class="p">|</span><span class="w"> </span>Count:<span class="w"> </span><span class="m">1128</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>Serialization<span class="w"> </span>Format:<span class="w"> </span>cdr
+<span class="w">                   </span>Topic:<span class="w"> </span>/sensing/lidar/top/pointcloud<span class="w"> </span><span class="p">|</span><span class="w"> </span>Type:<span class="w"> </span>sensor_msgs/msg/PointCloud2<span class="w"> </span><span class="p">|</span><span class="w"> </span>Count:<span class="w"> </span><span class="m">1128</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>Serialization<span class="w"> </span>Format:<span class="w"> </span>cdr
 </code></pre></div>
 </details>
 <h2 id="mapping-based-lidar-lidar-calibration">Mapping-based lidar-lidar calibration<a class="headerlink" href="#mapping-based-lidar-lidar-calibration" title="Permanent link">#</a></h2>
@@ -6371,10 +6371,10 @@ calibration_lidar_base_frames and calibration_lidar_frames for calibrator:</p>
 <p>After that, we will add the sensor topics and sensor frames in order to do that,
 we will continue filling the <code>mapping_based_sensor_kit.launch.xml</code> with
 (we recommend
-using the /sensing/lidar/top/outlier_filtered/pointcloud topic as the mapping pointcloud
+using the /sensing/lidar/top/pointcloud topic as the mapping pointcloud
 because the vehicle cloud is cropped at this topic by pointcloud preprocessing):</p>
 <div class="highlight"><pre><span></span><code><span class="gd">-     &lt;let name="mapping_lidar_frame" value="velodyne_top"/&gt;</span>
-<span class="gd">-     &lt;let name="mapping_pointcloud" value="/sensing/lidar/top/outlier_filtered/pointcloud"/&gt;</span>
+<span class="gd">-     &lt;let name="mapping_pointcloud" value="/sensing/lidar/top/pointcloud"/&gt;</span>
 <span class="gi">+     &lt;let name="mapping_lidar_frame" value="&lt;MAPPING_LIDAR_SENSOR_LINK&gt;"/&gt;</span>
 <span class="gi">+     &lt;let name="mapping_pointcloud" value="&lt;MAPPING_LIDAR_POINTCLOUD_TOPIC_NAME&gt;"/&gt;</span>
 
