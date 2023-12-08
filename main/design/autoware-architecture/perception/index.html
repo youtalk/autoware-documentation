@@ -6684,8 +6684,36 @@
 <p><img alt="overall-perception-architecture" src="image/high-level-perception-diagram.drawio.svg"></p>
 <p>The Perception Component consists of the following sub-components:</p>
 <ul>
-<li><strong>Object Recognition</strong>: Recognizes dynamic objects surrounding the ego vehicle in the current frame and predicts their future trajectories.</li>
-<li><strong>Obstacle Segmentation</strong>: Identifies point clouds originating from obstacles(not only dynamic objects but also static obstacles that should be avoided, such as stationary obstacles) that the ego vehicle should avoid.</li>
+<li><strong>Object Recognition</strong>: Recognizes dynamic objects surrounding the ego vehicle in the current frame, objects that were not present during map creation, and predicts their future trajectories. This includes:<ul>
+<li>Pedestrians</li>
+<li>Cars</li>
+<li>Trucks/Buses</li>
+<li>Bicycles</li>
+<li>Motorcycles</li>
+<li>Animals</li>
+<li>Traffic cones</li>
+<li>Road debris: Items such as cardboard, oil drums, trash cans, wood, etc., either dropped on the road or floating in the air</li>
+</ul>
+</li>
+<li><strong>Obstacle Segmentation</strong>: Identifies point clouds originating from obstacles, including both dynamic objects and static obstacles that requires the ego vehicle either steer clear of them or come to a stop in front of the obstacles.<ul>
+<li>This includes:<ul>
+<li>All dynamic objects (as listed above)</li>
+<li>Curbs/Bollards</li>
+<li>Barriers</li>
+<li>Trees</li>
+<li>Walls/Buildings</li>
+</ul>
+</li>
+<li>This does not include:<ul>
+<li>Grass</li>
+<li>Water splashes</li>
+<li>Smoke/Vapor</li>
+<li>Newspapers</li>
+<li>Plastic bags</li>
+</ul>
+</li>
+</ul>
+</li>
 <li><strong>Occupancy Grid Map</strong>: Detects blind spots (areas where no information is available and where dynamic objects may jump out).</li>
 <li><strong>Traffic Light Recognition</strong>: Recognizes the colors of traffic lights and the directions of arrow signals.</li>
 </ul>

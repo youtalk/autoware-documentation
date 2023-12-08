@@ -6735,7 +6735,8 @@
 
 
 <div><h1 id="perception">Perception<a class="headerlink" href="#perception" title="Permanent link">#</a></h1>
-<p>This page provides specific specifications about the Interface of the Perception Component. Please refer to <a href="../../../autoware-architecture/perception/reference_implementation/">the perception architecture reference implementation design document</a> for concepts and data flow.</p>
+<p>This page provides specific specifications about the Interface of the Perception Component.<br>
+Please refer to <a href="../../../autoware-architecture/perception/reference_implementation/">the perception architecture reference implementation design</a> for concepts and data flow.</p>
 <h2 id="input">Input<a class="headerlink" href="#input" title="Permanent link">#</a></h2>
 <h3 id="from-map-component">From Map Component<a class="headerlink" href="#from-map-component" title="Permanent link">#</a></h3>
 <table>
@@ -6846,6 +6847,7 @@
 </table>
 <h2 id="output">Output<a class="headerlink" href="#output" title="Permanent link">#</a></h2>
 <h3 id="to-planning">To Planning<a class="headerlink" href="#to-planning" title="Permanent link">#</a></h3>
+<p>Please refer to <a href="../../../autoware-architecture/perception/#high-level-architecture">the perception component design</a> for detailed definitions of each output."</p>
 <table>
 <thead>
 <tr>
@@ -6860,19 +6862,19 @@
 <td>Dynamic Objects</td>
 <td><code>/perception/object_recognition/objects</code></td>
 <td><a href="https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_perception_msgs/msg/PredictedObjects.idl">autoware_auto_perception_msgs/msg/PredictedObjects</a></td>
-<td>Set of dynamic objects with information such as a object class and a shape of the objects</td>
+<td>Set of dynamic objects with information such as a object class and a shape of the objects. These objects did not exist when the map was generated and are not contained within the map.</td>
 </tr>
 <tr>
 <td>Obstacles</td>
 <td><code>/perception/obstacle_segmentation/pointcloud</code></td>
 <td><a href="https://github.com/ros2/common_interfaces/blob/humble/sensor_msgs/msg/PointCloud2.msg">sensor_msgs/PointCloud2</a></td>
-<td>Obstacles, which includes dynamic objects and static objetcs</td>
+<td>Obstacles, including both dynamic objects and static obstacles that requires the ego vehicle either steer clear of them or come to a stop in front of the obstacles.</td>
 </tr>
 <tr>
 <td>Occupancy Grid Map</td>
 <td><code>/perception/occupancy_grid_map/map</code></td>
 <td><a href="https://docs.ros.org/en/latest/api/nav_msgs/html/msg/OccupancyGrid.html">nav_msgs/msg/OccupancyGrid</a></td>
-<td>The map with the imformation about the presence of obstacles and blind spot</td>
+<td>The map with the information about the presence of obstacles and blind spot</td>
 </tr>
 <tr>
 <td>Traffic Signal</td>
