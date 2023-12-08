@@ -5080,7 +5080,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../design/autoware-interfaces/components/perception-interface/" class="md-nav__link">
+      <a href="../../../../design/autoware-interfaces/components/perception/" class="md-nav__link">
         Perception
       </a>
     </li>
@@ -7116,7 +7116,7 @@ you can modify the pipeline components like this way:</p>
 <span class="gi">+           name="dual_return_outlier_filter",</span>
 <span class="w"> </span>           remappings=[
 <span class="w"> </span>               ("input", "rectified/pointcloud_ex"),
-<span class="w"> </span>               ("output", "outlier_filtered/pointcloud"),
+<span class="w"> </span>               ("output", "pointcloud"),
 <span class="w"> </span>           ],
 <span class="w"> </span>           extra_arguments=[{"use_intra_process_comms": LaunchConfiguration("use_intra_process")}],
 <span class="w"> </span>       )
