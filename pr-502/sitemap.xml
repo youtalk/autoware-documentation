@@ -201,6 +201,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/design/autoware-architecture/perception/reference_implementation/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/design/autoware-architecture/planning/</loc>
          <lastmod>2023-12-14</lastmod>
          <changefreq>daily</changefreq>
@@ -257,6 +262,11 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/design/autoware-interfaces/ad-api/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/design/autoware-interfaces/ad-api/features/cooperation/</loc>
          <lastmod>2023-12-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -396,6 +406,21 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/design/autoware-interfaces/ad-api/list/api/planning/cooperation/get_policies/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/design/autoware-interfaces/ad-api/list/api/planning/cooperation/set_commands/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/design/autoware-interfaces/ad-api/list/api/planning/cooperation/set_policies/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/design/autoware-interfaces/ad-api/list/api/routing/clear_route/</loc>
          <lastmod>2023-12-14</lastmod>
          <changefreq>daily</changefreq>
@@ -462,6 +487,26 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/design/autoware-interfaces/ad-api/types/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/CooperationCommand/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/CooperationDecision/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/CooperationPolicy/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/msg/CooperationStatus/</loc>
          <lastmod>2023-12-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -631,6 +676,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/srv/GetCooperationPolicies/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/srv/GetDoorLayout/</loc>
          <lastmod>2023-12-14</lastmod>
          <changefreq>daily</changefreq>
@@ -642,6 +692,16 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/srv/InitializeLocalization/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/srv/SetCooperationCommands/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/design/autoware-interfaces/ad-api/types/autoware_adapi_v1_msgs/srv/SetCooperationPolicies/</loc>
          <lastmod>2023-12-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -691,12 +751,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/design/autoware-interfaces/ad-api/use-cases/request-to-cooperate/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/design/autoware-interfaces/ad-api/use-cases/vehicle-monitoring/</loc>
          <lastmod>2023-12-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/design/autoware-interfaces/ad-api/use-cases/vehicle-monitoring/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/design/autoware-interfaces/ad-api/use-cases/vehicle-operation/</loc>
          <lastmod>2023-12-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -722,6 +782,11 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/design/autoware-interfaces/components/perception-interface/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/design/autoware-interfaces/components/perception/</loc>
          <lastmod>2023-12-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -776,7 +841,52 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/how-to-guides/integrating-autoware/awsim-integration/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/how-to-guides/integrating-autoware/creating-maps/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/how-to-guides/integrating-autoware/creating-maps/converting-utm-to-mgrs-map/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/how-to-guides/integrating-autoware/creating-maps/creating-vector-map/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/how-to-guides/integrating-autoware/creating-maps/creating-vector-map/crosswalk/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/how-to-guides/integrating-autoware/creating-maps/creating-vector-map/detection-area/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/how-to-guides/integrating-autoware/creating-maps/creating-vector-map/lanelet2/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/how-to-guides/integrating-autoware/creating-maps/creating-vector-map/speed-bump/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/how-to-guides/integrating-autoware/creating-maps/creating-vector-map/stop-line/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/how-to-guides/integrating-autoware/creating-maps/creating-vector-map/traffic-light/</loc>
          <lastmod>2023-12-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -841,17 +951,72 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/how-to-guides/integrating-autoware/creating-vehicle-and-sensor-description/calibrating-sensors/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/how-to-guides/integrating-autoware/creating-maps/pointcloud-map-downsampling/</loc>
          <lastmod>2023-12-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/how-to-guides/integrating-autoware/creating-vehicle-and-sensor-description/creating-vehicle-and-sensor-description/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/how-to-guides/integrating-autoware/creating-vehicle-and-sensor-model/</loc>
          <lastmod>2023-12-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/how-to-guides/integrating-autoware/creating-vehicle-interface-package/creating-a-vehicle-interface-for-an-ackermann-kinematic-model/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/how-to-guides/integrating-autoware/creating-vehicle-and-sensor-model/calibrating-sensors/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/how-to-guides/integrating-autoware/creating-vehicle-and-sensor-model/calibrating-sensors/calibration-tools/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/how-to-guides/integrating-autoware/creating-vehicle-and-sensor-model/calibrating-sensors/extrinsic-manual-calibration/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/how-to-guides/integrating-autoware/creating-vehicle-and-sensor-model/calibrating-sensors/ground-lidar-calibration/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/how-to-guides/integrating-autoware/creating-vehicle-and-sensor-model/calibrating-sensors/intrinsic-camera-calibration/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/how-to-guides/integrating-autoware/creating-vehicle-and-sensor-model/calibrating-sensors/lidar-camera-calibration/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/how-to-guides/integrating-autoware/creating-vehicle-and-sensor-model/calibrating-sensors/lidar-lidar-calibration/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/how-to-guides/integrating-autoware/creating-vehicle-and-sensor-model/creating-individual-params/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/how-to-guides/integrating-autoware/creating-vehicle-and-sensor-model/creating-sensor-model/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/how-to-guides/integrating-autoware/creating-vehicle-and-sensor-model/creating-vehicle-model/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/how-to-guides/integrating-autoware/creating-vehicle-interface-package/ackermann-kinematic-model/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/how-to-guides/integrating-autoware/creating-vehicle-interface-package/creating-vehicle-interface/</loc>
          <lastmod>2023-12-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -861,7 +1026,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/how-to-guides/integrating-autoware/creating-your-autoware-meta-repository/creating-autoware-meta-repository/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/how-to-guides/integrating-autoware/creating-vehicle-interface-package/vehicle-interface/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/how-to-guides/integrating-autoware/creating-your-autoware-repositories/creating-autoware-repositories/</loc>
          <lastmod>2023-12-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -871,17 +1041,47 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/how-to-guides/integrating-autoware/launch-autoware/control/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/how-to-guides/integrating-autoware/launch-autoware/localization/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/how-to-guides/integrating-autoware/launch-autoware/localization/eagleye/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/how-to-guides/integrating-autoware/launch-autoware/map/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/how-to-guides/integrating-autoware/launch-autoware/perception/</loc>
          <lastmod>2023-12-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/how-to-guides/integrating-autoware/launch-autoware/localization-methods/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/how-to-guides/integrating-autoware/launch-autoware/planning/</loc>
          <lastmod>2023-12-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/how-to-guides/integrating-autoware/launch-autoware/localization-methods/eagleye-guide/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/how-to-guides/integrating-autoware/launch-autoware/sensing/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/how-to-guides/integrating-autoware/launch-autoware/system/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/how-to-guides/integrating-autoware/launch-autoware/vehicle/</loc>
          <lastmod>2023-12-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -946,6 +1146,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/how-to-guides/others/using-divided-map/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/how-to-guides/training-machine-learning-models/training-models/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/installation/</loc>
          <lastmod>2023-12-14</lastmod>
          <changefreq>daily</changefreq>
@@ -981,12 +1191,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/models/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/reference-hw/</loc>
          <lastmod>2023-12-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/reference-hw/ad-computers/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-502/reference-hw/ad_sensor_kit_suppliers/</loc>
          <lastmod>2023-12-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
