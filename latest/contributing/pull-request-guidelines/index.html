@@ -6688,7 +6688,10 @@ Use this workflow as a reference when you contribute to Autoware.</p>
 <li>The reviewers are obligated to make the author understand the meanings of each comment.</li>
 </ul>
 </li>
-<li>After you have done with the review comments, re-request a review to the reviewers and back to 6.</li>
+<li>After you have done with the review comments, re-request a review to the reviewers and back to 6.<ul>
+<li>Avoid using force push as much as possible so reviewers only see the differences. More precisely, at least keep a commit history up to the point of review because GitHub Web UI such as the suggested change may require rebase to pass DCO CI.</li>
+</ul>
+</li>
 <li>If there are no more new review comments, the reviewers will approve the pull request and proceed to 8.</li>
 </ul>
 </li>
