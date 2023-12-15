@@ -5128,6 +5128,20 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#communication-with-the-vehicle" class="md-nav__link">
+    Communication with the vehicle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vehicle-adapter" class="md-nav__link">
+    Vehicle adapter
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#inputs-from-autoware" class="md-nav__link">
     Inputs from Autoware
   </a>
@@ -5138,26 +5152,6 @@
   <a href="#outputs-to-autoware" class="md-nav__link">
     Outputs to Autoware
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#communication-with-the-vehicle" class="md-nav__link">
-    Communication with the vehicle
-  </a>
-  
-    <nav class="md-nav" aria-label="Communication with the vehicle">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#custom-control-commands" class="md-nav__link">
-    Custom control commands
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -6629,6 +6623,20 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#communication-with-the-vehicle" class="md-nav__link">
+    Communication with the vehicle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vehicle-adapter" class="md-nav__link">
+    Vehicle adapter
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#inputs-from-autoware" class="md-nav__link">
     Inputs from Autoware
   </a>
@@ -6639,26 +6647,6 @@
   <a href="#outputs-to-autoware" class="md-nav__link">
     Outputs to Autoware
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#communication-with-the-vehicle" class="md-nav__link">
-    Communication with the vehicle
-  </a>
-  
-    <nav class="md-nav" aria-label="Communication with the vehicle">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#custom-control-commands" class="md-nav__link">
-    Custom control commands
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -6682,9 +6670,25 @@
 
 <div><h1 id="vehicle-interface">Vehicle Interface<a class="headerlink" href="#vehicle-interface" title="Permanent link">#</a></h1>
 <p>This page describes the Vehicle Interface Component. Please refer to the <a href="../../autoware-architecture/vehicle/">Vehicle Interface design document</a> for high-level concepts and data flow.</p>
-<p><img alt="Vehicle Interface overview" src="../../../autoware-architecture/vehicle/image/vehicle_interface_overview.png"></p>
-<p>The <code>Vehicle Interface</code> receives the <code>Vehicle Signal Commands</code> and <code>Vehicle Control Commands</code> and publishes the vehicle status. It also communicates with vehicle by the vehicle-specific protocol.</p>
-<p>The <code>Adapter</code> converts generalized control command (target steering, steering rate, velocity, acceleration, jerk) into vehicle-specific control values (steering-torque, wheel-torque, voltage, pressure, accel pedal position, etc).</p>
+<p><img alt="Vehicle interface diagram" src="../images/vehicle-interface.drawio.svg"></p>
+<p>The <code>Vehicle Interface Component</code> receives <code>Vehicle commands</code> and publishes <code>Vehicle statuses</code>.
+It communicates with the vehicle by the vehicle-specific protocol.</p>
+<p>The optional <code>Vehicle command adapter</code> converts generalized control command (target steering, steering rate, velocity, acceleration) into vehicle-specific control values (steering-torque, wheel-torque, voltage, pressure, acceleration pedal position, etc).</p>
+<h2 id="communication-with-the-vehicle">Communication with the vehicle<a class="headerlink" href="#communication-with-the-vehicle" title="Permanent link">#</a></h2>
+<p>The interface to communicate with the vehicle varies between brands and models.
+For example a vehicle specific message protocol like CAN (Controller Area Network) with a <abbr title="Robot Operating System">ROS</abbr> 2 interface (e.g., <a href="https://github.com/astuff/pacmod3">pacmod</a>).
+In addition, an Autoware specific interface is often necessary (e.g., <a href="https://github.com/tier4/pacmod_interface/tree/main/pacmod_interface">pacmod_interface</a>).</p>
+<h2 id="vehicle-adapter">Vehicle adapter<a class="headerlink" href="#vehicle-adapter" title="Permanent link">#</a></h2>
+<p>Autoware's basic control command express the target motion of the vehicle in terms of speed, acceleration, steering angle, and steering rate.
+This may not be suitable for all vehicles and we thus distinguish between two types of vehicles.</p>
+<ul>
+<li>Type 1: vehicle that is directly controlled by a subset of speed, acceleration, steering angle, and steering rate.</li>
+<li>Type 2: vehicle that uses custom commands (motor torque, voltage, pedal pressure, etc).</li>
+</ul>
+<p>For vehicles of type 2,
+a vehicle adapter is necessary to convert the Autoware control command into the vehicle specific commands.
+For an example, see the <a href="https://autowarefoundation.github.io/autoware.universe/main/vehicle/raw_vehicle_cmd_converter/">raw_vehicle_cmd_converter</a>
+which converts the target speed and steering angle to acceleration, steering, and brake mechanical inputs.</p>
 <h2 id="inputs-from-autoware">Inputs from Autoware<a class="headerlink" href="#inputs-from-autoware" title="Permanent link">#</a></h2>
 <table>
 <thead>
@@ -6703,10 +6707,10 @@
 <td>Target controls of the vehicle (steering angle, velocity, ...)</td>
 </tr>
 <tr>
-<td>Emergency command</td>
-<td><code>/control/command/emergency_cmd</code></td>
-<td><a href="https://github.com/tier4/tier4_autoware_msgs/blob/tier4/universe/tier4_vehicle_msgs/msg/VehicleEmergencyStamped.msg">tier4_vehicle_msgs/msg/VehicleEmergencyStamped</a></td>
-<td>Whether the vehicle should enter its emergency mode</td>
+<td>Control mode command</td>
+<td><code>/control/control_mode_request</code></td>
+<td><a href="https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_vehicle_msgs/srv/ControlModeCommand.srv">ControlModeCommand</a></td>
+<td>Request to switch between manual and autonomous driving</td>
 </tr>
 <tr>
 <td>Gear command</td>
@@ -6726,12 +6730,6 @@
 <td><a href="https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_vehicle_msgs/msg/TurnIndicatorsCommand.idl">autoware_auto_vehicle_msgs/msg/TurnIndicatorsCommand</a></td>
 <td>Target values of the turn signals</td>
 </tr>
-<tr>
-<td>Gate mode</td>
-<td><code>/control/current_gate_mode</code></td>
-<td><a href="https://github.com/tier4/tier4_autoware_msgs/blob/tier4/universe/tier4_control_msgs/msg/GateMode.msg">tier4_control_msgs::msg::GateMode</a></td>
-<td>Indicate the origin of the control command (Autoware or some external source)</td>
-</tr>
 </tbody>
 </table>
 <h2 id="outputs-to-autoware">Outputs to Autoware<a class="headerlink" href="#outputs-to-autoware" title="Permanent link">#</a></h2>
@@ -6741,6 +6739,7 @@
 <th>Name</th>
 <th>Topic</th>
 <th>Type</th>
+<th>Optional ?</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -6749,67 +6748,67 @@
 <td>Actuation status</td>
 <td><code>/vehicle/status/actuation_status</code></td>
 <td><a href="https://github.com/tier4/tier4_autoware_msgs/blob/tier4/universe/tier4_vehicle_msgs/msg/ActuationStatusStamped.msg">tier4_vehicle_msgs/msg/ActuationStatusStamped</a></td>
+<td>Yes (vehicle with mechanical inputs)</td>
 <td>Current acceleration, brake, and steer values reported by the vehicle</td>
 </tr>
 <tr>
 <td>Control mode</td>
 <td><code>/vehicle/status/control_mode</code></td>
 <td><a href="https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_vehicle_msgs/msg/ControlModeReport.idl">autoware_auto_vehicle_msgs/msg/ControlModeReport</a></td>
+<td></td>
 <td>Current control mode (manual, autonomous, ...)</td>
 </tr>
 <tr>
 <td>Door status</td>
 <td><code>/vehicle/status/door_status</code></td>
 <td><a href="https://github.com/tier4/tier4_autoware_msgs/blob/tier4/universe/tier4_api_msgs/msg/DoorStatus.msg">tier4_api_msgs/msg/DoorStatus</a></td>
+<td>Yes</td>
 <td>Current door status</td>
 </tr>
 <tr>
 <td>Gear report</td>
 <td><code>/vehicle/status/gear_status</code></td>
 <td><a href="https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_vehicle_msgs/msg/GearReport.idl">autoware_auto_vehicle_msgs/msg/GearReport</a></td>
+<td></td>
 <td>Current gear of the vehicle</td>
 </tr>
 <tr>
 <td>Hazard light status</td>
 <td><code>/vehicle/status/hazard_lights_status</code></td>
 <td><a href="https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_vehicle_msgs/msg/HazardLightsReport.idl">autoware_auto_vehicle_msgs/msg/HazardLightsReport</a></td>
+<td></td>
 <td>Current hazard lights status</td>
 </tr>
 <tr>
 <td>Steering status</td>
 <td><code>/vehicle/status/steering_status</code></td>
 <td><a href="https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_vehicle_msgs/msg/SteeringReport.idl">autoware_auto_vehicle_msgs/msg/SteeringReport</a></td>
+<td></td>
 <td>Current steering angle of the steering tire</td>
 </tr>
 <tr>
 <td>Steering wheel status</td>
 <td><code>/vehicle/status/steering_wheel_status</code></td>
 <td><a href="https://github.com/tier4/tier4_autoware_msgs/blob/tier4/universe/tier4_vehicle_msgs/msg/SteeringWheelStatusStamped.msg">tier4_vehicle_msgs/msg/SteeringWheelStatusStamped</a></td>
+<td>Yes</td>
 <td>Current steering wheel angle</td>
 </tr>
 <tr>
 <td>Turn indicators status</td>
 <td><code>/vehicle/status/turn_indicators_status</code></td>
 <td><a href="https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_vehicle_msgs/msg/TurnIndicatorsReport.idl">autoware_auto_vehicle_msgs/msg/TurnIndicatorsReport</a></td>
+<td></td>
 <td>Current state of the left and right turn indicators</td>
 </tr>
 <tr>
 <td>Velocity status</td>
 <td><code>/vehicle/status/velocity_status</code></td>
 <td><a href="https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_vehicle_msgs/msg/VelocityReport.idl">autoware_auto_vehicle_msgs/msg/VelocityReport</a></td>
+<td></td>
 <td>Current velocities of the vehicle (longitudinal, lateral, heading rate)</td>
 </tr>
 </tbody>
 </table>
-<h2 id="communication-with-the-vehicle">Communication with the vehicle<a class="headerlink" href="#communication-with-the-vehicle" title="Permanent link">#</a></h2>
-<p>The interface to communicate with the vehicle varies between brands and models.
-For example a vehicle specific message protocol like CAN (Controller Area Network) with a <abbr title="Robot Operating System">ROS</abbr> 2 interface (e.g., <a href="https://github.com/astuff/pacmod3">pacmod</a>).
-In addition, an Autoware specific interface is often necessary (e.g., <a href="https://github.com/tier4/pacmod_interface/tree/main/pacmod_interface">pacmod_interface</a>).</p>
-<h3 id="custom-control-commands">Custom control commands<a class="headerlink" href="#custom-control-commands" title="Permanent link">#</a></h3>
-<p>Autoware's basic control command (speed, acceleration, steering angle, steering rate) may not be suitable for all vehicles.
-For example, some vehicles expects values for voltage, motor torque, pedal pressure, etc.
-In such case, the Autoware control command must be converted.
-For an example, see the <a href="https://autowarefoundation.github.io/autoware.universe/main/vehicle/raw_vehicle_cmd_converter/">raw_vehicle_cmd_converter</a>.</p>
 <!-- prettier-ignore --></div>
 
 
