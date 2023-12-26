@@ -201,11 +201,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-483/design/autoware-architecture/perception/reference_implementation/</loc>
-         <lastmod>2023-12-26</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-483/design/autoware-architecture/planning/</loc>
          <lastmod>2023-12-26</lastmod>
          <changefreq>daily</changefreq>
@@ -786,11 +781,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-483/design/autoware-interfaces/components/perception/</loc>
-         <lastmod>2023-12-26</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-483/design/autoware-interfaces/components/planning/</loc>
          <lastmod>2023-12-26</lastmod>
          <changefreq>daily</changefreq>
@@ -837,11 +827,6 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-483/how-to-guides/integrating-autoware/overview/</loc>
-         <lastmod>2023-12-26</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-483/how-to-guides/integrating-autoware/awsim-integration/</loc>
          <lastmod>2023-12-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1046,47 +1031,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-483/how-to-guides/integrating-autoware/launch-autoware/control/</loc>
-         <lastmod>2023-12-26</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-483/how-to-guides/integrating-autoware/launch-autoware/localization/</loc>
-         <lastmod>2023-12-26</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-483/how-to-guides/integrating-autoware/launch-autoware/localization/eagleye/</loc>
-         <lastmod>2023-12-26</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-483/how-to-guides/integrating-autoware/launch-autoware/map/</loc>
-         <lastmod>2023-12-26</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://autowarefoundation.github.io/autoware-documentation/pr-483/how-to-guides/integrating-autoware/launch-autoware/perception/</loc>
          <lastmod>2023-12-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-483/how-to-guides/integrating-autoware/launch-autoware/planning/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-483/how-to-guides/integrating-autoware/launch-autoware/localization-methods/</loc>
          <lastmod>2023-12-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-483/how-to-guides/integrating-autoware/launch-autoware/sensing/</loc>
-         <lastmod>2023-12-26</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-483/how-to-guides/integrating-autoware/launch-autoware/system/</loc>
-         <lastmod>2023-12-26</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-483/how-to-guides/integrating-autoware/launch-autoware/vehicle/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-483/how-to-guides/integrating-autoware/launch-autoware/localization-methods/eagleye-guide/</loc>
          <lastmod>2023-12-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
