@@ -1466,6 +1466,8 @@
         
           
         
+          
+        
       
       
         
@@ -1752,6 +1754,52 @@
         <label class="md-nav__title" for="__nav_4_2_3_5_7">
           <span class="md-nav__icon md-icon"></span>
           Lidar-camera calibration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_3_5_8" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../how-to-guides/integrating-autoware/creating-vehicle-and-sensor-model/calibrating-sensors/lidar-imu-calibration/">Lidar-IMU calibration</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_4_2_3_5_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2_3_5_8">
+          <span class="md-nav__icon md-icon"></span>
+          Lidar-IMU calibration
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -6650,6 +6698,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#died-process-issues" class="md-nav__link">
+    Died process issues
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -6833,6 +6888,28 @@ docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </
 <h3 id="map-does-not-display-when-running-the-planning-simulator">Map does not display when running the Planning Simulator<a class="headerlink" href="#map-does-not-display-when-running-the-planning-simulator" title="Permanent link">#</a></h3>
 <p>When running the Planning Simulator, the most common reason for the map not being displayed in RViz is because <a href="../../tutorials/ad-hoc-simulation/planning-simulation/#how-to-run-a-planning-simulation">the map path has not been specified correctly in the launch command</a>. You can confirm if this is the case by searching for <code>Could not find lanelet map under {path-to-map-dir}/lanelet2_map.osm</code> errors in the log.</p>
 <p>Another possible reason is that map loading is taking a long time due to poor DDS performance. For this, please visit the <a href="performance-troubleshooting/">Performance Troubleshooting</a> page.</p>
+<h3 id="died-process-issues">Died process issues<a class="headerlink" href="#died-process-issues" title="Permanent link">#</a></h3>
+<p>Some modules may not be launched properly at runtime, and you may see "process has died" in your terminal.
+You can use the gdb tool to locate where the problem is occurring.</p>
+<p>Debug build the module you wish to analyze under your autoware workspace</p>
+<div class="highlight"><pre><span></span><code>colcon<span class="w"> </span>build<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Debug<span class="w"> </span>--packages-up-to<span class="w"> </span>&lt;the<span class="w"> </span>modules<span class="w"> </span>you<span class="w"> </span>wish<span class="w"> </span>to<span class="w"> </span>analyze&gt;<span class="w"> </span>--catkin-skip-building-tests<span class="w"> </span>--symlink-install
+</code></pre></div>
+<p>In this state, when a died process occurs when you run the autoware again, a core file will be created.
+Remeber to remove the size limit of the core file.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">ulimit</span><span class="w"> </span>-c<span class="w"> </span>unlimited
+</code></pre></div>
+<p>Rename the core file as <code>core.&lt;PID&gt;</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>core<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/proc/sys/kernel/core_pattern
+<span class="nb">echo</span><span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/proc/sys/kernel/core_uses_pid
+</code></pre></div>
+<p>Launch the autoware again. When a died process occurs, a core file will be created.
+<code>ll -ht</code> helps you to check if it was created.</p>
+<p>Invoke gdb tool.</p>
+<div class="highlight"><pre><span></span><code>gdb<span class="w"> </span>&lt;executable<span class="w"> </span>file&gt;<span class="w"> </span>&lt;core<span class="w"> </span>file&gt;
+<span class="c1">#You can find the `&lt;executable file&gt;` in the error message.</span>
+</code></pre></div>
+<p><code>bt</code> backtraces the stack of callbacks where a process dies.
+<code>f &lt;frame number&gt;</code> shows you the detail of a frame, and <code>l</code> shows you the code.</p>
 <!-- prettier-ignore --></div>
 
 
