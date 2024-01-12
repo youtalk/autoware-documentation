@@ -444,7 +444,7 @@ start with modifying `lidar.launch.xml` file for launching our lidar sensor driv
 Please check supported lidar sensors over the nebula driver in the [GitHub repository](https://github.com/tier4/nebula).
 
 If you are using [Velodyne Lidar](https://velodynelidar.com/) sensor,
-you can use the [sample_sensor_kit_launch template](https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/main/sample_sensor_kit_launch/launch/lidar.launch.xml),
+you can use the [sample_sensor_kit_launch template](https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/v1.0/sample_sensor_kit_launch/launch/lidar.launch.xml),
 but you need to update `sensor_id`, `data_port`, `sensor_frame` and other necessary changes
 (`max_range`, `scan_phase`, etc.).
 
@@ -507,8 +507,8 @@ you can add the group like this structure at `lidar.launch.xml`:
 You can create <YOUR-LIDAR-MODEL>.launch.xml for common sensor launch,
 please check [`hesai_PandarQT64.launch.xml`](https://github.com/leo-drive/tutorial_vehicle_sensor_kit_launch/blob/main/common_sensor_launch/launch/hesai_PandarQT64.launch.xml) as an example.
 
-The [nebula_node_container.py](https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/main/common_sensor_launch/launch/nebula_node_container.launch.py) creates the Lidar pipeline for autoware,
-the pointcloud preprocessing pipeline is constructed for each lidar please check [pointcloud_preprocessor](https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/pointcloud_preprocessor) package for filters information as well.
+The [nebula_node_container.py](https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/v1.0/common_sensor_launch/launch/nebula_node_container.launch.py) creates the Lidar pipeline for autoware,
+the pointcloud preprocessing pipeline is constructed for each lidar please check [pointcloud_preprocessor](https://github.com/autowarefoundation/autoware.universe/tree/v1.0/sensing/pointcloud_preprocessor) package for filters information as well.
 
 For example, If you want to change your `outlier_filter` method,
 you can modify the pipeline components like this way:
@@ -532,7 +532,7 @@ you can modify the pipeline components like this way:
 ```
 
 We will use the default pointcloud_preprocessor pipeline for our tutorial_vehicle,
-thus we will not modify [nebula_node_container.py](https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/main/common_sensor_launch/launch/nebula_node_container.launch.py).
+thus we will not modify [nebula_node_container.py](https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/v1.0/common_sensor_launch/launch/nebula_node_container.launch.py).
 
 ### Camera Launching
 
@@ -774,7 +774,7 @@ if you decided to use container for 2D detection pipeline are:
   for example, we will use `/perception/object_detection` as tensorrt_yolo node namespace,
   it will be explained in autoware usage section.
   For more information,
-  please check [image_projection_based_fusion](https://github.com/autowarefoundation/autoware.universe/tree/main/perception/image_projection_based_fusion) package.
+  please check [image_projection_based_fusion](https://github.com/autowarefoundation/autoware.universe/tree/v1.0/perception/image_projection_based_fusion) package.
 
 After the preparing `camera_node_container.launch.py` to our forked `common_sensor_launch` package,
 we need to build the package:
@@ -898,14 +898,14 @@ you can check debug image with rviz2 or [rqt](http://wiki.ros.org/rqt).
 ### GNSS/INS Launching
 
 We will set up the GNSS/INS sensor launches at `gnss.launch.xml`.
-The default GNSS sensor options at [`sample_sensor_kit_launch`](https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/main/sample_sensor_kit_launch/launch/gnss.launch.xml) for [u-blox](https://www.u-blox.com/en/)
+The default GNSS sensor options at [`sample_sensor_kit_launch`](https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/v1.0/sample_sensor_kit_launch/launch/gnss.launch.xml) for [u-blox](https://www.u-blox.com/en/)
 and [septentrio](https://www.septentrio.com/en) is included in `gnss.launch.xml`,
 so If we use other sensors as GNSS/INS receiver, we need to add it here.
-Moreover, [gnss_poser](https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/gnss_poser) package launches here,
+Moreover, [gnss_poser](https://github.com/autowarefoundation/autoware.universe/tree/v1.0/sensing/gnss_poser) package launches here,
 we will use this package for the pose source of our vehicle at localization initialization but remember,
-your sensor_driver must provide [autoware gnss orientation message](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_sensing_msgs/msg/GnssInsOrientationStamped.msg) for this node.
+your sensor_driver must provide [autoware gnss orientation message](https://github.com/autowarefoundation/autoware_msgs/blob/v1.0/autoware_sensing_msgs/msg/GnssInsOrientationStamped.msg) for this node.
 If you are ready with your GNSS/INS driver,
-you must set `navsatfix_topic_name` and `orientation_topic_name` variables at this launch file for [gnss_poser](https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/gnss_poser) arguments.
+you must set `navsatfix_topic_name` and `orientation_topic_name` variables at this launch file for [gnss_poser](https://github.com/autowarefoundation/autoware.universe/tree/v1.0/sensing/gnss_poser) arguments.
 For Example, necessary modifications for <YOUR-GNSS-SENSOR> should be like this:
 
 ```diff
@@ -1012,12 +1012,12 @@ our `gnss.launch.xml` for tutorial vehicle should be like this file
 ### IMU Launching
 
 You can add your IMU sensor launch file at `imu.launch.xml` file.
-At the [sample_sensor_kit](https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/main/sample_sensor_kit_launch/launch/imu.launch.xml),
+At the [sample_sensor_kit](https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/v1.0/sample_sensor_kit_launch/launch/imu.launch.xml),
 there is [Tamagawa IMU sensor](https://mems.tamagawa-seiki.com/en/) used as a IMU sensor.
 You can add your IMU driver instead of the Tamagawa IMU driver.
 Also,
-we will launch [gyro_bias_estimator](https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/imu_corrector#gyro_bias_estimator) and
-[imu_corrector](https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/imu_corrector#imu_corrector) at `imu.launch.xml` file.
+we will launch [gyro_bias_estimator](https://github.com/autowarefoundation/autoware.universe/tree/v1.0/sensing/imu_corrector#gyro_bias_estimator) and
+[imu_corrector](https://github.com/autowarefoundation/autoware.universe/tree/v1.0/sensing/imu_corrector#imu_corrector) at `imu.launch.xml` file.
 Please refer these documentations for more information
 (We added imu_corrector and gyro_bias_estimator at gnss.launch.xml at tutorial_vehicle,
 so we will not create and use `imu.launch.xml` for tutorial_vehicle).

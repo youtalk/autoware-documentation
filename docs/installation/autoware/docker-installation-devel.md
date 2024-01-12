@@ -23,10 +23,10 @@
 
 ### Installing dependencies manually
 
-- [Install Nvidia CUDA](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/cuda#manual-installation)
-- [Install Docker Engine](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/docker_engine#manual-installation)
-- [Install NVIDIA Container Toolkit](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/nvidia_docker#manual-installation)
-- [Install rocker](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/rocker#manual-installation)
+- [Install Nvidia CUDA](https://github.com/autowarefoundation/autoware/tree/v1.0/ansible/roles/cuda#manual-installation)
+- [Install Docker Engine](https://github.com/autowarefoundation/autoware/tree/v1.0/ansible/roles/docker_engine#manual-installation)
+- [Install NVIDIA Container Toolkit](https://github.com/autowarefoundation/autoware/tree/v1.0/ansible/roles/nvidia_docker#manual-installation)
+- [Install rocker](https://github.com/autowarefoundation/autoware/tree/v1.0/ansible/roles/rocker#manual-installation)
 
 ### Installing dependencies using Ansible
 
@@ -75,7 +75,7 @@ You might need to log out and log back to make the current user able to use dock
 
      For detailed reason could be found [here](./docker-installation.md#docker-with-nvidia-gpu-fails-to-start-autoware-on-arm64-devices)
 
-   For more advanced usage, see [here](https://github.com/autowarefoundation/autoware/tree/main/docker/README.md).
+   For more advanced usage, see [here](https://github.com/autowarefoundation/autoware/tree/v1.0/docker/README.md).
 
    After that, move to the workspace in the container:
 

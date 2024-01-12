@@ -1,6 +1,6 @@
 # Speed bump
 
-Behavior velocity planner's [speed bump module](https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_crosswalk_module/) plans velocity
+Behavior velocity planner's [speed bump module](https://autowarefoundation.github.io/autoware.universe/v1.0/planning/behavior_velocity_crosswalk_module/) plans velocity
 to slow down before speed bump for comfortable and safety driving.
 In order to operate that, we will add speed bumps to our lanelet2 map.
 
@@ -50,7 +50,7 @@ you need to update autoware.launch.xml:
 
 !!! note
 
-    The speed bump module not enabled default. To enable that, please uncomment it your [behavior_velocity_planner.param.yaml](https://github.com/autowarefoundation/autoware_launch/blob/main/autoware_launch/config/planning/scenario_planning/lane_driving/behavior_planning/behavior_velocity_planner/behavior_velocity_planner.param.yaml).
+    The speed bump module not enabled default. To enable that, please uncomment it your [behavior_velocity_planner.param.yaml](https://github.com/autowarefoundation/autoware_launch/blob/v1.0/autoware_launch/config/planning/scenario_planning/lane_driving/behavior_planning/behavior_velocity_planner/behavior_velocity_planner.param.yaml).
 
 Now we are ready to launch the planning simulator:
 

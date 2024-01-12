@@ -29,7 +29,7 @@ This diagram describes some of the Autoware perception launch files flow at `aut
 ## tier4_perception_component.launch.xml
 
 The `tier4_perception_component.launch.xml` launch file is the main perception component launch at the `autoware_launch` package.
-This launch file calls `perception.launch.xml` at [tier4_perception_launch](https://github.com/autowarefoundation/autoware.universe/tree/main/launch/tier4_perception_launch) package from `autoware.universe` repository.
+This launch file calls `perception.launch.xml` at [tier4_perception_launch](https://github.com/autowarefoundation/autoware.universe/tree/v1.0/launch/tier4_perception_launch) package from `autoware.universe` repository.
 We can modify perception launch arguments at tier4_perception_component.launch.xml.
 Also,
 we can add any other necessary arguments
@@ -82,7 +82,7 @@ Here are some predefined perception launch arguments:
 
 The predefined `tier4_perception_component.launch.xml` arguments explained above,
 but there is the lot of perception arguments
-included in `perception.launch.xml` launch file at [tier4_perception_launch](https://github.com/autowarefoundation/autoware.universe/tree/main/launch/tier4_perception_launch).
+included in `perception.launch.xml` launch file at [tier4_perception_launch](https://github.com/autowarefoundation/autoware.universe/tree/v1.0/launch/tier4_perception_launch).
 Since we didn't fork `autoware.universe` repository,
 we can add the necessary launch argument to tier4_perception_component.launch.xml file.
 Please follow the guidelines for some examples.
@@ -99,7 +99,7 @@ we will apply these changes `tier4_perception_component.launch.xml` instead of `
 Here are some example changes for the perception pipeline:
 
 - **`remove_unknown:`** This parameter determines the remove unknown objects at camera-lidar fusion.
-  Please check [roi_cluster_fusion](https://github.com/autowarefoundation/autoware.universe/blob/main/perception/image_projection_based_fusion/docs/roi-cluster-fusion.md) node for detailed information.
+  Please check [roi_cluster_fusion](https://github.com/autowarefoundation/autoware.universe/blob/v1.0/perception/image_projection_based_fusion/docs/roi-cluster-fusion.md) node for detailed information.
   The default value is `true`.
   If you want to change it to the `false`,
   you can add this argument to `tier4_perception_component.launch.xml`,

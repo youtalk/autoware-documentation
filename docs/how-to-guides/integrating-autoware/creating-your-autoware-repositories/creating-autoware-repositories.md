@@ -7,7 +7,7 @@ and [Autoware](https://github.com/autowarefoundation/autoware) is one of them.
 It serves as a centralized control point for referencing, configuring,
 and versioning other repositories.
 To accomplish this,
-the Autoware meta-repository includes the [`autoware.repos`](https://github.com/autowarefoundation/autoware/blob/main/autoware.repos) file
+the Autoware meta-repository includes the [`autoware.repos`](https://github.com/autowarefoundation/autoware/blob/v1.0/autoware.repos) file
 for managing multiple repositories.
 We will use the [VCS](https://github.com/dirk-thomas/vcstool) tool
 (Version Control System) to handle the .repos file.

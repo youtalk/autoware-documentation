@@ -26,7 +26,7 @@ the readme file accompanying **"traffic_light_classifier"** package. These instr
 the process of training the model using your own dataset. To facilitate your training, we have also provided
 an example dataset containing three distinct classes (green, yellow, red), which you can leverage during the training process.
 
-Detailed instructions for training the traffic light classifier model can be found **[here](https://github.com/autowarefoundation/autoware.universe/blob/main/perception/traffic_light_classifier/README.md)**.
+Detailed instructions for training the traffic light classifier model can be found **[here](https://github.com/autowarefoundation/autoware.universe/blob/v1.0/perception/traffic_light_classifier/README.md)**.
 
 <!--
 

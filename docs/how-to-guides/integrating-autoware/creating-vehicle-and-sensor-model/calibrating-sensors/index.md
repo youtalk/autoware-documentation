@@ -6,7 +6,7 @@ Autoware expects to have multiple sensors attached to the vehicle as input to pe
 Autoware uses fusion techniques to combine information from multiple sensors.
 For this to work effectively,
 all sensors must be calibrated properly to align their coordinate systems, and their positions must be defined using either urdf files
-(as in [sample_sensor_kit](https://github.com/autowarefoundation/sample_sensor_kit_launch/tree/main/sample_sensor_kit_description))
+(as in [sample_sensor_kit](https://github.com/autowarefoundation/sample_sensor_kit_launch/tree/v1.0/sample_sensor_kit_description))
 or as tf launch files.
 In this documentation,
 we will explain TIER IV's [CalibrationTools](https://github.com/tier4/CalibrationTools) repository for the calibration process.

@@ -4,11 +4,11 @@
 
 1. Installing dependencies manually
 
-   - [Install Docker Engine](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/docker_engine#manual-installation)
+   - [Install Docker Engine](https://github.com/autowarefoundation/autoware/tree/v1.0/ansible/roles/docker_engine#manual-installation)
 
-   - [Install NVIDIA Container Toolkit](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/nvidia_docker#manual-installation)
+   - [Install NVIDIA Container Toolkit](https://github.com/autowarefoundation/autoware/tree/v1.0/ansible/roles/nvidia_docker#manual-installation)
 
-   - [Install rocker](https://github.com/autowarefoundation/autoware/tree/main/ansible/roles/rocker#manual-installation)
+   - [Install rocker](https://github.com/autowarefoundation/autoware/tree/v1.0/ansible/roles/rocker#manual-installation)
 
 ## How to set up a workspace
 
@@ -24,7 +24,7 @@
    rocker --nvidia --x11 --user --volume $HOME/autoware_map -- ghcr.io/autowarefoundation/autoware-universe:humble-latest-prebuilt
    ```
 
-   For more advanced usage, see [here](https://github.com/autowarefoundation/autoware/tree/main/docker/README.md).
+   For more advanced usage, see [here](https://github.com/autowarefoundation/autoware/tree/v1.0/docker/README.md).
 
 3. Run Autoware simulator
 

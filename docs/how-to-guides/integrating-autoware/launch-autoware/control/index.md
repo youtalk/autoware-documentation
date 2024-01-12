@@ -29,7 +29,7 @@ The diagram below illustrates the flow of Autoware control launch files within t
 ## tier4_control_component.launch.xml
 
 The tier4_control_component.launch.xml launch file is the main control component launch in the autoware_launch package.
-This launch file calls control.launch.xml from the [tier4_control_launch](https://github.com/autowarefoundation/autoware.universe/tree/main/launch/tier4_control_launch) package
+This launch file calls control.launch.xml from the [tier4_control_launch](https://github.com/autowarefoundation/autoware.universe/tree/v1.0/launch/tier4_control_launch) package
 within the autoware.universe repository.
 We can modify control launch arguments in tier4_control_component.launch.xml.
 Additionally,

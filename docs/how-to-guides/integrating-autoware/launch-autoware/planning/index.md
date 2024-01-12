@@ -29,7 +29,7 @@ The diagram below illustrates the flow of Autoware planning launch files within 
 ## tier4_planning_component.launch.xml
 
 The `tier4_planning_component.launch.xml` launch file is the main planning component launch at the `autoware_launch` package.
-This launch file calls `planning.launch.xml` at [tier4_planning_launch](https://github.com/autowarefoundation/autoware.universe/tree/main/launch/tier4_planning_launch) package from `autoware.universe` repository.
+This launch file calls `planning.launch.xml` at [tier4_planning_launch](https://github.com/autowarefoundation/autoware.universe/tree/v1.0/launch/tier4_planning_launch) package from `autoware.universe` repository.
 We can modify planning launch arguments at tier4_planning_component.launch.xml.
 Also,
 we can add any other necessary arguments

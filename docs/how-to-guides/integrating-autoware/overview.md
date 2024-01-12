@@ -62,23 +62,23 @@ Once created, you need to update the `autoware.repos` file of your cloned Autowa
 
 #### At YOUR_VEHICLE_description
 
-Define URDF and parameters in the vehicle description package (refer to the [sample vehicle description package](https://github.com/autowarefoundation/sample_vehicle_launch/tree/main/sample_vehicle_description) for an example).
+Define URDF and parameters in the vehicle description package (refer to the [sample vehicle description package](https://github.com/autowarefoundation/sample_vehicle_launch/tree/v1.0/sample_vehicle_description) for an example).
 
 #### At YOUR_VEHICLE_launch
 
-Create a launch file (refer to the [sample vehicle launch package](https://github.com/autowarefoundation/sample_vehicle_launch/tree/main/sample_vehicle_launch) for example).
+Create a launch file (refer to the [sample vehicle launch package](https://github.com/autowarefoundation/sample_vehicle_launch/tree/v1.0/sample_vehicle_launch) for example).
 If you have multiple vehicles with the same hardware setup, you can specify `vehicle_id` to distinguish them.
 
 ### Adapt YOUR_SENSOR_KIT_description for autoware launching system
 
 #### At YOUR_SENSOR_KIT_description
 
-Define URDF and extrinsic parameters for all the sensors here (refer to the [sample sensor kit description package](https://github.com/autowarefoundation/sample_sensor_kit_launch/tree/main/sample_sensor_kit_description) for example).
+Define URDF and extrinsic parameters for all the sensors here (refer to the [sample sensor kit description package](https://github.com/autowarefoundation/sample_sensor_kit_launch/tree/v1.0/sample_sensor_kit_description) for example).
 Note that you need to calibrate extrinsic parameters for all the sensors beforehand.
 
 #### At YOUR_SENSOR_KIT_launch
 
-Create `launch/sensing.launch.xml` that launches the interfaces of all the sensors on the vehicle. (refer to the [sample sensor kit launch package](https://github.com/autowarefoundation/sample_sensor_kit_launch/tree/main/sample_sensor_kit_launch) for example).
+Create `launch/sensing.launch.xml` that launches the interfaces of all the sensors on the vehicle. (refer to the [sample sensor kit launch package](https://github.com/autowarefoundation/sample_sensor_kit_launch/tree/v1.0/sample_sensor_kit_launch) for example).
 
 !!! note
 

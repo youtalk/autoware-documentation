@@ -60,11 +60,11 @@ Image frame captured by camera.
 
 ### Vehicle kinematic state
 
-current position of ego, used in traffic signals recognition. See [output of Localization](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/localization/#vehicle-kinematic-state).
+current position of ego, used in traffic signals recognition. See [output of Localization](https://autowarefoundation.github.io/autoware-documentation/v1.0/design/autoware-interfaces/components/localization/#vehicle-kinematic-state).
 
 ### Lanelet2 Map
 
-map of the environment. See [outputs of Map](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/map/#outputs).
+map of the environment. See [outputs of Map](https://autowarefoundation.github.io/autoware-documentation/v1.0/design/autoware-interfaces/components/map/#outputs).
 
 ## Output
 
@@ -96,9 +96,9 @@ map of the environment. See [outputs of Map](https://autowarefoundation.github.i
 
 traffic signals recognized by object detection model.
 
-- [autoware_perception_msgs::msg::TrafficSignalArray](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_perception_msgs/msg/TrafficSignalArray.msg)
-  - [autoware_perception_msgs::msg::TrafficSignal](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_perception_msgs/msg/TrafficSignal.msg) signals
-    - [autoware_perception_msgs::msg::TrafficSignalElement](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_perception_msgs/msg/TrafficSignalElement.msg) elements
+- [autoware_perception_msgs::msg::TrafficSignalArray](https://github.com/autowarefoundation/autoware_msgs/blob/v1.0/autoware_perception_msgs/msg/TrafficSignalArray.msg)
+  - [autoware_perception_msgs::msg::TrafficSignal](https://github.com/autowarefoundation/autoware_msgs/blob/v1.0/autoware_perception_msgs/msg/TrafficSignal.msg) signals
+    - [autoware_perception_msgs::msg::TrafficSignalElement](https://github.com/autowarefoundation/autoware_msgs/blob/v1.0/autoware_perception_msgs/msg/TrafficSignalElement.msg) elements
       - uint8 UNKNOWN = 0
       - uint8 Red = 1
       - uint8 AMBER = 2

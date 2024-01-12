@@ -99,7 +99,7 @@ The final version of the file (manual.launch.xml) for tutorial_vehicle should be
     ```
 
 After the completing of manual.launch.xml file,
-we will be ready to implement manual_sensor_kit.launch.xml for the own sensor model's [sensor_kit_calibration.yaml](https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/main/sample_sensor_kit_description/config/sensor_kit_calibration.yaml):
+we will be ready to implement manual_sensor_kit.launch.xml for the own sensor model's [sensor_kit_calibration.yaml](https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/v1.0/sample_sensor_kit_description/config/sensor_kit_calibration.yaml):
 
 Optionally, you can modify sensor_model and vehicle_id over this xml snippet as well:
 
@@ -273,7 +273,7 @@ The final version of the manual_sensor_kit.launch.xml for tutorial_vehicle shoul
     </launch>
     ```
 
-You can update `manual_sensors.launch.xml` file according to your modified [sensors_calibration.yaml](https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/main/sample_sensor_kit_description/config/sensors_calibration.yaml) file.
+You can update `manual_sensors.launch.xml` file according to your modified [sensors_calibration.yaml](https://github.com/autowarefoundation/sample_sensor_kit_launch/blob/v1.0/sample_sensor_kit_description/config/sensors_calibration.yaml) file.
 Since we will not be calibrating the sensor directly with respect to the base_link in tutorial_vehicle,
 we will not change this file.
 

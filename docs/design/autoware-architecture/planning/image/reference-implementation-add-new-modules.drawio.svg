@@ -25,7 +25,7 @@
                 </text>
             </switch>
         </g>
-        <a xlink:href="https://github.com/autowarefoundation/autoware.universe/tree/main/planning/mission_planner">
+        <a xlink:href="https://github.com/autowarefoundation/autoware.universe/tree/v1.0/planning/mission_planner">
             <rect x="340" y="176" width="560" height="50" rx="7.5" ry="7.5" fill="#fff2cc" stroke="#d6b656" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>
@@ -62,7 +62,7 @@
                 </text>
             </switch>
         </g>
-        <a xlink:href="https://github.com/autowarefoundation/autoware.universe/tree/main/planning/behavior_path_planner">
+        <a xlink:href="https://github.com/autowarefoundation/autoware.universe/tree/v1.0/planning/behavior_path_planner">
             <rect x="120" y="396" width="220" height="150" rx="7.5" ry="7.5" fill="#fff2cc" stroke="#d6b656" pointer-events="all"/>
         </a>
         <path d="M 230 856 L 230 936.03" fill="none" stroke="#d4b455" stroke-width="4" stroke-miterlimit="10" pointer-events="stroke"/>
@@ -83,7 +83,7 @@
                 </text>
             </switch>
         </g>
-        <a xlink:href="https://github.com/autowarefoundation/autoware.universe/tree/main/planning/behavior_velocity_planner">
+        <a xlink:href="https://github.com/autowarefoundation/autoware.universe/tree/v1.0/planning/behavior_velocity_planner">
             <rect x="120" y="593" width="220" height="263" rx="8.8" ry="8.8" fill="#fff2cc" stroke="#d6b656" pointer-events="all"/>
         </a>
         <path d="M 230 988 L 230 1021.03" fill="none" stroke="#d4b455" stroke-width="4" stroke-miterlimit="10" pointer-events="stroke"/>
@@ -104,7 +104,7 @@
                 </text>
             </switch>
         </g>
-        <a xlink:href="https://github.com/autowarefoundation/autoware.universe/tree/main/planning/obstacle_avoidance_planner">
+        <a xlink:href="https://github.com/autowarefoundation/autoware.universe/tree/v1.0/planning/obstacle_avoidance_planner">
             <rect x="120" y="948" width="220" height="40" rx="6" ry="6" fill="#fff2cc" stroke="#d6b656" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>
@@ -143,7 +143,7 @@
                 </text>
             </switch>
         </g>
-        <a xlink:href="https://github.com/autowarefoundation/autoware.universe/tree/main/planning/obstacle_velocity_limiter">
+        <a xlink:href="https://github.com/autowarefoundation/autoware.universe/tree/v1.0/planning/obstacle_velocity_limiter">
             <rect x="120" y="1033" width="220" height="30" rx="4.5" ry="4.5" fill="#fff2cc" stroke="#d6b656" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>
@@ -180,7 +180,7 @@
                 </text>
             </switch>
         </g>
-        <a xlink:href="https://github.com/autowarefoundation/autoware.universe/tree/main/planning/obstacle_stop_planner">
+        <a xlink:href="https://github.com/autowarefoundation/autoware.universe/tree/v1.0/planning/obstacle_stop_planner">
             <rect x="120" y="1176" width="220" height="100" rx="7" ry="7" fill="#fff2cc" stroke="#d6b656" pointer-events="all"/>
         </a>
         <path d="M 641 1486 L 641 1506 L 640.6 1514.04" fill="none" stroke="#d4b455" stroke-width="4" stroke-miterlimit="10" pointer-events="stroke"/>
@@ -201,7 +201,7 @@
                 </text>
             </switch>
         </g>
-        <a xlink:href="https://github.com/autowarefoundation/autoware.universe/tree/main/planning/scenario_selector">
+        <a xlink:href="https://github.com/autowarefoundation/autoware.universe/tree/v1.0/planning/scenario_selector">
             <rect x="301" y="1446" width="680" height="40" rx="6" ry="6" fill="#fff2cc" stroke="#d6b656" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>
@@ -240,7 +240,7 @@
                 </text>
             </switch>
         </g>
-        <a xlink:href="https://github.com/autowarefoundation/autoware.universe/tree/main/planning/motion_velocity_smoother">
+        <a xlink:href="https://github.com/autowarefoundation/autoware.universe/tree/v1.0/planning/motion_velocity_smoother">
             <rect x="470" y="1526" width="340" height="40" rx="6" ry="6" fill="#fff2cc" stroke="#d6b656" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>
@@ -277,7 +277,7 @@
                 </text>
             </switch>
         </g>
-        <a xlink:href="https://github.com/autowarefoundation/autoware.universe/tree/main/planning/freespace_planner">
+        <a xlink:href="https://github.com/autowarefoundation/autoware.universe/tree/v1.0/planning/freespace_planner">
             <rect x="570" y="607" width="140" height="47" rx="7.05" ry="7.05" fill="#fff2cc" stroke="#d6b656" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>
@@ -314,7 +314,7 @@
                 </text>
             </switch>
         </g>
-        <a xlink:href="https://github.com/autowarefoundation/autoware.universe/tree/main/planning/costmap_generator">
+        <a xlink:href="https://github.com/autowarefoundation/autoware.universe/tree/v1.0/planning/costmap_generator">
             <rect x="570" y="396" width="140" height="90" rx="13.5" ry="13.5" fill="#fff2cc" stroke="#d6b656" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>
@@ -787,7 +787,7 @@
                 </text>
             </switch>
         </g>
-        <a xlink:href="https://github.com/autowarefoundation/autoware.universe/tree/main/planning/surround_obstacle_checker">
+        <a xlink:href="https://github.com/autowarefoundation/autoware.universe/tree/v1.0/planning/surround_obstacle_checker">
             <rect x="30" y="1356" width="180" height="50" rx="7.5" ry="7.5" fill="#fff2cc" stroke="#d6b656" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>
@@ -843,7 +843,7 @@
                 </text>
             </switch>
         </g>
-        <a xlink:href="https://github.com/autowarefoundation/autoware.universe/tree/main/planning/planning_validator">
+        <a xlink:href="https://github.com/autowarefoundation/autoware.universe/tree/v1.0/planning/planning_validator">
             <rect x="470" y="1616" width="340" height="50" rx="7.5" ry="7.5" fill="#fff2cc" stroke="#d6b656" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>

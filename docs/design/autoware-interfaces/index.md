@@ -161,7 +161,7 @@ Currently, there is no required header.
 
 The interfaces whose communication method is Function Call use a common response status to unify the error format.
 These interfaces should include a variable of ResponseStatus with the name status in the response.
-See [autoware_adapi_v1_msgs/msg/ResponseStatus](https://github.com/autowarefoundation/autoware_adapi_msgs/tree/main/autoware_adapi_v1_msgs#responsestatus) for details.
+See [autoware_adapi_v1_msgs/msg/ResponseStatus](https://github.com/autowarefoundation/autoware_adapi_msgs/tree/v1.0/autoware_adapi_v1_msgs#responsestatus) for details.
 
 ## Concerns, assumptions and limitations
 

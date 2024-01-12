@@ -56,7 +56,7 @@ Doing so adds smoke tests that ensure that a node can be:
 2. Terminated with a standard `SIGTERM` signal.
 
 For the full API documentation,
-refer to the [package design page](https://github.com/autowarefoundation/autoware.universe/blob/main/common/autoware_testing/design/autoware_testing-design.md).
+refer to the [package design page](https://github.com/autowarefoundation/autoware.universe/blob/v1.0/common/autoware_testing/design/autoware_testing-design.md).
 
 !!! note
 
@@ -70,16 +70,16 @@ The simplest scenario is a single node.
 In this case, the integration test is commonly referred to as a component test.
 
 To add a component test to an existing node,
-you can follow the example of the `lanelet2_map_loader` in the [`map_loader` package](https://github.com/autowarefoundation/autoware.universe/tree/main/map/map_loader)
+you can follow the example of the `lanelet2_map_loader` in the [`map_loader` package](https://github.com/autowarefoundation/autoware.universe/tree/v1.0/map/map_loader)
 (added in [this PR](https://github.com/autowarefoundation/autoware.universe/pull/1056)).
 
-In [`package.xml`](https://github.com/autowarefoundation/autoware.universe/blob/main/map/map_loader/package.xml), add:
+In [`package.xml`](https://github.com/autowarefoundation/autoware.universe/blob/v1.0/map/map_loader/package.xml), add:
 
 ```xml
 <test_depend>ros_testing</test_depend>
 ```
 
-In [`CMakeLists.txt`](https://github.com/autowarefoundation/autoware.universe/blob/main/map/map_loader/CMakeLists.txt),
+In [`CMakeLists.txt`](https://github.com/autowarefoundation/autoware.universe/blob/v1.0/map/map_loader/CMakeLists.txt),
 add or modify the `BUILD_TESTING` section:
 
 ```cmake
@@ -106,7 +106,7 @@ To create a test,
 either read the [launch_testing quick-start example](https://github.com/ros2/launch/tree/master/launch_testing#quick-start-example),
 or follow the steps below.
 
-Taking [`test/lanelet2_map_loader_launch.test.py`](https://github.com/autowarefoundation/autoware.universe/blob/main/map/map_loader/test/lanelet2_map_loader_launch.test.py) as an example,
+Taking [`test/lanelet2_map_loader_launch.test.py`](https://github.com/autowarefoundation/autoware.universe/blob/v1.0/map/map_loader/test/lanelet2_map_loader_launch.test.py) as an example,
 first dependencies are imported:
 
 ```python
@@ -122,7 +122,7 @@ import pytest
 ```
 
 Then a launch description is created to launch the node under test.
-Note that the [`test_map.osm`](https://github.com/autowarefoundation/autoware.universe/blob/main/map/map_loader/test/data/test_map.osm) file path is found and passed to the node,
+Note that the [`test_map.osm`](https://github.com/autowarefoundation/autoware.universe/blob/v1.0/map/map_loader/test/data/test_map.osm) file path is found and passed to the node,
 something that cannot be done with the [smoke testing API](#smoke-tests):
 
 ```python
