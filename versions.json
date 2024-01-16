@@ -1,5 +1,10 @@
 [
   {
+    "version": "release-v1.0_beta",
+    "title": "release-v1.0_beta",
+    "aliases": []
+  },
+  {
     "version": "pr-493",
     "title": "pr-493",
     "aliases": []
