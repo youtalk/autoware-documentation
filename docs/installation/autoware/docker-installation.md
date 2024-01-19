@@ -44,7 +44,7 @@ To fix this, restart your system after installing the new NVIDIA driver.
 When starting Docker with GPU support enabled for NVIDIA graphics on arm64 devices, e.g. NVIDIA jetson AGX xavier, you may receive the following error:
 
 ```bash
-nvidia@xavier:~$ rocker --nvidia --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:humble-latest-cuda-arm64
+nvidia@xavier:~$ rocker --nvidia --x11 --user --volume $HOME/autoware -- ghcr.io/autowarefoundation/autoware-universe:humble-v1.0-cuda-arm64
 ...
 
 Collecting staticx==0.12.3
@@ -100,7 +100,7 @@ aarch64
 To run Autoware's Docker images of `arm64` architecture, add the suffix `-arm64`.
 
 ```sh-session
-$ docker run --rm -it ghcr.io/autowarefoundation/autoware-universe:humble-latest-cuda-arm64
+$ docker run --rm -it ghcr.io/autowarefoundation/autoware-universe:humble-v1.0-cuda-arm64
 WARNING: The requested image's platform (linux/arm64) does not match the detected host platform (linux/amd64) and no specific platform was requested
 root@5b71391ad50f:/autoware#
 ```
