@@ -7096,7 +7096,7 @@ ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span c
 <h3 id="driving-across-a-crosswalk">Driving across a crosswalk<a class="headerlink" href="#driving-across-a-crosswalk" title="Permanent link">#</a></h3>
 <p>When driving across a crosswalk, ego vehicle will respond to objects on the crosswalk and the traffic light.</p>
 <h4 id="unsignalized-crosswalk">Unsignalized crosswalk<a class="headerlink" href="#unsignalized-crosswalk" title="Permanent link">#</a></h4>
-<p>To pass through an unsignalized crosswalk, the ego vehicle will first slow down and stop for a safety check. Once safety is confirmed, the vehicle will proceed.</p>
+<p>To pass through an unsignalized crosswalk, if the crosswalk is free of obstacles, the ego vehicle will cross it without slowing down. However, if obstacles are present, the ego vehicle will slow down and stop for a safety check. Once it's safe to proceed, the ego vehicle will continue its journey.</p>
 <ol>
 <li>
 <p>Set an initial pose and a goal pose of the ego vehicle driving across an unsignalized crosswalk. A path will be planned.</p>
@@ -7118,7 +7118,7 @@ ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span c
 <h4 id="signalized-crosswalk">Signalized crosswalk<a class="headerlink" href="#signalized-crosswalk" title="Permanent link">#</a></h4>
 <ol>
 <li>
-<p>Set the ego vehicle and a dummy pedestrian at an intersection, similar to the previous scenario. Given that the traffic light is <code>GREEN</code> by default, the ego vehicle behaves as it does at an unsignalized crosswalk, decelerating and stopping.</p>
+<p>Set the ego vehicle and a dummy pedestrian at an intersection, similar to the previous scenario. Given that the traffic light for vehicles are <code>GREEN</code> by default, the ego vehicle behaves as it does at an unsignalized crosswalk, decelerating and stopping.</p>
 <p><img alt="signalized-placing-ego-vehicle" src="../images/planning/passing-crosswalk/signalized-placing-ego-vehicle.png"></p>
 </li>
 <li>
