@@ -7094,12 +7094,13 @@ ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span c
 <p>To remove a traffic light from <code>TrafficLightPublishPanel</code>, click the <code>RESET</code> button.</p>
 <p><a href="https://drive.google.com/file/d/1bs_dX1JJ76qHk-SGvS6YF9gmekkN8fz7/view?usp=sharing">Reference video tutorials</a></p>
 <h3 id="driving-across-a-crosswalk">Driving across a crosswalk<a class="headerlink" href="#driving-across-a-crosswalk" title="Permanent link">#</a></h3>
-<p>When driving across a crosswalk, ego vehicle will respond to objects on the crosswalk and the traffic light.</p>
-<h4 id="unsignalized-crosswalk">Unsignalized crosswalk<a class="headerlink" href="#unsignalized-crosswalk" title="Permanent link">#</a></h4>
-<p>To pass through an unsignalized crosswalk, if the crosswalk is free of obstacles, the ego vehicle will cross it without slowing down. However, if obstacles are present, the ego vehicle will slow down and stop for a safety check. Once it's safe to proceed, the ego vehicle will continue its journey.</p>
+<p>When driving across a crosswalk, ego vehicle will respond to objects on the crosswalk and the traffic light.
+You can check <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_crosswalk_module/">crosswalk</a> for more details</p>
+<h4 id="non-signalized-crosswalk">Non-signalized crosswalk<a class="headerlink" href="#non-signalized-crosswalk" title="Permanent link">#</a></h4>
+<p>To pass through a non-signalized crosswalk, if the crosswalk is free of target objects, the ego vehicle will cross it without slowing down. However, if target objects are detected close to the planned path, the ego vehicle will slow down and stop for a yield decision. Once it's confirmed safe to proceed, the ego vehicle will start moving.</p>
 <ol>
 <li>
-<p>Set an initial pose and a goal pose of the ego vehicle driving across an unsignalized crosswalk. A path will be planned.</p>
+<p>Set an initial pose and a goal pose for the ego vehicle driving across an non-signalized crosswalk. A path will be planned.</p>
 <p><img alt="unsignalized-placing-ego-vehicle" src="../images/planning/passing-crosswalk/unsignalized-placing-ego-vehicle.png"></p>
 </li>
 <li>
@@ -7107,7 +7108,7 @@ ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span c
 <p><img alt="unsignalized-crosswalk-start" src="../images/planning/passing-crosswalk/unsignalized-crosswalk-start.png"></p>
 </li>
 <li>
-<p>Engage the ego vehicle. The ego vehicle will decelerate and stop before the crosswalk. The marked <strong>crosswalk</strong> in the figure indicates that the stopping behavior is casued by the objects on the <strong>crosswalk</strong>.</p>
+<p>Engage the ego vehicle. The ego vehicle will decelerate and stop before the crosswalk. The marked <strong>crosswalk</strong> in the figure indicates that the stopping behavior is caused by the objects on the <strong>crosswalk</strong>.</p>
 <p><img alt="unsignalized-crosswalk-stop" src="../images/planning/passing-crosswalk/unsignalized-crosswalk-stop.png"></p>
 </li>
 <li>
@@ -7118,19 +7119,19 @@ ros2<span class="w"> </span>launch<span class="w"> </span>autoware_launch<span c
 <h4 id="signalized-crosswalk">Signalized crosswalk<a class="headerlink" href="#signalized-crosswalk" title="Permanent link">#</a></h4>
 <ol>
 <li>
-<p>Set the ego vehicle and a dummy pedestrian at an intersection, similar to the previous scenario. Given that the traffic light for vehicles are <code>GREEN</code> by default, the ego vehicle behaves as it does at an unsignalized crosswalk, decelerating and stopping.</p>
+<p>Set the ego vehicle and a dummy pedestrian at an intersection, similar to the previous scenario. Given that the traffic light for vehicles is <code>GREEN</code> by default and the dummy pedestrian is close to the planned path, the ego vehicle behaves as it would at a non-signalized crosswalk, decelerating and stopping.</p>
 <p><img alt="signalized-placing-ego-vehicle" src="../images/planning/passing-crosswalk/signalized-placing-ego-vehicle.png"></p>
 </li>
 <li>
-<p>Delete the dummy pedestrian and set the traffic light to <code>RED</code>. The ego vehicle will decelerate and stop before the crosswalk. The marked <strong>traffic_light</strong> in the figure indicates that the stop is casued by the <strong>traffic_light</strong>. The ego vehicle will not move until the traffic light turns green.</p>
+<p>Delete the dummy pedestrian and set the traffic light to <code>RED</code>. The ego vehicle will decelerate and stop before the crosswalk. The marked <strong>traffic_light</strong> in the figure indicates that the stop is caused by the <strong>traffic_light</strong>. The ego vehicle will not move until the traffic light turns green.</p>
 <p><img alt="signalized-traffic-light-stop" src="../images/planning/passing-crosswalk/signalized-traffic-light-stop.png"></p>
 </li>
 <li>
-<p>Set a dummy pedestrian on the crosswalk agian. It can be seen that both the <strong>traffic_light</strong> and <strong>crosswalk</strong> (the two markings may overlap) affact the stopping behavior.</p>
+<p>Set a dummy pedestrian on the crosswalk again. It can be seen that both the <strong>traffic_light</strong> and <strong>crosswalk</strong> (the two markings may overlap) affect the stopping behavior.</p>
 <p><img alt="signalized-traffic-light-crosswalk-stop.png" src="../images/planning/passing-crosswalk/signalized-traffic-light-crosswalk-stop.png"></p>
 </li>
 <li>
-<p>Set the traffic light to <code>GREEN</code> and engage the vehicle, the ego vehicle will stop for safety check and start move again.</p>
+<p>Set the traffic light to <code>GREEN</code> and engage the vehicle, the ego vehicle will stop for a yield decision and then start moving.</p>
 <p><img alt="signalized-passing" src="../images/planning/passing-crosswalk/signalized-passing.png"></p>
 </li>
 </ol>
