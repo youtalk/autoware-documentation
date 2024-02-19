@@ -206,12 +206,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-521/design/autoware-architecture/perception/supported-functions/radar-based-3d-detector/faraway-object-detection/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-521/design/autoware-architecture/perception/reference-implementations/radar-based-3d-detector/faraway-object-detection/</loc>
          <lastmod>2024-02-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-521/design/autoware-architecture/perception/supported-functions/radar-based-3d-detector/radar-based-3d-detector/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-521/design/autoware-architecture/perception/reference-implementations/radar-based-3d-detector/radar-based-3d-detector/</loc>
          <lastmod>2024-02-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
