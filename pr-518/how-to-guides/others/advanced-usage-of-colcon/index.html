@@ -3837,9 +3837,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-ccache" class="md-nav__link">
-    Using Ccache
+  <a href="#using-ccache-to-speed-up-recompilation" class="md-nav__link">
+    Using Ccache to speed up recompilation
   </a>
+  
+    <nav class="md-nav" aria-label="Using Ccache to speed up recompilation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-install-ccache" class="md-nav__link">
+    Step 1: Install Ccache
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-configure-ccache" class="md-nav__link">
+    Step 2: Configure Ccache
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-integrate-ccache-with-your-environment" class="md-nav__link">
+    Step 3: Integrate Ccache with Your Environment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-verify-ccache-is-working" class="md-nav__link">
+    Step 4: Verify Ccache is Working
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -6916,9 +6950,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-ccache" class="md-nav__link">
-    Using Ccache
+  <a href="#using-ccache-to-speed-up-recompilation" class="md-nav__link">
+    Using Ccache to speed up recompilation
   </a>
+  
+    <nav class="md-nav" aria-label="Using Ccache to speed up recompilation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-install-ccache" class="md-nav__link">
+    Step 1: Install Ccache
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-configure-ccache" class="md-nav__link">
+    Step 2: Configure Ccache
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-integrate-ccache-with-your-environment" class="md-nav__link">
+    Step 3: Integrate Ccache with Your Environment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-verify-ccache-is-working" class="md-nav__link">
+    Step 4: Verify Ccache is Working
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -7002,22 +7070,43 @@ cat<span class="w"> </span>&lt;&lt;<span class="w"> </span>EOS<span class="w"> <
 <div class="highlight"><pre><span></span><code><span class="nv">VERBOSE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>colcon<span class="w"> </span>build<span class="w"> </span>--packages-up-to<span class="w"> </span>&lt;package_name&gt;<span class="w"> </span>--event-handlers<span class="w"> </span>console_cohesion+
 </code></pre></div>
 <p>For other options, see <a href="https://colcon.readthedocs.io/en/released/reference/event-handler-arguments.html">here</a>.</p>
-<h2 id="using-ccache">Using Ccache<a class="headerlink" href="#using-ccache" title="Permanent link">#</a></h2>
-<p><a href="https://ccache.dev/">Ccache</a> can speed up recompilation.
-It is recommended to use it to save your time unless you have a specific reason not to do so.</p>
+<h2 id="using-ccache-to-speed-up-recompilation">Using Ccache to speed up recompilation<a class="headerlink" href="#using-ccache-to-speed-up-recompilation" title="Permanent link">#</a></h2>
+<p><a href="https://ccache.dev/">Ccache</a> is a compiler cache that can significantly speed up recompilation by caching previous
+compilations and reusing them when the same compilation is being done again.
+It's highly recommended for developers looking to optimize their build times, unless there's a specific reason to avoid
+it.</p>
+<h3 id="step-1-install-ccache">Step 1: Install Ccache<a class="headerlink" href="#step-1-install-ccache" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ccache
+</code></pre></div>
+<h3 id="step-2-configure-ccache">Step 2: Configure Ccache<a class="headerlink" href="#step-2-configure-ccache" title="Permanent link">#</a></h3>
 <ol>
 <li>
-<p>Install <code>Ccache</code>:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ccache
+<p><strong>Create the Ccache configuration folder and file:</strong></p>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.cache/ccache
+touch<span class="w"> </span>~/.cache/ccache/ccache.conf
 </code></pre></div>
 </li>
 <li>
-<p>Write the following in your <code>.bashrc</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">CC</span><span class="o">=</span><span class="s2">"/usr/lib/ccache/gcc"</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">CXX</span><span class="o">=</span><span class="s2">"/usr/lib/ccache/g++"</span>
+<p><strong>Set the maximum cache size.</strong> The default size is <code>5GB</code>, but you can increase it depending on your needs. Here,
+   we're setting it to <code>60GB</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">"max_size = 60G"</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.cache/ccache/ccache.conf
 </code></pre></div>
 </li>
 </ol>
+<h3 id="step-3-integrate-ccache-with-your-environment">Step 3: Integrate Ccache with Your Environment<a class="headerlink" href="#step-3-integrate-ccache-with-your-environment" title="Permanent link">#</a></h3>
+<p>To ensure Ccache is used for compilation, add the following lines to your <code>.bashrc</code> file.
+This will redirect GCC and G++ calls through Ccache.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">CC</span><span class="o">=</span><span class="s2">"/usr/lib/ccache/gcc"</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CXX</span><span class="o">=</span><span class="s2">"/usr/lib/ccache/g++"</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CCACHE_DIR</span><span class="o">=</span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/.cache/ccache/"</span>
+</code></pre></div>
+<p>After adding these lines, reload your <code>.bashrc</code> or restart your terminal session to apply the changes.</p>
+<h3 id="step-4-verify-ccache-is-working">Step 4: Verify Ccache is Working<a class="headerlink" href="#step-4-verify-ccache-is-working" title="Permanent link">#</a></h3>
+<p>To confirm Ccache is correctly set up and being used, you can check the statistics of cache usage:</p>
+<div class="highlight"><pre><span></span><code>ccache<span class="w"> </span>-s
+</code></pre></div>
+<p>This command displays the cache hit rate and other relevant statistics, helping you gauge the effectiveness of Ccache in
+your development workflow.</p>
 <!-- prettier-ignore --></div>
 
 
