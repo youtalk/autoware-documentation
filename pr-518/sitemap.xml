@@ -246,12 +246,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-518/design/autoware-architecture/sensing/data-types/radar-data/supported-functions/data-message/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-518/design/autoware-architecture/sensing/data-types/radar-data/reference-implementations/data-message/</loc>
          <lastmod>2024-02-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-518/design/autoware-architecture/sensing/data-types/radar-data/supported-functions/device-driver/</loc>
+         <loc>https://autowarefoundation.github.io/autoware-documentation/pr-518/design/autoware-architecture/sensing/data-types/radar-data/reference-implementations/device-driver/</loc>
          <lastmod>2024-02-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
