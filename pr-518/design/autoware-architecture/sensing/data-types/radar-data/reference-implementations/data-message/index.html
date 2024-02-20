@@ -6992,8 +6992,8 @@ float32<span class="o">[</span><span class="m">6</span><span class="o">]</span><
 <ul>
 <li>Object classifications</li>
 </ul>
-<p>For object classifications <a href="https://github.com/ros-perception/radar_msgs/blob/ros2/msg/RadarTrack.msg">radar_msgs/msg/RadarTrack.msg</a>, additional vendor-specific classifications are permitted starting from 32000.
-In addition to this, considering <a href="https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_perception_msgs/msg/ObjectClassification.idl">existing label definition</a>, Autoware define object classifications as below.</p>
+<p>In object classifications of <a href="https://github.com/ros-perception/radar_msgs/blob/ros2/msg/RadarTrack.msg">radar_msgs/msg/RadarTrack.msg</a>, additional classifications label can be used by the number starting from 32000.</p>
+<p>To express for <a href="https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs/-/blob/master/autoware_auto_perception_msgs/msg/ObjectClassification.idl">Autoware label definition</a>, Autoware defines object classifications for <code>RadarTracks.msg</code> as below.</p>
 <div class="highlight"><pre><span></span><code>uint16<span class="w"> </span><span class="nv">UNKNOWN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">32000</span><span class="p">;</span>
 uint16<span class="w"> </span><span class="nv">CAR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">32001</span><span class="p">;</span>
 uint16<span class="w"> </span><span class="nv">TRUCK</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">32002</span><span class="p">;</span>
