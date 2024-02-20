@@ -7013,15 +7013,15 @@
 <ul>
 <li>The radar pre-process package filter noise through the <code>ros-perception/radar_msgs/msg/RadarTrack.msg</code> message type with sensor coordinate.</li>
 <li>It is recommended to change the coordinate system from each sensor to base_link with message converter.</li>
-<li>If there are multiple radar objects, the object merger package concatenate these objects.</li>
+<li>If there are multiple radar objects, the object merger package concatenates these objects.</li>
 </ul>
 <h2 id="input">Input<a class="headerlink" href="#input" title="Permanent link">#</a></h2>
 <p>Autoware uses radar objects data type as <a href="https://github.com/ros-perception/radar_msgs/blob/ros2/msg/RadarTracks.msg">radar_msgs/msg/RadarTracks.msg</a>.
-In detail, please see <a href="supported-functions/data-message.md">Data message for radars</a>.</p>
+In detail, please see <a href="../reference-implementations/data-message/">Data message for radars</a>.</p>
 <h2 id="reference-implementations">Reference implementations<a class="headerlink" href="#reference-implementations" title="Permanent link">#</a></h2>
 <h3 id="device-driver-for-radars">Device driver for radars<a class="headerlink" href="#device-driver-for-radars" title="Permanent link">#</a></h3>
 <p>Autoware support <code>ros-perception/radar_msgs/msg/RadarScan.msg</code> and <code>autoware_auto_perception_msgs/msg/TrackedObjects.msg</code> for Radar drivers.</p>
-<p>In detail, please see <a href="supported-functions/device-driver.md">Device driver for radars</a>.</p>
+<p>In detail, please see <a href="../reference-implementations/device-driver/">Device driver for radars</a>.</p>
 <h3 id="noise-filter">Noise filter<a class="headerlink" href="#noise-filter" title="Permanent link">#</a></h3>
 <ul>
 <li><a href="https://github.com/autowarefoundation/autoware.universe/tree/main/sensing/radar_tracks_noise_filter">radar_tracks_noise_filter</a></li>
