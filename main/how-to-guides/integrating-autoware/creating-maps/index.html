@@ -6876,6 +6876,26 @@
     Creating a vector map
   </a>
   
+    <nav class="md-nav" aria-label="Creating a vector map">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quick-way-to-create-simple-maps" class="md-nav__link">
+    Quick way to create simple maps
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tools-for-a-vector-map-creation" class="md-nav__link">
+    Tools for a vector map creation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -6910,8 +6930,14 @@
 <p>Traditionally, a Mobile Mapping System (<abbr title="Mobile Mapping System">MMS</abbr>) is used in order to create highly accurate large-scale point cloud maps. However, since a <abbr title="Mobile Mapping System">MMS</abbr> requires high-end sensors for precise positioning, its operational cost can be very expensive and may not be suitable for a relatively small driving environment. Alternatively, a Simultaneous Localization And Mapping (<abbr title="Simultaneous Localization And Mapping">SLAM</abbr>) algorithm can be used to create a point cloud map from recorded LiDAR scans. Some of the useful open-source <abbr title="Simultaneous Localization And Mapping">SLAM</abbr> implementations are listed in this <a href="open-source-slam/">page</a>.</p>
 <p>If you prefer proprietary software that is easy to use, you can try a fully automatic mapping tool from <a href="https://www.map4.jp/">MAP IV, Inc.</a>, <a href="https://www.map4.jp/solutions/mapping-localization/map4-engine/"><em>MapIV Engine</em></a>. They currently provide a trial license for Autoware users free of charge.</p>
 <h2 id="creating-a-vector-map">Creating a vector map<a class="headerlink" href="#creating-a-vector-map" title="Permanent link">#</a></h2>
-<p>The easiest way to create an Autoware-compatible vector map is to use <a href="https://tools.tier4.jp/feature/vector_map_builder_ll2/">Vector Map Builder</a>, a free web-based tool provided by <a href="https://www.tier4.jp/">TIER IV, Inc.</a>.
+<h3 id="quick-way-to-create-simple-maps">Quick way to create simple maps<a class="headerlink" href="#quick-way-to-create-simple-maps" title="Permanent link">#</a></h3>
+<p><a href="https://autowarefoundation.github.io/autoware_tools/main/bag2lanelet/">bag2lanelet</a> is a tool to create virtual lanes from self-location data. Whether in a real environment or a simulation, you can use this tool to generate simple lanelets from a rosbag with self-location information, allowing you to quickly test Autoware's performance. A key use case for this tool is to emulate autonomous driving on routes that were initially driven manually.</p>
+<p><img alt="bag2lanelet" src="images/bag2lanelet.png"></p>
+<p>However, it is important to note that this tool has very limited functionalities and can only generate single-lane maps. To enable more comprehensive mapping and navigation capabilities, we recommend using the 'Vector Map Builder' described in the next section.</p>
+<h3 id="tools-for-a-vector-map-creation">Tools for a vector map creation<a class="headerlink" href="#tools-for-a-vector-map-creation" title="Permanent link">#</a></h3>
+<p>The recommended way to create an Autoware-compatible vector map is to use <a href="https://tools.tier4.jp/feature/vector_map_builder_ll2/">Vector Map Builder</a>, a free web-based tool provided by <a href="https://www.tier4.jp/">TIER IV, Inc.</a>.
 Vector Map Builder allows you to create lanes and add additional regulatory elements such as stop signs or traffic lights using a point cloud map as a reference.</p>
+<p><img alt="vector_map_builder" src="images/vector_map_builder.png"></p>
 <p>For open-source software options, <a href="https://github.com/autocore-ai/MapToolbox">MapToolbox</a> is a plugin for <a href="https://unity.com/">Unity</a> specifically designed to create Lanelet2 maps for Autoware.
 Although <a href="https://josm.openstreetmap.de/">JOSM</a> is another open-source tool that can be used to create Lanelet2 maps, be aware that a number of modifications must be done manually to make the map compatible with Autoware. This process can be tedious and time-consuming, so the use of JOSM is not recommended.</p>
 <h2 id="autoware-compatible-map-providers">Autoware-compatible map providers<a class="headerlink" href="#autoware-compatible-map-providers" title="Permanent link">#</a></h2>
